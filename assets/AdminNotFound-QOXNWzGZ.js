@@ -1,0 +1,1 @@
+import{d as e,u as t}from"./hooks-dQ97_Or4.js";import{i as n}from"./ui-wpCVCcPb.js";var r=t();function i(){return(0,r.jsx)(n,{icon:`alert`,title:`Esta sección no existe`,action:(0,r.jsx)(e,{to:`/admin`,className:`btn`,children:`Ir al resumen`}),children:`Revisá la dirección o usá el menú de la izquierda.`})}export{i as default};
