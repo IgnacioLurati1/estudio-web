@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Para entender: Análisis y Diseño de Datos e Información</title>
+<meta name="description" content="De qué se trata la materia, cómo se conectan los temas y cómo se aprueba.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/estrellas.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="analisis-y-diseno-de-datos-e-informacion" data-pagina="inicio">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Análisis y Diseño de Datos e Información</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html" aria-current="page">Para entender</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="integrador.html">TP integrador</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=analisis-y-diseno-de-datos-e-informacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=analisis-y-diseno-de-datos-e-informacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#que-cae">Qué cae más</a></li><li class="n2"><a href="#la-idea-general">La idea general</a></li><li class="n2"><a href="#el-recorrido">El recorrido</a></li><li class="n2"><a href="#como-se-conecta">Cómo se conecta</a></li><li class="n2"><a href="#que-se-evalua-y-como">Qué se evalúa y cómo</a></li><li class="n2"><a href="#como-usar-este-resumen">Cómo usar este resumen</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Para entender</h1>
+<p class="bajada">La materia enseña a escribir con precisión qué entra y qué sale de un sistema, y a usar eso para dibujar pantallas, probarlas y ayudar al usuario.</p><p class="pdf-ir em-fuera"><a class="b-sec" href="pdf.html"><svg class="pdf-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M11 5h18l8 8v30H11z"/><path d="M29 5v8h8"/><path d="M24 19v15"/><path d="M18 28l6 6 6-6"/></svg>Descargar en PDF</a></p><div id="sinInternet" class="si em-fuera" hidden></div><div class="es-materia" data-estrellas-materia="analisis-y-diseno-de-datos-e-informacion" hidden></div><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+<div class="ojo"><p class="ojo-t">En el Drive no hay exámenes</p><p>No hay ningún final ni parcial, de ningún año. Este resumen sale de la presentación de la cátedra de 2026, las seis clases de teoría, las prácticas, el enunciado del trabajo práctico y sus rúbricas. Por eso acá nunca vas a leer «se tomó». Si en tu comisión circula un final, te dice cómo preguntan mejor que cualquier resumen.</p>
+</div>
+
+<section class="sec cae"><h2 id="que-cae">Qué cae más</h2>
+<p class="cae-baja">El sitio no tiene todos los exámenes que se tomaron, así que esto es una pista y no una promesa. Tocá un tema para ver en qué exámenes salió.</p>
+<h3 id="cae-prac">Prácticas</h3>
+<p class="cae-de">Sale de 7 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">Diccionario de datos</span><span class="cae-barra" aria-hidden="true"><span style="width:43%"></span></span><span class="cae-num">en 3 de 7</span></summary><ul class="cae-ex"><li><a href="ej-practica-01-a.html">Práctica 01, ejercicios 1 a 8: casos simples</a></li><li><a href="ej-practica-01-b.html">Práctica 01, ejercicios 9 y 10, y miscelánea</a></li><li><a href="ej-dd-complementaria.html">Diccionario de datos, ejercicio complementario: aerolínea</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Diccionario de entradas y salidas</span><span class="cae-barra" aria-hidden="true"><span style="width:43%"></span></span><span class="cae-num">en 3 de 7</span></summary><ul class="cae-ex"><li><a href="ej-practica-02-colegio.html">Práctica 02: el colegio</a></li><li><a href="ej-practica-02-encuentros.html">Práctica 02: gestión de encuentros de investigadores</a></li><li><a href="ej-practica-02-seleccion.html">Práctica 02: selección de personal</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Narrativa</span><span class="cae-barra" aria-hidden="true"><span style="width:43%"></span></span><span class="cae-num">en 3 de 7</span></summary><ul class="cae-ex"><li><a href="ej-practica-02-colegio.html">Práctica 02: el colegio</a></li><li><a href="ej-practica-02-encuentros.html">Práctica 02: gestión de encuentros de investigadores</a></li><li><a href="ej-practica-02-seleccion.html">Práctica 02: selección de personal</a></li></ul></details></li></ul></section><section class="sec"><h2 id="la-idea-general">La idea general</h2>
+<p>Un sistema de información recibe datos, los procesa y entrega información para que alguien decida. El trabajo del analista empieza por definir qué entra y qué sale.</p>
+<p>Esa definición se escribe en un <strong>diccionario de datos</strong>, con una notación formal. Casi todo lo demás de la materia usa ese diccionario o lo alimenta.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en un formulario para sacar turno. El diccionario de datos dice qué campos tiene, cuáles son opcionales, qué valores admite cada uno y qué mensaje vuelve. Con eso podés dibujar la pantalla y pensar qué pasa si alguien escribe cualquier cosa.</p>
+</div>
+</section>
+<section class="sec"><h2 id="el-recorrido">El recorrido</h2>
+<div class="tabla"><table><thead><tr><th>Clase</th><th>De qué se trata</th><th>Qué te llevás</th></tr></thead><tbody><tr><td>1. Dato e información</td><td>Dato, proceso, información, flujos, elementos y estructuras</td><td>La notación del diccionario</td></tr><tr><td>2. Definición de datos de un sistema</td><td>Cómo leer los pasos de un caso de uso</td><td>Flujos sacados de un caso de uso y un modelo de dominio validado</td></tr><tr><td>3. Ingeniería reversa</td><td>Mirar pantallas, reportes y gráficos ya hechos</td><td>Un diccionario sin tener la documentación</td></tr><tr><td>4. Bosquejos y navegabilidad</td><td>Interface de usuario, artefactos y roles</td><td>Bosquejos y esquema de navegabilidad</td></tr><tr><td>5. Depurando las definiciones</td><td>Redundancia, contexto, máscaras y pruebas</td><td>Tabla de depuración, clases de equivalencia y casos de prueba</td></tr><tr><td>6. Manual de usuario</td><td>Tipos de ayuda y tipos de usuario</td><td>Qué ayuda ofrecerle a quién</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="como-se-conecta">Cómo se conecta</h2>
+<p>Las piezas se apoyan una en la otra, en este orden:</p>
+<ol>
+<li>Del caso de uso salen los flujos de entrada y de salida.</li>
+<li>Los flujos forman el diccionario de datos, que sirve de punto de partida para los bosquejos.</li>
+<li>Si ya hay una pantalla o un bosquejo, la ingeniería reversa da el camino inverso, de la pantalla al diccionario.</li>
+<li>El diccionario se depura. Se saca lo redundante, se suman datos de contexto y se documentan las máscaras.</li>
+<li>De los datos depurados salen las clases de equivalencia, y de ellas, los casos de prueba.</li>
+<li>Según quién use cada función y con qué frecuencia, se eligen los tipos de ayuda.</li>
+</ol>
+<p>El camino completo está en <a href="final.html">Final</a> y se practica en el <a href="integrador.html">TP integrador</a>.</p>
+</section>
+<section class="sec"><h2 id="que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p>Salvo que se indique otra cosa, sale de la presentación de la cátedra 2026 (<a href="https://drive.google.com/file/d/1WlCt0in_Tmt2twgzpi2ManwiHFs6WgCm/view">00 - Presentación AyDDeI</a>, diapositivas 4 y 5).</p>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué pide</th></tr></thead><tbody><tr><td>Regularidad</td><td>Asistencia del 75%. Trabajo práctico integrador con entregables en el campus. Presentación y defensa de los bosquejos de interface. Cada entregable, con nota 6 o más</td></tr><tr><td>Final, teoría</td><td>10 preguntas en papel, de verdadero o falso o de selección múltiple. Se aprueba con el 60% bien contestadas</td></tr><tr><td>Final, práctica</td><td>Un bosquejo de interface e información de contexto. A partir de eso, diccionario de datos de los flujos de entrada, tabla de depuración de atributos, clases de equivalencia y casos de prueba</td></tr><tr><td>Promoción</td><td>Entrega adicional del trabajo práctico integrador. Es el bosquejo de interface hecho con alguna herramienta de prototipado, a tu elección</td></tr></tbody></table></div>
+<p>Las fechas de presentación y defensa que da la cátedra para 2026 son la semana del 27 de julio (primer cuatrimestre) y la del 14 de diciembre (segundo cuatrimestre).</p>
+</section>
+<section class="sec"><h2 id="como-usar-este-resumen">Cómo usar este resumen</h2>
+<ul>
+<li><a href="final.html">Final</a> tiene toda la teoría, en el orden de las clases, y una sección con <a href="final.html#la-practica-del-final-paso-a-paso">la práctica del final, paso a paso</a>.</li>
+<li><a href="integrador.html">TP integrador</a> tiene los entregables y lo que pide cada rúbrica.</li>
+<li><a href="ejercicios.html">Ejercicios</a> tiene las prácticas de la cátedra. Ninguna trae resolución en el Drive, así que no hay una respuesta con la que comparar.</li>
+<li>La <a href="machete.html">Hoja de repaso</a> es para la noche anterior.</li>
+</ul>
+<p>La cátedra también tiene <a href="https://drive.google.com/file/d/1fyq9U6HiLImfiB5in_2QOsZ2vqzbDC4L/view">videos de aula invertida</a>. El archivo aclara que no reemplazan la teoría, la complementan. Para el <strong>mapa de empatía</strong> son el único material.</p>
+<div class="ojo"><p class="ojo-t">Lo que falta en el material</p><p>Tres cosas aparecen nombradas y no están desarrolladas en las clases:</p>
+<ul>
+<li>«Diccionario de datos versus Glosario» figura en el contenido de la clase 1, sin diapositiva.</li>
+<li>La «matriz» de tipos de usuario y tipos de ayuda se nombra en la clase 6, pero en la hoja no hay ninguna matriz.</li>
+<li>El mapa de empatía, que la rúbrica de la defensa pide y solo tiene video.</li>
+</ul>
+<p>Preguntalas en clase. Acá no las completamos de memoria.</p>
+</div>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN: presentación de la cátedra 2026, clases de teoría, prácticas y rúbricas del trabajo práctico. En el Drive no hay exámenes. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2° parcial, teoría: Infraestructura Tecnológica</title>
+<meta name="description" content="Climatización, pasillos, presión de aire, frigorías, eficiencia energética y las consignas de nube.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="infraestructura-tecnologica" data-pagina="parcial-2-teoria">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Infraestructura Tecnológica</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1-teoria.html">1° parcial, teoría</a></li><li class="em-fuera"><a href="parcial-1-practica.html">1° parcial, práctica</a></li><li class="em-fuera"><a href="parcial-2-teoria.html" aria-current="page">2° parcial, teoría</a></li><li class="em-fuera"><a href="parcial-2-practica.html">2° parcial, práctica</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=infraestructura-tecnologica">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=infraestructura-tecnologica">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#temperatura-y-humedad">Temperatura y humedad</a></li><li class="n2"><a href="#calor-btu-y-frigorias">Calor, BTU y frigorías</a></li><li class="n3"><a href="#como-repartir-los-racks">Cómo repartir los racks</a></li><li class="n2"><a href="#estrategias-de-climatizacion">Estrategias de climatización</a></li><li class="n2"><a href="#pasillos-frios-y-calientes">Pasillos fríos y calientes</a></li><li class="n2"><a href="#presion-de-aire">Presión de aire</a></li><li class="n3"><a href="#sensores-y-mantenimiento">Sensores y mantenimiento</a></li><li class="n2"><a href="#eficiencia-energetica">Eficiencia energética</a></li><li class="n2"><a href="#nube">Nube</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>2° parcial, teoría</h1>
+<p class="bajada">Cómo se enfría un data center, cuánta energía gasta y las consignas de nube, que no tienen apunte.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>Hay dos parciales de 2023 en adelante en el Drive, del 09/11/2023 y del 05/11/2025. El de 2023 trae 7 preguntas de 1,5 a 2 puntos. El de 2025 trae 8 preguntas de 1 a 2 puntos. El de 09/11/2022 no entra en la cuenta.</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>En cuántos de los 2</th><th>Exámenes</th></tr></thead><tbody><tr><td><a href="#pasillos-frios-y-calientes">Disposición por pasillos</a></td><td>2</td><td>2023, 2025</td></tr><tr><td><a href="#presion-de-aire">Presión de aire desde el piso</a></td><td>2</td><td>2023, 2025</td></tr><tr><td><a href="#calor-btu-y-frigorias">Frigorías de racks, con cuenta</a></td><td>2</td><td>2023, 2025 (dos veces)</td></tr><tr><td><a href="#nube">Modelos de implementación de nube</a></td><td>2</td><td>2023, 2025</td></tr><tr><td><a href="#nube">Categorías de servicios cloud</a></td><td>2</td><td>2023, 2025</td></tr><tr><td><a href="#eficiencia-energetica">PUE con componentes y torres, con cuenta</a></td><td>1</td><td>2023</td></tr><tr><td><a href="#eficiencia-energetica">Tabla de PUE 1,2, 1,5 y 1,8, solo recuperatorio</a></td><td>1</td><td>2023</td></tr><tr><td><a href="#nube">Ventajas de nube y aspectos a considerar</a></td><td>1</td><td>2025</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="temperatura-y-humedad">Temperatura y humedad</h2>
+<p>El apunte fija estos rangos:</p>
+<ul>
+<li><strong>Temperatura:</strong> de 17 a 21 °C es lo óptimo, y de 15 a 25 °C lo aceptable. La norma TIA/EIA-942 pide de 20 a 25 °C.</li>
+<li><strong>Humedad:</strong> de 40 a 55 %. Por debajo de 40 % hay descargas electrostáticas, y por encima de 55 % hay corrosión.</li>
+</ul>
+<p>Es la regla de los 10 grados, de Arrhenius. El apunte dice que «la vida de un componente o material se reduce a la mitad por cada 10ºC de aumento en la temperatura; aplicado inversamente: por 10ºC de disminución de temperatura, la vida útil de un semiconductor se duplicará». De ahí salen los rangos que indican los fabricantes de circuitos integrados. Fuente: apunte 6, Climatización, páginas 1 y 2.</p>
+<p>Lo que agrega el apunte sobre la temperatura:</p>
+<ul>
+<li>Cualquier temperatura de más de 25 °C se corrige de inmediato, porque pone en riesgo el equipamiento.</li>
+<li>En un data center grande no hay un único punto de referencia. Se mide por pasillos, y a veces en varios racks.</li>
+<li>Si los equipos se renuevan cada tres años, probablemente se pueda operar a 27 °C. Si van a durar mucho más, conviene un rango más bajo.</li>
+<li>Los fabricantes recomiendan 22 °C (IBM y HP) y 23 °C (Dell). Google opera a 26 °C, Sun a 27 °C, Cisco a 25 °C y Facebook a 22 °C.</li>
+</ul>
+<p>Fuente: apunte 6, Climatización, página 1.</p>
+<p>La humedad ambiental es «la cantidad de vapor de agua presente en el aire». Se expresa como humedad absoluta o como humedad relativa, HR. El apunte la llama la amenaza menos visible, porque algunos ni la monitorean. Los dos riesgos:</p>
+<ul>
+<li><strong>Descargas electrostáticas (ESD):</strong> aparecen cuando baja la humedad, y más si además baja la temperatura. Una descarga apenas perceptible no le hace daño a una persona, pero 10 V ya pueden dañar un equipo.</li>
+<li><strong>Corrosión:</strong> pasa cuando un metal queda expuesto al agua, porque se moja o por la condensación con humedad alta. Los componentes se dañan y puede haber pérdida de datos.</li>
+</ul>
+<p>Para prevenir las ESD, el apunte pide revisar periódicamente la conexión a tierra común y la de los equipos, mantener los puestos limpios y sin material innecesario, sobre todo plástico, e instalar humidificadores, que arrancan solos cuando sus sensores llegan al umbral. La humedad relativa y la temperatura se miden en el frente, donde entra el aire frío. Dentro del rack, el instrumento va en el primer tercio desde arriba, a 5 cm del frente del servidor. Fuente: apunte 6, Climatización, páginas 1 y 2.</p>
+</section>
+<section class="sec"><h2 id="calor-btu-y-frigorias">Calor, BTU y frigorías</h2>
+<p>Todo lo que consume un equipo termina en calor, así que hay que sacar esa misma potencia con el aire acondicionado. Las equivalencias del apunte son estas:</p>
+<div class="tabla"><table><thead><tr><th>Para pasar</th><th>Hacé</th></tr></thead><tbody><tr><td>BTU/h a W</td><td>BTU/h x 0,293</td></tr><tr><td>W a BTU/h</td><td>W x 3,41</td></tr><tr><td>Toneladas a W</td><td>Toneladas x 3530</td></tr><tr><td>W a toneladas</td><td>W x 0,000284</td></tr></tbody></table></div>
+<p>Fuente: apunte 6, Climatización, página 4.</p>
+<p>La frigoría es la capacidad de bajar 1 °C la temperatura de un kilogramo de agua a 15,5 °C. Muchos equipos domésticos expresan su capacidad en frigorías. Fuente: apunte 6, página 4.</p>
+<p>El BTU, la unidad en que muchos fabricantes dan la generación de calor, «equivale al calor necesario que se necesita para elevar en un grado Fahrenheit una libra de agua = 0.45 kg». El apunte dice que está en desuso por poco práctica, pero sigue vigente. Las frigorías tampoco son una unidad aceptada en el Sistema Técnico. Fuente: apunte 6, página 4.</p>
+<p>El apunte explica de dónde sale todo ese calor. Prácticamente el 100 % de la electricidad que entra se transforma en calor, porque todo genera calor, desde servidores y UPS hasta iluminación y sensores. Los pasos para estimarlo:</p>
+<ol>
+<li>Definir el consumo actual en kW por rack y el estimado para los próximos años. No todos los racks consumen igual. Los de comunicaciones, red y telefonía generan muy poco calor, y los servidores con muchos procesadores, mucho.</li>
+<li>Con el calor de cada rack, definir la estrategia de refrigeración y las zonas o riesgos.</li>
+<li>Calcular la densidad en kW/m² y el promedio en kW sobre la superficie total.</li>
+<li>Sumar el calor de la UPS, la iluminación, las ventanas y las personas, aunque se recomienda que no haya personas en la sala.</li>
+</ol>
+<p>Hoy es común encontrar racks de 20 kW o más, tendencia que crece desde 2004 con los servidores de 1U y los blade. El peor escenario es un rack lleno de servidores de 1U o blade, de 30 a 50 kW por rack. Fuente: apunte 6, Climatización, páginas 2 y 4.</p>
+<div class="ojo"><p class="ojo-t">El factor de BTU a frigorías no está en el apunte</p><div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>El apunte define la frigoría, pero no da cómo pasar de BTU/h a frigorías. Tres exámenes de alumnos, de 2022, 2023 y 2025, usan 4 BTU/h por frigoría. No hay corrección de la cátedra que lo confirme, así que preguntalo antes del parcial.</p>
+<p class="bloque-fuente">Exámenes de alumnos de 2022, 2023 y 2025</p></div>
+</div>
+<div class="tomado"><aside class="nota"><strong>Calcular la capacidad de enfriamiento en frigorías para los componentes de dos racks</strong><span>2° parcial teoría, 09/11/2023 y 05/11/2025</span></aside><p>Te dan cuántos equipos hay en cada rack y cuánto consume cada uno. Las cuentas no se resuelven acá. Practicala con <a href="ejercicios.html">el examen de 2025</a>.</p>
+</div>
+<div class="ejemplo"><p class="ejemplo-t">Calor de una sala</p><p>El apunte toma 21 servidores 2U de 575 W, y lleva la carga a BTU/h.</p>
+<p class="bloque-fuente">Apunte 6, Climatización, página 4</p></div>
+<div class="ojo"><p class="ojo-t">Errata del apunte en ese ejemplo</p><p>El apunte escribe 12,8 kW y 41.212 BTU/h. Pero 21 x 575 da 12.075 W, y eso por 3,41 da unos 41.176 BTU/h. Usá el método, no esos números.</p>
+</div>
+<p>También da una regla rápida, 12.000 BTU/h o 3.517 W por cada 37 m². Fuente: apunte 6, página 5.</p>
+<p>El apunte aclara que calcular la capacidad de enfriamiento es una de las tareas más complejas, porque «no existe una fórmula para tal fin, sino que es un proceso artesanal que depende principalmente de la planificación». La regla de los 37 m² es un mínimo, y de ahí se sube según los kW/m² y el resto de lo que genera calor. APC propone un método de estimación con variables fáciles de medir, pero no resuelve todo el problema. Y aunque sobre capacidad, si el aire no llega bien a los equipos es un desperdicio. Fuente: apunte 6, página 5.</p>
+<h3 id="como-repartir-los-racks">Cómo repartir los racks</h3>
+<ul>
+<li><strong>Distribución equilibrada:</strong> todos los racks consumen parecido. Los equipos se ubican a propósito para que cada rack quede cerca del promedio.</li>
+<li><strong>Distribución zonal:</strong> los racks que más consumen van juntos, con un enfriamiento especial para esa zona de mayor densidad.</li>
+<li><strong>Comunicaciones:</strong> los equipos de muy baja densidad, de menos de 3 kW por rack, también se agrupan por función y por calor. Algunos data centers les dan una sala propia.</li>
+<li><strong>La peor opción:</strong> racks de densidad extrema dispersos en un data center de densidad promedio baja. Mantenerlos a buena temperatura es muy complejo y aparecen los hot spots, o puntos calientes.</li>
+</ul>
+<p>A los equipos de refrigeración les puede llevar de 15 a 30 minutos restablecer la temperatura. Fuente: apunte 6, Climatización, página 5.</p>
+</section>
+<section class="sec"><h2 id="estrategias-de-climatizacion">Estrategias de climatización</h2>
+<div class="tabla"><table><thead><tr><th>Estrategia</th><th>Hasta cuánto</th><th>Fuente</th></tr></thead><tbody><tr><td>Sala</td><td>Menos de 2 kW por rack</td><td>Páginas 5 y 6</td></tr><tr><td>Fila</td><td>De 3 a 25 kW por rack</td><td>Página 6</td></tr><tr><td>Rack</td><td>Hasta 50 kW por rack</td><td>Páginas 6 y 7</td></tr></tbody></table></div>
+<p>Fuente: apunte 6, Climatización.</p>
+<p>Ventajas y desventajas de cada estrategia, según el apunte:</p>
+<ul>
+<li><strong>Orientada por sala, densidad baja:</strong> fue la primera, desde los setenta, y fue el diseño estándar. Siempre lleva piso técnico para los cables y el aire frío, y se usa en data centers de 300 a 800 m². Es la mejor opción económica con menos de 2 kW por rack y da una temperatura pareja en toda la sala. Pero no es eficiente con más de 2 kW por rack, cuesta adaptarla, depende de la arquitectura, como la altura del techo o la forma de la sala, y requiere un estudio de CFD, que es caro. Además mezcla el aire frío con el caliente. Es una tendencia en desuso.</li>
+<li><strong>Orientada por fila, densidad media:</strong> hay al menos un CRAC por fila, en la punta o en el medio. El aire frío recorre menos distancia y hace falta menos ventilación. Hoy es la más usada y eficiente en data centers nuevos. No requiere necesariamente piso técnico, permite ajustar la temperatura y la redundancia de cada fila, y es modular y rápida de instalar. Su desventaja es que ocupa espacio crítico de la zona de racks.</li>
+<li><strong>Orientada por rack, densidad alta:</strong> la unidad de enfriamiento va en el mismo rack, abajo, arriba o a los costados. Las de los costados se llaman side-to-side y piden racks más anchos que los de 19 pulgadas. Es modular, rápida de implementar y permite la máxima densidad. Pero es cara de comprar, instalar y mantener, no comparte con otros racks la capacidad que le sobra, y hay que cuidar que su aire caliente no afecte a los racks de al lado.</li>
+</ul>
+<p>La refrigeración por fila puede ser de tres tipos:</p>
+<ul>
+<li><strong>Aire inyectado desde el piso:</strong> por las rejillas del piso técnico, al frente de los racks, con la presión adecuada.</li>
+<li><strong>En la fila:</strong> un equipo entre los racks, en la mitad o en la cabecera, enfría hacia los costados con un recorrido corto. Su desventaja es que ocupa lugar de equipos.</li>
+<li><strong>Por encima de los racks:</strong> tuberías y ventiladores arriba, apuntando al frente de los racks. No necesita piso técnico.</li>
+</ul>
+<p>Fuente: apunte 6, Climatización, páginas 5 a 7.</p>
+<p>Las formas de circular el aire, de la página 8:</p>
+<ul>
+<li>Piso técnico, menos de 8 kW por rack.</li>
+<li>Pasillos fríos cerrados, menos de 20 kW, con ahorro de 20 a 25 %.</li>
+<li>Pasillos intercalados, menos de 25 kW.</li>
+<li>Integrado, de 25 a 50 kW.</li>
+</ul>
+<p>Lo que agrega la página 8 sobre cada una:</p>
+<ul>
+<li><strong>Por piso técnico:</strong> el equipo de la cabecera de la hilera manda el aire frío por debajo del piso, y sube por las rejillas perforadas. El aire caliente sale por atrás sin contención y vuelve a la unidad. Para instalaciones chicas.</li>
+<li><strong>Con pasillos fríos cerrados:</strong> igual, pero con el pasillo frío totalmente sellado. Para instalaciones medianas. Se puede aislar el pasillo frío o el caliente, con resultados parecidos.</li>
+<li><strong>Climatizadores intercalados entre racks:</strong> el pasillo frío sellado y la unidad entre los racks, en la mitad de la hilera. El circuito es más corto y aprovecha mejor el aire frío. Para instalaciones medianas a grandes.</li>
+<li><strong>Integrado en el rack:</strong> la unidad va en ese rack, con el circuito más corto de todos.</li>
+</ul>
+<p>Los intercambios de aire con el exterior perjudican la temperatura, así que siempre se minimiza el acceso a la sala. También importa la distancia de la salida de aire frío y de la toma de aire caliente a la unidad. Fuente: apunte 6, Climatización, página 8.</p>
+</section>
+<section class="sec"><h2 id="pasillos-frios-y-calientes">Pasillos fríos y calientes</h2>
+<details class="pregunta"><summary><span>Describa cómo se diseña de la forma más adecuada la disposición por pasillos, características y ventajas</span><small>2° parcial teoría, 09/11/2023 y 05/11/2025</small></summary><div class="resp"><p>Los racks se alinean frente con frente, y quedan pasillos intercalados, uno frío y uno caliente. Los equipos toman aire frío por el frente y expulsan el caliente por atrás. El aire frío entra por rejillas y el CRAC toma el caliente. Aislar los pasillos reduce el consumo.</p>
+<p>Fuente: apunte 6, Climatización, página 7.</p>
+</div></details>
+<p><img src="img/fig-pasillos.webp" alt="Disposición de racks en pasillos fríos y calientes"></p>
+<p>Lo que el apunte agrega sobre el diseño de pasillos:</p>
+<ul>
+<li>La salida de aire caliente de una fila queda enfrentada a la de la fila siguiente.</li>
+<li>El CRAC (Computer Room Air Conditioning) monitorea y controla la temperatura y la humedad. Toma el aire caliente por una entrada y larga el frío por una salida.</li>
+<li>Las unidades de enfriamiento trabajan coordinadas y con la carga repartida en partes iguales. Así duran más y equilibran la energía.</li>
+<li>La aislación completa entre pasillos se hace al comienzo o al final de los racks, con puertas para entrar al pasillo aislado. Impide que el aire se mezcle, mejora la temperatura y baja el consumo.</li>
+</ul>
+<p>Fuente: apunte 6, Climatización, página 7.</p>
+</section>
+<section class="sec"><h2 id="presion-de-aire">Presión de aire</h2>
+<details class="pregunta"><summary><span>Describa cómo debe ser la presión adecuada de aire desde el piso, analice los tres casos y cuál es el más adecuado</span><small>2° parcial teoría, 09/11/2023 y 05/11/2025</small></summary><div class="resp"><ul>
+<li><strong>Flujo bajo:</strong> es insuficiente y no alcanza la parte superior del rack.</li>
+<li><strong>Flujo correcto:</strong> refrigera de manera uniforme a todos los equipos del rack. Es el adecuado.</li>
+<li><strong>Flujo excesivo:</strong> el aire sube de forma ineficiente, sin refrigerar la parte trasera del rack.</li>
+</ul>
+<p>Fuente: apunte 6, Climatización, página 9.</p>
+</div></details>
+<p><img src="img/fig-flujo-aire.webp" alt="Los tres casos de flujo de aire desde el piso técnico"></p>
+<p>La velocidad de los ventiladores EC se regula con esa diferencia de presión. Los sensores de temperatura van en la sala y en el rack, a 2/3 de altura. Fuente: apunte 6, página 9.</p>
+<p>Para el apunte, una de las claves está en «descargar la cantidad justa de aire frío, dirigida hacia la fuente de calor, mediante rejillas en el piso técnico o por ventilación superior». Con piso técnico se compara la presión dentro del piso falso con la de afuera, y según esa diferencia los ventiladores EC de los climatizadores giran más rápido o más lento. Si hay un solo pasillo frío encapsulado, se mide la diferencia de presión entre el interior del pasillo y la sala. Fuente: apunte 6, Climatización, página 9.</p>
+<h3 id="sensores-y-mantenimiento">Sensores y mantenimiento</h3>
+<p>Los sensores miden temperatura y humedad y mandan alertas por la red, a una consola central, por correo o por SMS. El apunte describe cuatro:</p>
+<ul>
+<li><strong>De sala:</strong> miden la temperatura general. Van donde la muestra represente a toda la sala.</li>
+<li><strong>De rack:</strong> miden un rack específico, por la importancia de sus equipos o como muestra de una fila. Van a 2/3 de la altura total, contando desde abajo.</li>
+<li><strong>De piso:</strong> detectan fugas de líquidos. Van debajo del piso técnico, cerca de los equipos de refrigeración.</li>
+<li><strong>Para el aire acondicionado:</strong> van debajo de la salida de aire, como doble control de los sensores propios del equipo. Permiten detectar una falla temprano.</li>
+</ul>
+<p>El mantenimiento del aire acondicionado, con el cambio de filtros, se hace con la regularidad que fija el fabricante. Fuente: apunte 6, Climatización, páginas 9 y 10.</p>
+</section>
+<section class="sec"><h2 id="eficiencia-energetica">Eficiencia energética</h2>
+<p>Las fórmulas de PUE y DCiE están en el <a href="parcial-1-teoria.html#pue-y-dcie">1° parcial</a>. El consumo promedio se reparte en 47 % de equipos, 40 % de enfriamiento, 8 % de electricidad y 5 % de UPS. Fuente: apunte 6, Climatización, página 3.</p>
+<p>Las buenas prácticas del apunte 5 son estas:</p>
+<ul>
+<li>Medir el PUE.</li>
+<li>Ordenar el flujo de aire.</li>
+<li>Ajustar termostatos y potencia.</li>
+<li>Como avanzadas, capacidad variable, virtualización y medidas detalladas.</li>
+</ul>
+<p>El mismo cuadro del apunte 6 agrega dos datos. En un servidor, el procesador usa no menos del 30 % de la electricidad, y más según la cantidad de núcleos. Y el uso promedio real de un servidor ronda el 20 %, con un 80 % ocioso. Ese desaprovechamiento es uno de los principales motivos de la virtualización. La UPS puede llevarse hasta un 15 %, según su tipo y su topología. Fuente: apunte 6, Climatización, página 3.</p>
+<div class="ojo"><p class="ojo-t">El apunte 5 trae otros repartos del consumo</p><p>La página 8 del PDF del apunte 5 muestra dos gráficos con números distintos a los del apunte 6. Uno, de un estudio de Dell de 2006, da 41 % de equipos de IT, 28 % de distribución de energía y 31 % de enfriamiento. El otro da 30 % de IT, 33 % de chiller, 18 % de UPS, 9 % de CRAC, 5 % de PDU, 3 % de humidificador, 1 % de switchgear y generador, y 1 % de iluminación. Son fuentes distintas. Si te piden el reparto, preguntá cuál toma la cátedra.</p>
+</div>
+<p>Las prácticas del apunte 5, completas:</p>
+<ul>
+<li><strong>Básicas:</strong> medir el PUE «tan frecuentemente como posible», gestionar el flujo de aire con chapas o láminas plásticas, ajustar los termostatos según las especificaciones, y optimizar la distribución de potencia.</li>
+<li><strong>Avanzadas:</strong> gestión inteligente de capacidad variable, como mover la carga de cómputo a la noche frente a prender y apagar CRAC, virtualización, y medidas detalladas por rack y por servidor.</li>
+</ul>
+<p>Fuente: apunte 5, Eficiencia Energética, página 9 del PDF.</p>
+<div class="ejemplo"><p class="ejemplo-t">Cuánto ahorra bajar el PUE</p><p>Un rack de 10 kW encendido todo el año, con el kWh a $200. Sus equipos consumen 10 x 24 x 365 kWh por año.</p>
+<ul>
+<li>Con PUE 1,8, el total es 157.680 kWh por año, o sea $31.536.000.</li>
+<li>Con PUE 1,6, el total es 140.160 kWh por año, o sea $28.032.000.</li>
+<li>El ahorro es de unos 3,5 millones, un 11 %.</li>
+</ul>
+<p class="bloque-fuente">Apunte 5, Eficiencia Energética, página 10 del PDF</p></div>
+<div class="ojo"><p class="ojo-t">Errata del apunte 5</p><p>El apunte imprime 87000 en la cuenta de ahorro. La cuenta 10 x 24 x 365 da 87600, y el apunte después usa ese valor.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>PUE con componentes y torres de enfriamiento para llegar a 1,5</strong><span>2° parcial teoría, 09/11/2023</span></aside><p>Te dan racks, UPS, torres, humidificador y extinción. Primero piden el PUE y después a cuánto debería cambiar el consumo de las torres. Las cuentas no se resuelven acá.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Completar la tabla de PUE 1,2, 1,5 y 1,8 con DCiE y conclusiones</strong><span>2° parcial teoría, 09/11/2023, marcada «solo recuperatorio»</span></aside><p>La tabla pide rack 1, rack 2, kWh de IT, de soporte, total y DCiE. El ejemplo de abajo sigue el mismo camino con otros números.</p>
+</div>
+<div class="ejemplo"><p class="ejemplo-t">Modelado de un rack</p><p>Un rack de 14,89 kW y otro de 4,47 kW suman 19,36 kW. Eso da 169.629 kWh por año. Con PUE 1,2, el soporte es 33.926 kWh y el total 203.554 kWh.</p>
+<p class="bloque-fuente">Apunte 5, Eficiencia Energética, práctica de modelado</p></div>
+<p>La tabla del apunte va de PUE 1,1 a 2,0 y repite los mismos pasos en cada fila:</p>
+<ol>
+<li>Sumar los kW de los racks. Es la carga de IT.</li>
+<li>Pasarla a kWh por año, con 24 horas por 365 días. Es el mismo valor en todas las filas.</li>
+<li>Sacar el soporte. Como el PUE es el total sobre IT, el soporte es lo que el total tiene de más, IT por (PUE − 1). Con PUE 1,1 da 16.963 kWh y con 1,2 da 33.926 kWh.</li>
+<li>Sumar IT y soporte para el total. Es IT por el PUE.</li>
+<li>Multiplicar el total por el precio del kWh, que en el apunte es $200, para el costo por año.</li>
+</ol>
+<p>La consigna del parcial pide además el DCiE de cada fila, que es 1 sobre el PUE. Fuente: apunte 5, Eficiencia Energética, páginas 12 y 13 del PDF.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Soporte</mtext><mo>&#61;</mo><mtext>IT</mtext><mo>×</mo><mo stretchy="false">(</mo><mtext>PUE</mtext><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mspace width="2em"/><mtext>Total</mtext><mo>&#61;</mo><mtext>IT</mtext><mo>×</mo><mtext>PUE</mtext></mrow><annotation encoding="application/x-tex">&#92;text{Soporte}&#61;&#92;text{IT}&#92;times(&#92;text{PUE}-1)&#92;qquad &#92;text{Total}&#61;&#92;text{IT}&#92;times&#92;text{PUE}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Soporte</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">IT</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord text"><span class="mord">PUE</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:2em;"></span><span class="mord text"><span class="mord">Total</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">IT</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">PUE</span></span></span></span></span></span></p>
+<div class="ojo"><p class="ojo-t">La cuenta del apunte no da exacta</p><p>19,36 x 24 x 365 da 169.594 kWh, y el apunte usa 169.629. La diferencia sale, probablemente, de que los kW de los racks están redondeados. En el parcial usá los datos que te dan.</p>
+</div>
+</section>
+<section class="sec"><h2 id="nube">Nube</h2>
+<div class="ojo"><p class="ojo-t">Estas consignas se toman y no tienen apunte</p><p>En el Drive no hay ningún material de cloud computing, salvo los exámenes con respuestas de alumnos. Por eso acá van sin respuesta. Conseguí el apunte o la clase de tu comisión.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Modelos de implementación de nube, mencionar y describir</strong><span>2° parcial teoría, 09/11/2023 y 05/11/2025</span></aside><p>Sin respuesta: falta el apunte.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Las tres categorías en que se agrupan los servicios cloud, mencionar y describir</strong><span>2° parcial teoría, 09/11/2023 y 05/11/2025</span></aside><p>Sin respuesta: falta el apunte.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Ventajas de Cloud Computing frente a los sistemas tradicionales, desde lo técnico</strong><span>2° parcial teoría, 05/11/2025</span></aside><p>Sin respuesta: falta el apunte.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Aspectos a los que prestar atención al implementar servicios de nube</strong><span>2° parcial teoría, 05/11/2025</span></aside><p>Sin respuesta: falta el apunte.</p>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-2-teoria" data-materia="infraestructura-tecnologica">
+<h2>Practicá el 2° parcial de teoría</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="cAcPIHme3T" data-tema="Temperatura y humedad" data-enlace="parcial-2-teoria.html#temperatura-y-humedad" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-teoria-1"><span class="q-n">1</span><div><p>¿Qué rango de humedad da el apunte?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-teoria-1"><li><button type="button" class="op" data-ok="0">De 10 a 25 %</button></li><li><button type="button" class="op" data-ok="1">De 40 a 55 %</button></li><li><button type="button" class="op" data-ok="0">De 60 a 75 %</button></li><li><button type="button" class="op" data-ok="0">De 20 a 40 %</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Por debajo de 40 % hay descargas electrostáticas, y por encima de 55 % corrosión.</p>
+</div></li><li class="q" data-q="obQfhxhhBd" data-tema="Temperatura y humedad" data-enlace="parcial-2-teoria.html#temperatura-y-humedad" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-teoria-2"><span class="q-n">2</span><div><p>¿Qué rango de temperatura es el óptimo según el apunte?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-teoria-2"><li><button type="button" class="op" data-ok="0">De 10 a 15 °C</button></li><li><button type="button" class="op" data-ok="1">De 17 a 21 °C</button></li><li><button type="button" class="op" data-ok="0">De 25 a 30 °C</button></li><li><button type="button" class="op" data-ok="0">De 30 a 35 °C</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>De 17 a 21 °C es lo óptimo, y de 15 a 25 °C lo aceptable.</p>
+</div></li><li class="q" data-q="yZNBW3xQ-b" data-tema="Calor, BTU y frigorías" data-enlace="parcial-2-teoria.html#calor-btu-y-frigorias" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-teoria-3"><span class="q-n">3</span><div><p>¿Qué representa una frigoría, según el apunte?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-teoria-3"><li><button type="button" class="op" data-ok="1">Bajar 1 °C un kilogramo de agua a 15,5 °C</button></li><li><button type="button" class="op" data-ok="0">Sacar 1 W durante una hora</button></li><li><button type="button" class="op" data-ok="0">Enfriar una tonelada de aire</button></li><li><button type="button" class="op" data-ok="0">Bajar 10 °C un litro de agua</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Esa es la definición del apunte.</p>
+</div></li><li class="q" data-q="xER4SlDZkS" data-tema="Calor, BTU y frigorías" data-enlace="parcial-2-teoria.html#calor-btu-y-frigorias" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-teoria-4"><span class="q-n">4</span><div><p>¿Qué factor pasa de W a BTU/h?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-teoria-4"><li><button type="button" class="op" data-ok="0">0,293</button></li><li><button type="button" class="op" data-ok="0">3530</button></li><li><button type="button" class="op" data-ok="1">3,41</button></li><li><button type="button" class="op" data-ok="0">0,000284</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>W x 3,41 da BTU/h.</p>
+</div></li><li class="q" data-q="Vldik2j1HA" data-tema="Estrategias de climatización" data-enlace="parcial-2-teoria.html#estrategias-de-climatizacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-teoria-5"><span class="q-n">5</span><div><p>¿Qué estrategia alcanza hasta 50 kW por rack?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-teoria-5"><li><button type="button" class="op" data-ok="0">Sala</button></li><li><button type="button" class="op" data-ok="0">Fila</button></li><li><button type="button" class="op" data-ok="1">Rack</button></li><li><button type="button" class="op" data-ok="0">Piso técnico</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La estrategia por rack llega hasta 50 kW.</p>
+</div></li><li class="q" data-q="no4gfpc_4z" data-tema="Pasillos fríos y calientes" data-enlace="parcial-2-teoria.html#pasillos-frios-y-calientes" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-teoria-6"><span class="q-n">6</span><div><p>¿Cómo toman el aire los equipos con pasillos intercalados?</p>
+<p class="q-origen">Se tomó: 2° parcial teoría, 2023 y 2025, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-teoria-6"><li><button type="button" class="op" data-ok="0">Frío por atrás, caliente por el frente</button></li><li><button type="button" class="op" data-ok="1">Frío por el frente, caliente por atrás</button></li><li><button type="button" class="op" data-ok="0">Frío y caliente por arriba</button></li><li><button type="button" class="op" data-ok="0">Frío por abajo, caliente por el frente</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Toman aire frío por el frente y expulsan el caliente por atrás.</p>
+</div></li><li class="q" data-q="ddxwH6MW7z" data-tema="Pasillos fríos y calientes" data-enlace="parcial-2-teoria.html#pasillos-frios-y-calientes" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-teoria-7"><span class="q-n">7</span><div><p>¿Cómo se alinean los racks?</p>
+<p class="q-origen">Se tomó: 2° parcial teoría, 2023 y 2025, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-teoria-7"><li><button type="button" class="op" data-ok="1">Frente con frente</button></li><li><button type="button" class="op" data-ok="0">Frente con parte trasera</button></li><li><button type="button" class="op" data-ok="0">Todos mirando a la pared</button></li><li><button type="button" class="op" data-ok="0">En círculo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Así quedan pasillos intercalados, uno frío y uno caliente.</p>
+</div></li><li class="q" data-q="B-nNBFAUOi" data-tema="Presión de aire" data-enlace="parcial-2-teoria.html#presion-de-aire" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-teoria-8"><span class="q-n">8</span><div><p>¿Qué pasa con un flujo de aire bajo desde el piso?</p>
+<p class="q-origen">Se tomó: 2° parcial teoría, 2023 y 2025, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-teoria-8"><li><button type="button" class="op" data-ok="1">No alcanza la parte superior del rack</button></li><li><button type="button" class="op" data-ok="0">Refrigera de manera uniforme</button></li><li><button type="button" class="op" data-ok="0">Sube sin refrigerar la parte trasera</button></li><li><button type="button" class="op" data-ok="0">Apaga los ventiladores EC</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El flujo bajo es insuficiente para llegar arriba.</p>
+</div></li><li class="q" data-q="MB5uIxpk54" data-tema="Presión de aire" data-enlace="parcial-2-teoria.html#presion-de-aire" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-teoria-9"><span class="q-n">9</span><div><p>¿Qué pasa con un flujo de aire excesivo?</p>
+<p class="q-origen">Se tomó: 2° parcial teoría, 2023 y 2025, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-teoria-9"><li><button type="button" class="op" data-ok="0">No llega a la parte superior</button></li><li><button type="button" class="op" data-ok="0">Es el caso ideal</button></li><li><button type="button" class="op" data-ok="1">Sube de forma ineficiente, sin refrigerar la parte trasera</button></li><li><button type="button" class="op" data-ok="0">Moja el piso técnico</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Esa es la descripción del apunte para el flujo excesivo.</p>
+</div></li><li class="q" data-q="HOqCKC9Ug7" data-tema="Eficiencia energética" data-enlace="parcial-2-teoria.html#eficiencia-energetica" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-teoria-10"><span class="q-n">10</span><div><p>¿Cuál de estas es una buena práctica básica del apunte de eficiencia?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-teoria-10"><li><button type="button" class="op" data-ok="0">Apagar la UPS de noche</button></li><li><button type="button" class="op" data-ok="1">Medir el PUE</button></li><li><button type="button" class="op" data-ok="0">Sacar los termostatos</button></li><li><button type="button" class="op" data-ok="0">Duplicar los generadores</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Medir el PUE es la primera de la lista.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>1° parcial: Seguridad en los Sistemas de Información</title>
+<meta name="description" content="Vulnerabilidad y amenaza, malware, criptografía, redes y firewall, SGSI, políticas y modelos de ataque.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="seguridad-en-los-sistemas-de-informacion" data-pagina="parcial-1">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Seguridad en los Sistemas de Información</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html" aria-current="page">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=seguridad-en-los-sistemas-de-informacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=seguridad-en-los-sistemas-de-informacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#parte-practica">Parte práctica</a></li><li class="n2"><a href="#vulnerabilidad-amenaza-e-ingenieria-social">Vulnerabilidad, amenaza e ingeniería social</a></li><li class="n2"><a href="#malware-y-ataques">Malware y ataques</a></li><li class="n2"><a href="#criptografia">Criptografía</a></li><li class="n2"><a href="#redes-firewall-vpn-y-dmz">Redes, firewall, VPN y DMZ</a></li><li class="n2"><a href="#parte-teorica">Parte teórica</a></li><li class="n2"><a href="#seguridad-de-la-informacion">Seguridad de la información</a></li><li class="n2"><a href="#sgsi-e-iso-27001">SGSI e ISO 27001</a></li><li class="n2"><a href="#politicas-normas-y-procedimientos">Políticas, normas y procedimientos</a></li><li class="n2"><a href="#ataques-y-sus-modelos">Ataques y sus modelos</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>1° parcial</h1>
+<p class="bajada">Práctica: vulnerabilidad y amenaza, malware, criptografía y redes. Teoría: seguridad de la información, SGSI, políticas y modelos de ataque.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>Son dos cuestionarios del campus, de 20 preguntas cada uno a 0,50 puntos. Solo hay uno de cada parte, los dos de 2024: la práctica del 27/09/2024 y la teoría del 03/10/2024. Con dos exámenes no se puede decir qué se repite año a año.</p>
+<div class="ojo"><p class="ojo-t">De dónde sale cada respuesta</p><p>De lo que marca el campus al revisar el intento, con examen, pregunta y página. El Drive no trae apuntes que lo expliquen. Lo marcado «En criollo» es una ayuda para entender y no sale del material.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parte-practica">Parte práctica</h2>
+<p>Lo que sigue, hasta la parte teórica, salió de la práctica del 27/09/2024. Algunos datos se completan con la práctica del 2° parcial, y cada uno lo aclara.</p>
+</section>
+<section class="sec"><h2 id="vulnerabilidad-amenaza-e-ingenieria-social">Vulnerabilidad, amenaza e ingeniería social</h2>
+<div class="tomado"><aside class="nota"><strong>Definiciones que se pidieron</strong><span>1° parcial práctica, 27/09/2024</span></aside><ul>
+<li><strong>Vulnerabilidad:</strong> <mark>la debilidad en el software o en el hardware que permite su ataque</mark>.</li>
+<li><strong>Amenaza:</strong> <mark>cualquier acción que explota una vulnerabilidad informática para comprometer un sistema de información</mark>.</li>
+<li><strong>Ingeniería social:</strong> <mark>las diferentes técnicas de manipulación que usan los ciberdelincuentes para obtener información confidencial de los usuarios</mark>.</li>
+<li><strong>El eslabón más débil en seguridad:</strong> <mark>los usuarios</mark>.</li>
+</ul>
+<p>Fuente: 1° parcial práctica 27/09/2024, preguntas 2 y 1 (página 1), 3 (página 2) y 10 (página 5), respuesta del campus.</p>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La vulnerabilidad es la ventana que quedó sin traba. La amenaza es la acción de quien entra por ahí.</p>
+</div>
+<details class="pregunta"><summary><span>Un analista capacita al personal cada semestre, pone acceso biométrico en el datacenter, actualiza sistemas operativos y configura antivirus, pero diagrama la red completa evitando segmentarla. ¿Qué tipo de vulnerabilidad sufre la organización?</span><small>1° parcial práctica, 27/09/2024</small></summary><div class="resp"><p>Red. Las opciones eran humana, física, software y red. Fuente: 1° parcial práctica 27/09/2024, pregunta 8, página 4, respuesta del campus.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="malware-y-ataques">Malware y ataques</h2>
+<div class="tomado"><aside class="nota"><strong>Malware y denegación de servicio</strong><span>1° parcial práctica, 27/09/2024</span></aside><ul>
+<li><strong>Ransomware:</strong> <mark>el malware diseñado para cifrar archivos y sitios web y exigir un rescate económico</mark> a cambio de liberar la información.</li>
+<li><strong>DDoS, objetivo principal:</strong> <mark>sobrecargar la capacidad de una máquina objetivo</mark>.</li>
+<li><strong>Contra el malware ayudan:</strong> actualizar con regularidad el sistema operativo y las aplicaciones, no usar perfil de administrador en el trabajo diario y suscribirse a boletines de seguridad. Facilitar datos personales por correo, como claves, es la opción que no ayuda.</li>
+</ul>
+<p>Fuente: 1° parcial práctica 27/09/2024, preguntas 6 (página 3), 9 (página 4) y 13 (página 6), respuesta del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="criptografia">Criptografía</h2>
+<div class="tomado"><aside class="nota"><strong>Simétrica y asimétrica</strong><span>1° parcial práctica, 27/09/2024, y 2° parcial práctica, 08/11/2024</span></aside><ul>
+<li><strong>Algoritmos de cifrado simétrico más utilizados:</strong> <mark>AES, DES y 3DES</mark>.</li>
+<li><strong>Modo de trabajo de la asimétrica:</strong> <mark>el emisor encripta con la clave pública del receptor y se desencripta con la clave privada del receptor</mark>.</li>
+<li><strong>Para cifrar un mensaje con RSA necesitás:</strong> <mark>la clave pública del receptor</mark>.</li>
+<li><strong>Comparación:</strong> la simétrica es más veloz que la asimétrica. Las claves de la asimétrica suelen ser más largas.</li>
+</ul>
+<p>Fuente: 1° parcial práctica 27/09/2024, preguntas 5 (página 2), 11 (página 5) y 19 (página 8). 2° parcial práctica 08/11/2024, pregunta 18, página 7. Respuesta del campus.</p>
+</div>
+<div class="ojo"><p class="ojo-t">La clave pública no descifra</p><p>Se pidió marcar la afirmación falsa entre tres. La falsa era «las claves públicas se utilizan para descifrar los mensajes enviados cuando se utiliza la criptografía asimétrica». Las otras dos son las de la comparación de arriba. Fuente: 1° parcial práctica 27/09/2024, pregunta 5, página 2, respuesta del campus.</p>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en un buzón. Cualquiera puede meter una carta por la ranura, y esa es la clave pública. Solo el dueño tiene la llave para abrirlo, y esa es la privada. Por eso se cifra con la pública de quien recibe.</p>
+</div>
+<details class="pregunta"><summary><span>Con el cifrado César (ROT-3), descifrar el mensaje «Ho fliudgr Fhvdu qr hv frpsolfdgr gh ghvfliudu»</span><small>1° parcial práctica, 27/09/2024</small></summary><div class="resp"><p>«El cifrado Cesar no es complicado de descifrar». Las otras dos opciones cambian una sola palabra, así que hay que mirar el mensaje entero. Fuente: 1° parcial práctica 27/09/2024, pregunta 7, página 3, respuesta del campus.</p>
+</div></details>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>ROT-3 corre cada letra tres lugares en el alfabeto. Para descifrar, la corrés tres lugares para atrás.</p>
+</div>
+</section>
+<section class="sec"><h2 id="redes-firewall-vpn-y-dmz">Redes, firewall, VPN y DMZ</h2>
+<div class="tomado"><aside class="nota"><strong>Firewall y red</strong><span>1° parcial práctica, 27/09/2024</span></aside><ul>
+<li><strong>Funciones del firewall:</strong> <mark>filtrar el tráfico malicioso, proteger contra ataques de red y controlar el acceso a recursos</mark>. Detectar y eliminar virus no fue la opción correcta.</li>
+<li><strong>ACL más segura y eficiente en un firewall:</strong> <mark>denegar por defecto (Deny any). Se bloquea todo el tráfico a menos que una regla lo permita</mark>.</li>
+<li><strong>DMZ:</strong> <mark>una subred física o lógica que expone los servicios externos de una organización a una red no confiable, como Internet</mark>.</li>
+<li><strong>Sucursal conectada por VPN a la casa central:</strong> <mark>VPN de sitio a sitio</mark>. Las otras opciones eran de acceso remoto y para clientes o servicios en la nube.</li>
+<li><strong>Herramienta para modelar el segmentado de red:</strong> <mark>Cisco Packet Tracer</mark>. Las otras opciones eran Wireshark, Nessus e Hydra.</li>
+</ul>
+<p>Fuente: 1° parcial práctica 27/09/2024, preguntas 4 (página 2), 14 y 15 (página 6), 16 y 18 (página 7), respuesta del campus.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Protocolos y capas</strong><span>1° parcial práctica, 27/09/2024, y 2° parcial práctica, 08/11/2024</span></aside><ul>
+<li><strong>DNS</strong> es de la capa de aplicación y <mark>se utiliza para la resolución de nombres de dominio</mark>.</li>
+<li><strong>FTP</strong> es de la capa de aplicación y <mark>se utiliza para la transferencia de archivos</mark>.</li>
+<li><strong>Capas del modelo TCP/IP:</strong> <mark>acceso a red, Internet, transporte y aplicación</mark>. Esta pregunta salió igual en los dos exámenes.</li>
+</ul>
+<p>Fuente: 1° parcial práctica 27/09/2024, preguntas 17 (página 7) y 20 (página 8). 2° parcial práctica 08/11/2024, preguntas 4 (página 2) y 14 (página 6). Respuesta del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parte-teorica">Parte teórica</h2>
+<p>Lo que sigue salió de la teoría del 03/10/2024.</p>
+</section>
+<section class="sec"><h2 id="seguridad-de-la-informacion">Seguridad de la información</h2>
+<div class="tomado"><aside class="nota"><strong>Conceptos que se pidieron</strong><span>1° parcial teoría, 03/10/2024</span></aside><ul>
+<li><strong>Incidente de seguridad:</strong> <mark>cualquier evento adverso relacionado con la seguridad</mark>.</li>
+<li><strong>Qué protege la seguridad de la información:</strong> recursos, sistemas e información. La opción correcta era «todas las anteriores».</li>
+<li><strong>Su objetivo:</strong> <mark>minimizar la posibilidad de ocurrencia de los riesgos</mark>. La opción «evitar que los riesgos ocurran» no era la correcta.</li>
+<li><strong>Integridad:</strong> <mark>que la información se mantiene precisa y completa</mark>.</li>
+<li><strong>Autenticación de usuarios:</strong> se relaciona con <mark>la verificación de la identidad de los usuarios</mark>.</li>
+<li><strong>Medida para garantizar la confidencialidad:</strong> <mark>el uso de encriptado</mark>.</li>
+<li><strong>Objetivo principal de la autenticación multifactor:</strong> <mark>proteger la información mediante múltiples capas de seguridad</mark>.</li>
+</ul>
+<p>Fuente: 1° parcial teoría 03/10/2024, preguntas 1 y 2 (página 1), 5 (página 3), 11, 12 y 13 (página 6) y 15 (página 7), respuesta del campus.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Integridad no es confidencialidad</p><p>En la pregunta de integridad, «que la información está protegida contra accesos no autorizados» estaba entre las opciones y no era la correcta. Fuente: 1° parcial teoría 03/10/2024, pregunta 15, página 7, respuesta del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="sgsi-e-iso-27001">SGSI e ISO 27001</h2>
+<div class="tomado"><aside class="nota"><strong>Lo que se preguntó del SGSI</strong><span>1° parcial teoría, 03/10/2024</span></aside><ul>
+<li><strong>Adoptar un SGSI:</strong> <mark>es una decisión estratégica de la organización</mark>.</li>
+<li><strong>Alcance (scope) al planificar un SGSI:</strong> <mark>define qué procesos serán asegurados por el SGSI</mark>. Personas, tecnologías y tiempo eran las otras opciones.</li>
+<li><strong>Modelo de mejora continua que adopta ISO 27001:</strong> <mark>modelo PHVA</mark>. Tiene cuatro etapas y se conoce por sus iniciales.</li>
+<li><strong>Ventaja clave de implementar un SGSI:</strong> <mark>reducir el riesgo y el tiempo de respuesta ante incidentes de seguridad</mark>.</li>
+</ul>
+<p>Fuente: 1° parcial teoría 03/10/2024, preguntas 6 (página 3), 7 (página 4), 9 (página 5) y 17 (página 8), respuesta del campus.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Activos de información</strong><span>1° parcial teoría, 03/10/2024</span></aside><p>Se pidió elegir las dos mejores prácticas para protegerlos. El campus marca estas:</p>
+<ul>
+<li><mark>Hacer un inventario de todos los activos</mark>.</li>
+<li><mark>Por cada activo, designar un responsable por el mantenimiento de su seguridad</mark>.</li>
+</ul>
+<p>Fuente: 1° parcial teoría 03/10/2024, pregunta 8, página 4, respuesta del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="politicas-normas-y-procedimientos">Políticas, normas y procedimientos</h2>
+<div class="tomado"><aside class="nota"><strong>Quién decide y qué documento dice qué</strong><span>1° parcial teoría, 03/10/2024</span></aside><ul>
+<li><strong>Aprobación de la política de seguridad:</strong> requiere el aval y apoyo primario de <mark>los líderes de la organización</mark>.</li>
+<li><strong>Rol de la alta gerencia:</strong> <mark>definir los objetivos y la estrategia de seguridad</mark>.</li>
+<li><strong>Normas:</strong> <mark>responden a «qué» hacer para alcanzar las directrices definidas en la política de seguridad</mark>. Son las reglas básicas de cómo debe implementarse el control o conjunto de controles definidos en las políticas.</li>
+<li><strong>Procedimientos:</strong> <mark>determinan «cómo» y «quién» se debe hacer</mark>.</li>
+<li><strong>Nivel de planeación de los procedimientos:</strong> <mark>táctico</mark>.</li>
+</ul>
+<p>Fuente: 1° parcial teoría 03/10/2024, preguntas 3 y 4 (página 2), 10 (página 5), 14 y 16 (página 7), respuesta del campus.</p>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La norma te dice qué hay que hacer. El procedimiento te dice cómo se hace y quién lo hace.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Lo que falta de este tema</p><p>Las opciones nombran instructivos, estándares, evidencias y los niveles estratégico y operacional. Los exámenes no dicen qué es cada uno. Tampoco dicen con qué nivel van las políticas o las normas. Buscalo en el material de tu comisión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="ataques-y-sus-modelos">Ataques y sus modelos</h2>
+<div class="tomado"><aside class="nota"><strong>Ataque pasivo</strong><span>1° parcial teoría, 03/10/2024</span></aside><p>Un ataque basado en escuchar y monitorear las transmisiones se denomina <mark>ataque pasivo</mark>. Fuente: 1° parcial teoría 03/10/2024, pregunta 18, página 8, respuesta del campus.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Reconocer el modelo por su gráfico</strong><span>1° parcial teoría, 03/10/2024</span></aside><p>Se mostró un dibujo y se pidió el modelo de ataque. Las opciones eran intercepción, interrupción, modificación y fabricación.</p>
+<p><img src="img/fig-ataque-interrupcion.webp" alt="Dos círculos con una flecha que sale del primero y termina en una barra antes de llegar al segundo"></p>
+<p>Este dibujo es <mark>interrupción</mark>.</p>
+<p><img src="img/fig-ataque-intercepcion.webp" alt="Dos círculos unidos por una flecha, y otra flecha que baja desde la línea hacia un tercer círculo"></p>
+<p>Este dibujo es <mark>intercepción</mark>.</p>
+<p>Fuente: 1° parcial teoría 03/10/2024, preguntas 19 y 20, página 9, respuesta del campus.</p>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>En el primer dibujo el mensaje se corta y no llega. En el segundo llega, pero un tercero se lleva una copia.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Modificación y fabricación</p><p>Eran opciones, pero no hay un dibujo ni una definición de ellas en los exámenes. Puede salir el gráfico que no viste. Buscalos en el material de tu comisión.</p>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-1" data-materia="seguridad-en-los-sistemas-de-informacion">
+<h2>Quiz del 1° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="3zt-tpXUvg" data-tema="Vulnerabilidad, amenaza e ingeniería social" data-enlace="parcial-1.html#vulnerabilidad-amenaza-e-ingenieria-social" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-1"><span class="q-n">1</span><div><p>¿Cuál de las siguientes respuestas es considerada una vulnerabilidad?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 27/09/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-1"><li><button type="button" class="op" data-ok="0">Una amenaza digital.</button></li><li><button type="button" class="op" data-ok="0">Un delito informático.</button></li><li><button type="button" class="op" data-ok="1">La debilidad en el software o en el hardware que permite su ataque.</button></li><li><button type="button" class="op" data-ok="0">Una fortaleza que usa un ciberdelincuente para atacar un sistema de información.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>la debilidad en el software o en el hardware</strong> que permite su ataque.</p>
+</div></li><li class="q" data-q="w4cmRSu9tc" data-tema="Vulnerabilidad, amenaza e ingeniería social" data-enlace="parcial-1.html#vulnerabilidad-amenaza-e-ingenieria-social" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-2"><span class="q-n">2</span><div><p>¿Qué es una amenaza?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 27/09/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-2"><li><button type="button" class="op" data-ok="0">La condición requerida para que un daño pueda materializarse.</button></li><li><button type="button" class="op" data-ok="0">La probabilidad de que ocurra una vulnerabilidad.</button></li><li><button type="button" class="op" data-ok="0">El impacto provocado por un incidente de seguridad.</button></li><li><button type="button" class="op" data-ok="1">Cualquier acción que explota una vulnerabilidad informática para comprometer un sistema de información.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>cualquier acción que explota una vulnerabilidad</strong> para comprometer un sistema de información.</p>
+</div></li><li class="q" data-q="FpM8Qypi7f" data-tema="Criptografía" data-enlace="parcial-1.html#criptografia" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-3"><span class="q-n">3</span><div><p>Confirmar cuál de las siguientes afirmaciones es falsa:</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 27/09/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-3"><li><button type="button" class="op" data-ok="0">La longitud de las claves en la criptografía asimétrica suele ser más larga.</button></li><li><button type="button" class="op" data-ok="0">La criptografía simétrica es más veloz que la criptografía asimétrica.</button></li><li><button type="button" class="op" data-ok="1">Las claves públicas se utilizan para descifrar los mensajes enviados cuando se utiliza la criptografía asimétrica.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La falsa es la de las <strong>claves públicas para descifrar</strong>. Las otras dos son verdaderas.</p>
+</div></li><li class="q" data-q="zmyQFgqck-" data-tema="Criptografía" data-enlace="parcial-1.html#criptografia" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-4"><span class="q-n">4</span><div><p>Confirmar el modo de trabajo de la criptografía asimétrica:</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 27/09/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-4"><li><button type="button" class="op" data-ok="1">El emisor envía el mensaje encriptado con la clave pública del receptor y es desencriptada con la clave privada del receptor.</button></li><li><button type="button" class="op" data-ok="0">El emisor envía encriptado el mensaje al receptor con una clave pública conocida.</button></li><li><button type="button" class="op" data-ok="0">El emisor envía el mensaje encriptado con la clave privada del receptor y es desencriptado con la clave pública.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se encripta con la <strong>pública del receptor</strong> y se desencripta con la <strong>privada del receptor</strong>.</p>
+</div></li><li class="q" data-q="ffEOxaHlXy" data-tema="Criptografía" data-enlace="parcial-1.html#criptografia" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-5"><span class="q-n">5</span><div><p>Cuáles son los algoritmos de cifrado simétrico que son más utilizados:</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 27/09/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-5"><li><button type="button" class="op" data-ok="0">3DES, DES, RSA</button></li><li><button type="button" class="op" data-ok="1">AES, DES, 3DES</button></li><li><button type="button" class="op" data-ok="0">DSA, RSA, AES</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>AES, DES y 3DES</strong>.</p>
+</div></li><li class="q" data-q="blglczqkas" data-tema="Redes, firewall, VPN y DMZ" data-enlace="parcial-1.html#redes-firewall-vpn-y-dmz" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-6"><span class="q-n">6</span><div><p>¿Qué tipo de política de lista de control de acceso (ACL) se considera más segura y eficiente para configurar en un firewall?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 27/09/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-6"><li><button type="button" class="op" data-ok="0">Reglas individuales permitiendo y bloqueando el tráfico deseado.</button></li><li><button type="button" class="op" data-ok="0">Permitir por defecto (Permit any): permitir todo, bloqueando el tráfico a los protocolos, IPs o sitios inseguros.</button></li><li><button type="button" class="op" data-ok="1">Denegar por defecto (Deny any): bloqueo todo el tráfico a menos que una regla lo permita.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>denegar por defecto</strong>.</p>
+</div></li><li class="q" data-q="XvLyBzjmWZ" data-tema="Redes, firewall, VPN y DMZ" data-enlace="parcial-1.html#redes-firewall-vpn-y-dmz" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-7"><span class="q-n">7</span><div><p>¿Qué considera que es una DMZ?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 27/09/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-7"><li><button type="button" class="op" data-ok="0">Es una técnica de diseño de redes en la que una red grande se divide en segmentos más pequeños o subredes.</button></li><li><button type="button" class="op" data-ok="1">Es una subred física o lógica que expone los servicios externos de una organización a una red no confiable, como Internet.</button></li><li><button type="button" class="op" data-ok="0">Es una tecnología que permite crear una conexión segura y encriptada sobre una red menos segura, como Internet.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La DMZ es la <strong>subred que expone los servicios externos</strong> a una red no confiable.</p>
+</div></li><li class="q" data-q="-dD24TRB5R" data-tema="Redes, firewall, VPN y DMZ" data-enlace="parcial-1.html#redes-firewall-vpn-y-dmz" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-8"><span class="q-n">8</span><div><p>Una sucursal de una empresa se conecta mediante VPN a la casa central. ¿Qué tipo de VPN utiliza?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 27/09/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-8"><li><button type="button" class="op" data-ok="0">VPN para clientes o servicios en la nube.</button></li><li><button type="button" class="op" data-ok="0">VPN de acceso remoto.</button></li><li><button type="button" class="op" data-ok="1">VPN de sitio a sitio.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>VPN de sitio a sitio</strong>.</p>
+</div></li><li class="q" data-q="tP4tbiyGI_" data-tema="Seguridad de la información" data-enlace="parcial-1.html#seguridad-de-la-informacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-9"><span class="q-n">9</span><div><p>La seguridad de la información tiene como objetivo:</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 03/10/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-9"><li><button type="button" class="op" data-ok="0">Evitar que los riesgos ocurran</button></li><li><button type="button" class="op" data-ok="1">Minimizar la posibilidad de ocurrencia de los riesgos</button></li><li><button type="button" class="op" data-ok="0">Hacer que los riesgos ocurran para que no vuelvan a ocurrir</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>minimizar la posibilidad de ocurrencia</strong>, y no evitar que ocurran.</p>
+</div></li><li class="q" data-q="nKHXxESPFa" data-tema="Seguridad de la información" data-enlace="parcial-1.html#seguridad-de-la-informacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-10"><span class="q-n">10</span><div><p>¿Cuál de las siguientes afirmaciones describe mejor la integridad de la información?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 03/10/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-10"><li><button type="button" class="op" data-ok="0">Que la información es accesible para todos los usuarios autorizados</button></li><li><button type="button" class="op" data-ok="1">Que la información se mantiene precisa y completa</button></li><li><button type="button" class="op" data-ok="0">Que la información está protegida contra accesos no autorizados</button></li><li><button type="button" class="op" data-ok="0">Que la información se almacena en un formato legible</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Integridad es que se mantiene <strong>precisa y completa</strong>.</p>
+</div></li><li class="q" data-q="-Nrsq3HZck" data-tema="SGSI e ISO 27001" data-enlace="parcial-1.html#sgsi-e-iso-27001" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-11"><span class="q-n">11</span><div><p>En la planificación de un SGSI debemos definir el alcance (scope). ¿A qué se refiere con alcance?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 03/10/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-11"><li><button type="button" class="op" data-ok="0">Define qué personas son parte del SGSI</button></li><li><button type="button" class="op" data-ok="0">Define por cuánto tiempo se implementará el SGSI</button></li><li><button type="button" class="op" data-ok="0">Define qué tecnologías serán aseguradas por el SGSI</button></li><li><button type="button" class="op" data-ok="1">Define qué procesos serán asegurados por el SGSI</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El alcance define <strong>qué procesos</strong> serán asegurados.</p>
+</div></li><li class="q" data-q="hHgXv4w4nH" data-tema="Políticas, normas y procedimientos" data-enlace="parcial-1.html#politicas-normas-y-procedimientos" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-12"><span class="q-n">12</span><div><p>Las reglas básicas de cómo debe ser implementado el control o conjunto de controles que se definieron en las políticas responden a «qué» hacer para alcanzar las directrices definidas en la política de seguridad. Esto corresponde a:</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 03/10/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-12"><li><button type="button" class="op" data-ok="0">Procedimientos</button></li><li><button type="button" class="op" data-ok="0">Evidencias</button></li><li><button type="button" class="op" data-ok="0">Instrucciones</button></li><li><button type="button" class="op" data-ok="1">Normas</button></li><li><button type="button" class="op" data-ok="0">Políticas</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las <strong>normas</strong> responden a «qué» hacer.</p>
+</div></li><li class="q" data-q="C7RHASFY5y" data-tema="Políticas, normas y procedimientos" data-enlace="parcial-1.html#politicas-normas-y-procedimientos" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-13"><span class="q-n">13</span><div><p>En la documentación del SGSI, ¿cuál es la que determina «cómo» y «quién» se debe hacer?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 03/10/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-13"><li><button type="button" class="op" data-ok="0">Instructivos</button></li><li><button type="button" class="op" data-ok="1">Procedimientos</button></li><li><button type="button" class="op" data-ok="0">Estándares</button></li><li><button type="button" class="op" data-ok="0">Políticas</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los <strong>procedimientos</strong> determinan cómo y quién.</p>
+</div></li><li class="q" data-q="dHO0x9bL01" data-tema="Políticas, normas y procedimientos" data-enlace="parcial-1.html#politicas-normas-y-procedimientos" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-14"><span class="q-n">14</span><div><p>Los procedimientos (el cómo), ¿con qué nivel de planeación se relacionan?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 03/10/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-14"><li><button type="button" class="op" data-ok="0">Registros</button></li><li><button type="button" class="op" data-ok="0">Estratégico</button></li><li><button type="button" class="op" data-ok="0">Operacional</button></li><li><button type="button" class="op" data-ok="1">Táctico</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca el nivel <strong>táctico</strong>.</p>
+</div></li><li class="q" data-q="fmgjGigTpU" data-tema="Ataques y sus modelos" data-enlace="parcial-1.html#ataques-y-sus-modelos" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-15"><span class="q-n">15</span><div><p>Un ataque basado en escuchar y monitorear las transmisiones se denomina:</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 03/10/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-15"><li><button type="button" class="op" data-ok="0">Ataque activo</button></li><li><button type="button" class="op" data-ok="1">Ataque pasivo</button></li><li><button type="button" class="op" data-ok="0">Ataque neutro</button></li><li><button type="button" class="op" data-ok="0">Ataque recurrente</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>ataque pasivo</strong>.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado solo con cinco exámenes del campus que hay en el Drive de UTN (2024 y 2025). El Drive no trae apuntes ni programa. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Para entender: Investigación Operativa</title>
+<meta name="description" content="De qué se trata la materia, cómo se conecta y cómo se evalúa.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/estrellas.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="investigacion-operativa" data-pagina="inicio">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Investigación Operativa</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html" aria-current="page">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="parcial-3.html">3° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=investigacion-operativa">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=investigacion-operativa">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#que-cae">Qué cae más</a></li><li class="n2"><a href="#rendir">Rendí un examen viejo</a></li><li class="n2"><a href="#de-que-se-trata">De qué se trata</a></li><li class="n2"><a href="#como-se-conecta">Cómo se conecta</a></li><li class="n2"><a href="#recorrido">Recorrido</a></li><li class="n2"><a href="#que-se-evalua-y-como">Qué se evalúa y cómo</a></li><li class="n2"><a href="#como-usar-este-resumen">Cómo usar este resumen</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Investigación Operativa</h1>
+<p class="bajada">Cómo decidir con números: qué producir con recursos limitados, cómo mandar mercadería y cuánto stock tener.</p><p class="pdf-ir em-fuera"><a class="b-sec" href="pdf.html"><svg class="pdf-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M11 5h18l8 8v30H11z"/><path d="M29 5v8h8"/><path d="M24 19v15"/><path d="M18 28l6 6 6-6"/></svg>Descargar en PDF</a></p><div id="sinInternet" class="si em-fuera" hidden></div><div class="es-materia" data-estrellas-materia="investigacion-operativa" hidden></div><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec cae"><h2 id="que-cae">Qué cae más</h2>
+<p class="cae-baja">El sitio no tiene todos los exámenes que se tomaron, así que esto es una pista y no una promesa. Tocá un tema para ver en qué exámenes salió.</p>
+<h3 id="cae-parcial-1">1° parcial</h3>
+<p class="cae-de">Sale de 4 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">Método gráfico</span><span class="cae-barra" aria-hidden="true"><span style="width:50%"></span></span><span class="cae-num">en 2 de 4</span></summary><ul class="cae-ex"><li><a href="ej-p1-2026-10-03.html">Parcial, 03/10/2026, Tema 1. Ejercicios 1 y 2 (copia a mano de un alumno)</a></li><li><a href="ej-p1-2025-ej1a.html">1° parcial, julio de 2025, Tema 1. Ejercicio 1, ítem a</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Dual</span><span class="cae-barra" aria-hidden="true"><span style="width:50%"></span></span><span class="cae-num">en 2 de 4</span></summary><ul class="cae-ex"><li><a href="ej-p1-2026-10-03.html">Parcial, 03/10/2026, Tema 1. Ejercicios 1 y 2 (copia a mano de un alumno)</a></li><li><a href="ej-p1-2025-ej3-teoria.html">1° parcial, julio de 2025. Ejercicio 3 y teoría</a></li></ul></details></li></ul>
+<h3 id="cae-parcial-3">3° parcial</h3>
+<p class="cae-de">Sale de 5 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">Período común</span><span class="cae-barra" aria-hidden="true"><span style="width:80%"></span></span><span class="cae-num">en 4 de 5</span></summary><ul class="cae-ex"><li><a href="ej-p3-2024-t1.html">3° parcial, 2024, Tema 1. Práctica</a></li><li><a href="ej-p3-2024-t2.html">3° parcial, 2024, Tema 2. Práctica</a></li><li><a href="ej-p3-2024-teo-t1.html">3° parcial, 2024, Tema 1. Teoría</a></li><li><a href="ej-p3-2024-teo-t2.html">3° parcial, 2024, Tema 2. Teoría</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Descuento por cantidad</span><span class="cae-barra" aria-hidden="true"><span style="width:40%"></span></span><span class="cae-num">en 2 de 5</span></summary><ul class="cae-ex"><li><a href="ej-p3-2024-t1.html">3° parcial, 2024, Tema 1. Práctica</a></li><li><a href="ej-p3-2024-t2.html">3° parcial, 2024, Tema 2. Práctica</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Riesgo de faltante</span><span class="cae-barra" aria-hidden="true"><span style="width:40%"></span></span><span class="cae-num">en 2 de 5</span></summary><ul class="cae-ex"><li><a href="ej-p3-2024-t1.html">3° parcial, 2024, Tema 1. Práctica</a></li><li><a href="ej-p3-2024-t2.html">3° parcial, 2024, Tema 2. Práctica</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Stock de seguridad</span><span class="cae-barra" aria-hidden="true"><span style="width:40%"></span></span><span class="cae-num">en 2 de 5</span></summary><ul class="cae-ex"><li><a href="ej-p3-2024-t1.html">3° parcial, 2024, Tema 1. Práctica</a></li><li><a href="ej-p3-2024-t2.html">3° parcial, 2024, Tema 2. Práctica</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Lagrange</span><span class="cae-barra" aria-hidden="true"><span style="width:40%"></span></span><span class="cae-num">en 2 de 5</span></summary><ul class="cae-ex"><li><a href="ej-p3-2024-teo-t1.html">3° parcial, 2024, Tema 1. Teoría</a></li><li><a href="ej-p3-2024-teo-t2.html">3° parcial, 2024, Tema 2. Teoría</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Consumo durante el ingreso</span><span class="cae-barra" aria-hidden="true"><span style="width:40%"></span></span><span class="cae-num">en 2 de 5</span></summary><ul class="cae-ex"><li><a href="ej-p3-2024-teo-t1.html">3° parcial, 2024, Tema 1. Teoría</a></li><li><a href="ej-p3-2024-teo-t2.html">3° parcial, 2024, Tema 2. Teoría</a></li></ul></details></li></ul></section><section class="sec ex-entrada"><h2 id="rendir">Rendí un examen viejo</h2>
+<p>Elegís uno real y lo hacés con reloj, sin ver la resolución. Al entregar te corregís y ves qué repasar.</p>
+<ul class="ex-ultimos"><li><a class="ex-ultimo" href="ej-p1-2026-10-03.html#rendir"><span class="vh">Rendir con reloj el </span><span class="ex-u-inst">1° parcial</span><span class="vh"> del </span><span class="ex-u-fecha">03/10/2026</span><svg class="ex-u-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg></a></li><li><a class="ex-ultimo" href="ej-p3-2026-10-03.html#rendir"><span class="vh">Rendir con reloj el </span><span class="ex-u-inst">3° parcial</span><span class="vh"> del </span><span class="ex-u-fecha">03/10/2026</span><svg class="ex-u-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg></a></li><li><a class="ex-ultimo" href="ej-fin-2023-04-27-a.html#rendir"><span class="vh">Rendir con reloj el </span><span class="ex-u-inst">Final</span><span class="vh"> del </span><span class="ex-u-fecha">27/04/2023</span><svg class="ex-u-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg></a></li></ul>
+<p class="ex-otros"><a href="ejercicios.html">Elegir otro en Ejercicios</a></p></section><section class="sec"><h2 id="de-que-se-trata">De qué se trata</h2>
+<p>Tenés una decisión, un objetivo y límites. Una alfarería quiere saber cuántas piezas hacer para ganar lo máximo, con horas de trabajo y materia prima limitadas. Eso se escribe como ecuaciones y se resuelve con un método.</p>
+<p>La materia tiene tres partes:</p>
+<ol>
+<li><strong>Programación lineal</strong>. Modelar, resolver con el gráfico y con Simplex, ver qué pasa si cambian los datos y leer el dual.</li>
+<li><strong>Modelos especiales</strong>. Transporte, asignación, variables enteras y redes. Son programación lineal con una forma particular.</li>
+<li><strong>Gestión de stocks</strong>. Cuánto pedir y cuándo, según costos, descuentos, restricciones y demanda incierta.</li>
+</ol>
+</section>
+<section class="sec"><h2 id="como-se-conecta">Cómo se conecta</h2>
+<p>Cada parte usa lo anterior.</p>
+<ul>
+<li>Los teoremas del capítulo 2 explican por qué el Simplex mira solo vértices.</li>
+<li>La tabla de Simplex da el dual y los precios sombra sin hacer otra cuenta.</li>
+<li>LINDO te da la misma información impresa. Hay que saber leerla.</li>
+<li>En stock vuelve la misma idea del precio sombra. El <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>λ</mi></mrow><annotation encoding="application/x-tex">&#92;lambda</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord mathnormal">λ</span></span></span></span> de Lagrange dice cuánto cuesta el límite de capital o de espacio.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="recorrido">Recorrido</h2>
+<div class="tabla"><table><thead><tr><th>Página</th><th>Qué tiene</th></tr></thead><tbody><tr><td><a href="parcial-1.html">1° parcial</a></td><td>Programación lineal, teoremas con demostración, Simplex, sensibilidad, dual, LINDO</td></tr><tr><td><a href="parcial-2.html">2° parcial</a></td><td>Transporte, transbordo, asignación, entera y mixta, redes</td></tr><tr><td><a href="parcial-3.html">3° parcial</a></td><td>Modelos de stock, con gráficos para mover</td></tr><tr><td><a href="final.html">Final</a></td><td>La forma del último final y dónde estudiar cada pregunta</td></tr><tr><td><a href="ejercicios.html">Ejercicios</a></td><td>Consignas de exámenes reales, sin resolver</td></tr><tr><td><a href="machete.html">Hoja de repaso</a></td><td>Fórmulas y reglas en dos carillas</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p>De 2023 en adelante hay cuatro exámenes en el Drive:</p>
+<ul>
+<li>El final del 27/04/2023.</li>
+<li>El 3° parcial de 2024, temas 1 y 2.</li>
+<li>El 1° parcial de julio de 2025.</li>
+<li>Un parcial del 03/10/2026, tema 1, copiado a mano por un alumno.</li>
+</ul>
+<p>Práctica y teoría van por separado, y en los de 2024 y 2025 las hojas se numeran aparte. La teoría pide desarrollar y justificar, no solo nombrar. En el final de 2023, de la teoría dependió aprobar el resto.</p>
+<div class="ojo"><p class="ojo-t">Lo que no se sabe</p><p>En el Drive no hay un programa vigente. Tampoco hay un 2° parcial de 2023 en adelante, ni finales después de 2023. El parcial de octubre de 2026 mezcla programación lineal y stock, así que el reparto en tres parciales puede haber cambiado. Preguntá en tu comisión cómo es este año.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Los solucionarios de la carpeta de práctica</p><p>Los solucionarios de Práctica del Drive fueron generados con una herramienta de IA, según los datos del archivo. No son de la cátedra. Por eso no los usa este resumen. Si los abrís, chequeá cada cuenta.</p>
+</div>
+</section>
+<section class="sec"><h2 id="como-usar-este-resumen">Cómo usar este resumen</h2>
+<p>Los teoremas, definiciones y demostraciones están con las palabras del apunte, porque la teoría se evalúa así. Después de cada uno hay un ejemplo. Si es del apunte, lo dice. Si no, dice «Armado para este resumen». Lo que se pidió en un examen está en los recuadros con su fecha.</p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta octubre de 2026, material de cursado 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

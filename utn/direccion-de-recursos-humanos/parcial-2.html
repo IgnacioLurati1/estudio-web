@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2° parcial: Dirección de Recursos Humanos</title>
+<meta name="description" content="Lo que se tomó en 2026, liderazgo, empoderamiento, delegación, conflicto y negociación.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="direccion-de-recursos-humanos" data-pagina="parcial-2">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Dirección de Recursos Humanos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html" aria-current="page">2° parcial</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=direccion-de-recursos-humanos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=direccion-de-recursos-humanos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#que-se-tomo">Qué se tomó</a></li><li class="n2"><a href="#lo-que-el-drive-no-trae">Lo que el Drive no trae</a></li><li class="n2"><a href="#liderazgo">Liderazgo</a></li><li class="n3"><a href="#como-cambio-el-liderazgo">Cómo cambió el liderazgo</a></li><li class="n3"><a href="#neuroliderazgo">Neuroliderazgo</a></li><li class="n3"><a href="#nuevo-modelo-de-liderazgo">Nuevo modelo de liderazgo</a></li><li class="n3"><a href="#estilos-de-liderazgo-segun-una-lectura">Estilos de liderazgo según una lectura</a></li><li class="n2"><a href="#habilidades-blandas">Habilidades blandas</a></li><li class="n2"><a href="#cambio">Cambio</a></li><li class="n2"><a href="#empoderamiento">Empoderamiento</a></li><li class="n3"><a href="#lo-que-agrega-la-lectura-de-empowerment">Lo que agrega la lectura de empowerment</a></li><li class="n2"><a href="#delegacion">Delegación</a></li><li class="n2"><a href="#representantes-de-los-rrhh">Representantes de los RRHH</a></li><li class="n2"><a href="#conflicto">Conflicto</a></li><li class="n2"><a href="#negociacion">Negociación</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>2° parcial</h1>
+<p class="bajada">Lo que se tomó en 2026, lo que el Drive no trae, y la teoría que sí hay: liderazgo, empoderamiento, delegación, conflicto y negociación.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p>
+
+
+<section class="sec"><h2 id="que-se-tomo">Qué se tomó</h2>
+<p>El Drive trae un solo 2° parcial, el del 23/06/2026. Con un examen no se puede decir qué se repite. Solo qué se pidió esa vez. Las consignas van tal cual, sin respuesta, porque el material no las contesta.</p>
+<div class="tomado"><aside class="nota"><strong>Las diez consignas</strong><span>2° parcial 23/06/2026</span></aside><div class="tabla"><table><thead><tr><th>N°</th><th>Consigna</th><th>Dónde mirar</th></tr></thead><tbody><tr><td>1</td><td>¿<mark>Equidad Interna</mark> es comparar el sueldo de los empleados con el mercado para llegar al promedio? (V o F sin justificar)</td><td><a href="#lo-que-el-drive-no-trae">Sin teoría en el Drive</a></td></tr><tr><td>2</td><td>Mencionar al menos 3 objetivos de <mark>Gestión de Compensación</mark></td><td><a href="#lo-que-el-drive-no-trae">Sin teoría en el Drive</a></td></tr><tr><td>3</td><td>¿Es un <mark>beneficio monetario</mark> darles una comisión plus a los empleados que llegan a completar la cuota? (V o F sin justificar)</td><td><a href="#lo-que-el-drive-no-trae">Sin teoría en el Drive</a></td></tr><tr><td>4</td><td>Si llega un pasante a tu área, ¿qué <mark>liderazgo situacional</mark> le corresponde? Justificar</td><td><a href="#estilos-de-liderazgo-segun-una-lectura">Estilos de liderazgo</a>, un tramo corto</td></tr><tr><td>5</td><td>¿En Liderazgo Situacional, para clasificar depende del estado económico de la empresa? (V o F con justificación)</td><td><a href="#estilos-de-liderazgo-segun-una-lectura">Estilos de liderazgo</a>, un tramo corto</td></tr><tr><td>6</td><td>¿<mark>Gestión de cambio</mark> habla solo de tecnología y procesos? (V o F sin justificar)</td><td><a href="#cambio">Cambio</a>, un tramo corto</td></tr><tr><td>7</td><td>Completar. <mark>Actores del proceso de cambio</mark>: Paladines, ..., Leales, Escépticos, ...</td><td><a href="#lo-que-el-drive-no-trae">Sin teoría en el Drive</a></td></tr><tr><td>8</td><td>Si se tiene como valores facilitar el aprendizaje, escuchar a las personas y dar un feedback constructivo, entonces es: Líder de COACH, Gerente, Líder Emocional, Todos los anteriores</td><td><a href="#nuevo-modelo-de-liderazgo">Nuevo modelo de liderazgo</a>, solo menciones</td></tr><tr><td>9</td><td>Principales diferencias de <mark>administrador y líder</mark></td><td><a href="#como-cambio-el-liderazgo">Cómo cambió el liderazgo</a>, solo por eras</td></tr><tr><td>10</td><td><mark>Competencias clave de inteligencia emocional de Goleman</mark> (sólo mencionar las 5)</td><td><a href="#lo-que-el-drive-no-trae">Sin teoría en el Drive</a></td></tr></tbody></table></div>
+</div>
+</section>
+<section class="sec"><h2 id="lo-que-el-drive-no-trae">Lo que el Drive no trae</h2>
+<div class="ojo"><p class="ojo-t">Buscá estos temas en tu cursada</p><p><strong>No aparecen en ningún archivo:</strong></p>
+<ul>
+<li>Equidad interna y objetivos de la gestión de compensación.</li>
+<li>Beneficios monetarios y no monetarios.</li>
+<li>Actores del proceso de cambio.</li>
+<li>Las competencias de inteligencia emocional de Goleman. Goleman no se nombra.</li>
+</ul>
+<p><strong>Aparecen muy poco:</strong></p>
+<ul>
+<li>Liderazgo situacional. La palabra no figura. Solo hay cuatro estilos en un ensayo.</li>
+<li>Gestión del cambio. Solo menciones sueltas.</li>
+<li>Las figuras de la consigna 8. Solo las palabras «herramientas de coach» e «inteligencia emocional», y la tabla por eras.</li>
+<li>Diferencias entre administrador y líder. Solo una tabla por eras.</li>
+</ul>
+<p>No los completamos de memoria. Esta cátedra puede tener definiciones propias, y una respuesta general puede contradecirlas.</p>
+</div>
+<p>Lo que sigue es la teoría que sí está. Sale de las notas de clase de 2024, posteriores a la marca «Clase previa a parcial», o de ensayos sobre lecturas donde se indica. Notas y ensayos son de alumnos. Ninguna de estas secciones es una respuesta a las consignas de arriba.</p>
+</section>
+<section class="sec"><h2 id="liderazgo">Liderazgo</h2>
+<p><strong>El líder.</strong> Las notas dicen que cualquier persona puede serlo, en el lugar y contexto en que esté. También dicen que es la capacidad para motivar y dirigir, y que el verdadero líder es uno más del grupo.</p>
+<p><strong>Chiavenato.</strong> Proceso de influir en las actividades de un grupo de personas hacia el logro de metas u objetivos específicos.</p>
+<p><strong>Robbins.</strong> El trabajo del líder es ayudar a sus seguidores a alcanzar sus metas y proporcionar la dirección necesaria, o asegurarse de que esas metas sean compatibles con los objetivos de la organización.</p>
+<div class="ojo"><p class="ojo-t">Dos frases que chocan en las notas</p><p>Justo después de decir que cualquiera puede ser líder, las notas agregan «es una posición jerárquica dentro de una organización». Las dos no pueden valer sin aclaración. Confirmá con tu comisión cómo lo presenta (Nota de Clases.docx, sección El líder).</p>
+</div>
+<h3 id="como-cambio-el-liderazgo">Cómo cambió el liderazgo</h3>
+<div class="tabla"><table><thead><tr><th>Era</th><th>Figura</th><th>Rasgos, según las notas</th></tr></thead><tbody><tr><td>Industrial</td><td>Manager</td><td>Poder y control, sistematizador, centrado en la tarea, sin feedback</td></tr><tr><td>De la información</td><td>Líder</td><td>El conocimiento es poder, visionario, feedback unidireccional, centrado en las personas</td></tr><tr><td>De la imaginación</td><td>Neurolíder</td><td>El poder está en las ideas, creador, centrado en el cerebro, humor, feedback en todas las direcciones</td></tr></tbody></table></div>
+<h3 id="neuroliderazgo">Neuroliderazgo</h3>
+<p>Es neurociencia más liderazgo. Su objetivo es comprender cómo funciona el cerebro humano para desarrollar estrategias más efectivas para liderar, motivar y gestionar a las personas en entornos laborales y sociales.</p>
+<p><strong>Busca:</strong> empoderar al individuo, fomentar al líder saludable, contribuir a las culturas colaborativas, aceptar la diversidad, ser altamente creativo, asumir riesgo, tener empatía por la acción y servir a los demás.</p>
+<div class="tabla"><table><thead><tr><th>Atiende</th><th>Para qué</th></tr></thead><tbody><tr><td>Inteligencia emocional</td><td>Las emociones afectan el rendimiento y las decisiones de líderes y equipos</td></tr><tr><td>Comunicación efectiva</td><td>Conocer cómo procesa la información el cerebro</td></tr><tr><td>Toma de decisiones</td><td>Analizar cómo decide el cerebro</td></tr><tr><td>Motivación y engagement</td><td>Lograr que el equipo se comprometa</td></tr><tr><td>Resolución de conflictos</td><td>Aplicar principios neurológicos para entender mejor los conflictos</td></tr></tbody></table></div>
+<h3 id="nuevo-modelo-de-liderazgo">Nuevo modelo de liderazgo</h3>
+<p>Las notas lo enmarcan en los RRHH de la Argentina del siglo XXI, con datos de HR Trends, una consultora internacional. Citan que «la Argentina es el tercer país en el mundo con más trabajadores contratados en el extranjero en el sector informático después de India y China». Ese escenario, de globalización de los mercados internacionales, apunta a buscar y desarrollar talentos, al bienestar emocional, a construir ambientes positivos y a dar el salto al neuroliderazgo.</p>
+<ul>
+<li><strong>Debe desarrollar:</strong> habilidades blandas, multihabilidades, inteligencia emocional y herramientas de coach.</li>
+<li><strong>Debe presentar en su personalidad:</strong> autoconocimiento, empatía y escucha activa.</li>
+</ul>
+<h3 id="estilos-de-liderazgo-segun-una-lectura">Estilos de liderazgo según una lectura</h3>
+<p>Sale de un ensayo sobre «Empowerment, una cuestión de poder» (<code>Entregas/LO7_ RRHH.docx</code>). Dice que el liderazgo efectivo adapta su estilo a cada situación y colaborador, y promueve un aumento gradual en la autonomía del empleado. Nombra cuatro estilos: <strong>decir, convencer, participar y delegar</strong>. El líder actúa como facilitador, comunicador, consejero, entrenador y proveedor de retroalimentación.</p>
+<p>El ensayo no explica cada estilo ni dice a quién le corresponde cuál.</p>
+</section>
+<section class="sec"><h2 id="habilidades-blandas">Habilidades blandas</h2>
+<p><strong>Soft skills.</strong> Elementos de nuestra personalidad que nos permiten interactuar con el entorno. Las notas distinguen tres entornos: con uno mismo, suprahumano (creencias, religión) y general.</p>
+<p>Se ven en la comunicación efectiva, el liderazgo, la empatía, el trabajo en grupo, la organización y el pensamiento crítico. La empatía se define con la RAE: identificación mental y afectiva de un sujeto con el estado de ánimo de otro.</p>
+<p>Las notas citan un estudio de IBM. Más del 45% de los directores de RRHH dicen que los universitarios salen con las habilidades digitales necesarias, pero sin las de resolución de problemas, trabajo en equipo o liderazgo.</p>
+<p>También dicen que los sentimientos impactan en la manera de trabajar de las personas, y que eso se refleja en la rentabilidad.</p>
+</section>
+<section class="sec"><h2 id="cambio">Cambio</h2>
+<p>No hay una unidad sobre gestión del cambio en el Drive. Estas son las únicas menciones:</p>
+<ul>
+<li><strong>Adaptación al cambio</strong>, uno de los <a href="parcial-1.html#el-siglo-xxi">roles clave de RRHH</a>. El mundo cambia, la sociedad evoluciona, las escalas de valores cambian, y las estructuras y conductas tienen que adaptarse.</li>
+<li><strong>El ensayo sobre empowerment</strong> dice que implementar un cambio cultural requiere diseñar una estructura específica, hacer auditorías y evaluaciones y contar con facilitadores capacitados socialmente. Estos necesitan entusiasmo, capacidad de persuasión e influencia, y fomentar el diálogo para lograr cambios en el comportamiento.</li>
+<li><strong>El mismo ensayo</strong> presenta el empowerment como crucial para el proceso de cambio organizacional. Integrar sus principios en la estructura de la empresa permite que los empleados estén alineados con la alta gerencia, negocien límites de desempeño, asuman responsabilidades y tengan libertad de acción para buscar mejoras continuas. También ubica, desde la crisis del petróleo de los 70, una transformación cultural hacia la mejora continua, el trabajo en equipo y el liderazgo basado en la calidad.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="empoderamiento">Empoderamiento</h2>
+<p><strong>A nivel personal.</strong> Proceso por el que las personas adquieren el control de sus vidas. Implica claridad de objetivos, autoconfianza, decisiones efectivas y resiliencia.</p>
+<p><strong>A nivel de gestión empresarial (Chiavenato).</strong> Proceso por el que las organizaciones otorgan a sus empleados el poder, la autonomía y la responsabilidad necesarios para tomar decisiones y actuar de manera proactiva en su trabajo.</p>
+<p>Cuatro elementos:</p>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Qué implica</th></tr></thead><tbody><tr><td>Delegación de autoridad</td><td>Da sentido de propiedad y compromiso con las tareas</td></tr><tr><td>Autonomía</td><td>Decidir y actuar dentro de los límites que fija la organización</td></tr><tr><td>Desarrollo de habilidades</td><td>Herramientas, entrenamiento y apoyo para poder decidir</td></tr><tr><td>Responsabilidad</td><td>Tomar decisiones acertadas y asumir las consecuencias</td></tr></tbody></table></div>
+<h3 id="lo-que-agrega-la-lectura-de-empowerment">Lo que agrega la lectura de empowerment</h3>
+<p>Sale del mismo ensayo (<code>Entregas/LO7_ RRHH.docx</code>). «Empower» significa autorizar, facultar, comisionar, habilitar o dar poder. En la empresa, el <strong>empowerment</strong> es la delegación oficial de autoridad para ser ejercida. Los empleados, sobre todo los más cercanos al cliente o al problema, asumen la responsabilidad y el compromiso de decidir, y aceptan las consecuencias de sus acciones. Busca potenciar su autonomía y su capacidad de tomar decisiones informadas y efectivas.</p>
+<p>Desde la crisis del petróleo de los años 70, la globalización y la competencia empujaron a las empresas a mejorar productividad, costos y calidad. El empowerment es una pieza de ese proceso. Según el ensayo, mejora la satisfacción del cliente externo y también la del empleado, y con eso la productividad.</p>
+<div class="tabla"><table><thead><tr><th>Los gerentes deben</th><th>Los empleados deben</th></tr></thead><tbody><tr><td>Comunicar visión y misión</td><td>Aceptar responsabilidades y autoridad</td></tr><tr><td>Liderar por influencia</td><td>Participar en las decisiones</td></tr><tr><td>Descentralizar decisiones</td><td>Asesorar a sus compañeros</td></tr><tr><td>Fomentar la participación en la resolución de problemas</td><td>Aceptar nuevas ideas</td></tr><tr><td>Facilitar autonomía y autodesarrollo</td><td>Asumir riesgos</td></tr><tr><td>Reconocer y recompensar</td><td></td></tr><tr><td>Promover enfoques proactivos</td><td></td></tr></tbody></table></div>
+<p><strong>Equipos con empowerment.</strong> Se caracterizan por el compromiso y la colaboración. Sus miembros comparten tareas, tienen habilidades enriquecidas por la motivación y la capacitación, y toman decisiones responsables. Pasar a equipos autónomos requiere un plan de transición con capacitación, comunicación bidireccional y organización del trabajo autónomo.</p>
+<p>Los límites de decisión se negocian entre gerente y empleado. Hay varios niveles, desde las decisiones impositivas hasta la delegación total, pasando por las consultivas y las consensuadas. Así decide quien está más cerca de la acción, y eso promueve la innovación.</p>
+</section>
+<section class="sec"><h2 id="delegacion">Delegación</h2>
+<p><strong>RAE.</strong> Dicho de una persona, cuando autoriza a otra para que haga algo en su lugar.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Empoderar</th><th>Delegar</th></tr></thead><tbody><tr><td>Elemento priorizado</td><td>El poder</td><td>La confianza</td></tr><tr><td>Fórmula de las notas</td><td>Poder + confianza + autoridad + autonomía + responsabilidad</td><td>Confianza + poder + autoridad + responsabilidad</td></tr><tr><td>Qué implica</td><td>Desarrollar la capacidad de decidir y actuar de manera autónoma</td><td>Asignar una tarea, responsabilidad o autoridad para que otro la lleve a cabo en nombre del delegante</td></tr><tr><td>Control</td><td>Busca fortalecer a la persona</td><td>Implica mantener el control</td></tr></tbody></table></div>
+<p><strong>Proceso de delegación de autoridad:</strong></p>
+<ol>
+<li>Definir objetivos y tareas.</li>
+<li>Seleccionar al subordinado delegado.</li>
+<li>Asignar las tareas y transmitir la capacidad de mando.</li>
+<li>Apoyar, seguir y exigir.</li>
+</ol>
+<p><strong>Peter Drucker sobre delegar.</strong> Delegar con una evaluación según la tarea. Dar instrucciones precisas, con procedimientos simples, y explicar por qué se hace así. Mostrar cómo contribuye a los objetivos y qué resultados se esperan. Reconocer el desempeño superior, discutir problemas y felicitar en público.</p>
+<p><strong>Por qué puede fallar.</strong> No se respetan los tiempos, las instrucciones se transmiten mal o no se interpreta la importancia de la tarea.</p>
+<p><strong>Un ejemplo de clase.</strong> Hay que desarrollar un test de entrevista personal, para contratar personal con habilidades blandas, en tres meses. La tarea baja de director general a gerente de división, a director de personal y a especialista de RRHH.</p>
+<p>Las notas concluyen esto:</p>
+<ul>
+<li>Lo que se delega es la autoridad.</li>
+<li>Lo que no se delega es la responsabilidad final.</li>
+<li>Hay responsabilidad compartida y responsabilidad final.</li>
+<li>Hay una responsabilidad del delegante y otra del delegado. Las notas solo las nombran.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Un tramo confuso de las notas</p><p>Sobre el mismo ejemplo, las notas dicen que el fracaso se comparte entre los tres últimos niveles y que «la responsabilidad final cae en el último nivel». Eso no cierra del todo con «no se delega la responsabilidad final». Confirmalo con tu comisión (Nota de Clases.docx, sección Delegación).</p>
+</div>
+<p><strong>Chiavenato.</strong> La delegación es una técnica de gestión eficaz y también una herramienta para el desarrollo personal y profesional de los colaboradores y para el éxito de la organización.</p>
+</section>
+<section class="sec"><h2 id="representantes-de-los-rrhh">Representantes de los RRHH</h2>
+<div class="tabla"><table><thead><tr><th>Autor</th><th>Aporte</th></tr></thead><tbody><tr><td>Elton Mayo</td><td>Teoría de las relaciones humanas, en contra de la gestión científica de Taylor</td></tr><tr><td>Abraham Maslow</td><td>Pirámide de Maslow</td></tr><tr><td>Peter Drucker</td><td>Gestión de los objetivos</td></tr></tbody></table></div>
+<p>Las notas solo los nombran. No desarrollan la pirámide ni la gestión por objetivos.</p>
+</section>
+<section class="sec"><h2 id="conflicto">Conflicto</h2>
+<p><strong>Robbins.</strong> Proceso que se inicia cuando una de las partes percibe que la otra afecta o puede afectar algo que la primera considera importante.</p>
+<p>Otra definición de las notas: se presenta cuando una parte trata de alcanzar sus objetivos, ligados con la otra, e interfiere con sus esfuerzos. Es más que un simple desacuerdo.</p>
+<p><strong>Causas:</strong></p>
+<ul>
+<li>Diferencias individuales de personalidad, valores, creencias y experiencias.</li>
+<li>Recursos limitados, como tiempo, dinero y espacio.</li>
+<li>Objetivos y prioridades que no se alinean.</li>
+<li>Estilos de trabajo y comunicación.</li>
+<li>Estructura organizacional, con jerarquías, roles y responsabilidades mal definidos.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Dónde ocurre</th></tr></thead><tbody><tr><td>Intrapersonal</td><td>Dentro de un individuo, como la indecisión o el estrés interno</td></tr><tr><td>Interpersonal</td><td>Entre individuos, por diferencias personales o de comunicación</td></tr><tr><td>Intergrupal</td><td>Entre grupos o departamentos</td></tr><tr><td>Organizacional</td><td>Por problemas estructurales o de gestión</td></tr></tbody></table></div>
+<p><strong>Consecuencias.</strong> Las notas las agrupan de dos maneras, que dicen casi lo mismo.</p>
+<div class="tabla"><table><thead><tr><th>Positivas o funcionales</th><th>Negativas o disfuncionales</th></tr></thead><tbody><tr><td>Innovación y cambio, porque fomenta discutir ideas nuevas y buscar soluciones</td><td>Baja moral y erosión de la moral, que reducen motivación y satisfacción</td></tr><tr><td>Mejora en los mecanismos de toma de decisiones</td><td>Menor productividad y rendimiento, porque distrae a los empleados de sus tareas</td></tr><tr><td>Clarificación de roles y objetivos, que mejora la definición de las expectativas</td><td>Clima laboral tenso, un ambiente hostil que afecta a los colaboradores</td></tr><tr><td>Fortalecimiento de relaciones y cohesión de grupo</td><td>Más estrés y deserción de personal, con inasistencias</td></tr></tbody></table></div>
+<p><strong>Estrategias:</strong></p>
+<div class="tabla"><table><thead><tr><th>Estrategia</th><th>Quién resuelve</th></tr></thead><tbody><tr><td>Negociación</td><td>Las partes intentan llegar a un acuerdo entre ellas</td></tr><tr><td>Mediación</td><td>Un tercero imparcial ayuda a las partes a resolver sus diferencias</td></tr><tr><td>Arbitraje</td><td>Un árbitro toma una decisión que las partes acuerdan acatar</td></tr><tr><td>Colaboración</td><td>Las partes trabajan juntas para encontrar la solución</td></tr><tr><td>Compromiso</td><td>Ambas partes aceptan un acuerdo mutuo</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Mediación o arbitraje</p><p>En los dos hay un tercero. El mediador ayuda. El árbitro decide.</p>
+</div>
+<p>Follett ya había clasificado los modos de tratar el conflicto. Lo tenés en <a href="parcial-1.html#mary-parker-follett">Mary Parker Follett</a>.</p>
+</section>
+<section class="sec"><h2 id="negociacion">Negociación</h2>
+<p>Sale de un ensayo sobre la lectura (<code>Entregas/LO8_RRHH.docx</code>). Es el proceso por el que dos o más partes con intereses, necesidades o deseos diferentes buscan un acuerdo mutuamente beneficioso. Implica comunicación, intercambio de propuestas y búsqueda de soluciones aceptables.</p>
+<p>Es un ciclo que se repite mientras haya motivos para negociar. Tiene estas fases:</p>
+<ol>
+<li><strong>Decisión de negociar.</strong> Se analiza un problema y se concluye que negociar es lo más aconsejable.</li>
+<li><strong>Preparación.</strong> Objetivos claros, estrategias, información y propuestas iniciales.</li>
+<li><strong>Ejecución.</strong> Discusión, señales, propuesta, paquete e intercambio.</li>
+<li><strong>Conclusión.</strong> Puede terminar en acuerdo, ruptura o languidecimiento.</li>
+<li><strong>Materialización del resultado.</strong> Se pone en marcha lo pactado. Si hubo ruptura, se prepara la estrategia para gestionar el conflicto.</li>
+</ol>
+<div class="tabla"><table><thead><tr><th>Dentro de la ejecución</th><th>Qué es</th></tr></thead><tbody><tr><td>Discusión</td><td>Las partes exponen posiciones y argumentos</td></tr><tr><td>Señales</td><td>Indican disposición a negociar ciertos aspectos</td></tr><tr><td>Propuesta</td><td>Ofertas o peticiones distintas de la posición inicial</td></tr><tr><td>Paquete</td><td>Conjunto de propuestas para iniciar la negociación</td></tr><tr><td>Intercambio</td><td>Obtener concesiones a cambio de ceder en otros aspectos</td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><th>Final posible</th><th>Qué pasa</th></tr></thead><tbody><tr><td>Acuerdo</td><td>Consenso, formalizado en un documento escrito</td></tr><tr><td>Ruptura</td><td>Conflictiva, o por perder la voluntad de negociar</td></tr><tr><td>Languidecimiento</td><td>Las partes pierden la motivación para continuar</td></tr></tbody></table></div>
+<p>La ejecución arranca con la primera aproximación entre las partes. Además de esas cinco actividades, incluye la aplicación de tácticas estratégicas.</p>
+<p><strong>Comunicación, estrategia y tácticas</strong>, según el mismo ensayo:</p>
+<ul>
+<li>La comunicación efectiva es vital en todo el proceso. Los negociadores usan el lenguaje verbal, el escrito y el no verbal, con gestos y señales, para transmitir intenciones y propuestas.</li>
+<li>No hay que prometer lo que no se puede cumplir, porque eso socava la confianza y la credibilidad.</li>
+<li>Estrategias y tácticas bien planificadas influyen mucho en el resultado. El negociador tiene que estar preparado para improvisar y ajustar su enfoque según cómo reacciona la otra parte.</li>
+</ul>
+<p><strong>Por qué es un ciclo.</strong> Cada negociación genera una situación nueva. Con el tiempo, un cambio de contexto o necesidades nuevas pueden pedir otra negociación. Por eso el proceso se repite mientras existan motivaciones para negociar. El ensayo cierra con que un buen negociador maneja cada fase y busca un acuerdo beneficioso para ambas partes, que se implemente bien para mantener la relación y la confianza a largo plazo.</p>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-2" data-materia="direccion-de-recursos-humanos">
+<h2>Quiz del 2° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="LMLtF4GMAW" data-tema="Neuroliderazgo" data-enlace="parcial-2.html#neuroliderazgo" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-1"><span class="q-n">1</span><div><p>¿Cuál es el objetivo del neuroliderazgo?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-1"><li><button type="button" class="op" data-ok="0">Medir la productividad con estudios médicos</button></li><li><button type="button" class="op" data-ok="0">Reemplazar a los líderes por análisis de datos</button></li><li><button type="button" class="op" data-ok="1">Comprender cómo funciona el cerebro para liderar, motivar y gestionar mejor</button></li><li><button type="button" class="op" data-ok="0">Seleccionar personal por pruebas neurológicas</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es <strong>neurociencia más liderazgo</strong>, aplicada a entornos laborales y sociales.</p>
+</div></li><li class="q" data-q="WUXpgJ8Rhx" data-tema="Neuroliderazgo" data-enlace="parcial-2.html#neuroliderazgo" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-2"><span class="q-n">2</span><div><p>¿Cuál de estos temas atiende el neuroliderazgo, según las notas?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-2"><li><button type="button" class="op" data-ok="0">Liquidación de sueldos</button></li><li><button type="button" class="op" data-ok="1">Resolución de conflictos</button></li><li><button type="button" class="op" data-ok="0">Selección de proveedores</button></li><li><button type="button" class="op" data-ok="0">Auditoría contable</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>También atiende <strong>inteligencia emocional, comunicación, toma de decisiones y motivación</strong>.</p>
+</div></li><li class="q" data-q="gLmB6huhX_" data-tema="Delegación" data-enlace="parcial-2.html#delegacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-3"><span class="q-n">3</span><div><p>¿Qué elemento prioriza cada uno, según las notas?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-3"><li><button type="button" class="op" data-ok="1">Empoderar prioriza el poder y delegar, la confianza</button></li><li><button type="button" class="op" data-ok="0">Empoderar prioriza la confianza y delegar, el poder</button></li><li><button type="button" class="op" data-ok="0">Los dos priorizan la autoridad</button></li><li><button type="button" class="op" data-ok="0">Los dos priorizan la responsabilidad</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Empoderar busca <strong>fortalecer a la persona</strong>. Delegar implica <strong>mantener el control</strong>.</p>
+</div></li><li class="q" data-q="Uv23my_A0h" data-tema="Delegación" data-enlace="parcial-2.html#delegacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-4"><span class="q-n">4</span><div><p>¿Cuál es el primer paso del proceso de delegación de autoridad?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-4"><li><button type="button" class="op" data-ok="0">Seleccionar al subordinado delegado</button></li><li><button type="button" class="op" data-ok="0">Transmitir la capacidad de mando</button></li><li><button type="button" class="op" data-ok="0">Apoyar, seguir y exigir</button></li><li><button type="button" class="op" data-ok="1">Definir objetivos y tareas</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El orden es <strong>definir, seleccionar, asignar y seguir</strong>.</p>
+</div></li><li class="q" data-q="SKVZBTTX1A" data-tema="Empoderamiento" data-enlace="parcial-2.html#empoderamiento" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-5"><span class="q-n">5</span><div><p>Dentro de la lectura de empowerment, ¿qué le toca a los gerentes?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-5"><li><button type="button" class="op" data-ok="0">Decidir todo y controlar</button></li><li><button type="button" class="op" data-ok="1">Comunicar la visión, descentralizar decisiones y reconocer</button></li><li><button type="button" class="op" data-ok="0">Evitar que los empleados asuman riesgos</button></li><li><button type="button" class="op" data-ok="0">Reemplazar a los equipos autónomos</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>A los empleados les toca <strong>aceptar responsabilidades</strong>, participar en decisiones y asumir riesgos.</p>
+</div></li><li class="q" data-q="c5XTAh4p2x" data-tema="Conflicto" data-enlace="parcial-2.html#conflicto" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-6"><span class="q-n">6</span><div><p>¿Qué diferencia a la mediación del arbitraje?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-6"><li><button type="button" class="op" data-ok="0">En la mediación no hay un tercero</button></li><li><button type="button" class="op" data-ok="0">En el arbitraje las partes deciden solas</button></li><li><button type="button" class="op" data-ok="1">El mediador ayuda a las partes y el árbitro toma la decisión</button></li><li><button type="button" class="op" data-ok="0">Son lo mismo con distinto nombre</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>En los dos hay un tercero. <strong>El mediador ayuda, el árbitro decide</strong>, y las partes acuerdan acatar.</p>
+</div></li><li class="q" data-q="pt-qp87KIJ" data-tema="Conflicto" data-enlace="parcial-2.html#conflicto" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-7"><span class="q-n">7</span><div><p>Un conflicto entre dos departamentos de la organización es de tipo:</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-7"><li><button type="button" class="op" data-ok="0">Intrapersonal</button></li><li><button type="button" class="op" data-ok="0">Interpersonal</button></li><li><button type="button" class="op" data-ok="0">Organizacional</button></li><li><button type="button" class="op" data-ok="1">Intergrupal</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El intergrupal es <strong>entre grupos o departamentos</strong>. El organizacional surge por problemas estructurales o de gestión.</p>
+</div></li><li class="q" data-q="psrpyu8Dxd" data-tema="Conflicto" data-enlace="parcial-2.html#conflicto" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-8"><span class="q-n">8</span><div><p>¿Cuál es una consecuencia funcional de un conflicto?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-8"><li><button type="button" class="op" data-ok="1">Mejora en los mecanismos de toma de decisión</button></li><li><button type="button" class="op" data-ok="0">Erosión de la moral</button></li><li><button type="button" class="op" data-ok="0">Aumento del estrés</button></li><li><button type="button" class="op" data-ok="0">Menor rendimiento</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las funcionales también incluyen <strong>estimular la innovación</strong> y aumentar la cohesión de grupo.</p>
+</div></li><li class="q" data-q="PafjUga_a6" data-tema="Negociación" data-enlace="parcial-2.html#negociacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-9"><span class="q-n">9</span><div><p>¿En qué orden van las fases del proceso de negociación?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-9"><li><button type="button" class="op" data-ok="0">Preparación, decisión, ejecución, materialización, conclusión</button></li><li><button type="button" class="op" data-ok="1">Decisión, preparación, ejecución, conclusión, materialización</button></li><li><button type="button" class="op" data-ok="0">Ejecución, preparación, decisión, conclusión, materialización</button></li><li><button type="button" class="op" data-ok="0">Decisión, ejecución, preparación, materialización, conclusión</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es un <strong>ciclo</strong>: se repite mientras haya motivos para negociar.</p>
+</div></li><li class="q" data-q="FQgqsPx3-c" data-tema="Negociación" data-enlace="parcial-2.html#negociacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-10"><span class="q-n">10</span><div><p>¿Qué es el languidecimiento en una negociación?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-10"><li><button type="button" class="op" data-ok="0">Un acuerdo por escrito</button></li><li><button type="button" class="op" data-ok="0">Una ruptura conflictiva</button></li><li><button type="button" class="op" data-ok="0">Un conjunto de propuestas iniciales</button></li><li><button type="button" class="op" data-ok="1">Las partes pierden la motivación para continuar</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es uno de los tres finales posibles, junto con <strong>acuerdo y ruptura</strong>.</p>
+</div></li><li class="q" data-q="GqttfgRnd1" data-tema="Habilidades blandas" data-enlace="parcial-2.html#habilidades-blandas" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-11"><span class="q-n">11</span><div><p>¿Qué son las soft skills, según las notas?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-11"><li><button type="button" class="op" data-ok="1">Elementos de la personalidad que permiten interactuar con el entorno</button></li><li><button type="button" class="op" data-ok="0">Conocimientos técnicos de software</button></li><li><button type="button" class="op" data-ok="0">Beneficios que da la empresa</button></li><li><button type="button" class="op" data-ok="0">Las reglas de un grupo informal</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las notas hablan de tres entornos: <strong>con uno mismo, suprahumano y general</strong>.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN: un parcial de 2026 y notas y ensayos de alumnos de 2024. No hay apuntes de la cátedra. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

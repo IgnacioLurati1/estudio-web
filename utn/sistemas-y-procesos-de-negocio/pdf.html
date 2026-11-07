@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sistemas y Procesos de Negocio en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Sistemas y Procesos de Negocio, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="sistemas-y-procesos-de-negocio" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Sistemas y Procesos de Negocio</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Sistemas y Procesos de Negocio</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial-1">1° parcial</a></li><li><a href="#pdf-parcial-2">2° parcial</a></li><li><a href="#pdf-parcial-3">3° parcial</a></li><li><a href="#pdf-final">Final</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). La materia se llamó Sistemas y Organizaciones en los exámenes viejos. Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Sistemas y Procesos de Negocio</p><h1>Para entender</h1>
+<p class="bajada">Cómo entender una empresa para poder diseñarle un sistema. Cómo está organizada, qué papeles mueve, cómo se cuenta lo que hace y cómo se toman sus decisiones.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+<div class="mapa">
+<a href="#pdf-parcial-1"><strong>1° parcial</strong><span>Administración, estructura, organigrama y comprobantes.</span><small data-progreso="parcial-1">Quiz sin hacer</small></a>
+<a href="#pdf-parcial-2"><strong>2° parcial</strong><span>Sistemas, relevamiento, proceso de negocio con enfoque sistémico y cursograma.</span><small data-progreso="parcial-2">Quiz sin hacer</small></a>
+<a href="#pdf-parcial-3"><strong>3° parcial</strong><span>Decisiones: tabla y matriz de decisión.</span><small data-progreso="parcial-3">Quiz sin hacer</small></a>
+<a href="#pdf-final"><strong>Final</strong><span>El examen integrador y dónde estudiar cada consigna.</span><small data-progreso="final">Quiz sin hacer</small></a>
+<a href="ejercicios.html"><strong>Ejercicios</strong><span>Enunciados de exámenes reales para practicar.</span></a>
+<a href="machete.html"><strong>Hoja de repaso</strong><span>Todo en una hoja, para imprimir antes de rendir.</span></a>
+</div>
+
+
+<section class="sec"><h2 id="inicio-la-idea-de-toda-la-materia">La idea de toda la materia</h2>
+<p>Un ingeniero en sistemas no empieza escribiendo código. Empieza entendiendo para quién lo escribe. La materia te enseña a mirar una empresa en cuatro capas, de afuera hacia adentro.</p>
+<ol>
+<li><strong>Cómo está armada.</strong> Quién manda a quién, qué áreas tiene y cómo se agrupan. Eso es la estructura y se dibuja en un <a href="#parcial-1-el-organigrama">organigrama</a>.</li>
+<li><strong>Qué papeles mueve.</strong> Una compra o una venta no pasa solo por la cabeza de alguien. Pasa por comprobantes (pedidos, remitos, facturas) que van de un sector a otro. Eso es un <a href="#parcial-1-procedimientos-administrativos-y-comprobantes">procedimiento administrativo</a>.</li>
+<li><strong>Cómo se cuenta lo que hace.</strong> Hay que salir a preguntar, con entrevistas y cuestionarios, y después escribir lo relevado. Con una plantilla (<a href="#parcial-2-el-proceso-de-negocio-con-enfoque-sistemico">proceso de negocio con enfoque sistémico</a>) y con un dibujo (<a href="#parcial-2-cursograma">cursograma</a>). Los datos se describen en un <a href="#parcial-2-diccionario-de-datos">diccionario de datos</a>.</li>
+<li><strong>Cómo decide.</strong> Hay decisiones que se pueden programar y otras que dependen de un criterio. Las primeras van en una <a href="#parcial-3-tabla-de-decision-decisiones-programadas">tabla de decisión</a> y las otras en una <a href="#parcial-3-matriz-de-decision-decisiones-no-programadas">matriz de decisión</a>.</li>
+</ol>
+<p>Todo eso es la etapa que viene antes de programar, el <strong>relevamiento</strong>, la primera del <a href="#parcial-2-ciclo-de-vida-del-desarrollo-de-sistemas">ciclo de desarrollo de sistemas</a>.</p>
+</section>
+<section class="sec"><h2 id="inicio-como-se-conectan-los-temas">Cómo se conectan los temas</h2>
+<p>Una misma empresa puede aparecer en los cuatro temas. Pensá en una distribuidora cualquiera.</p>
+<ul>
+<li>Tiene un <strong>organigrama</strong>, con gerencias y sectores.</li>
+<li>Emite <strong>comprobantes</strong>, como remitos y facturas.</li>
+<li>Se la puede describir con el <strong>enfoque sistémico</strong> (actores, flujo básico, reglas) y dibujar con un <strong>cursograma</strong>.</li>
+<li>Aplica <strong>políticas de decisión</strong>, como los descuentos según el tipo de cliente.</li>
+</ul>
+<p>Por eso los exámenes de 2023 en adelante traen un poco de todo en un solo examen.</p>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p>La materia se llamó <strong>Sistemas y Organizaciones</strong> hasta 2023. Lo que se toma hoy sale de los <strong>7 exámenes de 2023 en adelante</strong> que hay en el Drive.</p>
+<ul>
+<li>1° parcial del 01/07/23.</li>
+<li>Final del 03/12/24.</li>
+<li>Tres 3° parciales de 2024. Uno es del 19/11/24 (cristales) y los otros dos no tienen fecha (taller y veterinaria). La foto del taller llega solo hasta la consigna 1.</li>
+<li>3° parcial del 25/10/25.</li>
+<li>1° parcial de agosto de 2026, con su práctica y su teoría.</li>
+</ul>
+<p>No hay ningún 2° parcial de 2023 en adelante. Los temas de esa página se toman igual, en los otros exámenes.</p>
+<p>La práctica es una <strong>minuta</strong> de una empresa y hay que trabajar sobre ella. La teoría son preguntas cortas, del tipo «qué es un sistema de información» o «nombrá las funciones administrativas».</p>
+<p>En cada página, <mark>lo amarillo es lo que ya se tomó</mark>. Si tenés poco tiempo, mirá los bloques «Se tomó» de cada parcial. Lo que lleva la marca «Plan viejo» es de 2022 o antes.</p>
+</section>
+<section class="sec"><h2 id="inicio-que-se-tomo-de-2023-en-adelante">Qué se tomó de 2023 en adelante</h2>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Exámenes, de 7</th><th>Página</th></tr></thead><tbody><tr><td>Planteo de una decisión programada</td><td>6</td><td><a href="#parcial-3-como-plantear-el-problema-de-decision">3° parcial</a></td></tr><tr><td>Comprobantes</td><td>6</td><td><a href="#parcial-1-procedimientos-administrativos-y-comprobantes">1° parcial</a></td></tr><tr><td>Diccionario de datos</td><td>6</td><td><a href="#parcial-2-diccionario-de-datos">2° parcial</a></td></tr><tr><td>Proceso de negocio con enfoque sistémico, plantilla entera</td><td>5</td><td><a href="#parcial-2-el-proceso-de-negocio-con-enfoque-sistemico">2° parcial</a></td></tr><tr><td>Cursograma</td><td>4</td><td><a href="#parcial-2-cursograma">2° parcial</a></td></tr><tr><td>Organigrama para dibujar</td><td>4</td><td><a href="#parcial-1-el-organigrama">1° parcial</a></td></tr><tr><td>Indicar departamentalizaciones</td><td>4</td><td><a href="#parcial-1-departamentalizacion">1° parcial</a></td></tr><tr><td>Funciones administrativas, en la teoría</td><td>4</td><td><a href="#parcial-1-funciones-administrativas">1° parcial</a></td></tr><tr><td>Ciclo en cascada y relevamiento, en la teoría</td><td>3</td><td><a href="#parcial-2-ciclo-de-vida-del-desarrollo-de-sistemas">2° parcial</a></td></tr><tr><td>Qué es un sistema de información, en la teoría</td><td>3</td><td><a href="#parcial-2-sistema-de-informacion-e-informacion">2° parcial</a></td></tr><tr><td>Entrevista, en la teoría</td><td>2</td><td><a href="#parcial-2-entrevista">2° parcial</a></td></tr><tr><td>Hacer la tabla de decisión y reducirla</td><td>1</td><td><a href="#parcial-3-compactacion">3° parcial</a></td></tr><tr><td>Características de la información</td><td>1</td><td><a href="#parcial-2-caracteristicas-de-la-informacion">2° parcial</a></td></tr><tr><td>Manuales</td><td>1</td><td><a href="#parcial-1-manuales">1° parcial</a></td></tr><tr><td>Cuadro para unir definiciones con conceptos</td><td>1</td><td><a href="#parcial-1-como-viene-el-examen">1° parcial</a></td></tr></tbody></table></div>
+<p>Del taller solo se ve la consigna 1, así que los números de ese examen pueden ser más. <strong>Matriz de decisión:</strong> ningún examen de 2023 en adelante pide armarla, aunque sigue en los apuntes. Está al final del <a href="#parcial-3-matriz-de-decision-decisiones-no-programadas">3° parcial</a>.</p>
+</section>
+<section class="sec"><h2 id="inicio-como-usar-este-material">Cómo usar este material</h2>
+<ol>
+<li>Leé el <a href="#pdf-parcial-1">1° parcial</a>, después el <a href="#pdf-parcial-2">2°</a> y el <a href="#pdf-parcial-3">3°</a>, en ese orden. Cada uno se apoya en el anterior.</li>
+<li>Hacé el quiz de cada página.</li>
+<li>Practicá con los enunciados de <a href="ejercicios.html">Ejercicios</a>, primero los de 2023 en adelante. El Drive no trae ninguna resolución oficial, así que corregí con tu comisión.</li>
+<li>El día anterior, la <a href="machete.html">hoja de repaso</a>.</li>
+</ol>
+<div class="ojo"><p class="ojo-t">Lo que manda es lo que dice tu comisión</p><p>La plantilla de enfoque sistémico, los símbolos del cursograma y el formato de tabla de decisión salen de los apuntes de la cátedra. Si tu comisión pide un formato distinto, hacelo como lo pidieron.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-1" data-pagina="parcial-1" aria-label="1° parcial"><p class="pdf-de">Sistemas y Procesos de Negocio</p><h1>1° parcial</h1>
+<p class="bajada">Cómo se administra y se estructura una organización, cómo se dibuja su organigrama y qué papeles circulan en una compra o en una venta.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-1-como-viene-el-examen">Cómo viene el examen</h2>
+<p>Hay dos 1° parciales de 2023 en adelante, el del 01/07/23 y el de agosto de 2026.</p>
+<ul>
+<li><strong>Los dos</strong> traen organigrama con departamentalizaciones, el planteo de una decisión programada, que va en el <a href="#parcial-3-como-plantear-el-problema-de-decision">3° parcial</a>, y comprobantes de compras.</li>
+<li><strong>2023</strong> suma la tabla de decisión con sus reducciones, dónde ubicarías dos sectores nuevos sin dibujarlos, las <a href="#parcial-2-caracteristicas-de-la-informacion">características de la información</a> y un cuadro de conceptos.</li>
+<li><strong>2026</strong> suma una minuta corta de devolución de mercadería, con el evento de inicio, el flujo de entrada, el proceso y el flujo de salida. Va en el <a href="#parcial-2-diccionario-de-datos">2° parcial</a>. Trae además teoría de decisiones, entrevista, funciones administrativas y relevamiento.</li>
+</ul>
+<p>O sea que mezcla temas de las tres páginas. Estudiá esta primero, pero no llegues solo con esta. Los temas de acá también aparecen en el final y en los 3° parciales de 2024 y 2025.</p>
+<div class="tomado"><aside class="nota"><strong>Organigrama para dibujar, en 4 de 7 exámenes</strong><span>1° parcial 2026, Final 03/12/24, 3° parcial 19/11/24, 1° parcial 01/07/23</span></aside><p>Se parte de un texto y hay que identificar las áreas y los niveles. En el final se completa un organigrama ya empezado. En 2024 pedían que figuraran la cabeza estratégica y los sectores mencionados. En 2023 preguntaban además dónde ubicarías dos sectores nuevos, sin dibujarlos.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Funciones administrativas en la teoría, en 4 de 7 exámenes</strong><span>1° parcial 2026, Final 03/12/24, 3° parcial 19/11/24, 1° parcial 01/07/23</span></aside><p>La consigna pide nombrarlas y explicar una o dos. En 2023 aparecen en el cuadro de conceptos. Va en <a href="#parcial-1-funciones-administrativas">funciones administrativas</a>.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Cuadro para unir definiciones con conceptos</strong><span>1° parcial 01/07/23</span></aside><p>Quince definiciones y veintitrés conceptos. Entran administración, eficiencia y eficacia, estructura, ambiente, funciones administrativas, liderazgo, delegación, tipos de control, manuales y comprobantes, que están en esta página. También sistema de información y evento, en el <a href="#parcial-2-componentes-basicos">2° parcial</a>, y los tipos de decisión, en el <a href="#parcial-3-decisiones-programadas-y-no-programadas">3° parcial</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-que-es-una-organizacion-y-que-es-administrar">Qué es una organización y qué es administrar</h2>
+<p>Una organización es un sistema social. Está formada por individuos y grupos que, bajo una estructura y dentro de un contexto que controlan parcialmente, hacen actividades con recursos para lograr valores comunes. Las empresas son las organizaciones con fines de lucro.</p>
+<p>Entran tres cosas a toda organización. Los <strong>agentes</strong> (las personas), los <strong>recursos</strong> y los <strong>valores</strong> (los fines que se priorizan). Ninguna puede faltar.</p>
+<p>El apunte da siete características o elementos de toda organización.</p>
+<ol>
+<li>Un grupo de personas.</li>
+<li>Relativa permanencia.</li>
+<li>Orientación hacia un fin o meta común.</li>
+<li>Actividades y responsabilidades diferenciadas.</li>
+<li>Jerarquía de autoridad.</li>
+<li>Coordinaciones racionales deseadas.</li>
+<li>Interacción con el ambiente.</li>
+</ol>
+<p>La administración es «el proceso de diseñar y mantener un entorno en el que, trabajando en grupos, los individuos cumplan eficientemente objetivos específicos» (Koontz y Weihrich). De la definición salen tres aspectos, recursos, eficiencia y objetivos. Se aplica a todas las organizaciones y se ejerce en todos los niveles.</p>
+<p>El apunte agrega que quienes administran ejercen las funciones administrativas, que los resultados salen de esfuerzos grupales, que aplican el principio de eficiencia y que operan tanto en el ambiente interno como en el externo.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 3 a 6.</p>
+<h3 id="parcial-1-organizacion-formal-e-informal">Organización formal e informal</h3>
+<ul>
+<li><strong>Formal:</strong> nace de la delegación de autoridad de un nivel a otro. La autoridad máxima reside en la cabeza estratégica y se delega para que cada nivel tome sus decisiones. La estructura está antes que los hombres. Es un conjunto de prescripciones de cómo deben ser las cosas. Es lo único que se puede dibujar en un organigrama.</li>
+<li><strong>Informal:</strong> son los grupos pequeños que se forman por interacción y un interés común. Los <strong>primarios</strong> (familia, amigos, grupo de trabajo) tienen relación cara a cara, espontánea, voluntaria y durable, y son los que interesan para ver lo informal. Los <strong>secundarios</strong> están sujetos a una relación formal, sus objetivos son anteriores al grupo y son tan grandes que sus miembros no se conocen todos. Los grupos informales pueden dar cohesión o ser vehículo de disociación, sirven de vía de comunicación y de integración, pero también canalizan rumores. Pueden fomentar la cooperación o frenarla.</li>
+</ul>
+<p>La organización real es la suma de las dos.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 8 y 9.</p>
+<h3 id="parcial-1-el-ambiente">El ambiente</h3>
+<p>Todo lo que está fuera de las fronteras de la organización es ambiente.</p>
+<ul>
+<li><strong>Externo general:</strong> condiciones tecnológicas, ecológicas, económicas, político-legales y socioculturales. Afecta menos directamente.</li>
+<li><strong>Externo específico:</strong> clientes, proveedores, competidores, gobierno, sindicatos y grupos de interés. Tiene efecto directo e inmediato.</li>
+<li><strong>Interno:</strong> propietarios, empleados, administradores, lugar de trabajo y cultura de la organización.</li>
+</ul>
+<p>El ambiente externo son los elementos ajenos a la organización que son relevantes para su funcionamiento. El apunte lo llama también por cómo actúa.</p>
+<p><strong>Ambiente externo general o de acción indirecta.</strong> Crea el clima en el que existe la organización. Sus variables son estas.</p>
+<div class="tabla"><table><thead><tr><th>Variable</th><th>Qué es</th></tr></thead><tbody><tr><td>Económicas</td><td>Condiciones y tendencias generales de la economía. Salarios, precios de proveedores y competidores</td></tr><tr><td>Político-legales</td><td>Factores que vienen del proceso o del clima político. Leyes contra monopolios, de contrato de trabajo, de control de precios</td></tr><tr><td>Tecnológicas</td><td>Productos o procesos nuevos y adelantos científicos</td></tr><tr><td>Socioculturales</td><td>Demografía, forma de vida, valores sociales</td></tr><tr><td>Ecológicas</td><td>Toda circunstancia que puede alterar el ambiente en el que se desarrolla la organización</td></tr></tbody></table></div>
+<p><strong>Ambiente externo específico o de acción directa.</strong> Lo que involucra directamente a cada organización. Es único para cada una y cambia según los nichos de mercado en los que quiere operar.</p>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Qué es</th></tr></thead><tbody><tr><td>Clientes</td><td>Compran los bienes y servicios. Es la fuerza directa más importante</td></tr><tr><td>Competidores</td><td>Compiten por clientes y por recursos. <strong>Intratipos</strong> o directos, que producen bienes o servicios similares. <strong>Intertipos</strong> o indirectos, organizaciones distintas que pueden cambiar la intención de compra (el CD reemplazado por el pendrive)</td></tr><tr><td>Proveedores</td><td>Facilitan fondos, energía, equipos, servicios y materiales. La organización es vulnerable a sus problemas</td></tr><tr><td>Sindicatos</td><td>Asociación de trabajadores que defiende sus intereses profesionales, económicos y laborales</td></tr><tr><td>Grupos de interés</td><td>Uniones para influir sobre las organizaciones y proteger su área de actividad</td></tr><tr><td>Organismos reguladores</td><td>Dependencias del gobierno que protegen al público de ciertas prácticas o a unas organizaciones de otras</td></tr></tbody></table></div>
+<p>La <strong>cultura de la organización</strong> es el conjunto de creencias, hábitos, valores, actitudes y tradiciones de sus grupos.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 8 a 11.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-funciones-administrativas">Funciones administrativas</h2>
+<p>Son cuatro. Planificar, organizar, dirigir y controlar. Se ejercen en todos los niveles y están entrelazadas.</p>
+<div class="tabla"><table><thead><tr><th>Función</th><th>Qué es</th><th>Detalles que el apunte destaca</th></tr></thead><tbody><tr><td>Planificación</td><td>Establecer metas y un curso de acción adecuado para alcanzarlas</td><td>Dos elementos, objetivos y planes. Planes estratégicos (más de tres años, amplios, genéricos) y operativos (hasta un año, específicos). Es la función prioritaria, sin ella no tienen sentido las otras</td></tr><tr><td>Organización</td><td>Ordenar y distribuir el trabajo, la autoridad y los recursos entre los miembros</td><td>Determina qué tareas, quién las hace, cómo se agrupan, quién rinde cuentas a quién y dónde se deciden. Produce la estructura organizacional</td></tr><tr><td>Dirección</td><td>Mandar, motivar, influir en individuos y equipos, elegir el canal de comunicación</td><td>Incluye motivación, liderazgo y comunicación</td></tr><tr><td>Control</td><td>Asegurar que las actividades reales se ajusten a las planificadas</td><td>Cuatro pasos. Fijar estándares, medir resultados, compararlos con los estándares, tomar medidas correctivas</td></tr></tbody></table></div>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 12 a 17.</p>
+<p>La presentación de la cátedra las agrupa en dos etapas. La <strong>etapa mecánica</strong> es planificación y organización. La <strong>etapa dinámica</strong> es dirección y control. Planificar responde qué hacer. Organizar responde cómo hacerlo.</p>
+<p>Fuente: presentación Funciones Administrativas de la cátedra.</p>
+<h3 id="parcial-1-planificacion-en-detalle">Planificación en detalle</h3>
+<p>Planificar sirve para marcar una dirección, coordinar las actividades y cooperar. El apunte da tres razones.</p>
+<ul>
+<li><strong>Reducir la incertidumbre.</strong> No suprime los cambios. Permite preverlos y dar una respuesta más eficaz.</li>
+<li><strong>Reducir la superposición y el desperdicio</strong> de actividades.</li>
+<li><strong>Permitir el control,</strong> para detectar los desvíos y tomar las medidas correctivas.</li>
+</ul>
+<p>Los <strong>objetivos</strong> son los resultados deseados. Los <strong>planes</strong> explican cómo se alcanzan los objetivos, con la asignación de recursos y las acciones necesarias.</p>
+<p>Los planes estratégicos están diseñados para alcanzar las metas generales. Los operativos tienen los detalles para llevar los estratégicos a las actividades diarias. Se diferencian en tres aspectos.</p>
+<div class="tabla"><table><thead><tr><th>Aspecto</th><th>Planes estratégicos</th><th>Planes operativos</th></tr></thead><tbody><tr><td>Tiempo</td><td>Varios años. El horizonte rebasa los tres años</td><td>No más de un año</td></tr><tr><td>Alcance</td><td>Una amplia gama de actividades. Son para necesidades de una sola ocasión</td><td>Más limitado. Son continuos y encauzan actividades que se repiten</td></tr><tr><td>Grado de detalle</td><td>Simples y genéricos. Direccionales y flexibles, dan lineamientos generales</td><td>Con mayor detalle. Específicos, sin margen para interpretaciones</td></tr></tbody></table></div>
+<p>La planeación estratégica la hacen los directores. La operativa, los gerentes de nivel medio y de primer nivel.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 12 y 13.</p>
+<h3 id="parcial-1-direccion-en-detalle">Dirección en detalle</h3>
+<p>La dirección también es un proceso de influjo interpersonal. Los gerentes se comunican con sus subalternos sobre la ejecución del trabajo. Tiene tres partes.</p>
+<ul>
+<li><strong>Motivación.</strong> Los procesos responsables del deseo de un individuo de hacer un gran esfuerzo para lograr los objetivos de la organización. Está condicionada por la capacidad de ese esfuerzo de satisfacer alguna necesidad individual.</li>
+<li><strong>Liderazgo.</strong> Es «el proceso de dirigir e influir en las actividades laborales de los miembros de un grupo». Involucra a otras personas y una distribución desigual de poder entre los líderes y el grupo. <strong>Poder</strong> es la capacidad de ejercer influencia.</li>
+<li><strong>Comunicación.</strong> Es «la transferencia y la comprensión de significados». Es el medio que usan los gerentes para dirigir. Si no se transmitió nada, no hubo comunicación. Y para que sea exitosa, el significado se tiene que impartir y entender. Sirve para controlar, informar, motivar e influenciar.</li>
+</ul>
+<p>El proceso de comunicación interpersonal tiene estas piezas.</p>
+<ol>
+<li>Un <strong>propósito</strong>, expresado como mensaje.</li>
+<li>El <strong>emisor</strong> lo <strong>codifica</strong> con símbolos (palabras, dibujos, números).</li>
+<li>El mensaje viaja por un <strong>canal</strong>.</li>
+<li>El <strong>receptor</strong> lo <strong>decodifica</strong> para traducirlo.</li>
+<li>Puede haber <strong>ruido</strong>, alteraciones que interfieren la transmisión o la recepción.</li>
+<li>La <strong>retroalimentación</strong> es el vínculo final. Le permite al emisor verificar si se logró la comunicación.</li>
+</ol>
+<p>La comunicación organizacional es <strong>formal</strong> (sigue la cadena de mando y es la requerida para que alguien haga un trabajo) o <strong>informal</strong> (no está definida por la jerarquía). Puede fluir en cuatro sentidos.</p>
+<div class="tabla"><table><thead><tr><th>Sentido</th><th>Para qué</th></tr></thead><tbody><tr><td>Hacia abajo</td><td>Informar, coordinar y evaluar a los subordinados</td></tr><tr><td>Hacia arriba</td><td>Que los directivos conozcan el avance hacia los objetivos y los problemas</td></tr><tr><td>Lateral</td><td>Ahorrar tiempo y facilitar la coordinación</td></tr><tr><td>Diagonal</td><td>Cruza áreas y niveles. Busca eficiencia y velocidad. El correo electrónico la facilita</td></tr></tbody></table></div>
+<p>La lateral y la diagonal pueden generar conflictos si los empleados no mantienen informados a sus superiores.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 14 a 16.</p>
+<h3 id="parcial-1-control-en-detalle">Control en detalle</h3>
+<p>El control cierra el ciclo de los procesos gerenciales. Relaciona el avance real con lo que se previó al planificar. Cada elemento tiene su condición.</p>
+<ol>
+<li><strong>Establecer estándares de desempeño.</strong> Los objetivos de la planificación tienen que estar definidos en forma clara y mensurable, para poder traducirlos en normas.</li>
+<li><strong>Medir los resultados presentes.</strong> Es un proceso constante y repetitivo. La frecuencia depende de la actividad. Conviene no dejar pasar plazos largos entre mediciones.</li>
+<li><strong>Comparar los resultados con las normas.</strong> Es el paso más fácil. Si los resultados corresponden a las normas, no hace falta intervenir.</li>
+<li><strong>Tomar medidas correctivas cuando hay desvíos.</strong> Solo si los resultados no cumplen los estándares y el análisis indica que hay que actuar. A veces el control revela normas inadecuadas, y lo que se cambia es la norma en lugar de la actividad.</li>
+</ol>
+<p>El control está más generalizado que la planificación. Sirve para detectar desvíos en la planificación, la organización y la dirección, y también para vigilar los cambios del ambiente.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 16 y 17.</p>
+<h3 id="parcial-1-tipos-de-control">Tipos de control</h3>
+<p>Según cuándo se aplica.</p>
+<ul>
+<li><strong>Anticipante:</strong> antes de la actividad, para evitar problemas previstos.</li>
+<li><strong>Concurrente:</strong> mientras la actividad se lleva a cabo.</li>
+<li><strong>De retroalimentación:</strong> después de terminada la actividad.</li>
+</ul>
+<h3 id="parcial-1-roles-del-gerente">Roles del gerente</h3>
+<p>Además del enfoque por funciones, el apunte describe los roles. <strong>Interpersonales</strong> (la relación con la gente), <strong>informativos</strong> (recibir, almacenar y difundir información) y <strong>de decisión</strong>. El enfoque de funciones sigue siendo la forma más útil de ordenar el trabajo gerencial.</p>
+<div class="ojo"><p class="ojo-t">Planificar no es decidir</p><p>El apunte trata la decisión por separado. Decidir es elegir entre dos o más alternativas y lo hacen todos los integrantes, pero es central en el trabajo del gerente. Fijar los objetivos es la primera y principal decisión de toda organización. El detalle está en el <a href="#pdf-parcial-3">3° parcial</a>.</p>
+</div>
+<h3 id="parcial-1-decision-y-fijacion-de-objetivos">Decisión y fijación de objetivos</h3>
+<p>Tomar decisiones es un proceso completo, no solo el acto de elegir. Se trata con un <strong>problema</strong>, que surge cuando el estado real de las cosas no se ajusta al estado deseado. A veces un problema es una oportunidad.</p>
+<p>Para identificar problemas, el administrador tiene que entender sus tres características.</p>
+<ul>
+<li>Estar consciente de ellos.</li>
+<li>Estar presionado para actuar.</li>
+<li>Tener los recursos para emprender las acciones.</li>
+</ul>
+<p>Las situaciones que suelen alertar de un problema son una desviación de la experiencia pasada, una desviación del plan establecido y el desempeño de la competencia.</p>
+<p>Los <strong>objetivos</strong> son los resultados deseados y se tienen que convertir en objetivos cuantificables o metas. Se fijan mirando la misión. Toda organización, con o sin fines de lucro, tiene varios objetivos.</p>
+<p>En la fijación tradicional, los objetivos se definen en la dirección y se dividen en objetivos parciales para cada nivel. Así se forma la <strong>cadena de medios a fines</strong>. Lo que se logra en un nivel es el medio para alcanzar el objetivo del nivel siguiente.</p>
+<p>Los pasos para fijar los objetivos son cinco.</p>
+<ol>
+<li>Revisar la misión de la organización, su propósito.</li>
+<li>Evaluar los recursos disponibles.</li>
+<li>Determinar los objetivos.</li>
+<li>Escribir los objetivos y comunicarlos a quienes tienen que saberlos.</li>
+<li>Revisar los resultados y ver si se consiguieron los objetivos.</li>
+</ol>
+<p>Después de estos pasos se preparan los planes para alcanzarlos.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 18 a 20.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-estructura-organizacional">Estructura organizacional</h2>
+<p>La estructura es la forma de dividir, organizar y coordinar las actividades. El diseño organizacional es elegir la estructura más conveniente para la estrategia, el personal, la tecnología y las tareas.</p>
+<p>Siete conceptos la componen.</p>
+<ol>
+<li><strong>División del trabajo y especialización.</strong> Asignar tareas específicas a cada miembro y formarlo para eso.</li>
+<li><strong>Cadena de mando.</strong> Línea continua de autoridad de arriba hacia abajo que dice quién informa a quién. Se apoya en la autoridad (derecho de dar órdenes), la responsabilidad (obligación de hacer la tarea) y la unidad de mando (cada persona informa a un solo superior).</li>
+<li><strong>Alcance del control.</strong> Cuántos subordinados puede dirigir bien un gerente. Con pocos subordinados por jefe la pirámide se alarga (más niveles). Con muchos se achata (menos niveles, pero se puede perder control).</li>
+<li><strong>Delegación.</strong> Ceder una función a otra persona junto con la responsabilidad, la autoridad y los medios. Quien delega sigue respondiendo ante su superior.</li>
+<li><strong>Departamentalización,</strong> con la centralización y descentralización como parte de la delegación.</li>
+<li><strong>Eficiencia y eficacia.</strong> Eficiencia es lograr los objetivos con la menor cantidad de recursos. Eficacia es el grado en que se alcanzan los objetivos.</li>
+<li><strong>Autoridad de línea, staff y funcional.</strong> La línea manda y decide. El staff asesora y no decide. La funcional viene de funciones específicas.</li>
+</ol>
+<p>Y además la <strong>formalización</strong>, que es el grado en que los trabajos están estandarizados y las normas guían el comportamiento.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 22 a 29.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Si querés llegar a la facultad, llegar es ser eficaz. Llegar gastando lo menos posible de plata y de tiempo es ser eficiente. Podés llegar y haber gastado de más. Fuiste eficaz, pero poco eficiente.</p>
+</div>
+<p>Para definir la estructura hay que conocer el tipo de organización, el ambiente en el que actúa, y sus objetivos, estrategias y políticas.</p>
+<h3 id="parcial-1-los-conceptos-en-detalle">Los conceptos en detalle</h3>
+<p><strong>Unidad de mando.</strong> El apunte da cuatro formas del concepto.</p>
+<ol>
+<li>Cada persona tiene uno y solo un superior.</li>
+<li>Se establece un superior y se explicita que todos los demás dependen de él.</li>
+<li><strong>Por autoridad final.</strong> Aunque una persona tenga más de un jefe, uno es el de línea. A ese recurre si hay conflicto de autoridad, y es quien tiene la última palabra.</li>
+<li><strong>División de la autoridad,</strong> el concepto más moderno. «Una persona debe recibir órdenes de los supervisores que realmente puedan ayudarles cuando ésta lo necesite». Para eso los supervisores tienen que saber más que sus subordinados en esa especialidad. Acerca a la autoridad funcional.</li>
+</ol>
+<p><strong>Alcance del control.</strong> Es la posibilidad de control que tiene un gerente sobre los empleados o las unidades a su cargo. Influyen estos factores.</p>
+<ul>
+<li>La destreza y la capacidad del gerente y de los empleados.</li>
+<li>El tipo de trabajo (qué tan similares y complejas son las tareas, cuánto se usan procedimientos estandarizados).</li>
+<li>La cercanía física de los subordinados.</li>
+<li>La complejidad del sistema de información.</li>
+<li>La fuerza de la cultura de la organización.</li>
+</ul>
+<p>La tendencia actual es hacia alcances más amplios, para bajar costos, decidir más rápido, ganar flexibilidad y acercarse a los clientes. Por eso las organizaciones capacitan a sus empleados.</p>
+<div class="tabla"><table><thead><tr><th>Pirámide</th><th>Cuándo</th><th>Qué pasa</th></tr></thead><tbody><tr><td>Equilibrada</td><td>Criterios ni muy reducidos ni muy amplios</td><td>Proporcionada en base y altura</td></tr><tr><td>Chata</td><td>Muchos subordinados por jefe</td><td>Menos niveles y comunicación más rápida entre la base y la cúspide. Se puede perder control</td></tr><tr><td>Alargada</td><td>Pocos subordinados por jefe</td><td>Mejora el control, pero crecen los niveles. Los sistemas de comunicación e información se extienden y pueden volverse ineficientes</td></tr></tbody></table></div>
+<p><strong>Delegación.</strong> Las razones para delegar suelen ser el crecimiento general de las actividades, más tareas en un puesto o una mayor complejidad operativa o decisoria. Lo delegado se hace dentro de los límites impuestos. La delegación se abre en dos, departamentalización y descentralización.</p>
+<p><strong>Eficiencia.</strong> El apunte la define así. «Se dice que un sistema o acción determinada es eficiente cuando alcanza los objetivos propuestos utilizando la menor cantidad de los recursos necesarios para su consecución». Admite dos acepciones.</p>
+<ul>
+<li>Alcanzar los objetivos propuestos con los mínimos recursos posibles.</li>
+<li>Con los recursos existentes, optimizar la obtención de los objetivos.</li>
+</ul>
+<p><strong>Autoridad.</strong> La de línea es la figura clásica de la unidad de mando. Implica mando y decisión. El staff asesora al personal de línea sobre políticas, tecnologías, evaluación de alternativas, y análisis de restricciones y oportunidades.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 22 a 29.</p>
+<h3 id="parcial-1-centralizacion-y-descentralizacion">Centralización y descentralización</h3>
+<p>Descentralizar es delegar la posibilidad de decidir. Conviene cuando el ambiente es complejo e incierto, los gerentes de niveles inferiores están capacitados, las decisiones son menos importantes o la empresa está dispersa geográficamente. Gana velocidad de decisión y adaptación. Centralizar gana coordinación. No existe una organización totalmente centralizada ni totalmente descentralizada.</p>
+<p>La definición del apunte es «Es el proceso a través del cual una persona delega la posibilidad de que otra persona o unidad pueda tomar decisiones». Además de velocidad y adaptación, produce una fuerza motivadora en quienes pueden tomar decisiones. Cuando la descentralización aumenta se habla de <strong>empowerment</strong>, el aumento de poder de los empleados para decidir.</p>
+<p>La centralización también se refiere a la toma de decisiones, pero a su nivel de concentración. El caso típico son las organizaciones familiares o unipersonales. Lo importante es definir qué funciones se descentralizan y cuáles conviene dejar centralizadas.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, página 28.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-departamentalizacion">Departamentalización</h2>
+<p>Es agrupar funciones homogéneas bajo un cargo, delegando autoridad en un responsable (jefe, superior o gerente). Aporta especialización y división del trabajo, y exige coordinar las unidades.</p>
+<p>Según Koontz y O&#39;Donnell, el proceso tiene siete pasos.</p>
+<ol>
+<li>Establecer los objetivos de la empresa.</li>
+<li>Formular planes y políticas para lograrlos.</li>
+<li>Determinar las actividades necesarias para llevar a la práctica esos planes y políticas.</li>
+<li>Enumerar y clasificar las actividades.</li>
+<li>Agrupar las actividades por especialidades.</li>
+<li>Darle a cada grupo, normalmente a través de un jefe, la autoridad necesaria.</li>
+<li>Interrelacionar a los grupos en todas las direcciones.</li>
+</ol>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, página 24.</p>
+<div class="tomado"><aside class="nota"><strong>Indicar las departamentalizaciones existentes, en 4 de 7 exámenes</strong><span>1° parcial 2026, 3° parcial 25/10/25, Final 03/12/24, 1° parcial 01/07/23</span></aside><p>En 2025 la consigna daba una sola oración para analizar y preguntaba de qué área dependía el sector. La clave es mirar, para cada grupo de sectores, qué criterio se usó para agruparlos.</p>
+</div>
+<p>Los parciales de 2018 y 2021 pedían escribirlas fuera del organigrama. Los de 2023 en adelante no lo aclaran. Escribirlas aparte no le saca nada a la consigna.</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Se agrupa por</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td>Por funciones</td><td>La función que cumplen. Es la de mayor aplicación, sobre todo en los niveles altos</td><td>Gerencia general con Investigación y Desarrollo, Administración, Comercialización y Producción</td></tr><tr><td>Por área geográfica</td><td>Dónde está la actividad. Sirve con casa central y sucursales</td><td>Sucursales norte, centro, sur</td></tr><tr><td>Por productos</td><td>El producto o servicio</td><td>Producto A, B y C dentro de producción, administración y comercialización</td></tr><tr><td>Por procesos o equipo</td><td>Las etapas del proceso para lograr un objetivo</td><td>Estampado, soldado, pintado, armado</td></tr><tr><td>Por tipo de mercado o cliente</td><td>Grupos de clientes claramente definidos</td><td>Venta mayorista y venta minorista</td></tr><tr><td>Por tiempo</td><td>El turno</td><td>Turno mañana, tarde y noche</td></tr></tbody></table></div>
+<p>Cada tipo tiene ventajas y desventajas en el apunte. Por ejemplo, la funcional da especialización y control desde la cima, pero reduce la coordinación entre funciones. La geográfica refuerza el énfasis en los mercados locales, pero requiere más gerentes generales. La de tiempo permite trabajar más de ocho horas, pero complica la supervisión nocturna y la coordinación entre turnos.</p>
+<p>La lista completa del apunte es esta.</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Ventajas</th><th>Desventajas</th></tr></thead><tbody><tr><td>Por funciones</td><td>Reflejo lógico de las funciones. Mantiene el poder y el prestigio de las funciones principales. Sigue la especialización ocupacional. Simplifica la capacitación. Permite un control riguroso desde la cima</td><td>Resta énfasis a los objetivos generales. El personal clave se sobrespecializa. Reduce la coordinación entre funciones. La responsabilidad de las utilidades queda solo en la cima. Adaptación lenta. Limita el desarrollo de gerentes generales</td></tr><tr><td>Por área geográfica</td><td>Delega responsabilidad a niveles inferiores. Énfasis en mercados y problemas locales. Mejor coordinación en una región. Aprovecha las economías locales. Mejor comunicación con los intereses locales. Da un campo de capacitación medible para gerentes generales</td><td>Hacen falta más personas con capacidad de gerente general. Cuesta mantener servicios centrales económicos, y puede hacer falta personal y compras en cada región. Complica el control de la alta dirección</td></tr><tr><td>Por productos</td><td>Concentra atención y esfuerzo en líneas de productos. Facilita el uso de capital, instalaciones y conocimientos especializados. Permite crecer y diversificar productos. Mejora la coordinación de las actividades funcionales. Campo de capacitación para gerentes generales</td><td>Hacen falta más personas con habilidades de gerente general. Cuesta mantener servicios centrales económicos. Acentúa el problema del control de la alta dirección</td></tr><tr><td>Por procesos o equipo</td><td>Evita inversiones redundantes. Usa tecnología y habilidades especiales. Simplifica la capacitación. Mejor coordinación o control porque concentra tareas similares</td><td>Dificulta la coordinación de departamentos. La responsabilidad de las utilidades recae en la cima</td></tr><tr><td>Por mercado o cliente</td><td>Concentra en las necesidades de los clientes. El cliente siente que tiene un proveedor comprensivo. Desarrolla pericia en el área de clientes. Más especialización, coordinación y supervisión</td><td>Cuesta coordinar demandas contrapuestas de los clientes. Hacen falta administradores expertos en problemas de los clientes. No siempre se pueden definir bien los grupos de clientes</td></tr><tr><td>Por tiempo</td><td>Servicio más allá de la jornada de 8 horas, a veces las 24. Permite procesos que no se pueden interrumpir. Amortiza bienes de capital caros</td><td>Puede faltar supervisión en el turno noche. Efectos de la fatiga. Problemas de coordinación y comunicación entre turnos. Horas extras u horario nocturno que encarecen el producto</td></tr></tbody></table></div>
+<p>La funcional es la de mayor aplicación y arraigo, cada vez más en los niveles superiores. La de tiempo es de las más antiguas y se usa por lo general en los niveles inferiores.</p>
+<div class="ojo"><p class="ojo-t">Un mismo organigrama suele tener varios tipos</p><p>Es común que arriba se agrupe por funciones y más abajo por cliente, producto, proceso o turno. Hay que nombrar cada uno y decir dónde está, no uno solo para todo el organigrama.</p>
+</div>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 24 a 28.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-los-componentes-de-mintzberg">Los componentes de Mintzberg</h2>
+<p>Una organización está formada por seis componentes básicos. Los parciales de 2018 y 2021 pedían marcarlos sobre el organigrama. De 2023 en adelante solo se preguntó por la cabeza de la estructura, en dos 3° parciales de 2024.</p>
+<div class="tabla"><table><thead><tr><th>Componente</th><th>Qué es</th><th>Ejemplos del apunte</th></tr></thead><tbody><tr><td>Cabeza estratégica y ejecutiva</td><td>Directorio (mediano y largo plazo) y gerencia general (corto plazo). Cuida que se cumpla el objetivo básico</td><td>Directorio, gerente general, comité ejecutivo</td></tr><tr><td>Tecnoestructura</td><td>Personal consultor permanente. Adapta la organización al cambio y logra que se aplique la estandarización</td><td>Ingeniería industrial, investigación y desarrollo, investigación de mercado, finanzas, planeamiento de la producción, capacitación, asesores internos y externos</td></tr><tr><td>Asistencia de apoyo</td><td>Presta apoyo interno a producción y comercialización (o externo a clientes y terceros)</td><td>Relaciones públicas, intendencia, control de calidad, control interno, mantenimiento, sistemas</td></tr><tr><td>Gerencia intermedia</td><td>Se nutre de la tecnoestructura y del apoyo, y traduce el lenguaje de la cabeza estratégica</td><td>Gerentes de áreas</td></tr><tr><td>Zona de supervisión</td><td>Eslabón entre la gerencia intermedia y la base operativa</td><td>Subgerentes, jefes, supervisores, capataces</td></tr><tr><td>Base operativa</td><td>Cumple las normas y procedimientos y desarrolla las actividades operativas</td><td>Obreros, empleados, vendedores, expedidores, promotores</td></tr></tbody></table></div>
+<p>Control de calidad y sistemas entran en una categoría mixta, apoyo y tecnoestructura, porque aplican tecnologías específicas.</p>
+<p>La cabeza ejecutiva a veces forma parte del directorio y participa de la estrategia. Otras veces la representa un comité ejecutivo que cumple la misión del gerente general. La tecnoestructura adapta la organización tanto al cambio social como al tecnológico. La asistencia de apoyo <strong>interna</strong> colabora con producción y comercialización. La <strong>externa</strong> es el apoyo que la organización da a sus clientes o terceros. La base operativa, además de cumplir las normas, tiene que informar los resultados de sus actividades.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 29 y 30.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-el-organigrama">El organigrama</h2>
+<p>Es un gráfico que representa la estructura formal en un momento dado. Solo muestra la estructura formal, nunca la informal. Se arma con rectángulos y líneas. En el rectángulo van la función, el cargo, el nombre de la persona y la dotación. Las <strong>líneas verticales</strong> indican subordinación y las <strong>horizontales</strong> coordinación.</p>
+<p>Para leer o armar uno hay que distinguir cuatro cosas.</p>
+<ul>
+<li><strong>Área:</strong> agrupación de funciones heterogéneas homogeneizadas en el objetivo (Producción, Finanzas y Control, Comercialización).</li>
+<li><strong>Departamento:</strong> agrupación homogénea de funciones bajo un cargo.</li>
+<li><strong>Función:</strong> tarea sistemáticamente repetitiva que lleva a un fin.</li>
+<li><strong>Tarea:</strong> la expresión mínima del trabajo.</li>
+</ul>
+<h3 id="parcial-1-areas-genericas-de-una-empresa">Áreas genéricas de una empresa</h3>
+<div class="tabla"><table><thead><tr><th>Tipo de área</th><th>Ejemplos</th></tr></thead><tbody><tr><td>Estratégicas</td><td>Directivos y gerente general. Definen misión, visión y objetivos</td></tr><tr><td>Gestión operativa</td><td>Producción o servicios. Comercialización (incluye compras si es una empresa comercial)</td></tr><tr><td>Apoyo o servicios internos</td><td>Administración, control y finanzas (tesorería, contabilidad general, cuentas corrientes, sueldos). Recursos humanos. Sistemas. Logística y distribución. Secretaría y legales</td></tr><tr><td>Específicas de gestión</td><td>Investigación y desarrollo. Control de calidad. Seguridad laboral y medioambiente. Gestión de servicios y seguridad de la información</td></tr></tbody></table></div>
+<p>Lo que hace cada una, según el apunte.</p>
+<ul>
+<li><strong>Directivos y gerente general.</strong> Definen la misión, la visión y los objetivos globales, con la colaboración de las demás áreas.</li>
+<li><strong>Producción o servicios.</strong> Los procesos de manufactura (industria) o de prestación de servicios (bancos, seguros, sanatorios). En una institución educativa es la enseñanza.</li>
+<li><strong>Comercialización.</strong> Los procesos de venta. Detecta las necesidades de los clientes. En una organización comercial incluye compras. Según el tamaño, puede incluir la posventa.</li>
+<li><strong>Administración, control y finanzas.</strong> Tesorería, contabilidad general, cuentas corrientes, liquidación de sueldos y el control de la información para evaluar resultados, planear y calcular costos.</li>
+<li><strong>Recursos humanos.</strong> Suministra el capital humano con capacitación, técnicas de incorporación y políticas de desarrollo.</li>
+<li><strong>Sistemas.</strong> Administra los recursos informáticos y tecnológicos. Obtiene, procesa, custodia y archiva la información y mantiene el hardware y el software. Suministra información para las decisiones estratégicas.</li>
+<li><strong>Logística y distribución.</strong> Pone el producto o servicio a disposición del cliente en el momento y la cantidad precisos. Puede incluir depósitos y transporte, en su mayoría tercerizados.</li>
+<li><strong>Secretaría y legales.</strong> Provee lo necesario para cumplir la ley y los estatutos internos.</li>
+<li><strong>Investigación y desarrollo.</strong> Descubre y evalúa innovaciones con técnicas científicas para mejorar la eficiencia, agregar valor o crear productos.</li>
+<li><strong>Control de calidad.</strong> Verifica que los productos cumplan los estándares (normas ISO). Usa la mejora continua del ciclo de Deming (planificar, hacer, verificar, actuar).</li>
+<li><strong>Seguridad laboral y medioambiente.</strong> Verifican la protección del personal y las normas ambientales. También usan el ciclo de mejora continua.</li>
+<li><strong>Gestión de servicios y seguridad de la información.</strong> Verifican la calidad y la seguridad de la información, el software y el hardware (normas ISO, ITIL, Cobit, Magerit).</li>
+</ul>
+<p>La estructura de cada empresa depende de su tipo, objeto, procesos, ámbito, tamaño y cultura. Las áreas genéricas son solo un marco de referencia.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 31 a 33.</p>
+<div class="ojo"><p class="ojo-t">Dónde va compras</p><p>Según el apunte, en una organización comercial el proceso de compras está en el área de comercialización. Si la minuta del examen lo ubica a cargo de otro gerente, manda la minuta.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, página 32.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Cómo se dibuja un asesor</p><p>Las minutas de 2023 en adelante traen asesores externos, como una asesoría de publicidad, un abogado o un estudio contable. El apunte dice que el staff asesora y no decide, y pone a los asesores internos y externos en la tecnoestructura. No muestra cómo se dibujan en el organigrama. Preguntalo en tu comisión.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, página 29.</p>
+</div>
+<p>El organigrama se lee junto con los <strong>manuales de organización</strong>, que definen para cada actividad las funciones, las responsabilidades, la autoridad y las limitaciones.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 31 a 33.</p>
+<h3 id="parcial-1-las-areas-a-c-m-e">Las áreas A.C.M.E.</h3>
+<p>La cátedra da un resumen de las funciones de cada área según el modelo A.C.M.E. Sirve para saber de qué área depende un sector.</p>
+<div class="tabla"><table><thead><tr><th>Área</th><th>Funciones</th><th>Algunas subfunciones</th></tr></thead><tbody><tr><td>Investigación y desarrollo</td><td>Desarrollo. Ingeniería de productos. Investigación</td><td>Desarrollo de productos y procesos nuevos. Diseño de productos. Ensayos de ingeniería. Investigación básica y aplicada</td></tr><tr><td>Producción</td><td>Ingeniería de fábrica. Ingeniería industrial. Compras. Planeamiento y control de la producción. Fabricación. Control de calidad</td><td>Mantenimiento. Estudio de métodos. Adquisiciones. Recepción en fábrica, despacho de fábrica, almacenamiento y control de existencias (dentro de planeamiento y control). Montaje. Inspección y ensayos. Reclamaciones de clientes</td></tr><tr><td>Comercialización</td><td>Investigación de mercado. Publicidad. Promoción de ventas. Planeamiento de ventas. Operaciones de ventas. Distribución física</td><td>Análisis de mercado. Selección de medios. Políticas de ventas, presupuesto y precios. Dirección de vendedores. Servicio de pedidos. Almacenes, expedición y servicio del producto (dentro de distribución física)</td></tr><tr><td>Finanzas y control</td><td>Finanzas. Control</td><td>Planificación financiera, impuestos, custodia de fondos, créditos y cobranzas, seguros (finanzas). Contabilidad general y de costos, planificación y presupuesto, auditoría interna, sistemas y procedimientos (control)</td></tr><tr><td>Administración de personal</td><td>Reclutamiento. Administración de sueldos y jornales. Relaciones industriales. Planeamiento y desarrollo de la organización. Servicio para empleados</td><td>Búsqueda y selección. Calificación de méritos. Control de horarios. Negociación colectiva. Desarrollo del personal. Servicios médicos y seguridad</td></tr><tr><td>Secretaría y legales</td><td>Secretaría. Legales</td><td>Accionistas, directorio y sociedad. Empleados, finanzas y patentes</td></tr><tr><td>Relaciones externas</td><td>Comunicaciones e información. Coordinación de actividades públicas</td><td>Comunicaciones a acreedores e inversores. Comunicaciones públicas. Relaciones con sociedades y asociaciones</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Compras aparece en dos lugares</p><p>En el resumen A.C.M.E., compras es una función de Producción y también una subfunción del planeamiento de ventas en Comercialización. El apunte, en cambio, la pone en Comercialización cuando la organización es comercial. Lo que dice la minuta del examen manda.</p>
+</div>
+<p>Fuente: Resumen de las Áreas A.C.M.E. de la cátedra.</p>
+<h3 id="parcial-1-disenos-organizacionales">Diseños organizacionales</h3>
+<p>Los tradicionales son más mecanicistas. Los contemporáneos buscan flexibilidad.</p>
+<ul>
+<li><strong>Estructura simple:</strong> negocio chico, el dueño decide todo, casi sin normas escritas.</li>
+<li><strong>Estructura funcional (burocrática):</strong> agrupa por funciones, mucha especialización y normalización.</li>
+<li><strong>Estructura divisional:</strong> agrupa por mercados o productos con descentralización.</li>
+<li><strong>Contemporáneos:</strong> estructura de equipos, entre otros. Priorizan la departamentalización por clientes, equipos interfuncionales, menos formalización y más descentralización.</li>
+</ul>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 33 a 40.</p>
+<p>Fortalezas y debilidades de los tres tradicionales, según el apunte.</p>
+<div class="tabla"><table><thead><tr><th>Diseño</th><th>Fortalezas</th><th>Debilidades</th></tr></thead><tbody><tr><td>Simple</td><td>La visión de la organización es la del dueño. Los pocos empleados entienden el negocio y se adaptan entre ellos. Es económica, casi sin administración ni mandos intermedios</td><td>El dueño no transmite su visión. Al crecer pierde eficiencia por tareas poco definidas y poca especialización. La centralización y el estilo personalista no forman líderes</td></tr><tr><td>Funcional</td><td>Aprovecha la división del trabajo y la especialización. Es muy económica para producir bienes estandarizados en grandes volúmenes. Los gerentes controlan mejor sus actividades</td><td>Cada uno no relaciona su tarea con el producto final. Se adapta poco a los cambios. Al diversificarse surgen problemas de control y coordinación, y cuesta medir qué aporta cada producto o mercado</td></tr><tr><td>Divisional</td><td>Más capacidad de reacción, porque la decisión está cerca de los problemas. Se concentra en el desempeño y los resultados. Baja el costo de coordinar. Forma líderes</td><td>Es difícil decidir cuánta autonomía dar a cada división. Los gerentes divisionales priorizan su división aunque se suboptimice el total. Pueden recortar investigación y mantenimiento para mostrar mejores números</td></tr></tbody></table></div>
+<p>Mintzberg llama a la funcional <strong>burocracia mecánica</strong>. Necesita mucha estandarización de procesos, normas y comunicación formal, y la estructura se vuelve más alta. En la divisional, cada división es una <strong>Unidad Especializada de Negocios</strong> (UEN) con alto grado de autonomía. La cabeza estratégica le fija objetivos y la controla por resultados. Los servicios de apoyo quedan como <strong>Unidades de Servicios Centralizados</strong> (USC).</p>
+<p><strong>Los sistemas de información en cada diseño.</strong> En la estructura simple los sistemas cubren las funciones básicas (facturación, cobranza, compras). Conviene una base de datos totalmente integrada, con información operativa y consultas gerenciales, para que el dueño no pierda de vista ninguno de los dos ámbitos. En la divisional, la casa central asigna los mismos sistemas a todas las divisiones para que las salidas se puedan comparar. Esos sistemas tienen que ser paramétricos, así se adaptan a cada división.</p>
+<div class="tabla"><table><thead><tr><th>Funcional</th><th>Divisional</th></tr></thead><tbody><tr><td>Mira hacia el interior. La visión se centra en la tarea</td><td>Mira hacia el contexto. La visión se centra en los resultados</td></tr><tr><td>La atención va a los procesos</td><td>La atención va a los mercados</td></tr><tr><td>Exacerba la especialización</td><td>Especialización más moderada</td></tr><tr><td>Medir el desempeño de cada área es difícil y hasta inviable</td><td>Medir el desempeño de cada división es totalmente viable</td></tr><tr><td>Requiere más formalización. Más burocrática</td><td>Coordina por resultados. Menos burocrática</td></tr></tbody></table></div>
+<p><strong>Seis elementos del diseño.</strong> Especialización del trabajo, departamentalización, cadena de mando, amplitud de control, centralización y formalización. Los tradicionales ven la especialización como fuente inagotable de productividad y tienen menos descentralización. Los contemporáneos la ven como un mecanismo importante pero no sin fin, le dan menos peso a la cadena de mando, tienen más descentralización y formalización baja.</p>
+<p>Los diseños contemporáneos que da el apunte son cuatro.</p>
+<ol>
+<li><strong>Estructura de equipos.</strong> Toda la organización son equipos. No hay cadena de mando definida, pero los equipos responden por sus resultados.</li>
+<li><strong>Matriz de proyecto.</strong> Especialistas de distintas áreas trabajan en proyectos y vuelven a su área al terminar. Cada empleado tiene dos gerentes, el funcional y el de proyecto, que comparten la autoridad. Las promociones siguen siendo del gerente funcional.</li>
+<li><strong>Sin límites.</strong> No la restringen límites horizontales, verticales ni externos. Hay tres tipos. La <strong>virtual</strong> (pocos empleados fijos que contratan especialistas externos), la <strong>de red</strong> (una organización central chica que terceriza funciones importantes) y la <strong>modular</strong> (fabricantes que compran módulos y los ensamblan). Son muy flexibles, pero les falta control y tienen problemas de comunicación.</li>
+<li><strong>Organización que aprende.</strong> Desarrolló la capacidad de aprender, adaptarse y cambiar en forma continua. Diseño sin límites, con equipos y empowerment, e información abierta, oportuna y exacta.</li>
+</ol>
+<p>Sea cual sea el diseño, la estructura es un medio para llegar a un fin. Tiene que ayudar a los empleados a hacer su trabajo de la mejor manera.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 33 a 41.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-manuales">Manuales</h2>
+<div class="tomado"><aside class="nota"><strong>Un tipo de manual, en el cuadro de conceptos</strong><span>1° parcial 01/07/23</span></aside><p>Es el único examen de 2023 en adelante que los nombra. Antes los preguntó el parcial del 18/09/18.</p>
+</div>
+<p>Un manual es un cuerpo sistemático que indica las actividades de los miembros de la organización y cómo deben realizarse.</p>
+<div class="tabla"><table><thead><tr><th>Manual</th><th>Qué contiene</th></tr></thead><tbody><tr><td>De políticas</td><td>La política general y la de cada departamento. La política es una actitud de la dirección</td></tr><tr><td>De estructura</td><td>El organigrama general y los de cada departamento</td></tr><tr><td>De procedimiento</td><td>Organizado por departamento, siguiendo el orden normal del proceso</td></tr></tbody></table></div>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 41 a 45.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-procedimientos-administrativos-y-comprobantes">Procedimientos administrativos y comprobantes</h2>
+<p>Un procedimiento administrativo (o rutina) es la secuencia de operaciones de oficina, con la participación de varias personas en una o más oficinas, establecida para manejar de forma uniforme transacciones repetitivas. Define qué tarea hace cada participante, quiénes son y cuándo.</p>
+<p>Un <strong>método</strong> es el cómo. Es el ordenamiento sistemático de una tarea, los pasos que hace un empleado.</p>
+<p>La secuencia de toda operación es operación, comprobante, registración. Con procesamiento electrónico también puede ser operación, registración, comprobante.</p>
+<p>Fuente: Apunte Procedimientos Administrativos v1-08, páginas 3 a 5.</p>
+<h3 id="parcial-1-clasificacion-de-los-comprobantes">Clasificación de los comprobantes</h3>
+<p>Por origen son <strong>internos</strong> (emitidos por la empresa) o <strong>externos</strong> (emitidos por terceros). Los internos pueden ser de destino exclusivamente interno o de destino externo, que además circulan internamente por sus copias.</p>
+<p>Se archivan ordenados por número correlativo durante los años que fije la ley.</p>
+<h3 id="parcial-1-los-documentos-mas-comunes">Los documentos más comunes</h3>
+<p>Lo que sigue es lo que el apunte dice de cada uno. Para el diccionario de datos hay que escribirlo con la notación que está en el <a href="#parcial-2-diccionario-de-datos">2° parcial</a>.</p>
+<div class="tabla"><table><thead><tr><th>Documento</th><th>Origen y destino</th><th>Función</th><th>Datos que menciona el apunte</th></tr></thead><tbody><tr><td>Nota de requisición (REQ)</td><td>Emisión y circulación internas. Lo emite quien necesita el bien o servicio</td><td>Pedir materiales o servicios. Es control interno, no respaldo contable</td><td>Descripción del bien o servicio con sus características</td></tr><tr><td>Pedido de cotización (PC)</td><td>Origen interno (Compras), destino externo (probables proveedores)</td><td>Pedir precio y condiciones de venta</td><td>Descripción, cantidades, plazo de entrega, condiciones de pago, bonificaciones, descuentos</td></tr><tr><td>Orden de compra (OC)</td><td>Origen interno, destino externo. Prenumerada. Original al proveedor, duplicado al emisor</td><td>Solicitar al proveedor adjudicado lo cotizado</td><td>Cantidad de cada bien o servicio, fecha, precio y condiciones</td></tr><tr><td>Nota de pedido (NP) o nota de venta</td><td>La usan los vendedores. Original para la empresa proveedora, copia para el cliente</td><td>Que el cliente pida la mercadería</td><td>Similares a la OC</td></tr><tr><td>Nota o informe de recepción (NR)</td><td>Exclusivamente interno. La emite el sector de Recepción. Prenumerada</td><td>Constancia de que lo adquirido llegó. Se firma por cantidad y calidad</td><td>Fecha, proveedor, cantidad recibida, descripción, precios unitarios según la OC o NP, importe bruto, bonificaciones</td></tr><tr><td>Remito (RTO)</td><td>Prenumerado. Tres ejemplares</td><td>Prueba legal de entrega y recepción. Puede no tener precios</td><td>Fecha, datos del proveedor (membrete) y del comprador, cantidad o detalle de bienes enviados</td></tr><tr><td>Factura (FAC)</td><td>Prenumerada. La envía el vendedor al comprador</td><td>Detalla lo vendido, las condiciones y que se cargó en la cuenta del comprador</td><td>Fecha, datos de vendedor y comprador, cantidad, descripción, precios e importes, bonificaciones, condiciones de pago, forma de entrega</td></tr><tr><td>Nota de débito (ND)</td><td>Prenumerada. Mismos datos identificatorios que la factura</td><td>Cargar importes en cuenta del destinatario. Por ejemplo, error de facturación a menos, interés o flete no facturado</td><td>Como la factura</td></tr><tr><td>Nota de crédito (NC)</td><td>Similar a la ND</td><td>Acreditar en la cuenta. Por ejemplo, error de facturación a más o devolución de mercadería</td><td>Como la factura</td></tr><tr><td>Recibo (RBO)</td><td>Prenumerado</td><td>Declarar que se recibió dinero u otros efectos. Tiene carácter liberatorio</td><td>Fecha, datos del receptor y del pagador, importe, concepto, firma del cobrador</td></tr><tr><td>Hoja de ruta (HR)</td><td>Los usan repartidores y vendedores</td><td>Instrucciones de un viaje para optimizar el recorrido entre el origen y los destinos</td><td>Recorrido y destinos</td></tr><tr><td>Cheque (CH), pagaré (PAG)</td><td>Cheque, orden de pago contra un banco. Pagaré, promesa de pago</td><td>Medios de pago</td><td>Cheque, librador, banco, beneficiario. Pagaré, fechas de emisión y vencimiento, firma</td></tr><tr><td>Orden de pago (OP)</td><td>Documento interno</td><td>Respaldo contable de nuestros pagos</td><td>Fecha, tipo y número del documento a pagar, datos del proveedor, importe, número de cheque y banco</td></tr><tr><td>Minuta contable (MC)</td><td>Origen y destino exclusivamente internos</td><td>Registrar variaciones patrimoniales sin documento propio</td><td>Fecha, detalle, documentación, cuentas debitadas y acreditadas, firmas</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Remito, tres ejemplares</p><p>El original firmado por el vendedor es para el comprador. El duplicado lo firma el comprador en conformidad y vuelve al vendedor. El triplicado queda con el transportista como constancia de entrega. Cuando un cliente firma el remito en el acto, lo devuelve con el mismo transportista.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Factura, nota de débito y nota de crédito</p><p>La ND cobra de más al cliente cuando se facturó de menos. La NC reconoce un crédito al cliente cuando se facturó de más o hubo devolución. No son lo mismo que el recibo, que prueba el pago.</p>
+</div>
+<p>Fuente: Apunte Procedimientos Administrativos v1-08, páginas 6 a 10.</p>
+<h3 id="parcial-1-procedimiento-de-compras">Procedimiento de compras</h3>
+<p>Los comprobantes se emiten en este orden. El apunte lo muestra como un cuadro de entradas, procesos y salidas por sector.</p>
+<ol>
+<li>Almacenes detecta que hay que reponer y emite la <strong>nota de requisición</strong> (REQ) a Compras.</li>
+<li>Compras evalúa proveedores y emite <strong>pedidos de cotización</strong> (PC) a los posibles proveedores.</li>
+<li>Con las cotizaciones se adjudica y Compras emite la <strong>orden de compra</strong> (OC).</li>
+<li>Llega la mercadería. Recepción firma el <strong>remito</strong> del proveedor y le devuelve uno de los ejemplares. Con el ejemplar que se queda y una copia de la OC, confecciona la <strong>nota de recepción</strong> (NR).</li>
+<li>Almacenes recibe la mercadería y la NR de Recepción, y la controla. Almacena y registra el ingreso físico.</li>
+<li>Compras recibe de Recepción otro ejemplar de la NR y lo controla con la <strong>factura</strong>, y las notas de débito y crédito del proveedor. Se arma el legajo de compra.</li>
+<li>Recepción pasa a Contaduría el legajo de compra, con ejemplares de la NR, el remito, la OC y las notas que correspondan. Contaduría registra.</li>
+</ol>
+<p>Fuente: Apunte Procedimientos Administrativos v1-08, página 11.</p>
+<div class="tomado"><aside class="nota"><strong>Comprobantes de un proceso de compras, función, diccionario de datos y destino</strong><span>1° parcial 01/07/23, 3° parcial 25/10/25, 1° parcial 2026</span></aside><p>En 2023 preguntaban con qué comprobante se inicia una compra, su función, sus datos mínimos, su origen y su destino. En 2025 se daba la narrativa del proceso de compras con los comprobantes en blanco para completar, y había que elegir uno para dar su función y su diccionario. En 2026 se pedía nombrar los comprobantes y elegir dos con su función, diccionario de datos y destino interno o externo.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Reconocer un comprobante por lo que hace</strong><span>Final 03/12/24, 3° parcial 19/11/24, 3° parcial 2024 de la veterinaria</span></aside><p>La consigna no lo nombra. Describe una situación y hay que decir cuál es, con su diccionario de datos. En el final pedían además quién envía cada copia y para qué. En la veterinaria, cuántos ejemplares se generan y para quiénes.</p>
+</div>
+<h3 id="parcial-1-procedimiento-de-ventas">Procedimiento de ventas</h3>
+<ol>
+<li>Ventas atiende al cliente y se formaliza con la <strong>nota de pedido</strong> (NP), o el cliente manda su <strong>orden de compra</strong>.</li>
+<li>Ventas analiza y controla cantidades, existencias, calidades y precios.</li>
+<li>Créditos analiza la financiación y el estado de la cuenta del cliente.</li>
+<li>Almacenes prepara la mercadería y emite el <strong>remito</strong>.</li>
+<li>Expedición prepara la distribución, arma las <strong>hojas de ruta</strong> y consigue la conformidad en cada remito.</li>
+<li>Con el remito conformado y la NP se emite la <strong>factura</strong>.</li>
+<li>Se controla y se registra contablemente.</li>
+</ol>
+<p>Fuente: Apunte Procedimientos Administrativos v1-08, páginas 12 y 13.</p>
+<h3 id="parcial-1-pagos-y-cobranzas">Pagos y cobranzas</h3>
+<p><strong>Pagos.</strong> Se seleccionan los legajos de proveedores que vencen pronto, se analizan y autorizan. Se emite la <strong>orden de pago</strong> por triplicado. Tesorería prepara efectivo o valores. El proveedor emite el <strong>recibo</strong> y Contaduría registra el pago.</p>
+<p>El paso a paso del apunte es este.</p>
+<ol>
+<li>Pagos selecciona los legajos de proveedores que vencen dentro de la próxima semana o están vencidos.</li>
+<li>Cada <strong>legajo de pago</strong> contiene la factura y/o nota de débito pendiente de pago, el remito conformado, la nota de recepción y la orden de compra. Se controla y, si está bien, se autoriza el pago.</li>
+<li>Pagos emite la orden de pago por triplicado. Manda a Tesorería los dos primeros ejemplares y archiva el último.</li>
+<li>Tesorería prepara el efectivo o los valores. Archiva el original de la OP y manda a Contaduría el legajo y el duplicado de la OP.</li>
+<li>El proveedor recibe los valores y manda el original del recibo. Contaduría controla el legajo y el duplicado de la OP con el recibo, archiva y registra el pago.</li>
+</ol>
+<p><strong>Cobranzas.</strong> Se seleccionan las deudas por vencer o vencidas y se arma un listado de cobranzas por duplicado para el cobrador. El cobrador emite recibos por cuadruplicado, rinde en Tesorería, se controla y se registra. Tesorería arma la planilla de caja diaria.</p>
+<p>El paso a paso del apunte es este.</p>
+<ol>
+<li>Cobranzas selecciona los legajos de clientes que vencen dentro de la próxima semana o están vencidos. Cada legajo tiene el remito conformado por el cliente y la factura y/o nota de débito pendiente de cobro.</li>
+<li>Arma el listado de cobranzas por duplicado y se lo da al cobrador con las facturas y los remitos.</li>
+<li>El cobrador firma el duplicado del listado como constancia, que queda demorado en Cobranzas. Cobra, hace el recibo por cuadruplicado y le da el original al cliente.</li>
+<li>Al final del día rinde en Tesorería los valores, las copias de los recibos, las facturas, los remitos y el listado. Tesorería controla, le devuelve el listado sellado y firmado, y se queda con el cuadruplicado de los recibos.</li>
+<li>En Cobranzas se controla el duplicado de los recibos con el listado sellado. Le entrega al cobrador el triplicado visado y el duplicado del listado. Archiva el listado.</li>
+<li>Contaduría recibe los recibos y los legajos con facturas y remitos para registrar y archivar.</li>
+<li>Tesorería confecciona la planilla de caja diaria por duplicado, con los valores y los cuadruplicados de los recibos, que archiva definitivamente.</li>
+</ol>
+<div class="ojo"><p class="ojo-t">Qué respalda un pago y qué respalda una venta</p><p>Toda registración contable tiene que estar respaldada por un comprobante. La REQ, el PC y la OC no son documentación respaldatoria de registraciones contables. La factura firmada por el comprador o acompañada del remito conformado es el respaldo de las ventas del vendedor. El recibo tiene carácter liberatorio, pero muchas veces llega tarde o no llega, así que se usa para registrar la cobranza y no el pago propio. Por eso el respaldo del pago es siempre la orden de pago, aunque se reciba el recibo del proveedor.</p>
+<p>Fuente: Apunte Procedimientos Administrativos v1-08, páginas 5 a 9.</p>
+</div>
+<p>Fuente: Apunte Procedimientos Administrativos v1-08, páginas 13 a 15.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-preguntas-de-teoria-con-respuesta-en-el-apunte">Preguntas de teoría con respuesta en el apunte</h2>
+<details open class="pregunta"><summary><span>¿Qué tipo de decisiones se toman en el nivel más alto de la organización?</span><small>1° parcial 2026</small></summary><div class="resp"><p>Las decisiones no programadas, también llamadas decisión superior. Corresponden a la dirección superior y a la alta gerencia. Implican abstracción, reducción de incertidumbre y búsqueda y correlación de factores, y exigen creatividad, imaginación y experiencia. Se explican en el <a href="#parcial-3-decisiones-programadas-y-no-programadas">3° parcial</a>.</p>
+<p>Fuente: Apunte Sistema Decisorio v1.11, página 7.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Qué función tiene el remito y qué sector lo emite en una venta?</span><small>3° parcial 19/11/24</small></summary><div class="resp"><p>Es el documento con fuerza legal que prueba la entrega y recepción de la mercadería. En el procedimiento de ventas lo emite Almacenes, después de preparar la mercadería. El original va al comprador, el duplicado vuelve firmado al vendedor y el triplicado queda con el transportista.</p>
+<p>Fuente: Apunte Procedimientos Administrativos v1-08, páginas 7 y 12.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Qué función tiene la hoja de ruta?</span><small>3° parcial 25/10/25</small></summary><div class="resp"><p>Contiene las instrucciones de un viaje o transporte para optimizar el recorrido desde el punto de origen hacia los destinos. En una organización la usan los repartidores para entregar pedidos y los vendedores para visitar clientes.</p>
+<p>Fuente: Apunte Procedimientos Administrativos v1-08, página 9.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="parcial-1-para-practicar">Para practicar</h2>
+<p>Los enunciados reales están en <a href="ejercicios.html">Ejercicios</a>. Ninguno tiene resolución oficial en el Drive. Hay además una práctica de organigramas con soluciones, de 2012, que no figura como resolución de cátedra y no se publica acá.</p>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-2" data-pagina="parcial-2" aria-label="2° parcial"><p class="pdf-de">Sistemas y Procesos de Negocio</p><h1>2° parcial</h1>
+<p class="bajada">Qué es un sistema, cómo se relevan los procesos de una empresa, cómo se escribe un proceso de negocio con enfoque sistémico y cómo se dibuja un cursograma.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-2-como-viene-el-examen">Cómo viene el examen</h2>
+<p>En el Drive no hay ningún 2° parcial de 2023 en adelante. El último es de 2021. Los temas de esta página se toman igual, en el final y en los 3° parciales de 2024 y 2025. Por eso esta es la página que más pesa.</p>
+<p>Te dan una minuta de relevamiento, un texto que cuenta cómo funciona un negocio (un taller, una veterinaria, un sector de reclamos), y hay que describir ese proceso con la <strong>plantilla de enfoque sistémico</strong>.</p>
+<div class="tomado"><aside class="nota"><strong>Plantilla de enfoque sistémico, en 5 de 7 exámenes</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 del taller, 2024 de la veterinaria y 25/10/25</span></aside><p>Piden actores clasificados, objetivo, alcance, flujo básico, alternativas, al menos tres reglas de negocio, diccionarios de datos y cuestiones abiertas. Los 1° parciales no piden la plantilla. El de 2026 sí pide el evento de inicio y los flujos de una minuta corta.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Cursograma, en 4 de 7 exámenes</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 de la veterinaria y 25/10/25</span></aside><p>Sale de la misma minuta. En la veterinaria, solo de la parte subrayada y en cursiva. La foto del taller se corta antes de esa consigna.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Teoría de esta página</strong><span>1° parcial 01/07/23. Final 03/12/24. 3° parcial 19/11/24 y 25/10/25. 1° parcial 2026</span></aside><p>Qué es un sistema de información, qué es un proceso de negocio, las etapas de la cascada, qué se hace en el relevamiento, la planificación de la entrevista y qué es el diccionario de datos de estructuras y de datos discretos.</p>
+</div>
+<p>Los bloques marcados «Solo en el plan viejo» no aparecen en ningún examen de 2023 en adelante. Siguen en el apunte, así que quedan cortos.</p>
+</section>
+<section class="sec"><h2 id="parcial-2-que-es-un-sistema">Qué es un sistema</h2>
+<p>Un sistema es un conjunto de objetos y sus atributos, que interactúan entre sí y con su ambiente, coordinados para lograr objetivos comunes. Dicho de otra forma, un conjunto de elementos organizados que funcionan interactuando entre sí y con el ambiente, según un criterio de integridad, para cumplir los objetivos para los que fue creado.</p>
+<p>La <strong>Teoría General de Sistemas</strong> es una forma científica de representar la realidad, con perspectiva holística. Sus objetivos originales son tres.</p>
+<ol>
+<li>Impulsar una terminología general que describa las características, funciones y comportamientos sistémicos.</li>
+<li>Desarrollar un conjunto de leyes aplicables a esos comportamientos.</li>
+<li>Promover la formalización de esas leyes.</li>
+</ol>
+<p>Fuente: Apunte Fundamentos de Sistemas y Modelado Sistémico de P.N. v1.17, páginas 3 y 4.</p>
+<h3 id="parcial-2-componentes-basicos">Componentes básicos</h3>
+<div class="tabla"><table><thead><tr><th>Componente</th><th>Qué es</th></tr></thead><tbody><tr><td>Objetivo</td><td>La finalidad del sistema, el para qué existe</td></tr><tr><td>Contexto, ambiente o entorno</td><td>Lo que no es parte del sistema pero lo influye. De ahí vienen las entradas y hacia ahí van las salidas</td></tr><tr><td>Elementos</td><td>Los componentes. Según el estímulo se comportan como parámetros, variables u operadores</td></tr><tr><td>Límite de interés o frontera</td><td>Define qué es parte del sistema y qué no. Depende de los objetivos y las funciones</td></tr><tr><td>Entradas</td><td>Flujos que ingresan al sistema (estímulos)</td></tr><tr><td>Salidas</td><td>Flujos que produce el sistema como respuesta al contexto</td></tr><tr><td>Proceso</td><td>La transformación de entradas en salidas</td></tr><tr><td>Estado</td><td>Valor de todas las variables en un momento</td></tr><tr><td>Transición</td><td>Los sucesivos estados durante el proceso. Se expresa como S = f(E, t)</td></tr><tr><td>Evento</td><td>Situación del contexto que activa las variables y cambia su estado</td></tr></tbody></table></div>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 5 y 6.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en una heladera. La temperatura es una variable, y lo que marca ahora es su estado. Alguien abre la puerta: eso es un evento, viene de afuera, activa la variable y le cambia el estado.</p>
+</div>
+<h3 id="parcial-2-otros-conceptos-del-apunte">Otros conceptos del apunte</h3>
+<ul>
+<li><strong>Sinergia.</strong> Surge de las interacciones entre las partes de un sistema. Responde al postulado aristotélico que dice que «el todo no es igual a la suma de sus partes».</li>
+<li><strong>Homeostasis.</strong> Compensaciones internas que mantienen invariante la estructura ante cambios del ambiente. Está pensada para organismos vivos como sistemas adaptables.</li>
+<li><strong>Caja negra.</strong> Se conocen bien las entradas y salidas y no importa el detalle interno.</li>
+<li><strong>Sistema de referencia.</strong> El sistema menor o desagregado que un sistema de información representa.</li>
+</ul>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 7, 8 y 12.</p>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Subsistemas, acoplamientos, clasificación de sistemas y tipos de sistemas de información se preguntaron hasta 2021. No aparecen en ningún examen de 2023 en adelante.</p>
+<p><strong>Subsistemas.</strong> Un sistema complejo se descompone en subsistemas con sus propios subobjetivos, hasta llegar a cajas negras. Se hace para facilitar la comprensión cuando el problema es complejo.</p>
+<p><strong>Acoplamientos.</strong> En serie (la salida de uno es la entrada del siguiente), en paralelo, con realimentación inmediata o directa (la salida del sucesor vuelve al antecesor) y con realimentación mediata o indirecta (como mínimo entre tres subsistemas).</p>
+<p><strong>Clasificación.</strong> Por origen (naturales o artificiales), por complejidad (simples o complejos), por interacción con el medio (abiertos o cerrados), por uso de computadora (informatizados o no) y por representatividad (de referencia o de información).</p>
+<p><strong>Tipos de sistemas de información.</strong> TPS procesa las transacciones diarias. OAS da soporte a los trabajadores de datos, como el correo. MIS da informes resumidos a nivel administrativo. EIS ayuda a problemas de decisión sin estructura, como un tablero de comando. DSS combina datos y modelos analíticos para apoyar decisiones y no decide por sí mismo.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 8 a 12, 17 y 18.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-sistema-de-informacion-e-informacion">Sistema de información e información</h2>
+<p>Un sistema de información es un conjunto de componentes interrelacionados que reúne, procesa, almacena y distribuye información para apoyar la toma de decisiones y el control en una organización. Según el apunte, su objetivo es brindar los datos necesarios para representar la realidad de su sistema de referencia.</p>
+<p>El apunte cierra el tema con una definición más específica. Un sistema de información «Es un conjunto de recursos humanos y materiales a través de los cuales se recolectan, almacenan, recuperan, procesan y comunican datos e información con el fin de lograr una gestión eficiente de las operaciones de una organización». Gestión eficiente incluye planeamiento, toma de decisiones, control e informes. Para eso tiene que dar información correcta, en el momento preciso, a la persona indicada, en el lugar apropiado y a un costo adecuado.</p>
+<p>Hay sistema de información «sin importar si se utiliza una computadora o no». Por eso la cátedra define primero las necesidades de información, y recién después qué datos usar y cómo procesarlos.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 16 y 17.</p>
+<p>Dato e información no son lo mismo. Los datos son flujos sin organizar. La información son datos con forma y sentido útil para una persona, en un momento y para un problema específico. Lo que es información para uno puede ser dato para otro.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 12 y 13.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Una lista con quinientas ventas sueltas son datos. «Este mes vendimos menos que el anterior» es información para quien tiene que decidir qué hacer con eso.</p>
+</div>
+<h3 id="parcial-2-caracteristicas-de-la-informacion">Características de la información</h3>
+<div class="tomado"><aside class="nota"><strong>Nombrar cinco características y explicar al menos dos</strong><span>1° parcial 01/07/23</span></aside><p>Es el único examen de 2023 en adelante que lo pide.</p>
+</div>
+<p>Para ser útil tiene que ser clara, veraz, objetiva, ilustrativa, oportuna, racional, selectiva y adecuada.</p>
+<ul>
+<li><strong>Objetiva:</strong> no influenciada por criterios personales del analista.</li>
+<li><strong>Oportuna:</strong> disponible en el momento en que se la necesita.</li>
+<li><strong>Adecuada:</strong> en su estructuración y selectividad. No debe ser abundante en demasía ni escasa.</li>
+<li><strong>Selectiva:</strong> dirigida solo a quienes les corresponde.</li>
+<li><strong>Racional:</strong> ordenada y bien estructurada.</li>
+</ul>
+<p>Los niveles inferiores generan más información y la necesitan más detallada. Los niveles superiores necesitan más síntesis.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, página 14.</p>
+</section>
+<section class="sec"><h2 id="parcial-2-ciclo-de-vida-del-desarrollo-de-sistemas">Ciclo de vida del desarrollo de sistemas</h2>
+<p>Hay dos enfoques.</p>
+<h3 id="parcial-2-ciclo-en-cascada">Ciclo en cascada</h3>
+<p>Seis actividades, que no se hacen como pasos aislados. Pueden solaparse y repetirse por retroalimentación.</p>
+<ol>
+<li><strong>Relevamiento de requerimientos.</strong></li>
+<li><strong>Análisis</strong> de las necesidades del sistema.</li>
+<li><strong>Diseño</strong> del sistema recomendado.</li>
+<li><strong>Desarrollo y documentación del software</strong> (implementación).</li>
+<li><strong>Pruebas y mantenimiento.</strong></li>
+<li><strong>Instalación y evaluación.</strong></li>
+</ol>
+<div class="tomado"><aside class="nota"><strong>Mencionar las etapas de la cascada en orden</strong><span>3° parcial 19/11/24</span></aside><p>Están en la lista de arriba, con el nombre que les da el apunte.</p>
+</div>
+<h3 id="parcial-2-objetivos-del-relevamiento">Objetivos del relevamiento</h3>
+<p>El relevamiento (también llamado estudio de factibilidad o estudio inicial del negocio) arranca con el requerimiento del usuario. El apunte da cinco objetivos.</p>
+<ol>
+<li>Identificar el sistema y los usuarios responsables.</li>
+<li>Identificar las deficiencias del sistema actual.</li>
+<li>Establecer metas y objetivos para el sistema nuevo. Los debe dar el usuario, no el analista.</li>
+<li>Determinar si es factible y sugerir escenarios aceptables, con estimaciones aproximadas de costo, tiempo y beneficios.</li>
+<li>Planificar las etapas siguientes del proyecto.</li>
+</ol>
+<div class="tomado"><aside class="nota"><strong>Objetivos o funciones de la etapa de relevamiento</strong><span>Final 03/12/24, 1° parcial 2026</span></aside><p>En 2026 pedían su finalidad y al menos tres objetivos. En el final, las funciones de esa etapa.</p>
+</div>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, páginas 3 y 4.</p>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>El Proceso Unificado se preguntó en 2021 y en ningún examen de 2023 en adelante. Se repite en una serie de ciclos, y cada uno termina con una versión lista para entregar. Tiene cuatro fases, cada una con un hito. Inicio, elaboración, construcción y transición.</p>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, páginas 4 y 5.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-relevamiento-de-informacion">Relevamiento de información</h2>
+<p>El relevamiento obtiene los datos según un objetivo para conocer los procesos de negocio. Las técnicas son el muestreo, la investigación de datos, la entrevista, el cuestionario y la observación. De 2023 en adelante, la única que se tomó es la entrevista.</p>
+<h3 id="parcial-2-muestreo">Muestreo</h3>
+<p>Se hace por costo, para agilizar, para mejorar la eficacia y para reducir la parcialidad. Un buen diseño sigue cuatro pasos. Determinar qué datos recopilar, delimitar la población, elegir el tipo de muestra y decidir su tamaño.</p>
+<h3 id="parcial-2-entrevista">Entrevista</h3>
+<p>Es una conversación dirigida con un propósito. Busca objetivos, opiniones, sentimientos y procedimientos informales.</p>
+<p><strong>Planeamiento de la entrevista.</strong> El apunte da cinco pasos.</p>
+<ol>
+<li><strong>Lectura de antecedentes.</strong> Explorar de antemano al entrevistado y a la organización.</li>
+<li><strong>Establecimiento de los objetivos de la entrevista.</strong> Definir qué información se quiere obtener.</li>
+<li><strong>Selección de los entrevistados.</strong> Gente clave de todos los niveles.</li>
+<li><strong>Preparación del entrevistado.</strong> Coordinar día, hora y lugar con anticipación. Duran entre quince minutos y una hora.</li>
+<li><strong>Selección del tipo y la estructura de las preguntas.</strong></li>
+</ol>
+<div class="tomado"><aside class="nota"><strong>Pasos de la planificación de la entrevista</strong><span>3° parcial 25/10/25, 1° parcial 2026</span></aside><p>En 2025 pedían nombrarlos y describir dos. En 2026, describir brevemente las etapas.</p>
+</div>
+<p><strong>Tipos de preguntas.</strong></p>
+<ul>
+<li><strong>Abiertas:</strong> dejan todas las opciones de respuesta. Dan riqueza de detalle, pero se puede perder el control del tiempo. Por ejemplo, «¿Cuál es su opinión del sistema actual?».</li>
+<li><strong>Cerradas:</strong> limitan las alternativas. Ahorran tiempo y permiten comparar. Una cerrada <strong>bipolar</strong> solo admite dos respuestas (sí o no, verdadero o falso).</li>
+<li><strong>Sondeo:</strong> va más allá de la respuesta inicial. Por ejemplo, «¿por qué?».</li>
+</ul>
+<p>Errores a evitar. Las preguntas <strong>tendenciosas</strong> (llevan a una respuesta) y las <strong>dobles</strong> (dos preguntas en una).</p>
+<p>La estructura de las preguntas puede ser <strong>piramidal</strong> (de lo específico a lo general), de <strong>embudo</strong> (de lo general a lo específico) o de <strong>diamante</strong> (combina las dos). Y la entrevista es estructurada o no estructurada.</p>
+<p>Se registra con grabación o con notas, y después hay que escribir el informe lo antes posible.</p>
+<h3 id="parcial-2-cuestionarios">Cuestionarios</h3>
+<p>Sirven cuando la gente está dispersa, son muchos o se quiere un estudio exploratorio. Las preguntas abiertas son para opiniones. Las cerradas se usan cuando se pueden listar todas las respuestas posibles y son mutuamente excluyentes. Las escalas pueden ser nominales, ordinales, de intervalo y de relación. Cuidado con la lenidad, la tendencia central y el efecto de halo. La validez es que mida lo que se quiso medir y la confiabilidad que los resultados sean consistentes.</p>
+<h3 id="parcial-2-observacion-e-investigacion-de-datos">Observación e investigación de datos</h3>
+<p>La observación muestra lo que se hace, no solo lo que se dice. Sirve para confirmar entrevistas y cuestionarios. La investigación de datos mira documentos cuantitativos (informes, formularios) y cualitativos (memorandos, manuales de políticas y procedimientos).</p>
+<h3 id="parcial-2-minuta-de-relevamiento">Minuta de relevamiento</h3>
+<p>Es la narrativa clara, ordenada y concisa de los procesos relevados. Debe incluir el propósito del sistema, las tareas y su orden, qué información recibe o produce cada una, qué decisiones se toman, quién es responsable y las reglas y restricciones. Se identifica con número y versión, y cambia la versión si se agregan modificaciones.</p>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, páginas 7 a 24.</p>
+<h3 id="parcial-2-que-es-un-proceso-de-negocio">Qué es un proceso de negocio</h3>
+<p>Un proceso de negocio es un conjunto de tareas relacionadas lógicamente, llevadas a cabo para lograr un resultado de negocio definido. Tiene entradas, funciones y salidas. Hay procesos centrales (dan valor al cliente, como repartir mercaderías) y procesos de soporte (como contabilidad). Se compone de subprocesos, decisiones y actividades.</p>
+<div class="tomado"><aside class="nota"><strong>Definir proceso de negocio</strong><span>Final 03/12/24</span></aside><p>Es la consigna 5 de teoría de ese final.</p>
+</div>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, página 26.</p>
+</section>
+<section class="sec"><h2 id="parcial-2-el-proceso-de-negocio-con-enfoque-sistemico">El proceso de negocio con enfoque sistémico</h2>
+<p>Es la plantilla con la que la cátedra pide describir una minuta. Los exámenes dicen «utilice formato plantilla». Estos son los ítems, en el orden de la plantilla de la cátedra.</p>
+<div class="tabla"><table><thead><tr><th>Ítem de la plantilla</th><th>Qué va</th></tr></thead><tbody><tr><td>Objetivo del actor</td><td>Lo que el actor principal quiere lograr</td></tr><tr><td>Actores</td><td>Principal, de apoyo y pasivo</td></tr><tr><td>Diagrama</td><td>El nombre del proceso de negocio y los actores identificados</td></tr><tr><td>Alcance del proceso</td><td>Desde qué momento hasta qué momento llega. El apunte da este ejemplo, «desde que el cliente solicita la cuenta hasta que el cliente paga y se retira»</td></tr><tr><td>Evento externo iniciador</td><td>Lo que pasa afuera y dispara el proceso</td></tr><tr><td>Flujo básico</td><td>Los pasos del camino normal</td></tr><tr><td>Alternativas</td><td>Las posibles excepciones al flujo básico</td></tr><tr><td>Reglas de negocio</td><td>Políticas y condiciones que deben cumplirse</td></tr><tr><td>Diccionario de datos</td><td>Flujos de entrada y de salida, estructuras, datos discretos y entidades</td></tr><tr><td>Cuestiones abiertas</td><td>Preguntas para una nueva entrevista</td></tr></tbody></table></div>
+<p>Fuente: Plantilla PNES de la cátedra. Apunte Fundamentos de Sistemas v1.17, páginas 24 y 28.</p>
+<h3 id="parcial-2-diagrama-de-contexto-actores-y-objetivos">Diagrama de contexto, actores y objetivos</h3>
+<p>El diagrama de contexto muestra los límites del sistema, lo que queda afuera y cómo se usa. Un <strong>actor</strong> es algo con comportamiento. Una persona identificada por su rol, un sistema, una organización o una máquina.</p>
+<ul>
+<li><strong>Actor principal:</strong> tiene objetivos de usuario que se satisfacen con los servicios del sistema. Es el dueño del objetivo del proceso.</li>
+<li><strong>Actor de apoyo:</strong> proporciona un servicio. Puede ser una persona, una organización o un sistema.</li>
+<li><strong>Actor pasivo:</strong> está interesado en el comportamiento del caso de uso, pero no es principal ni de apoyo.</li>
+</ul>
+<p>Para encontrar los actores el apunte propone preguntas. ¿Quién inicia eventos con el sistema? ¿Quién provee, usa o quita información? ¿Qué otros sistemas interactúan con éste? Para el objetivo se pregunta qué quiere lograr el actor.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 21 a 24.</p>
+<div class="tomado"><aside class="nota"><strong>Clasificar los actores y dar el objetivo</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 de la veterinaria y 25/10/25</span></aside><p>En 2025 también pedían el evento inicializador. En el 1° parcial de 2026, el evento de inicio de una minuta corta.</p>
+</div>
+<h3 id="parcial-2-como-se-escribe-el-flujo-basico">Cómo se escribe el flujo básico</h3>
+<p>Las pautas del apunte.</p>
+<ul>
+<li>Cada oración tiene sujeto, que identifica si actúa un actor o el sistema. Nada de sujeto tácito.</li>
+<li>Forma sujeto, verbo, objeto directo. Por ejemplo, «El cliente consulta la carta».</li>
+<li>Se mira «quién tiene el balón». El actor es el primer sustantivo de la oración, y el balón son el mensaje y los datos que pasa a otro actor.</li>
+<li>Punto de vista de ojos de pájaro.</li>
+</ul>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, página 24.</p>
+<h3 id="parcial-2-ejemplo-del-apunte-la-biblioteca">Ejemplo del apunte, la biblioteca</h3>
+<p>El apunte trae una <strong>solución de referencia</strong>, el préstamo de libros de una biblioteca de una facultad. Este es un tramo, tal como lo da el apunte. Fijate cómo cada renglón empieza por quién actúa.</p>
+<p><strong>Flujo básico, primeros pasos.</strong></p>
+<ul>
+<li>El Socio entrega el carnet al Bibliotecario.</li>
+<li>El Bibliotecario controla el carnet.</li>
+<li>El Socio informa por cuantos días lo quiere y entrega los libros al Bibliotecario.</li>
+<li>El Bibliotecario confecciona un formulario por el préstamo, donde escribe los códigos de los libros y por cuantos días los pidió el Socio.</li>
+<li>El Bibliotecario registra el préstamo.</li>
+</ul>
+<p><strong>Alternativas o posibles excepciones.</strong> Cada una dice qué pasó y qué se hace.</p>
+<ul>
+<li>El Socio esta Inhabilitado o Sancionado, Bibliotecario informa tal situación al socio no pudiendo retirar libros.</li>
+<li>El Socio no entrega el talón, el bibliotecario con los libros devueltos busca el préstamo que tenía pendiente.</li>
+</ul>
+<p><strong>Reglas de negocio, con su tipo.</strong></p>
+<div class="tabla"><table><thead><tr><th>Regla</th><th>Tipo</th></tr></thead><tbody><tr><td>Solo pueden asociarse los alumnos, egresados y docentes de la facultad</td><td>HE</td></tr><tr><td>Solo los socios pueden retirar libros a domicilio</td><td>AR</td></tr><tr><td>La fecha teórica de devolución del préstamo se calcula como la fecha del préstamo más la cantidad de días (hábiles) que pidió el socio</td><td>CA</td></tr></tbody></table></div>
+<p><strong>Cuestión abierta.</strong> La cantidad de días del préstamo supera el tope de algún libro, ¿qué se hace?</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 31 a 33. Ahí está entera.</p>
+<h3 id="parcial-2-reglas-de-negocio">Reglas de negocio</h3>
+<p>Una regla de negocio es una declaración de una política o una condición que debe cumplirse. El apunte propone cinco tipos.</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Qué es</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td>Hechos (HE)</td><td>Condiciones que deben ser verdaderas</td><td>Cada pedido tiene un cargo de envío</td></tr><tr><td>Restricciones o acciones restrictivas (AR)</td><td>Acciones prohibidas según una condición</td><td>No vender a un cliente con crédito excedido</td></tr><tr><td>Acciones disparadoras (AD)</td><td>Disparan una acción cuando se cumplen condiciones</td><td>Enviar pedido al proveedor cuando la existencia llega al stock de seguridad</td></tr><tr><td>Cálculos (CA)</td><td>Calculan un valor a partir de otros</td><td>El precio total es la suma de los artículos menos descuentos más impuestos</td></tr><tr><td>Inferencias (IN)</td><td>Sacan una conclusión cuando se cumplen condiciones</td><td>Si el pago no llega en 30 días, la cuenta es morosa</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Escribir al menos tres reglas de negocio de la minuta</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 del taller, 2024 de la veterinaria y 25/10/25</span></aside><p>Las sacás de lo que dice la minuta. Los tipos de la tabla de arriba te ayudan a reconocerlas.</p>
+</div>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 25 y 26.</p>
+<h3 id="parcial-2-diccionario-de-datos">Diccionario de datos</h3>
+<p>Es la herramienta que describe el significado de los componentes y elimina ambigüedades. Especifica los flujos de datos, las entidades y los valores y unidades de los datos elementales.</p>
+<ul>
+<li><strong>Dato elemental o atributo:</strong> la menor unidad que tiene sentido para el usuario.</li>
+<li><strong>Estructura de dato:</strong> dos o más componentes, cada uno un dato u otra estructura. Domicilio es estructura de calle, número, piso, depto, ciudad y provincia.</li>
+<li><strong>Flujo de datos:</strong> conjuntos de datos en movimiento. Son estructuras.</li>
+<li><strong>Entidad:</strong> objeto donde se guardan los datos.</li>
+</ul>
+<p><strong>Notación</strong> (adaptada de Backus-Naur).</p>
+<div class="tabla"><table><thead><tr><th>Símbolo</th><th>Significa</th></tr></thead><tbody><tr><td>=</td><td>equivale a</td></tr><tr><td>+</td><td>y</td></tr><tr><td>[ a | b ]</td><td>elegir una de las componentes</td></tr><tr><td>{ }</td><td>iteración</td></tr><tr><td>( )</td><td>componente opcional</td></tr><tr><td>** **</td><td>comentario</td></tr><tr><td>(e)</td><td>estructura</td></tr><tr><td>(D)</td><td>dato discreto</td></tr></tbody></table></div>
+<p>Reglas del apunte.</p>
+<ul>
+<li>Cada dato elemental de un flujo o estructura se separa con el signo +.</li>
+<li>Las iteraciones llevan el mínimo y el máximo de repeticiones, antes y después de las llaves. <code>1{ ... }N</code> repite de una a n veces, <code>0{ ... }N</code> de ninguna a n veces y <code>3{ ... }3</code> solamente tres veces.</li>
+<li><code>{ }</code> vacías se usan en los flujos vacíos, cuando no se ingresa ningún dato. Por ejemplo, un empleado que emite un listado de todos los clientes.</li>
+<li>Los DD de los flujos de <strong>entrada</strong> tienen los datos mínimos y necesarios.</li>
+<li>Los DD de los flujos de <strong>salida</strong> tienen todos los datos necesarios, incluidos los que resultan de una operación.</li>
+<li>Las estructuras se marcan (e) y los datos discretos (D). Los discretos se describen con la tabla de valores posibles.</li>
+</ul>
+<p><strong>Ejemplo del apunte, la apertura de una cuenta en un banco.</strong> Si el cliente va por primera vez, informa sus datos personales. Si no, su número de cliente. Además informa el tipo de cuenta y cualquier observación. La empleada registra los datos y le informa el número de cuenta.</p>
+<pre class="codigo"><code>Flujos de datos de entrada
+E1  datos-cliente = [ datos-personales(e) | nro-cliente ] + tipo-cta(D) + (observación)
+
+Flujos de datos de salida
+S1  inform-cta = tipo-cta(D) + nro-cta
+
+Estructura de datos
+datos-personales(e) = nombre + tipo-nrodoc + fecha_nac + dirección + 1{ teléfono }2 + profesión
+
+Elementos de datos discretos
+Atributo: Tipo-cta (D)
+Descripción: Tipo de cuenta
+Valores posibles: Cuenta-corriente, caja-ahorro, plazo-fijo
+
+Entidad
+Clientes = nro-cliente + nombre + tipo-nrodoc + fecha_nac + dirección + 1{ teléfono }2 + profesión + 1{ nro-cta + tipo-cta }n</code></pre>
+<p>Fijate en tres cosas del ejemplo. Los corchetes dicen que se da una cosa o la otra. Los hasta dos teléfonos van con <code>1{ }2</code>. La observación va entre paréntesis porque es opcional.</p>
+<div class="tomado"><aside class="nota"><strong>Diccionario de datos de flujos de entrada, salida y entidad, en 6 de 7 exámenes</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 del taller, 2024 de la veterinaria y 25/10/25. 1° parcial 2026</span></aside><p>En 2025 había que hacerlo de un listado dibujado en el enunciado, además de los flujos y la entidad de la minuta. También se pide el de un comprobante.</p>
+</div>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 26 a 28.</p>
+<h3 id="parcial-2-cuestiones-abiertas">Cuestiones abiertas</h3>
+<p>Son preguntas para una nueva entrevista, sobre lo que la minuta no aclara. Los tipos están en <a href="#parcial-2-entrevista">entrevista</a>.</p>
+<div class="tomado"><aside class="nota"><strong>Una pregunta abierta y una cerrada</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 del taller, 2024 de la veterinaria y 25/10/25</span></aside><p>En 2025 la cerrada tenía que ser bipolar y había que indicar cuál es cuál. En el taller y en la veterinaria, a qué actor se las harías.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-cursograma">Cursograma</h2>
+<p>Es la representación gráfica de la sucesión de pasos de un procedimiento administrativo. Muestra los sectores, los soportes de información y el detalle de cada operación. Sirve para ver cuántos formularios se emiten, cómo se archivan, qué controles y decisiones hay y detectar pasos innecesarios o falta de controles.</p>
+<p>Muestra tres cosas. Las áreas de responsabilidad (en columnas), los tipos de operaciones (con símbolos de la norma IRAM 34.501) y el sentido de circulación.</p>
+<h3 id="parcial-2-simbolos">Símbolos</h3>
+<div class="tabla"><table><thead><tr><th>Símbolo</th><th>Cómo se dibuja</th><th>Qué representa</th></tr></thead><tbody><tr><td>Documento</td><td>Rectángulo acostado</td><td>Un formulario. Lleva abreviatura y cantidad de ejemplares</td></tr><tr><td>Operación</td><td>Círculo</td><td>Elaborar, modificar o incorporar información, o decidir</td></tr><tr><td>Control</td><td>Cuadrado</td><td>Toda verificación</td></tr><tr><td>Demora</td><td>Letra D</td><td>Una detención transitoria a la espera de un acontecimiento</td></tr><tr><td>Archivo transitorio</td><td>Triángulo con la punta hacia abajo</td><td>Almacenamiento temporal</td></tr><tr><td>Archivo definitivo</td><td>Triángulo con la punta hacia arriba</td><td>Almacenamiento permanente</td></tr><tr><td>Destrucción</td><td>Cruz en forma de X</td><td>Eliminación de la información</td></tr><tr><td>Alternativa</td><td>Rombo</td><td>Que el procedimiento tiene cursos de acción distintos</td></tr><tr><td>Proceso no representado</td><td>Hexágono</td><td>Acciones que se desconocen o que no interesa representar</td></tr><tr><td>Traslado</td><td>Flecha de línea continua</td><td>Desplazamiento físico del portador de información</td></tr><tr><td>Traslado de información</td><td>Flecha de línea punteada</td><td>Desplazamiento de la información sin mover el soporte</td></tr><tr><td>Conector</td><td>Pentágono con la punta hacia abajo</td><td>Une procedimientos, procesos o páginas</td></tr><tr><td>Puente</td><td>Media circunferencia sobre la línea</td><td>Cruce de dos comunicaciones independientes</td></tr></tbody></table></div>
+<p>Los dibujos están en las páginas 3 y 4 del <a href="https://drive.google.com/file/d/1N4TGRzp_zmTZ8AW5O3kL6kEr9pP8rTLn/view">apunte de cursograma</a>.</p>
+<h3 id="parcial-2-reglas-de-construccion">Reglas de construcción</h3>
+<ul>
+<li>Se dibuja hacia abajo. Horizontal cuando pasa de un sector a otro. Hacia arriba para retrocesos, o para otros pases si ahorra espacio.</li>
+<li>Cada sector es una columna.</li>
+<li>Las flechas no hacen falta en líneas hacia abajo o de izquierda a derecha.</li>
+<li>Se evitan cruces de línea. Si hacen falta, con puentes.</li>
+<li>Las uniones de líneas forman un ángulo recto.</li>
+<li>Las líneas entran a un símbolo por arriba o por la izquierda, y salen por abajo o por la derecha. A la alternativa se entra solo por el vértice de arriba.</li>
+<li>Los ejemplares de un formulario se dibujan superpuestos y desplazados, con un número cada uno. En el ejemplo de la página 9, el apunte numera desde 0 para indicar el original.</li>
+<li>La emisión de un formulario se representa con una operación, y se anota el formulario.</li>
+<li>Dentro de la alternativa va la pregunta. El SI sale por el vértice derecho y el NO por el izquierdo.</li>
+<li>Cada símbolo se describe cerca, dentro del diagrama, en pocas palabras.</li>
+<li>Los archivos se refieren con una letra mayúscula, nombre y tipo de ordenamiento. Los formularios, con sus iniciales y su significado.</li>
+<li>Si una operación y un control se hacen a la vez, se dibujan juntos en un solo símbolo.</li>
+<li>Un conector lleva un código, para encontrar fácil dónde sigue el curso de acción.</li>
+<li>Si dos o más sectores hacen una acción a la vez y en forma conjunta (por ejemplo, una llamada telefónica), se unen con una sola doble línea de traslado, sin sentido.</li>
+</ul>
+<p>Dónde puede ir cada símbolo dentro del procedimiento.</p>
+<div class="tabla"><table><thead><tr><th>Símbolo</th><th>Al inicio</th><th>En el medio</th><th>Al final</th></tr></thead><tbody><tr><td>Operación</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Control</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Demora</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Archivo transitorio</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Archivo definitivo</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Destrucción</td><td>No</td><td>No</td><td>Sí</td></tr><tr><td>Alternativa</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Formulario u otro soporte</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Proceso no representado</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Traslado</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Toma de información</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Conector</td><td>Sí</td><td>No</td><td>Sí</td></tr></tbody></table></div>
+<p>Fuente: Apunte Cursograma de Procesos de Negocio v2.0, páginas 5 y 6.</p>
+<h3 id="parcial-2-metodo">Método</h3>
+<p>El apunte resuelve paso a paso el préstamo de libros en una biblioteca, páginas 6 a 15.</p>
+<ol>
+<li>Identificar los sectores o entidades y ponerlos en columnas.</li>
+<li>Recorrer la minuta oración por oración y dibujar cada acción con su símbolo.</li>
+<li>Después de un control, siempre hay una alternativa.</li>
+<li>Consultar un archivo se marca con una línea de trazo discontinuo desde el archivo.</li>
+<li>Marcar qué ejemplar va a dónde, y qué se archiva o se destruye. Si no interesa lo que pasa después con un papel, va un proceso no representado.</li>
+<li>Controlar que todos los formularios dibujados terminen en un archivo. Si no y se desconoce su destino, se indica con un proceso no representado.</li>
+<li>Completar y controlar las referencias. Formularios con sus iniciales y archivos con su nombre, aclarando si son lógicos o físicos.</li>
+</ol>
+<p>Detalles que el ejemplo resuelve.</p>
+<ul>
+<li>Una firma (por ejemplo, el socio firma el formulario) se dibuja con un símbolo de operación.</li>
+<li>Los formularios que viajan juntos se unen con una línea diagonal desde el vértice.</li>
+<li>En la línea de traslado se puede anotar el objeto físico que va con el papel (por ejemplo, «+ LIBRO»). Según la norma IRAM, ese objeto no se representa con símbolo.</li>
+<li>Un archivo donde se guarda un papel es <strong>físico</strong>, y el traslado del formulario hacia él va con línea continua. Un archivo <strong>lógico</strong> (los datos en el sistema) se consulta o actualiza con línea de trazo discontinuo.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Cuando el enunciado marca solo una parte</p><p>En la veterinaria de 2024 pedían el cursograma solo de la parte subrayada y en cursiva. Dibujá nada más que ese fragmento.</p>
+</div>
+<p>Fuente: Apunte Cursograma de Procesos de Negocio v2.0, páginas 2 a 9.</p>
+</section>
+<section class="sec"><h2 id="parcial-2-preguntas-de-teoria-con-respuesta-en-el-apunte">Preguntas de teoría con respuesta en el apunte</h2>
+<details open class="pregunta"><summary><span>¿Qué es un sistema de información?</span><small>Final 03/12/24, 3° parcial 25/10/25</small></summary><div class="resp"><p>Un conjunto de componentes interrelacionados que reúne (u obtiene), procesa, almacena y distribuye información para apoyar a la toma de decisiones y el control en una organización.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, página 12.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Finalidad del relevamiento y al menos tres objetivos</span><small>1° parcial 2026</small></summary><div class="resp"><p>El apunte da cinco objetivos. Identificar al sistema y a los usuarios responsables. Identificar las deficiencias del sistema actual. Establecer metas y objetivos para un sistema nuevo. Determinar si es factible. Planificar las etapas siguientes del proyecto.</p>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, página 3.</p>
+</div></details>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-3" data-pagina="parcial-3" aria-label="3° parcial"><p class="pdf-de">Sistemas y Procesos de Negocio</p><h1>3° parcial</h1>
+<p class="bajada">Cómo se decide. Una tabla de decisión cuando todo está definido, una matriz de decisión cuando hay incertidumbre, y los criterios para elegir.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-3-como-viene-el-examen">Cómo viene el examen</h2>
+<p>Hay cuatro 3° parciales de 2023 en adelante, tres de 2024 y uno de 2025. De 2023 solo hay un 1° parcial. Son <strong>integradores</strong>. Traen proceso de negocio, cursograma, algo de estructura y comprobantes, y la decisión ocupa una sola consigna. El formato está en la <a href="#pdf-final">página del final</a>.</p>
+<p>Esta página cubre esa consigna. Lo demás del examen está en el <a href="#pdf-parcial-1">1° parcial</a> y en el <a href="#pdf-parcial-2">2° parcial</a>.</p>
+<div class="tomado"><aside class="nota"><strong>Plantear una decisión programada, en 6 de 7 exámenes</strong><span>1° parcial 01/07/23. Final 03/12/24. 3° parcial 19/11/24, 2024 de la veterinaria y 25/10/25. 1° parcial 2026</span></aside><p>Piden objetivo, condiciones, acciones y cantidad de reglas de transformación. De 2024 en adelante varios lo aclaran, «no haga la tabla». En 2023 también pedían hacerla. En 2025 pedían las condiciones con sus valores y la cantidad de columnas de una tabla extendida. En la veterinaria, además, qué tipo de tabla usarías. Va en <a href="#parcial-3-como-plantear-el-problema-de-decision">cómo plantear el problema</a>.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Herramientas de una decisión programada</strong><span>3° parcial 19/11/24</span></aside><p>Pregunta de teoría. Está respondida al final de esta página.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Qué tipo de decisiones se toman en el nivel más alto</strong><span>1° parcial 2026</span></aside><p>Pregunta de teoría. Está respondida en el <a href="#parcial-1-preguntas-de-teoria-con-respuesta-en-el-apunte">1° parcial</a>.</p>
+</div>
+<p>Hacer la tabla y reducirla se pidió por última vez en 2023. Armar una matriz de decisión, en 2021. Las dos siguen en los apuntes y en la práctica de la cátedra, así que quedan en esta página.</p>
+</section>
+<section class="sec"><h2 id="parcial-3-que-es-decidir">Qué es decidir</h2>
+<p>Decidir es realizar un proceso mental, deliberado y sistemático para elegir <strong>una y solo una</strong> entre un conjunto de cursos de acción alternativos. La decisión se toma ahora, pero sus resultados se conocen en el futuro, por eso son inciertos.</p>
+<p>La definición literal del apunte es esta. «Decidir es realizar un proceso mental, deliberado, voluntario, sistemático, a través del ejercicio del raciocinio, con la finalidad de elegir uno y solo uno entre un conjunto de cursos de acción alternativos». Y agrega otra. «Decidir es optar, ejercer racionalmente la facultad de elección; entre un conjunto de alternativas o cursos de acción, todas viables y conducentes al objetivo buscado, de materialización en el futuro, seleccionando aquella que, a juicio del decididor, sea la mejor».</p>
+<p>Fuente: Apunte Sistema Decisorio v1.11, página 4.</p>
+<p>El proceso tiene tres momentos.</p>
+<div class="tabla"><table><thead><tr><th>Momento</th><th>Qué pasa</th></tr></thead><tbody><tr><td>Presente</td><td>Necesidad de accionar</td></tr><tr><td>Futuro inmediato</td><td>Realización de la decisión</td></tr><tr><td>Futuro más lejano</td><td>Análisis del resultado, que queda en la memoria para decisiones futuras (retroalimentación)</td></tr></tbody></table></div>
+<p>Para que haya decisión tienen que existir <strong>dos o más alternativas</strong> (con una sola hay obligación de hacer), un <strong>decididor</strong> que elige una, y que esa alternativa sea la que mejor satisface el objetivo.</p>
+<p>Si no hay sistema de información, no existe subsistema analítico. Quien decide por intuición, sin datos, no desarrolla un proceso de decisión.</p>
+<p>Fuente: Apunte Sistema Decisorio v1.11, páginas 3 y 4.</p>
+</section>
+<section class="sec"><h2 id="parcial-3-clasificacion-de-las-decisiones">Clasificación de las decisiones</h2>
+<h3 id="parcial-3-por-la-naturaleza-de-las-variables">Por la naturaleza de las variables</h3>
+<ul>
+<li><strong>Controlables:</strong> están sujetas a la voluntad del decididor.</li>
+<li><strong>Condicionantes:</strong> no las controla, pero su comportamiento es neutro respecto del objetivo (el clima sobre la cosecha).</li>
+<li><strong>Competitivas:</strong> dependen de la voluntad de otros decididores con intereses contrapuestos.</li>
+</ul>
+<h3 id="parcial-3-por-el-tipo-de-informacion-disponible">Por el tipo de información disponible</h3>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Qué se conoce</th><th>Grado</th></tr></thead><tbody><tr><td>Información completa</td><td>El estado actual, los estados futuros y las transiciones</td><td>Certeza</td></tr><tr><td>Información estadística</td><td>El estado actual y un comportamiento histórico que permite determinar la probabilidad de estados futuros y transiciones</td><td>Riesgo</td></tr><tr><td>Información incompleta</td><td>El estado actual y un historial parcial que no permite determinar probabilidades. Se usan probabilidades subjetivas</td><td>Incertidumbre parcial</td></tr><tr><td>Sin información</td><td>No se pueden prever estados ni transiciones. Solo queda el azar o la intuición</td><td>Incertidumbre total</td></tr></tbody></table></div>
+<p>Fuente: Apunte Sistema Decisorio v1.11, páginas 5 y 6.</p>
+</section>
+<section class="sec"><h2 id="parcial-3-decisiones-programadas-y-no-programadas">Decisiones programadas y no programadas</h2>
+<p>Esta clasificación depende de la participación del decididor.</p>
+<div class="tabla"><table><thead><tr><th>Programadas</th><th>No programadas</th></tr></thead><tbody><tr><td>El decididor es redundante. Se decide automáticamente a partir de condiciones y acciones que se conocen con certeza</td><td>No se puede prescindir del decididor. Aporta experiencia, conocimiento e intuición</td></tr><tr><td>Se conocen con certeza todas las variables, sus estados y las transiciones</td><td>No se conocen todas o algunas de las variables, sus estados o transiciones</td></tr><tr><td>Herramienta, <strong>tabla de decisión</strong></td><td>Herramienta, <strong>matriz de decisión</strong></td></tr><tr><td>Grado, certeza</td><td>Grado, riesgo, incertidumbre o desconocimiento</td></tr></tbody></table></div>
+<p>Las no programadas corresponden a la dirección superior y a la alta gerencia. Por eso se las llama decisión superior.</p>
+<p>Fuente: Apunte Sistema Decisorio v1.11, páginas 6, 7 y 23.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Si la decisión la podría tomar un programa con una lista de «si pasa esto, hacé aquello», es programada. Si hace falta alguien que ponga experiencia e intuición porque no se sabe qué va a pasar, es no programada.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Reconocer un tipo de decisión por sus elementos</strong><span>1° parcial 01/07/23</span></aside><p>Lo pidió el cuadro de conceptos. Conviene tener claros los elementos de la tabla y los de la matriz.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-3-tabla-de-decision-decisiones-programadas">Tabla de decisión (decisiones programadas)</h2>
+<p>Una tabla de decisión es la expresión gráfica de un algoritmo. Tabula todas las condiciones del problema y la acción o combinación de acciones para cada combinación de condiciones. Para cada valor de las condiciones hay un solo curso de acción.</p>
+<p><strong>Elementos.</strong></p>
+<ul>
+<li><strong>Condiciones.</strong> Se desagregan para que cada una tenga valores dicotómicos. S (sí), N (no) o - (irrelevante o inaplicable).</li>
+<li><strong>Acciones.</strong> X (ejecutar) o - (no ejecutar).</li>
+<li><strong>Reglas de transformación.</strong> Cada columna de la tabla es una regla de decisión.</li>
+<li>Cuatro talones. Descripción de condiciones, valores de condiciones, descripción de acciones y valores de acciones.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Condición y acción</p><p>Una regla de decisión tiene dos partes. La condición (por ejemplo, «si bebe») y la acción consecuente («no conducir»). El apunte entrena a distinguirlas con frases como «1% de interés por mora para atrasos mayores de 60 días» (condición, si es mayor de 60 días, y acción, aplicar 1%).</p>
+</div>
+<h3 id="parcial-3-cantidad-de-reglas">Cantidad de reglas</h3>
+<p>La cantidad de columnas es el <strong>producto de los casos posibles de cada condición</strong>.</p>
+<ul>
+<li>En la tabla de entrada limitada, cada condición tiene dos valores, S y N. Con n condiciones son <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">2^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6644em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span> columnas. Con tres condiciones, 8.</li>
+<li>En la tabla de entrada extendida, una condición puede tener más de dos valores. Con una de 2 casos y otra de 3 son <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>3</mn><mo>&#61;</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">2 &#92;times 3 &#61; 6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">6</span></span></span></span> columnas.</li>
+</ul>
+<p>Se calcula antes de reducir.</p>
+<div class="tomado"><aside class="nota"><strong>Indicar la cantidad de reglas de transformación o de columnas</strong><span>1° parcial 01/07/23. Final 03/12/24. 3° parcial 19/11/24, 2024 de la veterinaria y 25/10/25. 1° parcial 2026</span></aside><p>En 2025 se pedía para una tabla extendida. En los demás, junto con el planteo del problema.</p>
+</div>
+<h3 id="parcial-3-como-se-arma">Cómo se arma</h3>
+<ol>
+<li>Calcular la cantidad de columnas.</li>
+<li>Crear los talones con tantas columnas como reglas y tantas filas como condiciones más acciones.</li>
+<li>Tomar la <strong>última condición</strong> y alternar sus valores. S, N, S, N…</li>
+<li>Observar cada cuántas columnas se repite el valor. La condición de arriba alterna con esa frecuencia, S, S, N, N…</li>
+<li>Seguir así hasta la primera condición. Se agotan todas las combinaciones sin repetir.</li>
+<li>Valorar las acciones en cada columna según lo que corresponda.</li>
+</ol>
+<h3 id="parcial-3-compactacion">Compactación</h3>
+<div class="tomado"><aside class="nota"><strong>Hacer la tabla y reducirla</strong><span>1° parcial 01/07/23</span></aside><p>Después del planteo pedían hacer la tabla y, de ser posible, las reducciones. De 2024 en adelante se pide solo el planteo.</p>
+</div>
+<p>Dos reglas se pueden fusionar cuando tienen la <strong>misma acción</strong> y los valores de <strong>una sola condición</strong> difieren. Se reemplaza el par por una regla con «-» (indiferente) en esa condición. Se repite con otros pares.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Si en dos casos hacés lo mismo, llueva o no llueva, la pregunta «¿llueve?» no te cambia nada en esos casos. Por eso los juntás en uno solo y ponés un guion en esa condición.</p>
+</div>
+<p>Después se revisan las reglas con condiciones incompatibles. Si la primera condición es negativa, otras que dependen de ella no pueden tomar valor y quedan en «-».</p>
+<p><strong>Ejemplo del apunte.</strong> Para tomar un colectivo hay tres condiciones. ¿Viene un colectivo? ¿Es el número que espero? ¿Viene lleno? Son 8 columnas, y compactada queda en 4 reglas.</p>
+<div class="tabla"><table><thead><tr><td></td><th>1</th><th>2</th><th>3/4</th><th>5/6/7/8</th></tr></thead><tbody><tr><td>C1 Viene un colectivo</td><td>S</td><td>S</td><td>S</td><td>N</td></tr><tr><td>C2 Es el número que espero</td><td>S</td><td>S</td><td>N</td><td>-</td></tr><tr><td>C3 Viene lleno</td><td>S</td><td>N</td><td>-</td><td>-</td></tr><tr><td>A1 Dejarlo pasar</td><td>X</td><td>-</td><td>X</td><td>-</td></tr><tr><td>A2 Esperar que venga</td><td>X</td><td>-</td><td>X</td><td>X</td></tr><tr><td>A3 Tomarlo</td><td>-</td><td>X</td><td>-</td><td>-</td></tr></tbody></table></div>
+<p>La práctica de la cátedra aclara que un ejercicio de tablas se da como resuelto cuando la tabla no admite más reducciones.</p>
+<p>Fuente: Apunte Sistema Decisorio v1.11, páginas 16 a 19. Práctica de Decisiones de la cátedra, página 2.</p>
+<h3 id="parcial-3-entrada-limitada-y-entrada-extendida">Entrada limitada y entrada extendida</h3>
+<p>Son dos formatos de la misma tabla.</p>
+<ul>
+<li><strong>Entrada limitada:</strong> solo símbolos (S, N, X). Una variable con tres rangos obliga a tres condiciones.</li>
+<li><strong>Entrada extendida:</strong> se escriben los valores explícitos, por ejemplo «&lt; $5.000» o «&gt;= $5.000 y &lt;= $10.000». Una variable con tres rangos es una sola condición.</li>
+</ul>
+<p>Existe también la tabla mixta, que combina ambas.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>En la limitada solo hacés preguntas de sí o no: ¿es menor de edad?, ¿es adulto?, ¿está jubilado? En la extendida hacés una sola pregunta, ¿en qué edad está?, con tres respuestas posibles.</p>
+</div>
+<p><strong>Ejemplo del apunte, la convención de pago de facturas.</strong> Toda factura de $5.000 o más tiene descuento si se paga dentro de los 10 días. Es del 2% si el importe está entre $5.000 y $10.000, y del 3% si es superior a $10.000.</p>
+<p>En entrada limitada son 4 condiciones y <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mn>4</mn></msup><mo>&#61;</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">2^4 &#61; 16</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8141em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">16</span></span></span></span> columnas. En entrada extendida son 2 condiciones, una con 2 casos y otra con 3, y 6 columnas. Al compactar quedan 4 reglas.</p>
+<div class="tabla"><table><thead><tr><td></td><th>1</th><th>2</th><th>3</th><th>4/5/6</th></tr></thead><tbody><tr><td>C1 Paga</td><td>&lt;= 10 días</td><td>&lt;= 10 días</td><td>&lt;= 10 días</td><td>&gt; 10 días</td></tr><tr><td>C2 Importe</td><td>&lt; $5.000</td><td>&gt;= $5.000 y &lt;= $10.000</td><td>&gt; $10.000</td><td>-</td></tr><tr><td>A1 Descuento</td><td>0%</td><td>2%</td><td>3%</td><td>0%</td></tr></tbody></table></div>
+<p>Fuente: Apunte Sistema Decisorio v1.11, páginas 19 a 22.</p>
+<h3 id="parcial-3-como-plantear-el-problema-de-decision">Cómo plantear el problema de decisión</h3>
+<p>Cuando la consigna dice «plantee en forma clara y completa el problema de decisión» o «no haga la tabla», hay que dar cuatro cosas.</p>
+<ol>
+<li>El <strong>objetivo</strong>.</li>
+<li>Las <strong>condiciones</strong>, con sus valores.</li>
+<li>Las <strong>acciones</strong>.</li>
+<li>La <strong>cantidad de reglas</strong> antes de reducir.</li>
+</ol>
+<p>El objetivo es el asunto sobre el cual debe decidirse. Los ejemplos del apunte son «definir la convención de pago de facturas con sus proveedores» y «decidir la cantidad a producir de televisores».</p>
+<p>Del ejemplo de las facturas, en entrada extendida, el apunte da este planteo.</p>
+<ul>
+<li>Condiciones. C1 Paga, con los valores &lt;= 10 días y &gt; 10 días. C2 Importe, con los valores &lt; $5.000, &gt;= $5.000 y &lt;= $10.000, y &gt; $10.000.</li>
+<li>Acción. A1 Aplicar descuento, del 3%, del 2% o del 0%.</li>
+<li>Columnas. 2 por 3, 6.</li>
+</ul>
+<p>Fuente: Apunte Sistema Decisorio v1.11, páginas 7, 11, 19, 20 y 21.</p>
+<h3 id="parcial-3-arbol-de-decision">Árbol de decisión</h3>
+<p>Todo algoritmo que se puede representar con una tabla también se representa con un <strong>árbol de decisión</strong>. Es un diagrama que muestra de forma secuencial las condiciones y las acciones, con qué condición se considera primero, después, y así. Conviene cuando hay pocas acciones y no todas las combinaciones son posibles. Si el sistema es complejo, conviene la tabla.</p>
+<p>Fuente: Apunte Sistema Decisorio v1.11, página 22.</p>
+</section>
+<section class="sec"><h2 id="parcial-3-matriz-de-decision-decisiones-no-programadas">Matriz de decisión (decisiones no programadas)</h2>
+<p>Se usa en decisiones no repetitivas, impredecibles, con mucha incertidumbre. Sus elementos son cinco.</p>
+<ol>
+<li><strong>Objetivo.</strong> El asunto sobre el que se decide. Por ejemplo, «qué sembrar» o «cuántas máquinas comprar».</li>
+<li><strong>Alternativas.</strong> Los cursos de acción. Son las variables controlables.</li>
+<li><strong>Factores condicionantes o estados de la naturaleza.</strong> Variables del contexto que inciden en los resultados.</li>
+<li><strong>Consecuencias.</strong> Lo que resulta de cada alternativa con cada estado.</li>
+<li><strong>Resultados.</strong> Las consecuencias convertidas a una única unidad, por ejemplo pesos. Cada celda, Rij, es el resultado único de la alternativa Ai con el estado Ej.</li>
+</ol>
+<p>Según cuánto se sabe de los factores condicionantes no controlables, se decide bajo una de tres condiciones.</p>
+<ul>
+<li><strong>Certeza.</strong> Se conoce el valor que van a tomar. Cada alternativa tiene un resultado único y conocido.</li>
+<li><strong>Riesgo.</strong> Se conocen todos los comportamientos posibles, pero no cuál se va a dar. Hay información suficiente para asignarle una probabilidad a cada estado. Cada alternativa tiene más de un resultado posible, cada uno ponderado por su probabilidad. «En todos los casos, la suma de las probabilidades de todos los valores o estados del Factor Condicionante en cuestión debe ser igual a la unidad».</li>
+<li><strong>Incertidumbre.</strong> No hay información para estimar el comportamiento. Hay más de un resultado posible, pero el modelo no incluye probabilidades, porque son desconocidas o no tienen sentido en hechos que no se repiten.</li>
+</ul>
+<p>Fuente: Apunte Sistema Decisorio v1.11, páginas 7 y 8.</p>
+<h3 id="parcial-3-criterios-de-eleccion">Criterios de elección</h3>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Armar la matriz y elegir con criterios se pidió en los 3° parciales de 2018 a 2021 y en ningún examen de 2023 en adelante. Sigue en el apunte y en la práctica de la cátedra. Si tu comisión la dio, estudiala.</p>
+</div>
+<p>El criterio depende de cómo es el decididor.</p>
+<div class="tabla"><table><thead><tr><th>Cómo soy</th><th>Criterio</th></tr></thead><tbody><tr><td>Pesimista</td><td>Maximin</td></tr><tr><td>Optimista</td><td>Maximax</td></tr><tr><td>Con cierto grado de optimismo</td><td>Hurwicz</td></tr><tr><td>De lamentarme</td><td>Minimax</td></tr><tr><td>Me baso en promedios</td><td>Laplace</td></tr><tr><td>Uso información probabilística</td><td>Valor esperado, lamentación esperada</td></tr></tbody></table></div>
+<p><strong>Maximin.</strong> Se toma el peor resultado de cada alternativa, y de entre esos mínimos se elige el máximo.</p>
+<p><strong>Maximax.</strong> Se toma el mejor resultado de cada alternativa, y de esos máximos el mayor.</p>
+<p><strong>Laplace.</strong> Asigna a todos los estados la misma probabilidad, 1/n, con n la cantidad de estados. Se elige el mejor promedio. El mejor es el mayor en una matriz de ganancias y el menor si es de pérdidas.</p>
+<p><strong>Valor esperado.</strong> Usa toda la información de la matriz. Se multiplica cada resultado por la probabilidad de su estado, se suma por alternativa y se elige el más conveniente.</p>
+<p>El apunte solo nombra Hurwicz, minimax y lamentación esperada, y no los desarrolla.</p>
+<h3 id="parcial-3-ejemplo-del-apunte-de-los-televisores">Ejemplo del apunte de los televisores</h3>
+<p>Una compañía decide cuántos televisores fabricar, con demanda posible de 100, 200 o 300. Cuesta $10 producir cada uno, vende a $20 y cada unidad no vendida cuesta $1 más.</p>
+<p>La <strong>fórmula de llenado</strong> es la cuenta que da cada celda. El apunte la da así, cantidad vendida por 20, menos cantidad producida por 10, menos cantidad producida sobrante por 1.</p>
+<div class="tabla"><table><thead><tr><th>Producir \ Demanda</th><th>100</th><th>200</th><th>300</th><th>Maximin</th><th>Maximax</th><th>Laplace</th><th>Valor esperado</th></tr></thead><tbody><tr><td>100</td><td>1000</td><td>1000</td><td>1000</td><td>1000</td><td>1000</td><td>1000</td><td>1000</td></tr><tr><td>200</td><td>-100</td><td>2000</td><td>2000</td><td>-100</td><td>2000</td><td>1300</td><td>1370</td></tr><tr><td>300</td><td>-1200</td><td>900</td><td>3000</td><td>-1200</td><td>3000</td><td>900</td><td>690</td></tr></tbody></table></div>
+<p>Para el valor esperado el apunte usa 30%, 50% y 20% para las demandas de 100, 200 y 300.</p>
+<p>Es una matriz de ganancias, así que el criterio elige el valor mayor de su columna.</p>
+<p>Fuente: Apunte Sistema Decisorio v1.11, páginas 7 a 15.</p>
+</section>
+<section class="sec"><h2 id="parcial-3-preguntas-de-teoria-con-respuesta-en-el-apunte">Preguntas de teoría con respuesta en el apunte</h2>
+<details open class="pregunta"><summary><span>¿Cuáles son las herramientas para resolver una decisión programada?</span><small>3° parcial 19/11/24</small></summary><div class="resp"><p>La tabla de decisión, que es la expresión gráfica del algoritmo, con sus condiciones, acciones y reglas de transformación. Todo algoritmo representable con una tabla puede representarse también con un árbol de decisión.</p>
+<p>Fuente: Apunte Sistema Decisorio v1.11, páginas 6, 16 y 22.</p>
+</div></details>
+</section></section>
+<section class="pdf-parte" id="pdf-final" data-pagina="final" aria-label="Final"><p class="pdf-de">Sistemas y Procesos de Negocio</p><h1>Final</h1>
+<p class="bajada">Un examen integrador con cinco ejercicios y cinco preguntas de teoría que mezclan los tres parciales. Acá está cómo viene y dónde estudiar cada consigna.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="final-como-viene-el-examen">Cómo viene el examen</h2>
+<p>En el Drive hay un solo final, el del 03/12/24. Se parece mucho a los 3° parciales de 2024 y 2025. Un solo final no es una muestra grande, así que tomá el formato como pista y no como promesa.</p>
+<p>El final del 03/12/24 tiene <strong>cinco ejercicios</strong> y <strong>cinco preguntas de teoría</strong>.</p>
+<div class="tabla"><table><thead><tr><th>Ejercicio</th><th>Qué pide</th><th>Dónde estudiar</th></tr></thead><tbody><tr><td>1</td><td>Describir un proceso de negocio con enfoque sistémico en formato plantilla. Objetivo del actor y actores-tipo, alcance, flujo básico, alternativas, al menos tres reglas de negocio, diccionario de datos de un flujo de salida y de un archivo, y cuestiones abiertas (una abierta y una cerrada)</td><td><a href="#parcial-2-el-proceso-de-negocio-con-enfoque-sistemico">2° parcial</a></td></tr><tr><td>2</td><td>Cursograma de la minuta anterior</td><td><a href="#parcial-2-cursograma">2° parcial</a></td></tr><tr><td>3</td><td>Completar un organigrama a partir de un texto e indicar las departamentalizaciones</td><td><a href="#parcial-1-el-organigrama">1° parcial</a></td></tr><tr><td>4</td><td>Plantear un problema de decisión programada. Objetivo, condiciones, acciones y cantidad de reglas, sin hacer la tabla</td><td><a href="#parcial-3-como-plantear-el-problema-de-decision">3° parcial</a></td></tr><tr><td>5</td><td>Un comprobante que emite la empresa al recibir mercadería. Diccionario de datos, función y quién envía y recibe cada copia</td><td><a href="#parcial-1-procedimiento-de-compras">1° parcial</a></td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><th>Teoría</th><th>Qué pide</th><th>Dónde estudiar</th></tr></thead><tbody><tr><td>1</td><td>Qué es un sistema de información</td><td><a href="#parcial-2-sistema-de-informacion-e-informacion">2° parcial</a></td></tr><tr><td>2</td><td>Funciones administrativas que realizará quien está a cargo de un proyecto de sistemas. Nombrarlas y explicar una</td><td><a href="#parcial-1-funciones-administrativas">1° parcial</a></td></tr><tr><td>3</td><td>Funciones que se realizan en la primera etapa del ciclo en cascada, el relevamiento</td><td><a href="#parcial-2-objetivos-del-relevamiento">2° parcial</a></td></tr><tr><td>4</td><td>Diccionario de datos de estructuras de datos y de datos discretos, con palabras propias</td><td><a href="#parcial-2-diccionario-de-datos">2° parcial</a></td></tr><tr><td>5</td><td>Qué es un proceso de negocio</td><td><a href="#parcial-2-que-es-un-proceso-de-negocio">2° parcial</a></td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>El formato integrador</strong><span>Final 03/12/24, 3° parcial 19/11/24, 3° parcial 2024 de la veterinaria y 3° parcial 25/10/25</span></aside><p>Los cuatro traen plantilla de enfoque sistémico, cursograma, algo de estructura, el planteo de una decisión y un comprobante. El del 19/11/24 y el de 2025 traen también teoría. La veterinaria no trae teoría en la hoja que hay en el Drive, y pide el cursograma solo de la parte subrayada.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Hay variantes</p><p>Las minutas cambian. Un taller de autos, una veterinaria, una empresa de cristales, una asociación civil y un sector de reclamos de aguas. La estructura de las consignas se repite aunque la minuta cambie.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final-que-mas-pidieron-en-estos-examenes">Qué más pidieron en estos exámenes</h2>
+<h3 id="final-tipo-de-empresa-y-cabeza-de-la-estructura">Tipo de empresa y cabeza de la estructura</h3>
+<p>Los 3° parciales de 2024 preguntan, a partir de la actividad de la empresa, qué tipo de empresa es. También dónde se ubica un sector, como Recepción, y cuál es la cabeza de la estructura organizativa. Esto es lo que dice el apunte.</p>
+<p><strong>Según la actividad.</strong></p>
+<ul>
+<li><strong>De producción:</strong> agrícola-ganaderas, mineras, industriales.</li>
+<li><strong>Comerciales:</strong> relacionan al productor con el consumidor. Mayoristas o minoristas. También distribuidoras.</li>
+<li><strong>De servicio:</strong> seguros, transporte, bancos.</li>
+</ul>
+<p>También se clasifican por ámbito (local, nacional, regional, internacional), cantidad de propietarios (unipersonales o societarias), capital (nacional, extranjero, multinacional, público, privado, mixto) y capacidad económica.</p>
+<div class="tabla"><table><thead><tr><th>Tamaño</th><th>Empleados</th></tr></thead><tbody><tr><td>Grandes</td><td>250 o más</td></tr><tr><td>Medianas</td><td>De 100 a 249</td></tr><tr><td>Pequeñas</td><td>De 10 a 99</td></tr><tr><td>Micro</td><td>De 0 a 9</td></tr></tbody></table></div>
+<p>La <strong>cabeza estratégica y ejecutiva</strong> de Mintzberg es el directorio y la gerencia general. Para ubicar un sector, mirá <a href="#parcial-1-areas-genericas-de-una-empresa">áreas genéricas</a> y fijate qué dice la minuta.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 7, 8 y 29 a 32.</p>
+<h3 id="final-procesos-de-negocio-por-area-funcional">Procesos de negocio por área funcional</h3>
+<p>El 3° parcial 2025 pedía nombrar al menos tres procesos de negocio del área de Comercialización. El apunte no usa ese nombre en su tabla, trae una de áreas funcionales con sus procesos.</p>
+<div class="tabla"><table><thead><tr><th>Área funcional</th><th>Procesos de negocio</th></tr></thead><tbody><tr><td>Manufactura y producción</td><td>Ensamblar el producto, verificar la calidad, comprar materias primas</td></tr><tr><td>Ventas y marketing</td><td>Identificar a los clientes, dar a conocer el producto a los clientes, vender el producto</td></tr><tr><td>Finanzas y contabilidad</td><td>Pagar a acreedores, cobrar a clientes, crear estados financieros, manejar cuentas en efectivo</td></tr><tr><td>Recursos humanos</td><td>Controlar empleados, evaluar el desempeño, inscribir empleados en planes de prestaciones</td></tr></tbody></table></div>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, página 27.</p>
+</section>
+<section class="sec"><h2 id="final-como-conviene-estudiar">Cómo conviene estudiar</h2>
+<p>El examen es largo. Un orden posible, de lo que más pesa a lo que menos.</p>
+<ol>
+<li><strong>Plantilla de enfoque sistémico y diccionario de datos.</strong> Es lo más largo de escribir. Practicalo con los enunciados de <a href="ejercicios.html">Ejercicios</a> hasta que el flujo básico salga con sujeto en cada oración.</li>
+<li><strong>Cursograma.</strong> Los símbolos y las reglas de construcción se pueden memorizar.</li>
+<li><strong>Planteo de decisión.</strong> Objetivo, condiciones, acciones y cantidad de reglas.</li>
+<li><strong>Organigrama y departamentalización.</strong> Seis tipos de departamentalización.</li>
+<li><strong>Comprobantes.</strong> Qué emite cada sector en compras y en ventas.</li>
+<li><strong>Teoría.</strong> Preguntas cortas. Las páginas de arriba las cubren.</li>
+</ol>
+</section>
+<section class="sec"><h2 id="final-preguntas-de-teoria-con-respuesta-en-el-apunte">Preguntas de teoría con respuesta en el apunte</h2>
+<details open class="pregunta"><summary><span>Indicar las funciones administrativas. Nombrarlas y explicar una</span><small>Final 03/12/24</small></summary><div class="resp"><p>Planificación, organización, dirección y control. Por ejemplo, la planificación es establecer metas y un curso de acción adecuado para alcanzarlas. Es la función prioritaria, porque sin ella no tendrían sentido las demás.</p>
+<p>Fuente: Apunte Administración-Organización-Estructura v2.3, páginas 12 y 13.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Qué es un proceso de negocio?</span><small>Final 03/12/24</small></summary><div class="resp"><p>Un conjunto de tareas relacionadas lógicamente, llevadas a cabo para lograr un resultado de negocio definido. Cada proceso tiene entradas, funciones y salidas.</p>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, página 26.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Diccionario de datos de estructuras y de datos discretos</span><small>Final 03/12/24</small></summary><div class="resp"><p>Una estructura de datos es un conjunto de datos elementales que se relacionan entre sí. Por ejemplo, Dirección (e) = Calle + Nº + Piso + Dpto. El apunte no define el dato discreto con una frase. Lo marca (D) y lo describe en una tabla de atributo, descripción y valores posibles. Su ejemplo es Tipo-cta (D), con los valores cuenta corriente, caja de ahorro y plazo fijo.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 22 y 27.</p>
+</div></details>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). La materia se llamó Sistemas y Organizaciones en los exámenes viejos. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

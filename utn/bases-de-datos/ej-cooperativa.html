@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cooperativa Sustentable: Bases de Datos</title>
+<meta name="description" content="Ejercicio de examen: Cooperativa Sustentable.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+</head>
+<body data-materia="bases-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Bases de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=bases-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=bases-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#resolucion">Resolución</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Cooperativa Sustentable</h1>
+<p class="bajada">Final</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="cooperativa" data-titulo="Cooperativa Sustentable" data-min="180" data-otro="ejercicios.html#final" data-sol="oficial"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="cooperativa" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1r2g7CJMkYt-qQXU7OIs8dF3oanNmHbng/view" target="_blank" rel="noopener">Enunciado original en el Drive</a><a href="https://drive.google.com/file/d/11oIg_jqRqOJ7GnH-LzdUTXixAYJTNQRp/view" target="_blank" rel="noopener">Script de la base</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/cooperativa-enun-4.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/cooperativa-enun-4.webp" width="1136" height="1509" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a><h4>Evaluación de Modelos de Datos y Álgebra Relacional</h4>
+<h4>Modelos de Datos</h4>
+<ul>
+<li><strong>a)</strong> Esquematice el modelo E-R que se deriva de la narrativa.</li>
+<li><strong>b)</strong> Transforme el modelo E-R en un Modelo Relacional (pasaje a tablas), indicando los atributos de cada tabla indicando aquellos que pueden admitir valores nulos, indique las claves primarias y foráneas, en estas últimas indique, cuando se requiera, si admiten o no valores nulos.</li>
+</ul>
+<h4>Operaciones del Álgebra Relacional</h4>
+<ul>
+<li><strong>c)</strong> Desarrolle las operaciones en Álgebra relacional de los Requerimientos planteados.</li>
+</ul>
+<p>La cooperativa de trabajo para desarrollo sustentable Shiganshina nos contactó para confeccionar un sistema que permita organizar el trabajo de sus distintos grupos. La cooperativa sólo realiza la fabricación y comercialización de productos(1) sustentables.</p>
+<p>La cooperativa se organiza en grupos(4) de producción, formados por miembros(6) de la cooperativa para realizar la fabricación. Para evitar competencia interna cada producto que se comercializa corresponde a un único grupo que es responsable de desarrollar el proceso de fabricación y de conseguir los materiales(3) necesarios.</p>
+<p>Todos los productos se fabrican por lotes(7). Las decisiones de la fabricación de los mismos (por ejemplo fabricar sólo bajo pedido o no, tamaño del lote, momento de fabricación y cantidad de lotes) son responsabilidad del grupo que desarrolla el producto y pueden variar de producto en producto y a lo largo del tiempo por lo cual no se realiza ningún seguimiento de esto, sólo de los datos de los lotes y sus entregas.</p>
+<p>En cuanto a la comercialización los productos cuentan con un precio sugerido actualizado pero se puede negociar con los clientes(10) un precio diferente. Finalmente cuando el cliente realiza un pedido(11) se registran los productos, cantidad y precios acordados. Una vez realizado el pedido se pueden realizar una o más entregas(12) para cada producto del pedido debiéndose registrar todos los datos de las mismas por trazabilidad.</p>
+<h4>Reglas de Negocio</h4>
+<ol>
+<li>Los productos se identifican por un código único, a los mismos se les define un nombre y del mismo se registran las características para ofrecerlos a los clientes, las instrucciones del proceso de fabricación y precio sugerido actual. También se registran los materiales(3) que se utilizan para su fabricación y la cantidad de los mismos que se utiliza para la producción de una unidad y el grupo(4) que fabrica el producto.</li>
+<li>Cada producto se asigna a un único grupo(4) para su desarrollo, para evitar competencia interna. Pero un grupo puede desarrollar múltiples productos.</li>
+<li>Los materiales se identifican por un código único, tienen un nombre, una unidad de medida y una cantidad en stock. De los mismos también es necesario mantener un histórico del costo de los mismos.</li>
+<li>Los grupos de producción son numerados secuencialmente y se les da un nombre para simplificar su identificación.</li>
+<li>Los grupos se componen de varios miembros(6) (todos los que deseen formar parte del mismo). Un miembro puede formar parte de varios grupos.</li>
+<li>Los miembros son identificados por su cuil y de los mismos se registra, nombre, apellido, domicilio y teléfono. Los mismos pueden formar parte de varios grupos de producción.</li>
+<li>Los lotes dependen del producto y se identifican con un número secuencial que depende del producto. Además debe registrarse cantidad producida, fecha producción, fecha de vencimiento.</li>
+<li>Los lotes son producidos por uno o más miembros(6) de la cooperativa. Se deben registrar los miembros de la cooperativa que participaron en la producción de cada lote así como la cantidad de horas totales que trabajó cada uno de ellos para cada lote para determinar el costo de mano de obra(9).</li>
+<li>La cooperativa asigna un costo por hora de mano de obra que es el mismo para todos los miembros y no depende de cada uno. Debe llevarse un histórico del mismo.</li>
+<li>Los clientes se identifican por su cuil y se registra nombre, apellido, domicilio y teléfono.</li>
+<li>Los pedidos son identificados por un número único y secuencial. De los mismos se registra fecha de pedido, fecha de entrega convenida y por cada producto del pedido se registra la cantidad pedida y el precio de venta convenido para este pedido.</li>
+<li>Para cada producto del pedido se pueden realizar una o más entregas hasta cumplir con la cantidad pedida. De cada entrega debe registrarse el/los lotes(7) al cual/cuales corresponde, la cantidad entregada y la fecha de entrega. Dentro del mismo lote pueden hacerse varias entregas en distintas fechas.</li>
+<li>Es fundamental para la cooperativa poder saber exactamente de qué lotes fueron las entregas de cada producto de un pedido.</li>
+</ol>
+<h4>Requerimientos de información</h4>
+<ol>
+<li>Listar todos los materiales con cantidad en Stock 0. Indicar los código y nombre del material y código y nombre de los productos donde se los utiliza.</li>
+<li>Clientes que realizaron pedidos en 2020 pero no lo han hecho en 2021. Listar todos los datos del cliente.</li>
+</ol>
+</section>
+
+<section class="sec" id="resolucion-s"><h2 id="resolucion">Resolución</h2><details class="sol-grande"><summary>Ver la resolución: DER, pasaje a tablas, álgebra y SQL</summary><p class="sol-ayuda">Son las hojas originales. Tocá una para verla en grande.</p><a class="sol-img" href="img/cooperativa-1.webp" aria-label="Abrir la hoja 1 de la resolución en grande"><img src="img/cooperativa-1.webp" width="1671" height="1178" loading="lazy" alt="Hoja 1 de la resolución, tal como está en el Drive"></a><a class="sol-img" href="img/cooperativa-2.webp" aria-label="Abrir la hoja 2 de la resolución en grande"><img src="img/cooperativa-2.webp" width="1142" height="1752" loading="lazy" alt="Hoja 2 de la resolución, tal como está en el Drive"></a><p class="sol-t">SQL</p><div class="sol-bloque"><pre class="codigo"><code># <span class="hljs-keyword">SQL</span> <span class="hljs-number">1</span>
+## Enunciado
+<span class="hljs-comment">/*
+Comenzar un histórico de precios sugeridos para los productos. Se ha decidido empezar a registrar un histórico de precios sugeridos para los productos. Para ello se deberá crear una tabla de históricos de precios y cargar el valor que actualmente figura para cada producto en dicha tabla como el valor a partir de la fecha de hoy. Luego eliminar la columna de la tabla producto.
+*/</span>
+## Resolución
+<span class="hljs-keyword">create table</span> precio_sugerido (
+    codigo_producto <span class="hljs-type">int</span> unsigned <span class="hljs-keyword">not null</span>,
+    fecha_desde <span class="hljs-type">date</span> <span class="hljs-keyword">not null</span>,
+    precio_sugerido <span class="hljs-type">decimal</span>(<span class="hljs-number">10</span>,<span class="hljs-number">3</span>),
+    <span class="hljs-keyword">primary key</span> (codigo_producto, fecha_desde),
+    <span class="hljs-keyword">constraint</span> fk_precio_sugerido_producto <span class="hljs-keyword">foreign key</span> (codigo_producto)
+    <span class="hljs-keyword">references</span> producto(codigo) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> RESTRICT <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE
+) engine<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">default</span> charset<span class="hljs-operator">=</span>utf8mb4 <span class="hljs-keyword">collate</span><span class="hljs-operator">=</span>utf8mb4_unicode_ci;
+
+
+<span class="hljs-keyword">insert into</span> precio_sugerido    
+<span class="hljs-keyword">select</span> p.codigo, <span class="hljs-built_in">current_date</span>, p.precio_sugerido
+<span class="hljs-keyword">from</span> producto p;
+
+
+<span class="hljs-keyword">alter table</span> producto
+<span class="hljs-keyword">drop</span> <span class="hljs-keyword">column</span> precio_sugerido;
+# <span class="hljs-keyword">SQL</span> <span class="hljs-number">2</span>
+
+
+## Enunciado
+<span class="hljs-comment">/*
+Indicar pedidos donde la entrega se haya realizado posteriormente a la fecha de vencimiento del lote. Indicar, cuil, nombre y apellido del cliente, número de pedido, de la entrega fecha y cantidad, de producto código y nombre y del lote, número, fecha de producción y vencimiento y diferencia entre la fecha de vencimiento y de entrega. Ordenar por la diferencia en forma descendente.
+*/</span>
+## Resolución
+<span class="hljs-keyword">select</span> c.cuil, c.nombre, c.apellido
+        , e.numero_pedido, e.fecha_entrega, e.cantidad
+    , prod.codigo, prod.nombre
+    , l.numero, l.fecha_produccion, l.fecha_vencimiento
+    , datediff(l.fecha_vencimiento, e.fecha_entrega) retraso
+<span class="hljs-keyword">from</span> entrega e
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> lote l
+        <span class="hljs-keyword">on</span> e.codigo_producto<span class="hljs-operator">=</span>l.codigo_producto
+    <span class="hljs-keyword">and</span> e.numero_lote<span class="hljs-operator">=</span>l.numero
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> pedido p
+        <span class="hljs-keyword">on</span> p.numero<span class="hljs-operator">=</span>e.numero_pedido
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> cliente c
+        <span class="hljs-keyword">on</span> p.cuil_cliente<span class="hljs-operator">=</span>c.cuil
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> producto prod
+        <span class="hljs-keyword">on</span> l.codigo_producto<span class="hljs-operator">=</span>prod.codigo
+<span class="hljs-keyword">where</span> e.fecha_entrega <span class="hljs-operator">&gt;</span> l.fecha_vencimiento
+<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> retraso <span class="hljs-keyword">desc</span>;
+
+
+# <span class="hljs-keyword">SQL</span> <span class="hljs-number">3</span>
+## Enunciado
+<span class="hljs-comment">/*
+Listar todos los juguetes y, si los hubo, los pedidos realizados de los mismos donde el precio acordado sea menor que el sugerido. Indicar código y nombre del producto, precio sugerido y de los pedidos el número y fecha y cantidad y precio acordado y diferencia entre los precios. En caso que no tenga ninguna venta con precio menor mostrar “sin ventas debajo del sugerido”
+Nota: Los juguetes son aquellos productos que tienen la palabra juguete en su nombre.
+*/</span>
+## Resolución
+<span class="hljs-keyword">select</span> prod.codigo, prod.nombre, prod.precio_sugerido
+  , ifnull(pe.numero,<span class="hljs-string">&#x27;sin ventas debajo del sugerido&#x27;</span>)numero_pedido, ifnull(pe.fecha_pedido,<span class="hljs-string">&#x27;sin ventas debajo del sugerido&#x27;</span>) fecha_pedido
+  , ifnull(sol.cantidad,<span class="hljs-string">&#x27;sin ventas debajo del sugerido&#x27;</span>) cantidad, ifnull(sol.precio_unitario_acordado,<span class="hljs-string">&#x27;sin ventas debajo del sugerido&#x27;</span>) precio_acordado,
+  ifnull(prod.precio_sugerido <span class="hljs-operator">-</span> sol.precio_unitario_acordado,<span class="hljs-string">&#x27;sin ventas debajo del sugerido&#x27;</span>) diff
+<span class="hljs-keyword">from</span> producto prod
+<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> solicita sol
+        <span class="hljs-keyword">on</span> prod.codigo<span class="hljs-operator">=</span>sol.codigo_producto
+    <span class="hljs-keyword">and</span> prod.precio_sugerido<span class="hljs-operator">&gt;</span>sol.precio_unitario_acordado
+<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> pedido pe
+        <span class="hljs-keyword">on</span> sol.numero_pedido<span class="hljs-operator">=</span>pe.numero
+<span class="hljs-keyword">where</span> prod.nombre <span class="hljs-keyword">like</span> ‘<span class="hljs-operator">%</span>juguete<span class="hljs-operator">%</span>’;
+
+
+# <span class="hljs-keyword">SQL</span> <span class="hljs-number">4</span>
+## Enunciado
+<span class="hljs-comment">/*
+Listar los productos con un total de ventas menor a $500.000 durante el 2021. Indicar número y nombre del grupo que los desarrolla, código y nombre del producto, el total de ventas (en pedidos) del 2021 y el mayor y menor precio unitario acordado para dicho producto en algún pedido del año pasado. Ordenar por total de ventas ascendente.
+*/</span>
+## Resolución
+<span class="hljs-keyword">select</span> g.numero, g.nombre, p.codigo, p.nombre
+        , <span class="hljs-built_in">sum</span>(s.cantidad<span class="hljs-operator">*</span>s.precio_unitario_acordado) tot
+    , <span class="hljs-built_in">min</span>(s.precio_unitario_acordado) menor_precio, <span class="hljs-built_in">max</span>(s.precio_unitario_acordado) mayor_precio
+<span class="hljs-keyword">from</span> grupo g
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> producto p
+        <span class="hljs-keyword">on</span> p.numero_grupo<span class="hljs-operator">=</span>g.numero
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> solicita s
+        <span class="hljs-keyword">on</span> s.codigo_producto<span class="hljs-operator">=</span>p.codigo
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> pedido ped
+        <span class="hljs-keyword">on</span> s.numero_pedido<span class="hljs-operator">=</span>ped.numero
+<span class="hljs-keyword">where</span> ped.fecha_pedido <span class="hljs-keyword">between</span> <span class="hljs-string">&#x27;20210101&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;20211231&#x27;</span>
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> g.numero, g.nombre, p.codigo, p.nombre
+<span class="hljs-keyword">having</span> tot <span class="hljs-operator">&lt;</span> <span class="hljs-number">500000</span>
+<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> tot
+# <span class="hljs-keyword">SQL</span> <span class="hljs-number">5</span>
+## Enunciado
+<span class="hljs-comment">/*
+Listar los productos cuya cantidad solicitada para el mes (septiembre de 2021) (por la fecha de entrega convenida) sea mayor a la cantidad producida el mes pasado (agosto de 2021). Indicar código y nombre del producto, primera fecha de entrega convenida, cantidad total pedida, cantidad total producida y la diferencia entre ambas. Ordenar por diferencia descendente.
+*/</span>
+## Resolución
+<span class="hljs-keyword">drop</span> temporary <span class="hljs-keyword">table</span> if <span class="hljs-keyword">exists</span> pedabr;
+<span class="hljs-keyword">create</span> temporary <span class="hljs-keyword">table</span> pedabr
+<span class="hljs-keyword">select</span> p.codigo, p.nombre
+        , <span class="hljs-built_in">min</span>(ped.fecha_entrega_convenida) primera_entrega , <span class="hljs-built_in">sum</span>(s.cantidad) cantidad_pedida
+<span class="hljs-keyword">from</span> producto p
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> solicita s
+        <span class="hljs-keyword">on</span> p.codigo<span class="hljs-operator">=</span>s.codigo_producto
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> pedido ped
+        <span class="hljs-keyword">on</span> s.numero_pedido<span class="hljs-operator">=</span>ped.numero
+<span class="hljs-keyword">where</span> ped.fecha_entrega_convenida <span class="hljs-keyword">between</span> <span class="hljs-string">&#x27;20210901&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;20210930&#x27;</span>
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> p.codigo, p.nombre;
+
+
+
+
+<span class="hljs-keyword">select</span> pedabr.codigo, pedabr.nombre, pedabr.primera_entrega, pedabr.cantidad_pedida
+        , <span class="hljs-built_in">sum</span>(l.cantidad_producida) cantidad_producida, pedabr.cantidad_pedida <span class="hljs-operator">-</span> <span class="hljs-built_in">sum</span>(l.cantidad_producida) dif
+<span class="hljs-keyword">from</span>  pedabr
+<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> lote l
+        <span class="hljs-keyword">on</span> pedabr.codigo<span class="hljs-operator">=</span>l.codigo_producto
+<span class="hljs-keyword">where</span> l.fecha_produccion <span class="hljs-keyword">between</span> <span class="hljs-string">&#x27;20210801&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;20210831&#x27;</span>
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> pedabr.codigo, pedabr.nombre, pedabr.primera_entrega, pedabr.cantidad_pedida
+<span class="hljs-keyword">having</span> dif <span class="hljs-operator">&gt;</span> <span class="hljs-number">0</span>
+<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> dif <span class="hljs-keyword">desc</span>
+
+
+# <span class="hljs-keyword">SQL</span> <span class="hljs-number">6</span>
+## Enunciado
+<span class="hljs-comment">/*
+Listar los productos del grupo “Galley-La” de los que no se haya producido ningún lote en abril de este año (2021). Indicar código y nombre del producto, características y precio unitario sugerido.
+*/</span>
+## Resolución
+<span class="hljs-keyword">select</span> p.codigo, p.nombre, p.caracteristicas, p.precio_sugerido
+<span class="hljs-keyword">from</span> producto p
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> grupo g
+        <span class="hljs-keyword">on</span> p.numero_grupo<span class="hljs-operator">=</span>g.numero
+<span class="hljs-keyword">where</span> g.nombre<span class="hljs-operator">=</span><span class="hljs-string">&#x27;Galley-La&#x27;</span>
+<span class="hljs-keyword">and</span> p.codigo <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (
+        <span class="hljs-keyword">select</span> l.codigo_producto
+    <span class="hljs-keyword">from</span> lote l
+    <span class="hljs-keyword">where</span> l.fecha_produccion <span class="hljs-keyword">between</span> <span class="hljs-string">&#x27;20210401&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;20210430&#x27;</span>
+);
+
+
+# <span class="hljs-keyword">SQL</span> <span class="hljs-number">7</span>
+## Enunciado
+<span class="hljs-comment">/*
+Se decidió unificar la unidad de medida de peso de los materiales. Se deberá modificar los materiales con unidad de medida kilogramo (kg) a gramo (g). También deberán ajustarse las cantidades en las composiciones (aumentar cantidad actual *1000) y actualizar el nuevo valor (valor actual / 1000) con vigencia a partir de la fecha de hoy.
+*/</span>
+## Resolución
+<span class="hljs-keyword">begin</span>;
+
+
+<span class="hljs-keyword">drop</span> temporary <span class="hljs-keyword">table</span> if <span class="hljs-keyword">exists</span> val_kg;
+<span class="hljs-keyword">create</span> temporary <span class="hljs-keyword">table</span> val_kg
+<span class="hljs-keyword">select</span> codigo_material, <span class="hljs-built_in">max</span>(fecha_desde) fec_val
+<span class="hljs-keyword">from</span> valor_material
+<span class="hljs-keyword">where</span> fecha_desde <span class="hljs-operator">&lt;=</span> <span class="hljs-built_in">current_date</span>
+<span class="hljs-keyword">and</span> codigo_material <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> codigo <span class="hljs-keyword">from</span> material <span class="hljs-keyword">where</span> unidad_medida<span class="hljs-operator">=</span><span class="hljs-string">&#x27;kg&#x27;</span>)
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> codigo_material;
+
+
+<span class="hljs-keyword">insert into</span> valor_material
+<span class="hljs-keyword">select</span> vm.codigo_material,<span class="hljs-built_in">current_date</span>, vm.valor<span class="hljs-operator">/</span><span class="hljs-number">1000</span>
+<span class="hljs-keyword">from</span> valor_material vm
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> val_kg
+        <span class="hljs-keyword">on</span> vm.codigo_material<span class="hljs-operator">=</span>val_kg.codigo_material
+    <span class="hljs-keyword">and</span> vm.fecha_desde<span class="hljs-operator">=</span>val_kg.fec_val;
+
+
+<span class="hljs-keyword">update</span> composicion <span class="hljs-keyword">set</span> cantidad<span class="hljs-operator">=</span>cantidad<span class="hljs-operator">*</span><span class="hljs-number">1000</span>
+<span class="hljs-keyword">where</span> codigo_material <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> codigo <span class="hljs-keyword">from</span> material <span class="hljs-keyword">where</span> unidad_medida<span class="hljs-operator">=</span><span class="hljs-string">&#x27;kg&#x27;</span>);
+
+
+<span class="hljs-keyword">update</span> material <span class="hljs-keyword">set</span> unidad_medida<span class="hljs-operator">=</span><span class="hljs-string">&#x27;g&#x27;</span> <span class="hljs-keyword">where</span> unidad_medida <span class="hljs-operator">=</span><span class="hljs-string">&#x27;kg&#x27;</span>;
+
+
+<span class="hljs-keyword">commit</span>;
+
+
+## Alternativa al valor de hoy es actualizar todos los precios actuales y futuros x1000
+# <span class="hljs-keyword">SQL</span> <span class="hljs-number">8</span>
+## Enunciado
+<span class="hljs-comment">/*
+Crear una función llamada cantidad_producida, que reciba de parámetros el código del producto, una fecha desde y una fecha hasta y devuelva la cantidad producida de dicho producto entre esas fechas.
+
+
+Invocar a la función para obtener la cantidad producida de los productos del grupo “Galley-La” desde 01/07/2021 hasta 31/12/2021. Indicando código, nombre, precio sugerido y cantidad producida.
+*/</span>
+## Resolución
+DELIMITER $$
+<span class="hljs-keyword">CREATE</span> DEFINER<span class="hljs-operator">=</span>`root`@`<span class="hljs-operator">%</span>` <span class="hljs-keyword">FUNCTION</span> `cantidad_producida`(cp <span class="hljs-type">int</span>, fecha_inicio <span class="hljs-type">date</span>, fecha_fin <span class="hljs-type">date</span>) <span class="hljs-keyword">RETURNS</span> <span class="hljs-type">decimal</span>(<span class="hljs-number">10</span>,<span class="hljs-number">3</span>)
+    <span class="hljs-keyword">READS</span> <span class="hljs-keyword">SQL</span> DATA
+<span class="hljs-keyword">BEGIN</span>
+
+
+<span class="hljs-keyword">declare</span> cant <span class="hljs-type">decimal</span>(<span class="hljs-number">10</span>,<span class="hljs-number">3</span>);
+
+
+<span class="hljs-keyword">select</span> <span class="hljs-built_in">sum</span>(l.cantidad_producida) <span class="hljs-keyword">into</span> cant
+<span class="hljs-keyword">from</span> lote l
+<span class="hljs-keyword">where</span> l.codigo_producto <span class="hljs-operator">=</span> cp 
+<span class="hljs-keyword">and</span> l.fecha_produccion <span class="hljs-keyword">between</span> fecha_inicio <span class="hljs-keyword">and</span> fecha_fin;
+
+
+<span class="hljs-keyword">RETURN</span> cant;
+<span class="hljs-keyword">END</span>$$
+DELIMITER ;
+
+
+<span class="hljs-keyword">select</span> p.codigo, p.nombre, p.precio_sugerido
+        , cantidad_producida(p.codigo, <span class="hljs-string">&#x27;20210701&#x27;</span>, <span class="hljs-string">&#x27;20211231&#x27;</span>)
+<span class="hljs-keyword">from</span> producto p
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> grupo g
+        <span class="hljs-keyword">on</span> p.numero_grupo<span class="hljs-operator">=</span>g.numero
+<span class="hljs-keyword">where</span> g.nombre<span class="hljs-operator">=</span><span class="hljs-string">&#x27;Galley-La&#x27;</span>;
+
+
+# <span class="hljs-keyword">SQL</span> <span class="hljs-number">9</span>
+
+
+## Enunciado
+<span class="hljs-comment">/*
+Añadir movimientos de stock y mantener el stock actualizado. Agregar la tabla movimientos de stock de los materiales con la siguiente sentencia y crear un trigger que al insertar un nuevo movimiento de stock actualice en consecuencia el stock del material correspondiente.
+
+
+create table movimiento_stock (
+  nro_movimiento int unsigned auto_increment not null,
+  codigo_material int unsigned not null,
+  fecha_movimiento timestamp not null default current_timestamp,
+  cantidad decimal(10,3) not null COMMENT &#x27;cantidad negativa indica salida de stock&#x27;,
+  observacion varchar(255) null,
+  primary key (nro_movimiento),
+  constraint fk_movimiento_stock_material foreign key (codigo_material)
+  references material(codigo) on delete restrict on update cascade
+) engine=InnoDB default charset=utf8mb4 collate=utf8mb4_unicode_ci;
+*/</span>
+
+
+## Resolución
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TRIGGER</span> IF <span class="hljs-keyword">EXISTS</span> `cooperativa_sustentable`.`movimiento_stock_AFTER_INSERT`;
+
+
+DELIMITER $$
+USE `cooperativa_sustentable`$$
+<span class="hljs-keyword">CREATE</span> DEFINER <span class="hljs-operator">=</span> <span class="hljs-built_in">CURRENT_USER</span> <span class="hljs-keyword">TRIGGER</span> `cooperativa_sustentable`.`movimiento_stock_AFTER_INSERT` AFTER <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">ON</span> `movimiento_stock` <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span>
+<span class="hljs-keyword">BEGIN</span>
+        <span class="hljs-keyword">update</span> material
+    <span class="hljs-keyword">set</span> stock<span class="hljs-operator">=</span>stock<span class="hljs-operator">+</span>new.cantidad
+    <span class="hljs-keyword">where</span> codigo<span class="hljs-operator">=</span>new.codigo_material;
+<span class="hljs-keyword">END</span>$$
+DELIMITER ;
+
+
+
+
+## sentencias de prueba
+<span class="hljs-keyword">insert into</span> movimiento_stock(codigo_material, cantidad, observacion)
+<span class="hljs-keyword">values</span>(<span class="hljs-number">10001</span>, <span class="hljs-number">-20</span>, <span class="hljs-string">&#x27;material en descomposición&#x27;</span>);
+
+
+<span class="hljs-keyword">insert into</span> movimiento_stock(codigo_material, cantidad, observacion)
+<span class="hljs-keyword">values</span>(<span class="hljs-number">10001</span>, <span class="hljs-number">200</span>, <span class="hljs-string">&#x27;compra&#x27;</span>);</code></pre></div></details></section>
+
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="DER" data-enlace="parcial-1.html#de-la-narrativa-al-der" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">DER</span><span class="ex-t-teoria"><a href="parcial-1.html#de-la-narrativa-al-der">De la narrativa al DER</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Pasaje" data-enlace="parcial-1.html#pasaje-a-tablas" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Pasaje</span><span class="ex-t-teoria"><a href="parcial-1.html#pasaje-a-tablas">Pasaje a tablas</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Álgebra" data-enlace="parcial-1.html#algebra-relacional" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Álgebra</span><span class="ex-t-teoria"><a href="parcial-1.html#algebra-relacional">Álgebra relacional</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="SQL" data-enlace="parcial-2.html#sql-para-la-practica" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">SQL</span><span class="ex-t-teoria"><a href="parcial-2.html#sql-para-la-practica">SQL para la práctica</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-kitana.html">Anterior: Clínica Kitana</a><a href="ej-rrhh.html">Siguiente: Recursos Humanos</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta marzo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

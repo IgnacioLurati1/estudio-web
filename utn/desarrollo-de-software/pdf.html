@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Desarrollo de Software en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Desarrollo de Software, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="desarrollo-de-software" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Desarrollo de Software</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Desarrollo de Software</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial">Parcial de 2017</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN, que para esta materia es muy poco: una guía sin teoría y un solo parcial, de 2017. Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Desarrollo de Software</p><h1>Para entender</h1>
+<p class="bajada">Frontend, Angular y backend, según la única guía del Drive. Con este material podés ubicarte y encontrar las clases, pero la teoría tenés que sacarla de ahí.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+<div class="ojo"><p class="ojo-t">No hay exámenes de 2023 en adelante</p><p>El único examen del Drive es un parcial del 08/11/2017. Es del plan viejo y su encabezado dice TTADS, otro nombre que el de la materia. Con esto no se puede saber qué se toma hoy. Confirmalo con tu comisión.</p>
+</div>
+
+<section class="sec"><h2 id="inicio-la-idea-general">La idea general</h2>
+<p>Para esta materia el Drive trae dos cosas.</p>
+<div class="tabla"><table><thead><tr><th>Archivo</th><th>Qué trae</th><th>Fecha</th></tr></thead><tbody><tr><td><a href="https://drive.google.com/file/d/1KVX6fK-ceX9AhSpqeG6zg9NwjwWg8sQ-/view">LEER.pdf</a></td><td>Links a clases grabadas, el repositorio y una recomendación de alguien que la cursó</td><td>No la dice. El PDF se generó en enero de 2025</td></tr><tr><td><a href="https://drive.google.com/file/d/1E9V0RxsX15DjEgZg9EbkW0Gel5RB20cd/view">Parcial 2017-11-08</a></td><td>Una hoja con cinco ejercicios</td><td>08/11/2017, según el nombre del archivo</td></tr></tbody></table></div>
+<p>No hay programa, apuntes, trabajos prácticos ni finales. Por eso este resumen no explica teoría. Inventarla sería peligroso, porque cada cátedra pide las cosas a su manera.</p>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido">El recorrido</h2>
+<p>LEER.pdf divide las clases grabadas en tres bloques.</p>
+<div class="tabla"><table><thead><tr><th>Bloque</th><th>Qué dice LEER.pdf</th><th>Clases</th></tr></thead><tbody><tr><td>Frontend</td><td>html, css y javascript</td><td><a href="https://www.youtube.com/playlist?list=PLstUYTrWtZx1kyPb5gcirFVisYcQsZTGd">Lista de frontend</a></td></tr><tr><td>Angular</td><td>Versión desactualizada</td><td><a href="https://www.youtube.com/playlist?list=PLHjN6GqSS4FkhEec4gANfy7i7eg_d6ySE">Lista de Angular</a></td></tr><tr><td>Backend</td><td>No da detalle</td><td><a href="https://www.youtube.com/playlist?list=PLstUYTrWtZx0Vv18QId7UHN5h2trJwUlD">Lista de backend</a></td></tr></tbody></table></div>
+<p>También enlaza un <a href="https://github.com/utnfrrodsw/">repositorio en GitHub</a>. Esos cuatro enlaces están fuera del Drive y no los revisamos. No sabemos qué temas cubre cada video ni si siguen en línea.</p>
+<p>La recomendación de LEER.pdf, textual: «Es una materia difícil de agarrar si arrancas de cero, lleva tiempo y las clases grabadas no son muy actuales. Si el proyecto usa angular le daría prioridad a ver un curso de youtube porque la versión que se dio en las clases grabadas ya esta &quot;obsoleta&quot;». Es la opinión de quien cursó, no de la cátedra.</p>
+</section>
+<section class="sec"><h2 id="inicio-como-se-conecta">Cómo se conecta</h2>
+<p>Lo único que muestra cómo se juntan los bloques es la hoja de 2017. En un mismo examen mezcla un Schema de Mongoose, tests unitarios, un formulario en HTML, conceptos de Angular y una función en JavaScript. Mirá el detalle en <a href="#pdf-parcial">Parcial de 2017</a>.</p>
+<p>LEER.pdf nombra además «el proyecto», sin decir de qué se trata. Tampoco aclara si el proyecto se evalúa ni qué tecnologías usa.</p>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p>Del material solo sale esto.</p>
+<ul>
+<li>Hay una carpeta llamada <code>Parcial</code>, con un examen de 2017.</li>
+<li>Esa hoja tiene cinco ejercicios y sus puntajes suman 10.</li>
+<li>No hay nada sobre finales, regularidad, promoción ni condiciones para aprobar.</li>
+</ul>
+<p>Esto hay que preguntárselo a la cátedra.</p>
+<ol>
+<li>Cuál es el programa vigente.</li>
+<li>Cuántos parciales hay y qué entra en cada uno.</li>
+<li>Si hay proyecto, qué tecnologías usa, en particular qué versión de Angular.</li>
+<li>Cómo se aprueba y si hay final.</li>
+</ol>
+</section>
+<section class="sec"><h2 id="inicio-por-donde-arrancar">Por dónde arrancar</h2>
+<ol>
+<li>Conseguí el programa de tu comisión. Es lo que más falta en el Drive.</li>
+<li>Si arrancás de cero, seguí el orden de LEER.pdf con las clases grabadas. Si tu proyecto usa Angular, LEER.pdf sugiere priorizar un curso actual de YouTube.</li>
+<li>Usá la <a href="ejercicios.html">hoja de 2017</a> para medirte cuando ya hayas visto los temas. Tomala como una muestra vieja de cómo se preguntó.</li>
+</ol>
+</section>
+<section class="sec"><h2 id="inicio-lo-que-no-esta-aca">Lo que no está acá</h2>
+<p>En el Drive hay una carpeta llamada «2017-11-08 Resolución (sin corregir e incompleta)». No la usamos. El propio nombre avisa que no está corregida, y nada indica que sea oficial. Tampoco contestamos los ejercicios por nuestra cuenta. Sin un apunte de la cátedra que lo respalde, una respuesta nuestra podría contradecir lo que te van a pedir.</p>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial" data-pagina="parcial" aria-label="Parcial de 2017"><p class="pdf-de">Desarrollo de Software</p><h1>Parcial de 2017</h1>
+<p class="bajada">La única hoja de examen del Drive, con cinco ejercicios. Muestra qué se preguntó en 2017, no lo que se toma hoy.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Lo marcado «Plan viejo» es de 2022 o antes, del plan anterior. Puede no coincidir con lo que se toma hoy.</p>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Todo lo de esta página sale de un solo examen, del 08/11/2017. El encabezado dice «Universidad Tecnológica Nacional, Facultad Regional Rosario, TTADS». No hay exámenes de 2023 en adelante para comparar. Tampoco hay apuntes, así que acá van las consignas sin respuesta. Para responderlas, usá <a href="#parcial-donde-estudiar-cada-tema">las clases</a>.</p>
+</div>
+
+<section class="sec"><h2 id="parcial-como-venia-el-examen">Cómo venía el examen</h2>
+<p>Una sola hoja, con cinco ejercicios y 10 puntos en total.</p>
+<div class="tabla"><table><thead><tr><th>Ejercicio</th><th>Puntos</th><th>Tema</th><th>Qué se pidió</th></tr></thead><tbody><tr><td>1</td><td>2</td><td>Mongoose</td><td>Construir un Schema a partir de un diagrama de clases</td></tr><tr><td>2</td><td>2,5</td><td>Tests unitarios</td><td>Elegir fechas para probar una función de cálculo de edad</td></tr><tr><td>3</td><td>2,5</td><td>HTML</td><td>Escribir un formulario de ingreso a partir de una figura</td></tr><tr><td>4</td><td>2</td><td>Angular, responsive y JavaScript</td><td>Cuatro preguntas teóricas</td></tr><tr><td>5</td><td>1</td><td>JavaScript</td><td>Codificar una función corta</td></tr></tbody></table></div>
+<p>La hoja original está en <a href="ejercicios.html">Ejercicios</a>. Conviene mirarla, porque el diagrama y la figura se ven mejor ahí.</p>
+</section>
+<section class="sec"><h2 id="parcial-ejercicio-1-schema-de-mongoose">Ejercicio 1. Schema de Mongoose</h2>
+<div class="tomado"><aside class="nota"><strong>Construir el Schema de un diagrama con dos clases y su relación</strong><span>Parcial 08/11/2017 <em class="viejo">Plan viejo</em></span></aside><p>«Construya el Schema de Mongoose para el siguiente diagrama de clases y la relación entre ellas».</p>
+</div>
+<p>Este es el diagrama de la hoja.</p>
+<div class="tabla"><table><thead><tr><th>Clase</th><th>Atributos</th></tr></thead><tbody><tr><td><code>Room</code></td><td><code>number: Number</code>, <code>description: String</code>, <code>enabled: Boolean</code></td></tr><tr><td><code>Booking</code></td><td><code>bookingDate: Date</code>, <code>start: Date</code>, <code>durationHours: Number</code>, <code>canceled: Boolean</code>, <code>contact: String</code></td></tr></tbody></table></div>
+<p>La línea que las une marca <code>1</code> del lado de <code>Room</code> y <code>0..*</code> del lado de <code>Booking</code>.</p>
+</section>
+<section class="sec"><h2 id="parcial-ejercicio-2-tests-unitarios">Ejercicio 2. Tests unitarios</h2>
+<div class="tomado"><aside class="nota"><strong>Elegir fechas de prueba para una función</strong><span>Parcial 08/11/2017 <em class="viejo">Plan viejo</em></span></aside><p>«Indique que fechas utilizaría para asegurar que los test unitarios aseguren el correcto funcionamiento de la siguiente función para el cálculo de edad. Sugerencia, primero piense en los tests que crearía sin analizar el código y luego revisando el código evalúe si requiere tests adicionales».</p>
+</div>
+<pre class="codigo"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">getAge</span>(<span class="hljs-params">dateString</span>) {
+    <span class="hljs-keyword">var</span> today = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>();
+    <span class="hljs-keyword">var</span> birthDate = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>(dateString);
+    <span class="hljs-keyword">var</span> age = today.<span class="hljs-title function_">getFullYear</span>() - birthDate.<span class="hljs-title function_">getFullYear</span>();
+    <span class="hljs-keyword">var</span> m = today.<span class="hljs-title function_">getMonth</span>() - birthDate.<span class="hljs-title function_">getMonth</span>();
+    <span class="hljs-keyword">if</span> (m &lt; <span class="hljs-number">0</span> || (m === <span class="hljs-number">0</span> &amp;&amp; today.<span class="hljs-title function_">getDate</span>() &lt; birthDate.<span class="hljs-title function_">getDate</span>())) {
+    age--;
+    }
+    <span class="hljs-keyword">return</span> age;
+}</code></pre>
+<p>La sugerencia de la consigna te marca dos pasadas. En la primera pensás los tests sin mirar el código. En la segunda leés el código y decidís si hacen falta más.</p>
+</section>
+<section class="sec"><h2 id="parcial-ejercicio-3-formulario-en-html">Ejercicio 3. Formulario en HTML</h2>
+<div class="tomado"><aside class="nota"><strong>Escribir el HTML de un formulario de ingreso</strong><span>Parcial 08/11/2017 <em class="viejo">Plan viejo</em></span></aside><p>«Escribir el html del siguiente formulario de ingreso de la figura».</p>
+</div>
+<p>La figura es la pantalla «Sign in to GitHub». Trae estos elementos:</p>
+<ul>
+<li>El campo «Username or email address».</li>
+<li>El campo «Password», con el enlace «Forgot password?» en el mismo renglón.</li>
+<li>El botón «Sign in».</li>
+<li>Abajo, en un recuadro aparte, «New to GitHub? Create an account.»</li>
+</ul>
+</section>
+<section class="sec"><h2 id="parcial-ejercicio-4-preguntas-teoricas">Ejercicio 4. Preguntas teóricas</h2>
+<div class="tomado"><aside class="nota"><strong>Cuatro preguntas sobre Angular, responsive y JavaScript</strong><span>Parcial 08/11/2017 <em class="viejo">Plan viejo</em></span></aside><ol>
+<li>«Defina algunos de los elementos de Angular como framework: Componente, Servicio, Template. ¿Qué otro elemento conoce?»</li>
+<li>«Explique con sus palabras responsive web.»</li>
+<li>«¿Qué significa y para que sirve @Input() y @Output() en Angular 4?»</li>
+<li>«¿Qué diferencia hay entre let y var en la definición de variables?»</li>
+</ol>
+</div>
+<div class="ojo"><p class="ojo-t">La versión de Angular</p><p>La consigna nombra Angular 4. LEER.pdf avisa que la versión de las clases grabadas ya está «obsoleta». Antes de estudiar Angular, preguntá qué versión usa tu comisión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-ejercicio-5-una-funcion-en-javascript">Ejercicio 5. Una función en JavaScript</h2>
+<div class="tomado"><aside class="nota"><strong>Codificar una función a partir de su definición</strong><span>Parcial 08/11/2017 <em class="viejo">Plan viejo</em></span></aside><p>«Dada la siguiente definición de una función codifique la misma para que devuelva la cantidad de palabras de lista (array de strings) que son iguales a base (string)».</p>
+</div>
+<pre class="codigo"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">coincidencias</span>(<span class="hljs-params">base, lista</span>){}</code></pre>
+</section>
+<section class="sec"><h2 id="parcial-donde-estudiar-cada-tema">Dónde estudiar cada tema</h2>
+<p>LEER.pdf solo dice qué trae la lista de frontend. Para el resto, esta tabla es una orientación nuestra. No revisamos los videos, así que no podemos asegurar que cada tema esté.</p>
+<div class="tabla"><table><thead><tr><th>Tema de la hoja</th><th>Dónde buscarlo</th></tr></thead><tbody><tr><td>HTML (ejercicio 3)</td><td><a href="https://www.youtube.com/playlist?list=PLstUYTrWtZx1kyPb5gcirFVisYcQsZTGd">Lista de frontend</a></td></tr><tr><td>JavaScript (ejercicios 4 y 5)</td><td><a href="https://www.youtube.com/playlist?list=PLstUYTrWtZx1kyPb5gcirFVisYcQsZTGd">Lista de frontend</a></td></tr><tr><td>Responsive (ejercicio 4)</td><td><a href="https://www.youtube.com/playlist?list=PLstUYTrWtZx1kyPb5gcirFVisYcQsZTGd">Lista de frontend</a>, que incluye css</td></tr><tr><td>Angular (ejercicio 4)</td><td><a href="https://www.youtube.com/playlist?list=PLHjN6GqSS4FkhEec4gANfy7i7eg_d6ySE">Lista de Angular</a>, desactualizada según LEER.pdf</td></tr><tr><td>Mongoose (ejercicio 1)</td><td><a href="https://www.youtube.com/playlist?list=PLstUYTrWtZx0Vv18QId7UHN5h2trJwUlD">Lista de backend</a></td></tr><tr><td>Tests unitarios (ejercicio 2)</td><td>LEER.pdf no lo ubica. Probá en el <a href="https://github.com/utnfrrodsw/">repositorio</a> o preguntá en tu comisión</td></tr></tbody></table></div>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN, que para esta materia es muy poco: una guía sin teoría y un solo parcial, de 2017. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

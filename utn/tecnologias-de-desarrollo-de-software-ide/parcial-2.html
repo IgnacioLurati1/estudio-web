@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2° parcial: Tecnologías de Desarrollo de Software IDE</title>
+<meta name="description" content="Windows Forms, ADO.NET, Entity Framework, Blazor y servicios web.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="tecnologias-de-desarrollo-de-software-ide" data-pagina="parcial-2">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Tecnologías de Desarrollo de Software IDE</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html" aria-current="page">2° parcial</a></li><li class="em-fuera"><a href="aprobacion-directa.html">Aprobación directa</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=tecnologias-de-desarrollo-de-software-ide">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=tecnologias-de-desarrollo-de-software-ide">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#windows-forms">Windows Forms</a></li><li class="n3"><a href="#la-jerarquia">La jerarquía</a></li><li class="n3"><a href="#como-arranca-una-aplicacion">Cómo arranca una aplicación</a></li><li class="n3"><a href="#initializecomponent">InitializeComponent</a></li><li class="n3"><a href="#abrir-un-formulario">Abrir un formulario</a></li><li class="n3"><a href="#controles">Controles</a></li><li class="n3"><a href="#controles-en-tiempo-de-ejecucion">Controles en tiempo de ejecución</a></li><li class="n3"><a href="#manejo-de-eventos">Manejo de eventos</a></li><li class="n3"><a href="#eventos-del-formulario">Eventos del formulario</a></li><li class="n3"><a href="#eventos-del-mouse-y-del-teclado">Eventos del mouse y del teclado</a></li><li class="n3"><a href="#el-foco">El foco</a></li><li class="n3"><a href="#archivo-de-configuracion">Archivo de configuración</a></li><li class="n3"><a href="#clickonce">ClickOnce</a></li><li class="n2"><a href="#ado-net">ADO.NET</a></li><li class="n3"><a href="#connection">Connection</a></li><li class="n3"><a href="#command">Command</a></li><li class="n3"><a href="#datareader">DataReader</a></li><li class="n3"><a href="#datatable-y-dataset">DataTable y DataSet</a></li><li class="n3"><a href="#dataadapter">DataAdapter</a></li><li class="n3"><a href="#databinding-y-transacciones">DataBinding y transacciones</a></li><li class="n2"><a href="#entity-framework">Entity Framework</a></li><li class="n3"><a href="#dbcontext-y-dbset">DbContext y DbSet</a></li><li class="n3"><a href="#estados-de-una-entidad">Estados de una entidad</a></li><li class="n3"><a href="#mapeo">Mapeo</a></li><li class="n3"><a href="#las-cuatro-operaciones">Las cuatro operaciones</a></li><li class="n3"><a href="#herencia-en-ef-core">Herencia en EF Core</a></li><li class="n2"><a href="#blazor">Blazor</a></li><li class="n3"><a href="#las-piezas">Las piezas</a></li><li class="n2"><a href="#servicios-web">Servicios web</a></li><li class="n3"><a href="#caracteristicas-de-rest">Características de REST</a></li><li class="n3"><a href="#codigos-de-respuesta">Códigos de respuesta</a></li><li class="n2"><a href="#archivos-txt-y-xml">Archivos TXT y XML</a></li><li class="n2"><a href="#lo-que-quedo-del-plan-viejo">Lo que quedó del plan viejo</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>2° parcial</h1>
+<p class="bajada">Windows Forms, ADO.NET, Entity Framework, Blazor y servicios web, con preguntas que vuelven a la plataforma y a los objetos.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>De 2023 en adelante leí un solo 2° parcial, del 14/09/2026. Fue en aula virtual, con 20 preguntas cerradas. Con un solo examen no se puede decir qué se repite. Se puede decir qué se preguntó esa vez.</p>
+<div class="tomado"><aside class="nota"><strong>Las 20 consignas del último</strong><span>2° parcial 14/09/2026</span></aside><p>Están las consignas, sin las opciones. La última columna te lleva a la teoría.</p>
+<div class="tabla"><table><thead><tr><th>Consigna</th><th>Dónde estudiarlo</th></tr></thead><tbody><tr><td>Qué representa un <code>DbSet&lt;T&gt;</code> dentro de un <code>DbContext</code></td><td><a href="#dbcontext-y-dbset">DbContext y DbSet</a></td></tr><tr><td>Tecnología para que una aplicación windows se actualice sola (salió 2 veces)</td><td><a href="#clickonce">ClickOnce</a></td></tr><tr><td>Qué es válido decir sobre Entity Framework</td><td><a href="#entity-framework">Entity Framework</a></td></tr><tr><td>Qué archivo suele contener el layout principal de Blazor</td><td><a href="#blazor">Blazor</a></td></tr><tr><td>Qué es un método estático</td><td><a href="parcial-1.html#metodos-estaticos">1° parcial</a></td></tr><tr><td>Qué protocolo usa un cliente Windows Forms al llamar a un servicio .NET</td><td><a href="#servicios-web">Servicios web</a></td></tr><tr><td>Dónde ocurre el procesamiento de la interfaz en Blazor Server</td><td><a href="#blazor">Blazor</a></td></tr><tr><td>Qué es necesario para construir un compilador .NET</td><td><a href="parcial-1.html#compilacion-de-c-a-codigo-nativo">1° parcial</a></td></tr><tr><td>Por qué usamos múltiples proyectos y clases en el TPI</td><td><a href="aprobacion-directa.html#las-capas">Aprobación directa</a></td></tr><tr><td>Si se puede usar LINQ sin Entity Framework</td><td><a href="parcial-1.html#linq">1° parcial</a></td></tr><tr><td>Cuáles son tipos por valor</td><td><a href="parcial-1.html#tipos-por-valor-y-por-referencia">1° parcial</a></td></tr><tr><td>Qué método de <code>SqlCommand</code> ejecuta una consulta que retorna un conjunto de resultados</td><td><a href="#command">Command</a></td></tr><tr><td>Salida de un código con <code>||</code>, <code>&amp;&amp;</code> y métodos que cambian variables</td><td><a href="parcial-1.html#operadores-logicos-y-cortocircuito">1° parcial</a></td></tr><tr><td>Qué código de estado HTTP indica que no se encuentra el recurso</td><td><a href="#codigos-de-respuesta">Códigos de respuesta</a></td></tr><tr><td>Para qué sirve el encapsulamiento</td><td><a href="parcial-1.html#abstraccion-y-encapsulamiento">1° parcial</a></td></tr><tr><td>Para qué puede usarse ADO.NET</td><td><a href="#ado-net">ADO.NET</a></td></tr><tr><td>Qué es válido afirmar sobre el CLR</td><td><a href="parcial-1.html#common-language-runtime-clr">1° parcial</a></td></tr><tr><td>Qué código agregar para mostrar el resultado de un <code>SELECT COUNT(*)</code></td><td><a href="#command">Command</a></td></tr><tr><td>Cómo agregar un <code>Button</code> a un formulario en tiempo de ejecución</td><td><a href="#controles-en-tiempo-de-ejecucion">Controles en tiempo de ejecución</a></td></tr></tbody></table></div>
+</div>
+<div class="ojo"><p class="ojo-t">Sobre el original del Drive</p><p>El <a href="https://drive.google.com/file/d/1ONCuoSITvXvL93s-J20zMek5R0GFdn5x/view">original</a> trae las opciones, pero es la captura de un alumno y se ven sus marcas. No lo uses como clave.</p>
+</div>
+<p>En 2 de esas 20 consignas sale ClickOnce, y 6 son de la plataforma o de objetos. El 2° parcial también repasa lo del 1°. Estudiá esa <a href="parcial-1.html">página</a> antes de rendir.</p>
+</section>
+<section class="sec"><h2 id="windows-forms">Windows Forms</h2>
+<p>Es un «conjunto de clases que permite desarrollar aplicaciones basadas en Windows». Es orientado a eventos, y la mayoría de los controles está en <code>System.Windows.Forms</code> (Presentación de la Unidad 3, diapositivas 3 y 8).</p>
+<p>Todas las diapositivas de esta sección son de esa presentación.</p>
+<p>Según la diapositiva 3, incluye interfaz de usuario rica, acceso al framework de .NET, ejecución en un entorno manejado, seguridad integrada, diseño orientado a objetos, orientación a eventos, aplicaciones orientadas a datos con ADO.NET, fácil acceso a servicios web y elección de lenguaje.</p>
+<p>.NET tiene tres componentes para aplicaciones de escritorio (diapositiva 4).</p>
+<ul>
+<li><strong>Windows Forms</strong>: componentes para gestionar ventanas y controles.</li>
+<li><strong>GDI+</strong>: las funciones que encapsulan las funcionalidades gráficas de bajo nivel. Es el sistema gráfico 2D de Microsoft y Windows Forms lo aprovecha al 100%. Trae dibujo (<code>System.Drawing</code>), lápices, pinceles e imágenes, alpha blending, degradés de color e imágenes en varios formatos además de Bitmap (diapositiva 13).</li>
+<li><strong>Windows Presentation Foundation</strong>: la segunda generación de aplicaciones de escritorio.</li>
+</ul>
+<p>Crear una aplicación Windows Forms «es tan fácil como instanciar y extender los formularios de Windows». El proceso tiene estos pasos (diapositiva 7).</p>
+<ol>
+<li>Crear un proyecto nuevo con la estructura de una aplicación Windows Forms.</li>
+<li>Definir los formularios necesarios.</li>
+<li>Con el diseñador, agregarles controles según el propósito y configurar los manejadores de eventos.</li>
+<li>Agregar tu código para el comportamiento y la apariencia.</li>
+<li>Diseñar tus propios controles.</li>
+</ol>
+<h3 id="la-jerarquia">La jerarquía</h3>
+<div class="tabla"><table><thead><tr><th>Clase</th><th>Qué aporta</th></tr></thead><tbody><tr><td><code>Object</code></td><td>Clase básica de todos los tipos</td></tr><tr><td><code>Component</code></td><td>Funcionalidad básica de los contenedores</td></tr><tr><td><code>Control</code></td><td>Control visual que responde a mouse y teclado, y acepta el foco. Superclase de <code>TextBox</code>, <code>Label</code>, <code>Button</code></td></tr><tr><td><code>Form</code></td><td>La ventana a la que le añadís controles</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 6.</p>
+<h3 id="como-arranca-una-aplicacion">Cómo arranca una aplicación</h3>
+<p>Al crear el proyecto se crea un formulario principal. La aplicación arranca con la línea <code>Application.Run(new Form1())</code>, que «no es un setting mágico del proyecto» (diapositiva 15).</p>
+<p>Hay dos tipos de aplicación (diapositiva 17).</p>
+<ul>
+<li><strong>SDI</strong> (single document interface): un solo formulario activado.</li>
+<li><strong>MDI</strong> (multiple document interface): un formulario padre y muchos hijos. En el padre se setea la propiedad <code>IsMDIContainer</code>, y en los hijos, <code>IsMDIChild</code> en true.</li>
+</ul>
+<h3 id="initializecomponent">InitializeComponent</h3>
+<p>Es un método agregado por Visual Studio. Tiene «toda la creación de los controles sobre la superficie de diseño, el posicionamiento, etc.». Es código generado y se mantiene sincronizado (diapositiva 16).</p>
+<p>El diseñador genera ese código, y «Partial Class permite separar la implementación de una clase en varios archivos fuente» (diapositiva 32).</p>
+<h3 id="abrir-un-formulario">Abrir un formulario</h3>
+<div class="tabla"><table><thead><tr><th>Método</th><th>Cómo se muestra</th></tr></thead><tbody><tr><td><code>form.Show()</code></td><td>No modal</td></tr><tr><td><code>form.ShowDialog()</code></td><td>Modal</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 18.</p>
+<p>Modal significa que «no se podrá interactuar con el resto de la aplicación salvo que se haya cerrado la ventana que se mostró con ShowDialog». Además, <code>ShowDialog</code> devuelve el valor de la propiedad <code>DialogResult</code> del formulario (Unidad 3, Laboratorio 1, pág. 8).</p>
+<p>El mismo laboratorio completa el comportamiento (pág. 8).</p>
+<ul>
+<li>Si se setea <code>DialogResult</code> en un formulario mostrado con <code>ShowDialog</code>, el formulario se cierra solo.</li>
+<li>Si se cierra desde la cruz, la respuesta por defecto es <code>DialogResult.Cancel</code>.</li>
+<li>La propiedad <code>AcceptButton</code> del formulario elige el botón por defecto. Apretar Enter es como hacer clic en ese botón.</li>
+</ul>
+<p>Propiedades y métodos del objeto <code>Form</code> que nombra la diapositiva 33:</p>
+<div class="tabla"><table><thead><tr><th>Miembro</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>Opacity</code></td><td>Transparencia, de 0 a 1</td></tr><tr><td><code>Size</code></td><td>Tamaño</td></tr><tr><td><code>Location</code></td><td>Ubicación</td></tr><tr><td><code>Show()</code></td><td>Muestra el formulario. Permite especificar su propietario</td></tr><tr><td><code>ShowDialog()</code></td><td>Muestra un diálogo, incluso uno modal, que no deja que otro formulario tome el foco mientras se muestra</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Formularios windows</strong><span>1° parcial 01/06/2024</span></aside><p>Se pidió marcar qué es válido afirmar de los formularios. Las opciones hablan de <code>PreRender</code>, <code>MdiParent</code>, <code>Show</code> y <code>ShowDialog</code>, y de herencia entre formularios. Mirá también los <a href="#eventos-del-formulario">eventos del formulario</a>.</p>
+</div>
+<h3 id="controles">Controles</h3>
+<div class="tabla"><table><thead><tr><th>Categoría</th><th>Ejemplos</th></tr></thead><tbody><tr><td>Action</td><td><code>Button</code>, <code>Toolbar</code>, <code>MenuBar</code>, <code>ContextMenu</code></td></tr><tr><td>Value</td><td><code>Label</code>, <code>TextBox</code>, <code>PictureBox</code></td></tr><tr><td>List</td><td><code>ListBox</code>, <code>DataGrid</code>, <code>TreeView</code>, <code>ComboBox</code></td></tr><tr><td>Container</td><td><code>GroupBox</code>, <code>Panel</code>, <code>ImageList</code></td></tr><tr><td>Dialogs</td><td><code>OpenFileDialog</code>, <code>SaveFileDialog</code>, <code>PrintDialog</code></td></tr></tbody></table></div>
+<p>Fuente: diapositiva 19.</p>
+<div class="tomado"><aside class="nota"><strong>Nombrar controles</strong><span>1° parcial 01/06/2024</span></aside><p>Una consigna de desarrollo pidió 4 controles WinForm con un ejemplo de uso de cada uno. Sale de esta tabla.</p>
+</div>
+<p>Otros controles que da la presentación (diapositivas 39 a 53):</p>
+<ul>
+<li><strong>DataGridView</strong>: tabla de datos. Puede vincularse a un origen o usarse sin vinculación.</li>
+<li><strong>MaskedTextBox</strong>: un <code>TextBox</code> que acepta o rechaza el ingreso según una máscara.</li>
+<li><strong>ToolStrip</strong>: barras de herramientas.</li>
+<li><strong>MenuStrip</strong> y <strong>ContextMenuStrip</strong>: menú del formulario y menú del botón derecho.</li>
+<li><strong>TableLayoutPanel</strong>: ubica elementos al estilo tabla. <strong>FlowLayoutPanel</strong>: los controles fluyen a medida que se agregan.</li>
+<li><strong>WebBrowser</strong>: un «wrapper» administrado del control ActiveX del WebBrowser. Reproduce la navegación de Internet Explorer y es un visor de documentos HTML (diapositiva 46).</li>
+</ul>
+<p>Algunos detalles más de esas diapositivas:</p>
+<ul>
+<li>El <strong>DataGridView</strong> es la evolución del <code>DataGrid</code> de .NET 1.0 y 1.1, y soporta el modelo estándar de binding de Windows Forms (diapositiva 40).</li>
+<li>La <strong>MaskedTextBox</strong> deja especificar sin código el número de caracteres, los caracteres opcionales y el carácter esperado en la máscara. Muestra el formato del texto en tiempo de ejecución (diapositiva 44).</li>
+<li>El <strong>MenuStrip</strong> contiene otros objetos, como <code>ToolStripMenuItem</code>, <code>ToolStripComboBox</code>, <code>ToolStripSeparator</code> y <code>ToolStripTextBox</code> (diapositiva 48).</li>
+<li>Los <strong>controles contenedores</strong> pueden contener otros controles y heredan de <code>ContainerControl</code>. Tienen acceso directo solo a los controles de primer nivel. Algunos son <code>Form</code>, <code>Panel</code>, <code>GroupBox</code> y los layout panels (diapositiva 49).</li>
+</ul>
+<p>Dos propiedades para el tamaño de la ventana (diapositiva 50):</p>
+<ul>
+<li><code>Anchor</code> ancla un componente a uno o varios bordes.</li>
+<li><code>Dock</code> lo fija a uno de los bordes de la ventana.</li>
+</ul>
+<h3 id="controles-en-tiempo-de-ejecucion">Controles en tiempo de ejecución</h3>
+<p>Se puede agregar un control sin el diseñador, y el modelo es el código de <code>InitializeComponent</code>. Hace falta cuando un componente se tiene que incluir como resultado de la ejecución de un evento (diapositiva 29). Son 4 pasos (diapositiva 30).</p>
+<ol>
+<li>Añadir un nuevo campo de declaración para el componente.</li>
+<li>Instanciar el control.</li>
+<li>Configurar sus propiedades y añadir eventos si hacen falta.</li>
+<li><mark>Añadirlo a la colección de controles del formulario o a un contenedor.</mark></li>
+</ol>
+<div class="tomado"><aside class="nota"><strong>Agregar un Button por código</strong><span>1° parcial 01/06/2024 y 2° parcial 14/09/2026</span></aside><p>Salió con el mismo texto en las dos fechas. Mirá bien el paso 4 cuando leas las opciones de código.</p>
+</div>
+<h3 id="manejo-de-eventos">Manejo de eventos</h3>
+<p>Por cada evento podés implementar varios métodos manejadores. Un manejador puede recibir eventos de varios objetos. Se cancela el tratamiento por defecto con <code>e.Handled = true</code> (diapositiva 34).</p>
+<h3 id="eventos-del-formulario">Eventos del formulario</h3>
+<div class="tabla"><table><thead><tr><th>Evento</th><th>Cuándo</th></tr></thead><tbody><tr><td><code>Load</code></td><td>Recién cargado, todavía no se muestra</td></tr><tr><td><code>Paint</code></td><td>Se dibuja, con sus controles</td></tr><tr><td><code>Activated</code></td><td>Recibe el foco</td></tr><tr><td><code>FormClosing</code></td><td>Se inició el cierre. Se puede cancelar</td></tr><tr><td><code>FormClosed</code></td><td>Ya se cerró</td></tr><tr><td><code>Disposed</code></td><td>Fue destruido</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 35.</p>
+<h3 id="eventos-del-mouse-y-del-teclado">Eventos del mouse y del teclado</h3>
+<div class="tabla"><table><thead><tr><th>Evento</th><th>Cuándo</th></tr></thead><tbody><tr><td><code>MouseClick</code></td><td>Se hizo clic con el ratón</td></tr><tr><td><code>MouseEnter</code></td><td>El puntero entró a un componente</td></tr><tr><td><code>MouseMove</code></td><td>El puntero se movió dentro del componente</td></tr><tr><td><code>KeyPress</code></td><td>Tecla presionada. Representa una pareja de eventos Up y Down sucesivos, y <code>e.KeyChar</code> dice cuál</td></tr><tr><td><code>KeyDown</code></td><td>Tecla hundida</td></tr><tr><td><code>KeyUp</code></td><td>Tecla liberada</td></tr><tr><td><code>HelpRequested</code></td><td>Se presionó F1</td></tr></tbody></table></div>
+<p>Fuente: diapositivas 36 y 37.</p>
+<h3 id="el-foco">El foco</h3>
+<div class="tabla"><table><thead><tr><th>Miembro</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>CanFocus</code></td><td>Dice si el control puede tomar el foco</td></tr><tr><td><code>Focused</code></td><td>Dice si el control tiene el foco</td></tr><tr><td><code>Focus()</code></td><td>Asigna el foco al componente</td></tr><tr><td><code>TabIndex</code></td><td>Da el orden de movimiento del foco</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 38.</p>
+<h3 id="archivo-de-configuracion">Archivo de configuración</h3>
+<p><code>App.config</code> es un archivo XML, con <code>&lt;appSettings /&gt;</code> para parámetros generales y <code>&lt;connectionStrings /&gt;</code> para las cadenas de conexión (diapositiva 20).</p>
+<h3 id="clickonce">ClickOnce</h3>
+<details class="pregunta"><summary><span>¿Qué tecnología permite que una aplicación windows se actualice sola, con mínima interacción?</span><small>1° parcial 01/06/2024 y 2° parcial 14/09/2026</small></summary><div class="resp"><p>ClickOnce «permite actualizaciones automáticas de aplicaciones Windows que pueden ser instaladas con mínima interacción del usuario». Fuente: Presentación de la Unidad 3, diapositiva 54.</p>
+</div></details>
+<p>Supera tres obstáculos propios de la distribución de software (diapositiva 54).</p>
+<ul>
+<li>Las dificultades para actualizar las aplicaciones.</li>
+<li>El impacto en el equipo del usuario.</li>
+<li>Los permisos.</li>
+</ul>
+<p>«Cualquier aplicación Windows Form o modo Consola» se publica con ClickOnce. Se publica de tres modos: como página web, desde una dirección de red local o desde un dispositivo de almacenamiento. Las aplicaciones ClickOnce pueden verificar si hay versiones nuevas y reemplazar solas los componentes actualizados (diapositiva 55).</p>
+</section>
+<section class="sec"><h2 id="ado-net">ADO.NET</h2>
+<p>ADO.NET es «un conjunto de clases para conectar y manipular fuentes de datos» (Presentación de la Unidad 4, Capítulo 1, diapositiva 3). Todas las diapositivas de esta sección son de esa presentación.</p>
+<details class="pregunta"><summary><span>¿Para qué puede usarse ADO.NET?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«Diseñado para trabajar con cualquier origen de datos (no solo base de datos relacionales)». Sus modelos muestran fuentes OLEDB, como Access y Excel. El laboratorio de la Unidad 4 trabaja además con archivos TXT y XML. Fuente: Presentación de la Unidad 4, Capítulo 1, diapositivas 3, 4 y 44.</p>
+</div></details>
+<p>Sus características, según la diapositiva 3:</p>
+<ul>
+<li>Diseñado para trabajar en entornos desconectados.</li>
+<li>Modelo de programación con soporte para XML.</li>
+<li>Brinda clases, estructuras, interfaces y enumeraciones para administrar el acceso a datos.</li>
+<li>Basado en Data Providers.</li>
+<li>Diseñado para trabajar con cualquier origen de datos, no solo bases relacionales.</li>
+</ul>
+<p>Los namespaces se importan con <code>using</code>. Por un lado, <code>System.Data</code> y <code>System.Data.Common</code>. Por otro, el que depende del proveedor que uses, que puede ser <code>System.Data.SqlClient</code>, <code>System.Data.OleDB</code>, <code>System.Data.ODBC</code> o <code>System.Data.OracleClient</code> (diapositiva 6).</p>
+<p>Los objetos cambian de nombre según el proveedor: <code>SqlConnection</code>, <code>OleDbConnection</code>, <code>OdbcConnection</code>, <code>OracleConnection</code> (diapositiva 21). Se trabaja de dos maneras (diapositivas 4 y 5).</p>
+<ul>
+<li><strong>Con DataSets</strong>: el <code>DataAdapter</code> llena tablas en memoria.</li>
+<li><strong>Con objetos</strong>: el <code>DataReader</code> lee y vos armás tus objetos.</li>
+</ul>
+<h3 id="connection">Connection</h3>
+<p>Establece la comunicación física entre la aplicación y la base. Propiedad <code>ConnectionString</code>. Métodos <code>Open</code>, <code>Close</code> y <code>BeginTransaction</code> (diapositivas 20 y 22). Representa una conexión al Data Source, y permite personalizarla e iniciar, confirmar y abortar transacciones (diapositiva 20). Las clases <code>xxxConnection</code> heredan de <code>System.Data.Common.DbConnection</code> (diapositiva 22).</p>
+<div class="ejemplo"><p class="ejemplo-t">Crear la conexión</p><pre class="codigo"><code><span class="hljs-built_in">string</span> sCnn = <span class="hljs-string">&quot;data source=localhost; &quot;</span> +
+    <span class="hljs-string">&quot;initial catalog=northwind; integrated security=true&quot;</span>;
+SqlConnection conn = <span class="hljs-keyword">new</span> SqlConnection(sCnn);</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 4, Capítulo 1, diapositiva 21</p></div>
+<p>La cadena de conexión puede tener datos sensibles. Va en el archivo de configuración, en <code>&lt;connectionStrings&gt;</code>. Se lee con <code>ConfigurationManager.<wbr>ConnectionStrings["..."].<wbr>ConnectionString</code> (diapositiva 23). Sus parámetros son <code>Data Source</code>, <code>Initial Catalog</code>, <code>Integrated Security</code>, <code>Connection Timeout</code>, <code>User ID</code>, <code>Password</code> y <code>Provider</code> (diapositiva 24).</p>
+<h3 id="command">Command</h3>
+<p>«Representa una Instrucción SQL o un procedimiento almacenado que se ejecuta en un origen de datos.» Requiere un objeto Connection y soporta parámetros (diapositiva 26). Es específico de cada proveedor (<code>SQLCommand</code>, <code>ODBCCommand</code>, <code>OLEDBCommand</code>, <code>OracleCommand</code>), se puede usar solo o a través de DataAdapters, y «expone 4 métodos importantes para devolver datos» (diapositiva 26).</p>
+<div class="tabla"><table><thead><tr><th>Propiedades</th><th>Métodos</th></tr></thead><tbody><tr><td><code>CommandType</code>, <code>CommandText</code>, <code>Connection</code>, <code>Parameters</code></td><td><code>ExecuteReader()</code>, <code>ExecuteScalar()</code>, <code>ExecuteNonQuery()</code>, <code>ExecuteXMLReader()</code></td></tr></tbody></table></div>
+<p>Fuente: diapositiva 27. Los laboratorios los usan así.</p>
+<ul>
+<li><code>ExecuteReader</code> «crea un objeto DataReader que nos permite leer los datos» (Unidad 4, Capítulo 1, Laboratorio 3, pág. 6).</li>
+<li><code>ExecuteNonQuery</code> ejecuta los comandos de insertar, modificar y eliminar (mismo laboratorio, págs. 8 y 9).</li>
+</ul>
+<div class="ojo"><p class="ojo-t">ExecuteScalar no está explicado</p><p>La presentación solo lo nombra, y no encontré un laboratorio que lo describa. Se tomó el 14/09/2026 con un <code>SELECT COUNT(*)</code>. Buscá qué devuelve en la documentación de Microsoft antes de rendir.</p>
+</div>
+<p>Los parámetros se crean, se les define dirección y tipo, se les da valor y se agregan a <code>Parameters</code> (diapositivas 28 y 29).</p>
+<div class="tabla"><table><thead><tr><td></td><th>Parámetro de entrada (INPUT)</th><th>Parámetro de salida (OUTPUT)</th></tr></thead><tbody><tr><td>Pasos</td><td>Crear el parámetro, definir dirección y tipo de dato, asignar valor y agregarlo a <code>Parameters</code></td><td>Crear el parámetro, definir la dirección, agregarlo a <code>Parameters</code>, llamar al procedimiento almacenado y leer el parámetro</td></tr><tr><td>Dirección</td><td><code>ParameterDirection.Input</code></td><td><code>ParameterDirection.Output</code></td></tr></tbody></table></div>
+<p>Fuente: diapositivas 28 y 29.</p>
+<div class="ejemplo"><p class="ejemplo-t">Los dos parámetros</p><pre class="codigo"><code><span class="hljs-comment">// Entrada</span>
+SqlParameter param = <span class="hljs-keyword">new</span> SqlParameter(<span class="hljs-string">&quot;@FechaVto&quot;</span>, SQLDbType.DateTime);
+param.Direction = ParameterDirection.Input;
+param.Value = (DateTime)(txtFechaVto.Text);
+cmd.Parameters.Add(param);
+
+<span class="hljs-comment">// Salida</span>
+SqlParameter param = <span class="hljs-keyword">new</span> SqlParameter(<span class="hljs-string">&quot;@Cantidad&quot;</span>, SQLDbType.Int);
+param.Direction = ParameterDirection.Output;
+cmd.Parameters.Add(param);
+cmd.ExecuteNonQuery();
+<span class="hljs-built_in">int</span> cantComprada = (<span class="hljs-built_in">int</span>)cmd.Parameters[<span class="hljs-string">&quot;@Cantidad&quot;</span>].Value;</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 4, Capítulo 1, diapositivas 28 y 29</p></div>
+<h3 id="datareader">DataReader</h3>
+<p>Es de solo avance y solo lectura (forward-only, read-only). Da acceso rápido, usa pocos recursos y queda <mark>conectado al origen</mark>. La conexión la manejás vos. Los datos se manejan por código o con controles enlazados (diapositiva 32).</p>
+<h3 id="datatable-y-dataset">DataTable y DataSet</h3>
+<div class="tabla"><table><thead><tr><th>Objeto</th><th>Qué es</th></tr></thead><tbody><tr><td><code>DataTable</code></td><td>Objeto central si no usás objetos. «Desconoce su origen de datos, por lo que funciona como una entidad independiente» (diapositiva 7)</td></tr><tr><td><code>DataSet</code></td><td>«Representación de datos en memoria». Una colección de <code>DataTable</code>, con integridad por <code>DataRelation</code>. Desconoce el origen (diapositiva 13)</td></tr><tr><td><code>DataSet</code> tipado</td><td>Clase generada en diseño que hereda de <code>DataSet</code>. Da completado de sentencias y comprobación de tipos en compilación (diapositiva 17)</td></tr></tbody></table></div>
+<p>Del <code>DataTable</code> la diapositiva 7 agrega tres cosas. Su esquema lo define <code>DataColumnCollection</code>. Mantiene la integridad de los datos con Constraints. Y con sus eventos se controlan los distintos estados de los registros. Está formado por <code>DataRow</code> y <code>DataColumn</code> (diapositiva 8).</p>
+<div class="tabla"><table><thead><tr><th>Miembro de <code>DataTable</code></th><th>Qué hace</th></tr></thead><tbody><tr><td><code>.NewRow</code></td><td>Devuelve un <code>DataRow</code> vacío con el esquema del <code>DataTable</code></td></tr><tr><td><code>.Rows</code></td><td>Colección de filas del <code>DataTable</code></td></tr><tr><td><code>.Columns</code>, <code>.Columns.Add</code>, <code>.Columns.Remove</code></td><td>Colección de <code>DataColumn</code>. Agregás una columna, o su nombre y tipo, o la sacás</td></tr><tr><td><code>.Select</code></td><td>Consulta con expresiones sobre las filas cargadas</td></tr><tr><td><code>.ReadXMLSchema</code>, <code>.ReadXML</code></td><td>Toman el esquema o el contenido desde un archivo XML</td></tr><tr><td><code>.WriteXMLSchema</code>, <code>.WriteXML</code></td><td>Escriben el esquema o el contenido en un archivo <code>.xml</code></td></tr><tr><td><code>.Load</code></td><td>Carga filas desde un origen, como un DataReader</td></tr><tr><td><code>.Merge</code></td><td>Combina las filas de varios <code>DataTable</code></td></tr></tbody></table></div>
+<p>Fuente: diapositivas 9 y 10. <code>DataSet.Load</code> y <code>DataTable.Load</code> cargan desde un DataReader, como <code>OLEDbDataReader</code> o <code>SqlDataReader</code>, y dan un control más específico de los datos (diapositiva 14).</p>
+<h3 id="dataadapter">DataAdapter</h3>
+<p>«Gestiona el intercambio de datos entre DataTables y un Data Source», con <code>.Fill</code> y <code>.Update</code>. Tiene <code>SelectCommand</code>, <code>InsertCommand</code>, <code>UpdateCommand</code> y <code>DeleteCommand</code> (diapositivas 35 y 37). También provee relaciones entre tablas y columnas, y el usuario puede saltarse los comandos Insert, Update y Delete (diapositiva 35). El dibujo de la diapositiva 37 suma <code>TableMappings</code> entre sus piezas.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El <code>DataReader</code> es como leer un libro de corrido con el bibliotecario al lado. Es rápido, pero sin volver atrás y con la biblioteca abierta para vos. El <code>DataAdapter</code> te saca una copia a tu casa. La trabajás sin conexión, en un <code>DataSet</code>, y después llevás los cambios.</p>
+</div>
+<h3 id="databinding-y-transacciones">DataBinding y transacciones</h3>
+<p>DataBinding enlaza objetos con datos y controles WinForms, sin escribir código, y se establece en diseño (diapositiva 39). <code>TransactionScope</code> agrupa operaciones en una unidad lógica de trabajo, con el método <code>.Complete</code> y dentro de un <code>using</code> (diapositiva 42).</p>
+<ul>
+<li>El <strong>DataBinding</strong> automatiza operaciones y permite navegar y editar registros. Admite varios orígenes, como un DataSet, un servicio web o una base de datos (diapositiva 39).</li>
+<li>El <strong>TransactionScope</strong> controla y conserva la coherencia e integridad de todas las acciones, y puede contener transacciones locales o distribuidas. Pide agregar la referencia a <code>System.Transaction</code>, y la clase está en ese namespace (diapositiva 42).</li>
+</ul>
+</section>
+<section class="sec"><h2 id="entity-framework">Entity Framework</h2>
+<p>Todas las diapositivas de esta sección son de la Presentación de la Unidad 4, Capítulo 2.</p>
+<p>Trabajar con ADO.NET obliga a manejar dos mundos, objetos y datos relacionales, con dos lenguajes y una API que los une (diapositivas 3 y 4). Entity Framework resuelve eso: «En lugar de operar sobre filas y columnas se opera sobre objetos denominados entities». Tiene soporte para LINQ. La cátedra cubre solo <strong>Code First</strong> (diapositiva 5).</p>
+<p>La presentación se titula «ORM Entity Framework» (diapositiva 1). El laboratorio lo presenta como el ORM con el que se aprenden «los fundamentos de los ORM (Object Relational Mapping)», para manipular los datos del dominio modelados como clases y objetos (Unidad 4, Capítulo 2, Laboratorio, pág. 1).</p>
+<p>El problema que resuelve, con más detalle (diapositivas 3 y 4):</p>
+<ul>
+<li>Armar el puente entre el modelo de objetos y el relacional con DataSets o DataReaders «genera un costo elevado en terminos de esfuerzo de desarrollo».</li>
+<li>Hay que conocer dos lenguajes, C# y SQL, con sintaxis, tipos de datos, herramientas y paradigmas distintos.</li>
+<li>Además hay que aprender la API que une los dos mundos, ADO.NET. Es «potente, pero frágil y consumidor importante de tiempo».</li>
+</ul>
+<p>EF apareció con el Service Pack 1 de .NET 3.5, en <code>System.Data.Entity.dll</code>. Soporta dos formas de modelar las entidades, <strong>Code First</strong> y el <strong>EF Designer</strong>. La cátedra cubre solo Code First porque el Designer «presenta varios problemas y ya no esta incluido en .NET Core» (diapositiva 5). El contenido de la presentación nombra también las <strong>Conventions</strong> como forma de mapeo, sin desarrollarlas (diapositiva 2).</p>
+<div class="tomado"><aside class="nota"><strong>Qué es válido decir sobre EF</strong><span>2° parcial 14/09/2026</span></aside><p>Pregunta de selección múltiple. Mezcla frases verdaderas sobre EF con la definición de otras tecnologías. Para distinguirlas, repasá esta sección, <a href="parcial-1.html#linq">LINQ</a> y qué dice la presentación de cada cosa.</p>
+</div>
+<h3 id="dbcontext-y-dbset">DbContext y DbSet</h3>
+<p><code>DbContext</code> tiene el constructor que toma la cadena de conexión, <code>Entry</code>, <code>SaveChanges</code> y <code>SaveChangesAsync</code>, y <code>Database</code>. «Representa una combinación de los patrones Unit of Work y Repository» (diapositiva 7).</p>
+<div class="tabla"><table><thead><tr><th>Miembro de <code>DbContext</code></th><th>Qué hace</th></tr></thead><tbody><tr><td><code>DbContext</code></td><td>Constructor. Toma de parámetro la cadena de conexión a la base</td></tr><tr><td><code>Entry</code>, <code>Entry&lt;TEntity&gt;</code></td><td>Obtiene el <code>DbEntityEntry</code> de una entidad, con información sobre ella y la posibilidad de hacer acciones sobre ella</td></tr><tr><td><code>SaveChanges</code>, <code>SaveChangesAsync</code></td><td>Graba en la base los cambios del context actual y devuelve el número de entidades afectadas</td></tr><tr><td><code>Database</code></td><td>Acceso a la base. Creación, eliminación, validación de existencia, ejecución de procedimientos almacenados, sentencias SQL y funciones transaccionales</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 7. La misma diapositiva completa la frase de los patrones. Unit of Work y Repository «pueden ser usados para consultar datos y acumular cambios sobre los objetos que luego puedan ser guardados en un solo Unit of Work».</p>
+<div class="ejemplo"><p class="ejemplo-t">Un contexto propio</p><pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AcademiaEntities</span> : <span class="hljs-title">DbContext</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AcademiaEntities</span>() : <span class="hljs-title">base</span>(<span class="hljs-params"><span class="hljs-string">&quot;name=AcademiaConnection&quot;</span></span>)</span>
+    {
+    }
+}</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 4, Capítulo 2, diapositiva 8</p></div>
+<details class="pregunta"><summary><span>¿Qué representa un DbSet dentro de un DbContext?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«Para agregar tablas al context se usa el objeto DbSet<T> para cada tabla.» Fuente: Presentación de la Unidad 4, Capítulo 2, diapositiva 9.</p>
+</div></details>
+<div class="tabla"><table><thead><tr><th>Miembro de <code>DbSet&lt;T&gt;</code></th><th>Qué hace</th></tr></thead><tbody><tr><td><code>Add</code>, <code>AddRange</code></td><td>Agrega y marca como Added. Se inserta al llamar a <code>SaveChanges</code></td></tr><tr><td><code>Attach</code></td><td>Asocia un objeto al <code>DbContext</code>. Es un uso muy común en entornos desconectados como ASP.NET/MVC</td></tr><tr><td><code>Find</code>, <code>FindAsync</code></td><td>Busca una fila por primary key y devuelve un objeto que la representa</td></tr><tr><td><code>Remove</code>, <code>RemoveRange</code></td><td>Marca para eliminar</td></tr><tr><td><code>FromSql</code></td><td>SQL puro que devuelve entidades</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 9.</p>
+<h3 id="estados-de-una-entidad">Estados de una entidad</h3>
+<div class="tabla"><table><thead><tr><th>Estado</th><th>Significa</th></tr></thead><tbody><tr><td><code>Detached</code></td><td>Existe, pero no se está siguiendo. Recién creado</td></tr><tr><td><code>Unchanged</code></td><td>Sin cambios desde que se asoció o desde el último <code>SaveChanges</code></td></tr><tr><td><code>Added</code></td><td>Nuevo, falta <code>SaveChanges</code></td></tr><tr><td><code>Deleted</code></td><td>Eliminado del context, todavía no de la base</td></tr><tr><td><code>Modified</code></td><td>Cambió una propiedad, falta <code>SaveChanges</code></td></tr></tbody></table></div>
+<p>Fuente: diapositiva 10. El estado de una entidad se lee con <code>EntityState state = context.Entry(entity).State;</code> (diapositiva 10).</p>
+<h3 id="mapeo">Mapeo</h3>
+<p>Se configura con <strong>Data Annotations</strong> (diapositiva 11) o con <strong>Fluent API</strong>, en <code>OnModelCreating</code> (diapositiva 12). Las annotations «se utilizan para configurar las entidades y mapear tablas y columnas» (diapositiva 11).</p>
+<div class="tabla"><table><thead><tr><th>Annotation</th><th>Para qué</th></tr></thead><tbody><tr><td><code>Key</code></td><td>Primary key. No tiene que ser de una sola columna, porque soporta claves múltiples</td></tr><tr><td><code>Required</code></td><td>No permite nulos</td></tr><tr><td><code>ForeignKey</code></td><td>Clave foránea para navegación</td></tr><tr><td><code>StringLength</code></td><td>Mínimo y máximo</td></tr><tr><td><code>NotMapped</code></td><td>Sin relación con la base</td></tr><tr><td><code>ConcurrencyCheck</code></td><td>Control de concurrencia</td></tr><tr><td><code>Table</code>, <code>Column</code></td><td>Nombres distintos a los de la clase</td></tr><tr><td><code>DatabaseGenerated</code></td><td>La genera la base, por ejemplo un Identity</td></tr><tr><td><code>Index</code></td><td>Crea un índice</td></tr></tbody></table></div>
+<div class="ejemplo"><p class="ejemplo-t">Lo mismo con Fluent API</p><pre class="codigo"><code><span class="hljs-keyword">internal</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MyContext</span> : <span class="hljs-title">DbContext</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DbSet</span>&lt;<span class="hljs-title">Blog</span>&gt; Blogs</span> { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnModelCreating</span>(<span class="hljs-params">ModelBuilder modelBuilder</span>)</span>
+    {
+        modelBuilder.Entity&lt;Blog&gt;()
+            .Property(b =&gt; b.Url)
+            .IsRequired();
+    }
+}</code></pre>
+<p>Hace obligatoria la propiedad <code>Url</code> de <code>Blog</code>, como haría <code>Required</code>.</p>
+<p class="bloque-fuente">Presentación de la Unidad 4, Capítulo 2, diapositiva 12</p></div>
+<p>La presentación también genera un EDM con un asistente. El asistente genera las entidades, los <code>DbSet</code> y las configuraciones con Data Annotations, pero todo eso «se podria haber hecho sin Wizard de manera sencilla y transparente», y los mapeos también con Fluent API (diapositiva 15).</p>
+<h3 id="las-cuatro-operaciones">Las cuatro operaciones</h3>
+<div class="ejemplo"><p class="ejemplo-t">Insertar, consultar, eliminar y actualizar</p><pre class="codigo"><code><span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> context = <span class="hljs-keyword">new</span> AcademiaEntities())
+{
+    <span class="hljs-keyword">var</span> usuario = <span class="hljs-keyword">new</span> Usuario()
+    {
+        NombreUsuario = <span class="hljs-string">&quot;Admin&quot;</span>,
+        Clave = <span class="hljs-string">&quot;Password&quot;</span>,
+        Habilitado = <span class="hljs-literal">true</span>
+    };
+    context.Usuarios.Add(usuario);
+    context.SaveChanges();
+}</code></pre>
+<p>Para consultar, recorre <code>context.Usuarios.Where(u =&gt; u.NombreUsuario.Contains(&quot;r&quot;))</code>. Para eliminar, <code>Find</code> y <code>Remove</code>, seguidos de <code>SaveChanges</code>. Para actualizar, <code>Find</code>, cambiar la propiedad y <code>SaveChanges</code>.</p>
+<p class="bloque-fuente">Presentación de la Unidad 4, Capítulo 2, diapositivas 16 a 19</p></div>
+<h3 id="herencia-en-ef-core">Herencia en EF Core</h3>
+<p>Tres enfoques (Presentación de la Unidad 4, Capítulo 2.1, diapositivas 4 a 6).</p>
+<div class="tabla"><table><thead><tr><th>Enfoque</th><th>Cómo guarda</th><th>A favor</th><th>En contra</th></tr></thead><tbody><tr><td>TPH (por jerarquía)</td><td>Una sola tabla con columna discriminadora. <strong>Es el enfoque por defecto</strong></td><td>Simplicidad y rendimiento</td><td>Tablas grandes con columnas nulas</td></tr><tr><td>TPT (por tipo)</td><td>Tabla general y tablas por subclase</td><td>Normalización, menos nulos</td><td>Los JOIN pueden afectar el rendimiento</td></tr><tr><td>TPC (por clase concreta)</td><td>Una tabla por clase concreta, con todo lo heredado</td><td>Sencillez, sin JOIN</td><td>Duplicación y problemas de normalización</td></tr></tbody></table></div>
+<p>La presentación nombra además Migrations y Lazy, Eager y Explicit Loading, sin desarrollarlos (diapositiva 20). Migrations se ve en <a href="aprobacion-directa.html#entity-framework-en-la-aplicacion">Aprobación directa</a>.</p>
+</section>
+<section class="sec"><h2 id="blazor">Blazor</h2>
+<p>Es un framework de Microsoft, de código abierto, para desarrollar «aplicaciones web de una sola página (SPA) dinámicas y eficientes usando C# y Razor» (Presentación de la Unidad 5, Blazor, diapositiva 3). Todas las diapositivas de esta sección son de esa presentación.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Blazor Server</th><th>Blazor WebAssembly</th></tr></thead><tbody><tr><td>Dónde corre</td><td><mark>En el servidor. El HTML se actualiza en el navegador mediante SignalR</mark></td><td>En el navegador del usuario, con WebAssembly</td></tr><tr><td>Interacción</td><td>Cada acción va al servidor y vuelve. Ligera latencia</td><td>Local y rápida. Solo llama al servidor por APIs o datos</td></tr><tr><td>Carga inicial</td><td>Rápida</td><td>Más larga, porque se baja todo</td></tr><tr><td>Estado</td><td>En el servidor</td><td>En el cliente</td></tr><tr><td>Si se corta la conexión</td><td>La aplicación deja de funcionar</td><td>Puede seguir, si no depende de un backend</td></tr></tbody></table></div>
+<p>Fuente: diapositivas 5, 7, 8, 11 y 12.</p>
+<p>La presentación lo resume como «Browser + Razor = Blazor» (diapositiva 3). Da cuatro motivos para elegirlo (diapositiva 4).</p>
+<ul>
+<li><strong>Código reutilizable</strong>: el mismo C# se comparte entre el frontend y el backend.</li>
+<li><strong>Fácil de aprender</strong>: si ya conocés C# y .NET, la curva es suave.</li>
+<li><strong>Rendimiento nativo</strong>: con Blazor WebAssembly, el código corre directo en el navegador.</li>
+<li><strong>Soporte completo para .NET</strong>: usa sus librerías y su ecosistema.</li>
+</ul>
+<p><strong>WebAssembly</strong> (Wasm) «es un formato de código binario que permite ejecutar código de bajo nivel en navegadores web y otros entornos», con un rendimiento casi nativo. Se diseñó para complementar JavaScript, y permite que lenguajes como C, C++ o Rust se compilen y corran en el navegador de forma eficiente y segura (diapositiva 10).</p>
+<div class="tabla"><table><thead><tr><td></td><th>Blazor Server</th><th>Blazor WebAssembly</th></tr></thead><tbody><tr><td>Escenarios ideales</td><td>Aplicaciones que necesitan acceso frecuente a datos del servidor, o que no pueden bajar mucho código al cliente</td><td>Aplicaciones con más interactividad, que pueden correr enteras en el cliente y donde la conectividad no es una limitante constante</td></tr></tbody></table></div>
+<p>Fuente: diapositivas 8 y 12. La carga inicial de Blazor Server es rápida porque el navegador solo baja un archivo HTML y JavaScript chico para iniciar la conexión con el servidor (diapositiva 7).</p>
+<details class="pregunta"><summary><span>En una aplicación Blazor Server, ¿dónde ocurre el procesamiento de la interfaz?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«Se ejecuta en el servidor y utiliza SignalR para comunicar cambios de la UI al navegador del cliente.» Fuente: Presentación de la Unidad 5, Blazor, diapositiva 7.</p>
+</div></details>
+<h3 id="las-piezas">Las piezas</h3>
+<ul>
+<li><strong>Componentes</strong>: los bloques principales, en C# y Razor (diapositiva 14).</li>
+<li><strong>Páginas</strong>: un tipo especial de componente, asociado a una ruta (diapositiva 15).</li>
+<li><strong>Rutas</strong>: manejan la navegación entre componentes. Van con la directiva <code>@page</code>, admiten parámetros, parámetros opcionales (<code>?</code>) y varias rutas en un solo componente. Al navegar, el navegador no recarga toda la página, porque Blazor actualiza solo la parte necesaria (diapositiva 16).</li>
+<li><strong>Binding</strong>: la sincronización entre la interfaz y los datos. One-way, del código a la vista. Two-way, entre vista y modelo, ideal para formularios (diapositiva 17).</li>
+<li><strong>Archivos del proyecto inicial</strong>: <code>Program.cs</code>, <code>App.razor</code> y <code>MainLayout.razor</code> (diapositiva 18).</li>
+</ul>
+<p>Ventajas: no necesitás JavaScript, se integra con .NET y reutilizás código. Desafíos: el tamaño de descarga y los límites de WebAssembly en el navegador (diapositiva 20).</p>
+</section>
+<section class="sec"><h2 id="servicios-web">Servicios web</h2>
+<p>«Los servicios web son componentes de software que permiten que diferentes aplicaciones se comuniquen e interactúen entre sí a través de una red» (Presentación de la Unidad 6, diapositiva 3). Son independientes de la plataforma y del lenguaje, porque otras aplicaciones los usan mediante tecnologías web estándar (diapositiva 3).</p>
+<p>Qué problemas resuelven, según la diapositiva 4:</p>
+<ul>
+<li>Dan un mecanismo para que las aplicaciones intercambien datos e invoquen funcionalidades de forma remota.</li>
+<li>Permiten integración e interoperabilidad entre sistemas distintos, sin importar sus tecnologías.</li>
+<li>Habilitan la computación distribuida. Las aplicaciones aprovechan las capacidades de las demás y comparten datos de forma segura y eficiente.</li>
+</ul>
+<p>La diapositiva 5 muestra cómo evolucionaron, con RPC (1980), DCE (1990), CORBA (1991), COM (1993), DCOM (1996), Java RMI (1997), XML-RPC (1998), SOAP y REST (2000) y .NET Remoting (2002).</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Se apoya en</th></tr></thead><tbody><tr><td>Basados en SOAP</td><td>Protocolo SOAP (Simple Object Access Protocol), XML para el intercambio</td></tr><tr><td>RESTful</td><td>Principios REST (REpresentational State Transfer), HTTP + JSON o XML</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 6.</p>
+<p>Los servicios RESTful también se conocen como REST APIs. Son un estilo arquitectónico popular para diseñar servicios web, basado en principios que enfatizan la simplicidad, la escalabilidad y la falta de estado (stateless) (diapositiva 7). La arquitectura pone a los clientes contra una RESTful API, que corre en un servidor web con su base de datos (diapositiva 10).</p>
+<details class="pregunta"><summary><span>¿Qué protocolo usa un cliente Windows Forms al llamar a un servicio .NET?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>Para los servicios RESTful, «HTTP + JSON o XML para intercambio». El laboratorio consume el servicio con una URL <code>https://localhost:7011/api/Alumno/</code>. Fuente: Presentación de la Unidad 6, diapositiva 6, y Unidad 6, Laboratorio 3, pág. 6.</p>
+</div></details>
+<h3 id="caracteristicas-de-rest">Características de REST</h3>
+<p>Orientado a recursos, sin estado (stateless), con interfaz uniforme. Formatos JSON, «estándar de facto», y XML (diapositiva 8). Las operaciones son las de un CRUD.</p>
+<div class="tabla"><table><thead><tr><th>Verbo</th><th>Para qué</th></tr></thead><tbody><tr><td><code>GET</code></td><td>Recuperar un recurso o una colección</td></tr><tr><td><code>POST</code></td><td>Crear un recurso</td></tr><tr><td><code>PUT</code></td><td>Actualizar uno existente</td></tr><tr><td><code>DELETE</code></td><td>Eliminar</td></tr></tbody></table></div>
+<h3 id="codigos-de-respuesta">Códigos de respuesta</h3>
+<div class="tabla"><table><thead><tr><th>Familia</th><th>Códigos</th></tr></thead><tbody><tr><td>1xx Informational</td><td>100 Continue</td></tr><tr><td>2xx Success</td><td>200 OK, 201 Created, 204 No Content</td></tr><tr><td>3xx Redirection</td><td>301 Moved Permanently, 304 Not Modified</td></tr><tr><td>4xx Client Error</td><td>400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found</td></tr><tr><td>5xx Server Error</td><td>500 Internal Server Error, 503 Service Unavailable</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 9. La diapositiva explica para qué están. Los códigos de respuesta HTTP «nos brindan un diálogo rico entre clientes y servidores sobre el estado de una solicitud (request)».</p>
+<p>Crear una API, con su código, está en <a href="aprobacion-directa.html#la-api-rest">Aprobación directa</a>.</p>
+</section>
+<section class="sec"><h2 id="archivos-txt-y-xml">Archivos TXT y XML</h2>
+<p>La Unidad 4 tiene un laboratorio sobre esto. No salió en los exámenes de 2023 en adelante que leí.</p>
+<ul>
+<li>Las clases de entrada y salida están en <code>System.IO</code>. La E/S está «organizada alrededor del concepto de stream, o canal» (Laboratorio Archivos TXT y XML, pág. 3).</li>
+<li><code>FileStream</code> abre el archivo, <code>StreamReader</code> lee con <code>ReadLine()</code> y <code>StreamWriter</code> escribe línea por línea (págs. 3, 4 y 7).</li>
+<li>Las clases para XML están en <code>System.XML</code> (pág. 10).</li>
+</ul>
+</section>
+<section class="sec"><h2 id="lo-que-quedo-del-plan-viejo">Lo que quedó del plan viejo</h2>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p><strong>Web Forms.</strong> Los parciales escritos de 2014 a 2017 preguntan por <code>IsPostBack</code>, Code-Behind, <code>Web.config</code>, manejo de estado, Master Pages, Themes y Skins, y el ciclo de vida de la página. También lo toman las prácticas en capas de 2016 y 2017. El último 2° parcial que leí, del 14/09/2026, no trae nada de eso y pregunta por Blazor. Si tu comisión todavía lo ve, los laboratorios 1 a 6 de la Unidad 5 están en el Drive.</p>
+<p>Lo que dicen las presentaciones de 2015 <a href="https://drive.google.com/file/d/17F1TokME5a5ziq19TyKx6gGutPf0aJcZ/view">Aplicaciones Web Parte 1</a> (P1) y <a href="https://drive.google.com/file/d/16BfdeN-wHosFPNsgys3ZXhZ35Daj7xxr/view">Parte 2</a> (P2), con el número de diapositiva:</p>
+<ul>
+<li><strong>Code-Behind.</strong> «Diferentes archivos para la gráfica y la lógica», unidos con la directiva <code>@Page</code> (P1, 23).</li>
+<li><strong><code>IsPostBack</code>.</strong> <code>Page_Load</code> se ejecuta en cada request. <code>Page.IsPostBack</code> sirve para ejecutar lógica condicional y prevenir el reload en cada request (P1, 31).</li>
+<li><strong>Ciclo de vida.</strong> Eventos de página (<code>Page_Init</code>, <code>Page_Load</code>, <code>Page_Unload</code>), eventos de control, de cambio y de acciones, y <code>Dispose</code>, donde se elimina el objeto Page. El orden está en el dibujo de la diapositiva (P1, 29).</li>
+<li><strong>Manejo de estado.</strong> En el servidor, Application (para todos los usuarios), Session (única por usuario mientras dure su sesión) y base de datos. En el cliente, Cookies, ViewState (retiene los valores entre requests a la página) y Query Strings (P1, 34). El lado del cliente es menos seguro y fiable, y guarda menos información (P1, 36).</li>
+<li><strong><code>Web.config</code>.</strong> «Repositorio central de configuración de la aplicación Web» (P2, 20). Hay uno por aplicación (P1, 18).</li>
+<li><strong>Master Pages.</strong> «Herencia Visual» para páginas web (P2, 5). La master define <code>&lt;asp:ContentPlaceHolder&gt;</code> y las páginas definen <code>&lt;asp:Content&gt;</code> (P2, 7).</li>
+<li><strong>Themes y Skins.</strong> Un Theme es un conjunto de Skins. Un Skin es un conjunto de atributos visuales para uno o más controles, y no reemplaza al CSS (P2, 12).</li>
+</ul>
+<p><strong>MVC.</strong> Ninguna hoja de 2023 en adelante lo pregunta. La presentación de la Unidad 6 lo nombra como una de las formas de armar una API. Sale de <a href="https://drive.google.com/file/d/1PLVWb6385odnho7IVYRQlOGa7fykEOeO/view"><code>3 - Presentación - MVC.ppt</code></a>, de 2016, con el número de diapositiva:</p>
+<ul>
+<li><strong>Model.</strong> Objetos que implementan la lógica de negocio. Es «totalmente independiente de la View y del Controller» (9 y 10).</li>
+<li><strong>View.</strong> Presenta la UI al usuario. «Practicamente no deberian incluir código no HTML» (9 y 11).</li>
+<li><strong>Controller.</strong> Maneja la interacción con el usuario, consulta al modelo y selecciona la vista adecuada (12).</li>
+<li><strong>Contra Web Forms.</strong> Web Forms representa la página como un árbol de controles con eventos. Su deuda son el Viewstate, el ciclo de vida y el control limitado sobre el HTML (7).</li>
+<li><strong>Routing.</strong> Mapea las URL a controladores y acciones. El enrutado por defecto se define en <code>App_Start/RouteConfig.cs</code> (23).</li>
+<li><strong>Actions.</strong> Métodos del Controller que retornan <code>ActionResult</code> (24).</li>
+<li><strong>Validación.</strong> Con atributos en las propiedades del modelo: <code>Required</code>, <code>StringLength</code>, <code>Range</code>, <code>RegularExpression</code> y <code>Compare</code> (33).</li>
+<li><strong>Datos a la vista.</strong> <code>ViewDataDictionary</code>, <code>ViewBag</code> y vistas fuertemente tipadas (35).</li>
+<li><strong>Razor.</strong> Genera las vistas. El código C# se reconoce por el símbolo <code>@</code> (40).</li>
+</ul>
+<p><strong>Servicios web con SOAP.</strong> Hoy la materia trabaja con API REST. La presentación vieja, <a href="https://drive.google.com/file/d/1lltuVyXTanSOFwk0UUBZ4-eVf1muHG2i/view"><code>Presentación - WebServices.ppt</code></a>, de 2015, está en la carpeta «Material Viejo» y dice esto, con el número de diapositiva:</p>
+<ul>
+<li><strong>SOAP.</strong> Simple Object Access Protocol, basado en XML y «diseñado para trabajar con objetos remotamente» (11).</li>
+<li><strong>WSDL.</strong> Web Service Description Language, un «contrato que provee definiciones sobre tipos usados en las operaciones» (13).</li>
+<li><strong>UDDI.</strong> Un directorio donde se publican los servicios web de distintas empresas (12).</li>
+<li><strong>Proxy.</strong> Es igual a la clase original pero sin la implementación lógica. Se crea a partir del WSDL y usa SOAP para hablar con el servicio (18).</li>
+<li><strong>Contra una página web.</strong> La página tiene UI e interactúa con usuarios. El servicio no tiene UI e interactúa con aplicaciones (14).</li>
+</ul>
+<p><strong>Práctica en capas con ADO.NET.</strong> En 2016 y 2017 se pidió una solución con Entidades, Datos, Negocio, Escritorio y Web. Hoy la práctica equivalente es la <a href="aprobacion-directa.html">aprobación directa</a>, que usa EF. Hay dos en <a href="ejercicios.html">Ejercicios</a>, por si querés practicar ADO.NET con código.</p>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-2" data-materia="tecnologias-de-desarrollo-de-software-ide">
+<h2>Quiz del 2° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="ZqxeA9hnic" data-tema="DbContext y DbSet" data-enlace="parcial-2.html#dbcontext-y-dbset" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-1"><span class="q-n">1</span><div><p>Según la presentación, ¿para qué se usa un <code>DbSet&lt;T&gt;</code> en el contexto?</p>
+<p class="q-origen">Se tomó: 2° parcial 14/09/2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-1"><li><button type="button" class="op" data-ok="0">Para configurar la cadena de conexión</button></li><li><button type="button" class="op" data-ok="1">Para agregar una tabla al context</button></li><li><button type="button" class="op" data-ok="0">Para abrir una transacción</button></li><li><button type="button" class="op" data-ok="0">Para dibujar una grilla en pantalla</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>«Para agregar tablas al context se usa el objeto DbSet<T> para cada tabla.»</p>
+</div></li><li class="q" data-q="ktqLk7GHnj" data-tema="ClickOnce" data-enlace="parcial-2.html#clickonce" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-2"><span class="q-n">2</span><div><p>¿Qué tecnología permite actualizar sola una aplicación Windows, con mínima interacción del usuario?</p>
+<p class="q-origen">Se tomó: 1° parcial 01/06/2024 y 2° parcial 14/09/2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-2"><li><button type="button" class="op" data-ok="0">SignalR</button></li><li><button type="button" class="op" data-ok="0">GDI+</button></li><li><button type="button" class="op" data-ok="0">DataBinding</button></li><li><button type="button" class="op" data-ok="1">ClickOnce</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación la define con esas palabras. SignalR es de Blazor Server y GDI+ es para gráficos.</p>
+</div></li><li class="q" data-q="8Qn7aKHQAB" data-tema="Blazor" data-enlace="parcial-2.html#blazor" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-3"><span class="q-n">3</span><div><p>En Blazor Server, ¿dónde se ejecuta la lógica?</p>
+<p class="q-origen">Se tomó: 2° parcial 14/09/2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-3"><li><button type="button" class="op" data-ok="1">En el servidor, y el HTML se actualiza en el navegador mediante SignalR</button></li><li><button type="button" class="op" data-ok="0">En el navegador, con WebAssembly</button></li><li><button type="button" class="op" data-ok="0">En una base de datos</button></li><li><button type="button" class="op" data-ok="0">En un servicio de Windows del usuario</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El navegador con WebAssembly corresponde a la otra variante, Blazor WebAssembly.</p>
+</div></li><li class="q" data-q="xSA2bFdOQg" data-tema="Abrir un formulario" data-enlace="parcial-2.html#abrir-un-formulario" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-4"><span class="q-n">4</span><div><p>¿Qué método abre un formulario de manera modal?</p>
+<p class="q-origen">Se tomó: 1° parcial 01/06/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-4"><li><button type="button" class="op" data-ok="0">Show()</button></li><li><button type="button" class="op" data-ok="0">Load()</button></li><li><button type="button" class="op" data-ok="1">ShowDialog()</button></li><li><button type="button" class="op" data-ok="0">Paint()</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Show() lo abre sin modo modal. Load y Paint son eventos del formulario.</p>
+</div></li><li class="q" data-q="Mj_ZEkOd0l" data-tema="DataReader" data-enlace="parcial-2.html#datareader" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-5"><span class="q-n">5</span><div><p>¿Qué describe mejor a un <code>DataReader</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-5"><li><button type="button" class="op" data-ok="0">Trabaja desconectado, en memoria</button></li><li><button type="button" class="op" data-ok="0">Permite recorrer para atrás y modificar</button></li><li><button type="button" class="op" data-ok="0">Sirve solo para archivos XML</button></li><li><button type="button" class="op" data-ok="1">Es de solo avance y solo lectura, y queda conectado</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Forward-only, read-only, rápido, conectado y con la conexión a tu cargo.</p>
+</div></li><li class="q" data-q="vY_nJsf_mx" data-tema="DataTable y DataSet" data-enlace="parcial-2.html#datatable-y-dataset" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-6"><span class="q-n">6</span><div><p>¿Qué es un <code>DataSet</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-6"><li><button type="button" class="op" data-ok="0">Una instrucción SQL</button></li><li><button type="button" class="op" data-ok="1">Una representación de datos en memoria, con una colección de DataTable</button></li><li><button type="button" class="op" data-ok="0">Un control visual de Windows Forms</button></li><li><button type="button" class="op" data-ok="0">Una conexión física con la base</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación agrega que mantiene la integridad con DataRelation y que desconoce el origen.</p>
+</div></li><li class="q" data-q="HREflgySa5" data-tema="Command" data-enlace="parcial-2.html#command" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-7"><span class="q-n">7</span><div><p>En el laboratorio, ¿qué método del comando crea un objeto DataReader para leer los datos?</p>
+<p class="q-origen">Se tomó: 2° parcial 14/09/2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-7"><li><button type="button" class="op" data-ok="1">ExecuteReader</button></li><li><button type="button" class="op" data-ok="0">ExecuteNonQuery</button></li><li><button type="button" class="op" data-ok="0">SaveChanges</button></li><li><button type="button" class="op" data-ok="0">Fill</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El laboratorio usa ExecuteNonQuery para insertar, modificar y eliminar. SaveChanges es de EF y Fill es del DataAdapter.</p>
+</div></li><li class="q" data-q="xRsjxIy7fV" data-tema="ADO.NET" data-enlace="parcial-2.html#ado-net" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-8"><span class="q-n">8</span><div><p>¿Con qué orígenes de datos está diseñado para trabajar ADO.NET?</p>
+<p class="q-origen">Se tomó: 2° parcial 14/09/2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-8"><li><button type="button" class="op" data-ok="0">Solo con SQL Server</button></li><li><button type="button" class="op" data-ok="0">Solo con bases relacionales</button></li><li><button type="button" class="op" data-ok="1">Con cualquier origen de datos, no solo bases relacionales</button></li><li><button type="button" class="op" data-ok="0">Solo con archivos XML</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación lo dice con esas palabras.</p>
+</div></li><li class="q" data-q="hmSMVKcs4T" data-tema="Códigos de respuesta" data-enlace="parcial-2.html#codigos-de-respuesta" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-9"><span class="q-n">9</span><div><p>¿Qué código HTTP corresponde a Not Found?</p>
+<p class="q-origen">Se tomó: 2° parcial 14/09/2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-9"><li><button type="button" class="op" data-ok="0">200</button></li><li><button type="button" class="op" data-ok="0">201</button></li><li><button type="button" class="op" data-ok="0">500</button></li><li><button type="button" class="op" data-ok="1">404</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>200 es OK, 201 es Created y 500 es Internal Server Error.</p>
+</div></li><li class="q" data-q="skEo-is9bD" data-tema="DbContext y DbSet" data-enlace="parcial-2.html#dbcontext-y-dbset" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-10"><span class="q-n">10</span><div><p>Hiciste <code>context.Usuarios.Add(usuario)</code>. ¿Cuándo se inserta en la base?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-10"><li><button type="button" class="op" data-ok="0">En ese mismo momento</button></li><li><button type="button" class="op" data-ok="1">Al llamar a SaveChanges</button></li><li><button type="button" class="op" data-ok="0">Al cerrar la aplicación</button></li><li><button type="button" class="op" data-ok="0">Al llamar a Find</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Add lo deja en estado Added y se inserta cuando se llama a SaveChanges.</p>
+</div></li><li class="q" data-q="ElCqvtwDH5" data-tema="Estados de una entidad" data-enlace="parcial-2.html#estados-de-una-entidad" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-11"><span class="q-n">11</span><div><p>Un objeto se está siguiendo y le cambiaste una propiedad, pero falta <code>SaveChanges</code>. ¿En qué estado queda?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-11"><li><button type="button" class="op" data-ok="0">Detached</button></li><li><button type="button" class="op" data-ok="0">Unchanged</button></li><li><button type="button" class="op" data-ok="1">Modified</button></li><li><button type="button" class="op" data-ok="0">Added</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Modified indica que cambió una propiedad y falta guardar.</p>
+</div></li><li class="q" data-q="_EdxonZKbq" data-tema="Controles en tiempo de ejecución" data-enlace="parcial-2.html#controles-en-tiempo-de-ejecucion" data-tipo="abierta"><div class="q-enun" id="qe-parcial-2-12"><span class="q-n">12</span><div><p>¿Cuáles son los 4 pasos para agregar un control en tiempo de ejecución?</p>
+</div></div><details class="q-abierta"><summary>Ver qué dice el material</summary><div><p>Añadir un campo de declaración, instanciar el control, configurar sus propiedades y eventos, y añadirlo a la colección de controles del formulario o a un contenedor.</p>
+</div><p class="q-auto">¿Cómo te fue? <button type="button" class="b-auto" aria-pressed="false" data-ok="1">La sabía</button> <button type="button" class="b-auto" aria-pressed="false" data-ok="0">Me faltó</button></p></details></li><li class="q" data-q="x1AjPEvQ3s" data-tema="Herencia en EF Core" data-enlace="parcial-2.html#herencia-en-ef-core" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-13"><span class="q-n">13</span><div><p>¿Cuál es el enfoque de herencia por defecto en EF Core, según la presentación?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-13"><li><button type="button" class="op" data-ok="1">TPH, una sola tabla con columna discriminadora</button></li><li><button type="button" class="op" data-ok="0">TPT, una tabla por subclase</button></li><li><button type="button" class="op" data-ok="0">TPC, una tabla por clase concreta</button></li><li><button type="button" class="op" data-ok="0">Ninguno. Hay que elegir siempre</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación marca TPH como el enfoque por defecto. Su costo son las columnas nulas.</p>
+</div></li><li class="q" data-q="-Pqoxt4vBF" data-tema="Controles" data-enlace="parcial-2.html#controles" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-14"><span class="q-n">14</span><div><p>¿Qué hace la propiedad <code>Dock</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-14"><li><button type="button" class="op" data-ok="1">Fija el componente a uno de los bordes de la ventana</button></li><li><button type="button" class="op" data-ok="0">Cambia la opacidad del formulario</button></li><li><button type="button" class="op" data-ok="0">Define el orden de tabulación</button></li><li><button type="button" class="op" data-ok="0">Valida el ingreso con una máscara</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Anchor ancla a uno o varios bordes y Dock fija a uno. El orden de tabulación es TabIndex y la máscara es de MaskedTextBox.</p>
+</div></li><li class="q" data-q="ruaDE88g2a" data-tema="Eventos del formulario" data-enlace="parcial-2.html#eventos-del-formulario" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-15"><span class="q-n">15</span><div><p>¿Qué evento del formulario se puede cancelar?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-15"><li><button type="button" class="op" data-ok="0">FormClosed</button></li><li><button type="button" class="op" data-ok="0">Disposed</button></li><li><button type="button" class="op" data-ok="0">Paint</button></li><li><button type="button" class="op" data-ok="1">FormClosing</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>FormClosing se dispara al iniciar el cierre y se puede cancelar. FormClosed ocurre cuando ya se cerró.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). En el Drive no hay ningún final. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

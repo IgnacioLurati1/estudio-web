@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final, 20/08/2025 (Diagnóstico automotriz): Algoritmos y Estructuras de Datos</title>
+<meta name="description" content="Ejercicio de examen: Final, 20/08/2025 (Diagnóstico automotriz).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="algoritmos-y-estructuras-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Algoritmos y Estructuras de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">3° parcial y final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=algoritmos-y-estructuras-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=algoritmos-y-estructuras-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Final, 20/08/2025 (Diagnóstico automotriz)</h1>
+<p class="bajada">3° parcial y final, 20/08/2025</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="fin-2025-08-20" data-titulo="Final, 20/08/2025 (Diagnóstico automotriz)" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="fin-2025-08-20" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1PCZJLwo3z3qaAUyDFarPWRVRNtjYZns9/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/fin-2025-08-20-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/fin-2025-08-20-e1.webp" width="900" height="1061" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p>La hoja pide el diagrama de Chapin. Va un diagrama por módulo, con su declaración de variables arriba, y primero el del programa principal. Si un diagrama no entra en la pantalla, tocalo para verlo completo. Después de los diagramas está el mismo algoritmo en Python, para que lo puedas probar. Las sentencias de archivos van con las palabras reservadas de Python (<code>open</code>, <code>pickle.load</code>, <code>pickle.dump</code>, <code>seek</code>, <code>tell</code>). Los textos se completan con <code>ljust</code> para que los registros midan lo mismo. El tamaño de un registro sale de <code>tell()</code> después de leer el primero.</p>
+<h4>Menú iterativo</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 772 625" width="772" height="625" style="width:772px;min-width:772px;max-width:none;height:625px" role="img" aria-label="Diagrama de Chapin del programa principal, con la declaración de variables y los registros. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="452.8" height="26"/><rect x="14" y="143" width="452.8" height="26"/><rect x="14" y="169" width="452.8" height="26"/><rect x="14" y="195" width="452.8" height="26"/><rect x="14" y="221" width="452.8" height="26"/><rect x="14" y="247" width="452.8" height="26"/><rect x="14" y="273" width="452.8" height="286"/><rect x="38" y="299" width="428.8" height="26"/><rect x="38" y="325" width="428.8" height="26"/><rect x="38" y="351" width="428.8" height="26"/><rect x="38" y="377" width="428.8" height="26"/><rect x="38" y="403" width="428.8" height="26"/><rect x="38" y="429" width="428.8" height="52"/><rect x="62" y="455" width="404.8" height="26"/><rect x="38" y="481" width="428.8" height="78"/><rect x="38" y="533" width="102.7" height="26"/><rect x="140.7" y="533" width="139.8" height="26"/><rect x="280.5" y="533" width="186.3" height="26"/><rect x="14" y="559" width="452.8" height="26"/><rect x="14" y="585" width="452.8" height="26"/></g><path class="d-linea" d="M38 507H466.8M38 533H466.8M140.7 507V559M280.5 507V559"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">marcas = ["Audi", "BMW", "Mercedes", "Porsche", "Volvo"]</text><text x="22" y="160.5">afFallas = "Fallas.dat"</text><text x="22" y="186.5">afVehiculos = "Vehiculos.dat"</text><text x="22" y="212.5">alFallas = open(afFallas, "r+b")</text><text x="22" y="238.5">alVehiculos = open(afVehiculos, "r+b")</text><text x="22" y="264.5">opcion = 0</text><text x="22" y="290.5">Mientras opcion != 4:</text><text x="46" y="316.5">Mostrar("1- Entrada del vehículo")</text><text x="46" y="342.5">Mostrar("2- Diagnóstico")</text><text x="46" y="368.5">Mostrar("3- Cantidad de fallas por marca")</text><text x="46" y="394.5">Mostrar("4- Salir")</text><text x="46" y="420.5">Leer(opcion)</text><text x="46" y="446.5">Mientras opcion &lt; 1 or opcion &gt; 4:</text><text x="70" y="472.5">Leer(opcion)</text><text x="46" y="498.5">Según opcion:</text><text x="89.3" y="524.5" text-anchor="middle">1</text><text x="46" y="550.5">ENTRADA()</text><text x="210.6" y="524.5" text-anchor="middle">2</text><text x="148.7" y="550.5">DIAGNOSTICO()</text><text x="373.7" y="524.5" text-anchor="middle">3</text><text x="288.5" y="550.5">FALLAS_POR_MARCA()</text><text x="22" y="576.5">alFallas.close()</text><text x="22" y="602.5">alVehiculos.close()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># marcas: arreglo [0..4] de str, constante y ordenado</text><text x="14" y="71"># afFallas, afVehiculos: str</text><text x="14" y="88"># alFallas, alVehiculos: archivo</text><text x="14" y="105"># opcion: int</text><text x="502.8" y="29">class Falla:</text><text x="532.8" y="46">def __init__(self):</text><text x="562.8" y="63">self.patente = ""</text><text x="562.8" y="80">self.fecha = ""</text><text x="562.8" y="97">self.codigo = [0]*10</text><text x="562.8" y="114">self.descripcion = [""]*10</text><text x="562.8" y="131">self.estado = ""</text><text x="502.8" y="156">class Vehiculo:</text><text x="532.8" y="173">def __init__(self):</text><text x="562.8" y="190">self.patente = ""</text><text x="562.8" y="207">self.marca = ""</text><text x="562.8" y="224">self.anio = 0</text><text x="562.8" y="241">self.modelo = ""</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">Programa principal</text></svg></figure>
+
+<h4>1- Entrada del vehículo</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 662 384" width="662" height="384" style="width:662px;min-width:662px;max-width:none;height:384px" role="img" aria-label="Diagrama de Chapin del módulo BUSCA_MARCA, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="633.9" height="26"/><rect x="14" y="126" width="633.9" height="26"/><rect x="14" y="152" width="633.9" height="26"/><rect x="14" y="178" width="633.9" height="166"/><rect x="38" y="204" width="609.9" height="26"/><rect x="38" y="230" width="609.9" height="114"/><rect x="38" y="274" width="101.8" height="26"/><rect x="139.8" y="274" width="508.1" height="70"/><rect x="139.8" y="318" width="233.5" height="26"/><rect x="373.3" y="318" width="274.6" height="26"/><rect x="14" y="344" width="633.9" height="26"/></g><path class="d-linea" d="M38 230L139.8 274L647.9 230M38 274H647.9M139.8 274V344M139.8 274L373.3 318L647.9 274M139.8 318H647.9M373.3 318V344"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">inicio = 0</text><text x="22" y="143.5">fin = 4</text><text x="22" y="169.5">pos = -1</text><text x="22" y="195.5">Mientras inicio &lt;= fin and pos == -1:</text><text x="46" y="221.5">medio = (inicio + fin) // 2</text><text x="246" y="246" text-anchor="middle">marcas[medio].ljust(10, " ") == m</text><text x="46" y="291.5">pos = medio</text><text x="384" y="290" text-anchor="middle">m &lt; marcas[medio].ljust(10, " ")</text><text x="147.8" y="335.5">fin = medio - 1</text><text x="381.3" y="335.5">inicio = medio + 1</text><text x="22" y="361.5">return pos</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="267">v</text><text x="640.9" y="267" text-anchor="end">f</text><text x="146.8" y="311">v</text><text x="640.9" y="311" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Dicotómica sobre el arreglo de marcas (m llega completada con ljust)</text><text x="14" y="71"># m: str</text><text x="14" y="88"># inicio, fin, medio, pos: int</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">BUSCA_MARCA(m)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 575" width="550" height="575" style="width:550px;min-width:550px;max-width:none;height:575px" role="img" aria-label="Diagrama de Chapin del módulo BUSCA_VEHICULO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="521.4" height="26"/><rect x="14" y="143" width="521.4" height="392"/><rect x="14" y="187" width="485.4" height="26"/><rect x="14" y="213" width="485.4" height="26"/><rect x="14" y="239" width="485.4" height="26"/><rect x="14" y="265" width="485.4" height="26"/><rect x="14" y="291" width="485.4" height="26"/><rect x="14" y="317" width="485.4" height="218"/><rect x="38" y="343" width="461.4" height="26"/><rect x="38" y="369" width="461.4" height="26"/><rect x="38" y="395" width="461.4" height="26"/><rect x="38" y="421" width="461.4" height="114"/><rect x="38" y="465" width="172" height="26"/><rect x="210" y="465" width="289.4" height="70"/><rect x="210" y="509" width="133" height="26"/><rect x="343" y="509" width="156.4" height="26"/><rect x="14" y="535" width="521.4" height="26"/></g><path class="d-linea" d="M14 143L499.4 187L535.4 143M14 187H535.4M499.4 187V535M38 421L210 465L499.4 421M38 465H499.4M210 465V535M210 465L343 509L499.4 465M210 509H499.4M343 509V535"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">pos = -1</text><text x="381.9" y="159" text-anchor="middle">os.path.getsize(afVehiculos) &gt; 0</text><text x="22" y="204.5">alVehiculos.seek(0, 0)</text><text x="22" y="230.5">pickle.load(alVehiculos)</text><text x="22" y="256.5">tamReg = alVehiculos.tell()</text><text x="22" y="282.5">inicio = 0</text><text x="22" y="308.5">fin = os.path.getsize(afVehiculos) // tamReg - 1</text><text x="22" y="334.5">Mientras inicio &lt;= fin and pos == -1:</text><text x="46" y="360.5">medio = (inicio + fin) // 2</text><text x="46" y="386.5">alVehiculos.seek(medio * tamReg, 0)</text><text x="46" y="412.5">reg = pickle.load(alVehiculos)</text><text x="240.7" y="437" text-anchor="middle">reg.patente == pat</text><text x="46" y="482.5">pos = medio * tamReg</text><text x="349.1" y="481" text-anchor="middle">pat &lt; reg.patente</text><text x="218" y="526.5">fin = medio - 1</text><text x="351" y="526.5">inicio = medio + 1</text><text x="22" y="552.5">return pos</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="21" y="180">v</text><text x="528.4" y="180" text-anchor="end">f</text><text x="45" y="458">v</text><text x="492.4" y="458" text-anchor="end">f</text><text x="217" y="502">v</text><text x="492.4" y="502" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Dicotómica: Vehiculos.dat está ordenado por patente</text><text x="14" y="71"># pat: str</text><text x="14" y="88"># tamReg, inicio, fin, medio, pos: int</text><text x="14" y="105"># reg: Vehiculo</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">BUSCA_VEHICULO(pat)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 481 936" width="481" height="936" style="width:481px;min-width:481px;max-width:none;height:936px" role="img" aria-label="Diagrama de Chapin del módulo ENTRADA, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="134" width="452.8" height="26"/><rect x="14" y="160" width="452.8" height="26"/><rect x="14" y="186" width="452.8" height="434"/><rect x="14" y="230" width="416.8" height="26"/><rect x="14" y="256" width="416.8" height="26"/><rect x="14" y="282" width="416.8" height="26"/><rect x="14" y="308" width="416.8" height="26"/><rect x="14" y="334" width="416.8" height="78"/><rect x="38" y="360" width="392.8" height="26"/><rect x="38" y="386" width="392.8" height="26"/><rect x="14" y="412" width="416.8" height="26"/><rect x="14" y="438" width="416.8" height="26"/><rect x="14" y="464" width="416.8" height="26"/><rect x="14" y="490" width="416.8" height="26"/><rect x="14" y="516" width="416.8" height="26"/><rect x="14" y="542" width="416.8" height="26"/><rect x="14" y="568" width="416.8" height="26"/><rect x="14" y="594" width="416.8" height="26"/><rect x="14" y="620" width="452.8" height="26"/><rect x="14" y="646" width="452.8" height="26"/><rect x="14" y="672" width="452.8" height="26"/><rect x="14" y="698" width="452.8" height="42"/><rect x="14" y="740" width="452.8" height="78"/><rect x="38" y="766" width="428.8" height="26"/><rect x="38" y="792" width="428.8" height="26"/><rect x="14" y="818" width="452.8" height="26"/><rect x="14" y="844" width="452.8" height="26"/><rect x="14" y="870" width="452.8" height="26"/><rect x="14" y="896" width="452.8" height="26"/></g><path class="d-linea" d="M14 186L430.8 230L466.8 186M14 230H466.8M430.8 230V620"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="151.5">Leer(pat)</text><text x="22" y="177.5">pat = pat.ljust(10, " ")</text><text x="331.3" y="202" text-anchor="middle">BUSCA_VEHICULO(pat) == -1</text><text x="22" y="247.5">veh = Vehiculo()</text><text x="22" y="273.5">veh.patente = pat</text><text x="22" y="299.5">Leer(m)</text><text x="22" y="325.5">m = m.ljust(10, " ")</text><text x="22" y="351.5">Mientras BUSCA_MARCA(m) == -1:</text><text x="46" y="377.5">Leer(m)</text><text x="46" y="403.5">m = m.ljust(10, " ")</text><text x="22" y="429.5">veh.marca = m</text><text x="22" y="455.5">Leer(veh.anio)</text><text x="22" y="481.5">Leer(veh.modelo)</text><text x="22" y="507.5">veh.modelo = veh.modelo.ljust(20, " ")</text><text x="22" y="533.5">alVehiculos.seek(0, 2)</text><text x="22" y="559.5">pickle.dump(veh, alVehiculos)</text><text x="22" y="585.5">alVehiculos.flush()</text><text x="22" y="611.5">ordenaVehiculo()</text><text x="22" y="637.5">fal = Falla()</text><text x="22" y="663.5">fal.patente = pat</text><text x="22" y="689.5">hoy = date.today()</text><text x="22" y="715.5">fal.fecha = (str(hoy.day) + "/" + str(hoy.month) + "/" +</text><text x="22" y="731.5">    str(hoy.year)).ljust(10, " ")</text><text x="22" y="757.5">for i in range(10):</text><text x="46" y="783.5">fal.codigo[i] = 0</text><text x="46" y="809.5">fal.descripcion[i] = " ".ljust(30, " ")</text><text x="22" y="835.5">fal.estado = "Ingresado".ljust(13, " ")</text><text x="22" y="861.5">alFallas.seek(0, 2)</text><text x="22" y="887.5">pickle.dump(fal, alFallas)</text><text x="22" y="913.5">alFallas.flush()</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="21" y="223">v</text><text x="459.8" y="223" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># pat, m: str</text><text x="14" y="71"># i: int</text><text x="14" y="88"># hoy: date</text><text x="14" y="105"># veh: Vehiculo</text><text x="14" y="122"># fal: Falla</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">ENTRADA()</text></svg></figure>
+
+<h4>2- Diagnóstico</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 908 399" width="908" height="399" style="width:908px;min-width:908px;max-width:none;height:399px" role="img" aria-label="Diagrama de Chapin del módulo BUSCA_INGRESADO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="879.7" height="26"/><rect x="14" y="143" width="879.7" height="26"/><rect x="14" y="169" width="879.7" height="26"/><rect x="14" y="195" width="879.7" height="164"/><rect x="38" y="221" width="855.7" height="26"/><rect x="38" y="247" width="855.7" height="26"/><rect x="38" y="273" width="855.7" height="86"/><rect x="38" y="333" width="819.7" height="26"/><rect x="14" y="359" width="879.7" height="26"/></g><path class="d-linea" d="M38 273L857.7 333L893.7 273M38 333H893.7M857.7 333V359"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">tam = os.path.getsize(afFallas)</text><text x="22" y="160.5">pos = -1</text><text x="22" y="186.5">alFallas.seek(0, 0)</text><text x="22" y="212.5">Mientras alFallas.tell() &lt; tam and pos == -1:</text><text x="46" y="238.5">p = alFallas.tell()</text><text x="46" y="264.5">reg = pickle.load(alFallas)</text><text x="603" y="289" text-anchor="middle">reg.patente == pat and</text><text x="707.5" y="305" text-anchor="middle">reg.estado == "Ingresado".ljust(13, " ")</text><text x="46" y="350.5">pos = p</text><text x="22" y="376.5">return pos</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="326">v</text><text x="886.7" y="326" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Secuencial: Fallas.dat no tiene orden</text><text x="14" y="71"># pat: str</text><text x="14" y="88"># tam, pos, p: int</text><text x="14" y="105"># reg: Falla</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">BUSCA_INGRESADO(pat)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 802 660" width="802" height="660" style="width:802px;min-width:802px;max-width:none;height:660px" role="img" aria-label="Diagrama de Chapin del módulo DIAGNOSTICO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="773.6" height="26"/><rect x="14" y="126" width="773.6" height="26"/><rect x="14" y="152" width="773.6" height="26"/><rect x="14" y="178" width="773.6" height="468"/><rect x="14" y="222" width="445" height="26"/><rect x="459" y="222" width="328.6" height="26"/><rect x="459" y="248" width="328.6" height="26"/><rect x="459" y="274" width="328.6" height="26"/><rect x="459" y="300" width="328.6" height="26"/><rect x="459" y="326" width="328.6" height="216"/><rect x="483" y="352" width="304.6" height="26"/><rect x="483" y="378" width="304.6" height="26"/><rect x="483" y="404" width="304.6" height="42"/><rect x="483" y="446" width="304.6" height="26"/><rect x="483" y="472" width="304.6" height="70"/><rect x="483" y="516" width="268.6" height="26"/><rect x="459" y="542" width="328.6" height="26"/><rect x="459" y="568" width="328.6" height="26"/><rect x="459" y="594" width="328.6" height="26"/><rect x="459" y="620" width="328.6" height="26"/></g><path class="d-linea" d="M14 178L459 222L787.6 178M14 222H787.6M459 222V646M483 472L751.6 516L787.6 472M483 516H787.6M751.6 516V542"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">Leer(pat)</text><text x="22" y="143.5">pat = pat.ljust(10, " ")</text><text x="22" y="169.5">pos = BUSCA_INGRESADO(pat)</text><text x="428.6" y="194" text-anchor="middle">pos == -1</text><text x="22" y="239.5">Mostrar("No hay un vehículo ingresado con esa patente")</text><text x="467" y="239.5">alFallas.seek(pos, 0)</text><text x="467" y="265.5">fal = pickle.load(alFallas)</text><text x="467" y="291.5">i = 0</text><text x="467" y="317.5">Leer(cod)</text><text x="467" y="343.5">Mientras cod != 0 and i &lt; 10:</text><text x="491" y="369.5">fal.codigo[i] = cod</text><text x="491" y="395.5">Leer(fal.descripcion[i])</text><text x="491" y="421.5">fal.descripcion[i] =</text><text x="491" y="437.5">    fal.descripcion[i].ljust(30, " ")</text><text x="491" y="463.5">i = i + 1</text><text x="690.8" y="488" text-anchor="middle">i &lt; 10</text><text x="491" y="533.5">Leer(cod)</text><text x="467" y="559.5">fal.estado = "Diagnosticado"</text><text x="467" y="585.5">alFallas.seek(pos, 0)</text><text x="467" y="611.5">pickle.dump(fal, alFallas)</text><text x="467" y="637.5">alFallas.flush()</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="21" y="215">v</text><text x="780.6" y="215" text-anchor="end">f</text><text x="490" y="509">v</text><text x="780.6" y="509" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># pat: str</text><text x="14" y="71"># pos, i, cod: int</text><text x="14" y="88"># fal: Falla</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">DIAGNOSTICO()</text></svg></figure>
+
+<h4>3- Cantidad de fallas por marca, en memoria</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 516 921" width="516" height="921" style="width:516px;min-width:516px;max-width:none;height:921px" role="img" aria-label="Diagrama de Chapin del módulo FALLAS_POR_MARCA, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="151" width="487.3" height="26"/><rect x="14" y="177" width="487.3" height="26"/><rect x="14" y="203" width="487.3" height="52"/><rect x="38" y="229" width="463.3" height="26"/><rect x="14" y="255" width="487.3" height="26"/><rect x="14" y="281" width="487.3" height="26"/><rect x="14" y="307" width="487.3" height="270"/><rect x="38" y="333" width="463.3" height="26"/><rect x="38" y="359" width="463.3" height="218"/><rect x="38" y="403" width="427.3" height="26"/><rect x="38" y="429" width="427.3" height="26"/><rect x="38" y="455" width="427.3" height="26"/><rect x="38" y="481" width="427.3" height="96"/><rect x="62" y="507" width="403.3" height="70"/><rect x="62" y="551" width="367.3" height="26"/><rect x="14" y="577" width="487.3" height="252"/><rect x="38" y="603" width="463.3" height="226"/><rect x="62" y="629" width="439.3" height="200"/><rect x="62" y="673" width="403.3" height="26"/><rect x="62" y="699" width="403.3" height="26"/><rect x="62" y="725" width="403.3" height="26"/><rect x="62" y="751" width="403.3" height="26"/><rect x="62" y="777" width="403.3" height="26"/><rect x="62" y="803" width="403.3" height="26"/><rect x="14" y="829" width="487.3" height="26"/><rect x="14" y="855" width="487.3" height="52"/><rect x="38" y="881" width="463.3" height="26"/></g><path class="d-linea" d="M38 359L465.3 403L501.3 359M38 403H501.3M465.3 403V577M62 507L429.3 551L465.3 507M62 551H465.3M429.3 551V577M62 629L465.3 673L501.3 629M62 673H501.3M465.3 673V829"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="168.5">cant = [0]*5</text><text x="22" y="194.5">nom = [""]*5</text><text x="22" y="220.5">for i in range(5):</text><text x="46" y="246.5">nom[i] = marcas[i]</text><text x="22" y="272.5">tam = os.path.getsize(afFallas)</text><text x="22" y="298.5">alFallas.seek(0, 0)</text><text x="22" y="324.5">Mientras alFallas.tell() &lt; tam:</text><text x="46" y="350.5">fal = pickle.load(alFallas)</text><text x="363.1" y="375" text-anchor="middle">fal.estado == "Diagnosticado"</text><text x="46" y="420.5">alVehiculos.seek(BUSCA_VEHICULO(fal.patente), 0)</text><text x="46" y="446.5">veh = pickle.load(alVehiculos)</text><text x="46" y="472.5">m = BUSCA_MARCA(veh.marca)</text><text x="46" y="498.5">for i in range(10):</text><text x="342.7" y="523" text-anchor="middle">fal.codigo[i] != 0</text><text x="70" y="568.5">cant[m] = cant[m] + 1</text><text x="22" y="594.5">for i in range(4):</text><text x="46" y="620.5">for k in range(i + 1, 5):</text><text x="369.3" y="645" text-anchor="middle">cant[i] &lt; cant[k]</text><text x="70" y="690.5">auxC = cant[i]</text><text x="70" y="716.5">cant[i] = cant[k]</text><text x="70" y="742.5">cant[k] = auxC</text><text x="70" y="768.5">auxN = nom[i]</text><text x="70" y="794.5">nom[i] = nom[k]</text><text x="70" y="820.5">nom[k] = auxN</text><text x="22" y="846.5">Mostrar("Marca / Cantidad de fallas diagnosticadas")</text><text x="22" y="872.5">for i in range(5):</text><text x="46" y="898.5">Mostrar(nom[i], cant[i])</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="396">v</text><text x="494.3" y="396" text-anchor="end">f</text><text x="69" y="544">v</text><text x="458.3" y="544" text-anchor="end">f</text><text x="69" y="666">v</text><text x="494.3" y="666" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># cant: arreglo [0..4] de int</text><text x="14" y="71"># nom: arreglo [0..4] de str</text><text x="14" y="88"># tam, i, k, m, auxC: int</text><text x="14" y="105"># auxN: str</text><text x="14" y="122"># fal: Falla</text><text x="14" y="139"># veh: Vehiculo</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">FALLAS_POR_MARCA()</text></svg></figure>
+
+<h4>El mismo algoritmo en Python</h4>
+<p>Es el programa que se probó, con las mismas sentencias y en el mismo orden que las cajas. Cada <code>Leer</code> del diagrama es un <code>input</code>, convertido a <code>int</code> o <code>float</code> según la declaración, y cada <code>Mostrar</code> es un <code>print</code>.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> pickle
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> date
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Falla</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.patente = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.fecha = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.codigo = [<span class="hljs-number">0</span>]*<span class="hljs-number">10</span>
+        <span class="hljs-variable language_">self</span>.descripcion = [<span class="hljs-string">&quot;&quot;</span>]*<span class="hljs-number">10</span>
+        <span class="hljs-variable language_">self</span>.estado = <span class="hljs-string">&quot;&quot;</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Vehiculo</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.patente = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.marca = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.anio = <span class="hljs-number">0</span>
+        <span class="hljs-variable language_">self</span>.modelo = <span class="hljs-string">&quot;&quot;</span>
+
+<span class="hljs-comment"># marcas: arreglo [0..4] de str, constante y ordenado</span>
+marcas = [<span class="hljs-string">&quot;Audi&quot;</span>, <span class="hljs-string">&quot;BMW&quot;</span>, <span class="hljs-string">&quot;Mercedes&quot;</span>, <span class="hljs-string">&quot;Porsche&quot;</span>, <span class="hljs-string">&quot;Volvo&quot;</span>]
+<span class="hljs-comment"># afFallas, afVehiculos: str</span>
+<span class="hljs-comment"># alFallas, alVehiculos: archivo</span>
+afFallas = <span class="hljs-string">&quot;Fallas.dat&quot;</span>
+afVehiculos = <span class="hljs-string">&quot;Vehiculos.dat&quot;</span>
+alFallas = <span class="hljs-built_in">open</span>(afFallas, <span class="hljs-string">&quot;r+b&quot;</span>)
+alVehiculos = <span class="hljs-built_in">open</span>(afVehiculos, <span class="hljs-string">&quot;r+b&quot;</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">BUSCA_MARCA</span>(<span class="hljs-params">m</span>):
+    <span class="hljs-comment"># Dicotómica sobre el arreglo de marcas (m llega completada con ljust)</span>
+    <span class="hljs-comment"># m: str</span>
+    <span class="hljs-comment"># inicio, fin, medio, pos: int</span>
+    inicio = <span class="hljs-number">0</span>
+    fin = <span class="hljs-number">4</span>
+    pos = -<span class="hljs-number">1</span>
+    <span class="hljs-keyword">while</span> inicio &lt;= fin <span class="hljs-keyword">and</span> pos == -<span class="hljs-number">1</span>:
+        medio = (inicio + fin) // <span class="hljs-number">2</span>
+        <span class="hljs-keyword">if</span> marcas[medio].ljust(<span class="hljs-number">10</span>, <span class="hljs-string">&quot; &quot;</span>) == m:
+            pos = medio
+        <span class="hljs-keyword">elif</span> m &lt; marcas[medio].ljust(<span class="hljs-number">10</span>, <span class="hljs-string">&quot; &quot;</span>):
+            fin = medio - <span class="hljs-number">1</span>
+        <span class="hljs-keyword">else</span>:
+            inicio = medio + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> pos
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">BUSCA_VEHICULO</span>(<span class="hljs-params">pat</span>):
+    <span class="hljs-comment"># Dicotómica: Vehiculos.dat está ordenado por patente</span>
+    <span class="hljs-comment"># pat: str</span>
+    <span class="hljs-comment"># tamReg, inicio, fin, medio, pos: int</span>
+    <span class="hljs-comment"># reg: Vehiculo</span>
+    pos = -<span class="hljs-number">1</span>
+    <span class="hljs-keyword">if</span> os.path.getsize(afVehiculos) &gt; <span class="hljs-number">0</span>:
+        alVehiculos.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+        pickle.load(alVehiculos)
+        tamReg = alVehiculos.tell()
+        inicio = <span class="hljs-number">0</span>
+        fin = os.path.getsize(afVehiculos) // tamReg - <span class="hljs-number">1</span>
+        <span class="hljs-keyword">while</span> inicio &lt;= fin <span class="hljs-keyword">and</span> pos == -<span class="hljs-number">1</span>:
+            medio = (inicio + fin) // <span class="hljs-number">2</span>
+            alVehiculos.seek(medio * tamReg, <span class="hljs-number">0</span>)
+            reg = pickle.load(alVehiculos)
+            <span class="hljs-keyword">if</span> reg.patente == pat:
+                pos = medio * tamReg
+            <span class="hljs-keyword">elif</span> pat &lt; reg.patente:
+                fin = medio - <span class="hljs-number">1</span>
+            <span class="hljs-keyword">else</span>:
+                inicio = medio + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> pos
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">ENTRADA</span>():
+    <span class="hljs-comment"># pat, m: str</span>
+    <span class="hljs-comment"># i: int</span>
+    <span class="hljs-comment"># hoy: date</span>
+    <span class="hljs-comment"># veh: Vehiculo</span>
+    <span class="hljs-comment"># fal: Falla</span>
+    pat = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Patente: &quot;</span>).ljust(<span class="hljs-number">10</span>, <span class="hljs-string">&quot; &quot;</span>)
+    <span class="hljs-keyword">if</span> BUSCA_VEHICULO(pat) == -<span class="hljs-number">1</span>:
+        veh = Vehiculo()
+        veh.patente = pat
+        m = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Marca: &quot;</span>).ljust(<span class="hljs-number">10</span>, <span class="hljs-string">&quot; &quot;</span>)
+        <span class="hljs-keyword">while</span> BUSCA_MARCA(m) == -<span class="hljs-number">1</span>:
+            m = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;El taller no trabaja esa marca, ingrese otra: &quot;</span>).ljust(<span class="hljs-number">10</span>, <span class="hljs-string">&quot; &quot;</span>)
+        veh.marca = m
+        veh.anio = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Año: &quot;</span>))
+        veh.modelo = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Modelo: &quot;</span>).ljust(<span class="hljs-number">20</span>, <span class="hljs-string">&quot; &quot;</span>)
+        alVehiculos.seek(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>)
+        pickle.dump(veh, alVehiculos)
+        alVehiculos.flush()
+        ordenaVehiculo()
+    fal = Falla()
+    fal.patente = pat
+    hoy = date.today()
+    fal.fecha = (<span class="hljs-built_in">str</span>(hoy.day) + <span class="hljs-string">&quot;/&quot;</span> + <span class="hljs-built_in">str</span>(hoy.month) + <span class="hljs-string">&quot;/&quot;</span> + <span class="hljs-built_in">str</span>(hoy.year)).ljust(<span class="hljs-number">10</span>, <span class="hljs-string">&quot; &quot;</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+        fal.codigo[i] = <span class="hljs-number">0</span>
+        fal.descripcion[i] = <span class="hljs-string">&quot; &quot;</span>.ljust(<span class="hljs-number">30</span>, <span class="hljs-string">&quot; &quot;</span>)
+    fal.estado = <span class="hljs-string">&quot;Ingresado&quot;</span>.ljust(<span class="hljs-number">13</span>, <span class="hljs-string">&quot; &quot;</span>)
+    alFallas.seek(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>)
+    pickle.dump(fal, alFallas)
+    alFallas.flush()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">BUSCA_INGRESADO</span>(<span class="hljs-params">pat</span>):
+    <span class="hljs-comment"># Secuencial: Fallas.dat no tiene orden</span>
+    <span class="hljs-comment"># pat: str</span>
+    <span class="hljs-comment"># tam, pos, p: int</span>
+    <span class="hljs-comment"># reg: Falla</span>
+    tam = os.path.getsize(afFallas)
+    pos = -<span class="hljs-number">1</span>
+    alFallas.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alFallas.tell() &lt; tam <span class="hljs-keyword">and</span> pos == -<span class="hljs-number">1</span>:
+        p = alFallas.tell()
+        reg = pickle.load(alFallas)
+        <span class="hljs-keyword">if</span> reg.patente == pat <span class="hljs-keyword">and</span> reg.estado == <span class="hljs-string">&quot;Ingresado&quot;</span>.ljust(<span class="hljs-number">13</span>, <span class="hljs-string">&quot; &quot;</span>):
+            pos = p
+    <span class="hljs-keyword">return</span> pos
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">DIAGNOSTICO</span>():
+    <span class="hljs-comment"># pat: str</span>
+    <span class="hljs-comment"># pos, i, cod: int</span>
+    <span class="hljs-comment"># fal: Falla</span>
+    pat = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Patente: &quot;</span>).ljust(<span class="hljs-number">10</span>, <span class="hljs-string">&quot; &quot;</span>)
+    pos = BUSCA_INGRESADO(pat)
+    <span class="hljs-keyword">if</span> pos == -<span class="hljs-number">1</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;No hay un vehículo ingresado con esa patente&quot;</span>)
+    <span class="hljs-keyword">else</span>:
+        alFallas.seek(pos, <span class="hljs-number">0</span>)
+        fal = pickle.load(alFallas)
+        i = <span class="hljs-number">0</span>
+        cod = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Código OBD2 (0 para terminar): &quot;</span>))
+        <span class="hljs-keyword">while</span> cod != <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> i &lt; <span class="hljs-number">10</span>:
+            fal.codigo[i] = cod
+            fal.descripcion[i] = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Descripción: &quot;</span>).ljust(<span class="hljs-number">30</span>, <span class="hljs-string">&quot; &quot;</span>)
+            i = i + <span class="hljs-number">1</span>
+            <span class="hljs-keyword">if</span> i &lt; <span class="hljs-number">10</span>:
+                cod = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Código OBD2 (0 para terminar): &quot;</span>))
+        fal.estado = <span class="hljs-string">&quot;Diagnosticado&quot;</span>
+        alFallas.seek(pos, <span class="hljs-number">0</span>)
+        pickle.dump(fal, alFallas)
+        alFallas.flush()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">FALLAS_POR_MARCA</span>():
+    <span class="hljs-comment"># cant: arreglo [0..4] de int</span>
+    <span class="hljs-comment"># nom: arreglo [0..4] de str</span>
+    <span class="hljs-comment"># tam, i, k, m, auxC: int</span>
+    <span class="hljs-comment"># auxN: str</span>
+    <span class="hljs-comment"># fal: Falla</span>
+    <span class="hljs-comment"># veh: Vehiculo</span>
+    cant = [<span class="hljs-number">0</span>]*<span class="hljs-number">5</span>
+    nom = [<span class="hljs-string">&quot;&quot;</span>]*<span class="hljs-number">5</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):
+        nom[i] = marcas[i]
+    tam = os.path.getsize(afFallas)
+    alFallas.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alFallas.tell() &lt; tam:
+        fal = pickle.load(alFallas)
+        <span class="hljs-keyword">if</span> fal.estado == <span class="hljs-string">&quot;Diagnosticado&quot;</span>:
+            alVehiculos.seek(BUSCA_VEHICULO(fal.patente), <span class="hljs-number">0</span>)
+            veh = pickle.load(alVehiculos)
+            m = BUSCA_MARCA(veh.marca)
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+                <span class="hljs-keyword">if</span> fal.codigo[i] != <span class="hljs-number">0</span>:
+                    cant[m] = cant[m] + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>):
+        <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i + <span class="hljs-number">1</span>, <span class="hljs-number">5</span>):
+            <span class="hljs-keyword">if</span> cant[i] &lt; cant[k]:
+                auxC = cant[i]
+                cant[i] = cant[k]
+                cant[k] = auxC
+                auxN = nom[i]
+                nom[i] = nom[k]
+                nom[k] = auxN
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Marca / Cantidad de fallas diagnosticadas&quot;</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):
+        <span class="hljs-built_in">print</span>(nom[i], cant[i])
+
+<span class="hljs-comment"># Programa principal</span>
+<span class="hljs-comment"># opcion: int</span>
+opcion = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> opcion != <span class="hljs-number">4</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;1- Entrada del vehículo&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;2- Diagnóstico&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;3- Cantidad de fallas por marca&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;4- Salir&quot;</span>)
+    opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción: &quot;</span>))
+    <span class="hljs-keyword">while</span> opcion &lt; <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> opcion &gt; <span class="hljs-number">4</span>:
+        opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción inválida: &quot;</span>))
+    <span class="hljs-keyword">match</span> opcion:
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+            ENTRADA()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+            DIAGNOSTICO()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+            FALLAS_POR_MARCA()
+alFallas.close()
+alVehiculos.close()</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la hoja del examen y la página del 3° parcial y final (registros como clase, recorrer, búsquedas, actualizar un registro y alta). Las operaciones de archivos siguen las diapositivas de merge y corte de control. El Chapin sigue la forma de las diapositivas del examen de Historia Clínica de 2019. El informe en memoria sigue el ordenamiento con arrastre del 2° parcial.</p><p class="bloque-fuente">Quedó en duda: En el alta se valida solo la marca, como dice la hoja. El año y el modelo no se validan. El arreglo de marcas está ordenado, así que se busca con dicotómica. Cada marca se completa con <code>ljust</code> para compararla con lo que guarda el archivo. La fecha se guarda como texto día/mes/año completado a 10 caracteres, porque la hoja no da el formato. Los estados se completan a 13 caracteres, el largo de «Diagnosticado», para que el registro no cambie de tamaño. En Python, pickle graba un entero menor que 256 en menos bytes que uno más grande. Por eso un código OBD2 de 256 o más, cargado donde había un 0, agranda el registro de la falla. Entonces el registro deja de coincidir con la posición que calcula el programa. El material pide registros del mismo tamaño y solo muestra cómo lograrlo con textos (<code>ljust</code>). Las pruebas se hicieron con datos que no cambian el tamaño. Si una patente entra dos veces sin diagnóstico, se diagnostica la primera. Las fallas por marca cuentan los códigos cargados en los registros diagnosticados. Las diapositivas de la materia no muestran en Chapin la lectura de datos ni la selección múltiple. Acá van como <code>Leer</code> y como <code>Según</code>, con una columna por caso.</p><div class="em-votos" data-m="algoritmos-y-estructuras-de-datos" data-e="fin-2025-08-20" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Archivos" data-enlace="final.html#secuencial-y-de-acceso-directo" data-donde="3° parcial y final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Archivos</span><span class="ex-t-teoria"><a href="final.html#secuencial-y-de-acceso-directo">Secuencial y de acceso directo</a>, en 3° parcial y final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Memoria" data-enlace="parcial-1.html#datos-variables-y-tipos" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Memoria</span><span class="ex-t-teoria"><a href="parcial-1.html#datos-variables-y-tipos">Datos, variables y tipos</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Ordenamiento" data-enlace="parcial-2.html#ordenamiento" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Ordenamiento</span><span class="ex-t-teoria"><a href="parcial-2.html#ordenamiento">Ordenamiento</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2025-09-17.html">Anterior: Final, 17/09/2025 (Domótica)</a><a href="ej-fin-2025-04-16.html">Siguiente: Final, 16/04/2025 (Estación de Servicio)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta mayo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

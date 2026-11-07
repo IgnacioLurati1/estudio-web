@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Para entender: Cobol</title>
+<meta name="description" content="Qué hay en el Drive de Cobol, qué se tomó y qué falta.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/estrellas.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="cobol" data-pagina="inicio">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Cobol</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html" aria-current="page">Para entender</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=cobol">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=cobol">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#que-es-la-materia">Qué es la materia</a></li><li class="n2"><a href="#el-recorrido-segun-el-material">El recorrido según el material</a></li><li class="n2"><a href="#que-se-evalua">Qué se evalúa</a></li><li class="n2"><a href="#de-donde-sale-cada-cosa">De dónde sale cada cosa</a></li><li class="n2"><a href="#como-usar-esto">Cómo usar esto</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Cobol</h1>
+<p class="bajada">Qué hay en el Drive, qué se tomó y qué vas a tener que buscar en otro lado.</p><p class="pdf-ir em-fuera"><a class="b-sec" href="pdf.html"><svg class="pdf-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M11 5h18l8 8v30H11z"/><path d="M29 5v8h8"/><path d="M24 19v15"/><path d="M18 28l6 6 6-6"/></svg>Descargar en PDF</a></p><div id="sinInternet" class="si em-fuera" hidden></div><div class="es-materia" data-estrellas-materia="cobol" hidden></div><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="nivel nivel-rapido">Materia del pasado. Ya no está en el plan de estudios.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p>
+<div class="ojo"><p class="ojo-t">Todo el material es del plan viejo y es poco</p><p>No hay nada de 2023 en adelante. Los finales son de 2009 a 2012, las prácticas de 2011 y los trabajos de 2015. No hay programa de la materia ni apunte de la cátedra. Sin exámenes nuevos no se puede saber si esto se sigue tomando igual. Si cursás hoy, preguntale primero a tu comisión.</p>
+</div>
+
+<section class="sec"><h2 id="que-es-la-materia">Qué es la materia</h2>
+<p>Las prácticas de la cátedra la llaman «Lenguaje Orientado a la Administración Comercial (COBOL)». Son de la Facultad Regional Rosario, Departamento de Ingeniería en Sistemas.</p>
+<p>Por lo que muestran los finales, se trata de programar con archivos de datos de una organización. Te dan los datos de una droguería, un club o una biblioteca. Vos declarás los registros y escribís el programa que carga, consulta o lista.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en una agenda de papel. Cada amigo es un registro. Su nombre, su teléfono y su dirección son campos. La agenda entera es el archivo. Esa comparación está en un trabajo de alumnos de 2015 y resume casi todo lo que se pide acá: describir bien la hoja de la agenda y después recorrerla.</p>
+</div>
+</section>
+<section class="sec"><h2 id="el-recorrido-segun-el-material">El recorrido según el material</h2>
+<ol>
+<li><strong>Lógica antes que código.</strong> La <a href="ej-practica-0.html">Práctica 0</a> pide desarrollar la sucesión lógica de pasos y sugiere usar Chapín.</li>
+<li><strong>Datos.</strong> La <a href="ej-practica-1.html">Práctica 1</a> trabaja nombres, literales, modelos de caracteres, campos de edición y estructuras de registro.</li>
+<li><strong>Archivos.</strong> Un trabajo de alumnos de 2015 repasa los tipos de archivo y los verbos para manejarlos. Es la teoría que después usan los finales.</li>
+<li><strong>Programa completo.</strong> Los finales juntan todo.</li>
+</ol>
+<p>Ese orden sale de los números de las prácticas y de los trabajos. No hay un programa que lo confirme.</p>
+</section>
+<section class="sec"><h2 id="que-se-evalua">Qué se evalúa</h2>
+<p>En el Drive hay solo finales. No hay parciales ni datos sobre cómo se regulariza o se aprueba. Tampoco figuran puntajes.</p>
+<p>Revisé los 6 finales: 08/05/2009, 26/11/2009, mayo de 2010, diciembre de 2010, febrero de 2011 y febrero de 2012.</p>
+<ul>
+<li><mark>Los 6 son prácticos.</mark> Ninguno trae preguntas sueltas de teoría.</li>
+<li><mark>5 de 6 piden un programa.</mark> El de diciembre de 2010 pide declarar almacenes y hacer dos listados.</li>
+<li><mark>4 de 6 combinan un archivo secuencial con uno indexado.</mark></li>
+</ul>
+<p>El detalle y las consignas están en <a href="final.html#como-viene-el-final">Cómo viene el final</a>.</p>
+</section>
+<section class="sec"><h2 id="de-donde-sale-cada-cosa">De dónde sale cada cosa</h2>
+<div class="tabla"><table><thead><tr><th>Material</th><th>De quién es</th><th>Cómo lo usé</th></tr></thead><tbody><tr><td>6 finales, 2009 a 2012</td><td>Cátedra</td><td>Para saber qué se pide. Van completos en <a href="ejercicios.html">Ejercicios</a></td></tr><tr><td>Prácticas 0 y 1, 2011</td><td>Cátedra</td><td>Solo consignas, sin teoría. Marcan los temas</td></tr><tr><td>Trabajos prácticos 1, 2 y 3, 2015</td><td>Alumnos</td><td>Única teoría escrita del Drive. Citan clases de la materia, un libro y páginas web</td></tr><tr><td>Resolución de la Práctica 1 y dos programas, 2015</td><td>Alumnos</td><td>No van. No son oficiales</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Cómo leer la teoría de este resumen</p><p>Las definiciones de <a href="final.html">la página del final</a> salen de trabajos de alumnos, no de la cátedra. Cada una dice de qué trabajo viene. Donde el trabajo tiene un error, está marcado. Lo que los finales piden y el material no explica está en <a href="final.html#lo-que-se-pide-y-el-material-no-explica">una lista aparte</a>, sin completar de memoria.</p>
+</div>
+</section>
+<section class="sec"><h2 id="como-usar-esto">Cómo usar esto</h2>
+<ol>
+<li>Leé <a href="final.html">la página del final</a>. Es corta porque el material es corto.</li>
+<li>Conseguí un manual para los temas de la lista de faltantes.</li>
+<li>Intentá los <a href="ejercicios.html">finales</a> empezando por el de 2012. Ninguno tiene resolución oficial, así que comparalos con tu comisión.</li>
+</ol>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (finales de 2009 a 2012, prácticas de 2011 y trabajos de alumnos de 2015). No hay nada de 2023 en adelante ni apunte de la cátedra. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

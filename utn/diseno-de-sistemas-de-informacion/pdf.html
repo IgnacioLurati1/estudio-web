@@ -1,0 +1,1041 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Diseño de Sistemas de Información en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Diseño de Sistemas de Información, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/w.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/expr.js" defer></script>
+<script src="../_/w.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="diseno-de-sistemas-de-informacion" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Diseño de Sistemas de Información</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Diseño de Sistemas de Información</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial-1">1° parcial</a></li><li><a href="#pdf-parcial-2">2° parcial</a></li><li><a href="#pdf-final">Final</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Diseño de Sistemas de Información</p><h1>Para entender la materia</h1>
+<p class="bajada">Dos mitades: cómo se reparte el código entre objetos y cómo se diseña lo que ve la persona que lo usa.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Los exámenes de 2022 o antes son del plan anterior. En esta materia el contenido es el mismo, así que siguen sirviendo.</p>
+
+
+<section class="sec"><h2 id="inicio-de-que-se-trata">De qué se trata</h2>
+<p>Imaginá una app para reservar una cabaña. Alguien tiene que decidir qué objeto guarda la reserva, quién la crea y quién busca en la base. Eso es la primera mitad. Se dibuja en diagramas y se corrige con reglas muy precisas.</p>
+<p>También alguien tiene que decidir cómo se llama el menú, dónde va el botón y cómo se entera la persona de que reservó. Eso es la segunda mitad, la experiencia del usuario (UX). Se estudia con autores y se evalúa con preguntas de opción múltiple.</p>
+<p>En los exámenes de 2023 en adelante, las dos mitades se rinden en hojas separadas. Planificá el tiempo para ambas.</p>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido">El recorrido</h2>
+<div class="tabla"><table><thead><tr><th>Bloque</th><th>Qué ves</th><th>Dónde está</th></tr></thead><tbody><tr><td>Diseño orientado a objetos</td><td>DSD, DCD, patrones GRASP, marcos, colecciones</td><td><a href="#parcial-1-la-practica-de-dominio-a-diagramas">1° parcial</a></td></tr><tr><td>Tecnología supuesta</td><td>Spring MVC, DAO, JPQL</td><td><a href="#parcial-1-spring-mvc">1° parcial</a></td></tr><tr><td>Personas y uso</td><td>Usabilidad, Norman, factores humanos, errores</td><td><a href="#parcial-1-usabilidad-y-experiencia-de-usuario">1° parcial</a></td></tr><tr><td>Reglas de buen diseño</td><td>Accesibilidad, heurísticas, leyes de UX</td><td><a href="#parcial-1-accesibilidad">1° parcial</a></td></tr><tr><td>Proceso</td><td>Diseño centrado en el usuario, Design Thinking, formularios</td><td><a href="#parcial-1-diseno-centrado-en-el-usuario">1° parcial</a></td></tr><tr><td>Orden del contenido</td><td>Arquitectura de información, Card Sorting, Tree Testing</td><td><a href="#parcial-2-arquitectura-de-informacion">2° parcial</a></td></tr><tr><td>Conocer al usuario</td><td>UX Research, personas, journey maps</td><td><a href="#parcial-2-ux-research">2° parcial</a></td></tr><tr><td>Pantallas</td><td>Prototipos, patrones de interfaz y mobile</td><td><a href="#parcial-2-patrones-de-interfaz">2° parcial</a></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="inicio-como-se-conecta">Cómo se conecta</h2>
+<p>La práctica parte siempre de dos hojas: un modelo de dominio y un caso de uso. Con eso dibujás qué mensajes se mandan los objetos (DSD) y qué clases quedan (DCD). Para decidir a quién le toca cada método usás los patrones GRASP. El diagrama asume una aplicación web con Spring MVC, y por eso aparecen un controlador y los DAO.</p>
+<p>La teoría de UX arranca con cómo piensa y se equivoca la gente. De ahí salen los principios de Norman, las heurísticas de Nielsen y las leyes de UX. El 2° parcial usa todo eso para ordenar contenido, investigar usuarios y armar pantallas.</p>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p>Conté los exámenes del Drive de <strong>2023 en adelante</strong>. Son 21.</p>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Exámenes</th><th>Cómo viene</th></tr></thead><tbody><tr><td>1° parcial, práctica</td><td>9, de 2023 a 2026</td><td>Modelo de dominio más un caso de uso. Sin material, según las Políticas.</td></tr><tr><td>1° parcial, teoría</td><td>5, de 2023 y 2024</td><td>10 consignas de opción múltiple, sobre UX y Spring</td></tr><tr><td>2° parcial, teoría</td><td>4, de 2023, 2024 y 2026</td><td>10 consignas de opción múltiple</td></tr><tr><td>Práctica de aprobación directa</td><td>1, de 2025</td><td>Caso de uso, dominio y modelo</td></tr><tr><td>Final, práctica</td><td>2, de 2023 y 2026</td><td>Dominio y caso de uso</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Teóricos con todas las opciones correctas</p><p>En 5 de los 9 teóricos la hoja lo aclara. Para que la respuesta cuente, hay que tildar todas las opciones correctas. Marcar de más o de menos la deja sin punto.</p>
+</div>
+<div class="idea"><p>Los teóricos en Forms del Drive son capturas con la corrección automática, y valen como oficiales. Lo que marcó quien lo rindió no vale, vale la corrección. Están en <a href="ejercicios.html">Ejercicios</a>, y las respuestas que sirven, en cada página con su <code>Fuente:</code>.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Del plan viejo se usa lo que sigue igual</p><p>Comparé exámenes de 2018 a 2022 con los de 2023 en adelante. Piden lo mismo, con los mismos dominios. Por eso sirven para practicar. Lo de 2017 para atrás es distinto y no se usa. Tomaba arquitectura de software y otras cosas que no volvieron.</p>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-de-donde-sale-todo">De dónde sale todo</h2>
+<p>La fuente principal es el <strong>Libro Completo de la Teoría</strong> (<a href="https://drive.google.com/file/d/13jO4cCETaCxgYz56xQRjUmi7-vS7t4cg/view">en el Drive</a>), una compilación de 265 hojas armada por la cátedra. Cuando cito «hoja N», es la hoja del PDF. Cada hoja tiene dos páginas del apunte original.</p>
+<p>La práctica sale de las Políticas, del Proceso y de los documentos de errores de la cátedra. Los temas que no están en esos apuntes salen de resúmenes de alumnos, y lo aclaro en cada caso.</p>
+</section>
+<section class="sec"><h2 id="inicio-como-usar-esto">Cómo usar esto</h2>
+<ol>
+<li>Leé la página del parcial que rendís. Tiene toda la teoría.</li>
+<li>Hacé el quiz del final de la página.</li>
+<li>Para la práctica, abrí <a href="ejercicios.html">Ejercicios</a> y hacelos a mano, sin mirar.</li>
+<li>La noche anterior, la <a href="machete.html">hoja de repaso</a>.</li>
+</ol>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-1" data-pagina="parcial-1" aria-label="1° parcial"><p class="pdf-de">Diseño de Sistemas de Información</p><h1>1° parcial</h1>
+<p class="bajada">Práctica de diagramas con las reglas de la cátedra, y teoría de UX con Spring MVC.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-1-como-viene-el-examen">Cómo viene el examen</h2>
+<p>Leí 14 exámenes de 2023 en adelante. Son 9 de práctica y 5 de teoría, y cada uno se rinde aparte.</p>
+<p><strong>Práctica.</strong> Te dan un modelo de dominio y un caso de uso. Entre 2023 y 2026 salieron Gimnasio, Jornada, Venta de medicamentos, Camping, Dictado de curso y Pedido de libros. Las Políticas piden un DSD por cada paso del caso de uso y el DCD. En el parcial del 2/06/2025 el paso a resolver cambiaba según si buscabas regularizar o promoción directa.</p>
+<p><strong>Teoría.</strong> Son 10 consignas en los 5, casi todas de opción múltiple. El 15/06/2023 trajo además una de unir con flechas. El Form del 19/06/2024 dice «Cada respuesta aprobada suma un punto. Se aprueba con 4» y pide 7 o más para aprobación directa. El del 1/07/2024 también pide 7 para directa.</p>
+<div class="ojo"><p class="ojo-t">Hay que tildar todas las correctas</p><p>Lo dicen 2 de los 5 teóricos del 1° parcial (19/06/2024 y 1/07/2024). Si te falta una opción correcta, la consigna no suma.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-que-se-tomo">Qué se tomó</h2>
+<p>Conté los 5 teóricos de 2023 y 2024. El 24/07/2024 tiene Tema A y Tema B, y cuentan como dos.</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Teóricos</th><th>Cuáles</th></tr></thead><tbody><tr><td>Feedback</td><td>5 de 5</td><td>15/06/2023, 19/06, 1/07, 24/07 A y B</td></tr><tr><td>Accesibilidad y WCAG</td><td>5 de 5</td><td>15/06/2023, 19/06, 1/07, 24/07 A y B</td></tr><tr><td>Pensamiento humano, etapas y niveles</td><td>5 de 5</td><td>15/06/2023, 19/06, 1/07, 24/07 A y B</td></tr><tr><td>Otros principios de Norman</td><td>4 de 5</td><td>15/06/2023, 19/06, 24/07 A y B</td></tr><tr><td>Spring MVC</td><td>4 de 5</td><td>15/06/2023, 1/07, 24/07 A y B</td></tr><tr><td>Leyes de UX</td><td>4 de 5</td><td>15/06/2023, 1/07, 24/07 A y B</td></tr><tr><td>Heurísticas de Nielsen</td><td>3 de 5</td><td>15/06/2023, 24/07 A y B</td></tr><tr><td>Usabilidad y sus dimensiones</td><td>3 de 5</td><td>15/06/2023, 24/07 A y B</td></tr><tr><td>Design Thinking</td><td>2 de 5</td><td>19/06, 1/07</td></tr><tr><td>DCU y doble diamante</td><td>2 de 5</td><td>19/06, 1/07</td></tr><tr><td>Errores</td><td>1 de 5</td><td>1/07</td></tr><tr><td>Formularios</td><td>1 de 5</td><td>1/07</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="parcial-1-la-practica-de-dominio-a-diagramas">La práctica: de dominio a diagramas</h2>
+<h3 id="parcial-1-que-tenes-que-dibujar">Qué tenés que dibujar</h3>
+<ul>
+<li><strong>DSD</strong> (diagrama de secuencia de diseño): qué mensajes se mandan los objetos, en orden, para resolver un paso del caso de uso.</li>
+<li><strong>DCD</strong> (diagrama de clases de diseño): las clases que quedan, con atributos, métodos y relaciones. Es la consecuencia del DSD.</li>
+</ul>
+<p>Se corrigen juntos. Las Políticas dicen que se evalúa la notación UML y la consistencia entre los diagramas. Si difieren de Larman, prevalecen las Políticas (Libro Completo de la Teoría, hojas 18 a 20).</p>
+<div class="idea"><p>Antes de cada mensaje, hacete dos preguntas del Proceso. ¿A qué clase va este mensaje? ¿Hay que guardar este objeto para otro evento del caso de uso? Si hay que guardarlo, el controlador lo tiene como variable de instancia, con asociación y rol en el DCD.</p>
+</div>
+<p>El ejemplo completo de la cátedra es «Procesar venta» de Larman, adaptado a las Políticas. Está en <a href="https://drive.google.com/file/d/1AD2H32mBOF53WPj6Dtyq9SwF_WKzKMoF/view">Proceso de diseño, en el Drive</a>. Miralo con lápiz en la mano.</p>
+<h3 id="parcial-1-reglas-generales-de-la-catedra">Reglas generales de la cátedra</h3>
+<p>Fuente de esta sección y las dos siguientes: Políticas UML v1.25, Libro Completo de la Teoría, hojas 18 a 20.</p>
+<ul>
+<li>Sin material en el examen. Hojas de un solo lado y numeradas xx/yy.</li>
+<li>Un DSD por cada paso del caso de uso (punto 7.g).</li>
+<li>Si usás notación propia, especificala y justificala.</li>
+<li>Todos los objetos llevan nombre. Se admite no subrayarlos.</li>
+<li>Las decisiones que no son obvias van en una nota.</li>
+<li>También se evalúa el uso de los patrones adecuados para asignar responsabilidades (punto 1.e).</li>
+<li>Los nombres de los métodos tienen que representar la responsabilidad que llevan a cabo (punto 2.c).</li>
+<li>Si dos objetos se relacionan con más de una asociación, cada una lleva su rol, para saber a qué atributo se refiere (punto 4.a).</li>
+<li>Una variable de instancia del controlador no hace falta dibujarla en el DSD si no recibe ningún mensaje (punto 4.b).</li>
+<li>Nombres de atributos y variables: o no se repiten, o cada vez que aparece uno repetido va una nota que diga en qué objeto está (punto 5.c).</li>
+</ul>
+<h3 id="parcial-1-reglas-para-el-dsd">Reglas para el DSD</h3>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Regla</th></tr></thead><tbody><tr><td>Cajas de activación</td><td>Todas. El <code>create</code> estándar no lleva caja ni retorno.</td></tr><tr><td>Retornos</td><td>Todos.</td></tr><tr><td>Yourdon</td><td>Prohibido en los mensajes entre UI, controlador e instancia. Yourdon usa paréntesis para lo opcional, corchetes para alternativas y llaves para iteraciones (punto 7.e).</td></tr><tr><td>UI</td><td>Una sola.</td></tr><tr><td>Actor</td><td>Sin línea de vida. Una nota es opcional.</td></tr><tr><td>Parámetros</td><td>Obligatorios, con nombres representativos.</td></tr><tr><td>Instancias entre métodos</td><td>El controlador las guarda como variable de instancia en el DCD, con línea de vida <code>var:Clase</code>.</td></tr><tr><td>Seteo de variables y acumulaciones</td><td>Por nota.</td></tr><tr><td>Colecciones</td><td>Estilo Larman 3ra edición, con nota si hay ambigüedad entre variable de instancia y local.</td></tr></tbody></table></div>
+<h3 id="parcial-1-reglas-para-el-dcd">Reglas para el DCD</h3>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Regla</th></tr></thead><tbody><tr><td>Métodos</td><td>Todos los del DSD, también <code>get</code>, <code>set</code> y <code>create</code>.</td></tr><tr><td>Excepción</td><td>Los métodos de colección (<code>create</code>, <code>add</code>, <code>size</code>, <code>contains</code>), porque esa clase no va en el DCD.</td></tr><tr><td>Clases con solo <code>get</code> y <code>set</code></td><td>Son sospechosas. Llevan una nota.</td></tr><tr><td>Tipos</td><td>Obligatorios: <code>String</code>, <code>Integer</code>, <code>Real</code>, <code>Boolean</code>, <code>Date</code>, <code>Time</code>, <code>DateTime</code>, <code>Blob</code>. A mano se admiten <code>Str</code>, <code>Int</code>, <code>Bool</code>.</td></tr><tr><td>Multiplicidad en atributo</td><td><code>atributo: Tipo [1..5]</code> o <code>[*]</code>.</td></tr><tr><td>Atributos calculados</td><td>Con una nota.</td></tr><tr><td>Asociaciones</td><td>Navegabilidad y multiplicidad. Sin navegabilidad se entiende que va en ambos sentidos, con roles en los dos extremos.</td></tr><tr><td>Atributos de más</td><td>No van sin un requerimiento. Los identificadores necesarios sí van.</td></tr><tr><td>Cantidades fijas de una regla</td><td>Como atributo de una clase (punto 6.d).</td></tr><tr><td>Estados nuevos</td><td>Se modelan con máquina de estados. Si los setean otros casos de uso, se nombran esos casos de uso y se indican sus postcondiciones (punto 6.e).</td></tr><tr><td>Clase primitiva redefinida</td><td>Va en el DCD, con los métodos o atributos redefinidos o agregados (punto 6.c).</td></tr><tr><td>Prohibido</td><td>Clases asociación, porque no permiten representar la navegabilidad. Clase UI, porque es una simplificación de un conjunto de clases que dependen de la tecnología (puntos 6.f y 6.g).</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Dos casos del documento de errores</p><p>El documento Errores v1.11 aclara dos casos. Una clase <code>Cliente</code> sin atributos ni métodos es válida si sirve para <code>cliente logueado</code>, con asociación desde el controlador. Y los valores fijos del caso de uso van como atributo (4.12 y 4.13, <a href="https://drive.google.com/file/d/1prdXsGaEkqDhMVBRAmUKCym-IbGDkb-w/view">Errores v1.11</a>, página 27).</p>
+</div>
+<h3 id="parcial-1-marcos-en-el-dsd">Marcos en el DSD</h3>
+<p>Son las cajas que indican repetición o decisión. Salen del apunte <a href="https://drive.google.com/file/d/1_Vdjsw6ltYdB7JKVMCp1Td6FQNJh-GIW/view">Marcos v1.04</a> (Libro Completo de la Teoría, hoja 17).</p>
+<div class="tabla"><table><thead><tr><th>Marco</th><th>Para qué</th></tr></thead><tbody><tr><td><code>alt</code></td><td>Alternativas, una u otra</td></tr><tr><td><code>opt</code></td><td>Se hace o no</td></tr><tr><td><code>loop</code></td><td>Repetición</td></tr><tr><td><code>ref</code></td><td>Referencia a otro diagrama</td></tr></tbody></table></div>
+<p>La condición de guarda va sobre la línea de vida a la que pertenece. La cátedra la escribe así:</p>
+<pre class="codigo"><code>loop [Para cada &lt;objeto&gt; en &lt;colección&gt;]
+alt  [lista IS NOT EMPTY]
+opt  [valor IS NOT NULL]
+Operadores: ==  !=  &lt;  &gt;  &gt;=  &lt;=</code></pre>
+<h3 id="parcial-1-colecciones">Colecciones</h3>
+<p>Salen del apunte <a href="https://drive.google.com/file/d/1sJ5-Lu5F17H01b_AvPJai6jakN_eY7To/view">Representación de colecciones</a> (hojas 33 y 34) y de <a href="https://drive.google.com/file/d/18IRKzF39eqtw_WMcXVH5DgKlskIgXrA-/view">Colecciones y Arrays</a> (hojas 2 a 5).</p>
+<ul>
+<li>Métodos: <code>create()</code>, <code>get(index)</code>, <code>size()</code>, <code>isEmpty</code>, <code>add</code>, <code>addAll</code>, <code>contains</code>, <code>containsAll</code>, <code>remove</code>, <code>removeFromPosition</code>, <code>removeAll</code>.</li>
+<li>Se simplifica y se toma Array igual que List.</li>
+<li>El rol en el DCD es el nombre de la colección.</li>
+<li>En el DSD se distingue el multiobjeto, que es la colección, del elemento <code>socios[i]</code> (Pautas, <a href="https://drive.google.com/file/d/1fMP_ZJE7LDKqz-px7gUFp3AW8b_vK_Un/view">en el Drive</a>).</li>
+</ul>
+<h3 id="parcial-1-repositorios-y-dao">Repositorios y DAO</h3>
+<p>Políticas, punto 8 (hojas 18 a 20).</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Regla</th></tr></thead><tbody><tr><td>Nombre</td><td><code>ClaseDao</code>, con estereotipo <code>&lt;&lt;Repository&gt;&gt;</code></td></tr><tr><td>Cuántos</td><td>Uno por clase persistente que tenga consulta o guardado</td></tr><tr><td>Composición</td><td>Solo el todo tiene DAO, y guarda en cascada</td></tr><tr><td>Qué devuelve</td><td>Objetos con sus relaciones cargadas. No hace cálculos.</td></tr><tr><td>Métodos usados</td><td>Cada uno va en el DCD</td></tr><tr><td><code>JpaRepository</code></td><td>Opcional en el DCD, con la nota <code>T-&gt;Cliente, ID-&gt;Integer</code></td></tr><tr><td><code>getOne</code> y <code>findAll</code></td><td>Sin nota de JPQL</td></tr><tr><td>Rol</td><td>En minúscula: <code>clienteDao</code> o <code>cdao</code></td></tr><tr><td><code>save</code></td><td>Uno por objeto creado o modificado</td></tr><tr><td>Clave</td><td><code>@Id</code> obligatorio: <code>idCliente:Integer {@Id}</code>. Si se genera, <code>{@Id @GeneratedValue}</code>.</td></tr></tbody></table></div>
+<p>La nota de un <code>save</code> con número generado la cátedra la escribe así: «Genera el próximo número para el atributo nroVenta de la clase Venta».</p>
+<p>Un atributo con <code>@GeneratedValue</code> es nulo al crear el objeto. Toma valor recién cuando se invoca el <code>save</code> de su repositorio (punto 8.j.ii). Que el repositorio devuelva los objetos con sus relaciones cargadas «no quiere decir que no deba utilizar colecciones» (punto 8.a).</p>
+<h3 id="parcial-1-jpql">JPQL</h3>
+<p>Sale del apunte de Spring (Libro Completo de la Teoría, hojas 12 a 14). La forma es esta:</p>
+<pre class="codigo"><code><span class="hljs-keyword">SELECT</span> ... <span class="hljs-keyword">FROM</span> ... [<span class="hljs-keyword">WHERE</span>] [<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> [<span class="hljs-keyword">HAVING</span>]] [<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>]</code></pre>
+<p>Los ejemplos del apunte:</p>
+<pre class="codigo"><code><span class="hljs-keyword">SELECT</span> c <span class="hljs-keyword">FROM</span> Cliente c <span class="hljs-keyword">WHERE</span> c.localidad <span class="hljs-operator">=</span> ?<span class="hljs-number">1</span>
+<span class="hljs-keyword">SELECT</span> c <span class="hljs-keyword">FROM</span> Cliente c <span class="hljs-keyword">JOIN</span> c.localidad l <span class="hljs-keyword">WHERE</span> l.codPostal <span class="hljs-operator">=</span> ?<span class="hljs-number">1</span> <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> c.apellido</code></pre>
+<p>También muestra <code>LIKE</code>, <code>DISTINCT</code>, <code>LEFT JOIN</code>, <code>size(loc.clientes) &gt;= 10</code> y el <code>JOIN</code> implícito con punto.</p>
+<p>Las reglas que da el apunte (hojas 12 a 15):</p>
+<ul>
+<li>Las consultas se hacen sobre clases y atributos. «Nunca se hace referencia a ninguna tabla o base de datos.» JPA las traduce a SQL.</li>
+<li><code>SELECT</code> y <code>FROM</code> son obligatorias. Las demás cláusulas son opcionales.</li>
+<li>El <code>JOIN</code> se hace por el atributo de la relación (<code>JOIN c.localidad loc</code>), sin <code>ON</code> con claves. <code>ON</code> se usa solo para condiciones adicionales.</li>
+<li>El <code>JOIN</code> deja afuera a los que no tienen la relación. Para incluir, por ejemplo, localidades sin clientes, va <code>LEFT JOIN</code>.</li>
+<li><code>DISTINCT</code> saca los repetidos que genera un <code>JOIN</code>.</li>
+<li>Para colecciones están <code>IS EMPTY</code>, <code>IS NOT EMPTY</code>, <code>size(...)</code> y <code>?1 MEMBER OF loc.clientes</code>.</li>
+<li>Las subconsultas van solo dentro del <code>WHERE</code>.</li>
+<li>Con herencia, consultar la clase padre devuelve también las instancias de sus subclases.</li>
+</ul>
+<h3 id="parcial-1-patrones-grasp">Patrones GRASP</h3>
+<p>Sirven para decidir a quién le das cada método. Larman nombra cinco (Libro Completo de la Teoría, hojas 36 a 38; texto de los resúmenes del Drive, que coincide).</p>
+<div class="tabla"><table><thead><tr><th>Patrón</th><th>Qué dice</th></tr></thead><tbody><tr><td>Experto en información</td><td>Asignar la responsabilidad al objeto que tiene la información necesaria.</td></tr><tr><td>Creador</td><td>B crea a A si B agrega, contiene, registra o usa estrechamente objetos de A.</td></tr><tr><td>Bajo acoplamiento</td><td>Asignar de manera que las clases queden poco conectadas entre sí.</td></tr><tr><td>Alta cohesión</td><td>Asignar de manera que cada clase tenga pocas responsabilidades y muy relacionadas.</td></tr><tr><td>Controlador</td><td>Asignar el manejo de un evento del sistema a un objeto que representa el sistema o el caso de uso.</td></tr></tbody></table></div>
+<p>Las responsabilidades son de dos tipos: conocer y hacer (hoja 36).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Si necesitás el total de una venta, se lo pedís a la venta, porque ella conoce sus líneas. Eso es Experto, y así lo hace el ejemplo del Proceso. El controlador delega: el apunte de Spring dice que no resuelve lógica ni cálculos.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Dónde pesan</p><p>No salió consigna de GRASP en los 5 teóricos de 2023 y 2024. Pesan en la práctica. La tabla de errores de la cátedra tiene una entrada «patrón».</p>
+</div>
+<h3 id="parcial-1-como-corrigen">Cómo corrigen</h3>
+<p>Sale de <a href="https://drive.google.com/file/d/1jJJN0zQp3WIsI3uFL34TmvCah7RmcaRE/view">Errores v1.13</a>.</p>
+<ul>
+<li>Se restan puntos por cada error, por evento del caso de uso, con un tope por evento.</li>
+<li>Si algo está mal, siguen corrigiendo como si estuviera bien.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Diagrama</th><th>Qué miran</th></tr></thead><tbody><tr><td>DSD</td><td>Caja de activación, retornos, <code>{}</code> en retornos que no van a la UI, marcos, línea de vida, mensajes, patrón, error funcional simple, medio o grave, MVC, DAO con <code>getOne</code> y <code>save</code>, JPQL</td></tr><tr><td>DCD</td><td>Clase, atributo, relación, método, anotaciones, DAO</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="parcial-1-spring-mvc">Spring MVC</h2>
+<p>Las Políticas suponen esta arquitectura: Web, MVC, dominio rico, DAO o Repositorio, base relacional, Spring y Java (apunte de Spring, página 4; Libro Completo de la Teoría, hojas 6 a 16).</p>
+<div class="tomado"><aside class="nota"><strong>Controlador, Modelo y características de Spring</strong><span>Teóricos 15/06/2023, 1/07/2024 y 24/07/2024, Temas A y B</span></aside><p>El 15/06/2023 le dedicó tres consignas. Conviene saber qué hace y qué no hace cada capa.</p>
+</div>
+<details open class="pregunta"><summary><span>Marque las afirmaciones sobre el controlador</span><small>1° parcial teoría, 1/07/2024</small></summary><div class="resp"><p>Correctas: no debe resolver lógica de negocio ni hacer cálculos, hay muchos en una aplicación y pueden existir muchas instancias simultáneas de un mismo controlador.</p>
+<p>Fuente: Form del 1/07/2024, corrección automática, hoja 4.</p>
+</div></details>
+<div class="tabla"><table><thead><tr><th>Parte</th><th>Qué hace</th><th>Qué no hace</th></tr></thead><tbody><tr><td>Controlador</td><td>Recibe y delega en modelo y vista. Hay muchos en la aplicación, lo común es uno por caso de uso. Puede tener muchas instancias simultáneas.</td><td>No resuelve lógica ni cálculos.</td></tr><tr><td>Modelo</td><td>Clases de dominio con métodos, Repositorios o DAO, Servicio.</td><td>No se ocupa de la presentación.</td></tr><tr><td>Vista</td><td>Lógica de presentación.</td><td>No tiene lógica de negocio ni cálculos.</td></tr></tbody></table></div>
+<p>«El patrón de arquitectura MVC (Model view controller) es un enfoque clásico para construir aplicaciones separando los intereses y responsabilidades de cada objeto que interviene» (hoja 8). Los objetos son Modelo, Vista y Controlador.</p>
+<p>Lo que el apunte dice de cada uno (hojas 8 y 9):</p>
+<ul>
+<li><strong>Controlador.</strong> Recibe solicitudes de trabajo y las procesa para lograr la respuesta adecuada. Delega toda la lógica del negocio en los objetos del modelo, y toda la presentación de datos y la usabilidad en la vista. Resuelve lo que haga falta del caso de uso haciendo lo mínimo posible. En base a condiciones decide qué vista cargar y cómo sigue el flujo, y le pasa a la vista los datos u objetos del modelo que necesita.</li>
+<li><strong>Modelo.</strong> «Conjunto de objetos que resuelven la lógica del negocio y el dominio.» Suele haber varias capas dentro del modelo.</li>
+<li><strong>Vista.</strong> Genera el contenido que ve el usuario, por ejemplo HTML. Recibe los datos u objetos del modelo que necesita mostrar. Resuelve toda la lógica de presentación e interfaz, como ocultar o mostrar una imagen, habilitar un textbox, cambiar el título de un Label, validar que un campo es requerido o bloquear un botón. Según lo que haga el usuario, puede hacer una nueva solicitud al controlador.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Las opciones mezclan las capas</p><p>En el Form del 1/07/2024, entre las afirmaciones sobre el controlador aparecen frases que el apunte dice del modelo («Incluye clases de software como Repositorios o DAOs») y de la vista («Resuelven toda la lógica ligada a la presentación»). Fijate de qué capa habla cada frase.</p>
+</div>
+<p>El flujo de una petición en Spring MVC (hoja 9). El front controller recibe todas las peticiones y, normalmente a partir de la URL, averigua a qué controlador llamar. El controlador resuelve el pedido con DAO y objetos del dominio, y devuelve un objeto <code>Model</code> con los datos que necesita la vista y el nombre lógico de la vista. El front controller carga esa vista y devuelve la respuesta en HTML. El desarrollador implementa solo controladores, vistas y objetos del modelo. El resto lo provee Spring.</p>
+<ul>
+<li><strong>Front Controller</strong>: es el <code>DispatcherServlet</code> (páginas 8 y 9 del apunte).</li>
+<li><strong>Dominio</strong>: clases persistentes, ricas en comportamiento. No saben de DAO ni de controladores (páginas 9 y 10). La hoja 10 agrega que no son responsables de la persistencia ni saben que existe. Solo conocen a otro objeto del dominio si tienen una asociación con él, lo instancian o lo reciben como parámetro. «No son contenedores de datos. Su valor está en sus métodos y no en sus atributos.»</li>
+<li><strong>DAO</strong>: uno por clase persistente, salvo composición, que va solo el todo. Devuelve objetos del tipo que representa, nunca datos sueltos (página 10).</li>
+<li><strong>Métodos de <code>JpaRepository</code></strong>: <code>getOne</code>, <code>findAll</code>, <code>save</code>, <code>existsById</code>, <code>count</code>, <code>delete</code>, <code>deleteAll</code>, <code>deleteById</code>, <code>saveAll</code> (hoja 11).</li>
+<li><strong>Anotaciones</strong>: <code>@Entity</code>, <code>@Id</code>, <code>@GeneratedValue</code>.</li>
+</ul>
+<p>Spring tiene estas características (páginas 5 y 6 del apunte): inyección de dependencias, dependencia por interfaces, AOP, Spring MVC y WebFlux, facilidades para Repositorios y DAO, NoSQL, integración, componentes separables y estándares Java.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-usabilidad-y-experiencia-de-usuario">Usabilidad y experiencia de usuario</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 98 a 103.</p>
+<p>La definición operativa de usabilidad es facilidad de uso. La norma ISO 9241-11 la define así: «grado de eficacia, eficiencia y satisfacción con la que usuarios específicos pueden lograr objetivos específicos, en contextos de uso específicos» (hoja 100).</p>
+<p>Sus componentes según Nielsen (hoja 99):</p>
+<div class="tabla"><table><thead><tr><th>Componente</th><th>Pregunta</th></tr></thead><tbody><tr><td>Facilidad de aprendizaje</td><td>¿Qué tan fácil le resulta a alguien hacer las tareas básicas la primera vez?</td></tr><tr><td>Eficiencia</td><td>Ya aprendido, ¿cuánto tarda en hacer las tareas?</td></tr><tr><td>Cualidad de ser recordado</td><td>Si vuelve después de un tiempo, ¿cuánto tarda en recuperar lo que sabía?</td></tr><tr><td>Eficacia</td><td>¿Cuántos errores comete, qué tan graves son y qué tan rápido los deshace?</td></tr><tr><td>Satisfacción</td><td>¿Qué tan agradable y sencillo le pareció?</td></tr></tbody></table></div>
+<p>Y cuatro dimensiones (hojas 99 a 101):</p>
+<ul>
+<li><strong>Empírica</strong>: se puede medir y evaluar, sobre todo con test de usuarios.</li>
+<li><strong>Dependiente</strong>: los usuarios buscan utilidad. Usabilidad y utilidad dependen una de otra.</li>
+<li><strong>Relativa</strong>: un producto es usable para una audiencia, objetivos y contextos específicos.</li>
+<li><strong>Ética</strong>: el fin es mejorar la vida de las personas y evitar la infoexclusión.</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Definición de usabilidad, sus cuatro dimensiones y la definición de accesibilidad</strong><span>Teóricos 15/06/2023 y 24/07/2024, Temas A y B</span></aside><p>La consigna arma afirmaciones con frases de las hojas 99 a 101. Comparalas palabra por palabra con el apunte.</p>
+</div>
+<p>Lo que agrega el apunte de cada dimensión (hojas 99 a 101):</p>
+<div class="tabla"><table><thead><tr><th>Dimensión</th><th>Detalle</th></tr></thead><tbody><tr><td>Empírica</td><td>La usabilidad es un atributo de calidad, y su definición formal sale de enumerar los componentes con que se mide. En el test de usuarios se cuentan los errores (eficacia) y se mide el tiempo (eficiencia). Preguntando al final se mide la usabilidad subjetiva o percibida (satisfacción). Así se puede comparar un diseño con su rediseño.</td></tr><tr><td>Dependiente</td><td>«La usabilidad representa el grado en el que el usuario puede explotar la utilidad» (Dillon y Morris). Un producto es usable en la medida en que el beneficio de usarlo justifique el esfuerzo (aprendizaje, atención, tiempo).</td></tr><tr><td>Relativa</td><td>Es relativa a los usuarios y también a los usos, objetivos y contextos. El microondas sirve para descongelar, no para guardar zapatos.</td></tr><tr><td>Ética</td><td>El buen diseño se evalúa por su retorno de inversión, pero esa rentabilidad es una consecuencia. Pide una actitud permanente de empatía. También hay que evitar herir sensibilidades culturales, sociales, políticas o religiosas con el lenguaje.</td></tr></tbody></table></div>
+<p>La hoja 101 dice además que accesibilidad y usabilidad no son atributos diferentes. «Si un diseño no es usable, no puede considerarse accesible, y viceversa.» Las pautas WAI son solo un punto de partida.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Un auto cuesta mucho de aprender y nadie dice que es poco usable, porque lo que te da compensa el esfuerzo. Una página web no te puede exigir tanto. Ese ejemplo es del apunte, hoja 100.</p>
+</div>
+<p>La hoja 102 agrega que la arquitectura de información y el diseño gráfico también pesan en la usabilidad.</p>
+<details open class="pregunta"><summary><span>Son algunas de las 7 facetas de la Experiencia de Usuario</span><small>1° parcial teoría, 19/06/2024</small></summary><div class="resp"><p>Correctas: Deseable, Útil y Accesible. Escalable no.</p>
+<p>Fuente: Form del 19/06/2024, corrección automática, hoja 2.</p>
+</div></details>
+<div class="ojo"><p class="ojo-t">La lista completa de las 7 facetas</p><div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>No está en el Libro Completo. Los resúmenes de alumnos nombran útil, usable, deseable, encontrable, accesible, creíble y valioso. Confirmalo con tu comisión.</p>
+<p class="bloque-fuente">Resúmenes de alumnos</p></div>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-principios-de-norman">Principios de Norman</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 104 a 109, basadas en <em>The Design of Everyday Things</em> de Norman (edición 2013).</p>
+<p>Un buen diseño tiene dos características. <strong>Discoverability</strong>: ¿se puede averiguar qué acciones son posibles, dónde y cómo? <strong>Understanding</strong>: ¿qué significa todo esto y cómo se usa?</p>
+<p>Las da la aplicación correcta de seis conceptos. La corrección del Form del 19/06/2024 los usa así: una constraint reduce el conjunto de posibles acciones y un signifier comunica dónde tiene lugar la acción (hoja 2).</p>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Definición del apunte (hojas 104 y 107)</th></tr></thead><tbody><tr><td>Affordance</td><td>«Todas las posibilidades de acción de un objeto que son inmediatamente percibidas por el usuario.» Es una relación entre las cualidades del objeto y las capacidades del usuario.</td></tr><tr><td>Signifier</td><td>Comunica dónde debe llevarse a cabo la acción. Son señales o etiquetas, y deben ser perceptibles.</td></tr><tr><td>Mapping</td><td>«Trata de la relación entre los elementos de dos o más conjuntos.» Con correspondencia espacial y cercanía temporal es más fácil de usar.</td></tr><tr><td>Feedback</td><td>«Es la comunicación completa y continua de los resultados de una acción y del estado actual del sistema.»</td></tr><tr><td>Constraints</td><td>Limitaciones del diseño, físicas, culturales, semánticas y lógicas. Reducen las acciones posibles.</td></tr><tr><td>Modelo conceptual</td><td>«Es una explicación muy simplificada de cómo funciona algo.»</td></tr></tbody></table></div>
+<p>La hoja 104 los separa así. La discoverability resulta de cinco conceptos psicológicos fundamentales, los cinco primeros de la tabla. El modelo conceptual del sistema es un sexto concepto, que da discoverability y también understanding.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La manija de una puerta te invita a tirar. Esa es la affordance. El cartelito «Tirar» es el signifier. Si tenés que pegar un cartel a mano para que la gente entienda, el diseño falló, como dice la hoja 106.</p>
+</div>
+<details open class="pregunta"><summary><span>¿Un ícono de carrito de compras es un anti-affordance?</span><small>1° parcial teoría, 19/06/2024</small></summary><div class="resp"><p>No. En el Form queda sin tildar en una consigna con 1/1. El apunte lo da como affordance metafórico (hoja 105).</p>
+<p>Fuente: Form del 19/06/2024, corrección automática, hoja 2.</p>
+</div></details>
+<h3 id="parcial-1-tipos-de-affordances">Tipos de affordances</h3>
+<p>Hoja 105.</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Cómo es</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td>Percibido, patrón</td><td>Establecido por las convenciones</td><td>Logo arriba a la izquierda</td></tr><tr><td>Percibido, metafórico</td><td>Imita objetos reales</td><td>Íconos de carrito, mapa, sobre de correo</td></tr><tr><td>Anti-affordance</td><td>Indica que no hay affordance</td><td>Botón «Confirmar» gris con campos sin completar</td></tr><tr><td>Falso</td><td>Parece permitir algo y permite otra cosa o nada</td><td>Logo que no lleva al inicio</td></tr><tr><td>Oculto</td><td>Se ve recién al posicionarse sobre el elemento</td><td>Acciones que aparecen al pasar el puntero</td></tr></tbody></table></div>
+<details open class="pregunta"><summary><span>Son tipos de affordances</span><small>1° parcial teoría, 19/06/2024</small></summary><div class="resp"><p>Respuesta correcta: Falso y Oculto. Restrictivo y Operativo no.</p>
+<p>Fuente: Form del 19/06/2024, corrección automática, hoja 3.</p>
+</div></details>
+<h3 id="parcial-1-signifiers-y-mappings">Signifiers y mappings</h3>
+<p>Hojas 105 a 107.</p>
+<ul>
+<li>«Para ser efectivos, los affordances deben ser percibidos» (hoja 105).</li>
+<li>«En el diseño, los signifiers son más importantes que los affordances, ya que comunican cómo usar el diseño» (hoja 106).</li>
+<li>Un signifier es «cualquier señal o sonido, a cualquier indicador perceptible que comunique el comportamiento apropiado a una persona» (hoja 106).</li>
+<li>Pueden ser deliberados, como el cartel Empujar o Tirar de una puerta. También pueden ser accidentales, como el rastro de pisadas sobre la nieve que marca el mejor camino.</li>
+<li>El sonido también da información. Los ejemplos del apunte son el silbato de la pava, el clic de la tostadora y el beep del lector de códigos de barra.</li>
+</ul>
+<p>Sobre el <strong>mapping</strong>, la hoja 107 agrega tres cosas.</p>
+<ul>
+<li>Otros mappings naturales salen de la percepción. El agrupamiento y la proximidad de la Gestalt sirven para la interfaz, y por eso los controles relacionados deben agruparse.</li>
+<li>El ejemplo web es el carrusel. La flecha derecha pasa a la imagen siguiente, la izquierda vuelve y el indicador de abajo, que es un signifier, muestra en cuál estás. No hace falta ninguna etiqueta.</li>
+<li>Hay mappings que se sienten naturales y son de una cultura. Las personas cuyo idioma nativo es el árabe o el hebreo prefieren que el tiempo fluya de derecha a izquierda.</li>
+</ul>
+<h3 id="parcial-1-el-feedback-y-las-constraints">El feedback y las constraints</h3>
+<div class="tomado"><aside class="nota"><strong>Feedback</strong><span>5 de 5 teóricos de 2023 y 2024</span></aside><p>Salió en todos, como consigna o como opción. <mark>Feedback es de lo más tomado.</mark></p>
+</div>
+<p>El feedback debe ser <strong>inmediato, informativo y priorizado</strong> (hoja 107). Uno deficiente puede ser peor que ninguno, porque distrae e irrita.</p>
+<p>La misma hoja explica cada condición.</p>
+<div class="tabla"><table><thead><tr><th>Condición</th><th>Qué dice el apunte</th></tr></thead><tbody><tr><td>Inmediato</td><td>«Incluso una demora de una décima de segundo puede ser desconcertante.» Si el retraso es demasiado largo, la gente se da por vencida y se va a hacer otra cosa.</td></tr><tr><td>Informativo</td><td>Si la señal es auditiva, a veces no sabés qué dispositivo sonó. Si es una luz, la podés perder si no estás mirando en ese momento.</td></tr><tr><td>Priorizado</td><td>«De modo que la información sin importancia se presente de manera discreta, pero buscando que las señales importantes capturen la atención.» En emergencias críticas, incluso las señales importantes deben ser priorizadas.</td></tr></tbody></table></div>
+<p>También pide medida. Ofrecer poca información o demasiada puede ser más molesto que no ofrecer ninguna.</p>
+<details open class="pregunta"><summary><span>El feedback, según Norman, debe ser</span><small>1° parcial teoría, 19/06/2024</small></summary><div class="resp"><p>Respuesta correcta: Inmediato y Priorizado. Medido no.</p>
+<p>Fuente: Form del 19/06/2024, corrección automática, hoja 4.</p>
+</div></details>
+<div class="ojo"><p class="ojo-t">Feedback cultural no existe</p><p>El Form del 1/07/2024 marca mal «Feedback Cultural». Esa definición es de las constraints culturales (hoja 107 del libro y hoja 3 del Form).</p>
+</div>
+<p>Las constraints se clasifican así (hoja 107):</p>
+<ul>
+<li><strong>Físicas</strong>: limitan las operaciones posibles.</li>
+<li><strong>Culturales</strong>: convenciones aprendidas por un grupo.</li>
+<li><strong>Semánticas</strong>: dependen del significado de la situación.</li>
+<li><strong>Lógicas</strong>: usan el razonamiento para determinar alternativas.</li>
+</ul>
+<p>Un ejemplo de física es que no podés mover el cursor fuera de la pantalla (hoja 107). La moto de Lego del apunte usa tres tipos. Las físicas limitan qué piezas encastran, las culturales dictan dónde van las luces y las semánticas impiden poner la cabeza al revés. Las convenciones son una forma de constraint cultural (hoja 108).</p>
+<h3 id="parcial-1-funciones-de-forzamiento">Funciones de forzamiento</h3>
+<p>Hoja 108. «Las funciones de forzamiento son una forma de constraint física, situaciones en las que las acciones están restringidas para que el fallo en una etapa impida que ocurra el siguiente paso.» El ejemplo es el arranque del auto, que pide una llave o una tarjeta. La ingeniería de seguridad usa tres métodos.</p>
+<div class="tabla"><table><thead><tr><th>Método</th><th>Qué hace</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td>Enclavamiento (interlock)</td><td>«Obliga a las operaciones a realizarse en la secuencia adecuada.»</td><td>El microondas corta la alimentación cuando abrís la puerta. El interruptor del hombre muerto.</td></tr><tr><td>Bloqueo (lock-in)</td><td>«Mantiene una operación activa, evitando que alguien la detenga prematuramente.»</td><td>El mensaje que aparece si querés salir de un programa sin guardar.</td></tr><tr><td>Cierre (lockout)</td><td>«Impide que alguien ingrese a un espacio que es peligroso o evita que ocurra un evento.»</td><td>La puerta de la salida de incendios que no te deja seguir al sótano. Los candados para bebés.</td></tr></tbody></table></div>
+<p>Si molestan en el uso normal, mucha gente las deshabilita a propósito. El diseñador tiene que bajar la molestia sin perder la seguridad.</p>
+<div class="tomado"><aside class="nota"><strong>Principios de Norman</strong><span>15/06/2023, 19/06/2024 y 24/07/2024, Temas A y B</span></aside><p>Constraint, anti-affordance, affordance, signifier, mapping. A veces te dan una situación y otras una definición para que reconozcas el principio.</p>
+</div>
+<h3 id="parcial-1-modelo-conceptual-e-imagen-del-sistema">Modelo conceptual e imagen del sistema</h3>
+<p>Hojas 108 y 109.</p>
+<ul>
+<li>«Un modelo conceptual es una explicación, generalmente muy simplificada, de cómo funciona algo. No tiene que ser completo ni preciso, siempre y cuando sea útil.» El ejemplo son los archivos, carpetas e íconos de la pantalla.</li>
+<li>«Los modelos mentales son modelos conceptuales que residen en la mente de las personas y representan su comprensión de cómo funcionan las cosas.»</li>
+<li>Se deducen del propio dispositivo, se pasan de persona a persona o vienen de manuales. Muy a menudo son erróneos.</li>
+<li>Las pistas principales salen de la estructura percibida, sobre todo de signifiers, affordances, constraints y mappings. El ejemplo del apunte son las tijeras.</li>
+<li><strong>Imagen del sistema</strong> es toda la información disponible, combinada. Cómo se ve el dispositivo, lo que sabemos de objetos parecidos, lo que dicen vendedores y anuncios, el sitio web y los manuales. «Cuando la imagen del sistema es incoherente o inapropiada, el usuario no puede usar el dispositivo fácilmente.»</li>
+</ul>
+</section>
+<section class="sec"><h2 id="parcial-1-pensamiento-humano">Pensamiento humano</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 110 a 123.</p>
+<div class="tomado"><aside class="nota"><strong>Etapas de acción, niveles de procesamiento, pensamiento humano</strong><span>5 de 5 teóricos de 2023 y 2024</span></aside><p>Están en todos, con distinta forma. Procesamiento consciente e inconsciente el 15/06/2023, etapas y niveles el 19/06/2024, figura de niveles el 1/07/2024, pensamiento humano en los Temas A y B del 24/07/2024.</p>
+</div>
+<h3 id="parcial-1-las-siete-etapas-de-la-accion">Las siete etapas de la acción</h3>
+<p>Hoja 112. Una es el objetivo y las otras seis se reparten en dos lados.</p>
+<div class="tabla"><table><thead><tr><th>Lado</th><th>Etapas</th></tr></thead><tbody><tr><td>Objetivo</td><td>Formar la meta</td></tr><tr><td>Ejecución</td><td>Planificar, especificar, realizar</td></tr><tr><td>Evaluación</td><td>Percibir, interpretar, comparar</td></tr></tbody></table></div>
+<p>La misma hoja separa dos formas de procesar. «Procesamiento inconsciente. Es rápido y automático.» «Procesamiento consciente. Es lento y trabajoso.»</p>
+<p>Lo que agrega la hoja 112 sobre esto:</p>
+<ul>
+<li>«Hay tres partes en una acción». Planificar, ejecutar la acción y evaluar los resultados.</li>
+<li>El inconsciente reconoce la relación entre lo que estamos experimentando y lo que vivimos en el pasado.</li>
+<li>El consciente pondera decisiones y compara opciones. Se invoca en situaciones novedosas, cuando se aprende y cuando las cosas salen mal.</li>
+<li>«La mayor parte del comportamiento humano es el resultado de procesos inconscientes.» Años de práctica producen «sobre aprendizaje».</li>
+<li>El pensamiento no puede separarse de la emoción. Cada acción lleva expectativas, y las expectativas conducen a emociones.</li>
+</ul>
+<p>Entre la persona y el mundo hay dos <strong>brechas</strong> (hoja 112).</p>
+<ul>
+<li><strong>Brecha de ejecución</strong>: se cruza con signifiers, constraints, mappings y modelo conceptual.</li>
+<li><strong>Brecha de evaluación</strong>: se cruza con feedback y modelo conceptual.</li>
+</ul>
+<h3 id="parcial-1-los-tres-niveles-de-procesamiento">Los tres niveles de procesamiento</h3>
+<p>Hoja 113.</p>
+<div class="tabla"><table><thead><tr><th>Nivel</th><th>Qué es</th></tr></thead><tbody><tr><td>Visceral</td><td>Percepción inmediata. Algo atrae o repulsa, y ahí pesa la estética.</td></tr><tr><td>Comportamiento</td><td>Se encarga de los detalles de la acción.</td></tr><tr><td>Reflexivo</td><td>«Es donde se activa la cognición consciente, y por tanto es más lento.» Acá está la comprensión profunda, el razonamiento y la toma de decisiones.</td></tr></tbody></table></div>
+<p>La hoja 113 agrega esto de cada nivel.</p>
+<ul>
+<li><strong>Visceral</strong>: «Es el nivel más básico y nos permite responder con rapidez y de forma inconsciente, sin conocimiento o control consciente.»</li>
+<li><strong>Comportamiento</strong>: «Se centra en las habilidades aprendidas.» Cada acción se asocia con una expectativa. Un resultado positivo da una respuesta afectiva positiva, y uno negativo, una negativa. De ahí la importancia del feedback, que da tranquilidad.</li>
+<li><strong>Reflexivo</strong>: los niveles anteriores son el hogar de las emociones básicas. Acá reside el nivel más alto de las emociones.</li>
+</ul>
+<details open class="pregunta"><summary><span>Sobre etapas de la acción y niveles de procesamiento</span><small>1° parcial teoría, 19/06/2024</small></summary><div class="resp"><p>Correctas: en el nivel Reflexivo ocurre la cognición consciente, el Visceral se basa en percepción inmediata y el de Comportamiento tiene que ver con las habilidades aprendidas. «En el nivel Cognitivo analizo la calidad de mi respuesta» no.</p>
+<p>Fuente: Form del 19/06/2024, corrección automática, hoja 3.</p>
+</div></details>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Los tres niveles se apilan. Abajo, lo que sentís apenas ves algo. En el medio, lo que hacés sin pensar. Arriba, lo que pensás con calma. La figura correcta del Form del 1/07/2024 los pone en ese orden, con Reflexivo arriba y Visceral abajo (hoja 2).</p>
+</div>
+<h3 id="parcial-1-etapas-y-niveles-juntos">Etapas y niveles juntos</h3>
+<p>Hoja 114. Cada etapa se asocia con un nivel y con una pregunta. Es una lista de comprobación básica.</p>
+<div class="tabla"><table><thead><tr><th>Lado</th><th>Etapa</th><th>Nivel</th><th>Pregunta</th></tr></thead><tbody><tr><td>Metas</td><td>Objetivo</td><td>No lo asigna</td><td>¿Qué quiero lograr?</td></tr><tr><td>Ejecución</td><td>Plan</td><td>Reflexivo</td><td>¿Cuáles son las alternativas?</td></tr><tr><td>Ejecución</td><td>Specify</td><td>Comportamiento</td><td>¿Qué puedo hacer?</td></tr><tr><td>Ejecución</td><td>Perform</td><td>Visceral</td><td>¿Cómo puedo hacerlo?</td></tr><tr><td>Evaluación</td><td>Perceive</td><td>Visceral</td><td>¿Qué ha ocurrido?</td></tr><tr><td>Evaluación</td><td>Interpret</td><td>Comportamiento</td><td>¿Qué significa?</td></tr><tr><td>Evaluación</td><td>Compare</td><td>Reflexivo</td><td>¿He logrado mi objetivo?</td></tr></tbody></table></div>
+<p>En la ejecución entran en juego los signifiers, las constraints, los mappings y el modelo conceptual. En la evaluación, el feedback y el modelo conceptual.</p>
+<h3 id="parcial-1-los-siete-principios-fundamentales-del-diseno">Los siete principios fundamentales del diseño</h3>
+<p>Hojas 114 y 115. Salen de las siete etapas.</p>
+<ol>
+<li><strong>Descubrimiento</strong>. «Es posible determinar qué acciones son posibles y el estado actual del dispositivo.»</li>
+<li><strong>Feedback</strong>. «Hay información completa y continua sobre los resultados de las acciones y el estado actual del producto o servicio.»</li>
+<li><strong>Modelo conceptual</strong>. El diseño proyecta toda la información necesaria para un buen modelo conceptual, que da comprensión y sensación de control.</li>
+<li><strong>Affordances</strong>. «El correcto affordances existe para hacer posibles las acciones deseadas.»</li>
+<li><strong>Signifiers</strong>. Su uso efectivo garantiza el descubrimiento y que la retroalimentación esté bien comunicada.</li>
+<li><strong>Mappings</strong>. La relación entre controles y acciones sigue un buen mapping, con distribución espacial y contigüidad temporal.</li>
+<li><strong>Constraints</strong>. «Proporcionar constraints físicas, lógicas, semánticas y culturales guía las acciones y facilita la interpretación.»</li>
+</ol>
+<div class="ojo"><p class="ojo-t">Seis conceptos y siete principios</p><p>Los conceptos de las hojas 104 a 109 son seis. Los principios fundamentales de la hoja 114 son siete, porque suman el descubrimiento.</p>
+</div>
+<h3 id="parcial-1-culpar-a-las-cosas-equivocadas">Culpar a las cosas equivocadas</h3>
+<p>Hojas 113 y 114. Cuando algo falla, la gente se culpa a sí misma.</p>
+<ul>
+<li>La <strong>frustración aprendida</strong> ayuda a explicar esa auto-culpa. Después de fallar, la persona decide que la tarea no se puede hacer, al menos no por ella.</li>
+<li>La <strong>psicología positiva</strong> propone lo contrario, una cultura de pensamiento positivo.</li>
+<li>«El error humano generalmente es el resultado de un diseño deficiente» y debería llamarse error del sistema (hoja 114).</li>
+</ul>
+<p>Lo que el apunte le pide al diseñador:</p>
+<ul>
+<li>Minimizar las acciones inapropiadas con affordances, signifiers, mapping y constraints.</li>
+<li>Si igual ocurren, ayudar a descubrirlas y corregirlas, con feedback comprensible y un modelo conceptual simple y claro.</li>
+<li>Anticipar las interrupciones. Lo difícil es que las cosas funcionen bien cuando no salen según lo planeado.</li>
+</ul>
+<h3 id="parcial-1-conocimiento-en-la-cabeza-y-en-el-mundo">Conocimiento en la cabeza y en el mundo</h3>
+<p>Hojas 115 a 118. Parte de lo que necesitamos está en el mundo (signifiers, restricciones, etiquetas) y parte en la memoria. La memoria se divide en corto plazo y largo plazo (hojas 116 y 117). El conocimiento en el mundo es más preciso, y por eso se usa en formularios.</p>
+<p>«El comportamiento preciso puede surgir de un conocimiento impreciso por cuatro razones» (hoja 115):</p>
+<ol>
+<li>El conocimiento está tanto en la cabeza como en el mundo.</li>
+<li>No se requiere gran precisión.</li>
+<li>Existen constraints naturales en el mundo.</li>
+<li>El conocimiento de las constraints culturales y las convenciones existe en la cabeza.</li>
+</ol>
+<p>Hay dos tipos de conocimiento (hoja 115).</p>
+<ul>
+<li><strong>Conocimiento de</strong>, o declarativo. Hechos y reglas, como «Deténgase en el semáforo en rojo».</li>
+<li><strong>Conocimiento cómo</strong>, o procedimental. Es el de un músico experto. Es difícil de poner por escrito y se aprende mejor con la práctica.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Memoria</th><th>Qué dice el apunte (hoja 116)</th></tr></thead><tbody><tr><td>Corto plazo o de trabajo (STM)</td><td>«Es la memoria del justo presente.» Se retiene sola y se recupera sin esfuerzo, pero es muy limitada. Cinco a siete elementos, o diez a doce si el material se repite continuamente. Es frágil, una distracción la borra.</td></tr><tr><td>Largo plazo (LTM)</td><td>«La memoria a largo plazo (LTM) es la memoria del pasado.» Lleva tiempo que la información entre y esfuerzo sacarla. Recuperarla depende de cómo se interpretó el material. No tiene un límite práctico.</td></tr></tbody></table></div>
+<ul>
+<li>La hoja 116 distingue la memoria para <strong>cosas arbitrarias</strong>, sin significado ni relación con lo conocido, de la memoria para <strong>cosas significativas</strong>, que forman relaciones con otras ya conocidas.</li>
+<li>La <strong>memoria prospectiva</strong> es acordarse de hacer algo en el futuro (hoja 117). Un recordatorio tiene dos partes, la señal de que hay que recordar algo y el mensaje. El ideal tiene las dos.</li>
+</ul>
+<p>El balance entre los dos conocimientos está en las hojas 117 y 118.</p>
+<div class="tabla"><table><thead><tr><th>Aspecto</th><th>En el mundo</th><th>En la cabeza</th></tr></thead><tbody><tr><td>Disponibilidad</td><td>Lista cuando es perceptible</td><td>La memoria de trabajo, sí. Lo demás pide búsqueda y esfuerzo.</td></tr><tr><td>Aprendizaje</td><td>La interpretación sustituye al aprendizaje</td><td>Requiere aprendizaje, más fácil con significado o un buen modelo conceptual</td></tr><tr><td>Eficiencia</td><td>Disminuida por tener que encontrar e interpretar</td><td>Puede ser eficiente si está automatizado</td></tr><tr><td>Uso en el primer encuentro</td><td>Alta</td><td>Baja</td></tr><tr><td>Estética</td><td>Puede ser feo, con mucho a la vista</td><td>Nada tiene que verse, y queda más limpio</td></tr></tbody></table></div>
+<h3 id="parcial-1-errores">Errores</h3>
+<p>Hojas 119 a 123. Hay dos grandes clases.</p>
+<div class="tabla"><table><thead><tr><th>Clase</th><th>Definición del apunte (hoja 119)</th><th>Tipos</th></tr></thead><tbody><tr><td>Lapsus</td><td>«Se produce un lapsus cuando una persona intenta hacer una acción y termina haciendo otra.»</td><td>Basados en la acción (captación, descripción-similitud, modo) y en fallas de la memoria</td></tr><tr><td>Equivocaciones</td><td>«Las equivocaciones resultan de la elección de objetivos y planes equivocados, o de la comparación errónea del resultado con los objetivos durante la evaluación.»</td><td>Basadas en reglas, en conocimiento y en memoria</td></tr></tbody></table></div>
+<ul>
+<li><strong>Captación</strong>: en lugar de hacer lo deseado, hacés otra actividad más familiar con pasos iniciales idénticos. Es más frecuente en gente con experiencia (hoja 120). La premisa de diseño está en esa hoja: «evitar procedimientos con pasos iniciales idénticos».</li>
+<li><strong>Descripción-similitud</strong>: actuás sobre algo parecido al objetivo, porque la descripción es vaga.</li>
+<li><strong>Fallas de memoria</strong>: la acción no se realiza o se repite. La causa inmediata suele ser una interrupción. Sirven los forzamientos.</li>
+<li><strong>Modo</strong>: el mismo control significa cosas distintas según el estado del dispositivo.</li>
+</ul>
+<p>Lo que agregan las hojas 119 y 120:</p>
+<ul>
+<li>«Los lapsus son el resultado de acciones subconscientes que se desvían en el camino. Las equivocaciones resultan de deliberaciones conscientes.»</li>
+<li>«La mayoría de los errores cotidianos son lapsus.» Ocurren más en personas calificadas que en novatos, porque los expertos hacen las tareas en automático.</li>
+</ul>
+<p><strong>Los errores y las siete etapas</strong> (hoja 119). Las equivocaciones son errores al establecer el objetivo o el plan, y al comparar los resultados con las expectativas. Son los niveles más altos de procesamiento. Los lapsus ocurren en la ejecución del plan, o en la percepción o la interpretación del resultado. Son las etapas inferiores.</p>
+<div class="tabla"><table><thead><tr><th>Equivocación</th><th>Qué pasa (hojas 121 y 122)</th><th>Remedio de diseño</th></tr></thead><tbody><tr><td>Basada en reglas</td><td>Se identifica la situación, se elige una regla y se sigue. Falla si la situación se interpreta mal, si la regla correcta es defectuosa o si el resultado se evalúa mal. Es difícil de evitar y de detectar.</td><td>Mostrar el estado del sistema de forma fácil de interpretar, con explicaciones alternativas</td></tr><tr><td>Basada en el conocimiento</td><td>La situación es tan novedosa que no hay reglas. Se controla en el nivel reflexivo, y es lenta y consciente.</td><td>Una buena comprensión de la situación, que casi siempre es un modelo conceptual apropiado</td></tr><tr><td>Por fallas de la memoria</td><td>Se olvida el objetivo, el plan o la evaluación, casi siempre por una interrupción</td><td>Que toda la información relevante esté continuamente disponible</td></tr></tbody></table></div>
+<details open class="pregunta"><summary><span>La premisa «Los diseñadores deben evitar los procedimientos que tienen pasos iniciales idénticos pero luego divergen» es para evitar</span><small>1° parcial teoría, 1/07/2024</small></summary><div class="resp"><p>Respuesta correcta: lapsus de captación.</p>
+<p>Fuente: Form del 1/07/2024, corrección automática, hoja 4.</p>
+</div></details>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El lapsus es hacer otra cosa de la que querías. La equivocación es querer lo que no había que querer. Si saliste a comprar pan y terminaste en el camino al trabajo, fue un lapsus de captación.</p>
+</div>
+<p>La hoja 123 da los principios para lidiar con el error: poner el conocimiento en el mundo, usar constraints y unir las dos brechas.</p>
+<h3 id="parcial-1-lecciones-de-diseno">Lecciones de diseño</h3>
+<p>Hoja 122. Unas sirven para prevenir errores antes de que ocurran. Otras, para detectarlos y corregirlos.</p>
+<div class="tabla"><table><thead><tr><th>Lección</th><th>Qué propone el apunte</th></tr></thead><tbody><tr><td>Agregar constraints</td><td>Separar los controles que se confunden. Usar módulos separados, para que lo que no hace falta no esté a la vista.</td></tr><tr><td>Ofrecer Deshacer</td><td>«Quizás la herramienta más poderosa para minimizar el impacto de los errores». Los mejores sistemas tienen varios niveles de deshacer.</td></tr><tr><td>Pedir confirmación</td><td>La persona se fija en la acción y no en el objeto. Conviene mostrar con claridad la acción y el objeto. La Papelera deja recuperar lo borrado.</td></tr><tr><td>Mensajes de error</td><td>Las advertencias son sorprendentemente ineficaces. Mejor hacer más visible el objeto sobre el que se actúa y hacer reversible la operación.</td></tr><tr><td>Controles de sensibilidad</td><td>El sistema verifica que lo pedido sea sensato. El ejemplo es mandar un millón de dólares por cargar Won en el campo de dólares.</td></tr><tr><td>Minimizar los lapsus</td><td>Feedback perceptible de la acción y del nuevo estado, más un mecanismo para deshacer. El ejemplo es el código de barras de los medicamentos en un hospital.</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="parcial-1-accesibilidad">Accesibilidad</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 101 y 124 a 129.</p>
+<p>«Posibilidad de que pueda ser accedido y usado por el mayor número posible de personas, indiferentemente de las limitaciones propias del individuo o de las derivadas del contexto de uso» (hoja 101).</p>
+<ul>
+<li><strong>Limitaciones del individuo</strong>: discapacidades permanentes o temporales, nivel de conocimientos, habilidades o experiencia.</li>
+<li><strong>Limitaciones del contexto</strong>: software, hardware o entorno de uso.</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Accesibilidad y WCAG</strong><span>5 de 5 teóricos de 2023 y 2024</span></aside><p>Principios de WCAG y definición de accesibilidad el 15/06/2023. Accesibilidad web el 19/06/2024 y consideraciones el 1/07/2024. WCAG en los Temas A y B del 24/07/2024. <mark>Accesibilidad entra en todos.</mark></p>
+</div>
+<h3 id="parcial-1-accesibilidad-web-ley-y-normas">Accesibilidad web, ley y normas</h3>
+<p>Hojas 124 a 127.</p>
+<ul>
+<li><strong>Accesibilidad web</strong> (hoja 127). «Debemos entender a la accesibilidad web como la capacidad de acceso a los contenidos de internet independientemente de las capacidades físicas y cognitivas de las personas, de los dispositivos con los que accedamos a la información. Se refiere al acceso universal de los contenidos de los sitios de internet.»</li>
+<li>La cita del creador de la Web en la hoja 125. «La Accesibilidad Web significa poner Internet y sus servicios a disposición de las personas, sean cuales sean sus requisitos de hardware o software, su infraestructura de red, su idioma materno, su contexto cultural, su ubicación geográfica o sus aptitudes mentales y físicas.»</li>
+<li><strong>Ley 26.653</strong> (hoja 124). Se reglamentó el 20 de agosto de 2014. La cumplen las páginas del Estado, sus dependencias, entes y empresas, y también sus proveedores, contratistas y subsidiados. Piden un mínimo de 13 pautas de WCAG 2.0 Nivel A en un primer período y 20 en un segundo, sobre un total de 25 pautas de Nivel A. Antes estaban el Decreto 378/2005, del Plan Nacional de Gobierno Electrónico, y la Agenda Digital de agosto de 2008.</li>
+<li>Para que una persona con discapacidad acceda a internet hacen falta dos condiciones (hoja 125). Contar con las herramientas de adaptación necesarias y que los sitios que visite sean accesibles.</li>
+</ul>
+<p>La accesibilidad permite (hoja 125):</p>
+<ul>
+<li>usar herramientas de adaptación;</li>
+<li>acceder desde distinto hardware, con o sin teclado, con o sin mouse;</li>
+<li>usar distintos sistemas operativos y versiones de navegadores;</li>
+<li>apuntar al diseño universal e incentivar buenas prácticas de programación;</li>
+<li>mejorar la usabilidad del sitio y facilitar los sitios móviles.</li>
+</ul>
+<p><strong>Normas</strong> (hoja 127). «Una norma es un documento público que se dictamina para definir una conducta de diseño universal y lograr el acceso y utilización de un sistema de software por parte de cualquier tipo de usuario y en diferentes circunstancias.» Algunas consideraciones del apunte:</p>
+<ul>
+<li>Son reglas para desarrolladores de software, de sistemas operativos y de páginas web, y para fabricantes de hardware.</li>
+<li>Hay normas para aplicaciones de software en general y para aplicativos web.</li>
+<li>Los consorcios internacionales de accesibilidad deben garantizar su actualización, mantenimiento y publicación.</li>
+<li>Son documentación fidedigna que puede usarse en el desarrollo de una legislación. No prohíben los recursos visuales ni multimediales.</li>
+<li>Hay organizaciones no gubernamentales dedicadas al tema, como la WAI del W3C, que desarrolla normas para la web a nivel mundial.</li>
+<li>La mayoría no se cumplen, por desconocimiento, desinterés o prejuicios.</li>
+</ul>
+<h3 id="parcial-1-discapacidad-y-web">Discapacidad y web</h3>
+<p>Hoja 126. La discapacidad resulta de la interacción entre la persona con sus limitaciones y el ambiente. El apunte nombra el ambiente físico, las situaciones sociales y los recursos.</p>
+<div class="tabla"><table><thead><tr><th>Discapacidad</th><th>Problema en la web según el apunte</th></tr></thead><tbody><tr><td>Motriz</td><td>Con una herramienta de adaptación usan el teclado, pero no alcanza si el sitio no se puede navegar solo con teclado.</td></tr><tr><td>Visual</td><td>Los lectores de pantalla no pueden pasar a lenguaje oral una imagen o una animación Flash. El apunte lista miopía, daltonismo, hipermetropía, astigmatismo y presbicia, entre otros.</td></tr><tr><td>Auditiva</td><td>Contenido multimedia con sonido y sin subtítulos. Aplicaciones que avisan solo con sonido.</td></tr><tr><td>Cognitiva</td><td>Procedimientos poco claros, límites de tiempo, banners, parpadeos y animaciones que distraen.</td></tr></tbody></table></div>
+<h3 id="parcial-1-wcag-2-1">WCAG 2.1</h3>
+<p>Hojas 127 y 128. Las pautas se organizan en cuatro principios, y cada pauta se desarrolla en criterios de éxito.</p>
+<ul>
+<li>Es una recomendación del W3C del 5 de junio de 2018.</li>
+<li>Tiene un enfoque aditivo. Si una página cumple con las WCAG 2.1, también cumple con las WCAG 2.0.</li>
+<li>Mejora las pautas para tres grupos. Personas con discapacidad cognitiva o del aprendizaje, personas con baja visión y personas con discapacidad que acceden desde móviles.</li>
+<li>Los criterios de éxito están clasificados por niveles de conformidad A, AA y AAA.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Principio</th><th>Pautas</th></tr></thead><tbody><tr><td>Perceptible</td><td>1.1 Texto alternativo, 1.2 Contenido multimedia dependiente del tiempo, 1.3 Adaptable, 1.4 Distinguible</td></tr><tr><td>Operable</td><td>2.1 Teclado accesible, 2.2 Tiempo suficiente, 2.3 Ataques epilépticos, 2.4 Navegación, 2.5 Modalidades de entrada</td></tr><tr><td>Comprensible</td><td>3.1 Legible, 3.2 Previsible, 3.3 Asistencia a la entrada de datos</td></tr><tr><td>Robusto</td><td>4.1 Compatible</td></tr></tbody></table></div>
+<p>Qué pide cada principio, según las hojas 127 y 128:</p>
+<div class="tabla"><table><thead><tr><th>Principio</th><th>Definición del apunte</th></tr></thead><tbody><tr><td>Perceptible</td><td>«La información y los componentes de la interfaz de usuario deben ser mostrados a los usuarios en formas que ellos puedan entender.»</td></tr><tr><td>Operable</td><td>«Los componentes de la interfaz de usuario y la navegación deben ser operables.»</td></tr><tr><td>Comprensible</td><td>«La información y las operaciones de usuarios deben ser comprensibles.»</td></tr><tr><td>Robusto</td><td>El contenido tiene que ser lo bastante robusto para que lo interprete bien una gran variedad de agentes de usuario, incluidas las tecnologías de asistencia.</td></tr></tbody></table></div>
+<p>Y qué pide cada pauta:</p>
+<div class="tabla"><table><thead><tr><th>Pauta</th><th>Qué pide</th></tr></thead><tbody><tr><td>1.1 Texto alternativo</td><td>Texto alternativo para el contenido no textual, para que se pueda pasar a otros formatos, como braille o lenguaje oral</td></tr><tr><td>1.2 Multimedia dependiente del tiempo</td><td>Alternativas sincronizadas para el contenido multimedia sincronizado</td></tr><tr><td>1.3 Adaptable</td><td>Contenido que se pueda presentar de diferentes formas sin perder información ni estructura</td></tr><tr><td>1.4 Distinguible</td><td>Que sea fácil ver y escuchar el contenido, distinguiendo lo más y lo menos importante</td></tr><tr><td>2.1 Teclado accesible</td><td>Controlar todas las funciones desde el teclado</td></tr><tr><td>2.2 Tiempo suficiente</td><td>Tiempo suficiente para leer y usar el contenido</td></tr><tr><td>2.3 Ataques epilépticos</td><td>No diseñar contenido que pueda causarlos</td></tr><tr><td>2.4 Navegación</td><td>Ayudar a navegar, a buscar contenido y a saber dónde se está</td></tr><tr><td>2.5 Modalidades de entrada</td><td>Operar con varios métodos de entrada además del teclado</td></tr><tr><td>3.1 Legible</td><td>Texto legible y comprensible</td></tr><tr><td>3.2 Previsible</td><td>Que la apariencia y la forma de usar las páginas sean previsibles</td></tr><tr><td>3.3 Asistencia a la entrada de datos</td><td>Ayudar a evitar y corregir errores</td></tr><tr><td>4.1 Compatible</td><td>Máxima compatibilidad con los agentes de usuario actuales y futuros, incluidas las tecnologías de asistencia</td></tr></tbody></table></div>
+<p>Para cumplir el principio Perceptible, el apunte pide esto (hojas 127 y 128):</p>
+<ul>
+<li>textos alternativos en imágenes, hipervínculos y botones;</li>
+<li>eliminar las tablas usadas para maquetar;</li>
+<li>si hay captchas, rompecabezas lógicos o de audio;</li>
+<li>validar el contraste, el brillo y la luminosidad de los colores;</li>
+<li>información semántica en los formularios (labels y fieldsets) y en las tablas.</li>
+</ul>
+<p><strong>Validadores</strong> (hoja 128). Revisan un sitio contra una norma de forma automática. Hay criterios que no se pueden evaluar así y se revisan a mano.</p>
+<ul>
+<li><strong>Examinator</strong>: gratuito, usa técnicas de las WCAG 2.0 y da una puntuación de 1 a 10. No abarca todos los criterios.</li>
+<li><strong>Hera-FFX</strong>: hace un análisis automático preliminar y da soporte para la revisión manual, en Firefox.</li>
+<li><strong>axe</strong>: extensiones para Chrome, Firefox y Android.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="parcial-1-heuristicas-de-nielsen">Heurísticas de Nielsen</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 129 a 149. La lista está en la hoja 131.</p>
+<ol>
+<li>Visibilidad del estado del sistema.</li>
+<li>Coincidencia entre el sistema y el mundo real.</li>
+<li>Control y libertad para el usuario.</li>
+<li>Consistencia y estándares.</li>
+<li>Prevención de errores.</li>
+<li>Reconocer es mejor que recordar.</li>
+<li>Flexibilidad y eficiencia de uso.</li>
+<li>Diseño estético y minimalista.</li>
+<li>Ayudar a los usuarios a reconocer, diagnosticar y recuperarse de los errores.</li>
+<li>Ayuda y documentación.</li>
+</ol>
+<div class="tomado"><aside class="nota"><strong>Heurísticas de Nielsen</strong><span>Teóricos 15/06/2023 y 24/07/2024, Temas A y B</span></aside><p>Salieron en 3 de los 5 teóricos, y también en el final del 25/04/2022.</p>
+</div>
+<p>Qué dice el apunte de cada una (hoja 131). Te pueden dar la descripción para que reconozcas la heurística.</p>
+<div class="tabla"><table><thead><tr><th>Heurística</th><th>Qué pide</th></tr></thead><tbody><tr><td>1. Visibilidad del estado del sistema</td><td>«El sistema debe siempre mantener a los usuarios informados del estado del sistema, con una realimentación apropiada y en un tiempo razonable.»</td></tr><tr><td>2. Coincidencia con el mundo real</td><td>Hablar el lenguaje de los usuarios, con palabras y conceptos familiares. Seguir convenciones del mundo real, con la información en un orden natural y lógico.</td></tr><tr><td>3. Control y libertad</td><td>Una salida de emergencia claramente marcada, para salir del estado indeseado sin un diálogo extendido. Deshacer y rehacer.</td></tr><tr><td>4. Consistencia y estándares</td><td>Que el usuario no tenga que preguntarse si distintas palabras, situaciones o acciones significan lo mismo. Seguir las convenciones de la plataforma.</td></tr><tr><td>5. Prevención de errores</td><td>«Mejor que buenos mensajes de error es un diseño cuidadoso que evita que un problema se produzca.» Eliminar condiciones propensas a errores y pedir confirmación antes de la acción.</td></tr><tr><td>6. Reconocer antes que recordar</td><td>Minimizar la carga de memoria con objetos, acciones y opciones visibles. El usuario no tiene que recordar información de una parte del diálogo a otra.</td></tr><tr><td>7. Flexibilidad y eficiencia</td><td>Aceleradores que el principiante no ve y que mejoran la interacción del experto. Permitir personalizar acciones frecuentes.</td></tr><tr><td>8. Diseño estético y minimalista</td><td>Nada de información irrelevante o que se use raramente. Cada unidad extra compite con la relevante y le quita visibilidad.</td></tr><tr><td>9. Reconocer, diagnosticar y recuperarse de errores</td><td>Mensajes en lenguaje claro, sin códigos, que indiquen con precisión el problema y sugieran una solución constructiva.</td></tr><tr><td>10. Ayuda y documentación</td><td>Mejor si no hace falta, pero si la hay, fácil de buscar, centrada en las tareas del usuario, con las etapas a seguir y no muy extensa.</td></tr></tbody></table></div>
+<p><strong>Tiempos de respuesta</strong> (hojas 132 y 133), dentro de la primera heurística:</p>
+<ul>
+<li>0,1 segundo es el límite para que el usuario sienta que el sistema reacciona instantáneamente.</li>
+<li>1 segundo es el límite para que el flujo de pensamiento siga sin interrupción, aunque el usuario nota el retraso.</li>
+<li>10 segundos es el límite para mantener la atención en el diálogo. Para esperas más largas hay que indicar cuándo va a terminar.</li>
+</ul>
+<h3 id="parcial-1-prevenir-slips-y-mistakes">Prevenir slips y mistakes</h3>
+<p>Hojas 137 a 139, dentro de la quinta heurística. Son los lapsus y las equivocaciones de Norman.</p>
+<ul>
+<li>«Los slips ocurren cuando los usuarios intentan realizar una acción, pero terminan haciendo otra acción (a menudo similar).» Pasan cuando el usuario está en piloto automático.</li>
+<li>Los mistakes se cometen cuando el usuario tiene objetivos inapropiados para la tarea. Son errores conscientes, y suelen venir de información incompleta y de un modelo mental que no coincide con la interfaz.</li>
+<li>La culpa no es del usuario. La respuesta es rediseñar el sistema para que sea menos propenso a errores.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Para prevenir</th><th>Pautas del apunte (índice, hojas 129 y 130)</th></tr></thead><tbody><tr><td>Slips</td><td>Incluir restricciones útiles, ofrecer sugerencias, elegir buenos valores por defecto, usar el formato indulgente (Forgiving Formatting)</td></tr><tr><td>Mistakes</td><td>Recopilar datos de usuario, seguir las convenciones de diseño, affordances comunicativos, vista previa de resultados</td></tr><tr><td>Los dos</td><td>Eliminar las cargas de memoria, confirmar antes de acciones destructivas, apoyar Deshacer, avisar antes de cometer errores</td></tr></tbody></table></div>
+<p>La novena heurística trae pautas para los mensajes de error en formularios (índice, hoja 130).</p>
+<ul>
+<li>Validación en línea siempre que se pueda.</li>
+<li>Indicar una entrada exitosa en campos complejos.</li>
+<li>Mensajes de error al lado de los campos.</li>
+<li>Color para diferenciar el error del estado normal, e iconografía o animación sutil.</li>
+<li>Diálogos modales o de confirmación con moderación.</li>
+<li>No validar antes de que se complete la entrada.</li>
+<li>No usar el resumen de validación como única indicación, ni tooltips para informar errores.</li>
+<li>Ayuda adicional para errores repetidos.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="parcial-1-leyes-de-ux">Leyes de UX</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 150 a 153.</p>
+<div class="tomado"><aside class="nota"><strong>Leyes de UX</strong><span>Teóricos 15/06/2023, 1/07/2024 y 24/07/2024, Temas A y B</span></aside><p>Te describen una situación o una ley, por ejemplo similitud, y hay que reconocerla. El 15/06/2023 fueron Fitts, Hick y Miller.</p>
+</div>
+<div class="teorema"><p class="teorema-t">Ley de Fitts</p><p>El tiempo necesario para alcanzar el objetivo es una función de la distancia al objetivo dividida por el tamaño del objetivo.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>T</mi><mo>&#61;</mo><mi>a</mi><mo>+</mo><mi>b</mi><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mo stretchy="false">(</mo><mn>2</mn><mi>D</mi><mi mathvariant="normal">/</mi><mi>W</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T &#61; a + b &#92;log&#95;2 (2D/W)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.1389em;">W</span><span class="mclose">)</span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span></span></span></span> es el tiempo necesario para alcanzar el objetivo, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> y <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> son coeficientes determinados empíricamente, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi></mrow><annotation encoding="application/x-tex">D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span></span></span></span> es la distancia desde el punto de partida hasta el centro del objetivo y <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">W</span></span></span></span> es el ancho del objetivo.</p>
+<p class="bloque-fuente">Libro Completo de la Teoría, hoja 150</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Comparar dos botones</p><p>Con <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>&#61;</mo><mn>200</mn></mrow><annotation encoding="application/x-tex">D &#61; 200</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">200</span></span></span></span> y <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>&#61;</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">W &#61; 50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">W</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">50</span></span></span></span>, queda <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mo stretchy="false">(</mo><mn>2</mn><mo>⋅</mo><mn>200</mn><mi mathvariant="normal">/</mi><mn>50</mn><mo stretchy="false">)</mo><mo>&#61;</mo><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mn>8</mn><mo>&#61;</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">&#92;log&#95;2(2 &#92;cdot 200 / 50) &#61; &#92;log&#95;2 8 &#61; 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">200/50</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.9386em;vertical-align:-0.2441em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span>. Con <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>&#61;</mo><mn>25</mn></mrow><annotation encoding="application/x-tex">W &#61; 25</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">W</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">25</span></span></span></span>, queda <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mn>16</mn><mo>&#61;</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">&#92;log&#95;2 16 &#61; 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.9386em;vertical-align:-0.2441em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">16</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span>. A mitad de ancho, el término crece.</p>
+<p class="bloque-fuente">Armado para este resumen</p></div>
+<figure class="w w-calculadora" data-w="calculadora" data-cfg="{&quot;entradas&quot;:[{&quot;id&quot;:&quot;a&quot;,&quot;etq&quot;:&quot;Coeficiente a&quot;,&quot;valor&quot;:0},{&quot;id&quot;:&quot;b&quot;,&quot;etq&quot;:&quot;Coeficiente b&quot;,&quot;valor&quot;:1},{&quot;id&quot;:&quot;D&quot;,&quot;etq&quot;:&quot;Distancia D&quot;,&quot;valor&quot;:200,&quot;min&quot;:1},{&quot;id&quot;:&quot;W&quot;,&quot;etq&quot;:&quot;Ancho W&quot;,&quot;valor&quot;:50,&quot;min&quot;:1}],&quot;salidas&quot;:[{&quot;etq&quot;:&quot;Tiempo T&quot;,&quot;f&quot;:&quot;a + b*log(2*D/W, 2)&quot;,&quot;dec&quot;:2}]}"><figcaption><span class="w-t">Probá la Ley de Fitts</span><span class="w-f">Fuente: Libro Completo de la Teoría, hoja 150</span></figcaption><div class="w-lienzo"></div><p class="w-nota">Sirve para chequear un resultado. En el examen va el desarrollo que pide la cátedra.</p><div class="w-desc">Calcula T a partir de a, b, D y W con la fórmula del apunte. Los valores que aparecen son de ejemplo: el apunte dice que a y b se determinan empíricamente. Sirve para ver que achicar el objetivo o alejarlo aumenta el tiempo.</div></figure>
+<p>La hoja 150 la aplica así. «Cuanto mayor sea la precisión motriz que exijamos al usuario para accionar un elemento interactivo, mayor será el esfuerzo y la tasa de error.» Cuanto más chico y más lejos esté un elemento, más esfuerzo y tiempo lleva. Por eso los elementos accionables (enlaces, botones, controles) tienen que tener tamaño suficiente.</p>
+<div class="teorema"><p class="teorema-t">Ley de Hick</p><p>El tiempo que se tarda en adoptar una decisión, aumenta a medida que se incrementa el número de opciones.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>T</mi><mo>&#61;</mo><mi>a</mi><mo>+</mo><mi>b</mi><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T &#61; a + b &#92;log&#95;2 (n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span></span></span></span> es el tiempo necesario para tomar una decisión, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> y <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord mathnormal">b</span></span></span></span> son constantes determinadas empíricamente y <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span> es la cantidad de opciones.</p>
+<p class="bloque-fuente">Libro Completo de la Teoría, hoja 151</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Comparar dos menús</p><p>Con <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&#61;</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">n &#61; 8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">8</span></span></span></span> opciones, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mn>8</mn><mo>&#61;</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">&#92;log&#95;2 8 &#61; 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.9386em;vertical-align:-0.2441em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">8</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span>. Con <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&#61;</mo><mn>64</mn></mrow><annotation encoding="application/x-tex">n &#61; 64</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">64</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mn>64</mn><mo>&#61;</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">&#92;log&#95;2 64 &#61; 6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.9386em;vertical-align:-0.2441em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">64</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">6</span></span></span></span>. Ocho veces más opciones duplican el término, no el tiempo total.</p>
+<p class="bloque-fuente">Armado para este resumen</p></div>
+<figure class="w w-grafico" data-w="grafico" data-cfg="{&quot;x&quot;:[1,64],&quot;ejeX&quot;:&quot;Cantidad de opciones n&quot;,&quot;ejeY&quot;:&quot;Tiempo T&quot;,&quot;param&quot;:[{&quot;id&quot;:&quot;a&quot;,&quot;etq&quot;:&quot;Constante a&quot;,&quot;min&quot;:0,&quot;max&quot;:5,&quot;paso&quot;:0.5,&quot;valor&quot;:0},{&quot;id&quot;:&quot;b&quot;,&quot;etq&quot;:&quot;Constante b&quot;,&quot;min&quot;:0.5,&quot;max&quot;:3,&quot;paso&quot;:0.5,&quot;valor&quot;:1}],&quot;curvas&quot;:[{&quot;f&quot;:&quot;a + b*log(x, 2)&quot;,&quot;etq&quot;:&quot;T&quot;}]}"><figcaption><span class="w-t">Ley de Hick</span><span class="w-f">Fuente: Libro Completo de la Teoría, hoja 151</span></figcaption><div class="w-lienzo"></div><div class="w-desc">La curva muestra <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>&#61;</mo><mi>a</mi><mo>+</mo><mi>b</mi><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T &#61; a + b &#92;log&#95;2(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>. El tiempo sube a medida que hay más opciones, pero cada vez sube más despacio. Los valores de a y b son de ejemplo, el apunte dice que se determinan empíricamente.</div></figure>
+<div class="teorema"><p class="teorema-t">Ley de Miller</p><p>Las personas pueden recordar hasta 7, más o menos 2, elementos distintos en su memoria de trabajo. Una investigación más reciente sugiere que el límite es cuatro, más o menos uno elementos.</p>
+<p class="bloque-fuente">Libro Completo de la Teoría, hoja 151</p></div>
+<p>La hoja 151 dice que los menús de opciones y de navegación se basan en ese tamaño. Más elementos generan confusión y pérdida de foco. Por eso, si una aplicación tiene muchas opciones, se agrupan en agrupaciones lógicas para reducir la carga de memoria, como en YouTube, Netflix o Amazon.</p>
+<div class="ejemplo"><p class="ejemplo-t">Agrupar para reducir la carga</p><p>El apunte da el caso de Netflix, que categoriza y reduce la cantidad de programas que muestra para evitar la sobrecarga cognitiva.</p>
+<p class="bloque-fuente">Libro Completo de la Teoría, hoja 151</p></div>
+<h3 id="parcial-1-leyes-de-la-gestalt">Leyes de la Gestalt</h3>
+<p>Hoja 152. Son guías para comunicar relaciones de agrupación entre elementos. El apunte analiza cuatro.</p>
+<div class="teorema"><p class="teorema-t">Ley de Proximidad</p><p>Los elementos dispuestos uno cerca del otro se perciben como más relacionados que los que están más separados. De esta manera, los diferentes elementos se ven principalmente como un grupo y no como elementos individuales.</p>
+<p class="bloque-fuente">Libro Completo de la Teoría, hoja 152</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Dónde se usa</p><p>El apunte la aplica en navegación, listas, texto del cuerpo y paginación.</p>
+<p class="bloque-fuente">Libro Completo de la Teoría, hoja 152</p></div>
+<div class="teorema"><p class="teorema-t">Ley de Región Común</p><p>Elementos ubicados dentro de una misma región cerrada son percibidos como agrupados.</p>
+<p class="bloque-fuente">Libro Completo de la Teoría, hoja 153</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Tarjetas</p><p>El patrón Card, un rectángulo definido con varios datos presentados como uno. Los banners y las tablas también.</p>
+<p class="bloque-fuente">Libro Completo de la Teoría, hoja 153</p></div>
+<p>La región común se logra con líneas, colores, formas y sombras. Sirve para agrupar y también para separar contenido. A menudo pone elementos en primer plano, lo que indica interacción o importancia (hoja 153).</p>
+<div class="teorema"><p class="teorema-t">Ley de Similitud</p><p>Los elementos que comparten características visuales (forma, color, tamaño, orientación, textura) tienden a ser agrupados perceptualmente.</p>
+<p class="bloque-fuente">Libro Completo de la Teoría, hoja 153</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Dónde se usa</p><p>El apunte la aplica en navegación, enlaces, botones, encabezados y llamadas a la acción.</p>
+<p class="bloque-fuente">Libro Completo de la Teoría, hoja 153</p></div>
+<p>Hay similitud de color, tamaño, forma, textura, dimensión y orientación, y unas comunican más que otras. El apunte ordena color, después tamaño, después forma. Un elemento distinto del resto queda enfatizado y crea contraste (hoja 153).</p>
+<details open class="pregunta"><summary><span>«Los elementos que comparten características visuales (forma, color, etc) tienden a ser agrupados perceptualmente»</span><small>1° parcial teoría, 1/07/2024</small></summary><div class="resp"><p>Respuesta correcta: Ley de Similitud.</p>
+<p>Fuente: Form del 1/07/2024, corrección automática, hoja 3.</p>
+</div></details>
+<div class="teorema"><p class="teorema-t">Ley de Cierre</p><p>Un grupo de elementos a menudo se percibe como una forma o figura reconocible única. El cierre también se produce cuando un objeto está incompleto o partes de él no están representadas.</p>
+<p class="bloque-fuente">Libro Completo de la Teoría, hoja 154</p></div>
+</section>
+<section class="sec"><h2 id="parcial-1-diseno-centrado-en-el-usuario">Diseño centrado en el usuario</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 222 a 229.</p>
+<div class="tomado"><aside class="nota"><strong>DCU, doble diamante y Design Thinking</strong><span>Teóricos 19/06/2024 y 1/07/2024</span></aside><p>Actividades del DCU, doble diamante, Design Thinking. 2 de 5 teóricos cada uno.</p>
+</div>
+<p>Lo que te piden en un proyecto no suele ser el problema raíz (hoja 223). El DCU apunta a encontrarlo.</p>
+<p>«DCU es el proceso que garantiza que las necesidades de las personas se cumplan, que el producto resultante sea comprensible y utilizable, que lleve a cabo las tareas deseadas, y que la experiencia de uso sea positiva y satisfactoria» (hoja 223). Una solución brillante para el problema equivocado puede ser peor que ninguna solución.</p>
+<p><strong>Doble diamante</strong> (hojas 223 y 224): se diverge y se converge dos veces. El primer diamante busca el problema correcto y el segundo la solución correcta. Las fases son encontrar el problema («discover» y «define») y encontrar la solución («develop» y «deliver»).</p>
+<p><strong>Actividades</strong>, en iteración: observación, ideación, prototipado, pruebas. La hoja 224 trae la referencia de Nielsen de probar con 5 personas.</p>
+<div class="tabla"><table><thead><tr><th>Actividad</th><th>Qué dice el apunte (hojas 223 y 224)</th></tr></thead><tbody><tr><td>Observación</td><td>Estudiar a los potenciales usuarios en el entorno donde van a usar el producto. La técnica es la etnografía aplicada, adaptada de la antropología. El diseño usa métodos cualitativos con pocas personas. El marketing usa estudios cuantitativos a gran escala, focus group, encuestas y test A/B. Hacen falta los dos.</td></tr><tr><td>Ideación</td><td>Generar muchas ideas, ser creativo sin tener en cuenta las limitaciones y preguntarlo todo, aunque parezca «estúpido». Sirve en los dos diamantes.</td></tr><tr><td>Prototipado</td><td>«La única manera de saber realmente si una idea es razonable es probarla.» Una maqueta rápida por cada solución posible, a lápiz o con bocetos.</td></tr><tr><td>Pruebas</td><td>Con el público objetivo. A veces de a dos, uno opera el prototipo y el otro guía en voz alta. El equipo observa sin distraer. Cinco personas por iteración alcanzan, y es mejor más iteraciones que más personas.</td></tr><tr><td>Iteración</td><td>Permite el perfeccionamiento y la mejora continuos. Las fallas son experiencias de aprendizaje. Los requisitos se especifican viendo a la gente en su entorno, porque preguntarle qué necesita da requisitos invariablemente mal.</td></tr></tbody></table></div>
+<p><strong>Design Thinking</strong> (hoja 226): cruza las necesidades de las personas con la viabilidad técnica y la viabilidad de negocio.</p>
+<p>«El Design Thinking es un proceso para una resolución creativa de problemas.» Surgió a mediados de los años 90 en la d.school de Stanford y en la consultora IDEO, y se popularizó en 2004. Se puede aplicar a diferentes tipos de problemas. Propone trabajar con un conjunto de puntos de vista. Mostrar mejor que explicar, centrarse en las personas, abarcar la experimentación, enfocarse a la acción y ser consciente del proceso.</p>
+<div class="tabla"><table><thead><tr><th>Etapa</th></tr></thead><tbody><tr><td>Empatizar</td></tr><tr><td>Definir</td></tr><tr><td>Idear</td></tr><tr><td>Prototipar</td></tr><tr><td>Evaluar</td></tr></tbody></table></div>
+<p>Qué se hace en cada etapa (hoja 226):</p>
+<ul>
+<li><strong>Empatizar</strong>: comprender al otro y descubrir sus necesidades, observando o participando de forma activa.</li>
+<li><strong>Definir</strong>: clarificar y concretar el problema para que sea significativo y se puedan diseñar soluciones viables.</li>
+<li><strong>Idear</strong>: generar ideas, desde las más atrevidas a las más modestas.</li>
+<li><strong>Prototipar</strong>: llevar la solución a un artefacto tangible, digital o físico. No alcanza con contarla.</li>
+<li><strong>Evaluar</strong>: «La evaluación no tiene como fin una calificación sino un aprendizaje.»</li>
+</ul>
+<p>Es un proceso iterativo. <strong>Design Sprint</strong> (hoja 229): dura 5 días y viene de Google Ventures.</p>
+<p>El Design Sprint toma procesos de Design Thinking y suma todas las perspectivas del negocio (UX, estrategia, negocio, TI). Busca tener en 5 días una propuesta, un prototipo y un test con usuarios.</p>
+<ol>
+<li><strong>Comprender (Map)</strong>: definir el verdadero problema y alinear a todos los stakeholders.</li>
+<li><strong>Idear (Sketch)</strong>: explorar muchas formas de resolver el problema, sin importar si son viables.</li>
+<li><strong>Decidir (Decide)</strong>: elegir qué idea seguir y cuál abandonar.</li>
+<li><strong>Prototipo (Prototype)</strong>: construir un prototipo de fidelidad media.</li>
+<li><strong>Probar (Test)</strong>: validar o no las ideas con usuarios reales.</li>
+</ol>
+<details open class="pregunta"><summary><span>Sobre Design Thinking</span><small>1° parcial teoría, 1/07/2024</small></summary><div class="resp"><p>Correctas: es un proceso para una resolución creativa de problemas, propone trabajar con un conjunto de puntos de vista y puede aplicarse a diferentes tipos de problemas. «Es la intersección de sólo las necesidades de las personas y su viabilidad técnica» no.</p>
+<p>Fuente: Form del 1/07/2024, corrección automática, hoja 4.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Son actividades del proceso de DCU, según Norman</span><small>1° parcial teoría, 1/07/2024</small></summary><div class="resp"><p>Correctas: Observación, Generación de ideas (Ideación) y Prototipado.</p>
+<p>Fuente: Form del 1/07/2024, corrección automática, hoja 6.</p>
+</div></details>
+<details open class="pregunta"><summary><span>El modelo de doble diamante</span><small>1° parcial teoría, 19/06/2024</small></summary><div class="resp"><p>Respuesta correcta: prioriza encontrar el problema antes que la solución, examina los problemas subyacentes para luego converger en una sola declaración de problema e ilustra acciones de divergencia y convergencia.</p>
+<p>Fuente: Form del 19/06/2024, corrección automática, hoja 4.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="parcial-1-formularios">Formularios</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 161 y 162, sobre patrones de Tidwell.</p>
+<div class="tomado"><aside class="nota"><strong>Diseño de formularios</strong><span>Teórico 1/07/2024</span></aside><p>Salió una vez en los 5 teóricos del 1° parcial. Los factores para elegir control salieron en el 2° parcial del 14/10/2026.</p>
+</div>
+<ul>
+<li>Asegurate de que se entienda lo que se pide.</li>
+<li>Evitá preguntas innecesarias. Patrón <strong>Good Defaults</strong>.</li>
+<li>El conocimiento en el mundo es más preciso que en la cabeza. Patrones <strong>Structured Format</strong> e <strong>Input Prompt</strong>.</li>
+<li>Respondé con sensibilidad a los errores. Patrón <strong>Forgiving Format</strong>.</li>
+<li>Cuidado con la traducción literal del modelo de programación.</li>
+<li>Hacé test de usabilidad.</li>
+<li>Elegí bien los controles.</li>
+</ul>
+<p>La hoja 162 da cinco factores para elegir un control: espacio disponible, sofisticación con la computadora, sofisticación con el dominio, experiencias de otras aplicaciones y tecnología disponible.</p>
+<p>Más detalles de las hojas 161 y 162:</p>
+<ul>
+<li>Evitar preguntas tiene una excepción clara, la seguridad. No se pre-rellenan contraseñas ni números de tarjeta.</li>
+<li>El patrón <strong>Autocomplete</strong> va un paso más allá. Le dice al usuario qué entrada es válida o le recuerda lo que ingresó antes.</li>
+<li>Ante un error, mostrar el mensaje apenas se nota. Indicar cortésmente el campo con problema, por qué y cómo solucionarlo.</li>
+<li>La forma del control crea expectativas. Un radio box sugiere elegir uno de muchos y un campo de texto de una línea, una respuesta corta y abierta. Para un número entre 1 y 10, un slider o un spin box es mejor que un campo de texto.</li>
+</ul>
+<details open class="pregunta"><summary><span>En el diseño de formularios</span><small>1° parcial teoría, 1/07/2024</small></summary><div class="resp"><p>Correctas: el conocimiento «en el mundo» es a menudo más preciso que «en la cabeza», asegurarse de que el usuario entienda lo que se pide y por qué, y elegir sabiamente los controles. Traducir literalmente el modelo de programación no.</p>
+<p>Fuente: Form del 1/07/2024, corrección automática, hoja 5.</p>
+</div></details>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-2" data-pagina="parcial-2" aria-label="2° parcial"><p class="pdf-de">Diseño de Sistemas de Información</p><h1>2° parcial</h1>
+<p class="bajada">Cómo ordenar el contenido, cómo conocer a los usuarios y cómo armar las pantallas.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-2-como-viene-el-examen">Cómo viene el examen</h2>
+<p>Leí 5 exámenes de 2023 en adelante. Son 4 de teoría y 1 de práctica.</p>
+<p><strong>Teoría.</strong> Son 10 consignas de opción múltiple en los 4 (12/10/2023, 17/10/2024, 9/11/2024 y 14/10/2026). En 2023 y en el Form del 17/10/2024 la hoja pide 7 puntos o más para aprobar. El 9/11/2024 las consignas son situaciones: una plataforma de música, una tienda, un portal académico.</p>
+<p><strong>Práctica.</strong> Es la del 31/10/2025, con encabezado «Aprobación Directa». Trae caso de uso, dominio y modelo. Se prepara con la <a href="#parcial-1-la-practica-de-dominio-a-diagramas">práctica del 1° parcial</a>.</p>
+<div class="ojo"><p class="ojo-t">Hay que tildar todas las correctas</p><p>Lo dicen 3 de los 4 teóricos (12/10/2023, 17/10/2024 y 9/11/2024). Una opción de más o de menos deja la consigna sin punto.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-que-se-tomo">Qué se tomó</h2>
+<p>Conté los 4 teóricos.</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Teóricos</th><th>Cuáles</th></tr></thead><tbody><tr><td>Etiquetado</td><td>3 de 4</td><td>17/10/2024, 9/11/2024, 14/10/2026</td></tr><tr><td>Navegación</td><td>4 de 4</td><td>12/10/2023, 17/10/2024, 9/11/2024, 14/10/2026</td></tr><tr><td>Listas</td><td>3 de 4</td><td>12/10/2023, 17/10/2024, 14/10/2026</td></tr><tr><td>Objetivos o beneficios de la arquitectura de información</td><td>3 de 4</td><td>12/10/2023, 17/10/2024, 14/10/2026</td></tr><tr><td>Sistemas de la arquitectura de información</td><td>3 de 4</td><td>12/10/2023, 17/10/2024, 14/10/2026</td></tr><tr><td>Encuestas</td><td>2 de 4</td><td>9/11/2024, 14/10/2026</td></tr><tr><td>Mobile</td><td>2 de 4</td><td>12/10/2023 y 17/10/2024, con tres consignas cada uno</td></tr><tr><td>Planos de Garrett</td><td>1 de 4</td><td>17/10/2024, con dos consignas</td></tr><tr><td>Card Sorting y Tree Testing</td><td>2 de 4</td><td>12/10/2023 con dos consignas, 9/11/2024 con cuatro</td></tr><tr><td>Prototipos</td><td>1 de 4</td><td>12/10/2023</td></tr><tr><td>User Persona y Empathy Mapping</td><td>1 de 4</td><td>9/11/2024</td></tr><tr><td>Esquemas de organización</td><td>1 de 4</td><td>9/11/2024</td></tr><tr><td>Elección de controles</td><td>1 de 4</td><td>14/10/2026</td></tr><tr><td>Métodos primarios</td><td>1 de 4</td><td>14/10/2026</td></tr><tr><td>Patrones engañosos</td><td>1 de 4</td><td>14/10/2026</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="parcial-2-arquitectura-de-informacion">Arquitectura de información</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 166 a 208.</p>
+<div class="idea"><p>Pensá en un supermercado. Alguien decidió en qué góndola va cada cosa, cómo se llama cada cartel y cómo llegás al pasillo. En un sitio, eso es la arquitectura de información.</p>
+</div>
+<p>Definición del apunte (hoja 168, Pérez-Montoro): «La arquitectura de la información es una disciplina encargada de estructurar, organizar y etiquetar los elementos que conforman los entornos informacionales para facilitar de esta manera la localización de la información contenida en ellos y mejorar, así, su utilidad y su aprovechamiento por parte de los usuarios».</p>
+<p>Según el apunte, tiene cuatro sistemas más los lenguajes documentales (hojas 167 y 168): organización, etiquetado, navegación y búsqueda.</p>
+<p>Lo que agrega la hoja 168:</p>
+<ul>
+<li>La arquitectura de información, la usabilidad y la accesibilidad son disciplinas diferentes, aunque muy relacionadas. Las engloba la Experiencia de usuario (UX).</li>
+<li>«Una buena arquitectura de información se sustenta en tres pilares: el contexto organizacional en el que se desarrolla, el contenido que alberga y los usuarios que la visitan y consultan.»</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Sistema</th><th>A qué responde (hoja 168)</th></tr></thead><tbody><tr><td>Organización</td><td>Cómo clasificamos la información</td></tr><tr><td>Etiquetado</td><td>Cómo representamos la información</td></tr><tr><td>Navegación</td><td>Cómo navegamos o nos movemos a través de la información</td></tr><tr><td>Búsqueda</td><td>Cómo buscamos información</td></tr><tr><td>Lenguajes documentales</td><td>Un subconjunto de términos del lenguaje natural para facilitar la búsqueda</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Sistemas y objetivos o beneficios de la arquitectura de información</strong><span>12/10/2023, 17/10/2024 y 14/10/2026</span></aside><p>Tres de cuatro teóricos. Los objetivos salen de la definición de arriba.</p>
+</div>
+<details open class="pregunta"><summary><span>Son beneficios de la arquitectura de información</span><small>2° parcial teoría, 17/10/2024 y 14/10/2026</small></summary><div class="resp"><p>Correctas: presentar información ordenada y fácil de comprender, y evitar efecto «rebote». Adaptar el tamaño de las pantallas no.</p>
+<p>Fuente: Form del 17/10/2024, corrección automática, hoja 2, y Form del 14/10/2026, corrección automática, hoja 3.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Son sistemas o estructuras que definen la arquitectura de información</span><small>2° parcial teoría, 12/10/2023</small></summary><div class="resp"><p>Correctas: sistemas de organización, de etiquetado y de navegación. Sistemas de interfaz no. En otros Forms tampoco valen clasificación ni contexto.</p>
+<p>Fuente: Form del 12/10/2023, corrección automática, hoja 4; Form del 17/10/2024, corrección automática, hoja 4; Form del 14/10/2026, corrección automática, hoja 3.</p>
+</div></details>
+<h3 id="parcial-2-sistemas-de-organizacion">Sistemas de organización</h3>
+<p>Hojas 170 a 179. Un <strong>esquema</strong> define cómo se agrupan los contenidos. Una <strong>estructura</strong> define cómo se relacionan.</p>
+<p>Organizar la información tiene cuatro desafíos (hojas 168 a 170).</p>
+<ul>
+<li><strong>Ambigüedad</strong>. Las palabras tienen varios significados. El apunte da «pitch» y el tomate, que puede ser fruta, vegetal o baya.</li>
+<li><strong>Heterogeneidad</strong>. Las colecciones mezclan partes no relacionadas, con distintos niveles de granularidad y formatos. Por eso cuesta imponer un único sistema.</li>
+<li><strong>Diferencias en las perspectivas</strong>. Los sistemas quedan afectados por la mirada de quien los crea, como un sitio ordenado según el organigrama.</li>
+<li><strong>Políticas internas</strong>. Personas y departamentos se posicionan por influencia, y eso pesa en cómo se organiza la información.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Esquemas exactos</th><th>Esquemas ambiguos</th></tr></thead><tbody><tr><td>Alfabético</td><td>Temático</td></tr><tr><td>Cronológico</td><td>Orientado a tareas</td></tr><tr><td>Geográfico</td><td>Orientado a la audiencia, abierto o cerrado</td></tr><tr><td></td><td>Metáforas</td></tr><tr><td></td><td>Híbridos</td></tr></tbody></table></div>
+<p>Los exactos dividen la información en partes bien definidas. Si sabés lo que buscás, es obvio dónde encontrarlo. Su problema es que exigen conocer el nombre exacto.</p>
+<p>El apunte dice que las secciones son «bien definidas y mutuamente exclusivas». Ese uso se conoce como búsqueda de elementos conocidos (hoja 170).</p>
+<p>Los ambiguos requieren más trabajo e introducen un elemento de interpretación (hoja 172). El apunte da de ejemplo la diferencia entre el diccionario, que es exacto, y el supermercado, que es ambiguo (hoja 171).</p>
+<p><strong>Estructuras</strong> (hojas 175 a 178): jerarquía, base de datos e hipertexto.</p>
+<div class="tabla"><table><thead><tr><th>Estructura</th><th>Qué dice el apunte</th></tr></thead><tbody><tr><td>Jerarquía</td><td>Enfoque descendente. Subdivisiones mutuamente excluyentes y relaciones padre-hijo. Hay que equilibrar amplitud, que es la cantidad de opciones por nivel, y profundidad, que es la cantidad de niveles (hoja 175).</td></tr><tr><td>Base de datos</td><td>Enfoque ascendente. «Una colección de datos dispuestos para facilitar y acelerar la búsqueda y recuperación.» Con metadatos y vocabularios controlados da índices automáticos, vínculos «ver también», búsqueda por campo y filtrado. Sirve en subsitios homogéneos, como catálogos de productos (hojas 176 y 177).</td></tr><tr><td>Hipertexto</td><td>«El hipertexto es una forma altamente no lineal de estructurar la información.» Tiene dos componentes, los trozos de información y los vínculos entre ellos (hoja 178).</td></tr></tbody></table></div>
+<p>En muchos casos conviene usar las tres de manera complementaria (hoja 175).</p>
+<p><strong>Clasificación social</strong> (hojas 178 y 179). Es el etiquetado libre que hacen los usuarios, también llamado categorización colaborativa, indexación popular o clasificación etnográfica. Las etiquetas son públicas y sirven para la navegación social, como los hashtags de Twitter. A estas estructuras se las llamó folksonomías. El tiempo mostró el valor de las estructuras de arriba hacia abajo, pero el etiquetado libre sigue siendo útil en situaciones específicas.</p>
+<details open class="pregunta"><summary><span>Esquema para un portal académico con varios tipos de usuarios y de contenido</span><small>2° parcial teoría, 9/11/2024</small></summary><div class="resp"><p>La corrección marca como correcto el esquema mixto, que combina varios esquemas.</p>
+<p>Fuente: Form del 9/11/2024, corrección automática, hoja 4.</p>
+</div></details>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Exacto es como una guía telefónica. Si sabés el nombre, lo encontrás. Ambiguo es como una góndola. Alguien decidió qué va con qué.</p>
+</div>
+<h3 id="parcial-2-sistemas-de-etiquetado">Sistemas de etiquetado</h3>
+<p>Hojas 180 a 191. «El etiquetado es una forma de representación.» Usamos etiquetas para representar trozos más grandes de información (hoja 180).</p>
+<p>La misma hoja da el objetivo. «El objetivo de una etiqueta es comunicar la información eficientemente, es decir, transmitir significado sin ocupar demasiado espacio físico de una página o espacio cognitivo del usuario.» Hay que diseñar etiquetas que hablen el mismo idioma que los usuarios mientras reflejan el contenido.</p>
+<div class="tabla"><table><thead><tr><th>Variedad</th><th>Qué es</th></tr></thead><tbody><tr><td>Textuales</td><td>Vínculos contextuales, encabezados, opciones de navegación, términos de índice</td></tr><tr><td>Icónicas</td><td>Representan con imagen en vez de palabras</td></tr></tbody></table></div>
+<p>Las textuales son el tipo más común. Las icónicas son menos comunes, pero con las pantallas chicas son un componente importante. Son un lenguaje más limitado que el texto, y por eso se usan en navegación o con pocas opciones (hojas 186 y 192).</p>
+<p>Las etiquetas se diseñan buscando coherencia y consistencia (hoja 187). Las fuentes para armarlas están en las hojas 188 a 191.</p>
+<p>La hoja 187 da dos directrices generales.</p>
+<ul>
+<li><strong>Reducir el alcance siempre que sea posible</strong>. Con un público más definido hay menos interpretaciones posibles de cada etiqueta. La excepción son las etiquetas de la navegación global.</li>
+<li><strong>Desarrollar sistemas de etiquetado consistentes</strong>. Consistencia significa previsibilidad, y lo previsible es más fácil de aprender.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Afecta la consistencia</th><th>Qué cuidar (hoja 187)</th></tr></thead><tbody><tr><td>Estilo</td><td>Puntuación y mayúsculas, con guías de estilo</td></tr><tr><td>Presentación</td><td>Fuentes, tamaños, colores, espacios en blanco y agrupación coherentes</td></tr><tr><td>Sintaxis</td><td>Un solo enfoque, con verbos, sustantivos o preguntas, sin mezclar</td></tr><tr><td>Granularidad</td><td>Etiquetas de especificidad parecida</td></tr><tr><td>Exhaustividad</td><td>Sin huecos notables, como una tienda de ropa sin camisas</td></tr><tr><td>Audiencia</td><td>No mezclar términos de públicos distintos, como «linfoma» y «dolor de estómago»</td></tr></tbody></table></div>
+<p><strong>Fuentes</strong> (hojas 187 a 189). Son el entorno de información actual, los entornos comparables y competitivos, y los vocabularios controlados y tesauros.</p>
+<p><strong>Creación de etiquetas nuevas</strong> (hojas 189 a 191). Se hace con análisis de contenido, autores del contenido, expertos en la materia, usuarios en forma directa y usuarios en forma indirecta. En forma directa son el card sorting y el free-listing, que es todavía más barato. En forma indirecta es el análisis del registro de búsqueda.</p>
+<p>Después viene la <strong>sintonización y ajuste</strong> (hoja 192). Se ordena la lista, se sacan duplicados, se revisa la consistencia y se buscan huecos.</p>
+<div class="tomado"><aside class="nota"><strong>Etiquetado</strong><span>3 de 4 teóricos: 17/10/2024, 9/11/2024 y 14/10/2026</span></aside><p><mark>Etiquetado salió en todos los teóricos desde 2024.</mark></p>
+</div>
+<details open class="pregunta"><summary><span>Un sistema de etiquetado se aplica con</span><small>2° parcial teoría, 17/10/2024 y 14/10/2026</small></summary><div class="resp"><p>Respuesta correcta: enlaces contextuales y etiquetas como encabezados. Campos de búsqueda y estructura de navegación global no.</p>
+<p>Fuente: Form del 17/10/2024, corrección automática, hoja 4, y Form del 14/10/2026, corrección automática, hoja 1.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Al desarrollar un sistema de etiquetado para una biblioteca digital</span><small>2° parcial teoría, 9/11/2024</small></summary><div class="resp"><p>Correcta: crear etiquetas consistentes y relevantes para las necesidades de los usuarios.</p>
+<p>Fuente: Form del 9/11/2024, corrección automática, hoja 10.</p>
+</div></details>
+<h3 id="parcial-2-sistemas-de-navegacion">Sistemas de navegación</h3>
+<p>Hojas 193 a 203. El apunte separa dos grupos.</p>
+<div class="tabla"><table><thead><tr><th>Integrados en la página</th><th>Pregunta que responde</th></tr></thead><tbody><tr><td>Global</td><td>¿Dónde estoy?</td></tr><tr><td>Local</td><td>¿Qué hay cerca?</td></tr><tr><td>Contextual</td><td>¿Qué está relacionado con lo que está aquí?</td></tr></tbody></table></div>
+<p><strong>Complementarios</strong>, fuera de las páginas de contenido: mapas del sitio, índices y guías (hoja 193).</p>
+<p>El resumen del apunte define los tres integrados (hoja 206).</p>
+<ul>
+<li>La global está presente en todas las páginas o pantallas.</li>
+<li>La local complementa a la global y deja explorar el área inmediata.</li>
+<li>La contextual ocurre en el contexto del contenido y apoya el aprendizaje asociativo, porque deja explorar las relaciones entre elementos.</li>
+</ul>
+<p>Las hojas 202 y 203 suman dos complementarios más. Los <strong>configuradores</strong> son asistentes que ayudan a configurar productos o a recorrer árboles de decisión complejos. Las <strong>búsquedas</strong> son, según el apunte, una parte central de la navegación complementaria. Las <strong>guías</strong> (visitas guiadas, tutoriales) ofrecen navegación lineal, pero también tiene que haber navegación hipertextual.</p>
+<p><strong>Enfoques avanzados</strong> (hojas 203 y 204):</p>
+<div class="tabla"><table><thead><tr><th>Enfoque</th><th>Qué es</th></tr></thead><tbody><tr><td>Personalización</td><td>El sistema adivina lo que el usuario quiere, a partir de un modelo de su comportamiento, necesidades o preferencias</td></tr><tr><td>Customization</td><td>El usuario dice lo que quiere, con control directo sobre presentación, navegación y contenido</td></tr><tr><td>Visualización</td><td>Navegar de forma visual. El apunte dice que los intentos no resultaron muy útiles</td></tr><tr><td>Navegación social</td><td>El valor sale de observar las acciones de otros usuarios, sobre todo de los relacionados con uno</td></tr></tbody></table></div>
+<details open class="pregunta"><summary><span>Cuando hablamos de navegación</span><small>2° parcial teoría, 12/10/2023</small></summary><div class="resp"><p>Correctas: debo considerar «dónde estoy» (signposts) y «cuál es el camino» (wayfinding), hay tres formas de navegar (Global, de utilidades e Integrada) y son patrones migas de pan y sitemap footer. «Hay que considerar la longitud de las listas» no.</p>
+<p>Fuente: Form del 12/10/2023, corrección automática, hoja 2.</p>
+</div></details>
+<div class="ojo"><p class="ojo-t">Dos clasificaciones</p><p>El Libro Completo dice global, local y contextual. El Form del 12/10/2023 da por correcta global, de utilidades e integrada. Sabé las dos.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Estrategias y patrones de navegación</strong><span>4 de 4 teóricos: 12/10/2023, 17/10/2024, 9/11/2024 y 14/10/2026</span></aside><p><mark>Navegación salió en todos.</mark> El 14/10/2026 tuvo dos consignas de patrones.</p>
+</div>
+<details open class="pregunta"><summary><span>Son patrones de navegación</span><small>2° parcial teoría, 14/10/2026</small></summary><div class="resp"><p>Correctas: Modal Panel, Hub and Spoke y Stepwise. Jumps no.</p>
+<p>Fuente: Form del 14/10/2026, corrección automática, hoja 2.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Estrategias de navegación para una tienda en línea</span><small>2° parcial teoría, 9/11/2024</small></summary><div class="resp"><p>Correctas: barra de búsqueda visible en todas las páginas, destacar los productos populares, navegación consistente y pestañas con las categorías principales. Menú complejo de muchos subniveles y etiquetas solo con íconos no.</p>
+<p>Fuente: Form del 9/11/2024, corrección automática, hoja 3.</p>
+</div></details>
+<h3 id="parcial-2-busqueda-y-lenguajes-documentales">Búsqueda y lenguajes documentales</h3>
+<p>Hojas 206 y 207. Los sistemas de búsqueda son «utilizados normalmente para localizar información a partir de una necesidad concreta. Ofrecen los resultados que coinciden con los definidos por el usuario en la ecuación de búsqueda» (hoja 206).</p>
+<p>Un lenguaje documental es un subconjunto de términos del lenguaje natural. Reduce el ruido y el silencio en las búsquedas. Entre sus tipos están las taxonomías y los tesauros, con relaciones de equivalencia, jerárquicas y asociativas.</p>
+<h3 id="parcial-2-planos-de-garrett">Planos de Garrett</h3>
+<p>Hoja 165, «Los Elementos de la Experiencia de Usuario» (Garrett, 2000). Va de lo abstracto a lo concreto, de abajo hacia arriba.</p>
+<div class="tabla"><table><thead><tr><th>Plano</th><th>Del lado interfaz</th><th>Del lado información</th></tr></thead><tbody><tr><td>Arriba, concreto</td><td>Diseño visual</td><td>Diseño visual</td></tr><tr><td></td><td>Diseño de interfaz</td><td>Diseño de información y navegación</td></tr><tr><td></td><td>Diseño de interacción</td><td>Arquitectura de información</td></tr><tr><td></td><td>Especificaciones funcionales</td><td>Requerimientos de contenido</td></tr><tr><td>Abajo, abstracto</td><td>Necesidades del usuario y objetivos del sitio</td><td>Necesidades del usuario y objetivos del sitio</td></tr></tbody></table></div>
+<p>Garrett define cada elemento en la misma hoja. El diseño de la información aparece en los dos lados.</p>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Definición (hoja 165)</th></tr></thead><tbody><tr><td>Necesidades del usuario</td><td>Objetivos externos, identificados con la investigación de usuarios</td></tr><tr><td>Objetivos del sitio</td><td>De negocio, creativos u otros, generados de manera interna</td></tr><tr><td>Especificaciones funcionales</td><td>Descripciones detalladas de las funcionalidades que el sitio debe incluir</td></tr><tr><td>Requerimientos de contenido</td><td>Definición de los elementos de contenido para satisfacer las necesidades del usuario</td></tr><tr><td>Diseño de la interacción</td><td>El flujo de la aplicación para facilitar las tareas, cómo el usuario interactúa con la funcionalidad</td></tr><tr><td>Arquitectura de información</td><td>«El diseño estructural del espacio de información para facilitar el acceso intuitivo al contenido»</td></tr><tr><td>Diseño de la interfaz</td><td>Los elementos de la interfaz para facilitar la interacción con la funcionalidad</td></tr><tr><td>Diseño de la navegación</td><td>Los elementos de interfaz para que el usuario se mueva por la arquitectura de información</td></tr><tr><td>Diseño de la información</td><td>En el sentido de Tufte, la presentación de la información para facilitar el entendimiento</td></tr><tr><td>Diseño visual</td><td>El tratamiento gráfico de los elementos, el «look» del «look &amp; feel»</td></tr></tbody></table></div>
+<details open class="pregunta"><summary><span>Son planos según Garrett</span><small>2° parcial teoría, 17/10/2024</small></summary><div class="resp"><p>Correctas: Estrategia, Superficie y Alcance. Distribución no.</p>
+<p>Fuente: Form del 17/10/2024, corrección automática, hoja 6.</p>
+</div></details>
+<details open class="pregunta"><summary><span>El plano de la Estructura, según Garrett, tiene en cuenta</span><small>2° parcial teoría, 17/10/2024</small></summary><div class="resp"><p>Respuesta correcta: el diseño de interacción, los principios de organización y un vocabulario controlado.</p>
+<p>Fuente: Form del 17/10/2024, corrección automática, hoja 3.</p>
+</div></details>
+<div class="ojo"><p class="ojo-t">Nombres de los planos</p><p>La hoja 165 no usa esos nombres, los usa el Form. Falta confirmar cómo ordena la cátedra los cinco, porque el Drive no trae un apunte con la lista.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-card-sorting">Card Sorting</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 208 a 211.</p>
+<p>«El Card Sorting es un método de investigación de usuarios que permite descubrir cómo los usuarios creen que deberían estar organizados los contenidos de un producto digital» (hoja 209). Se arma una tarjeta por contenido y los usuarios las agrupan.</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Qué hacen los usuarios</th></tr></thead><tbody><tr><td>Abierto</td><td>Crean las categorías y les ponen nombre</td></tr><tr><td>Cerrado</td><td>Ordenan las tarjetas en categorías ya definidas</td></tr><tr><td>Híbrido</td><td>Mezcla de los dos</td></tr></tbody></table></div>
+<ul>
+<li>Conviene en los primeros pasos, para conocer categorías y nombres, y para modificar una arquitectura.</li>
+<li>La hoja 210 habla de unos 30 usuarios y 2 de piloto.</li>
+<li>Se analiza con matriz de similaridad y dendograma (hojas 210 y 211).</li>
+</ul>
+<p>Lo que agregan las hojas 209 a 211:</p>
+<ul>
+<li>Tiene dos objetivos. Investigar qué entienden los usuarios por los rótulos que se van a plantear como estructura jerárquica, y evaluar si sirve el rotulado que ya tiene un producto.</li>
+<li>Los pasos son definición de objetivos, preparación de contenidos, selección de usuarios, ejecución, evaluación de resultados e informe de conclusiones y propuestas de mejora.</li>
+<li>Los rótulos de las tarjetas son la tarea más delicada y tienen que ser lo más concretos posible. No conviene usar más de 50 tarjetas, para no cansar.</li>
+<li>Se puede hacer con papel o con una aplicación online. Presencial da datos cualitativos además de cuantitativos. En remoto ahorra tiempo, pero hacen falta instrucciones por escrito.</li>
+<li>La <strong>matriz de similaridad</strong> indica cuántas veces cada par se colocó en una misma agrupación. El <strong>dendograma</strong> muestra el nivel porcentual de agrupamiento entre las tarjetas.</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Card Sorting y Tree Testing</strong><span>Teóricos 12/10/2023 y 9/11/2024</span></aside><p>El 12/10/2023 preguntó afirmaciones y tipos. El 9/11/2024 le dedicó cuatro consignas de diez, <mark>en situaciones de un sitio concreto.</mark></p>
+</div>
+<details open class="pregunta"><summary><span>Son tipos de Card Sorting</span><small>2° parcial teoría, 12/10/2023</small></summary><div class="resp"><p>Correctas: Híbrido y Cerrado. Distribuido y Múltiple no.</p>
+<p>Fuente: Form del 12/10/2023, corrección automática, hoja 3.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Principal diferencia entre Card Sorting abierto y cerrado</span><small>2° parcial teoría, 9/11/2024</small></summary><div class="resp"><p>En el abierto, los usuarios crean sus propias categorías. En el cerrado, las categorías son predefinidas.</p>
+<p>Fuente: Form del 9/11/2024, corrección automática, hoja 10.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="parcial-2-tree-testing">Tree Testing</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 212 a 218.</p>
+<p>«Un Tree Testing evalúa una estructura de categoría jerárquica, o árbol, haciendo que los usuarios encuentren las ubicaciones en el árbol donde se pueden completar tareas específicas» (hoja 213).</p>
+<p>Solo necesitás el árbol y las tareas, sin wireframes ni contenido. El apunte dice que «un Card Sorting debe ser seguido por un Tree Testing para evaluar la estructura de menú propuesta» (hoja 213).</p>
+<ul>
+<li>Apuntá a al menos 50 usuarios (hoja 215).</li>
+<li>Sus instrucciones de tarea evitan los términos que dan la respuesta (hoja 215).</li>
+<li>Solo evalúa etiquetas de categorías, sin diseño visual. Es su fortaleza y su debilidad (hoja 215).</li>
+</ul>
+<p><strong>Métricas</strong> (hoja 216):</p>
+<div class="tabla"><table><thead><tr><th>Métrica</th><th>Qué mide</th></tr></thead><tbody><tr><td>Tasa de éxito</td><td>Porcentaje que encontró la ubicación correcta</td></tr><tr><td>Directness</td><td>Porcentaje que fue de inmediato, sin retroceder</td></tr><tr><td>Tiempo empleado</td><td>Promedio del principio al final de la tarea</td></tr><tr><td>Camino</td><td>Frecuencia de selección, primer clic y destino</td></tr></tbody></table></div>
+<p>Lo que agregan las hojas 213 a 218:</p>
+<ul>
+<li><strong>Por qué después del Card Sorting.</strong> El Card Sorting muestra cómo piensa la audiencia, pero no da el esquema exacto. Por ejemplo, los participantes suelen armar una categoría de «otras cosas» que en un menú real los usuarios evitarían.</li>
+<li><strong>El árbol</strong> es la lista completa de categorías y subcategorías, aunque te interese una sola sección. Si probás solo «productos», no sabés si entienden la diferencia con «servicios». Para comparar dos etiquetas se prueban dos árboles, nunca los dos con el mismo usuario. Para comparar dos ubicaciones alcanza un árbol (¿los tomates van en Frutas o en Verduras?).</li>
+<li><strong>Las tareas</strong> apuntan a los objetivos clave, a las áreas con problemas posibles y a las comparaciones de etiquetas o ubicaciones. Cada tarea define su respuesta correcta.</li>
+<li><strong>Participantes.</strong> Usuarios representativos. Para comparar dos árboles hace falta el doble, porque cada versión la prueban personas distintas. Cada participante hace 10 tareas o menos. Antes va una prueba piloto.</li>
+<li><strong>Limitaciones.</strong> Suele ser remoto y no moderado. No capta comentarios ni permite preguntas de seguimiento. Se compensa con sesiones piloto moderadas y una encuesta corta al final.</li>
+<li><strong>Tasa de éxito.</strong> Suele ser mucho más baja que en un estudio de usabilidad, porque no hay búsqueda, contenido ni diseño. Se compara con tareas parecidas, por ejemplo del mismo nivel del árbol, y no se espera el 100 %.</li>
+<li><strong>Directness</strong> también se llama «ruta feliz». Una tarea con éxito alto puede ser una mala experiencia si hubo que retroceder. Pesa más en tareas de novatos o usuarios ocasionales.</li>
+<li><strong>Primer clic.</strong> Es siempre una categoría de nivel superior y suele predecir el éxito.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Lo que ves</th><th>Qué sugiere el apunte (hojas 217 y 218)</th></tr></thead><tbody><tr><td>Primeros clics repartidos en varias categorías</td><td>Demasiadas categorías superpuestas. Listar el tema en varias categorías o, si pasa en muchas tareas, cambiar el esquema de organización</td></tr><tr><td>Primer clic correcto y tasa de éxito baja</td><td>Las subcategorías se superponen. Hacer más distintas sus etiquetas</td></tr></tbody></table></div>
+<details open class="pregunta"><summary><span>Propósito de un Tree Testing en una plataforma de música</span><small>2° parcial teoría, 9/11/2024</small></summary><div class="resp"><p>La corrección marca bien: observar si los usuarios encuentran contenido de forma intuitiva en la estructura de categorías actual, sin elementos visuales.</p>
+<p>Fuente: Form del 9/11/2024, corrección automática, hoja 2.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Diferencia clave entre Card Sorting cerrado y Tree Testing</span><small>2° parcial teoría, 9/11/2024</small></summary><div class="resp"><p>La corrección marca bien: Card Sorting cerrado se enfoca en la organización de categorías, y Tree Testing evalúa si los usuarios encuentran información dentro de una estructura ya existente.</p>
+<p>Fuente: Form del 9/11/2024, corrección automática, hoja 6.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Beneficio principal de combinar los dos métodos</span><small>2° parcial teoría, 9/11/2024</small></summary><div class="resp"><p>La corrección marca bien: Card Sorting permite crear una estructura inicial y Tree Testing valida si esa estructura es navegable.</p>
+<p>Fuente: Form del 9/11/2024, corrección automática, hoja 8.</p>
+</div></details>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Card Sorting te dice cómo piensa la gente. Tree Testing te dice si encuentra las cosas en el menú que armaste con eso.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-heatmaps">Heatmaps</h2>
+<p>Hoja 220. Son tres: desplazamiento, clic y movimiento.</p>
+<p>«Un mapa de calor […] es una representación gráfica de datos que muestra los elementos más populares (calientes) e impopulares (fríos) de una página web» (hoja 220). Usa una escala de colores de rojo a azul, con lo más visto o usado en rojo.</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Qué muestra (hoja 220)</th></tr></thead><tbody><tr><td>Desplazamiento</td><td>El porcentaje exacto de personas que bajan hasta cada punto de la página</td></tr><tr><td>Clic</td><td>Dónde hacen clic con el mouse, o tocan con el dedo en móviles (mapas de calor táctiles)</td></tr><tr><td>Movimiento</td><td>Dónde mueven y detienen el mouse los usuarios de escritorio. Sugiere dónde están mirando</td></tr></tbody></table></div>
+<p>Los mapas de escritorio y móviles se comparan, porque lo que se ve arriba en escritorio puede quedar mucho más abajo en un teléfono. Según la hoja 221, sirven para saber si la gente llega al contenido importante, encuentra los enlaces, botones y CTA, se distrae con elementos que no se pueden clicar o tiene problemas en algún dispositivo.</p>
+</section>
+<section class="sec"><h2 id="parcial-2-ux-research">UX Research</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 230 a 240, sobre el artículo de Rohrer.</p>
+<p>Se elige el método con tres ejes.</p>
+<div class="tabla"><table><thead><tr><th>Eje</th><th>Extremos</th></tr></thead><tbody><tr><td>Actitud y comportamiento</td><td>«Lo que dice la gente» frente a «lo que hace la gente»</td></tr><tr><td>Cualitativo y cuantitativo</td><td>Datos observados directamente o medidos con un instrumento</td></tr><tr><td>Contexto de uso</td><td>Uso natural, en laboratorio con guion, sin usar el producto o una mezcla</td></tr></tbody></table></div>
+<p>Lo que dice el apunte de cada eje (hojas 232 y 233):</p>
+<ul>
+<li><strong>Actitud y comportamiento.</strong> La investigación de actitud busca entender o medir las creencias que expresan las personas. Card Sorting, encuestas y focus groups van de ese lado. Test A/B y eyetracking van del lado del comportamiento. Los estudios de usabilidad y los de campo mezclan los dos, y se recomienda inclinarlos hacia el comportamiento.</li>
+<li><strong>Cualitativo y cuantitativo.</strong> «Los métodos cualitativos son mucho más adecuados para responder preguntas sobre por qué o cómo solucionar un problema, mientras que los métodos cuantitativos hacen un trabajo mucho mejor respondiendo clases de preguntas cuántos y cuánto cuesta.» En lo cualitativo el investigador observa directamente y puede preguntar. En lo cuantitativo los datos salen de un instrumento y se analizan con matemática.</li>
+<li><strong>Contexto de uso.</strong> El uso natural da más validez y menos control. El laboratorio con guion se enfoca en aspectos puntuales, y el benchmarking lleva un guion muy estricto para dar métricas confiables. Sin usar el producto se estudian temas más amplios, como la marca.</li>
+</ul>
+<p><strong>Encuestas y cuestionarios</strong> (hoja 235). Recopilan información sobre los usuarios, sus actitudes y comportamientos. Son actitudinales, de costo bajo y sirven en cualquier contexto de uso. Se aplican como intercepción en un sitio en vivo, por mail o después de una prueba de usabilidad. Dan datos cuantitativos y cualitativos, como calificaciones, porcentajes de cada opción y respuestas abiertas. Se pueden armar propias o usar cuestionarios establecidos, como SUS (System Usability Scale) o NPS (Net Promoter Score), que permiten comparar con la industria o la competencia.</p>
+<h3 id="parcial-2-los-metodos-que-tenes-que-reconocer">Los métodos que tenés que reconocer</h3>
+<p>Hojas 231 y 232.</p>
+<div class="tabla"><table><thead><tr><th>Método</th><th>Qué es</th></tr></thead><tbody><tr><td>Estudios de usabilidad en laboratorio</td><td>Un participante, un investigador y escenarios con tareas</td></tr><tr><td>Estudios de campo etnográficos</td><td>Se estudia al participante en su entorno natural</td></tr><tr><td>Diseño participativo</td><td>El participante arma su experiencia ideal con materiales</td></tr><tr><td>Focus groups</td><td>Discusión guiada en grupo</td></tr><tr><td>Entrevistas</td><td>Investigador con participante, uno a uno</td></tr><tr><td>Eyetracking</td><td>Mide dónde mira el participante</td></tr><tr><td>Benchmarking de usabilidad</td><td>Estudios escritos con medidas de rendimiento precisas</td></tr><tr><td>Estudios remotos</td><td>Moderados o no moderados</td></tr><tr><td>Pruebas de concepto</td><td>Se comparte una aproximación para ver si satisface a la audiencia</td></tr><tr><td>Estudios de diario o cámara</td><td>El participante registra aspectos de su vida, suele ser longitudinal</td></tr><tr><td>Feedback del cliente</td><td>Información abierta o cerrada, de usuarios que se seleccionan solos</td></tr><tr><td>Estudios de deseabilidad</td><td>Se asocian alternativas visuales con atributos de una lista</td></tr><tr><td>Card Sorting</td><td>Puede ser cuantitativo o cualitativo</td></tr><tr><td>Clickstream Analysis</td><td>Un tipo de Web Analytics</td></tr><tr><td>Pruebas A/B</td><td>Grupos que experimentan diseños distintos</td></tr><tr><td>Encuestas</td><td>Miden y categorizan actitudes</td></tr></tbody></table></div>
+<p>La hoja 232 describe más métodos. Los cuatro últimos de esta tabla el apunte los aclara como fuera de su cuadro de 20 métodos.</p>
+<div class="tabla"><table><thead><tr><th>Método</th><th>Qué es</th></tr></thead><tbody><tr><td>Estudios de verdadera intención</td><td>Se pregunta a visitantes al azar su objetivo al entrar, se mide qué hacen y al salir se pregunta si lo lograron</td></tr><tr><td>Encuestas de intercepción</td><td>Se activan durante el uso del sitio o la aplicación</td></tr><tr><td>Tree Testing</td><td>Evalúa la arquitectura de información aislada del resto de la interfaz</td></tr><tr><td>Evaluación heurística</td><td>Un grupo de expertos evalúa la interfaz contra una lista de principios aceptados</td></tr><tr><td>Pensamiento en voz alta</td><td>El participante usa el sistema y dice lo que va pensando</td></tr><tr><td>Recorrido cognitivo</td><td>Inspección que evalúa la facilidad de aprendizaje, cómo piensa un usuario la primera vez que usa la interfaz</td></tr></tbody></table></div>
+<p>Las hojas 234 a 237 traen tablas de costo y dificultad.</p>
+<div class="tabla"><table><thead><tr><th>Método cuantitativo</th><th>Tipo</th><th>Contexto de uso</th><th>Costo (hoja 237)</th></tr></thead><tbody><tr><td>Pruebas cuantitativas de usabilidad</td><td>Comportamiento</td><td>Basado en tareas</td><td>Medio</td></tr><tr><td>Web Analytics</td><td>Comportamiento</td><td>En vivo</td><td>Bajo</td></tr><tr><td>Prueba A/B</td><td>Comportamiento</td><td>En vivo</td><td>Bajo</td></tr><tr><td>Card Sorting</td><td>Actitudinal</td><td>No usa el producto</td><td>Bajo</td></tr><tr><td>Tree Testing</td><td>Comportamiento</td><td>No usa el producto</td><td>Bajo</td></tr><tr><td>Encuestas y cuestionarios</td><td>Actitudinal</td><td>Cualquiera</td><td>Bajo</td></tr><tr><td>Agrupación de datos cualitativos</td><td>Actitudinal</td><td>Cualquiera</td><td>Bajo</td></tr><tr><td>Estudios de deseabilidad</td><td>Actitudinal</td><td>Basado en tareas</td><td>Bajo</td></tr><tr><td>Eyetracking</td><td>Comportamiento</td><td>Basado en tareas</td><td>Alto</td></tr></tbody></table></div>
+<p>Los métodos cualitativos (hojas 238 a 240), en lo que agrega el apunte:</p>
+<ul>
+<li><strong>Entrevistas.</strong> Pueden ser estructuradas, focalizadas (semiestructuradas) o abiertas, a una persona o a varias, y contextuales. La entrevista en profundidad es a un solo entrevistado, abierta y enfocada en sus experiencias con sus propias palabras.</li>
+<li><strong>Focus groups.</strong> Detectan necesidades y sentimientos, pero no sirven para evaluar la interacción o la usabilidad.</li>
+<li><strong>Estudios de campo.</strong> Pasan en el contexto del usuario. Van de la observación pura («mosca en la pared») a la investigación etnográfica y la contextual.</li>
+<li><strong>Estudios de diario.</strong> Juntan información a lo largo del tiempo en el uso cotidiano. Cuesta reclutar participantes motivados y analizar los datos.</li>
+<li><strong>Usabilidad remota.</strong> Participante y facilitador en lugares distintos, moderada (al mismo tiempo) o no moderada (el participante graba la sesión). El apunte prefiere la prueba en persona, pero la remota es mejor que no probar.</li>
+<li><strong>Estudios de usabilidad.</strong> Observan la eficacia, eficiencia y satisfacción con que los usuarios logran objetivos específicos. Detectan problemas a muy bajo costo y recuerdan que «nosotros NO somos el usuario». Las informales se llaman pruebas de guerrilla.</li>
+<li><strong>Pensamiento en voz alta.</strong> Si el usuario habla durante la tarea comete errores que no cometería, pero da más información que si habla al final.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">El tamaño del focus group cambia según la hoja</p><p>La hoja 231 habla de grupos de 3 a 12 participantes. La hoja 238 dice una reunión informal de entre 6 y 10. El focus group evalúa lo que dicen, no cómo operan con el producto (hoja 238).</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Método para datos de muchos usuarios, características de la encuesta</strong><span>9/11/2024 y 14/10/2026</span></aside><p>Encuestas en dos de cuatro. El 14/10/2026 también preguntó por métodos de investigación primarios.</p>
+</div>
+<details open class="pregunta"><summary><span>Método para recopilar datos de muchos usuarios en poco tiempo y validar hipótesis</span><small>2° parcial teoría, 9/11/2024</small></summary><div class="resp"><p>Encuestas y cuestionarios.</p>
+<p>Fuente: Form del 9/11/2024, corrección automática, hoja 2.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Son características de la encuesta</span><small>2° parcial teoría, 14/10/2026</small></summary><div class="resp"><p>Correctas: debe estar limitada en la cantidad de preguntas, es estructurada y se utiliza un cuestionario estandarizado. «Es una charla 1 a 1» no.</p>
+<p>Fuente: Form del 14/10/2026, corrección automática, hoja 2.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Son métodos de investigación primarios</span><small>2° parcial teoría, 14/10/2026</small></summary><div class="resp"><p>Correctas: Focus Groups, Encuestas y Entrevistas. Redes Sociales no.</p>
+<p>Fuente: Form del 14/10/2026, corrección automática, hoja 1.</p>
+</div></details>
+<div class="ojo"><p class="ojo-t">Sin apunte</p><p>Métodos primarios y patrones engañosos no tienen apunte en el Drive. Lo único que hay es la corrección del Form.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-entregables-de-usuarios">Entregables de usuarios</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 241 a 247.</p>
+<div class="tabla"><table><thead><tr><th>Entregable</th><th>Qué es</th></tr></thead><tbody><tr><td>Persona</td><td>«La descripción de un usuario arquetípico» que sirve de guía (hoja 242)</td></tr><tr><td>User Journey Map</td><td>El itinerario concreto de una persona específica en un escenario (hoja 244)</td></tr><tr><td>Empathy Mapping</td><td>Crea una visión común sobre necesidades y objetivos del usuario (hojas 245 y 246)</td></tr><tr><td>Affinity Diagramming</td><td>Agrupa información por características similares (hoja 247)</td></tr></tbody></table></div>
+<p>Los cuatro sirven para extraer conclusiones de la investigación, sintetizar los datos y «sobre todo humanizarlos» (hoja 242). Lo que agrega el apunte de cada uno:</p>
+<ul>
+<li><strong>Persona</strong> (hoja 242). La propuso Alan Cooper. Se construye «con precisión y rigor» a partir de datos cuantitativos y cualitativos de la investigación con usuarios. Primero se investiga, después se analizan los datos y al final se modela. Por eso es un modelo de usuario. Hay una variación, la proto-persona o persona simple. La ficha no debería pasar de una o dos páginas. Su inconveniente es que tiene que ser un documento vivo, que se actualiza con cada investigación nueva.</li>
+<li><strong>User Journey Map</strong> (hoja 244). Describe los pasos que sigue un usuario para cumplir una tarea u objetivo. Incluye inicio y fin, los puntos de decisión (touch points), el comportamiento, las expectativas, las emociones y los factores externos. No cubre todas las bifurcaciones, se centra en un itinerario. Sirve en análisis o en diseño. Su inconveniente es que hay muchos tipos y al principio confunde.</li>
+<li><strong>Empathy Mapping</strong> (hojas 245 a 247). «No es un método de recogida de datos, sino un método sobre cómo plasmar y visualizar lo que sabemos de los usuarios.» Puede salir de lo que se supone de los usuarios, como una proto-persona, y conviene validarlo después. Si sale de datos reales, por ejemplo de unas personas, no hace falta validarlo. Se usa en las fases iniciales, en la fase de empatía del design thinking, y participa todo el equipo. Las secciones habituales son pensamientos y sentimientos, palabras y acciones, vista, oído, y dolores y ganancias, aunque pueden variar.</li>
+<li><strong>Affinity Diagramming</strong> (hoja 247). Una información en cada tarjeta. Las tarjetas se agrupan por características similares. «Cada grupo de tarjetas es un patrón y cada patrón, un descubrimiento.» Normalmente no involucra a los usuarios, pero es participativa porque interviene el equipo.</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>User Persona y Empathy Mapping</strong><span>Teórico 9/11/2024</span></aside><p>Te describen una situación y preguntan por el entregable.</p>
+</div>
+<details open class="pregunta"><summary><span>Principal propósito de crear un User Persona</span><small>2° parcial teoría, 9/11/2024</small></summary><div class="resp"><p>Describir un perfil detallado que represente a un tipo de usuario típico, incluyendo sus objetivos, frustraciones y comportamientos.</p>
+<p>Fuente: Form del 9/11/2024, corrección automática, hoja 9.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Respecto al Empathy Mapping</span><small>2° parcial teoría, 9/11/2024</small></summary><div class="resp"><p>Correctas: es un método sobre cómo plasmar y visualizar lo que sabemos de los usuarios, y una herramienta para tomar conciencia y entender a los usuarios a quienes se dirige un producto o servicio. Método de recogida de datos no.</p>
+<p>Fuente: Form del 9/11/2024, corrección automática, hoja 11.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="parcial-2-prototipos">Prototipos</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 248 a 255.</p>
+<details open class="pregunta"><summary><span>Sobre prototipos</span><small>2° parcial teoría, 12/10/2023</small></summary><div class="resp"><p>Correctas: son una representación limitada de un producto y permiten probar un diseño. «Es la versión operativa de un producto que se entrega al cliente» no.</p>
+<p>Fuente: Form del 12/10/2023, corrección automática, hoja 3.</p>
+</div></details>
+<p>«Un prototipo es una versión preliminar de un diseño, que puede ser un producto físico o digital» (hoja 249). No es una réplica del producto final. Es la versión más barata posible que permite validar con usuarios, para «fallar rápido y barato».</p>
+<div class="tabla"><table><thead><tr><th>Estadío</th><th>Qué es (hojas 249 y 250)</th></tr></thead><tbody><tr><td>Sketch</td><td>El más rudimentario. «El Sketch es la primera bajada visual de la idea.» Se hace a mano alzada, generalmente en papel.</td></tr><tr><td>Wireframe</td><td>Más refinado. Permite diseñar la arquitectura de información y el diseño de interacción. Hay que evitar el color, para que se evalúe la estructura.</td></tr><tr><td>Mockup</td><td>«La versión que más se aproxima a producto real», con alta fidelidad del estilo visual. Es pixel perfect.</td></tr></tbody></table></div>
+<ul>
+<li>Cualquiera puede ser <strong>estático</strong>, con pantallas que no se vinculan, o <strong>interactivo</strong>, con pantallas vinculadas que simulan la navegación. Depende del objetivo, no del estadío.</li>
+<li>Si diseñás una característica nueva de un producto que ya existe, posiblemente vayas directo al mockup.</li>
+<li>El apunte nombra herramientas como Balsamiq, Axure, UXPin, InVision, Marvel y Sketch.</li>
+</ul>
+<p>La fidelidad depende de tres dimensiones: contenido, interacción y estilo visual (hoja 251). No hay un tipo de prototipo que sea siempre de alta o de baja.</p>
+<p>La misma hoja las nombra contenido, visual y funcionalidad, y las define.</p>
+<div class="tabla"><table><thead><tr><th>Dimensión</th><th>Qué mide</th></tr></thead><tbody><tr><td>Visual</td><td>El estilo gráfico, la calidad del pixel perfect. Un mockup tiene alta y un wireframe, baja.</td></tr><tr><td>Contenido</td><td>La palabra escrita. Es alta si el texto es el real, y eso importa en las pruebas con usuarios. Un wireframe puede tenerla alta.</td></tr><tr><td>Funcionalidad</td><td>El nivel de interacción. Hay wireframes con alta fidelidad de funcionalidad y mockups estáticos.</td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><th>Entregable</th><th>Hoja</th></tr></thead><tbody><tr><td>Sketches</td><td>252</td></tr><tr><td>Wireframes</td><td>252</td></tr><tr><td>Storyboards y Flowcharts</td><td>253</td></tr><tr><td>Wireflows y User Flow</td><td>254</td></tr><tr><td>Mockups</td><td>255</td></tr></tbody></table></div>
+<p>Qué es cada entregable, según las hojas 252 a 255:</p>
+<ul>
+<li><strong>Sketches</strong>: «una forma rápida de visualizar una idea usando papel y lápiz».</li>
+<li><strong>Wireframes</strong>: una referencia visual de la estructura de una página web, con el contenido y su distribución, a nivel de página.</li>
+<li><strong>Storyboards</strong>: «ilustraciones que representan una historia».</li>
+<li><strong>Flowcharts</strong>: describen flujos de tareas de usuario. Para UX les falta el contexto de la página.</li>
+<li><strong>Wireflows</strong>: una combinación de wireframes y flowcharts.</li>
+<li><strong>User Flow</strong>: «una representación visual de las acciones del usuario para llevar a cabo una tarea con el producto». Muestra páginas, lógica y acciones.</li>
+<li><strong>Mockups</strong>: «prototipos o maquetas dinámicas, que simulan el sistema final a desarrollar».</li>
+</ul>
+</section>
+<section class="sec"><h2 id="parcial-2-patrones-de-interfaz">Patrones de interfaz</h2>
+<p>Fuente: Libro Completo de la Teoría, hojas 154 a 163, sobre Tidwell.</p>
+<p>«Los patrones son una descripción de las mejores prácticas de diseño dentro de un dominio dado. No son reglas o heurísticas simples tampoco. No son una completa descripción paso a paso de cómo diseñar una interfaz» (hoja 156). Según el apunte, los patrones son:</p>
+<ul>
+<li>concretos, no generales;</li>
+<li>válidos para diferentes plataformas;</li>
+<li>productos, no procesos (son las posibles soluciones);</li>
+<li>sugerencias, no requisitos;</li>
+<li>relaciones entre los elementos, no solo elementos (un campo de texto no es un patrón);</li>
+<li>personalizados para cada contexto de diseño.</li>
+</ul>
+<p>Un catálogo de patrones no es una lista de verificación. No se mide la calidad contando los patrones que tiene un diseño (hoja 156).</p>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Un patrón es una solución que se usa repetidamente en contextos similares. Tiene partes fijas: qué, cuándo, por qué, cómo y ejemplos.</p>
+<p class="bloque-fuente">Resúmenes de alumnos</p></div>
+<p><strong>Navegación según el apunte</strong> (hojas 157 y 158). Navegar es un costo. Cada página o ventana nueva obliga a entender un espacio nuevo, y eso lleva tiempo y energía. Por eso hay que mantener las distancias cortas. El apunte propone que el 80 % de los casos de uso más comunes se resuelva desde una sola página y que lo poco usado quede detrás de un salto más. Las <strong>señales</strong> ayudan a entender el entorno inmediato. Las más comunes son títulos de página y ventana, logos, tabulaciones e indicadores de selección.</p>
+<h3 id="parcial-2-listas">Listas</h3>
+<p>Hoja 160. El apunte primero pide pensar qué va a hacer la gente con la lista (hojas 159 y 160). Obtener una visión general, recorrerla elemento por elemento, buscar un elemento específico, ordenar y filtrar, o reorganizar, añadir y eliminar elementos.</p>
+<p>Características no visuales:</p>
+<ul>
+<li>Longitud.</li>
+<li>Orden.</li>
+<li>Agrupamiento.</li>
+<li>Tipos de elementos.</li>
+<li>Interacción.</li>
+<li>Comportamiento dinámico.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Característica</th><th>Qué pregunta el apunte (hoja 160)</th></tr></thead><tbody><tr><td>Longitud</td><td>¿Cabe en el espacio? ¿Puede ser «interminable», como los resultados de una búsqueda?</td></tr><tr><td>Orden</td><td>¿Tiene un orden natural, alfabético o por fecha? ¿Tiene sentido que el usuario lo cambie?</td></tr><tr><td>Agrupamiento</td><td>¿Los elementos tienen categorías naturales? ¿Entran en una jerarquía? ¿Hay varias clasificaciones posibles?</td></tr><tr><td>Tipos de elementos</td><td>¿Son simples o complejos, homogéneos o muy distintos? ¿Tienen imagen o una estructura estricta?</td></tr><tr><td>Interacción</td><td>¿Se muestra todo o un resumen? ¿Se ven, se seleccionan o se usan como enlaces? ¿Se pueden elegir varios?</td></tr><tr><td>Comportamiento dinámico</td><td>¿Cuánto tarda en cargar? ¿Cambia sobre la marcha?</td></tr></tbody></table></div>
+<p>Patrones para mostrar información (hoja 160): tablas (Table Filter, Sort By Column, Alternating Row Colors), formato de datos (Dashboard, FAQ), imágenes (Slideshow, Gallery, Image Zoom) y búsquedas (Search Filters).</p>
+<details open class="pregunta"><summary><span>Si hablamos de listas, debo tener en cuenta</span><small>2° parcial teoría, 12/10/2023, 17/10/2024 y 14/10/2026</small></summary><div class="resp"><p>Correctas en los tres: Longitud, Orden y Agrupamiento. En 2023 también Interacción. Tipografía y Colores no.</p>
+<p>Fuente: Form del 12/10/2023, corrección automática, hoja 2; Form del 17/10/2024, corrección automática, hoja 2; Form del 14/10/2026, corrección automática, hoja 3.</p>
+</div></details>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Los patrones de listas (List Inlay, One-Window Drilldown, Two Panel Selector, Thumbnail Grid, Carousel, Pagination, Infinite List, Accordion, Titled Sections) salen de <code>DSI_Resumen_Parcial2</code>, un resumen de alumnos.</p>
+<p class="bloque-fuente">Resumen de alumnos</p></div>
+<h3 id="parcial-2-patrones-de-navegacion">Patrones de navegación</h3>
+<p>La lista del Libro Completo (hoja 159) sale de ui-patterns.com:</p>
+<div class="tabla"><table><thead><tr><th>Grupo</th><th>Patrones</th></tr></thead><tbody><tr><td>Menús</td><td>Vertical Dropdown Menu, Horizontal Dropdown Menu</td></tr><tr><td>Saltando en jerarquía</td><td>Breadcrumbs, Modal, Fat Footer, Home Link</td></tr><tr><td>Contenido</td><td>Carousel, Cards, Pagination, Thumbnail, Progressive Disclosure, Accordion Menu, Archive, Continuous Scrolling, Navigation Tabs, Module Tabs</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Casi todos estos patrones no están en el Libro Completo</p><p>Las formas de navegar (Hub and Spoke y las demás), Sign-in Tools, Fat Menus y Sitemap Footer salen de dos resúmenes de alumnos que coinciden: <a href="https://drive.google.com/file/d/1KZ_lnSNceKp6e8xOWE2Be72mN0beOxU0/view">Resumen 2° parcial</a> y <a href="https://drive.google.com/file/d/1qXJBi4zmda8HLtO4e86GKHtNbDV9Bx1G/view">Resumen 1° parcial</a>. Tienen capturas de cada uno. Breadcrumbs, en cambio, sí está en la hoja 159.</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><ul>
+<li><strong>Formas de navegar</strong>: Hub and Spoke, Modal Panel, Fully Connected, Stepwise, Pan-and-Zoom, Escape Hatch.</li>
+<li><strong>Patrones</strong>: Sign-in Tools, Fat Menus, Breadcrumbs, Sitemap Footer.</li>
+<li><strong>Ayudas</strong>: signposts ayudan a ubicarse, wayfinding ayuda a llegar al objetivo con señalización, pistas y mapas.</li>
+</ul>
+<p class="bloque-fuente">Dos resúmenes de alumnos</p></div>
+<details open class="pregunta"><summary><span>Cuando hablamos de patrones de navegación</span><small>2° parcial teoría, 17/10/2024 y 14/10/2026</small></summary><div class="resp"><p>Correctas: debo considerar «dónde estoy» (signposts), uso menúes para resolver la navegación global, y son patrones sign-in tools, fat menus y migas de pan. «Hay que considerar el agrupamiento en las listas» no.</p>
+<p>Fuente: Form del 17/10/2024, corrección automática, hoja 5, y Form del 14/10/2026, corrección automática, hoja 2.</p>
+</div></details>
+<h3 id="parcial-2-mobile">Mobile</h3>
+<div class="ojo"><p class="ojo-t">También sale de resúmenes</p><p>No está en el Libro Completo. Va de los mismos dos resúmenes.</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p><strong>Desafíos</strong>: pantallas pequeñas, variedad de anchos, pantallas táctiles, ingreso de datos, entornos físicos, influencias sociales y atención limitada.</p>
+<p><strong>Consejos</strong>:</p>
+<ul>
+<li>Comprender qué necesitan los usuarios móviles.</li>
+<li>Diseño simple.</li>
+<li>Utilizar el hardware del dispositivo.</li>
+<li>Alinear el contenido en vertical.</li>
+<li>Optimizar las secuencias comunes: reducir escritura, tiempo de descarga, desplazamiento lateral y cantidad de entradas.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Patrón móvil</th><th>Qué hace</th></tr></thead><tbody><tr><td>Vertical Stack</td><td>Ordena el contenido en una columna vertical</td></tr><tr><td>Filmstrip</td><td>Páginas de alto nivel una al lado de la otra</td></tr><tr><td>Touch Tools</td><td>Muestra herramientas en respuesta a un toque</td></tr><tr><td>Bottom Navigation</td><td>Navegación global en la parte inferior</td></tr><tr><td>Collections and Cards</td><td>Miniaturas o tarjetas con contenido y funcionalidad</td></tr><tr><td>Infinite List</td><td>Muestra más a medida que bajás</td></tr><tr><td>Generous Borders</td><td>Márgenes grandes en lo que se toca</td></tr><tr><td>Loading or Progress Indicators</td><td>Avisa que algo va a aparecer</td></tr><tr><td>Richly Connected Apps</td><td>Conecta con cámara, mapa y otras apps del dispositivo</td></tr></tbody></table></div>
+<p class="bloque-fuente">Dos resúmenes de alumnos</p></div>
+<div class="tomado"><aside class="nota"><strong>Aspectos, heurísticas y consejos móviles</strong><span>Teóricos 12/10/2023 y 17/10/2024</span></aside><p>Tres consignas en cada uno. No volvió el 9/11/2024 ni el 14/10/2026.</p>
+</div>
+<details open class="pregunta"><summary><span>Algunas heurísticas de diseño mobile son</span><small>2° parcial teoría, 12/10/2023 y 17/10/2024</small></summary><div class="resp"><p>Correctas en 2023: reducir la escritura, optimizar tiempo de descarga y reducir desplazamiento a los lados. En 2024: reducir los textos a ingresar, usar imágenes más livianas y evitar scroll hacia los costados.</p>
+<p>Fuente: Form del 12/10/2023, corrección automática, hoja 2, y Form del 17/10/2024, corrección automática, hoja 3.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Son aspectos a tener en cuenta cuando se diseña para mobile</span><small>2° parcial teoría, 12/10/2023 y 17/10/2024</small></summary><div class="resp"><p>Correctas en 2023: lugares con mucha luz, espacios silenciosos y usuarios con manos ocupadas. En 2024: lugares con poca luz, espacios ruidosos y manos enguantadas en invierno.</p>
+<p>Fuente: Form del 12/10/2023, corrección automática, hoja 3, y Form del 17/10/2024, corrección automática, hoja 2.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Son consejos para desarrollos en dispositivos móviles</span><small>2° parcial teoría, 12/10/2023 y 17/10/2024</small></summary><div class="resp"><p>Correctas: disponer el contenido en forma vertical y utilizar hardware del dispositivo. En 2023 también reducir al mínimo la escritura. Crear tareas complejas y reducir el tamaño de íconos y texto no.</p>
+<p>Fuente: Form del 12/10/2023, corrección automática, hoja 4, y Form del 17/10/2024, corrección automática, hoja 5.</p>
+</div></details>
+<h3 id="parcial-2-patrones-enganosos">Patrones engañosos</h3>
+<details open class="pregunta"><summary><span>Hablando de patrones engañosos</span><small>2° parcial teoría, 14/10/2026</small></summary><div class="resp"><p>Correctas: es una interfaz de usuario pensada cuidadosamente con el objeto de engañar a los usuarios para que realicen acciones que no necesariamente desean, y este tipo de diseño está armado con una sólida comprensión de la psicología humana, sin considerar los intereses del usuario. «Su objetivo es proteger al usuario de efectos perjudiciales» no.</p>
+<p>Fuente: Form del 14/10/2026, corrección automática, hoja 2.</p>
+</div></details>
+<h3 id="parcial-2-formularios">Formularios</h3>
+<p>Están en el <a href="#parcial-1-formularios">1° parcial</a>.</p>
+<details open class="pregunta"><summary><span>Factores a considerar al elegir un control para una interfaz</span><small>2° parcial teoría, 14/10/2026</small></summary><div class="resp"><p>Correctas: la tecnología disponible, el espacio disponible y la sofisticación del usuario con respecto al conocimiento del dominio.</p>
+<p>Fuente: Form del 14/10/2026, corrección automática, hoja 1.</p>
+</div></details>
+</section></section>
+<section class="pdf-parte" id="pdf-final" data-pagina="final" aria-label="Final"><p class="pdf-de">Diseño de Sistemas de Información</p><h1>Final</h1>
+<p class="bajada">Práctica de diagramas y teoría de toda la materia, con los mismos temas que los parciales.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="final-como-viene-el-examen">Cómo viene el examen</h2>
+<p>De 2023 en adelante leí 2 finales de práctica (13/11/2023 y 18/05/2026). No hay teórico de final posterior a 2022 en el Drive, así que para la teoría comparé tres de 2021 y 2022.</p>
+<p><strong>Práctica.</strong> Un dominio y un caso de uso, igual que el 1° parcial.</p>
+<div class="tabla"><table><thead><tr><th>Fecha</th><th>Dominio</th><th>Caso de uso</th></tr></thead><tbody><tr><td>13/11/2023</td><td>Alquiler de Vehículos</td><td>Registrar Reparación de Vehículo</td></tr><tr><td>18/05/2026</td><td>Jornada</td><td>Inscripción a una Conferencia</td></tr></tbody></table></div>
+<p><strong>Teoría.</strong> Lo que vi de 2021 y 2022 es de opción múltiple. El examen de teoría del 31/05/2021 dice «Se aprueba la teoría con 7 puntos o más», y pide tildar todas las opciones correctas. Conviene confirmar el formato con tu comisión.</p>
+<div class="ojo"><p class="ojo-t">Fechas y archivos</p><p>Un teórico está guardado como 21/05/2021 y la hoja dice 31/05/2021. Te lo cito con la fecha de la hoja.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final-que-se-tomo">Qué se tomó</h2>
+<h3 id="final-practica">Práctica</h3>
+<div class="tomado"><aside class="nota"><strong>Dominio y caso de uso</strong><span>Finales 13/11/2023 y 18/05/2026</span></aside><p>Los dos traen reglas de negocio, modelo de dominio y un caso de uso por pasos. Se preparan con <a href="#parcial-1-la-practica-de-dominio-a-diagramas">la práctica del 1° parcial</a>.</p>
+</div>
+<p>Los dominios se repiten. Gimnasio, Camping, Jornada y Pedido de Libros aparecen en finales y en parciales, a veces con otro caso de uso. Leer los dominios de <a href="ejercicios.html">Ejercicios</a> te ahorra tiempo el día del examen.</p>
+<h3 id="final-teoria">Teoría</h3>
+<div class="tomado"><aside class="nota"><strong>Temas de teoría</strong><span>Finales 23/04/2021, 31/05/2021 y 25/04/2022</span></aside><p>Son de 2022 para atrás. Los temas son los mismos que los parciales de 2023 en adelante.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Final</th><th>Dónde estudiarlo</th></tr></thead><tbody><tr><td>Métodos de UX Research</td><td>23/04/2021, 31/05/2021, 25/04/2022</td><td><a href="#parcial-2-ux-research">2° parcial</a></td></tr><tr><td>Card Sorting</td><td>23/04/2021</td><td><a href="#parcial-2-card-sorting">2° parcial</a></td></tr><tr><td>Entregables de prototipado y fidelidad</td><td>23/04/2021, 25/04/2022</td><td><a href="#parcial-2-prototipos">2° parcial</a></td></tr><tr><td>Entregables de usuarios</td><td>31/05/2021</td><td><a href="#parcial-2-entregables-de-usuarios">2° parcial</a></td></tr><tr><td>Design Thinking</td><td>31/05/2021</td><td><a href="#parcial-1-diseno-centrado-en-el-usuario">1° parcial</a></td></tr><tr><td>Leyes de UX</td><td>31/05/2021</td><td><a href="#parcial-1-leyes-de-ux">1° parcial</a></td></tr><tr><td>Componentes de usabilidad de Nielsen</td><td>31/05/2021, 25/04/2022</td><td><a href="#parcial-1-usabilidad-y-experiencia-de-usuario">1° parcial</a></td></tr><tr><td>Principios de Norman y constraints</td><td>31/05/2021</td><td><a href="#parcial-1-principios-de-norman">1° parcial</a></td></tr><tr><td>Heurísticas de Nielsen</td><td>25/04/2022</td><td><a href="#parcial-1-heuristicas-de-nielsen">1° parcial</a></td></tr><tr><td>WCAG, principios Perceptible y Operable</td><td>31/05/2021, 25/04/2022</td><td><a href="#parcial-1-accesibilidad">1° parcial</a></td></tr><tr><td>Organización y navegación</td><td>31/05/2021, 25/04/2022</td><td><a href="#parcial-2-arquitectura-de-informacion">2° parcial</a></td></tr><tr><td>Memoria</td><td>25/04/2022</td><td><a href="#parcial-1-pensamiento-humano">1° parcial</a></td></tr><tr><td>Errores</td><td>25/04/2022</td><td><a href="#parcial-1-errores">1° parcial</a></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="final-como-repasar">Cómo repasar</h2>
+<h3 id="final-para-la-practica">Para la práctica</h3>
+<ol>
+<li>Repasá las <a href="#parcial-1-reglas-para-el-dsd">reglas del DSD y del DCD</a>.</li>
+<li>Repasá <a href="#parcial-1-como-corrigen">cómo corrigen</a>. Cada error resta y tiene tope por evento.</li>
+<li>Hacé los finales de <a href="ejercicios.html">Ejercicios</a> a mano. Hay solución de referencia de la cátedra para Repuestos y para Juguetes.</li>
+<li>Controlá lo tuyo contra las Políticas, más que contra otra resolución.</li>
+</ol>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Cada regla resta aparte. Si dibujaste bien la secuencia y te olvidaste los retornos o las cajas, igual te restan. Hacé una pasada final solo para esos detalles.</p>
+</div>
+<h3 id="final-para-la-teoria">Para la teoría</h3>
+<p>Ordená por lo que más se repite en los teóricos de parciales de 2023 en adelante.</p>
+<div class="tabla"><table><thead><tr><th>Prioridad</th><th>Temas</th><th>En cuántos</th></tr></thead><tbody><tr><td>1</td><td>Feedback, accesibilidad, pensamiento humano</td><td>5 de 5 en el 1° parcial</td></tr><tr><td>1</td><td>Navegación</td><td>4 de 4 en el 2° parcial</td></tr><tr><td>2</td><td>Spring MVC, leyes de UX, otros principios de Norman</td><td>4 de 5 en el 1° parcial</td></tr><tr><td>2</td><td>Etiquetado, listas, sistemas de arquitectura de información</td><td>3 de 4 en el 2° parcial</td></tr><tr><td>3</td><td>Heurísticas de Nielsen</td><td>3 de 5 en el 1° parcial</td></tr><tr><td>3</td><td>Mobile, Card Sorting, Tree Testing, encuestas</td><td>2 de 4 en el 2° parcial</td></tr></tbody></table></div>
+<p>Esto mide los parciales. Para el final solo tengo las fechas viejas de arriba. Las correcciones de los Forms están en las páginas de cada parcial y en <a href="ejercicios.html">Ejercicios</a>.</p>
+</section>
+<section class="sec"><h2 id="final-grasp-y-spring-en-el-final">GRASP y Spring en el final</h2>
+<p>Las Políticas son las mismas para la práctica del final, con un DSD por paso y DAO con sus reglas. Los patrones GRASP están en la <a href="#parcial-1-patrones-grasp">tabla del 1° parcial</a> y Spring en <a href="#parcial-1-spring-mvc">su sección</a>.</p>
+</section>
+<section class="sec"><h2 id="final-lo-que-quedo-afuera">Lo que quedó afuera</h2>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Arquitectura de software y Mapeo objeto-relacional aparecen en finales de 2012 a 2017, y una vez en un parcial del 18/06/2021. No salieron de 2023 en adelante. El Libro Completo los trae en las hojas 76 a 97 y 256 a 265, por si tu comisión los pide.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Otros temas viejos</p><p>Las Preguntas Comunes de 2015 a 2017 piden DSS, colaboración, visibilidad, Shneiderman y storyboards en otra forma. El Proceso dice que los DSS no se usan en los trabajos prácticos. No los estudié para este resumen.</p>
+</div>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

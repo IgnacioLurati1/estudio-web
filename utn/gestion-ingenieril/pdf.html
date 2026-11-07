@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gestión Ingenieril en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Gestión Ingenieril, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="gestion-ingenieril" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Gestión Ingenieril</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Gestión Ingenieril</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial">Parcial de aprobación directa</a></li><li><a href="#pdf-final">Final</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2025). Buena parte de los procedimientos y del cursograma sale del resumen de un alumno, y está avisado donde pasa. Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Gestión Ingenieril</p><h1>Para entender</h1>
+<p class="bajada">Te cuentan cómo trabaja una organización. Vos lo dibujás, lo medís y proponés cómo mejorarlo.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Los exámenes de 2022 o antes son del plan anterior. En esta materia el contenido es el mismo, así que siguen sirviendo.</p>
+
+
+<section class="sec"><h2 id="inicio-de-que-se-trata">De qué se trata</h2>
+<p>Imaginate una mutual que cobra cuotas a domicilio. Hay un sector que las emite, otro que las reparte y cobradores que salen a la calle. Hay papeles que van y vienen, y carpetas donde se guardan.</p>
+<p>Si alguien te pregunta si eso funciona bien, no alcanza con opinar. Primero tenés que ver el circuito completo. Después, medir qué tan bien anda. Recién ahí podés decir qué cambiarías.</p>
+<p>Eso es la materia. Casi todo el examen gira alrededor de ese recorrido, aplicado a un negocio distinto cada vez.</p>
+</section>
+<section class="sec"><h2 id="inicio-las-herramientas-y-como-se-conectan">Las herramientas y cómo se conectan</h2>
+<div class="tabla"><table><thead><tr><th>Herramienta</th><th>Qué pregunta responde</th><th>Dónde estudiarla</th></tr></thead><tbody><tr><td>Cursograma</td><td>¿Quién hace qué, con qué papel y en qué orden?</td><td><a href="#parcial-cursograma">Cursograma</a></td></tr><tr><td>Diccionario de datos (DD)</td><td>¿Qué datos tiene cada comprobante y cada almacén?</td><td><a href="#parcial-diccionario-de-datos">Diccionario de datos</a></td></tr><tr><td>Reporte</td><td>¿Qué información le sirve a la gerencia?</td><td><a href="#parcial-reportes">Reportes</a></td></tr><tr><td>Indicador</td><td>¿Cuánto da, y ese valor está bien o está mal?</td><td><a href="#parcial-indicadores-de-gestion">Indicadores de gestión</a></td></tr><tr><td>Fallas y mejoras</td><td>¿Qué cambiarías del proceso, y por qué?</td><td><a href="#parcial-fallas-y-mejoras">Fallas y mejoras</a></td></tr><tr><td>Procedimientos</td><td>¿Cómo suelen ser las compras, los pagos, las ventas y las cobranzas?</td><td><a href="#parcial-procedimiento-de-compras">Compras</a> y siguientes</td></tr><tr><td>Cuadro de Mando Integral</td><td>¿Cómo se ordenan los indicadores para seguir la estrategia?</td><td><a href="#parcial-cuadro-de-mando-integral">Cuadro de Mando Integral</a></td></tr></tbody></table></div>
+<p>Se apoyan unas en otras. El cursograma te obliga a entender el proceso. El DD sale de los documentos y almacenes que dibujaste. El reporte y el indicador usan esos datos. Las mejoras salen de lo que viste al dibujar y al medir.</p>
+<p>El Cuadro de Mando Integral mira desde más arriba. Toma los indicadores y los acomoda en cuatro perspectivas, atadas a la estrategia de la empresa.</p>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<div class="tomado"><aside class="nota"><strong>Una narrativa y consignas sobre ella</strong><span>Parcial AD 17/06/2025 y final 28/06/2023</span></aside><p>Los dos exámenes de 2023 en adelante arrancan igual. Una narrativa de un negocio, con cantidades, y la primera consigna pide <mark>el cursograma del proceso</mark>. Después vienen DD, indicadores cuantificados, reportes y mejoras.</p>
+</div>
+<div class="tabla"><table><thead><tr><td></td><th>Parcial de aprobación directa</th><th>Final</th></tr></thead><tbody><tr><td>Examen nuevo que revisé</td><td>17/06/2025</td><td>28/06/2023</td></tr><tr><td>Caso</td><td>Banco de herramientas para oficios</td><td>Gestión de pedidos de una empresa de electricidad</td></tr><tr><td>Consignas</td><td>12 (diez prácticas y dos de teoría)</td><td>7, sin teoría</td></tr><tr><td>Extensión</td><td>Dos carillas</td><td>Una carilla</td></tr></tbody></table></div>
+<p>Con más exámenes de atrás se ve que la forma viene de lejos. El parcial de 22/06/2022 tiene la misma estructura que el de 2025 y repite sus dos temas de teoría. Los finales de 2013 y 2015 también son una narrativa con cursograma, DD, indicadores y reportes. Son más largos, de 10 a 13 consignas, y cierran con una de teoría.</p>
+<p>Por eso los uso igual, aunque sean de antes de 2023. Solo son dos exámenes nuevos, así que tomá las cantidades como una pista y no como una regla.</p>
+<div class="ojo"><p class="ojo-t">El Drive no trae el programa ni las condiciones de cursado</p><p>No encontré el programa vigente, ni qué nota pide la aprobación directa, ni fechas. Tampoco hay regla escrita sobre el Trabajo Práctico Integrador. El único del Drive es de un alumno, de 2018. Preguntalo en tu comisión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-el-trabajo-practico">El trabajo práctico</h2>
+<p>El único trabajo integrador del Drive es de un alumno de 2018, sobre el cobro de cuotas de una mutual. Te da una idea de qué se pedía, aunque no sé si sigue igual. Tiene estas partes:</p>
+<ol>
+<li>Presentación de la organización y descripción del proceso.</li>
+<li>Cursograma inicial.</li>
+<li>Fallas y oportunidades de mejora.</li>
+<li>Cursograma optimizado, con las correcciones en rojo.</li>
+<li>Diccionario de datos.</li>
+<li>Dos reportes gerenciales.</li>
+<li>Cuatro indicadores.</li>
+<li>Un software de gestión que se podría aplicar.</li>
+</ol>
+</section>
+<section class="sec"><h2 id="inicio-de-donde-sale-cada-cosa">De dónde sale cada cosa</h2>
+<p>Esto importa más que en otras materias, porque el material de la cátedra es desparejo.</p>
+<ul>
+<li><strong>De la cátedra:</strong> el apunte <a href="https://drive.google.com/file/d/1XgDg0dHz-ncAZD2_SPfMExpqN3L7tQp0/view">Indicadores de Gestión</a>, la guía <a href="https://drive.google.com/file/d/1-n8GgLRws1DS-3oB8w_-l4B8hYpZnmls/view">Procedimientos y Técnicas de Control</a> (solo lista los temas) y la <a href="https://drive.google.com/file/d/18KLWpVGlCaORC-JN4K73KWAwuJXCt7SW/view">guía de práctica</a>.</li>
+<li><strong>Del libro de la materia:</strong> los capítulos 3 a 6 de <a href="https://drive.google.com/file/d/1UFSgrtFCbzY8xvWFutOPKz_UOwwRo5rN/view">El Cuadro de Mando Integral</a>, de Kaplan y Norton.</li>
+<li><strong>De alumnos:</strong> un resumen y un trabajo práctico de 2018. De acá sale casi todo lo de procedimientos y lo del cursograma, porque el Drive no tiene el apunte de la cátedra sobre esos temas.</li>
+</ul>
+<p>Cada sección que se apoya en material de alumnos lo avisa arriba. Si tu comisión te da otra cosa, manda la comisión.</p>
+</section>
+<section class="sec"><h2 id="inicio-como-estudiarla">Cómo estudiarla</h2>
+<ol>
+<li>Leé el <a href="#pdf-parcial">parcial</a> de corrido. Es la base de todo y entra en las dos instancias.</li>
+<li>Si vas a final, sumá lo que agrega la página del <a href="#pdf-final">final</a>.</li>
+<li>Agarrá un examen de <a href="ejercicios.html">Ejercicios</a> y hacé el cursograma en papel. Es lo que más tiempo lleva, y la única forma de aprenderlo es dibujando.</li>
+<li>Repasá con la <a href="machete.html">hoja de repaso</a> antes de entrar.</li>
+</ol>
+<div class="ojo"><p class="ojo-t">No hay resoluciones oficiales</p><p>El Drive no trae ningún examen resuelto por la cátedra. Por eso los <a href="ejercicios.html">ejercicios</a> van solo con el enunciado, y acá no vas a encontrar respuestas de consignas prácticas.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial" data-pagina="parcial" aria-label="Parcial de aprobación directa"><p class="pdf-de">Gestión Ingenieril</p><h1>Parcial de aprobación directa</h1>
+<p class="bajada">Cursograma, diccionario de datos, reportes, indicadores, procedimientos y Cuadro de Mando Integral.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-como-viene-el-examen">Cómo viene el examen</h2>
+<p>Revisé dos parciales de aprobación directa, el del 17/06/2025 y el del 22/06/2022. Solo el de 2025 es de los nuevos, pero los dos son iguales en forma.</p>
+<p>Te dan una narrativa de un negocio con cantidades. En 2025 fue un banco de herramientas para oficios, y en 2022, la administración de un consorcio.</p>
+<div class="tomado"><aside class="nota"><strong>Consignas de los dos parciales, por tipo</strong><span>Parciales AD 17/06/2025 y 22/06/2022</span></aside><div class="tabla"><table><thead><tr><th>Tipo de consigna</th><th>2025</th><th>2022</th></tr></thead><tbody><tr><td><mark>Cursograma del proceso</mark> (siempre la primera)</td><td>1</td><td>1</td></tr><tr><td><mark>Diseñar y cuantificar un indicador</mark></td><td>2 y 4</td><td>5 y 10</td></tr><tr><td><mark>DD de un almacén o comprobante</mark></td><td>3</td><td>3 y 7</td></tr><tr><td>Informe o reporte, con DD o diseño propio</td><td>7 y 9</td><td>8</td></tr><tr><td><mark>Fallas o mejoras del proceso</mark></td><td>10</td><td>9</td></tr><tr><td>Preguntas de criterio sobre el caso</td><td>5, 6 y 8</td><td>2, 4 y 6</td></tr><tr><td>Teoría</td><td>2 temas</td><td>2 temas</td></tr></tbody></table></div>
+</div>
+<p>Algunos ejemplos de cómo se pide, sin respuesta. Sirven para ver el tono.</p>
+<ul>
+<li>«Diseñe y cuantifique un Indicador que mida el nivel de devoluciones no satisfactorias presentadas por alquiler, en el último mes. Interpretar el valor obtenido considerando que el rango crítico está entre 40% - 100%.» (2025)</li>
+<li>«Definir y cuantificar un Indicador para medir la proporción de trabajos no satisfechos mensualmente. Considerar que más de un 20% se asume como crítico.» (2022)</li>
+<li>«Diseñe y cuantifique un reporte que crea que sería útil para el proceso. Indique objetivo y ventajas que traería. Y para quien.» (2025)</li>
+</ul>
+<p>Las dos consignas de teoría son las mismas en los dos parciales: <a href="#parcial-las-cuatro-perspectivas">las perspectivas del Cuadro de Mando</a> y <a href="#parcial-procedimiento-de-compras">los documentos del proceso de compras</a>.</p>
+</section>
+<section class="sec"><h2 id="parcial-cursograma">Cursograma</h2>
+<div class="ojo"><p class="ojo-t">De dónde sale esta sección</p><p>El Drive no tiene el apunte de la cátedra sobre cursogramas. Esto sale del resumen de un alumno (páginas 19 a 21), que cita la Norma IRAM 34.501. Las consignas de la cátedra piden «aplicar normas de graficación», sin decir más. Si tu comisión te dio la norma, manda esa.</p>
+</div>
+<h3 id="parcial-para-que-sirve">Para qué sirve</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Un cursograma representa gráficamente las rutinas o procedimientos administrativos de una organización. Muestra de forma sintética la secuencia de acciones que se realizan para cumplir sus finalidades.</p>
+<p>Con el método gráfico podés indicar:</p>
+<ul>
+<li>Cuántos formularios se emiten cada vez.</li>
+<li>Cómo se ordenan los archivos y de qué tipo son.</li>
+<li>Cómo se distribuyen los formularios y hacia dónde van.</li>
+<li>Qué operaciones se llevan a cabo.</li>
+<li>Qué controles se realizan.</li>
+<li>Qué decisiones se toman como consecuencia de los controles.</li>
+</ul>
+<p>También ayuda a analizar el sistema. Deja ver pasos innecesarios, falta de controles y exceso de formularios o registros. Y permite comparar dos sistemas, como el actual y el propuesto.</p>
+<p>Todo cursograma expone tres cosas:</p>
+<ul>
+<li><strong>Áreas de responsabilidad:</strong> el lugar donde se realiza cada operación o trámite. Se dibujan como columnas.</li>
+<li><strong>Tipos de operaciones o trámites:</strong> se representan con símbolos.</li>
+<li><strong>Sentido de circulación:</strong> el flujo de la información a través del circuito.</li>
+</ul>
+<p class="bloque-fuente">Resumen de un alumno y su trabajo de 2018</p></div>
+<h3 id="parcial-simbolos">Símbolos</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p><img src="img/fig-simbolos.webp" alt="Tabla de símbolos del cursograma: documento, operación, control, demora, archivo transitorio, archivo definitivo, destrucción, alternativa, proceso no representado, traslado, traslado de información, conector, puente y acción conjunta"></p>
+<div class="tabla"><table><thead><tr><th>Símbolo</th><th>Forma</th><th>Representa</th></tr></thead><tbody><tr><td>Documento</td><td>Rectángulo</td><td>Lleva la denominación abreviada y la cantidad de ejemplares. Se numeran cuando se detalla cada uno</td></tr><tr><td>Operación</td><td>Círculo</td><td>Elaboración, modificación o incorporación de información, o decisión</td></tr><tr><td>Control</td><td>Cuadrado</td><td>Toda acción de verificación</td></tr><tr><td>Demora</td><td>Medio círculo</td><td>Detención transitoria en espera de un acontecimiento</td></tr><tr><td>Archivo transitorio</td><td>Triángulo con la punta abajo</td><td>Almacenamiento temporario</td></tr><tr><td>Archivo definitivo</td><td>Triángulo con la punta arriba</td><td>Almacenamiento permanente</td></tr><tr><td>Destrucción</td><td>Cruz</td><td>Eliminación de la información, se destruya o no su soporte</td></tr><tr><td>Alternativa</td><td>Rombo</td><td>Distintos cursos de acción</td></tr><tr><td>Proceso no representado</td><td>Hexágono</td><td>Acciones que se desconocen o que no interesa representar</td></tr><tr><td>Traslado</td><td>Flecha continua</td><td>Desplazamiento físico del portador de información</td></tr><tr><td>Traslado de información</td><td>Flecha punteada</td><td>Se mueve la información, sin desplazamiento físico</td></tr><tr><td>Conector</td><td>Pentágono</td><td>Nexo entre procesos, o entre páginas de un procedimiento</td></tr><tr><td>Puente</td><td>Línea con un arco</td><td>Cruce de dos comunicaciones independientes</td></tr><tr><td>Acción conjunta</td><td>Doble línea entre símbolos</td><td>Dos o más sectores hacen algo a la vez. La doble línea no lleva sentido</td></tr></tbody></table></div>
+<p class="bloque-fuente">Resumen de un alumno y su trabajo de 2018</p></div>
+<h3 id="parcial-reglas-de-diagramacion">Reglas de diagramación</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>El mismo resumen agrega tres notas (página 21):</p>
+<ol>
+<li>Los <mark>archivos físicos</mark>, transitorios o definitivos, se diagraman con flecha continua y hacia abajo.</li>
+<li>Los <mark>archivos lógicos</mark>, transitorios o definitivos, se diagraman con flecha punteada y hacia el costado. Si la flecha apunta al archivo, actualiza información. Si apunta a la operación, consulta información.</li>
+<li>Siempre se inicia y se finaliza con un proceso no representado.</li>
+</ol>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en la carpeta del escritorio y en la base de datos. La carpeta es un archivo físico, y el papel baja hasta ahí y se queda. La base de datos es un archivo lógico. El papel no va a ningún lado, solo viaja información por la flecha punteada. Si cargás algo, la flecha va hacia la base. Si mirás algo, viene hacia vos.</p>
+</div>
+<p class="bloque-fuente">Resumen de un alumno y su trabajo de 2018</p></div>
+<h3 id="parcial-como-encararlo">Cómo encararlo</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Esta es una forma de ordenarte, no una regla de la cátedra.</p>
+<ol>
+<li>Leé la narrativa entera. Marcá los sectores, que van a ser tus columnas.</li>
+<li>Marcá cada documento con su cantidad de ejemplares. Las narrativas lo dicen casi siempre: «por duplicado», «en tres ejemplares».</li>
+<li>Seguí cada ejemplar hasta el final. Todos tienen que terminar en un archivo, en otro sector o afuera del proceso.</li>
+<li>Separá los archivos físicos de los almacenes lógicos.</li>
+<li>Marcá las decisiones, que van con un rombo y dos salidas.</li>
+<li>Fijate qué dice que no se grafica. La narrativa o la consigna suelen avisarlo.</li>
+</ol>
+<p class="bloque-fuente">Resumen de un alumno y su trabajo de 2018</p></div>
+<div class="tomado"><aside class="nota"><strong>La consigna puede sacar partes del dibujo</strong><span>Final 05/08/2013, parciales AD 2022 y 2025, práctica de la cátedra</span></aside><p>«El proceso que permite ajustar las cantidades a la Normativa, no se debe graficar.» En el parcial de 2022 aparece parecido, con un alta de rubro que «graficamos pero está fuera de estudio su profundización». La hoja del parcial de 2025 que está en el Drive trae escrito a mano «No graficar esta parte» al costado de un tramo.</p>
+</div>
+<h3 id="parcial-un-cursograma-de-ejemplo">Un cursograma de ejemplo</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p><img src="img/fig-cursograma-tp.webp" alt="Cursograma de cobro de cuotas de una mutual, con tres columnas: Administración, Cobradores y Cobrador"></p>
+<p class="bloque-fuente">Resumen de un alumno y su trabajo de 2018</p></div>
+<div class="ojo"><p class="ojo-t">No es un modelo oficial</p><p>Es del Trabajo Práctico Integrador de un alumno, de 2018 (página 5). Te sirve para ver cómo queda uno entero, con columnas, ejemplares, conectores y demoras. No sé qué nota sacó. Además no cierra con un proceso no representado, como pide el resumen. No lo tomes como la forma correcta.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-diccionario-de-datos">Diccionario de datos</h2>
+<div class="tomado"><aside class="nota"><strong>Se pide en los tres exámenes más nuevos</strong><span>Parciales AD 2025 y 2022, final 28/06/2023</span></aside><p>La forma típica de la consigna es «mediante un DD, los <mark>datos mínimos y necesarios</mark> del almacén tal». Hay otras variantes. Puede pedir el contenido de un comprobante, o un informe expresado como DD.</p>
+</div>
+<p>Lo que se ve en las consignas, también en las de finales viejos:</p>
+<ul>
+<li>«Datos mínimos y necesarios» de un almacén o documento.</li>
+<li>Con un número fijo de datos: «los 06 datos mínimos y necesarios del PRM» (práctica, ejercicio 4).</li>
+<li>Indicando la clave candidata: «Indicar Clave_Candidata» (final 05/08/2013).</li>
+<li>En dos versiones: «Versión Mínima + Versión Ampliada» (final 05/08/2013).</li>
+<li>Con un agregado justificado: «Indique que dato le agregaría y justifique» (parcial 2025).</li>
+</ul>
+<h3 id="parcial-la-notacion">La notación</h3>
+<div class="ojo"><p class="ojo-t">El Drive no define la notación de la cátedra</p><p>No encontré ningún apunte que la explique. Lo único es cómo la usó un alumno en su trabajo de 2018 (página 8), y lo copio tal cual. Confirmala en tu comisión.</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><pre class="codigo"><code>Cuota = nro_cuota + nro_grupo_fliar + mes_cuota + año_cuota + monto
+        + nombre_cobrador + (fecha_pago)
+
+Afiliado = nro_grupo_fliar + nro_orden + datos_personales(e) + estado(d)
+
+datos_personales(e) = tipo_doc + nro_doc + nombre + apellido + fecha_nac
+                      + domicilio + teléfono
+
+estado(d) = &lt;habilitado | inhabilitado&gt;</code></pre>
+<p>En ese trabajo, <code>=</code> significa «se compone de» y <code>+</code> suma campos. Los paréntesis marcan un dato que puede faltar, como la fecha de pago de una cuota sin cobrar. La marca <code>(e)</code> indica una estructura, que se detalla aparte. La marca <code>(d)</code> indica un dato discreto, con sus valores posibles.</p>
+<p class="bloque-fuente">Trabajo de un alumno, 2018</p></div>
+</section>
+<section class="sec"><h2 id="parcial-reportes">Reportes</h2>
+<div class="tomado"><aside class="nota"><strong>Se pide un reporte o informe en los tres exámenes más nuevos</strong><span>Parciales AD 2025 y 2022, final 28/06/2023</span></aside><p>En el final de 2023 se pidió con información gerencial, «como DD y también diseñar reporte ejemplificando». En el parcial de 2025, que mostrara los tiempos de las etapas de los alquileres. En los dos parciales se pidió diseñar uno útil para el proceso y justificarlo.</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Un reporte tiene tres partes, según el resumen de un alumno (página 17):</p>
+<ul>
+<li>Título.</li>
+<li>Temas, con su criterio de orden.</li>
+<li>Fecha o período, con la actualización de los datos.</li>
+</ul>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+<p>Las consignas de la guía de práctica (página 13) muestran qué más se espera. Piden:</p>
+<ul>
+<li><strong>Un orden explícito:</strong> «ordenados alfabéticamente», «en orden progresivo».</li>
+<li><strong>Totales:</strong> por grupo y un total general.</li>
+<li><strong>Porcentajes:</strong> por ejemplo, «% del Plan sobre el Total de Pólizas emitidas».</li>
+<li><strong>Un período:</strong> mensual, semestral, y qué meses.</li>
+<li><strong>Muestra de datos:</strong> por ejemplo, cuantificar solo para dos líneas.</li>
+<li><strong>Casos vacíos:</strong> «considerar que pueden no presentarse ausencias».</li>
+<li><strong>Interés gerencial:</strong> información que permita sacar conclusiones, no un listado de todo.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Fijate para quién es</p><p>El parcial de 2025 preguntó «objetivo y ventajas que traería» y «para quien». No alcanza con dibujar la tabla. Pensá quién la va a leer y qué decide con ella.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-indicadores-de-gestion">Indicadores de gestión</h2>
+<p>Esta parte sale del apunte de la cátedra <a href="https://drive.google.com/file/d/1XgDg0dHz-ncAZD2_SPfMExpqN3L7tQp0/view">Indicadores de Gestión</a>.</p>
+<div class="tomado"><aside class="nota"><strong>Dos consignas en cada examen nuevo</strong><span>Parcial AD 2025 (consignas 2 y 4) y final 28/06/2023 (consignas 4 y la última)</span></aside><p>Se pide <mark>diseñar y cuantificar</mark> un indicador con los datos de la narrativa. Después hay que <mark>interpretar el valor</mark> contra un rango crítico que da el enunciado, o justificarlo.</p>
+</div>
+<h3 id="parcial-que-es-un-indicador">Qué es un indicador</h3>
+<p>«Solo se puede mejorar aquello, que se puede medir», dice el apunte (página 1). Los objetivos de una organización tienen que concretarse en expresiones medibles, y los indicadores son los responsables de esa concreción (página 2).</p>
+<p>Un indicador «es una representación Cuantitativa o Cualitativa, verificable objetivamente, que refleja la situación de un aspecto de la realidad y el estado de cumplimiento de un objetivo, actividad o producto deseado en un momento del tiempo» (página 3). El apunte también lo presenta como «un punto de referencia que permite observar y medir el avance en el logro de una Meta esperada».</p>
+<p>Con uno solo no alcanza. Hace falta un sistema interrelacionado de indicadores, que contemple la mayor cantidad posible de magnitudes a medir (página 2). Los indicadores de gestión son ante todo información, o sea que agregan valor. Por eso deben tener los atributos de la información.</p>
+<p>Para el apunte son los «signos vitales» de la organización. Su monitoreo continuo permite identificar los síntomas que salen del desarrollo normal de las actividades. La gestión moderna necesita indicadores con información constante, real y precisa sobre efectividad, eficiencia, eficacia, productividad, calidad, ejecución presupuestal, mercado y gestión de RRHH, entre otros (página 1).</p>
+<h3 id="parcial-ventajas-de-disenar-y-calcular-indicadores">Ventajas de diseñar y calcular indicadores</h3>
+<p>El apunte enumera estas (páginas 3 y 4):</p>
+<ul>
+<li>Permite adecuar los procesos internos, detectando inconsistencias.</li>
+<li>Diagnosticar problemas.</li>
+<li>Medir comportamientos.</li>
+<li>Posibilita mayor eficiencia en la asignación de recursos físicos, humanos y financieros.</li>
+<li>Facilita la toma de decisiones a partir de los impactos generados.</li>
+<li>Muestra en forma permanente cómo se ejecutan los procesos.</li>
+<li>Permite implementar los correctivos necesarios en forma oportuna.</li>
+<li>Estimula y promueve el trabajo en equipo.</li>
+<li>Permite orientar los objetivos del sistema en procura de la satisfacción del cliente.</li>
+<li>Permite relacionar la productividad con el nivel salarial.</li>
+</ul>
+<div class="tabla"><table><thead><tr><td></td><th>Ejemplo del apunte, página 5</th></tr></thead><tbody><tr><td>Dato</td><td>Número de horas de capacitación</td></tr><tr><td>Ratio</td><td>Número de horas de capacitación por empleado</td></tr><tr><td>Indicador</td><td>% de mejora de las competencias del personal</td></tr></tbody></table></div>
+<h3 id="parcial-eficacia-eficiencia-y-efectividad">Eficacia, eficiencia y efectividad</h3>
+<p>Para valorar el resultado de un objetivo hay que diseñar indicadores de eficacia, eficiencia y calidad. Para conocer el impacto real de la gestión, el apunte suma el concepto de efectividad (página 3).</p>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Definición (apunte, página 3)</th><th>Qué miden sus indicadores</th></tr></thead><tbody><tr><td>Eficacia</td><td>El nivel de logro de los objetivos establecidos, a través de los productos o resultados obtenidos</td><td>Los más usados son los de producto, que informan sobre los bienes producidos y los servicios prestados</td></tr><tr><td>Eficiencia</td><td>La óptima utilización de los recursos disponibles en el logro de un objetivo</td><td>El rendimiento de los recursos utilizados en un proceso. Por ejemplo, costos o tiempos de una operación de trabajo repetitiva</td></tr><tr><td>Efectividad</td><td>La relación entre los recursos utilizados y el impacto obtenido. Integra la eficacia y la eficiencia. La mayor efectividad se alcanza con un uso óptimo de los recursos, logrando los impactos esperados</td><td>La satisfacción de las necesidades del proceso</td></tr></tbody></table></div>
+<p>Para calcular la eficiencia hay que comparar contra niveles estándares, ya sean históricos, teóricos o presupuestados.</p>
+<p>El apunte considera estos indicadores como medida del impacto de una gestión: rendimiento, crecimiento, competitividad, productividad, participación, adaptación y cobertura (página 3).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Tenés que llegar a Córdoba. Si llegaste, fuiste eficaz. Si llegaste gastando menos nafta y tiempo de lo previsto, además fuiste eficiente. Si llegaste, gastaste poco y además lo que ibas a hacer allá salió bien, fuiste efectivo.</p>
+</div>
+<p>Medir el desempeño es difícil cuando hay muchos centros de responsabilidad con funciones distintas. Para el apunte, la combinación de resultados, costos y tiempo permite medir objetivamente la eficacia y la eficiencia de un área. También permite comparar áreas aunque su trabajo sea muy distinto. Las expresiones sirven sin importar el carácter de la actividad, sea de producción, comercial, financiera, intelectual, de control u otra (páginas 7 y 8).</p>
+<p>Las fórmulas del apunte (página 8), con RA y RE resultado alcanzado y esperado, CA y CE costo alcanzado y esperado, TA y TE tiempo alcanzado y esperado:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Eficacia</mtext><mo>&#61;</mo><mfrac><mrow><mi>R</mi><mi>A</mi></mrow><mrow><mi>R</mi><mi>E</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{Eficacia} &#61; &#92;frac{RA}{RE}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Eficacia</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord mathnormal" style="margin-right:0.0576em;">E</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord mathnormal">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Eficiencia</mtext><mo>&#61;</mo><mfrac><mrow><mi>R</mi><mi>A</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>C</mi><mi>A</mi><mo>⋅</mo><mi>T</mi><mi>A</mi><mo stretchy="false">)</mo></mrow><mrow><mi>R</mi><mi>E</mi><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mi>C</mi><mi>E</mi><mo>⋅</mo><mi>T</mi><mi>E</mi><mo stretchy="false">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{Eficiencia} &#61; &#92;frac{RA / (CA &#92;cdot TA)}{RE / (CE &#92;cdot TE)}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Eficiencia</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord mathnormal" style="margin-right:0.0576em;">E</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span><span class="mord mathnormal" style="margin-right:0.0576em;">E</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="mord mathnormal" style="margin-right:0.0576em;">E</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord mathnormal">A</span><span class="mord">/</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="mord mathnormal">A</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Efectividad</mtext><mo>&#61;</mo><mfrac><mrow><mtext>Puntaje eficacia</mtext><mo>+</mo><mtext>Puntaje eficiencia</mtext></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{Efectividad} &#61; &#92;frac{&#92;text{Puntaje eficacia} + &#92;text{Puntaje eficiencia}}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Efectividad</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Puntaje eficacia</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord">Puntaje eficiencia</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>La eficacia es la comparación entre lo alcanzado y lo esperado. Los niveles más altos de eficacia corresponden a porcentajes de ejecución muy altos, y esa calificación es cada vez más difícil de obtener. Normalmente, cumplir más exige más esfuerzo e impone más dificultad (página 8).</p>
+<p>La fórmula de eficiencia toma la eficacia, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>A</mi><mi mathvariant="normal">/</mi><mi>R</mi><mi>E</mi></mrow><annotation encoding="application/x-tex">RA / RE</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord mathnormal">A</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord mathnormal" style="margin-right:0.0576em;">E</span></span></span></span>, y la pondera por dos variables críticas, el costo incurrido y el tiempo empleado (página 9). La relación del costo y el tiempo con el resultado es inversa. Mientras menos tiempo y recursos se consuman para obtener el objetivo, mejor será el desempeño. Y mientras más resultado se obtenga por unidad de tiempo y de costo, también.</p>
+<p>Para el apunte, quien es eficaz y eficiente es, en esencia, efectivo. Fijar metas de eficacia y eficiencia eleva en forma continua la competitividad de la empresa.</p>
+<div class="tabla"><table><thead><tr><th>Eficacia (rango)</th><th>Puntos</th><td></td><th>Eficiencia (rango)</th><th>Puntos</th></tr></thead><tbody><tr><td>0 / 20 %</td><td>0</td><td></td><td>Muy eficiente, &gt; 1</td><td>5</td></tr><tr><td>21 / 40 %</td><td>1</td><td></td><td>Eficiente, = 1</td><td>3</td></tr><tr><td>41 / 60 %</td><td>2</td><td></td><td>Ineficiente, &lt; 1</td><td>1</td></tr><tr><td>61 / 80 %</td><td>3</td><td></td><td></td><td></td></tr><tr><td>81 / 90 %</td><td>4</td><td></td><td></td><td></td></tr><tr><td>&gt; 91 %</td><td>5</td><td></td><td></td><td></td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Dos cosas raras del apunte</p><p>Las tablas van tal cual están en las páginas 8 y 9. El rango último dice «&gt; 91 %», así que el 91 % justo queda sin tabla. Además el apunte dice que «la efectividad se expresa en porcentaje», pero la fórmula da un puntaje de 0 a 5 y no explica cómo pasarlo. Si te lo piden, preguntá.</p>
+</div>
+<h3 id="parcial-condiciones-basicas">Condiciones básicas</h3>
+<p>Un indicador debe ser (apunte, página 4):</p>
+<ul>
+<li><strong>Relevante:</strong> aporta información imprescindible para informar, controlar, evaluar y decidir.</li>
+<li><strong>Sin ambigüedades en el cálculo:</strong> así es auditable y se puede evaluar su fiabilidad.</li>
+<li><strong>Inequívoco:</strong> no permite interpretaciones contrapuestas.</li>
+<li><strong>Preciso:</strong> su margen de error es aceptable.</li>
+<li><strong>Accesible:</strong> el costo de obtenerlo es menor que los beneficios que reporta.</li>
+</ul>
+<h3 id="parcial-tipos-y-como-se-expresan">Tipos y cómo se expresan</h3>
+<ul>
+<li><strong>Por el modo de expresar su valor:</strong> cuantitativos, en términos numéricos, o cualitativos, que siguen una escala ordinal que se puede transformar en números con un código.</li>
+<li><strong>Por su complejidad:</strong> simples, que son valores absolutos de observaciones directas, o compuestos, que son razones entre indicadores simples, o entre uno simple y otra variable.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Qué es</th><th>Ejemplo del apunte (páginas 4 y 5)</th></tr></thead><tbody><tr><td>Índice o razón</td><td>Relación entre dos valores, de la misma variable o no</td><td>Vendedores cesados en el año / promedio de vendedores anuales = 10 / 200 = 0.05</td></tr><tr><td>Proporción</td><td>Igualdad entre dos razones. Sirve para comparar y reducir números grandes. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi mathvariant="normal">/</mi><mi>B</mi><mo>&#61;</mo><mi>K</mi><mi mathvariant="normal">/</mi><mi>C</mi></mrow><annotation encoding="application/x-tex">A / B &#61; K / C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.0502em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0715em;">K</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span></span></span></span> se lee «A es a B como K es a C»</td><td>15 / 12 = 5 / 4 = 1.25</td></tr><tr><td>Coeficiente K</td><td>Valor numérico de una razón o proporción. Es cuánto numerador hay por cada unidad de denominador, en sus unidades de medida</td><td>Total alumnos / total docentes = 90 / 3 = 30 alumnos por docente</td></tr><tr><td>Porcentaje</td><td>Numerador y denominador en la misma unidad, por 100</td><td>Unidades rechazadas / fabricadas = 25 / 200 = 0.125, o sea 12.5 %</td></tr><tr><td>Relación</td><td>Una cosa cada tantas de otra</td><td>10 pedidos / 200 visitas = 1 / 20, un pedido concretado por 20 visitas. Otro del apunte, para la efectividad de cada visita: 185 u. m. vendidas en 840 visitas, 1 u. m. vendida por 4.54 visitas</td></tr><tr><td>Rotación o cumplimiento</td><td>Veces que se logró una meta</td><td>Recaudado / programado = 13.5 / 10 = 1.35, el 135 % de la meta</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Escribí la unidad y el nombre</p><p>En el apunte el resultado siempre dice qué es: «alumnos por docente», «1 pedido concretado por 20 visitas». Un número suelto no se puede interpretar. La guía de práctica lo pide así en una consigna de indicadores: «Indicar en que magnitud están expresados los valores utilizados para el cálculo» (página 14).</p>
+</div>
+<h3 id="parcial-como-se-administra-un-indicador">Cómo se administra un indicador</h3>
+<p>Para cada indicador se determina (apunte, página 9):</p>
+<ul>
+<li><strong>Estado:</strong> el valor actual o inicial.</li>
+<li><strong>Umbral:</strong> el valor que se requiere lograr o mantener.</li>
+<li><strong>Rango de gestión:</strong> el espacio entre los valores mínimos y máximos que puede tomar. Para cada indicador se establece un rango de comportamiento que permita hacerle el seguimiento.</li>
+<li><strong>Periodicidad o frecuencia:</strong> cada cuánto se mide.</li>
+<li><strong>Análisis de la información:</strong> la interpretación de los resultados, que representa el potencial de mejora.</li>
+<li><strong>Fecha de revisión:</strong> cuándo se revisa, ajusta o modifica.</li>
+</ul>
+<p>Las consignas con «rango crítico» juegan con esto. Te dan el rango y te piden el análisis.</p>
+<h3 id="parcial-catalogo-del-apunte">Catálogo del apunte</h3>
+<p>Son los indicadores que el apunte da como clave, con sus mismas fórmulas (páginas 10 a 17). No hace falta memorizar todos. Sirven para saber cómo se arma uno. La tercera columna dice lo que el apunte agrega sobre qué mide, en qué unidad sale o qué valor no debería pasar. Cuando está vacía, el apunte no agrega nada.</p>
+<p><strong>Producción y logística</strong></p>
+<div class="tabla"><table><thead><tr><th>Indicador</th><th>Fórmula</th><th>Qué mide o valor de referencia</th></tr></thead><tbody><tr><td>Utilización</td><td>Capacidad utilizada / Capacidad disponible</td><td></td></tr><tr><td>Rendimiento (eficacia)</td><td>Nivel de producción real / Nivel de producción esperada</td><td></td></tr><tr><td>Eficiencia de la mano de obra</td><td>Costo real de MO / Costo presupuestado de MO</td><td>Es un indicador de productividad, o sea de eficiencia</td></tr><tr><td>Eficiencia de materiales</td><td>Costo real de materiales / Costo presupuestado de materiales</td><td>Ídem</td></tr><tr><td>Rendimiento de la calidad</td><td>Volumen de producción conforme / Volumen total producido</td><td></td></tr><tr><td>Mermas</td><td>Total de kilos producidos / Total en kilos de materias primas utilizadas</td><td>En la empresa industrial, el % de mermas no debería superar el 5 % / 7 %</td></tr><tr><td>Rechazos de calidad</td><td>Total de rechazos por falta de calidad / Total producido</td><td>No debería superar el 1 %</td></tr><tr><td>Período de producción</td><td>Días de trabajo (año laboral) / Rotación de productos semielaborados</td><td>Días que dura, por término medio, el proceso productivo. Sale en días</td></tr><tr><td>Período de aprovisionamiento</td><td>Días de trabajo (año laboral) / Rotación de materias primas</td><td>Días que están almacenadas, por término medio, las materias primas, desde su compra hasta su uso en producción. Sale en días</td></tr><tr><td>Ausentismo o presentismo</td><td>Días trabajados / Días laborables</td><td></td></tr><tr><td>Producción por hora</td><td>Total piezas fabricadas / Total horas programadas</td><td>Piezas fabricadas por hora</td></tr><tr><td>Entregas perfectamente recibidas</td><td>Pedidos rechazados / Total de órdenes de compra emitidas</td><td>Controla la calidad y la cantidad de lo recibido y la puntualidad de los proveedores</td></tr><tr><td>Certificación de proveedores</td><td>Proveedores certificados / Total de proveedores</td><td>Controla la calidad de los proveedores y el nivel de integración con ellos</td></tr><tr><td>Costo de almacenamiento por unidad</td><td>Costo total de almacenamiento / Número de unidades almacenadas</td><td></td></tr><tr><td>Costo de unidad despachada</td><td>Costo total operativo del almacén / Unidades despachadas</td><td></td></tr><tr><td>Cumplimiento de despachos</td><td>Número de despachos cumplidos / Total de despachos requeridos</td><td></td></tr><tr><td>Costo del metro cuadrado de almacén</td><td>Costo total operativo del almacén / Área física de almacenamiento</td><td></td></tr><tr><td>Obsolescencia</td><td>(Unidades dañadas + obsoletas + vencidas) / Unidades disponibles en el inventario</td><td>El nivel de productos no disponibles para despacho por obsolescencia, deterioro, averías, vencimiento o mal estado</td></tr><tr><td>Unidades despachadas por operario</td><td>Total unidades despachadas / Total operarios de despacho</td><td></td></tr><tr><td>Costo de despacho por operario</td><td>Costo total operativo del almacén / Número de operarios del almacén</td><td>El costo con que participa cada operario dentro del total despachado</td></tr><tr><td>Costos de transporte contra venta</td><td>Costo del transporte / Valor de ventas totales</td><td>Controla el costo del transporte respecto de las ventas</td></tr><tr><td>Entregas a tiempo</td><td>Pedidos entregados en fecha / Total de pedidos entregados</td><td>El cumplimiento de la entrega en la fecha o el período pactado con el cliente</td></tr><tr><td>Pedidos entregados completos</td><td>Pedidos entregados completos / Total de pedidos entregados</td><td>La efectividad de los despachos a los clientes en un período</td></tr><tr><td>Documentación sin problema</td><td>Facturas generadas sin errores / Total de facturas</td><td>La exactitud de la información de las facturas a los clientes</td></tr><tr><td>Costos logísticos contra ventas</td><td>Costos totales logísticos / Ventas totales</td><td>Controla el costo de la operación logística respecto de las ventas</td></tr><tr><td>Rotación de materias primas</td><td>Unidades vendidas en el período / Existencia promedio del inventario</td><td>Las veces que se renovaron las existencias en un período, generalmente anual. Numerador y denominador, en unidades físicas o monetarias. Sale en «veces», y dice cuántas veces se recupera la inversión en existencias</td></tr><tr><td>Errores de previsión de demanda</td><td>(Demanda real - Previsión) / Previsión</td><td></td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Un nombre engañoso</p><p>El «Indicador de Entregas perfectamente Recibidas» del apunte (página 11) divide los pedidos <mark>rechazados</mark>, a pesar del nombre. Va literal. Si lo usás, aclará qué mide.</p>
+</div>
+<p><strong>Recursos humanos</strong></p>
+<div class="tabla"><table><thead><tr><th>Indicador</th><th>Fórmula</th><th>Qué mide o valor de referencia</th></tr></thead><tbody><tr><td>Horas de capacitación por trabajador</td><td>Total de horas de capacitación / Total de trabajadores</td><td>Sale en horas por trabajador</td></tr><tr><td>Costo de capacitación</td><td>Total de gasto en capacitación / Total de trabajadores</td><td>Sale en inversión por trabajador. En lenguaje de finanzas se habla de gasto, y en el de RRHH, de inversión en el personal</td></tr><tr><td>Accidentes por trabajador</td><td>Número de días perdidos / Total de trabajadores</td><td>Tasa de accidentabilidad por trabajador. La meta debería ser siempre cero, aunque en la realidad siempre se pierden horas por accidentes</td></tr><tr><td>Frecuencia</td><td>Accidentes con pérdida de tiempo / Horas hombre efectivamente trabajadas</td><td>Índice de frecuencia</td></tr><tr><td>Gravedad</td><td>Días perdidos / Horas hombre efectivamente trabajadas</td><td>Índice de gravedad</td></tr><tr><td>Rotación (turnover)</td><td>(Ingresos + Salidas) / 2</td><td>Rotación de personas respecto de ingresos (altas) y salidas (bajas). El apunte la llama «Indicador de Total de Trabajadores por Período» y dice que da la tasa de rotación</td></tr><tr><td>Desvinculaciones voluntarias</td><td>Salidas por renuncia voluntaria / Total de trabajadores del período</td><td>Analiza las salidas voluntarias para detectar las causas de renuncia. Da una tasa</td></tr><tr><td>Desvinculaciones totales</td><td>Salidas totales / Total de trabajadores del período</td><td>Suma las voluntarias y las que define la empresa. Da una tasa</td></tr><tr><td>Ausentismo por días</td><td>Días hombre perdidos / Días hombre laborables</td><td></td></tr><tr><td>Ausentismo por horas</td><td>Horas hombre perdidas / Horas hombre laborables</td><td></td></tr><tr><td>Coste medio salarial</td><td>Total gastos en personal / Plantilla media de personal</td><td></td></tr><tr><td>Sugerencias del personal</td><td>Total sugerencias recibidas / Número total de empleados</td><td></td></tr></tbody></table></div>
+<p><strong>Compras</strong></p>
+<div class="tabla"><table><thead><tr><th>Indicador</th><th>Fórmula</th><th>Qué mide o valor de referencia</th></tr></thead><tbody><tr><td>Compras estratégicas</td><td>Compras reales / Compras presupuestadas</td><td></td></tr><tr><td>Costo medio de orden de compra</td><td>Coste total de aprovisionamiento / Número de órdenes de compra</td><td></td></tr><tr><td>Concentración de compra</td><td>Importe total de compras / Número total de pedidos</td><td>El importe medio de compra por pedido</td></tr><tr><td>Ranking de proveedores ABC, 1</td><td>Valor de las compras al proveedor / Valor total de las compras</td><td></td></tr><tr><td>Ranking de proveedores ABC, 2</td><td>Número de pedidos al proveedor / Número total de pedidos</td><td></td></tr><tr><td>Rechazos</td><td>Valor de las devoluciones / Valor de las compras</td><td>Devoluciones por compras</td></tr><tr><td>Factor de urgencia</td><td>Pedidos urgentes / Pedidos totales, en unidades monetarias</td><td>Un valor elevado implica mayores costes y falta de planificación</td></tr><tr><td>Dependencia de proveedores</td><td>Compras a proveedor exclusivo / Compras totales</td><td>Valora el riesgo de no tener proveedores alternativos. Se puede calcular para cada categoría de artículos</td></tr><tr><td>Plazo medio de entrega</td><td>Valor de pedidos pendientes / Promedio diario de compras, los dos en unidades monetarias</td><td>Los días que tardan los proveedores en servir los pedidos</td></tr></tbody></table></div>
+<p><strong>Gestión comercial</strong></p>
+<div class="tabla"><table><thead><tr><th>Indicador</th><th>Fórmula</th><th>Qué mide o valor de referencia</th></tr></thead><tbody><tr><td>Margen bruto</td><td>Utilidad bruta / Ventas netas</td><td>La utilidad bruta que se obtiene por las ventas realizadas</td></tr><tr><td>Utilidades netas</td><td>Utilidades netas / Ventas netas</td><td></td></tr><tr><td>Costes de operaciones</td><td>Costes totales / Ventas netas</td><td></td></tr><tr><td>Rotación de inventarios, 1</td><td>Precio de venta de los bienes / Precio promedio de venta del inventario</td><td>Las veces que un inventario rota o se vende en un período, generalmente anual</td></tr><tr><td>Rotación de inventarios, 2</td><td>Ventas en unidades / Inventario promedio en unidades</td><td></td></tr><tr><td>Margen de utilidad sobre el costo</td><td>Margen de utilidad en unidades monetarias / Costo</td><td>Se expresa en %</td></tr><tr><td>Margen de utilidad sobre el precio</td><td>Margen de utilidad en unidades monetarias / Precio de venta</td><td>Se expresa en %</td></tr><tr><td>Rebajas</td><td>Rebaja en unidades monetarias / Ventas totales netas en unidades monetarias</td><td>Se expresa en %</td></tr><tr><td>Precio medio de venta</td><td>Ventas totales en unidades monetarias / Ventas totales en unidades físicas</td><td>Precio medio por unidad</td></tr><tr><td>Ventas por visita</td><td>Unidades monetarias vendidas / Número de visitas realizadas</td><td>El apunte lo pone como indicador de efectividad de la fuerza de venta. Es muy usado para medir la efectividad de cada visita</td></tr><tr><td>Desempeño del vendedor</td><td>Ventas de cada vendedor / Ventas totales</td><td></td></tr><tr><td>Rotación de vendedores</td><td>Vendedores cesados en el año / Vendedores promedio en el año</td><td></td></tr><tr><td>Costes de venta</td><td>Costes de venta / Costes totales</td><td></td></tr></tbody></table></div>
+<p><strong>Clientes</strong></p>
+<div class="tabla"><table><thead><tr><th>Indicador</th><th>Fórmula</th><th>Qué mide o valor de referencia</th></tr></thead><tbody><tr><td>Calidad</td><td>Interacciones con solución en un solo contacto / Volumen total de interacciones</td><td>Las interacciones cerradas satisfactoriamente para la empresa. En general es más alto en las presenciales que en las telefónicas</td></tr><tr><td>Satisfacción</td><td>Clientes que contactan a la empresa con alguna insatisfacción (queja o reclamo) / Total de contactos atendidos</td><td>Debe ser decreciente. Con una buena gestión de servicios al cliente, los reclamos deben bajar en forma permanente</td></tr><tr><td>Retención</td><td>Clientes retenidos que solicitan retiro del servicio / Total de clientes que solicitan el servicio</td><td>El apunte dice que debe ser decreciente</td></tr><tr><td>Costo por atención por agente</td><td>Contactos por agente / Costo total del servicio</td><td></td></tr><tr><td>Costo por atención por horario</td><td>Contactos por horario / Costo total del servicio</td><td></td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">La retención «decreciente»</p><p>Así lo imprime el apunte en la página 16, con la misma frase que pone para la satisfacción. Con la fórmula tal como está escrita, no queda claro por qué tendría que bajar. No lo pude aclarar con otro material. Si te lo piden, preguntá en tu comisión.</p>
+</div>
+<p><strong>Finanzas</strong></p>
+<p>Los ratios financieros son razones que permiten analizar los aspectos favorables y desfavorables de la situación económico-financiera de la empresa (página 16). El apunte los agrupa en cuatro familias.</p>
+<div class="tabla"><table><thead><tr><th>Familia</th><th>Ratio</th><th>Fórmula</th><th>Qué mide o cómo se lee</th></tr></thead><tbody><tr><td>Liquidez</td><td>Liquidez severa o prueba ácida</td><td>(Activo corriente - Existencias) / Pasivo corriente</td><td>Igual a 2, la empresa cumple con sus obligaciones a corto plazo. Mayor que 2, corre el riesgo de tener activos ociosos. Menor que 2, corre el riesgo de no cumplir sus obligaciones a corto plazo</td></tr><tr><td>Solvencia</td><td>Endeudamiento total</td><td>(Pasivo corriente + Pasivo no corriente) / Patrimonio</td><td>La relación entre los fondos totales a corto y largo plazo aportados por los acreedores y los aportados por la empresa</td></tr><tr><td>Rentabilidad</td><td>Rentabilidad del activo (ROA)</td><td>Utilidad neta / Activo</td><td>Es el más representativo de la marcha global de la empresa. Muestra su capacidad para obtener utilidades usando todo el activo</td></tr><tr><td>Rentabilidad</td><td>Rentabilidad neta sobre ventas</td><td>Utilidad neta / Ventas netas</td><td>Es muy concreto, porque usa el beneficio neto después de descontar costos y gastos</td></tr><tr><td>Gestión, operativos o de rotación</td><td>Rotación de inventarios</td><td>Costo de ventas / Existencias en unidades</td><td>La rapidez con que los inventarios se convierten en cuentas por cobrar mediante las ventas. Da las veces que rota el stock en un período</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="parcial-fallas-y-mejoras">Fallas y mejoras</h2>
+<div class="tomado"><aside class="nota"><strong>Se pide en los tres exámenes más nuevos</strong><span>Parciales AD 2025 y 2022, final 28/06/2023</span></aside><p>«Indique fallas o mejoras que podría observar en dicho proceso» está en el parcial de 2025, y una parecida en el de 2022. El final de 2023 lo pide atado a un problema concreto, con la queja de los clientes por los precios facturados.</p>
+</div>
+<p>La cátedra no da un método en el material del Drive. Estas son pistas para buscarlas, tomadas de lo que el cursograma deja ver y de las normas de control interno de más abajo:</p>
+<ul>
+<li>Pasos innecesarios, falta de controles y exceso de formularios o registros.</li>
+<li>Funciones que deberían estar separadas y las hace la misma persona.</li>
+<li>Un documento o un archivo que falta, o que debería tener una copia.</li>
+<li>Una comunicación telefónica sin registro.</li>
+<li>Un dato que se guarda y nadie usa, o uno que se necesita y no se guarda.</li>
+<li>Una política que no tiene lógica contra los números de la narrativa.</li>
+</ul>
+<p>Lo que se espera es una mejora <mark>concreta y justificada</mark>. «Justifique» y «Explique» aparecen seguido en las consignas.</p>
+</section>
+<section class="sec"><h2 id="parcial-documentos-comerciales">Documentos comerciales</h2>
+<div class="ojo"><p class="ojo-t">De dónde salen estas secciones</p><p>De acá hasta <a href="#parcial-procedimiento-de-produccion">Producción</a>, todo sale del resumen de un alumno (páginas 2 a 13). La guía de la cátedra solo lista los temas, y el apunte que los desarrolla no está en el Drive. Parecen armados con material de la cátedra, pero no lo pude confirmar. Usalos para orientarte y contrastalos con tu comisión.</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Toda operación se registra, y ese registro tiene que estar respaldado. Una de las formas más adecuadas es emitir documentación específica, con el detalle de la operación y con signo de su legitimación.</p>
+<div class="tabla"><table><thead><tr><th>Documentos que se archivan y generan registración</th><th>Documentos que solo se archivan</th></tr></thead><tbody><tr><td>Factura</td><td>Orden de compra</td></tr><tr><td>Nota de débito</td><td>Nota de venta</td></tr><tr><td>Nota de crédito</td><td>Remito</td></tr><tr><td>Ticket</td><td>Resumen de cuenta</td></tr><tr><td>Recibo</td><td></td></tr><tr><td>Pagaré</td><td></td></tr><tr><td>Cheque</td><td></td></tr><tr><td>Nota de crédito bancaria</td><td></td></tr></tbody></table></div>
+<p>Las siglas más comunes son REQ (nota de requisición), PC (pedido de cotización), OC (orden de compra), NR (nota de recepción), RTO (remito), FAC (factura), ND y NC (notas de débito y crédito), RBO (recibo), OP (orden de pago), CH (cheque), PAG (pagaré), HR (hoja de ruta), MC (minuta contable) y OPR (orden de producción).</p>
+<p>El proceso de compras sigue en el de pagos. El de ventas sigue en el de cobranzas.</p>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+</section>
+<section class="sec"><h2 id="parcial-procedimiento-de-compras">Procedimiento de compras</h2>
+<div class="tomado"><aside class="nota"><strong>Se tomó en los dos parciales</strong><span>Parciales AD 17/06/2025 y 22/06/2022</span></aside><p>En 2025: «¿Qué documentación o comprobantes participan en un sistema del proceso de compras? Justificar la función de por lo menos 3 de ellos.» En 2022: «Indique en un Proceso de Compras, cuatro documentos que se utilizan e indique cual es la función de cada uno y que inconveniente podría existir su no existencia.»</p>
+</div>
+<h3 id="parcial-tipos-de-compra">Tipos de compra</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><ul>
+<li><strong>Menores:</strong> bienes o servicios de escaso valor, de necesidad circunstancial y no previsibles.</li>
+<li><strong>De bienes de uso:</strong> rodados, maquinarias, instalaciones, inmuebles. No requieren reposición permanente, y los autorizan los niveles de decisión más altos.</li>
+<li><strong>Normales:</strong> bienes de consumo repetitivo, ligados a la producción y la comercialización. Se pueden presupuestar.</li>
+<li><strong>Importaciones:</strong> compras a un proveedor extranjero. Suman seguros de cambio, transporte, despacho y derechos de importación.</li>
+</ul>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+<h3 id="parcial-comprobantes">Comprobantes</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><div class="tabla"><table><thead><tr><th>El proceso emite</th><th>No emite</th></tr></thead><tbody><tr><td>Nota de requisición: pide la adquisición o provisión de un bien o servicio</td><td>Cotización</td></tr><tr><td>Pedido de cotización o solicitud de compra: pide a los potenciales proveedores una cotización</td><td>Remito</td></tr><tr><td>Orden de compra o nota de pedido: solicita al proveedor los bienes o servicios detallados</td><td>Factura</td></tr><tr><td>Informe o nota de recepción: constancia de que los bienes o servicios se recibieron</td><td></td></tr></tbody></table></div>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+<h3 id="parcial-modulos">Módulos</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><ol>
+<li>Detección de la necesidad de compra.</li>
+<li>Selección de proveedores y pedido de cotización.</li>
+<li>Adjudicación.</li>
+<li>Colocación de la orden de compra.</li>
+<li>Recepción.</li>
+<li>Contabilización.</li>
+</ol>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+<h3 id="parcial-normas-de-control-interno">Normas de control interno</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><ul>
+<li><strong>Separación de funciones:</strong> Compras se separa del manejo físico de los bienes y de su registración. O sea, de Almacenes, Recepción, Cuentas a Pagar, Contabilidad y Administración.</li>
+<li><strong>Inicio del trámite:</strong> con un pedido formal de un funcionario responsable.</li>
+<li><strong>Cotizaciones:</strong> arriba de cierto monto se piden por lo menos 3, para evitar la discrecionalidad del responsable. Los pedidos y las cotizaciones van por escrito. Si no se llega al monto establecido, las consultas pueden hacerse por teléfono. Una compra menor podría hacerse en forma directa.</li>
+<li><strong>Autorización:</strong> una vez que un funcionario responsable decide la compra, interviene con su firma la cotización del proveedor o la orden de compra.</li>
+<li><strong>Punto de pedido o lote de compra:</strong> la cantidad en existencia a partir de la cual se solicita la compra. Se establece como un stock mínimo más un margen de seguridad, teniendo en cuenta el daño que la falta podría causar.</li>
+<li><strong>Control de lo recibido:</strong> calidad y cantidad, con reportes escritos. Si la calidad requiere conocimientos técnicos suele separarse de Almacenes, que solo da conformidad por la cantidad.</li>
+<li><strong>Seguros:</strong> sobre la mercadería en tránsito por cuenta y riesgo de la empresa.</li>
+</ul>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+</section>
+<section class="sec"><h2 id="parcial-procedimiento-de-pagos">Procedimiento de pagos</h2>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Se inicia cuando se contrae una obligación y culmina cuando se cancela la deuda y se registra. Las obligaciones pueden ser una compra a un proveedor, servicios del personal, aportes retenidos o contribuciones patronales. El subsistema de pagos se encarga de cancelar las obligaciones que contrajo la empresa.</p>
+<p><strong>Alcance:</strong> empalma con el de compras. Va desde que se contrae la obligación hasta que el pago se hace efectivo con la entrega de los valores al acreedor, se recibe la constancia de pago y se contabiliza.</p>
+<p><strong>Sectores:</strong> Cuentas a Pagar reúne la documentación de las compras u otras obligaciones, la controla y la conforma para pagarla en término. Tesorería custodia y maneja los fondos, confecciona el instrumento de pago y efectúa la cancelación.</p>
+<div class="tabla"><table><thead><tr><th>El proceso emite</th><th>No emite</th></tr></thead><tbody><tr><td>Orden de pago: indica la cancelación de obligaciones contraídas</td><td>Cotización, orden de compra</td></tr><tr><td>Cheque: orden de pago librada contra un banco, en el que el librador tiene o tendrá fondos depositados a su nombre</td><td>Remito (conformidad), informe de recepción</td></tr><tr><td></td><td>Factura, recibo</td></tr></tbody></table></div>
+<p><strong>Módulos:</strong> recepción de la factura del proveedor, liquidación del pago, emisión del cheque, pago y registración.</p>
+<p><strong>Información para la gerencia:</strong> los registros y archivos de pagos son la base de los informes gerenciales. El resumen da estos ejemplos, que sirven de idea para un reporte:</p>
+<ul>
+<li>Resumen de cuentas a pagar, clasificadas en vencidas y a vencer.</li>
+<li>Detalle de los 10 principales acreedores.</li>
+<li>Proyección de pagos de la próxima semana.</li>
+<li>Saldos disponibles en bancos.</li>
+<li>Monto de cheques emitidos y no entregados.</li>
+<li>Monto pagado contra presupuestado.</li>
+<li>Totales de intereses pagados por pago fuera de término.</li>
+<li>Totales de descuentos obtenidos.</li>
+<li>Saldo descubierto en banco no utilizado.</li>
+<li>Índice de liquidez, disponibilidades contra deuda a corto plazo.</li>
+</ul>
+<p><strong>Modalidades:</strong></p>
+<div class="tabla"><table><thead><tr><th>Modalidad</th><th>Cómo es</th></tr></thead><tbody><tr><td>En sede del acreedor</td><td>Se paga en el domicilio del acreedor y en el momento se obtiene el recibo. Se recomienda un seguro de valores en tránsito</td></tr><tr><td>A un cobrador</td><td>Se avisa al acreedor que el cheque está disponible y se lo retiene en Tesorería. El acreedor cobra en el domicilio del deudor y extiende un recibo provisorio o definitivo</td></tr><tr><td>A repartidores</td><td>Variante del pago a un cobrador. El mismo repartidor que entrega los productos cobra y hace el recibo</td></tr><tr><td>A través de un banco</td><td>El deudor deposita en la cuenta del acreedor y se queda con la copia de la boleta de depósito como constancia</td></tr><tr><td>En efectivo por fondo fijo o caja chica</td><td>Para compras menores. El fondo mantiene siempre el mismo monto, formado por comprobantes y dinero en efectivo</td></tr><tr><td>De sueldos y jornales</td><td>Requiere normas de control y procedimiento propias. Puede hacerse entregando el cheque al personal o depositando el sueldo en una cuenta bancaria de cada empleado</td></tr></tbody></table></div>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+<div class="ojo"><p class="ojo-t">El resumen se contradice con el fondo fijo</p><p>En compras menores (página 2) dice «abonadas en efectivo sin fondo fijo». En pagos (página 6) dice que en compras menores se paga en efectivo «mediante la utilización de un fondo fijo». No lo pude resolver con material de la cátedra.</p>
+</div>
+<h3 id="parcial-normas-generales-para-el-movimiento-de-fondos">Normas generales para el movimiento de fondos</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><ul>
+<li><strong>Separación de funciones:</strong> quien maneja fondos no los registra. En pagos, la liquidación y la autorización las hace alguien ajeno a Tesorería.</li>
+<li><strong>Concentración de la responsabilidad:</strong> una sola persona, el tesorero, custodia fondos, valores, chequeras y talonarios. Eso obliga a mayor celo en el trabajo.</li>
+<li><strong>Separación total de fondos:</strong> lo cobrado se deposita íntegro en cuenta bancaria, los pagos salen con cheque contra esa cuenta y los menores en efectivo con fondo fijo o caja chica.</li>
+<li><strong>Rotación del personal:</strong> el personal de fondos rota periódicamente y toma vacaciones. Siempre hay alguien capacitado para reemplazarlo, preferentemente ajeno al sector y sin vínculo de amistad o subordinación con el reemplazado.</li>
+<li><strong>Contabilización:</strong> toda operación con fondos se registra, se respalda con documentación y tiene que ser consistente con la información de otros sectores.</li>
+<li><strong>Arqueos sorpresivos:</strong> verifican los valores en existencia contra lo que surge de la registración. Los hace alguien ajeno a Tesorería.</li>
+<li><strong>Conciliación bancaria:</strong> controla que las cobranzas se depositaron en su totalidad y que los pagos se hicieron con cheques. También la hace personal ajeno al sector.</li>
+</ul>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+<h3 id="parcial-normas-especificas-de-pagos">Normas específicas de pagos</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><ul>
+<li><strong>Uso del cheque:</strong> todos los pagos con cheque, salvo gastos menores. Reduce el riesgo de tener efectivo y permite conciliar con el resumen bancario. Se emite respetando la legislación vigente según la seguridad que haga falta.</li>
+<li><strong>Doble firma:</strong> al menos dos responsables. Así se controlan entre sí, porque los dos revisan y rubrican la documentación, y una sola persona no dispone libremente de los fondos.</li>
+<li><strong>Cheques anulados:</strong> quedan adheridos a la libreta, o se destruye el ángulo inferior derecho, donde se firma o figura la numeración.</li>
+<li><strong>Comprobantes anulados:</strong> al hacer el cheque se tiene a la vista toda la documentación respaldatoria (factura, remito, OC) y se la sella con «PAGADO» y el número de cheque. Así no justifica otro pago. Los firmantes verifican que se cumpla.</li>
+<li><strong>Fondo fijo:</strong> tiene un monto estipulado y un responsable. Se repone con cheque, contra comprobantes.</li>
+<li><strong>Sueldos:</strong> se separa quien controla la asistencia, quien liquida y quien paga.</li>
+</ul>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+</section>
+<section class="sec"><h2 id="parcial-procedimiento-de-ventas">Procedimiento de ventas</h2>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Antes de vender a crédito se mira el límite crediticio, que se calcula con los informes de ingreso del cliente, y sus antecedentes con otras empresas, como en el Veraz.</p>
+<div class="tabla"><table><thead><tr><th>Entradas</th><th>Procesos</th><th>Salidas</th><th>Archivos</th></tr></thead><tbody><tr><td>Pedido del cliente</td><td>Verificar existencia</td><td>Remito</td><td>Notas de pedido</td></tr><tr><td>Remito conformado</td><td>Valorizar pedidos</td><td>Factura</td><td>Stock de productos</td></tr><tr><td></td><td>Verificar límite de crédito</td><td>Subdiario de ventas</td><td>Cuenta corriente de clientes</td></tr><tr><td></td><td>Preparar pedido y remito</td><td></td><td>Remitos</td></tr><tr><td></td><td>Entregar</td><td></td><td>Facturas</td></tr><tr><td></td><td>Emitir factura</td><td></td><td></td></tr><tr><td></td><td>Registrar</td><td></td><td></td></tr></tbody></table></div>
+<p><strong>Actividades:</strong></p>
+<ol>
+<li><strong>Recepción del pedido</strong> y verificación de existencias.</li>
+<li><strong>Valoración de la nota de pedido:</strong> se pone el precio. Va una copia a Almacenes de Productos Terminados y otra a facturación.</li>
+<li><strong>Crédito:</strong> si el cliente lo solicita, Créditos y Cobranzas lo otorga. Si ya lo tiene, solo se controla que la cuenta corriente no supere el límite.</li>
+<li><strong>Preparación y despacho:</strong> se confecciona el remito, se da de baja el stock y se despacha. El cliente firma el remito.</li>
+<li><strong>Facturación:</strong> con el remito firmado, Contaduría hace la factura y el registro contable, y manda el original al cliente. Una copia va al sistema financiero, para que se cobre en los plazos indicados.</li>
+</ol>
+<p>Para determinar el crédito disponible del cliente se comparan los saldos impagos a la fecha, más los pedidos pendientes de facturación, menos las cobranzas recibidas pendientes de registración (página 11).</p>
+<div class="tabla"><table><thead><tr><th>El proceso emite</th><th>No emite</th></tr></thead><tbody><tr><td>Cotización o presupuesto</td><td>Solicitud de cotización</td></tr><tr><td>Nota de pedido</td><td>Orden de compra / nota de pedido</td></tr><tr><td>Remito: acompaña la mercadería</td><td></td></tr><tr><td>Factura: acompaña la venta</td><td></td></tr><tr><td>Hoja de ruta: recorrido del transportista</td><td></td></tr><tr><td>Nota de crédito y nota de débito</td><td></td></tr></tbody></table></div>
+<p>El resumen pone la nota de pedido en las dos columnas y no aclara por qué. En compras, la «orden de compra / nota de pedido» la emite quien compra.</p>
+<p><strong>Módulos:</strong> recepción del pedido, aprobación, preparación, despacho, facturación y registración.</p>
+<p><strong>Modalidades:</strong></p>
+<ul>
+<li>Según el cliente: locales o exportaciones, mayoristas o minoristas.</li>
+<li>Según cómo se hace el pedido: en salón, por corredores, por teléfono o correo.</li>
+<li>Según las condiciones de pago: al contado o a crédito.</li>
+<li>Otras: entrega del producto, pedido de cotización.</li>
+</ul>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+</section>
+<section class="sec"><h2 id="parcial-procedimiento-de-cobranzas">Procedimiento de cobranzas</h2>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><div class="tabla"><table><thead><tr><th>El proceso emite</th><th>No emite</th></tr></thead><tbody><tr><td>Listado de cobranzas</td><td>Remito</td></tr><tr><td>Recibo: certifica que el cobrador recibió del pagador una cantidad de dinero o efectos valuables, por el concepto indicado</td><td>Informe de recepción, factura</td></tr></tbody></table></div>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+</section>
+<section class="sec"><h2 id="parcial-procedimiento-de-produccion">Procedimiento de producción</h2>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p><strong>Modalidades:</strong> continua, por montaje, intermitente por órdenes y por proyectos.</p>
+<p><strong>Módulos y sus documentos:</strong></p>
+<ol>
+<li>Planeamiento y programación, con la orden de producción. Tiene las especificaciones del producto y las instrucciones de operación.</li>
+<li>Fabricación, con el pedido de materiales.</li>
+<li>Seguimiento, con el parte diario de producción. Reporta qué y cuánto se produjo, en qué tiempo, el tiempo efectivo y los tiempos muertos.</li>
+<li>Control de calidad, con el parte de control de calidad.</li>
+<li>Entrega de productos terminados.</li>
+</ol>
+<p><strong>Normas de control interno:</strong> existencia de inventario o registros contables apropiados, recuentos físicos periódicos, ajustes de inventarios, custodia de existencias, documentación de todos los movimientos y seguros eficientes.</p>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+</section>
+<section class="sec"><h2 id="parcial-cuadro-de-mando-integral">Cuadro de Mando Integral</h2>
+<p>Esta parte sale del libro de Kaplan y Norton que está en el Drive, <em>El Cuadro de Mando Integral</em>. La cita de páginas es la impresa en el libro. Más detalle en <a href="#final-el-cuadro-de-mando-a-fondo">el final</a>.</p>
+<p>Las empresas que usan el Cuadro de Mando Integral (CMI) lo toman como piedra angular de un sistema de gestión estratégica (página 55). No es una colección de indicadores sueltos. En un buen cuadro, los indicadores están vinculados para comunicar un pequeño número de temas estratégicos (página 56).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Es como el tablero de un auto armado para un viaje concreto. Un velocímetro solo no te dice si vas a llegar. Mirás varias agujas juntas, y todas responden a adónde querés ir.</p>
+</div>
+<h3 id="parcial-las-cuatro-perspectivas">Las cuatro perspectivas</h3>
+<div class="tomado"><aside class="nota"><strong>Se pidió explicarlas en los dos parciales</strong><span>Parciales AD 17/06/2025 y 22/06/2022</span></aside><p>«Explique brevemente las Perspectivas del Cuadro de Mando de Kaplan y Norton.» Es la misma consigna, con las mismas palabras.</p>
+</div>
+<details open class="pregunta"><summary><span>Explique brevemente las Perspectivas del Cuadro de Mando de Kaplan y Norton</span><small>Parciales AD 17/06/2025 y 22/06/2022</small></summary><div class="resp"><p><strong>Financiera.</strong> Los objetivos financieros sirven de enfoque para los objetivos e indicadores de todas las demás perspectivas. Cada medida forma parte de relaciones de causa y efecto que culminan en la mejora de la actuación financiera.</p>
+<p><strong>Del cliente.</strong> Las empresas identifican los segmentos de cliente y de mercado en que han elegido competir. Permite equiparar los indicadores clave sobre clientes (satisfacción, fidelidad, retención, adquisición y rentabilidad) con esos segmentos.</p>
+<p><strong>Del proceso interno.</strong> Los directivos identifican los procesos más críticos para conseguir los objetivos de accionistas y clientes. Sus objetivos e indicadores suelen desarrollarse después de formular los de las perspectivas financiera y del cliente. Abarca la cadena de innovación, operaciones y servicio posventa.</p>
+<p><strong>De aprendizaje y crecimiento.</strong> Proporciona la infraestructura que permite alcanzar los objetivos de las otras tres perspectivas. Sus variables son las capacidades de los empleados, las capacidades de los sistemas de información, y la motivación, delegación de poder y coherencia de objetivos.</p>
+<p>Fuente: <em>El Cuadro de Mando Integral</em>, Kaplan y Norton, páginas 59, 76, 105, 110, 139 y 140.</p>
+</div></details>
+<div class="tabla"><table><thead><tr><th>Perspectiva</th><th>Indicadores genéricos (libro, páginas 55 y 56)</th></tr></thead><tbody><tr><td>Finanzas</td><td>Rendimientos sobre las inversiones y valor añadido económico</td></tr><tr><td>Clientes</td><td>Satisfacción, retención y cuota de mercado</td></tr><tr><td>Procesos internos</td><td>Calidad, tiempo de respuesta, coste e introducción de nuevos productos</td></tr><tr><td>Formación y crecimiento</td><td>Satisfacción de los empleados y disponibilidad de sistemas de información</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Los porcentajes del resumen</p><p>El resumen de un alumno (página 16) le pone un peso a cada perspectiva: financiera 22 %, clientes 23 a 25 %, procesos 28 a 30 % y aprendizaje 23 a 25 %. Trae también otros indicadores de ejemplo: ventas y utilidades y retorno de inversión (financiera), participación de mercado y quejas de clientes (clientes), índices de calidad y tiempo de entrega (procesos), y proyectos de nuevos productos y de inversión (aprendizaje). No los encontré en los capítulos 3 a 6 del libro, que leí enteros, así que no los doy por firmes.</p>
+</div>
+<h3 id="parcial-para-que-sirve-2">Para qué sirve</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Esto sale del resumen de un alumno (páginas 14 a 16). Lo define como «un conjunto de elementos, en su mayor parte indicadores, cuyo seguimiento y evaluación periódica le permitirá contar con un mayor conocimiento de la situación y desempeño de la Empresa».</p>
+<ul>
+<li><strong>Es una herramienta básica para la gestión:</strong> da la información para conocer rápido el estado actual de la empresa y su probable evolución.</li>
+<li><strong>Puede dar beneficios en las pruebas de auditoría:</strong> permite hacer pruebas simples de cumplimiento y, en su caso, de doble propósito.</li>
+<li><strong>Es una guía de acción:</strong> deja ver fácil, con colores, qué indicadores presentan inconvenientes.</li>
+<li><strong>Alinea:</strong> ayuda a alinear las metas y las medidas de desempeño con la estrategia en todos los niveles.</li>
+<li><strong>Da un panorama:</strong> le da a la gerencia una visión comprensiva de las operaciones de la empresa.</li>
+<li><strong>Comunica:</strong> facilita la comprensión de las metas y estrategias en toda la organización.</li>
+<li><strong>Enseña:</strong> fomenta la retroalimentación estratégica y el aprendizaje.</li>
+</ul>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+<p>También lo ubica en el ciclo de decisión. En planificar comunica objetivos y metas. En controlar mide el desempeño, verifica el cumplimiento y realimenta la planificación.</p>
+<p>Y lo pone arriba de todo en una pirámide. Abajo van los datos operacionales, en el medio los sistemas de soporte a la decisión y de información ejecutiva, y en la punta el CMI.</p>
+</section>
+<section class="sec"><h2 id="parcial-lo-que-tenes-que-poder-hacer">Lo que tenés que poder hacer</h2>
+<ul>
+<li>Dibujar un cursograma entero de una narrativa, sin mirar los símbolos.</li>
+<li>Escribir el DD de un almacén o comprobante con datos mínimos y necesarios.</li>
+<li>Diseñar un reporte con título, orden, período y totales.</li>
+<li>Plantear un indicador con nombre, fórmula, unidad y análisis contra un rango crítico.</li>
+<li>Nombrar las cuatro perspectivas con su idea central.</li>
+<li>Listar los comprobantes y módulos de compras, pagos, ventas y cobranzas.</li>
+</ul>
+</section></section>
+<section class="pdf-parte" id="pdf-final" data-pagina="final" aria-label="Final"><p class="pdf-de">Gestión Ingenieril</p><h1>Final</h1>
+<p class="bajada">Es el mismo oficio del parcial sobre un caso entero. Acá está qué se pidió en cada final y la teoría que se suma.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="final-como-viene-el-examen">Cómo viene el examen</h2>
+<p>Revisé cuatro finales, del 28/06/2023, 09/03/2015, 05/08/2013 y 25/02/2013. Solo el de 2023 es de los nuevos, y su fecha sale del nombre del archivo. Los otros la traen impresa.</p>
+<p>Todo lo del <a href="#pdf-parcial">parcial</a> entra acá. La base es <a href="#parcial-cursograma">cursograma</a>, <a href="#parcial-diccionario-de-datos">DD</a>, <a href="#parcial-reportes">reportes</a> e <a href="#parcial-indicadores-de-gestion">indicadores</a>. Esta página suma lo que aparece solo en los finales.</p>
+<div class="tomado"><aside class="nota"><strong>Consignas de los cuatro finales, por tipo</strong><span>Finales 28/06/2023, 09/03/2015, 05/08/2013 y 25/02/2013</span></aside><div class="tabla"><table><thead><tr><th>Tipo de consigna</th><th>2023</th><th>2015</th><th>08/2013</th><th>02/2013</th></tr></thead><tbody><tr><td><mark>Cursograma</mark> (siempre la primera)</td><td>Sí</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td><mark>DD de un almacén, documento o informe</mark></td><td>1</td><td>5</td><td>4</td><td>2</td></tr><tr><td>Formato o diseño de planilla o pantalla</td><td>Con el reporte</td><td>1</td><td></td><td>1</td></tr><tr><td><mark>Reporte o listado</mark></td><td>1</td><td>Dentro de los DD</td><td>2</td><td>1</td></tr><tr><td><mark>Indicador a diseñar y cuantificar</mark></td><td>2</td><td>2</td><td>3</td><td>4</td></tr><tr><td>Mejoras o preguntas de criterio sobre el caso</td><td>2</td><td>2</td><td>Dentro de los indicadores</td><td></td></tr><tr><td>Otras a resolver sobre el caso</td><td></td><td>1</td><td></td><td></td></tr><tr><td>Teoría</td><td>No</td><td>1</td><td>1</td><td>1</td></tr><tr><td>Total de consignas</td><td>7</td><td>13</td><td>11</td><td>10</td></tr></tbody></table></div>
+</div>
+<p>Con un solo final nuevo no se puede decir qué es lo habitual hoy. El de 2023 es bastante más corto y no trae teoría, pero puede ser casualidad. Prepará las dos cosas.</p>
+<h3 id="final-casos-que-se-tomaron">Casos que se tomaron</h3>
+<div class="tabla"><table><thead><tr><th>Final</th><th>Caso</th></tr></thead><tbody><tr><td>28/06/2023</td><td>Gestión de pedidos de una empresa de electricidad</td></tr><tr><td>09/03/2015</td><td>Gestión de una planta de depósitos</td></tr><tr><td>05/08/2013</td><td>Gestión de presupuesto de una fábrica de puertas y ventanas</td></tr><tr><td>25/02/2013</td><td>Administración de gestión de la calidad</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">La fecha del final de 2015</p><p>El archivo del Drive se llama 2015-09-03, pero la hoja dice 09.03.2015. Lo tomo como 9 de marzo, que es el formato que usan los otros exámenes de esa época.</p>
+</div>
+<h3 id="final-teoria-que-se-tomo-en-finales">Teoría que se tomó en finales</h3>
+<div class="tomado"><aside class="nota"><strong>Tres consignas de teoría, una por final viejo</strong><span>Finales 09/03/2015, 05/08/2013 y 25/02/2013</span></aside><ul>
+<li>2015: «Mencionar 6 Recursos importantes de los cuales a partir de su disminución aumenta la Productividad.» Está en <a href="#final-consumo-de-recursos">Consumo de recursos</a>.</li>
+<li>08/2013: «Tablero de Kaplan y Norton: Mencione 6 Items que conforman la Estructura de los Indicadores de Aprendizaje y Crecimiento.» Está en <a href="#final-aprendizaje-y-crecimiento">Aprendizaje y crecimiento</a>.</li>
+<li>02/2013: «Procedimientos: Ventas a Crédito. Controles sobre el contenido de la información almacenada: Ventas registradas pero no despachadas. Análisis y detección de la misma.» El Drive no trae el apunte con el que se contesta. Mirá <a href="#final-control-interno">Control interno</a>.</li>
+</ul>
+</div>
+</section>
+<section class="sec"><h2 id="final-el-cuadro-de-mando-a-fondo">El Cuadro de Mando a fondo</h2>
+<p>Sale de los capítulos 3 a 6 de <em>El Cuadro de Mando Integral</em>, de Kaplan y Norton. La versión corta está en el <a href="#parcial-las-cuatro-perspectivas">parcial</a>.</p>
+<h3 id="final-perspectiva-financiera">Perspectiva financiera</h3>
+<p>El cuadro debe contar la historia de la estrategia, empezando por los objetivos financieros a largo plazo (página 59). Para el libro, los objetivos financieros representan el objetivo a largo plazo de la organización, que es proporcionar rendimientos superiores basados en el capital invertido (página 74).</p>
+<p>Las medidas y los objetivos financieros juegan un papel doble. Definen la actuación financiera que se espera de la estrategia, y sirven como los objetivos y medidas finales de todas las demás perspectivas (página 60). El libro advierte que un único objetivo financiero, igual para todas las unidades de negocio, difícilmente sea apropiado, porque cada una puede seguir una estrategia distinta (páginas 59 y 60).</p>
+<p>Los objetivos financieros cambian según la fase del negocio (páginas 60 a 62).</p>
+<div class="tabla"><table><thead><tr><th>Fase</th><th>Cómo es</th><th>Objetivo financiero general</th></tr></thead><tbody><tr><td>Crecimiento</td><td>La más temprana. Productos con potencial de crecimiento, mucha inversión</td><td>Porcentaje de crecimiento de ventas en mercados, grupos de clientes y regiones seleccionados</td></tr><tr><td>Sostenimiento</td><td>Atrae inversión pero se le exigen excelentes rendimientos</td><td>Rentabilidad: beneficios de explotación, margen bruto, ROCE, valor añadido económico</td></tr><tr><td>Cosecha o recolección</td><td>Madura. Se recolectan las inversiones anteriores</td><td>Aumentar al máximo el retorno del cash flow y reducir necesidades de capital circulante</td></tr></tbody></table></div>
+<p>La fase no es fija. Lo normal es que con los años una unidad pase de crecimiento a sostenimiento, después a cosecha y al final a la salida. Un cambio tecnológico, de mercado o de regulaciones también puede devolverla al crecimiento. Por eso los objetivos financieros de todas las unidades se revisan periódicamente, por lo menos una vez al año (páginas 62 y 63).</p>
+<p>Para cada fase hay tres temas financieros que impulsan la estrategia (página 64). Son el crecimiento y la diversificación de los ingresos, la reducción de costes y mejora de la productividad, y la utilización de los activos. Se les suma la gestión del riesgo (página 63).</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Qué implica (páginas 64 a 73)</th><th>Cómo lo abre el libro</th></tr></thead><tbody><tr><td>Crecimiento y diversificación de los ingresos</td><td>Expandir la oferta de productos y servicios, llegar a nuevos clientes y mercados, llevar la variedad hacia una oferta de mayor valor añadido y cambiar los precios</td><td>Nuevos productos, nuevas aplicaciones, nuevos clientes y mercados, nuevas relaciones, nueva variedad de productos y servicios, nueva estrategia de precios</td></tr><tr><td>Reducción de costes y mejora de la productividad</td><td>Rebajar los costes directos de productos y servicios, reducir los indirectos y compartir recursos comunes con otras unidades de negocio</td><td>Aumento de la productividad de los ingresos, reducción de los costes unitarios, mejora del mix de canales, reducción de los gastos de explotación</td></tr><tr><td>Utilización de los activos</td><td>Reducir el capital circulante que hace falta para un volumen y una diversidad de negocio dados, usar más los activos fijos y vender los que rinden poco</td><td>Ciclo de caja, mejora de la utilización de los activos</td></tr></tbody></table></div>
+<p>El ciclo de caja mide la eficiencia del capital circulante (página 71, figura 3.2). Representa el tiempo que necesita la empresa para convertir los pagos a los proveedores en cobros de los clientes:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Ciclo de caja</mtext><mo>&#61;</mo><mrow><mtext>d</mtext><mover accent="true"><mtext>ı</mtext><mo>ˊ</mo></mover><mtext>as en existencias</mtext></mrow><mo>+</mo><mtext>plazo de cobro</mtext><mo>−</mo><mtext>plazo de pago</mtext></mrow><annotation encoding="application/x-tex">&#92;text{Ciclo de caja} &#61; &#92;text{días en existencias} + &#92;text{plazo de cobro} - &#92;text{plazo de pago}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Ciclo de caja</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">d</span><span class="mord katex-accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord latin_fallback">ı</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">as en existencias</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">plazo de cobro</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">plazo de pago</span></span></span></span></span></span></p>
+<p>Algunas empresas operan con ciclo negativo, porque les pagan a los proveedores después de cobrarles a los clientes (página 72).</p>
+<p><strong>Gestión del riesgo.</strong> Una gestión financiera eficaz cuida el riesgo igual que los rendimientos. Por eso muchas empresas suman a la perspectiva financiera un objetivo de riesgo, por ejemplo diversificar las fuentes de ingresos. Es un objetivo adicional que complementa cualquier estrategia de rentabilidad (página 63).</p>
+<p><img src="img/fig-temas-financieros.webp" alt="Figura 3.1 del libro: matriz con las tres estrategias de la unidad de negocio en filas y los tres temas estratégicos financieros en columnas, con indicadores en cada celda"></p>
+<h3 id="final-perspectiva-del-cliente">Perspectiva del cliente</h3>
+<p>Primero hay que elegir los segmentos. La esencia de la estrategia también exige elegir lo que no hay que hacer (página 77).</p>
+<p><strong>Grupo de indicadores centrales (páginas 80 y 81):</strong></p>
+<div class="tabla"><table><thead><tr><th>Indicador</th><th>Qué mide</th></tr></thead><tbody><tr><td>Cuota de mercado</td><td>La proporción de ventas en un mercado dado, en número de clientes, dinero gastado o unidades vendidas</td></tr><tr><td>Incremento de clientes</td><td>La tasa a la que la unidad atrae o gana nuevos clientes o negocios</td></tr><tr><td>Retención de clientes</td><td>La tasa a la que la unidad retiene o mantiene las relaciones existentes</td></tr><tr><td>Satisfacción del cliente</td><td>El nivel de satisfacción según criterios de actuación específicos dentro de la propuesta de valor</td></tr><tr><td>Rentabilidad del cliente</td><td>El beneficio neto de un cliente o segmento, después de los gastos para mantenerlo</td></tr></tbody></table></div>
+<p><img src="img/fig-cliente.webp" alt="Figura 4.1 del libro: cadena causal entre cuota de mercado, adquisición, retención, satisfacción y rentabilidad de clientes"></p>
+<p>El libro separa dos conjuntos de medidas para esta perspectiva (página 80). El primero es este grupo central, genérico para casi todas las empresas. El segundo son los inductores de la actuación, los diferenciadores de los resultados del cliente. Responden a la pregunta «¿Qué es lo que la empresa ha de entregar a sus clientes para alcanzar un alto grado de satisfacción, retención, adquisición y, por último, cuota de mercado?». Son las propuestas de valor, que siguen más abajo.</p>
+<p>Lo que el libro agrega de cada indicador central (páginas 81 a 85):</p>
+<ul>
+<li><strong>Cuota de mercado.</strong> Con clientes concretos se puede medir una segunda cuota, la de las compras de esos clientes. Mide qué parte de todo lo que esos clientes compran en un período se lleva la empresa.</li>
+<li><strong>Retención.</strong> Además de mantener a los clientes, muchas empresas miden su fidelidad con el porcentaje de crecimiento del negocio con los clientes existentes.</li>
+<li><strong>Incremento.</strong> Se mide por el número de clientes nuevos o por las ventas totales a ellos. También sirven la tasa de conversión (clientes nuevos sobre peticiones prospectivas) y el coste de cada cliente nuevo.</li>
+<li><strong>Satisfacción.</strong> Da feedback sobre lo bien que lo hace la empresa. Solo cuando los clientes califican su compra como completa o extremadamente satisfactoria se puede contar con que vuelvan a comprar. Se mide con encuestas por correo, entrevistas telefónicas o personales. El coste sube de la primera a la tercera, y también la tasa de respuestas.</li>
+<li><strong>Rentabilidad.</strong> Tener éxito en las otras cuatro no garantiza tener clientes rentables. Una forma fácil de tener clientes muy satisfechos es vender muy barato. Por eso se mide también el beneficio que dejan.</li>
+</ul>
+<p>La figura 4.2 cruza los segmentos elegidos con la rentabilidad del cliente (página 85):</p>
+<div class="tabla"><table><thead><tr><th>Clientes</th><th>Rentables</th><th>No rentables</th></tr></thead><tbody><tr><td>Segmento seleccionado</td><td>Retener</td><td>Transformar</td></tr><tr><td>Segmento no seleccionado</td><td>Analizar viabilidad</td><td>Eliminar</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">El libro no es parejo con esta lista</p><p>La lista de la página 80 pone cuota, incremento, adquisición, satisfacción y rentabilidad. La tabla de la figura 4.1, en la página 81, pone retención en lugar de adquisición. Y el diagrama usa adquisición y retención, sin incremento. Uso la tabla, porque define cada uno. Si te la piden, nombrá los que estudió tu comisión.</p>
+</div>
+<p><strong>Propuesta de valor.</strong> Son los atributos que la empresa suministra para crear fidelidad y satisfacción en los segmentos elegidos. Es el concepto clave para comprender los inductores de la satisfacción, el incremento, la retención y la cuota de mercado. Se organizan en tres categorías (página 86):</p>
+<ul>
+<li>Los atributos de productos o servicios: funcionalidad, precio y calidad, y en la figura 4.3 también el tiempo.</li>
+<li>La relación con los clientes: la entrega, el plazo de respuesta y la sensación de comprar a esa empresa.</li>
+<li>Imagen y prestigio: los factores intangibles que atraen a un cliente.</li>
+</ul>
+<p>La figura 4.3 lo pone como un modelo genérico (página 87):</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Valor</mtext><mo>&#61;</mo><mtext>Atributos del producto o servicio</mtext><mo>+</mo><mtext>Imagen</mtext><mo>+</mo><mtext>Relaciones</mtext></mrow><annotation encoding="application/x-tex">&#92;text{Valor} &#61; &#92;text{Atributos del producto o servicio} + &#92;text{Imagen} + &#92;text{Relaciones}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Valor</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Atributos del producto o servicio</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Imagen</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Relaciones</span></span></span></span></span></span></p>
+<p>Casi todas las propuestas de valor que vieron los autores incorporan indicadores de tiempo de respuesta, calidad y precio (página 97). El apéndice del capítulo los desarrolla (páginas 98 a 104):</p>
+<ul>
+<li><strong>Tiempo.</strong> Responder rápido y en forma fiable a una solicitud. También importa la puntualidad de la entrega y el tiempo para llevar al cliente un producto nuevo.</li>
+<li><strong>Calidad.</strong> Se mide por la incidencia de defectos que ven los clientes, las devoluciones, las reclamaciones y las garantías. La entrega puntual también es una medida de calidad, en la dimensión del tiempo.</li>
+<li><strong>Precio.</strong> Siempre importa. Se sigue con los precios de venta netos contra la competencia o con el porcentaje de licitaciones ganadas. El libro distingue precio bajo de coste bajo para el cliente, que suma lo que le cuesta comprar y usar el producto.</li>
+</ul>
+<p>Estas medidas del resultado tienen algunos defectos de las financieras. Son históricas, y los empleados no saben cómo andan con la satisfacción o la retención hasta que es tarde para corregir (páginas 97 y 98).</p>
+<h3 id="final-perspectiva-del-proceso-interno">Perspectiva del proceso interno</h3>
+<p>Los directivos identifican los procesos más críticos para los objetivos de accionistas y clientes. Es típico hacerlo después de formular las perspectivas financiera y del cliente (página 105).</p>
+<p>El libro distingue esto de los sistemas tradicionales. Esos miran los procesos existentes y por departamento. El CMI puede revelar procesos enteramente nuevos, en los que la empresa debe sobresalir (páginas 106 y 107).</p>
+<p><img src="img/fig-cadena-valor.webp" alt="Figura 5.1 del libro: cadena genérica de valor que va de las necesidades del cliente identificadas, pasando por los procesos de innovación, operativo y de servicio posventa, a las necesidades satisfechas"></p>
+<div class="tabla"><table><thead><tr><th>Proceso</th><th>Qué es (páginas 110 a 120)</th></tr></thead><tbody><tr><td>Innovación</td><td>La onda larga de creación de valor. Investiga las necesidades, emergentes o latentes, de los clientes y crea los productos o servicios que las satisfacen</td></tr><tr><td>Operaciones</td><td>La onda corta. Empieza con la recepción de un pedido y termina con la entrega del producto o servicio. Recalca la entrega eficiente, consistente y oportuna de los productos y servicios existentes a los clientes existentes</td></tr><tr><td>Servicio posventa</td><td>Atender y servir al cliente después de la venta o entrega. Incluye garantía y reparaciones, tratamiento de defectos y devoluciones, y procesamiento de pagos, como la administración de tarjetas de crédito</td></tr></tbody></table></div>
+<p><strong>Innovación.</strong> Tiene dos componentes (páginas 112 y 113). El primero es la investigación de mercado, para conocer su tamaño, las preferencias de los clientes y los precios objetivo. El segundo es el diseño y desarrollo del producto o servicio. Ahí el grupo de I + D hace investigación básica, para productos radicalmente nuevos, investigación aplicada, para explotar la tecnología existente en productos de nueva generación, y desarrollo, para llevar los nuevos productos al mercado.</p>
+<p>Entre sus indicadores, el libro da el porcentaje de ventas de los productos nuevos, la introducción de productos nuevos frente a la competencia y a lo planeado, y el tiempo para desarrollar la siguiente generación (página 115). Y desarrolla el tiempo del punto de equilibrio (TPE). Mide el tiempo que pasa desde que empieza el desarrollo de un producto hasta que se introdujo y generó el beneficio suficiente para devolver la inversión (página 116). Junta en un solo indicador la recuperación de la inversión, la rentabilidad y el tiempo. El libro aclara que funciona mejor para señalar un comportamiento deseado que como medida del resultado (página 117).</p>
+<p><strong>Operaciones.</strong> Además de tiempo, calidad y coste, se pueden medir la flexibilidad y las características propias de productos o servicios que crean valor para el cliente (página 120).</p>
+<p><strong>Posventa.</strong> Se miden con los mismos indicadores de tiempo, calidad y coste de las operaciones (página 121). El tiempo, desde la solicitud del cliente hasta la solución final. El coste, la eficiencia de los recursos usados. Y la productividad, el porcentaje de solicitudes que se resuelven en una sola visita.</p>
+<p><strong>Indicadores del proceso operativo.</strong> Para las operaciones, los indicadores son de calidad, tiempo de ciclo y costes (páginas 119 y 138). El apéndice del capítulo los desarrolla (páginas 130 a 138).</p>
+<p><strong>Tiempo.</strong> El ciclo puede empezar cuando se recibe el pedido, cuando se programa, cuando se piden las materias primas, cuando llegan o cuando arranca la producción. Puede terminar cuando termina la producción, cuando queda en existencias, cuando se envía o cuando lo recibe el cliente. La elección depende del proceso que se quiere acortar (página 131). Para el justo a tiempo, el libro da la eficacia del ciclo de fabricación (ECF) (página 132):</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>E</mi><mi>C</mi><mi>F</mi><mo>&#61;</mo><mfrac><mtext>Tiempo de proceso</mtext><mrow><mtext>Tiempo de producci</mtext><mover accent="true"><mtext>o</mtext><mo>ˊ</mo></mover><mtext>n efectivo</mtext></mrow></mfrac></mrow><annotation encoding="application/x-tex">ECF &#61; &#92;frac{&#92;text{Tiempo de proceso}}{&#92;text{Tiempo de producción efectivo}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0576em;">E</span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span><span class="mord mathnormal" style="margin-right:0.1389em;">F</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.2519em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Tiempo de producci</span><span class="mord katex-accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">o</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">n efectivo</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Tiempo de proceso</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mrow><mtext>Tiempo de producci</mtext><mover accent="true"><mtext>o</mtext><mo>ˊ</mo></mover><mtext>n efectivo</mtext></mrow><mo>&#61;</mo><mtext>Tiempo de proceso</mtext><mo>+</mo><mrow><mtext>Tiempo de inspecci</mtext><mover accent="true"><mtext>o</mtext><mo>ˊ</mo></mover><mtext>n</mtext></mrow><mo>+</mo><mtext>Tiempo de transporte</mtext><mo>+</mo><mtext>Tiempo de espera o almacenaje</mtext></mrow><annotation encoding="application/x-tex">&#92;text{Tiempo de producción efectivo} &#61; &#92;text{Tiempo de proceso} + &#92;text{Tiempo de inspección} + &#92;text{Tiempo de transporte} + &#92;text{Tiempo de espera o almacenaje}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Tiempo de producci</span><span class="mord katex-accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">o</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">n efectivo</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Tiempo de proceso</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Tiempo de inspecci</span><span class="mord katex-accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">o</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">n</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Tiempo de transporte</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Tiempo de espera o almacenaje</span></span></span></span></span></span></p>
+<p>El ratio es menor que 1. En un proceso ideal vale 1, una meta que quizás nunca se alcance pero hacia la que vale la pena avanzar. Todo tiempo que no es de proceso es tiempo perdido, que no añade valor. El ratio sirve también en empresas de servicios (páginas 132 a 134).</p>
+<p><strong>Calidad.</strong> El libro lista tasas de defectos, producción (productos conformes sobre el total fabricado), desperdicio, chatarra, reprocesos, devoluciones y porcentaje de procesos bajo control estadístico (página 134). Suma las producciones de primer pase, las que terminan todo el proceso a la primera, sin reelaborarse. El éxito de un programa de calidad no se mide por lo que sale después de inspeccionar y rehacer, sino por la reducción en cada fase de los artículos que no cumplen las especificaciones (páginas 135 a 137).</p>
+<p><strong>Coste.</strong> Los sistemas tradicionales miden el gasto de cada tarea o departamento por separado. El cálculo de costes basado en la actividad (ABC) permite obtener el coste de procesos que usan recursos de varios centros de responsabilidad. Junto con el tiempo y la calidad, da los tres parámetros de los procesos internos importantes (páginas 137 y 138).</p>
+<h3 id="final-aprendizaje-y-crecimiento">Aprendizaje y crecimiento</h3>
+<p>Proporciona la infraestructura para alcanzar los objetivos de las otras tres. Sus objetivos son los inductores necesarios para conseguir resultados excelentes en ellas (página 139). Tiene tres categorías de variables (página 140):</p>
+<ol>
+<li>Las capacidades de los empleados.</li>
+<li>Las capacidades de los sistemas de información.</li>
+<li>Motivación, delegación de poder (empowerment) y coherencia de objetivos.</li>
+</ol>
+<p><img src="img/fig-aprendizaje.webp" alt="Figura 6.1 del libro: la estructura de los indicadores de aprendizaje y crecimiento. Competencias del personal, infraestructura tecnológica y clima laboral llevan a la satisfacción del empleado, que lleva a la retención y la productividad, y estas al resultado"></p>
+<div class="tomado"><aside class="nota"><strong>Se pidieron los ítems de esta estructura</strong><span>Final 05/08/2013</span></aside><p>La consigna 11 usa el mismo nombre que la figura 6.1, en la página 142 del libro: «La estructura de los indicadores de aprendizaje y crecimiento». Los indicadores clave son los de arriba, los medios son los de abajo.</p>
+</div>
+<p>Dentro del núcleo de indicadores clave, la satisfacción del empleado se considera generalmente el inductor de las otras dos (página 142).</p>
+<div class="tabla"><table><thead><tr><th>Indicador clave</th><th>Cómo se mide (páginas 143 a 145)</th></tr></thead><tbody><tr><td>Satisfacción del empleado</td><td>Encuesta, con una escala de puntaje</td></tr><tr><td>Retención del empleado</td><td>Porcentaje de rotación del personal clave</td></tr><tr><td>Productividad del empleado</td><td>Por ejemplo, ingresos por empleado o valor añadido por empleado</td></tr></tbody></table></div>
+<p>Lo que el libro agrega de cada uno:</p>
+<ul>
+<li><strong>Satisfacción.</strong> Los empleados satisfechos son una condición previa para aumentar la productividad, la rapidez de reacción, la calidad y el servicio al cliente. Se mide con una encuesta anual, o con una mensual a una parte de los empleados elegidos al azar. Puede preguntar por la participación en las decisiones, el reconocimiento por hacer bien el trabajo, el acceso a la información para hacerlo bien, si se los anima a ser creativos y a tomar la iniciativa, el apoyo de los directivos y la satisfacción general con la empresa. Se puntúa de 1 a 3 o de 1 a 5, de «descontento» a «muy satisfecho» (página 143).</li>
+<li><strong>Retención.</strong> El objetivo es retener a los empleados en los que la organización tiene un interés a largo plazo. Cualquier salida no deseada es una pérdida en el capital intelectual del negocio (páginas 143 y 144).</li>
+<li><strong>Productividad.</strong> Relaciona el resultado producido por los empleados con el número de empleados que lo produjeron. El más sencillo es ingresos por empleado. Tiene límites. Por ejemplo, sube si se reducen empleados o se tercerizan funciones, aunque eso sacrifique capacidades a largo plazo. Por eso se puede medir el valor añadido por empleado, que resta del ingreso los materiales, suministros y servicios comprados afuera, o poner el coste laboral en el denominador (páginas 144 y 145).</li>
+</ul>
+<p>Los inductores de esta perspectiva, y cómo los mide el libro (páginas 145 a 157):</p>
+<div class="tabla"><table><thead><tr><th>Inductor</th><th>Indicadores del libro</th></tr></thead><tbody><tr><td>Capacidades de los empleados</td><td>El ratio de cobertura del puesto de trabajo estratégico. Sigue el número de empleados calificados para puestos estratégicos concretos, contra las necesidades previstas. Si hace falta una recualificación masiva, también el tiempo para llevar a los empleados a los nuevos niveles de competencia</td></tr><tr><td>Capacidades de los sistemas de información</td><td>El ratio de cobertura de la información estratégica. Evalúa la información disponible contra las necesidades previstas. Por ejemplo, el porcentaje de procesos con feedback disponible sobre calidad en tiempo real, tiempos de ciclo y coste, o el de empleados de cara al público con acceso en línea a la información sobre los clientes</td></tr><tr><td>Motivación, delegación de poder y coherencia de objetivos</td><td>Sugerencias por empleado y sugerencias puestas en práctica. Indicadores de mejora, como la media vida, que mide el tiempo para que la actuación de un proceso mejore un 50 %. Para la coherencia, el porcentaje de la alta dirección y del personal expuestos al CMI, y el de empleados con objetivos personales alineados con el CMI y que los alcanzaron. También indicadores de la actuación de equipo</td></tr></tbody></table></div>
+<p>La figura 6.3 distingue tres escenarios de recualificación según cuánta plantilla la necesita y qué tanto (páginas 146 y 147):</p>
+<div class="tabla"><table><thead><tr><th>Escenario</th><th>Qué pasa</th></tr></thead><tbody><tr><td>Recualificación estratégica</td><td>Una parte concreta de la plantilla necesita un alto nivel de habilidades nuevas y estratégicas</td></tr><tr><td>Recualificación masiva</td><td>Una gran proporción de la plantilla necesita una renovación masiva de su capacitación</td></tr><tr><td>Elevación del nivel de la competencia</td><td>Una parte de la plantilla, grande o pequeña, requiere una mejora de la capacitación clave</td></tr></tbody></table></div>
+<p>El libro admite que los indicadores de esta perspectiva están menos desarrollados que los de las otras tres. Muchas empresas casi no miden la capacitación, la información estratégica ni la alineación de la organización (páginas 157 y 158). En resumen, los inductores salen de tres fuentes, los empleados, los sistemas y la equiparación de la organización con sus objetivos (página 159).</p>
+<p>La figura 6.2 detalla los inductores para situaciones concretas (página 146):</p>
+<div class="tabla"><table><thead><tr><th>Competencias del personal</th><th>Infraestructura tecnológica</th><th>Clima laboral</th></tr></thead><tbody><tr><td>Capacitación estratégica</td><td>Tecnologías estratégicas</td><td>Ciclo de decisión clave</td></tr><tr><td>Niveles de entrenamiento</td><td>Bases de datos estratégicas</td><td>Enfoque estratégico</td></tr><tr><td>Equilibrio de la capacitación</td><td>Adquisición de experiencia</td><td>Otorgar poder al personal</td></tr><tr><td></td><td>Software propio</td><td>Coherencia de objetivos personales con los de la organización</td></tr><tr><td></td><td>Patentes, copyrights</td><td>Moral</td></tr><tr><td></td><td></td><td>Capacidad para el trabajo en equipo</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="final-productividad-competitividad-y-recursos">Productividad, competitividad y recursos</h2>
+<p>Sale del apunte <a href="https://drive.google.com/file/d/1XgDg0dHz-ncAZD2_SPfMExpqN3L7tQp0/view">Indicadores de Gestión</a>, páginas 6 y 7.</p>
+<p><strong>Productividad:</strong> el enfoque sistémico la define como la relación entre la producción final y los factores productivos utilizados en la producción de bienes y servicios. Se mide porque permite evaluar la cultura del desempeño, definir estrategias y establecer políticas visionarias.</p>
+<p>Cómo se eleva, según el apunte (página 6):</p>
+<ul>
+<li>Forjando cultura.</li>
+<li>Entrenando, preparando y exigiendo al talento humano.</li>
+<li>Incorporando mayor valor agregado al producto.</li>
+<li>Con mejores compras, procesos, productos, servicios y ventas.</li>
+<li>Logrando mejores mercados, clientes y desarrollos.</li>
+<li>Mejorando y aprovechando la tecnología, los equipos, la infraestructura y el capital humano.</li>
+<li>Dando lectura y buena comprensión a los indicadores.</li>
+</ul>
+<p><strong>Competitividad:</strong> la característica de un país, una empresa o un individuo que le permite participar ventajosamente en un mercado no controlado. Para el apunte, «la Productividad es en esencia Competitividad y Competitividad es consecuencia de Productividad».</p>
+<div class="tabla"><table><thead><tr><th>Competitividad de un país</th><th>De la empresa</th><th>Individual</th></tr></thead><tbody><tr><td>Infraestructura moderna</td><td>Alta calidad de productos y servicios</td><td>Eficiente</td></tr><tr><td>Recursos humanos capacitados y entrenados</td><td>Alta productividad</td><td>Capacitado y actualizado</td></tr><tr><td>Políticas coherentes de estímulo</td><td>Eficiencia</td><td>Que agregue valor</td></tr><tr><td></td><td>Recursos humanos capacitados</td><td>Productivo en la unidad de desempeño</td></tr><tr><td></td><td>Insumos de primera calidad</td><td></td></tr><tr><td></td><td>Excelentes mecanismos de comercialización</td><td></td></tr></tbody></table></div>
+<h3 id="final-consumo-de-recursos">Consumo de recursos</h3>
+<p>Cada vez más, la eficiencia se mide por la disminución de los recursos. Los recursos consumidos en cualquier operación de trabajo están entre los indicadores más usados. Si disminuyen los recursos que usa un proceso, aumenta la productividad (apunte, página 7).</p>
+<details open class="pregunta"><summary><span>Mencionar 6 recursos importantes de los cuales a partir de su disminución aumenta la productividad</span><small>Final 09/03/2015</small></summary><div class="resp"><p>El apunte da estos ejemplos:</p>
+<ul>
+<li>Costos utilizados en operaciones de trabajo repetitivo.</li>
+<li>Tiempos utilizados en operaciones de trabajo repetitivo.</li>
+<li>Horas hombre utilizadas en operaciones de trabajo repetitivo.</li>
+<li>Número de horas extras.</li>
+<li>Tiempos de implantación.</li>
+<li>Plazos de tiempo.</li>
+<li>Duración de un ciclo.</li>
+<li>Desgaste de equipos.</li>
+<li>Uso de máquinas y equipamiento.</li>
+</ul>
+<p>Fuente: Indicadores de Gestión, apunte de la cátedra, página 7.</p>
+</div></details>
+<p>Para el apunte, los recursos más utilizados en las organizaciones son los humanos, los financieros, los materiales y el tiempo. Los expresa en un modelo que a cada recurso le suma el tiempo (página 7):</p>
+<div class="tabla"><table><thead><tr><th>Modelo</th><th>Recurso</th></tr></thead><tbody><tr><td>Man</td><td>Recursos humanos + tiempo</td></tr><tr><td>Money</td><td>Recursos financieros + tiempo</td></tr><tr><td>Materials</td><td>Materiales + tiempo</td></tr><tr><td>Machines</td><td>Máquinas + tiempo</td></tr><tr><td>Methods</td><td>Métodos + tiempo</td></tr><tr><td>Management</td><td>Administración o gerenciamiento + tiempo</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="final-matriz-foda">Matriz FODA</h2>
+<p>Herramienta de análisis y técnica de planeamiento estratégico (apunte, páginas 17 a 20). Se puede aplicar a situaciones, individuos, productos, empresas, negocios, mercadotecnia, comunicaciones y otros. Permite visualizar la situación actual de la organización y obtener un diagnóstico preciso, porque explora las interacciones entre las características de la institución y el entorno en que está inmersa.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Son</th><th>Se puede actuar</th></tr></thead><tbody><tr><td>Fortalezas</td><td>Capacidades especiales con que cuenta la empresa, que le dan una posición privilegiada frente a la competencia</td><td>Internas, directamente</td></tr><tr><td>Debilidades</td><td>Factores que provocan una posición desfavorable frente a la competencia: recursos de los que se carece, habilidades que no se poseen, actividades que no se desarrollan positivamente y otras</td><td>Internas, directamente</td></tr><tr><td>Oportunidades</td><td>Factores positivos, favorables y explotables, que se deben descubrir en el entorno y que permiten obtener ventajas competitivas</td><td>Externas, solo modificando lo interno</td></tr><tr><td>Amenazas</td><td>Situaciones del entorno que pueden atentar incluso contra la permanencia de la organización</td><td>Externas, solo modificando lo interno</td></tr></tbody></table></div>
+<p>En el análisis estratégico, la empresa selecciona cuáles son las fuerzas con que cuenta y cuáles las debilidades que traban sus objetivos estratégicos. Al cruzarlas salen cuatro alternativas conceptualmente diferentes (página 20).</p>
+<p><img src="img/fig-foda.webp" alt="Matriz de estrategias FODA con factores internos y externos: FO maxi-maxi, DO mini-maxi, FA maxi-mini y DA mini-mini"></p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>FO usa lo que tenés bueno para aprovechar lo que aparece. DO arregla lo que te falla para no perderte lo que aparece. FA usa lo bueno para defenderte. DA es apagar el incendio, cuando te falla algo justo donde te pega el entorno.</p>
+</div>
+<p>Los ejemplos que da el apunte (páginas 18 y 19):</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Ejemplos</th></tr></thead><tbody><tr><td>Fortalezas</td><td>Buen ambiente laboral. Proactividad en la gestión. Conocimiento del mercado. Buenos recursos financieros. Buena calidad del producto final. Posibilidad de acceder a créditos. Equipamiento de última generación. Experiencia de los recursos humanos. Recursos humanos motivados y capacitados. Procesos técnicos y administrativos de calidad. Características especiales del producto. Cualidades de alto nivel del servicio</td></tr><tr><td>Debilidades</td><td>Salarios bajos. Falta de capacitación. Equipamiento obsoleto. Problemas con la calidad. Reactividad en la gestión. Precaria situación financiera. Incapacidad para detectar fallas. Capital de trabajo mal utilizado. Deficientes capacidades gerenciales. Poca capacidad de acceso a créditos. Falta de motivación de los recursos humanos. Producto o servicio sin características diferenciadoras</td></tr><tr><td>Oportunidades</td><td>Regulación a favor. Competencia débil. Mercado mal atendido. Necesidad del producto. Inexistencia de la competencia. Tendencias favorables en el mercado. Fuerte poder adquisitivo del segmento meta</td></tr><tr><td>Amenazas</td><td>Conflictos gremiales. Regulación desfavorable. Cambios en la legislación. Competencia muy agresiva. Incremento de precios de insumos. Segmento del mercado contraído. Tendencias desfavorables en el mercado. Competencia consolidada en el mercado</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="final-responsabilidad-social-empresaria">Responsabilidad social empresaria</h2>
+<p>La Responsabilidad Social Empresaria «es el Compromiso continuo de la Empresa de contribuir al Desarrollo Económico Sostenible, mejorando la calidad de vida de sus Recursos Humanos, la Comunidad con la cual está comprometida y la Sociedad en general» (apunte, página 20).</p>
+<p>Como concepto, es una gestión de negocios que propone que las empresas modernas se preocupen por generar valor en la comunidad donde se desarrollan, tanto a nivel interno como externo (página 20).</p>
+<p>Los <strong>stakeholders</strong> son los actores involucrados. Son los grupos o instituciones que pueden impactar o ser impactados por las actividades de la empresa, y cada una define los suyos según la naturaleza de su negocio (página 21).</p>
+<p>Ser socialmente responsable implica ser consciente del efecto que nuestros actos pueden ocasionar a cualquier individuo o grupo social (página 21).</p>
+<p><img src="img/fig-rse.webp" alt="Dimensiones de la responsabilidad social: la empresa en el centro, conectada con accionistas, recursos humanos, clientes, comunidad, medio ambiente, sector público y proveedores"></p>
+<p>El apunte da estos indicadores para cada dimensión (páginas 21 y 22):</p>
+<div class="tabla"><table><thead><tr><th>Dimensión</th><th>Indicadores</th></tr></thead><tbody><tr><td>RRHH y colaboradores</td><td>Evaluación de resultados y competencias del trabajador. Remuneraciones mínimas y máximas que se abonan en la empresa. Formación de los trabajadores. Programas de igualdad de oportunidades. Política de salud y seguridad en el trabajo. Representación formal de los trabajadores en la gestión</td></tr><tr><td>Proveedores</td><td>Condiciones de pago con proveedores. Buenas prácticas con los proveedores. Responsabilidad comunicativa del producto. Selección, evaluación y asociación con proveedores. Porcentual de satisfacción de los proveedores. Inversión en desarrollo de proveedores</td></tr><tr><td>Clientes</td><td>Satisfacción de clientes. Responsabilidad sobre el producto. Estudios e investigaciones técnicas sobre productos. Retención y fidelización de clientes. Impacto por marketing social. Reclamo de productos y servicios</td></tr><tr><td>Comunidad</td><td>Valor económico y social generado. Vinculación con la comunidad. Gestión de impacto en la comunidad. Premios y reconocimientos por actuaciones responsables. Montos invertidos en programas para la comunidad. Número de alianzas con organizaciones civiles o gobierno para programas con la comunidad</td></tr><tr><td>Accionistas</td><td>Valor económico generado. Porcentual de satisfacción de los accionistas sobre la gestión de la empresa. Dividendos otorgados por acciones de todo tipo. Facturación media por trabajador</td></tr><tr><td>Medio ambiente</td><td>Consumos de energía y agua. Condiciones ambientales en el lugar de trabajo. Residuos producidos. Sistema de gestión medioambiental. Reciclaje. Emisión de gases y efluentes</td></tr><tr><td>Sector público</td><td>Relaciones con el poder político o de lobby. Ayudas del gobierno. Inversiones y servicios que dan un beneficio público. Cumplimiento de la legislación y convenios internacionales del sector industrial y empresario</td></tr></tbody></table></div>
+<p>No lo vi tomado en ningún examen del Drive. Está en el apunte, así que no lo dejes en cero.</p>
+</section>
+<section class="sec"><h2 id="final-inventarios">Inventarios</h2>
+<p>La guía de práctica de la cátedra da dos cosas de inventarios.</p>
+<p><strong>Precio promedio ponderado (PPP).</strong> Es el criterio de valuación que usa, y lo define así: «PPP = Monto total en $ / cantidad de unidades» (práctica, ejercicio 1, página 2).</p>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p><strong>Punto de pedido.</strong> El ejercicio 2 de la práctica pide «las tres variables a contemplar para la determinación del punto de pedido», pero la guía no las da. El resumen de un alumno lo define como la cantidad en existencia a partir de la cual se solicita la compra, y lo establece como un stock mínimo más un margen de seguridad (página 3).</p>
+<p class="bloque-fuente">Resumen de un alumno</p></div>
+</section>
+<section class="sec"><h2 id="final-control-interno">Control interno</h2>
+<div class="ojo"><p class="ojo-t">Solo tenemos el índice</p><p>La guía <a href="https://drive.google.com/file/d/1-n8GgLRws1DS-3oB8w_-l4B8hYpZnmls/view">Procedimientos y Técnicas de Control</a> lista los temas, sin desarrollarlos. El apunte que los explica no está en el Drive. No invento su contenido. Si tu comisión lo dio, sumalo.</p>
+</div>
+<p>La guía recorre estos procedimientos:</p>
+<ul>
+<li>Compras mayores y recepción.</li>
+<li>Cuentas a pagar.</li>
+<li>Comercialización y ventas a crédito.</li>
+<li>Facturación a clientes y cuentas a cobrar.</li>
+<li>Cobranzas, también en punto de venta.</li>
+<li>Remuneraciones.</li>
+<li>Administración de inventario de productos terminados.</li>
+</ul>
+<p>Para casi todos pide estudiar la secuencia natural del procedimiento con un <strong>Arrow Chart</strong>. Facturación y cuentas a cobrar no lo llevan. Para compras, cuentas a pagar, ventas a crédito, cobranzas y remuneraciones pide además estos principios y técnicas de control:</p>
+<ol>
+<li>Definición y separación de funciones.</li>
+<li>Análisis de control interno: controles generales.</li>
+<li>Controles del procesamiento electrónico: controles de entrada.</li>
+<li>Controles de programas y de procesos de computación.</li>
+<li>Controles de salida de información.</li>
+<li>Controles sobre la base de datos.</li>
+<li>Controles sobre el contenido de la información almacenada.</li>
+</ol>
+<p>Algunos procedimientos suman temas propios. Compras mayores, ventas a crédito, cuentas a cobrar, cobranzas, remuneraciones e inventario de productos terminados agregan paquetes de software integrados. Ventas a crédito suma el gerenciamiento de la gestión de pedidos de clientes y los sistemas integrados de gestión. Facturación trae la transacción de facturación y su gerenciamiento. Cuentas a cobrar, sus salidas típicas y la información para su gerenciamiento. La cobranza en punto de venta, el equipamiento y la información para gerenciar las cobranzas. Remuneraciones e inventario, el gerenciamiento de su gestión, y el inventario, sus propios principios y técnicas de control.</p>
+<p>Lo que sí tenés desarrollado son las normas de <a href="#parcial-normas-de-control-interno">compras</a>, <a href="#parcial-normas-generales-para-el-movimiento-de-fondos">pagos</a> y <a href="#parcial-procedimiento-de-produccion">producción</a>, en el resumen de un alumno.</p>
+</section>
+<section class="sec"><h2 id="final-lo-que-tenes-que-poder-hacer">Lo que tenés que poder hacer</h2>
+<ul>
+<li>Todo lo de la <a href="#parcial-lo-que-tenes-que-poder-hacer">lista del parcial</a>.</li>
+<li>Explicar las fases financieras y los temas de cada perspectiva del CMI.</li>
+<li>Nombrar los ítems de la estructura de aprendizaje y crecimiento.</li>
+<li>Dar ejemplos de recursos cuya disminución aumenta la productividad.</li>
+<li>Armar y leer una matriz FODA.</li>
+</ul>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2025). Buena parte de los procedimientos y del cursograma sale del resumen de un alumno, y está avisado donde pasa. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

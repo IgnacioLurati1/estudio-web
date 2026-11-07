@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final, 28/08/2023 (Inmobiliaria El Hornero): Paradigmas de Programación</title>
+<meta name="description" content="Ejercicio de examen: Final, 28/08/2023 (Inmobiliaria El Hornero).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="paradigmas-de-programacion" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Paradigmas de Programación</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">Parcial de regularización</a></li><li class="em-fuera"><a href="ad.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=paradigmas-de-programacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=paradigmas-de-programacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Final, 28/08/2023 (Inmobiliaria El Hornero)</h1>
+<p class="bajada">Final, 28/08/2023</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="fin-2023-08-28" data-titulo="Final, 28/08/2023 (Inmobiliaria El Hornero)" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="fin-2023-08-28" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1OHs_PNRb4zOAsX97aF8hfePNIIVriJKl/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/fin-2023-08-28-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/fin-2023-08-28-e1.webp" width="1300" height="1901" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>1) Diagrama de clases</h4>
+<p>Hay dos jerarquías. Los inmuebles calculan distinto su valor, y las operaciones, la comisión. El valor por metro cuadrado de los PH y el valor por ambiente de los departamentos son iguales para todos, y van como variables de clase. La hoja no le da un identificador al inmueble, y se agregó <code>codigo</code> para buscarlo. Cada caja tiene arriba las variables de clase (vc) y de instancia (vi), y abajo los métodos de clase (mc) y de instancia (mi), como los diagramas de los cuestionarios del campus. La flecha punteada va de la subclase a la superclase, y la línea con cantidad es un ensamble. Los métodos que solo devuelven una variable no van en las cajas, para que se lean. Están al final del código. Tocá el dibujo para verlo en pantalla completa.</p>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1029 700" width="1029" height="700" style="width:1029px;min-width:1029px;max-width:none;height:700px" role="img" aria-label="Diagrama de clases de la inmobiliaria El Hornero. Inmobiliaria guarda los inmuebles, los empleados y las operaciones. Cada operación tiene un inmueble y el empleado que la concretó. Operacion es la superclase de Venta y de Alquiler, que guarda los meses. Inmueble es la superclase de Casa, con su valor, de PH, con la variable de clase ValorM2, y de Departamento, con la variable de clase ValorAmbiente. Cada inmueble calcula su valor y cada operación, su comisión."><g fill="none" stroke="currentColor" stroke-width="1.3"><rect x="418.9" y="10.0" width="191.5" height="194.0"/><path d="M418.9 36.0H610.4M418.9 105.0H610.4M463.9 36.0V204.0"/><rect x="98.0" y="278.0" width="336.5" height="194.0"/><path d="M98.0 304.0H434.5M98.0 403.0H434.5M273.5 304.0V472.0"/><rect x="480.5" y="278.0" width="191.5" height="194.0"/><path d="M480.5 304.0H672.0M480.5 433.0H672.0M525.5 304.0V472.0"/><rect x="718.0" y="278.0" width="213.2" height="179.0"/><path d="M718.0 304.0H931.2M718.0 403.0H931.2M763.0 304.0V457.0"/><rect x="20.0" y="546.0" width="119.0" height="119.0"/><path d="M20.0 572.0H139.0M20.0 611.0H139.0M65.0 572.0V665.0"/><rect x="185.0" y="546.0" width="206.0" height="134.0"/><path d="M185.0 572.0H391.0M185.0 611.0H391.0M230.0 572.0V680.0"/><rect x="437.0" y="546.0" width="97.2" height="104.0"/><path d="M437.0 572.0H534.2M437.0 611.0H534.2M482.0 572.0V650.0"/><rect x="580.2" y="546.0" width="169.8" height="104.0"/><path d="M580.2 572.0H750.0M580.2 611.0H750.0M697.7 572.0V650.0"/><rect x="796.0" y="546.0" width="213.2" height="104.0"/><path d="M796.0 572.0H1009.2M796.0 611.0H1009.2M957.0 572.0V650.0"/><path d="M466.7 204.0L266.2 278.0"/><path d="M514.6 204.0L576.2 278.0"/><path d="M562.5 204.0L824.6 278.0"/><path d="M434.5 291.0H480.5"/><path d="M384.0 278.0V246.0H899.2V278.0"/><path d="M266.2 472.0l-7 12h14z" fill="none"/><path d="M824.6 457.0l-7 12h14z" fill="none"/><path stroke-dasharray="6 4" d="M266.2 484.0V506.0M79.5 506.0H288.0M79.5 506.0V546.0M288.0 506.0V546.0M824.6 469.0V506.0M485.6 506.0H902.6M485.6 506.0V546.0M665.1 506.0V546.0M902.6 506.0V546.0"/></g><g fill="currentColor" stroke="none" font-family="ui-monospace, Consolas, Menlo, monospace" font-size="12" text-anchor="middle"><text x="514.6" y="28.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Inmobiliaria</text><text x="426.9" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="471.9" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="471.9" y="66.0" text-anchor="start">inmuebles</text><text x="471.9" y="81.0" text-anchor="start">empleados</text><text x="471.9" y="96.0" text-anchor="start">operaciones</text><text x="426.9" y="119.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="471.9" y="119.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="471.9" y="135.0" text-anchor="start">inicializa</text><text x="471.9" y="150.0" text-anchor="start">registrarOperacion</text><text x="471.9" y="165.0" text-anchor="start">buscarInmueble</text><text x="471.9" y="180.0" text-anchor="start">buscarEmpleado</text><text x="471.9" y="195.0" text-anchor="start">listarComisiones</text><text x="266.2" y="296.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Operacion</text><text x="106.0" y="318.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="106.0" y="334.0" text-anchor="start">UltimoCodigo</text><text x="281.5" y="318.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="281.5" y="334.0" text-anchor="start">codigo</text><text x="281.5" y="349.0" text-anchor="start">fecha</text><text x="281.5" y="364.0" text-anchor="start">inmueble</text><text x="281.5" y="379.0" text-anchor="start">empleado</text><text x="281.5" y="394.0" text-anchor="start">monto</text><text x="106.0" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="106.0" y="433.0" text-anchor="start">asignaUltimoCodigo:</text><text x="106.0" y="448.0" text-anchor="start">incrementaUltimoCodigo</text><text x="281.5" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="281.5" y="433.0" text-anchor="start">cargaDatos:empleado:</text><text x="281.5" y="448.0" text-anchor="start">fechaEntre:y:</text><text x="281.5" y="463.0" text-anchor="start">mostrarEnListado</text><text x="576.2" y="296.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Empleado</text><text x="488.5" y="318.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="533.5" y="318.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="533.5" y="334.0" text-anchor="start">dni</text><text x="533.5" y="349.0" text-anchor="start">apellido</text><text x="533.5" y="364.0" text-anchor="start">nombre</text><text x="533.5" y="379.0" text-anchor="start">direccion</text><text x="533.5" y="394.0" text-anchor="start">email</text><text x="533.5" y="409.0" text-anchor="start">telefono</text><text x="533.5" y="424.0" text-anchor="start">porcentajeComision</text><text x="488.5" y="447.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="533.5" y="447.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="824.6" y="296.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Inmueble</text><text x="726.0" y="318.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="771.0" y="318.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="771.0" y="334.0" text-anchor="start">codigo</text><text x="771.0" y="349.0" text-anchor="start">superficie</text><text x="771.0" y="364.0" text-anchor="start">ambientes</text><text x="771.0" y="379.0" text-anchor="start">operacion</text><text x="771.0" y="394.0" text-anchor="start">disponible</text><text x="726.0" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="771.0" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="771.0" y="433.0" text-anchor="start">estaDisponible</text><text x="771.0" y="448.0" text-anchor="start">cambiarDisponibilidad</text><text x="79.5" y="564.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Venta</text><text x="28.0" y="586.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="73.0" y="586.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="28.0" y="625.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="73.0" y="625.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="73.0" y="641.0" text-anchor="start">comision</text><text x="73.0" y="656.0" text-anchor="start">tipo</text><text x="288.0" y="564.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Alquiler</text><text x="193.0" y="586.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="238.0" y="586.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="238.0" y="602.0" text-anchor="start">meses</text><text x="193.0" y="625.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="238.0" y="625.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="238.0" y="641.0" text-anchor="start">cargaDatos:empleado:</text><text x="238.0" y="656.0" text-anchor="start">comision</text><text x="238.0" y="671.0" text-anchor="start">tipo</text><text x="485.6" y="564.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Casa</text><text x="445.0" y="586.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="490.0" y="586.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="490.0" y="602.0" text-anchor="start">valor</text><text x="445.0" y="625.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="490.0" y="625.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="490.0" y="641.0" text-anchor="start">valor</text><text x="665.1" y="564.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">PH</text><text x="588.2" y="586.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="588.2" y="602.0" text-anchor="start">ValorM2</text><text x="705.7" y="586.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="588.2" y="625.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="588.2" y="641.0" text-anchor="start">asignaValorM2:</text><text x="705.7" y="625.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="705.7" y="641.0" text-anchor="start">valor</text><text x="902.6" y="564.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Departamento</text><text x="804.0" y="586.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="804.0" y="602.0" text-anchor="start">ValorAmbiente</text><text x="965.0" y="586.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="804.0" y="625.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="804.0" y="641.0" text-anchor="start">asignaValorAmbiente:</text><text x="965.0" y="625.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="965.0" y="641.0" text-anchor="start">valor</text><text x="258.2" y="270.0" text-anchor="end">0..N</text><text x="584.2" y="270.0" text-anchor="start">1..N</text><text x="832.6" y="270.0" text-anchor="start">1..N</text><text x="474.5" y="286.0" text-anchor="end">1..1</text><text x="905.2" y="274.0" text-anchor="start">1..1</text></g></svg></figure>
+
+<h4>2a) Registrar una operación y actualizar el estado</h4>
+<p><code>Inmobiliaria</code> es la clase principal y guarda las colecciones, como la clase principal de los ejercicios resueltos. El tipo de operación sale del inmueble, que dice para qué se publica. Así se elige la subclase, como en «Elegir la subclase». El inmueble tiene que estar disponible y queda no disponible.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Inmobiliaria, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#inicializa</span>
+inmuebles := <span class="hljs-type">OrderedCollection</span> new.
+empleados := <span class="hljs-type">OrderedCollection</span> new.
+operaciones := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#registrarOperacion</span>
+| inm emp op |
+inm := <span class="hljs-keyword">self</span> buscarInmueble.
+inm isNil
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No hay un inmueble disponible con ese código&#x27;</span>]
+    ifFalse: [
+        emp := <span class="hljs-keyword">nil</span>.
+        [emp isNil] whileTrue: [
+            emp := <span class="hljs-keyword">self</span> buscarEmpleado.
+            emp isNil ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No existe un empleado con ese DNI&#x27;</span>]].
+        inm operacion = <span class="hljs-string">&#x27;venta&#x27;</span>
+            ifTrue: [op := <span class="hljs-type">Venta</span> new]
+            ifFalse: [op := <span class="hljs-type">Alquiler</span> new].
+        op cargaDatos: inm empleado: emp.
+        inm cambiarDisponibilidad.
+        operaciones add: op.
+        <span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;Operación registrada con el código &#x27;</span>, op codigo printString]
+
+<span class="hljs-symbol">#buscarInmueble</span>
+| cod |
+cod := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el código del inmueble&#x27;</span>) asNumber.
+^inmuebles detect: [:unInm | unInm codigo = cod and: [unInm estaDisponible]] ifNone: [<span class="hljs-keyword">nil</span>]
+
+<span class="hljs-symbol">#buscarEmpleado</span>
+| dni |
+dni := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el DNI del empleado&#x27;</span>) asNumber.
+^empleados detect: [:unEmp | unEmp dni = dni] ifNone: [<span class="hljs-keyword">nil</span>]
+
+<span class="hljs-comment">&quot;Operacion, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaUltimoCodigo</span>: unNumero
+<span class="hljs-type">UltimoCodigo</span> := unNumero
+
+<span class="hljs-symbol">#incrementaUltimoCodigo</span>
+<span class="hljs-type">UltimoCodigo</span> := <span class="hljs-type">UltimoCodigo</span> + <span class="hljs-number">1</span>
+
+<span class="hljs-comment">&quot;Operacion, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unInmueble empleado: unEmpleado
+<span class="hljs-type">Operacion</span> incrementaUltimoCodigo.
+codigo := <span class="hljs-type">UltimoCodigo</span>.
+fecha := <span class="hljs-type">Date</span> today.
+inmueble := unInmueble.
+empleado := unEmpleado.
+monto := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el monto de la operación&#x27;</span>) asNumber.
+
+<span class="hljs-comment">&quot;Alquiler, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unInmueble empleado: unEmpleado
+<span class="hljs-keyword">super</span> cargaDatos: unInmueble empleado: unEmpleado.
+meses := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la cantidad de meses del contrato&#x27;</span>) asNumber.
+
+<span class="hljs-comment">&quot;Inmueble, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#estaDisponible</span>
+^disponible
+
+<span class="hljs-symbol">#cambiarDisponibilidad</span>
+disponible := disponible not
+
+<span class="hljs-comment">&quot;PH, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaValorM2</span>: unValor
+<span class="hljs-type">ValorM2</span> := unValor
+
+<span class="hljs-comment">&quot;PH, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#valor</span>
+^superficie * <span class="hljs-type">ValorM2</span>
+
+<span class="hljs-comment">&quot;Departamento, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaValorAmbiente</span>: unValor
+<span class="hljs-type">ValorAmbiente</span> := unValor
+
+<span class="hljs-comment">&quot;Departamento, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#valor</span>
+^ambientes * <span class="hljs-type">ValorAmbiente</span>
+
+<span class="hljs-comment">&quot;Casa, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#valor</span>
+^valor</code></pre>
+<h4>2b) Listado de comisiones entre dos fechas</h4>
+<p>Cada operación calcula su comisión a su manera, y el listado no pregunta de qué tipo es. Se ordena de la comisión más alta a la más baja y después se filtra por el rango.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Inmobiliaria, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#listarComisiones</span>
+| desde hasta lista |
+desde := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha desde (dd/mm/aaaa)&#x27;</span>).
+hasta := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha hasta (dd/mm/aaaa)&#x27;</span>).
+lista := (operaciones asSortedCollection: [:a :b | a comision &gt; b comision])
+    select: [:unaOp | unaOp fechaEntre: desde y: hasta].
+lista isEmpty
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No se han encontrado operaciones en ese período&#x27;</span>]
+    ifFalse: [
+        <span class="hljs-type">Transcript</span> clear;
+            show: <span class="hljs-string">&#x27;Código&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Fecha&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Tipo&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Empleado&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Comisión&#x27;</span>; cr.
+        lista do: [:unaOp | unaOp mostrarEnListado]]
+
+<span class="hljs-comment">&quot;Operacion, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#fechaEntre</span>: desde y: hasta
+^(fecha &gt;= desde) and: [fecha &lt;= hasta]
+
+<span class="hljs-symbol">#mostrarEnListado</span>
+<span class="hljs-type">Transcript</span> show: codigo printString; tab;
+    show: fecha printString; tab;
+    show: <span class="hljs-keyword">self</span> tipo; tab;
+    show: empleado apellido, <span class="hljs-string">&#x27; &#x27;</span>, empleado nombre; tab;
+    show: <span class="hljs-keyword">self</span> comision printString; cr
+
+<span class="hljs-comment">&quot;Venta, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#comision</span>
+^inmueble valor * empleado porcentajeComision / <span class="hljs-number">100</span>
+
+<span class="hljs-symbol">#tipo</span>
+^<span class="hljs-string">&#x27;Venta&#x27;</span>
+
+<span class="hljs-comment">&quot;Alquiler, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#comision</span>
+^meses * inmueble valor / <span class="hljs-number">50000</span>
+
+<span class="hljs-symbol">#tipo</span>
+^<span class="hljs-string">&#x27;Alquiler&#x27;</span></code></pre>
+<h4>Métodos que devuelven datos</h4>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Operacion, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#codigo</span>
+^codigo
+
+<span class="hljs-symbol">#fecha</span>
+^fecha
+
+<span class="hljs-comment">&quot;Empleado, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#dni</span>
+^dni
+
+<span class="hljs-symbol">#apellido</span>
+^apellido
+
+<span class="hljs-symbol">#nombre</span>
+^nombre
+
+<span class="hljs-symbol">#porcentajeComision</span>
+^porcentajeComision
+
+<span class="hljs-comment">&quot;Inmueble, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#codigo</span>
+^codigo
+
+<span class="hljs-symbol">#operacion</span>
+^operacion</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con las páginas de Aprobación directa («Cómo leer la narrativa» y «Qué lleva el diagrama») y de Final («Las plantillas del Drive» y «Cómo se arma el programa»), que salen de «Estructuras útiles en Smalltalk» y de los Ejercicios resueltos 1 a 3 de Material Util.</p><p class="bloque-fuente">Quedó en duda: El material no muestra cómo filtrar entre dos fechas. Acá se compara con <code>&gt;=</code> y <code>&lt;=</code> en <code>fechaEntre:y:</code>. El material no muestra el orden descendente. Acá el bloque de <code>asSortedCollection:</code> compara con <code>&gt;</code>. La hoja no le da un identificador al inmueble, y se agregó <code>codigo</code>. Tampoco dice qué es el monto de la operación ni de dónde sale. Acá lo carga el operador y no se usa en la comisión, que según la hoja sale del valor del inmueble. El tipo de operación se toma del inmueble, que guarda si se publica para venta o alquiler. Otra lectura es preguntarlo al registrar. La comisión del alquiler, meses por valor dividido 50.000, está tal cual la hoja. La hoja no aclara si se programa el menú, y acá no se programó. Se supone que las variables de clase ya tienen su valor, cargado con los métodos de clase <code>asigna...</code>. El código no se corrió en un Smalltalk real.</p><div class="em-votos" data-m="paradigmas-de-programacion" data-e="fin-2023-08-28" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Diagrama de clases" data-enlace="parcial-1.html#metodos-de-clase-y-de-instancia" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Diagrama de clases</span><span class="ex-t-teoria"><a href="parcial-1.html#metodos-de-clase-y-de-instancia">Métodos de clase y de instancia</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Smalltalk" data-enlace="parcial-1.html#que-se-tomo" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Smalltalk</span><span class="ex-t-teoria"><a href="parcial-1.html#que-se-tomo">Qué se tomó</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2023-09-25.html">Anterior: Final, 25/09/2023 (Equipos de montaña)</a><a href="ej-fin-2023-05-29.html">Siguiente: Final, 29/05/2023 (Parque nacional)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

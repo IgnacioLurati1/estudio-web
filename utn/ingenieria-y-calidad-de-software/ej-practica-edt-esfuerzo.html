@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Práctica de la cátedra: EDT, esfuerzo y duración: Ingeniería y Calidad de Software</title>
+<meta name="description" content="Ejercicio de examen: Práctica de la cátedra: EDT, esfuerzo y duración.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="ingenieria-y-calidad-de-software" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Ingeniería y Calidad de Software</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="regularizacion.html">Regularización</a></li><li class="em-fuera"><a href="aprobacion-directa.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=ingenieria-y-calidad-de-software">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=ingenieria-y-calidad-de-software">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Práctica de la cátedra: EDT, esfuerzo y duración</h1>
+<p class="bajada">Parcial de regularización, 2017</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="practica-edt-esfuerzo" data-titulo="Práctica de la cátedra: EDT, esfuerzo y duración" data-min="120" data-otro="ejercicios.html#reg" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="practica-edt-esfuerzo" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1ftEougIIzZzcVNYjjvMxQyugsA0nQ_1t/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/practica-edt-esfuerzo-e2.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/practica-edt-esfuerzo-e2.webp" width="830" height="1394" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a><a class="sol-img" href="img/practica-edt-esfuerzo-e3.webp" aria-label="Abrir la hoja 2 del enunciado en grande"><img src="img/practica-edt-esfuerzo-e3.webp" width="831" height="1394" loading="lazy" alt="Hoja 2 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a><a class="sol-img" href="img/practica-edt-esfuerzo-e4.webp" aria-label="Abrir la hoja 3 del enunciado en grande"><img src="img/practica-edt-esfuerzo-e4.webp" width="830" height="1394" loading="lazy" alt="Hoja 3 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>3.1 EDT basada en ciclo de vida</h4>
+<p>Los tres requerimientos son independientes. Debajo de cada R van sus n requerimientos menores, que acá no se repiten.</p>
+<p><strong>Cascada.</strong> El primer nivel son las fases, y cada fase espera a que termine la anterior.</p>
+<pre class="codigo"><code>1 Proyecto
+  1.1 Análisis
+    1.1.1 Análisis R1
+    1.1.2 Análisis R2
+    1.1.3 Análisis R3
+  1.2 Diseño
+    1.2.1 a 1.2.3 Diseño R1, R2 y R3
+  1.3 Codificación
+    1.3.1 a 1.3.3 Codificación R1, R2 y R3
+  1.4 Prueba
+    1.4.1 a 1.4.3 Prueba R1, R2 y R3</code></pre>
+<p><strong>Incremental.</strong> El primer nivel son los incrementos. Cada uno entrega un producto operativo y se integra con lo ya entregado.</p>
+<pre class="codigo"><code>1 Proyecto
+  1.1 Incremento 1, R1
+    1.1.1 Análisis R1
+    1.1.2 Diseño R1
+    1.1.3 Codificación R1
+    1.1.4 Prueba R1
+    1.1.5 Entrega del incremento 1
+  1.2 Incremento 2, R2
+    1.2.1 a 1.2.4 Análisis, diseño, codificación y prueba de R2
+    1.2.5 Integración con el incremento 1 y entrega
+  1.3 Incremento 3, R3
+    1.3.1 a 1.3.4 Análisis, diseño, codificación y prueba de R3
+    1.3.5 Integración con los incrementos anteriores y entrega</code></pre>
+<p><strong>Cascada por subproyecto.</strong> El primer nivel son los subproyectos, uno por requerimiento, cada uno con su cascada. Como los requerimientos son independientes, pueden ir en paralelo. Hay una sola entrega, después de integrar.</p>
+<pre class="codigo"><code>1 Proyecto
+  1.1 Subproyecto R1
+    1.1.1 a 1.1.4 Análisis, diseño, codificación y prueba de R1
+  1.2 Subproyecto R2
+    1.2.1 a 1.2.4 Análisis, diseño, codificación y prueba de R2
+  1.3 Subproyecto R3
+    1.3.1 a 1.3.4 Análisis, diseño, codificación y prueba de R3
+  1.4 Integración, prueba del sistema y entrega</code></pre>
+<p><strong>Iterativo.</strong> Son varios ciclos en cascada, cada uno sobre los tres requerimientos, y el cliente evalúa cada versión.</p>
+<pre class="codigo"><code>1 Proyecto
+  1.1 Iteración 1
+    1.1.1 Análisis R1, R2 y R3
+    1.1.2 Diseño R1, R2 y R3
+    1.1.3 Codificación R1, R2 y R3
+    1.1.4 Prueba
+    1.1.5 Evaluación del cliente
+  1.2 Iteración 2, con lo que evaluó el cliente
+    1.2.1 a 1.2.5 Las mismas tareas, refinadas
+  1.n Iteración n, hasta que el cliente acepta la versión</code></pre>
+<h4>3.2 EDT con requerimientos relacionados</h4>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A &#92;to B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0502em;">B</span></span></span></span> significa que A depende de B, así que B se realiza antes. La dependencia vale para cada actividad, análisis, diseño o codificación.</p>
+<div class="tabla"><table><thead><tr><th>Caso</th><th>Orden</th><th>Cascada, dentro de cada fase</th><th>Cascada por subproyectos</th><th>Incremental</th></tr></thead><tbody><tr><td>a) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mn>3</mn><mo>→</mo><mi>R</mi><mn>1</mn><mo>∧</mo><mi>R</mi><mn>2</mn><mo>→</mo><mi>R</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">R3 &#92;to R1 &#92;wedge R2 &#92;to R3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">3</span></span></span></span></td><td>R1, después R3, después R2</td><td>R1, R3, R2</td><td>SR1, SR3 y SR2. Cada actividad de SR3 arranca después de la misma de SR1, y cada una de SR2 después de la de SR3</td><td>Incremento 1 R1, incremento 2 R3, incremento 3 R2</td></tr><tr><td>b) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mn>1</mn><mo>→</mo><mi>R</mi><mn>2</mn><mo>∧</mo><mi>R</mi><mn>1</mn><mo>→</mo><mi>R</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">R1 &#92;to R2 &#92;wedge R1 &#92;to R3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">3</span></span></span></span></td><td>R2 y R3, después R1</td><td>R2, R3, R1</td><td>SR2 y SR3 en paralelo, SR1 después</td><td>Incremento 1 R2 y R3, incremento 2 R1</td></tr><tr><td>c) <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mn>2</mn><mo>→</mo><mi>R</mi><mn>3</mn><mo>∧</mo><mi>R</mi><mn>1</mn><mo>→</mo><mi>R</mi><mn>3</mn></mrow><annotation encoding="application/x-tex">R2 &#92;to R3 &#92;wedge R1 &#92;to R3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span><span class="mord">3</span></span></span></span></td><td>R3, después R1 y R2</td><td>R3, R1, R2</td><td>SR3, después SR1 y SR2 en paralelo</td><td>Incremento 1 R3, incremento 2 R1 y R2</td></tr></tbody></table></div>
+<p>Por ejemplo, la EDT del caso a) en cascada queda así.</p>
+<pre class="codigo"><code>1 Proyecto
+  1.1 Análisis
+    1.1.1 Análisis R1
+    1.1.2 Análisis R3
+    1.1.3 Análisis R2
+  1.2 Diseño
+    1.2.1 Diseño R1
+    1.2.2 Diseño R3
+    1.2.3 Diseño R2
+  1.3 Codificación, en el mismo orden
+  1.4 Prueba, en el mismo orden</code></pre>
+<h4>3.3 EDT, esfuerzo y duración</h4>
+<p>Las flechas del gráfico dicen qué se hace antes.</p>
+<pre class="codigo"><code>R1 -&gt; R8
+R2 -&gt; R6
+R3 -&gt; R6, R7
+R6 -&gt; R9
+R7 -&gt; R9
+R4 -&gt; R10</code></pre>
+<p><strong>a. EDT incremental con los paquetes actuales.</strong></p>
+<pre class="codigo"><code>1 Proyecto
+  1.1 Incremento P1, R1 R2 R3 R4
+    1.1.1 Análisis  1.1.2 Diseño  1.1.3 Codificación  1.1.4 Prueba
+  1.2 Incremento P2, R6 R7
+    1.2.1 Análisis  1.2.2 Diseño  1.2.3 Codificación  1.2.4 Prueba
+  1.3 Incremento P3, R8 R9 R10
+    1.3.1 Análisis  1.3.2 Diseño  1.3.3 Codificación  1.3.4 Prueba</code></pre>
+<p>P2 depende de P1 (R6 y R7 necesitan R2 y R3), y P3 depende de P1 y de P2 (R8 necesita R1, R10 necesita R4 y R9 necesita R6 y R7). Los incrementos quedan en cadena.</p>
+<p><strong>b. Paquetes reorganizados por dependencia.</strong> Se juntan en un paquete los requerimientos que están unidos por alguna flecha.</p>
+<pre class="codigo"><code>1 Proyecto
+  1.1 Incremento P1&#x27;, R1 R8
+    1.1.1 Análisis  1.1.2 Diseño  1.1.3 Codificación  1.1.4 Prueba
+  1.2 Incremento P2&#x27;, R4 R10
+    1.2.1 Análisis  1.2.2 Diseño  1.2.3 Codificación  1.2.4 Prueba
+  1.3 Incremento P3&#x27;, R2 R3 R6 R7 R9, en ese orden
+    1.3.1 Análisis  1.3.2 Diseño  1.3.3 Codificación  1.3.4 Prueba</code></pre>
+<p>Ningún paquete depende de otro.</p>
+<p><strong>c. Esfuerzo y duración en codificación.</strong> Cada requerimiento conserva las horas de codificación de su paquete original.</p>
+<div class="tabla"><table><thead><tr><th>Organización</th><th>Paquete</th><th>Cuenta</th><th>Horas</th></tr></thead><tbody><tr><td>a</td><td>P1</td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>×</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">4 &#92;times 32</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">32</span></span></span></span></td><td>128</td></tr><tr><td>a</td><td>P2</td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>×</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">2 &#92;times 40</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">40</span></span></span></span></td><td>80</td></tr><tr><td>a</td><td>P3</td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>×</mo><mn>48</mn></mrow><annotation encoding="application/x-tex">3 &#92;times 48</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">48</span></span></span></span></td><td>144</td></tr><tr><td>a</td><td>Total</td><td></td><td>352</td></tr><tr><td>b</td><td>P1&#39;, R1 y R8</td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>32</mn><mo>+</mo><mn>48</mn></mrow><annotation encoding="application/x-tex">32 + 48</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">48</span></span></span></span></td><td>80</td></tr><tr><td>b</td><td>P2&#39;, R4 y R10</td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>32</mn><mo>+</mo><mn>48</mn></mrow><annotation encoding="application/x-tex">32 + 48</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">48</span></span></span></span></td><td>80</td></tr><tr><td>b</td><td>P3&#39;, R2 R3 R6 R7 R9</td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>32</mn><mo>+</mo><mn>32</mn><mo>+</mo><mn>40</mn><mo>+</mo><mn>40</mn><mo>+</mo><mn>48</mn></mrow><annotation encoding="application/x-tex">32+32+40+40+48</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">32</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">40</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">40</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">48</span></span></span></span></td><td>192</td></tr><tr><td>b</td><td>Total</td><td></td><td>352</td></tr></tbody></table></div>
+<p>El esfuerzo total de codificación es el mismo, 352 horas, porque se codifican los mismos requerimientos. Lo que cambia es la duración. Con un programador por paquete y jornadas de 8 horas:</p>
+<ul>
+<li>En a, los paquetes van en cadena, así que la codificación dura <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>128</mn><mo>+</mo><mn>80</mn><mo>+</mo><mn>144</mn><mo>&#61;</mo><mn>352</mn></mrow><annotation encoding="application/x-tex">128+80+144 &#61; 352</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">128</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">80</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">144</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">352</span></span></span></span> horas, 44 jornadas.</li>
+<li>En b, los tres paquetes son independientes y pueden ir en paralelo. Dura lo que el más largo, 192 horas, 24 jornadas.</li>
+</ul>
+<p><strong>d. Esfuerzo de cada proyecto.</strong> La codificación es el 20% del total, así que el total de cada paquete es su codificación dividida por 0,2. El resto sale de los porcentajes de la tabla.</p>
+<div class="tabla"><table><thead><tr><th>Organización</th><th>Paquete</th><th>Análisis 10%</th><th>Diseño 30%</th><th>Codificación 20%</th><th>Prueba 40%</th><th>Total</th></tr></thead><tbody><tr><td>a</td><td>P1</td><td>64</td><td>192</td><td>128</td><td>256</td><td>640</td></tr><tr><td>a</td><td>P2</td><td>40</td><td>120</td><td>80</td><td>160</td><td>400</td></tr><tr><td>a</td><td>P3</td><td>72</td><td>216</td><td>144</td><td>288</td><td>720</td></tr><tr><td>b</td><td>P1&#39;</td><td>40</td><td>120</td><td>80</td><td>160</td><td>400</td></tr><tr><td>b</td><td>P2&#39;</td><td>40</td><td>120</td><td>80</td><td>160</td><td>400</td></tr><tr><td>b</td><td>P3&#39;</td><td>96</td><td>288</td><td>192</td><td>384</td><td>960</td></tr><tr><td>Las dos</td><td>Total</td><td>176</td><td>528</td><td>352</td><td>704</td><td>1760</td></tr></tbody></table></div>
+<h4>3.4 EDT según relaciones de análisis y diseño</h4>
+<p>En análisis, CU1 y CU2 van antes que CU3. En diseño, CU1 va antes que CU3, y CU3 antes que CU2.</p>
+<p><strong>Cascada.</strong></p>
+<pre class="codigo"><code>1 Proyecto
+  1.1 Análisis
+    1.1.1 Análisis CU1
+    1.1.2 Análisis CU2
+    1.1.3 Análisis CU3, después de CU1 y CU2
+  1.2 Diseño
+    1.2.1 Diseño CU1
+    1.2.2 Diseño CU3, después de CU1
+    1.2.3 Diseño CU2, después de CU1 y CU3
+  1.3 Codificación CU1, CU2 y CU3
+  1.4 Prueba CU1, CU2 y CU3</code></pre>
+<p><strong>Incremental.</strong> CU1 puede ir solo en el primer incremento, porque no depende de nadie. CU2 y CU3 no pueden separarse. CU3 no puede ir primero, porque su análisis necesita el de CU2, y CU2 tampoco, porque su diseño necesita el de CU3. Van juntos en el segundo incremento.</p>
+<pre class="codigo"><code>1 Proyecto
+  1.1 Incremento 1, CU1
+    1.1.1 Análisis CU1
+    1.1.2 Diseño CU1
+    1.1.3 Codificación CU1
+    1.1.4 Prueba CU1
+  1.2 Incremento 2, CU2 y CU3
+    1.2.1 Análisis CU2
+    1.2.2 Análisis CU3
+    1.2.3 Diseño CU3
+    1.2.4 Diseño CU2
+    1.2.5 Codificación CU2 y CU3
+    1.2.6 Prueba e integración con el incremento 1</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la página Regularización, secciones Ciclos de vida, Del alcance al cronograma, Esfuerzo y duración y Predecesoras.</p><p class="bloque-fuente">Quedó en duda: Cada requerimiento conserva las horas de codificación de su paquete original, y hay un programador por paquete. No queda claro qué distingue el punto c del d.</p><div class="em-votos" data-m="ingenieria-y-calidad-de-software" data-e="practica-edt-esfuerzo" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="EDT" data-enlace="regularizacion.html#como-viene-el-examen" data-donde="Regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">EDT</span><span class="ex-t-teoria"><a href="regularizacion.html#como-viene-el-examen">Cómo viene el examen</a>, en Regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Esfuerzo" data-enlace="regularizacion.html#esfuerzo-y-duracion" data-donde="Regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Esfuerzo</span><span class="ex-t-teoria"><a href="regularizacion.html#esfuerzo-y-duracion">Esfuerzo y duración</a>, en Regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Duración" data-enlace="regularizacion.html#esfuerzo-y-duracion" data-donde="Regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Duración</span><span class="ex-t-teoria"><a href="regularizacion.html#esfuerzo-y-duracion">Esfuerzo y duración</a>, en Regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2023-03-17.html">Anterior: Final, 17/03/2023</a><a href="ej-practica-parcial-ad.html">Siguiente: Práctica de la cátedra para aprobación directa</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta octubre de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

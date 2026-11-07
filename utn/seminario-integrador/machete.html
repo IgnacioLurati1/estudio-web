@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hoja de repaso: Seminario Integrador</title>
+<meta name="description" content="El proyecto en una hoja para imprimir.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="seminario-integrador" data-pagina="machete">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Seminario Integrador</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="proyecto.html">El proyecto del Drive</a></li><li class="em-fuera"><a href="machete.html" aria-current="page">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=seminario-integrador">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=seminario-integrador">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#el-caso">El caso</a></li><li class="n2"><a href="#actores">Actores</a></li><li class="n2"><a href="#documentos">Documentos</a></li><li class="n2"><a href="#casos-de-uso">Casos de uso</a></li><li class="n2"><a href="#matriz-crud">Matriz CRUD</a></li><li class="n2"><a href="#sistema">Sistema</a></li><li class="n2"><a href="#no-lo-copies">No lo copies</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja machete" data-reportable>
+<h1>Hoja de repaso</h1>
+<p class="bajada">El proyecto del Drive de Seminario Integrador, de 2016 y 2017. No hay exámenes ni programa: no dice qué se evalúa hoy.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p>
+
+
+<section class="sec"><h2 id="el-caso">El caso</h2>
+<p>Escuela secundaria en papel. Problema elegido: reorganizar el Horario Consolidado ante traslados de horas y suplencias.</p>
+<p>Docente apto para un cargo, según la minuta:</p>
+<ul>
+<li>Sin solapamiento entre su DDJJ y la materia.</li>
+<li>Al menos 40 minutos entre clases de escuelas distintas.</li>
+<li>Hasta 20 hs cátedra semanales. El glosario dice 44 unidades.</li>
+</ul>
+<p>Si hay varios aptos, manda el escalafón.</p>
+</section>
+<section class="sec"><h2 id="actores">Actores</h2>
+<div class="tabla"><table><thead><tr><th>Sigla</th><th>Quién</th></tr></thead><tbody><tr><td>DS</td><td>Docente solicitante</td></tr><tr><td>DA</td><td>Docente afectado</td></tr><tr><td>OCH</td><td>Operador de cambio de horario</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="documentos">Documentos</h2>
+<div class="tabla"><table><thead><tr><th>Documento</th><th>Qué trae</th></tr></thead><tbody><tr><td>Descripción y minuta</td><td>Circuitos actuales, preguntas y respuestas, lo que piden los directivos</td></tr><tr><td>Glosario</td><td>Escalafón, cargo, hora cátedra, licencia, concurso, titular, interino, suplente, traslado</td></tr><tr><td>Visión</td><td>Sentencias de problema y posición, usuarios, necesidades, otros requerimientos</td></tr><tr><td>Reglas de negocio</td><td>Cuatro reglas con tipo HE, AR o AD. Las siglas no están explicadas</td></tr><tr><td>Casos de uso</td><td>CUR01 resumen, CUU 1.1 analizar, CUU 1.2 registrar, cada CUU semántico y dialogal</td></tr><tr><td>Matriz CRUD</td><td>Caso de uso contra datos</td></tr><tr><td>Arquitectura</td><td>Herramientas, despliegue y tres capas</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="casos-de-uso">Casos de uso</h2>
+<p>Docente: CUU 1 alta, CUU 2 baja, CUU 3 modificar. DDJJ: CUU 4 alta, CUU 5 modificar, CUU 6 baja. Horario: CUU 7 consultar, CUU 8 analizar cambios posibles, CUU 9 registrar cambio.</p>
+<p>CUU 1.1: se valida solapamiento, se valida diferencia horaria y se buscan cambios directos. Si no hay, cambios alternativos.</p>
+<p>CUU 1.2: se confirma y registra. Si alguien rechaza, se cancela el cambio completo.</p>
+<p>El círculo cierra cuando el DS quedó ubicado, alguien ocupa su lugar y todos los movidos tienen horario nuevo.</p>
+</section>
+<section class="sec"><h2 id="matriz-crud">Matriz CRUD</h2>
+<div class="tabla"><table><thead><tr><th>CUU</th><th>Profesores</th><th>DDJJ</th><th>M-M-P-C</th></tr></thead><tbody><tr><td>1, 2, 3</td><td>C, R-D, R-U</td><td></td><td></td></tr><tr><td>4</td><td></td><td>C</td><td>R</td></tr><tr><td>5</td><td></td><td>R-U</td><td>R-U</td></tr><tr><td>6</td><td></td><td>R-D</td><td>R-D</td></tr><tr><td>7 y 8</td><td>R</td><td>R</td><td>R</td></tr><tr><td>9</td><td>R</td><td>R-U</td><td>R-U</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="sistema">Sistema</h2>
+<p>MySQL, C# con Windows Forms, .NET 4.5, red LAN. Capas: presentación, lógica y datos.</p>
+<p>Tablas: <code>profesores</code>, <code>ddjj</code>, <code>escuelas</code>, <code>dias</code>, <code>modulos</code>, <code>materias</code>, <code>cursos</code> y <code>materias_modulos_profesores_cursos</code>.</p>
+</section>
+<section class="sec"><h2 id="no-lo-copies">No lo copies</h2>
+<ul>
+<li>Tope de horas: 20 en la minuta, 44 en el glosario.</li>
+<li>Concurso: cada 2 años en el glosario, una vez al año en la visión.</li>
+<li>El CUU 1.1 cita RN 3 y RN 6, y no coinciden con el documento de reglas.</li>
+<li>Cambios «alternativos» en el texto, «indirectos» en la pantalla.</li>
+<li>Suplencias: necesidad deseable sin caso de uso.</li>
+</ul>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN, que para esta materia es un solo proyecto de alumnos de 2016 y 2017, sin exámenes, programa ni apuntes. No dice qué se evalúa hoy: manda lo que indique tu comisión. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

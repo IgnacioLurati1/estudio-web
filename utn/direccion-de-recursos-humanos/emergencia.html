@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-solo>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Emergencia: Dirección de Recursos Humanos</title>
+<meta name="description" content="Lo necesario para rendir Dirección de Recursos Humanos.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="direccion-de-recursos-humanos" data-pagina="emergencia">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Dirección de Recursos Humanos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html" aria-current="page">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=direccion-de-recursos-humanos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=direccion-de-recursos-humanos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#1-parcial">1° parcial</a></li><li class="n2"><a href="#2-parcial">2° parcial</a></li><li class="n2"><a href="#examenes">Exámenes</a></li><li class="n3"><a href="#ex-parcial-2">2° parcial</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Protocolo de emergencia</h1>
+<p class="bajada">Lo justo de Dirección de Recursos Humanos para cada parcial, con lo poco que trae el Drive.</p>
+
+<p class="em-salto"><a href="#examenes">Ir a los exámenes</a></p>
+
+<div class="ojo"><p class="ojo-t">Este resumen tiene un agujero grande</p><p>Esta materia no tiene apuntes de la cátedra en el Drive. La teoría sale de notas de clase y ensayos de alumnos de 2024. Hay un solo examen, el 2° parcial del 23/06/2026, y de sus diez consignas cinco son de temas que no aparecen en ningún archivo. Las otras cinco tienen apenas un tramo corto. Esos temas los tenés que estudiar del material de tu cursada.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué piden</th></tr></thead><tbody><tr><td>1° parcial</td><td>No hay ninguno en el Drive. Por una marca en las notas de 2024, entrarían la evolución de los RRHH, empresa y empresario, organizaciones, modelos económicos, comportamiento organizacional, grupos y poder</td></tr><tr><td>2° parcial</td><td>Diez consignas cortas. Cuatro de verdadero o falso, dos de mencionar, una de completar, una de opción múltiple, una de diferencias y una de justificar un caso. Compensación, liderazgo situacional, gestión del cambio, líder coach, administrador y líder, inteligencia emocional</td></tr></tbody></table></div>
+
+<section class="sec"><h2 id="1-parcial">1° parcial</h2>
+<div class="ojo"><p class="ojo-t">No hay ningún 1° parcial en el Drive</p><p>El reparto es una deducción. Las notas de clase de 2024 tienen una marca, «Clase previa a parcial Martes 28», justo antes de la parte de liderazgo. Lo de esta sección es lo que las notas traen antes de esa marca. Confirmá con tu comisión qué entra.</p>
+</div>
+<p><strong>RRHH</strong> tiene dos sentidos en las notas. Es la fuerza laboral de una organización y, dentro de la organización, la disciplina que ayuda a obtener, desarrollar, mantener y capacitar a sus integrantes, sin importar su lugar en el organigrama. Se ocupa de seleccionar, contratar, formar, emplear y retener a los colaboradores.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Jefe de Personal</th><th>Dirección de RRHH</th></tr></thead><tbody><tr><td>Tipo de cargo</td><td>De control y técnico</td><td>De asesoramiento</td></tr><tr><td>Sobre quién trabaja</td><td>Directamente sobre el personal</td><td>Asesora a los departamentos</td></tr><tr><td>Cómo recorre el organigrama</td><td>En vertical</td><td>Transversalmente</td></tr><tr><td>Qué hace</td><td>Vela por el cumplimiento de normas, reglas y horarios</td><td>Previene los problemas y defiende con inteligencia los intereses de la organización</td></tr></tbody></table></div>
+<ul>
+<li><strong>Empresa.</strong> Unidad económico y social integrada por elementos materiales, humanos y técnicos, que tiene por objeto obtener utilidades a través del mercado de bienes y servicios.</li>
+<li><strong>Organizaciones</strong> (Chiavenato). Sistemas diseñados para obtener determinados objetivos y metas, integrados por personas que interactúan en ellas. Las personas son su principal activo.</li>
+<li><strong>Cultura organizacional.</strong> Es un sistema de significados compartidos por sus miembros, que distingue a una organización de otra. Define el comportamiento de sus integrantes y se define en función de la misión, la visión y los valores.</li>
+<li><strong>Comportamiento organizacional</strong> (Gibson). Estudio y aplicación de conocimientos sobre cómo las personas actúan dentro de las organizaciones. Trabaja en tres niveles, individual, grupal y organizacional.</li>
+<li><strong>Grupo.</strong> Unión de dos o más personas independientes que, de manera relacionada, trabajan e interactúan para lograr fines específicos. Las notas dicen «independientes», y podría ser «interdependientes». Pasa por formación, conflicto, regulación, desempeño y desintegración.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Sistema económico</th><th>Quién decide</th><th>Rasgos</th></tr></thead><tbody><tr><td>Mercado libre</td><td>Oferta y demanda</td><td>Propiedad privada, libre competencia, libertad de elección. Cuanto menor la intervención del Estado, mayor la eficiencia</td></tr><tr><td>Planificada o centralizada</td><td>El Estado</td><td>Decide qué se produce, cuánto, a quién se vende y a qué precio. Planificación y control rígidos</td></tr><tr><td>Mixta</td><td>Mercado y Estado</td><td>Busca equilibrio entre producción y redistribución, y entre bienes privados y públicos. Su objetivo es la economía de bienestar</td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><th>Tipo de poder</th><th>En qué se basa</th><th>Respuesta del grupo</th></tr></thead><tbody><tr><td>Coercitivo</td><td>Temor, amenaza, castigo</td><td>Resistencia</td></tr><tr><td>De recompensa</td><td>Se cumple para obtener un beneficio</td><td>Cumplimiento</td></tr><tr><td>Legítimo</td><td>La autoridad. Tiene elementos coercitivos y de recompensa</td><td>Cumplimiento</td></tr><tr><td>Del experto</td><td>El conocimiento y la experiencia, que inspiran respeto</td><td>Compromiso</td></tr><tr><td>De referencia</td><td>Características personales admiradas por otros</td><td>Compromiso</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="2-parcial">2° parcial</h2>
+<div class="ojo"><p class="ojo-t">Lo que el Drive no trae</p><p>No aparecen en ningún archivo la equidad interna y los objetivos de la gestión de compensación, los beneficios monetarios y no monetarios, los actores del proceso de cambio y las competencias de inteligencia emocional de Goleman. Aparecen muy poco el liderazgo situacional (la palabra no figura), la gestión del cambio, el líder coach y la diferencia entre administrador y líder. No los completamos de memoria. Esta cátedra puede tener definiciones propias, y una respuesta general puede contradecirlas.</p>
+</div>
+<h3 id="liderazgo">Liderazgo</h3>
+<ul>
+<li><strong>Chiavenato.</strong> Proceso de influir en las actividades de un grupo de personas hacia el logro de metas u objetivos específicos.</li>
+<li><strong>Robbins.</strong> El trabajo del líder es ayudar a sus seguidores a alcanzar sus metas y proporcionar la dirección necesaria, o asegurarse de que esas metas sean compatibles con los objetivos de la organización.</li>
+<li><strong>Las notas.</strong> Cualquier persona puede ser líder, en el lugar y contexto en que esté. Es la capacidad para motivar y dirigir, y el verdadero líder es uno más del grupo.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Dos frases que chocan en las notas</p><p>Justo después de decir que cualquiera puede ser líder, las notas agregan «es una posición jerárquica dentro de una organización». Las dos no pueden valer sin aclaración. Confirmá con tu comisión cómo lo presenta (Nota de Clases.docx, sección El líder).</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Era</th><th>Figura</th><th>Rasgos, según las notas</th></tr></thead><tbody><tr><td>Industrial</td><td>Manager</td><td>Poder y control, sistematizador, centrado en la tarea, sin feedback</td></tr><tr><td>De la información</td><td>Líder</td><td>El conocimiento es poder, visionario, feedback unidireccional, centrado en las personas</td></tr><tr><td>De la imaginación</td><td>Neurolíder</td><td>El poder está en las ideas, creador, centrado en el cerebro, humor, feedback en todas las direcciones</td></tr></tbody></table></div>
+<p><strong>Nuevo modelo de liderazgo.</strong> Las notas lo enmarcan en los RRHH de la Argentina del siglo XXI. Debe desarrollar habilidades blandas, multihabilidades, inteligencia emocional y herramientas de coach. Debe presentar en su personalidad autoconocimiento, empatía y escucha activa.</p>
+<p><strong>Estilos de liderazgo, según una lectura.</strong> Un ensayo sobre «Empowerment, una cuestión de poder» (<code>Entregas/LO7_ RRHH.docx</code>) dice que el liderazgo efectivo adapta su estilo a cada situación y colaborador, y promueve un aumento gradual en la autonomía del empleado. Nombra cuatro estilos, <strong>decir, convencer, participar y delegar</strong>. El líder actúa como facilitador, comunicador, consejero, entrenador y proveedor de retroalimentación. El ensayo no explica cada estilo ni dice a quién le corresponde cuál.</p>
+<h3 id="cambio">Cambio</h3>
+<p>No hay una unidad sobre gestión del cambio en el Drive. Estas son las únicas menciones.</p>
+<ul>
+<li><strong>Adaptación al cambio</strong>, uno de los roles clave de RRHH hoy. El mundo cambia, la sociedad evoluciona, las escalas de valores cambian, y las estructuras y conductas tienen que adaptarse.</li>
+<li><strong>El ensayo sobre empowerment</strong> dice que implementar un cambio cultural requiere diseñar una estructura específica, hacer auditorías y evaluaciones y contar con facilitadores. Estos necesitan entusiasmo, capacidad de persuasión e influencia, y fomentar el diálogo.</li>
+</ul>
+<h3 id="lo-demas-del-2-parcial-sin-pregunta-en-2026">Lo demás del 2° parcial, sin pregunta en 2026</h3>
+<p><strong>Empoderamiento</strong> (Chiavenato). Proceso por el que las organizaciones otorgan a sus empleados el poder, la autonomía y la responsabilidad necesarios para tomar decisiones y actuar de manera proactiva en su trabajo. Sus cuatro elementos son delegación de autoridad, autonomía, desarrollo de habilidades y responsabilidad.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Empoderar</th><th>Delegar</th></tr></thead><tbody><tr><td>Elemento priorizado</td><td>El poder</td><td>La confianza</td></tr><tr><td>Qué implica</td><td>Desarrollar la capacidad de decidir y actuar de manera autónoma</td><td>Asignar una tarea, responsabilidad o autoridad para que otro la lleve a cabo en nombre del delegante</td></tr><tr><td>Control</td><td>Busca fortalecer a la persona</td><td>Implica mantener el control</td></tr></tbody></table></div>
+<p>Lo que se delega es la autoridad. Lo que no se delega es la responsabilidad final.</p>
+<p><strong>Conflicto</strong> (Robbins). Proceso que se inicia cuando una de las partes percibe que la otra afecta o puede afectar algo que la primera considera importante. Puede ser intrapersonal, interpersonal, intergrupal u organizacional. Se resuelve por negociación, mediación (un tercero imparcial ayuda), arbitraje (un árbitro decide y las partes acatan), colaboración o compromiso.</p>
+<p><strong>Negociación.</strong> Proceso por el que dos o más partes con intereses, necesidades o deseos diferentes buscan un acuerdo mutuamente beneficioso. Sus fases son decisión de negociar, preparación, ejecución, conclusión (acuerdo, ruptura o languidecimiento) y materialización del resultado (<code>Entregas/LO8_RRHH.docx</code>).</p>
+</section>
+
+<section class="sec em-examenes"><h2 id="examenes">Exámenes</h2>
+<p class="em-leyenda">«Respuesta oficial» es lo que está en el Drive. «Propuesta sin verificar» es una respuesta armada con inteligencia artificial que ningún docente revisó.</p>
+<h3 id="ex-parcial-2">2° parcial</h3><ul class="em-lista"><li class="em-fila"><a href="ej-p2-2026-06-23.html"><span class="em-nom">2° parcial, 23/06/2026</span><span class="ej-fecha">23/06/2026</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul></section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN: un parcial de 2026 y notas y ensayos de alumnos de 2024. No hay apuntes de la cátedra. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

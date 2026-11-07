@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Parcial, 23/10/2023: Sistemas Operativos</title>
+<meta name="description" content="Ejercicio de examen: Parcial, 23/10/2023.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="sistemas-operativos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Sistemas Operativos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial.html">Parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=sistemas-operativos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=sistemas-operativos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Parcial, 23/10/2023</h1>
+<p class="bajada">Parcial, 23/10/2023</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="p1-2023-10-23" data-titulo="Parcial, 23/10/2023" data-min="120" data-otro="ejercicios.html#parcial-1" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="p1-2023-10-23" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1EkStQoeruB7NrA8up_4AnVRi-0_WQ3s8/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><p>SISTEMAS OPERATIVOS - PARCIAL 23/10/2023</p>
+<p>Tema 1:</p>
+<p>(Ejercicios que valen 1 punto c/u)</p>
+<ol>
+<li>Definir multiprogramación y cambio de contexto.</li>
+<li>Explique la ventaja de los hilos y de un ejemplo detallado.</li>
+<li>Explique los métodos de administración de memoria libre.</li>
+<li>Ejercicio de Marcos de memoria (LRU, FIFO, OPT).</li>
+</ol>
+<p>(Ejercicios que valen 2 puntos c/u)</p>
+<ol start="5">
+<li>Diagramar y describir las funciones del DMA.</li>
+<li>Explicar como se resuelven los interbloqueos.</li>
+<li>Diagramar y describir la paravirtualización.</li>
+</ol>
+<p>Tema 2:</p>
+<p>(Ejercicios que valen 1 punto c/u)</p>
+<ol>
+<li>Definir bus de datos, qué transmite, y dar 3 ejemplos de bus de datos.</li>
+<li>Nombrar las 7 operaciones validas sobre archivo. ¿Para qué sirve un directorio?</li>
+<li>Nombrar los 4 eventos en los que se crea un proceso.</li>
+<li>Ejercicio de Marcos de memoria (LRU, FIFO, OPT).</li>
+</ol>
+<p>(Ejercicios que valen 2 puntos c/u)</p>
+<ol start="5">
+<li>Nombrar 3 métodos de gestión de E/S en orden de importancia.</li>
+<li>Dibujar una matriz de acceso. ¿Cuál es la diferencia con una lista de permisos?</li>
+<li>Dibujar y explicar la estructura Cliente/servidor de 3 capas.</li>
+</ol>
+</section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h3 id="tema-1">Tema 1</h3>
+<p><strong>1.</strong> La <strong>multiprogramación</strong> es cambiar a otro trabajo cuando el actual tiene que esperar. Aumenta el uso de la CPU porque siempre hay algo para ejecutar. Para eso hay que tener varios programas a la vez en memoria.</p>
+<p>El <strong>cambio de contexto</strong> (o conmutación de contexto) es lo que hace el SO al pasar la CPU de un proceso a otro. Guarda los registros y los mapas de memoria del proceso que sale y carga los del que entra. Tiene un costo, porque mientras lo hace no hay trabajo útil.</p>
+<p><strong>2.</strong> Un <strong>hilo</strong> es un miniproceso dentro de un proceso. Los hilos de un proceso comparten el espacio de direcciones, las variables globales y los archivos abiertos, y cada uno tiene su contador de programa, sus registros y su pila. Las ventajas son tres. Comparten los datos sin copiarlos, son más fáciles de crear y destruir que los procesos, y si hay cálculo y E/S se pueden <strong>traslapar</strong>, así la aplicación va más rápido.</p>
+<p>El ejemplo del libro es un procesador de palabras con tres hilos. Uno atiende al usuario, con el teclado y el mouse. Otro da formato al documento en segundo plano, por ejemplo cuando se borra una línea de la página 1 y hay que reacomodar las 600 siguientes. El tercero guarda el documento en disco cada tanto. Con un solo hilo, mientras se guarda en disco el programa ignora el teclado, y el usuario lo ve trabado.</p>
+<p><strong>3.</strong> Son dos.</p>
+<ul>
+<li><strong>Mapa de bits</strong>: la memoria se divide en unidades de asignación y a cada una le corresponde un bit, 0 si está libre y 1 si está ocupada.</li>
+<li><strong>Lista ligada</strong>: una lista de segmentos, cada uno un proceso o un hueco, ordenada por dirección.</li>
+</ul>
+<p>Con la lista se usan estos algoritmos.</p>
+<div class="tabla"><table><thead><tr><th>Algoritmo</th><th>Qué hace</th></tr></thead><tbody><tr><td>Primer ajuste</td><td>Recorre la lista hasta el primer hueco lo bastante grande</td></tr><tr><td>Siguiente ajuste</td><td>Como el primero, pero empieza donde se quedó la última vez</td></tr><tr><td>Mejor ajuste</td><td>Recorre toda la lista y toma el hueco más chico que alcance</td></tr><tr><td>Peor ajuste</td><td>Toma siempre el hueco más grande</td></tr><tr><td>Ajuste rápido</td><td>Mantiene listas separadas para los tamaños más pedidos. Fusionar vecinos al liberar es caro</td></tr></tbody></table></div>
+<p><strong>4.</strong> La hoja que quedó no trae la secuencia ni la cantidad de marcos, así que no se puede resolver. El método es la tabla de la práctica, y con datos está en el <a href="ej-p1-2022-11-09.html">parcial del 09/11/22</a>.</p>
+<p><strong>5.</strong> El <strong>DMA</strong> (acceso directo a memoria) hace la transferencia de un bloque de datos entre memoria y dispositivo. Para leer o escribir un bloque, la CPU manda un mandato al módulo de DMA con cuatro datos.</p>
+<ol>
+<li>Si es lectura o escritura.</li>
+<li>La dirección del dispositivo de E/S.</li>
+<li>La dirección inicial de memoria.</li>
+<li>La cantidad de palabras.</li>
+</ol>
+<p>Después la CPU sigue con otro trabajo. El módulo transfiere el bloque completo sin pasar por la CPU y, al terminar, manda una interrupción. La CPU está involucrada solo al principio y al final.</p>
+<figure tabindex="0"><svg viewBox="0 0 640 262" role="img" aria-label="La CPU le manda al módulo de DMA un mandato con cuatro datos: lectura o escritura, dirección del dispositivo, dirección inicial de memoria y cantidad de palabras. El módulo pasa el bloque entre el dispositivo y la memoria sin la CPU, y al terminar le manda una interrupción. La CPU actúa solo al principio y al final."><rect class="d-caja" x="20" y="30" width="130" height="56" rx="4"/><text class="d-t" x="85" y="63">CPU</text><rect class="d-caja" x="250" y="30" width="140" height="56" rx="4"/><text class="d-t" x="320" y="63">Módulo de DMA</text><rect class="d-caja" x="490" y="30" width="130" height="56" rx="4"/><text class="d-t" x="555" y="55">Dispositivo</text><text class="d-s" x="555" y="72">de E/S</text><rect class="d-caja" x="250" y="190" width="140" height="56" rx="4"/><text class="d-t" x="320" y="223">Memoria</text><path class="d-linea" d="M150 50L248 50"/><path class="d-punta" d="M248 50L239 54.5L239 45.5z"/><text class="d-i" x="199" y="22">1. mandato</text><path class="d-linea" d="M248 72L150 72"/><path class="d-punta" d="M150 72L159 67.5L159 76.5z"/><text class="d-i" x="199" y="100">3. interrupción</text><path class="d-linea" d="M490 58L392 58"/><path class="d-punta" d="M392 58L401 53.5L401 62.5z"/><path class="d-linea" d="M320 86L320 188"/><path class="d-punta" d="M320 188L315.5 179L324.5 179z"/><text class="d-i" x="440" y="140">2. el bloque pasa sin la CPU</text><text class="d-s" x="85" y="130">lectura o escritura,</text><text class="d-s" x="85" y="148">dirección del dispositivo,</text><text class="d-s" x="85" y="166">dirección de memoria</text><text class="d-s" x="85" y="184">y cantidad de palabras</text></svg></figure>
+
+<p><strong>6.</strong> Hay cuatro estrategias.</p>
+<ol>
+<li><strong>Ignorar el problema</strong> (algoritmo o estrategia del avestruz): hacer como si no existiera.</li>
+<li><strong>Detectar y recuperar</strong>: dejar que ocurran y actuar.</li>
+<li><strong>Evitarlos dinámicamente</strong>, con una asignación cuidadosa de los recursos.</li>
+<li><strong>Prevenirlos</strong>, atacando estructuralmente una de las cuatro condiciones de Coffman.</li>
+</ol>
+<p>Para <strong>detectar</strong>, con un recurso de cada tipo se busca un ciclo en el grafo de recursos. Con varios de cada tipo se usan las matrices de recursos existentes (E), disponibles (A), asignaciones (C) y peticiones (R). El algoritmo marca cada proceso cuya fila de R entra en A, y le suma a A lo que ese proceso tenía. Los que quedan sin marcar están en interbloqueo.</p>
+<p>Para <strong>recuperarse</strong> hay tres formas.</p>
+<ul>
+<li><strong>Apropiación</strong>: quitarle un recurso a un proceso temporalmente y dárselo a otro. A menudo es inviable, porque los recursos de un interbloqueo son no apropiativos.</li>
+<li><strong>Retroceso</strong>: los procesos guardan <strong>puntos de comprobación</strong> periódicos. Al detectar el interbloqueo, un proceso que tiene un recurso necesario vuelve a un punto anterior a haberlo adquirido, y el recurso se asigna a otro. Se pierde el trabajo hecho desde ese punto.</li>
+<li><strong>Eliminación de procesos</strong>: matar a uno o más del ciclo, o a otro que tenga recursos necesarios. Conviene elegir uno que se pueda volver a correr sin daño.</li>
+</ul>
+<p><strong>7.</strong> En la <strong>paravirtualización</strong> se <strong>modifica el código fuente del SO invitado</strong> para que, en vez de ejecutar instrucciones sensibles, haga llamadas al hipervisor. El invitado actúa como un programa de usuario que llama a un SO, que es el hipervisor. El hipervisor define una interfaz, una API, y se vuelve un <strong>microkernel</strong>. Así se evitan los traps de cada instrucción sensible, que son costosos.</p>
+<figure tabindex="0"><svg viewBox="0 0 640 250" role="img" aria-label="A la izquierda, un SO invitado sin cambios ejecuta instrucciones sensibles y cada una produce un trap al hipervisor, que la emula. A la derecha, el SO invitado paravirtualizado tiene el código modificado y en vez de esas instrucciones hace llamadas al hipervisor, que se vuelve un microkernel con una API."><text class="d-t" x="160" y="18">Virtualización completa</text><text class="d-t" x="480" y="18">Paravirtualización</text><rect class="d-caja" x="20" y="30" width="280" height="56" rx="4"/><text class="d-t" x="160" y="55">SO invitado sin cambios</text><text class="d-s" x="160" y="72">ejecuta instrucciones sensibles</text><rect class="d-caja-r" x="20" y="140" width="280" height="50" rx="4"/><text class="d-t" x="160" y="170">Hipervisor tipo 1</text><rect class="d-caja" x="20" y="200" width="280" height="40" rx="4"/><text class="d-t" x="160" y="225">Hardware</text><path class="d-linea-m" d="M160 86L160 138"/><path class="d-punta-m" d="M160 138L155.5 129L164.5 129z"/><text class="d-i" x="166" y="118" style="text-anchor:start">trap</text><rect class="d-caja" x="340" y="30" width="280" height="56" rx="4"/><text class="d-t" x="480" y="55">SO invitado modificado</text><text class="d-s" x="480" y="72">llama al hipervisor</text><rect class="d-caja-r" x="340" y="140" width="280" height="50" rx="4"/><text class="d-t" x="480" y="162">Hipervisor microkernel</text><text class="d-s" x="480" y="179">define una API</text><rect class="d-caja" x="340" y="200" width="280" height="40" rx="4"/><text class="d-t" x="480" y="225">Hardware</text><path class="d-linea" d="M480 86L480 138"/><path class="d-punta" d="M480 138L475.5 129L484.5 129z"/><text class="d-i" x="486" y="118" style="text-anchor:start">llamada al hipervisor</text></svg></figure>
+
+<h3 id="tema-2">Tema 2</h3>
+<p><strong>1.</strong> El material no define «bus de datos» aparte. Dice que los componentes de la computadora (CPU, memoria y dispositivos) se comunican por buses, y que el SO tiene que conocerlos para configurarlos. Por el bus pasan los datos entre esos componentes. Tres ejemplos de la lista del material.</p>
+<ul>
+<li><strong>PCI Express</strong>, sucesor de PCI.</li>
+<li><strong>USB</strong>, para dispositivos de E/S lentos.</li>
+<li><strong>SCSI</strong>, para dispositivos veloces con gran ancho de banda.</li>
+</ul>
+<p>Los otros que nombra son ISA (obsoleto), IDE (discos y CD-ROM) e IEEE 1394.</p>
+<p><strong>2.</strong> El libro enumera 11 llamadas al sistema sobre archivos, no 7. <strong>create</strong> (crea el archivo sin datos), <strong>delete</strong>, <strong>open</strong> (lleva atributos y direcciones de disco a memoria), <strong>close</strong>, <strong>read</strong>, <strong>write</strong>, <strong>append</strong>, <strong>seek</strong> (reposiciona el apuntador), <strong>get attributes</strong>, <strong>set attributes</strong> y <strong>rename</strong>. Un <strong>directorio</strong> sirve para agrupar archivos y mantener la estructura del sistema de archivos.</p>
+<p><strong>3.</strong> Hay cuatro eventos que crean procesos.</p>
+<ol>
+<li>El arranque del sistema.</li>
+<li>Una llamada al sistema de creación de procesos, hecha por otro proceso.</li>
+<li>Una petición del usuario, como abrir un programa.</li>
+<li>El inicio de un trabajo por lotes.</li>
+</ol>
+<p><strong>4.</strong> Igual que en el Tema 1, no hay datos.</p>
+<p><strong>5.</strong> En orden, de la que más ocupa a la CPU a la que menos.</p>
+<ol>
+<li><strong>E/S programada (espera ocupada)</strong>. El driver inicia la E/S y se queda en un ciclo, sondeando el dispositivo hasta que termina. Su desventaja es que mantiene ocupada la CPU.</li>
+<li><strong>E/S por interrupciones</strong>. El driver inicia el dispositivo y le pide que interrumpa al terminar. Mientras tanto la CPU hace otro trabajo. El número del dispositivo sirve como índice en el <strong>vector de interrupciones</strong> para hallar el manejador.</li>
+<li><strong>DMA</strong> (acceso directo a memoria). Un módulo controla el flujo de datos entre memoria y dispositivo, sin la CPU. Interrumpe solo al final.</li>
+</ol>
+<p><strong>6.</strong> La <strong>matriz de acceso</strong> tiene <strong>sujetos</strong> en las filas, <strong>objetos</strong> en las columnas y los <strong>derechos de acceso</strong> en cada celda. Un ejemplo con dos usuarios y tres archivos, armado para esta respuesta.</p>
+<div class="tabla"><table><thead><tr><td></td><th><code>notas.txt</code></th><th><code>sueldos.xls</code></th><th><code>backup.sh</code></th></tr></thead><tbody><tr><td>Usuario A</td><td>leer, escribir</td><td>leer</td><td></td></tr><tr><td>Usuario B</td><td>leer</td><td></td><td>ejecutar</td></tr></tbody></table></div>
+<p>Como la matriz es dispersa (casi todas las celdas vacías), se implementa descomponiéndola.</p>
+<ul>
+<li><strong>Por columnas</strong> son las <strong>listas de control de acceso (ACL)</strong>. Cada objeto tiene una lista de usuarios con sus derechos. La ACL de <code>notas.txt</code> es «usuario A, leer y escribir; usuario B, leer».</li>
+<li><strong>Por filas</strong> son los <strong>tickets de capacidades</strong>. Cada usuario tiene la lista de objetos y operaciones que puede hacer. Las capacidades del usuario B son «<code>notas.txt</code>, leer; <code>backup.sh</code>, ejecutar». Los tickets no deben falsificarse, por eso los mantiene el SO.</li>
+</ul>
+<p>La matriz es el modelo completo. Una <strong>lista de permisos</strong> es una de sus partes. Si es por objeto, es la ACL, una columna. Si es por usuario, es la lista de capacidades, una fila.</p>
+<p><strong>7.</strong> El software se distribuye entre tres tipos de máquinas.</p>
+<ul>
+<li>La <strong>máquina de usuario</strong>, un cliente ligero.</li>
+<li>Un <strong>servidor de la capa central</strong>. Suele ser una pasarela entre los clientes y los servidores de bases de datos, y media entre los dos mundos.</li>
+<li>Un <strong>servidor en segundo plano</strong> (backend), con los datos.</li>
+</ul>
+<figure tabindex="0"><svg viewBox="0 0 640 140" role="img" aria-label="Arquitectura de tres capas. A la izquierda la máquina de usuario, un cliente ligero. En el medio el servidor de la capa central, que hace de pasarela. A la derecha los servidores en segundo plano, con las bases de datos. Los mensajes van y vuelven entre capas vecinas."><rect class="d-caja" x="10" y="40" width="170" height="60" rx="4"/><text class="d-t" x="95" y="67">Máquina de usuario</text><text class="d-s" x="95" y="84">cliente ligero</text><rect class="d-caja" x="235" y="40" width="170" height="60" rx="4"/><text class="d-t" x="320" y="67">Capa central</text><text class="d-s" x="320" y="84">servidor de aplicación</text><rect class="d-caja" x="460" y="40" width="170" height="60" rx="4"/><text class="d-t" x="545" y="67">Segundo plano</text><text class="d-s" x="545" y="84">servidores de datos</text><path class="d-linea" d="M180 62L233 62"/><path class="d-punta" d="M233 62L224 66.5L224 57.5z"/><path class="d-linea" d="M233 80L182 80"/><path class="d-punta" d="M182 80L191 75.5L191 84.5z"/><path class="d-linea" d="M405 62L458 62"/><path class="d-punta" d="M458 62L449 66.5L449 57.5z"/><path class="d-linea" d="M458 80L407 80"/><path class="d-punta" d="M407 80L416 75.5L416 84.5z"/><text class="d-i" x="320" y="128">media entre los clientes y las bases de datos</text></svg></figure>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con Resumen de Parcial, secciones Multiprogramación y otros conceptos, Cambio de contexto, Hilos, Administración de la memoria libre, DMA, Cómo tratar los interbloqueos, Paravirtualización, Buses, Operaciones sobre archivos, Creación, Los tres métodos, Matriz de acceso, ACL y capacidades y Cliente y servidor.</p><p class="bloque-fuente">Quedó en duda: Los dos ejercicios de marcos no tienen datos. «En orden de importancia» se leyó como de la que más ocupa a la CPU a la que menos, que es el orden del material. El ejemplo del procesador de palabras es el del libro, con el detalle de la página 1 y las 600 siguientes. «Lista de permisos» no es un término del material; se tomó como ACL o capacidades. La matriz del punto 6 es un ejemplo armado para esta respuesta.</p><div class="em-votos" data-m="sistemas-operativos" data-e="p1-2023-10-23" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Hilos" data-enlace="parcial.html#hilos" data-donde="Parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Hilos</span><span class="ex-t-teoria"><a href="parcial.html#hilos">Hilos</a>, en Parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Memoria" data-enlace="parcial.html#memoria" data-donde="Parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Memoria</span><span class="ex-t-teoria"><a href="parcial.html#memoria">Memoria</a>, en Parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Reemplazo de páginas" data-enlace="parcial.html#algoritmos-de-reemplazo-de-paginas" data-donde="Parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Reemplazo de páginas</span><span class="ex-t-teoria"><a href="parcial.html#algoritmos-de-reemplazo-de-paginas">Algoritmos de reemplazo de páginas</a>, en Parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="DMA" data-enlace="parcial.html#dma" data-donde="Parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">DMA</span><span class="ex-t-teoria"><a href="parcial.html#dma">DMA</a>, en Parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Virtualización" data-enlace="parcial.html#hipervisor-tipo-1-y-tipo-2" data-donde="Parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT4">Virtualización</span><span class="ex-t-teoria"><a href="parcial.html#hipervisor-tipo-1-y-tipo-2">Hipervisor tipo 1 y tipo 2</a>, en Parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT4"><label class="ex-op" data-v="bien"><input type="radio" name="exT4r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT4r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT4r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-p1-2023-11-08.html">Anterior: Parcial, 08/11/2023</a><a href="ej-fin-2026-08-26.html">Siguiente: Final, 26/08/2026</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta octubre de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

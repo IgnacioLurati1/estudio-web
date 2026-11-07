@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final, 16/11/2023 (Panadería): Algoritmos y Estructuras de Datos</title>
+<meta name="description" content="Ejercicio de examen: Final, 16/11/2023 (Panadería).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="algoritmos-y-estructuras-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Algoritmos y Estructuras de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">3° parcial y final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=algoritmos-y-estructuras-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=algoritmos-y-estructuras-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Final, 16/11/2023 (Panadería)</h1>
+<p class="bajada">3° parcial y final, 16/11/2023</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="fin-2023-11-16" data-titulo="Final, 16/11/2023 (Panadería)" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="fin-2023-11-16" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1efe15oK6fvTZwxgI33Bg3BYL3eOyc-pD/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/fin-2023-11-16-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/fin-2023-11-16-e1.webp" width="1075" height="1492" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p>La hoja pide el diagrama de Chapin. Va un diagrama por módulo, con su declaración de variables arriba, y primero el del programa principal. Si un diagrama no entra en la pantalla, tocalo para verlo completo. Después de los diagramas está el mismo algoritmo en Python, para que lo puedas probar. Las sentencias de archivos van con las palabras reservadas de Python (<code>open</code>, <code>pickle.load</code>, <code>pickle.dump</code>, <code>seek</code>, <code>tell</code>). Los textos se completan con <code>ljust</code> para que los registros midan lo mismo. El tamaño de un registro sale de <code>tell()</code> después de leer el primero.</p>
+<h4>Menú iterativo</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 790 755" width="790" height="755" style="width:790px;min-width:790px;max-width:none;height:755px" role="img" aria-label="Diagrama de Chapin del programa principal, con la declaración de variables y los registros. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="478" height="26"/><rect x="14" y="143" width="478" height="26"/><rect x="14" y="169" width="478" height="26"/><rect x="14" y="195" width="478" height="26"/><rect x="14" y="221" width="478" height="26"/><rect x="14" y="247" width="478" height="26"/><rect x="14" y="273" width="478" height="26"/><rect x="14" y="299" width="478" height="26"/><rect x="14" y="325" width="478" height="26"/><rect x="14" y="351" width="478" height="312"/><rect x="38" y="377" width="454" height="26"/><rect x="38" y="403" width="454" height="26"/><rect x="38" y="429" width="454" height="26"/><rect x="38" y="455" width="454" height="26"/><rect x="38" y="481" width="454" height="26"/><rect x="38" y="507" width="454" height="26"/><rect x="38" y="533" width="454" height="52"/><rect x="62" y="559" width="430" height="26"/><rect x="38" y="585" width="454" height="78"/><rect x="38" y="637" width="117.4" height="26"/><rect x="155.4" y="637" width="140.8" height="26"/><rect x="296.2" y="637" width="94" height="26"/><rect x="390.2" y="637" width="101.8" height="26"/><rect x="14" y="663" width="478" height="26"/><rect x="14" y="689" width="478" height="26"/><rect x="14" y="715" width="478" height="26"/></g><path class="d-linea" d="M38 611H492M38 637H492M155.4 611V663M296.2 611V663M390.2 611V663"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">afIngredientes = "INGREDIENTES.DAT"</text><text x="22" y="160.5">afPanes = "PANES.DAT"</text><text x="22" y="186.5">afProduccion = "PRODUCCION.DAT"</text><text x="22" y="212.5">alIngredientes = open(afIngredientes, "r+b")</text><text x="22" y="238.5">alPanes = open(afPanes, "r+b")</text><text x="22" y="264.5">alProduccion = open(afProduccion, "rb")</text><text x="22" y="290.5">pickle.load(alIngredientes)</text><text x="22" y="316.5">tamIng = alIngredientes.tell()</text><text x="22" y="342.5">opcion = 0</text><text x="22" y="368.5">Mientras opcion != 5:</text><text x="46" y="394.5">Mostrar("1. Carga de panes")</text><text x="46" y="420.5">Mostrar("2. Generación de nuevos precios")</text><text x="46" y="446.5">Mostrar("3. Horneada")</text><text x="46" y="472.5">Mostrar("4. Lista de faltantes")</text><text x="46" y="498.5">Mostrar("5. Salir")</text><text x="46" y="524.5">Leer(opcion)</text><text x="46" y="550.5">Mientras opcion &lt; 1 or opcion &gt; 5:</text><text x="70" y="576.5">Leer(opcion)</text><text x="46" y="602.5">Según opcion:</text><text x="96.7" y="628.5" text-anchor="middle">1</text><text x="46" y="654.5">CARGA_PANES()</text><text x="225.8" y="628.5" text-anchor="middle">2</text><text x="163.4" y="654.5">NUEVOS_PRECIOS()</text><text x="343.2" y="628.5" text-anchor="middle">3</text><text x="304.2" y="654.5">HORNEADA()</text><text x="441.1" y="628.5" text-anchor="middle">4</text><text x="398.2" y="654.5">FALTANTES()</text><text x="22" y="680.5">alIngredientes.close()</text><text x="22" y="706.5">alPanes.close()</text><text x="22" y="732.5">alProduccion.close()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># afIngredientes, afPanes, afProduccion: str</text><text x="14" y="71"># alIngredientes, alPanes, alProduccion: archivo</text><text x="14" y="88"># tamIng: int</text><text x="14" y="105"># opcion: int</text><text x="528" y="29">class Ingrediente:</text><text x="558" y="46">def __init__(self):</text><text x="588" y="63">self.codIngrediente = 0</text><text x="588" y="80">self.descripcion = ""</text><text x="588" y="97">self.precioCompra = 0.0</text><text x="588" y="114">self.existencia = 0</text><text x="588" y="131">self.cantMinima = 0</text><text x="528" y="156">class Pan:</text><text x="558" y="173">def __init__(self):</text><text x="588" y="190">self.codPan = ""</text><text x="588" y="207">self.nombre = ""</text><text x="588" y="224">self.precioVenta = 0.0</text><text x="588" y="241">self.ingredientes = [0]*6</text><text x="528" y="266">class Produccion:</text><text x="558" y="283">def __init__(self):</text><text x="588" y="300">self.codPan = ""</text><text x="588" y="317">self.cantidad = 0</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">Programa principal</text></svg></figure>
+
+<h4>1. Carga de panes</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 666 436" width="666" height="436" style="width:666px;min-width:666px;max-width:none;height:436px" role="img" aria-label="Diagrama de Chapin del módulo buscaIngre, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="514.5" height="26"/><rect x="14" y="126" width="514.5" height="26"/><rect x="14" y="152" width="514.5" height="26"/><rect x="14" y="178" width="514.5" height="218"/><rect x="38" y="204" width="490.5" height="26"/><rect x="38" y="230" width="490.5" height="26"/><rect x="38" y="256" width="490.5" height="26"/><rect x="38" y="282" width="490.5" height="114"/><rect x="38" y="326" width="101.8" height="26"/><rect x="139.8" y="326" width="388.7" height="70"/><rect x="139.8" y="370" width="178.6" height="26"/><rect x="318.4" y="370" width="210.1" height="26"/><rect x="14" y="396" width="514.5" height="26"/></g><path class="d-linea" d="M38 282L139.8 326L528.5 282M38 326H528.5M139.8 326V396M139.8 326L318.4 370L528.5 326M139.8 370H528.5M318.4 370V396"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">inicio = 0</text><text x="22" y="143.5">fin = os.path.getsize(afIngredientes) // tamIng - 1</text><text x="22" y="169.5">pos = -1</text><text x="22" y="195.5">Mientras inicio &lt;= fin and pos == -1:</text><text x="46" y="221.5">medio = (inicio + fin) // 2</text><text x="46" y="247.5">alIngredientes.seek(medio * tamIng, 0)</text><text x="46" y="273.5">reg = pickle.load(alIngredientes)</text><text x="214.8" y="298" text-anchor="middle">reg.codIngrediente == cod</text><text x="46" y="343.5">pos = medio</text><text x="326.7" y="342" text-anchor="middle">cod &lt; reg.codIngrediente</text><text x="147.8" y="387.5">fin = medio - 1</text><text x="326.4" y="387.5">inicio = medio + 1</text><text x="22" y="413.5">return pos</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="319">v</text><text x="521.5" y="319" text-anchor="end">f</text><text x="146.8" y="363">v</text><text x="521.5" y="363" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Dicotómica: Ingredientes está ordenado por código. Devuelve el nro de registro o -1</text><text x="14" y="71"># cod, inicio, fin, medio, pos: int</text><text x="14" y="88"># reg: Ingrediente</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">buscaIngre(cod)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 561 383" width="561" height="383" style="width:561px;min-width:561px;max-width:none;height:383px" role="img" aria-label="Diagrama de Chapin del módulo BUSCA_PAN, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="359.2" height="26"/><rect x="14" y="143" width="359.2" height="26"/><rect x="14" y="169" width="359.2" height="26"/><rect x="14" y="195" width="359.2" height="148"/><rect x="38" y="221" width="335.2" height="26"/><rect x="38" y="247" width="335.2" height="26"/><rect x="38" y="273" width="335.2" height="70"/><rect x="38" y="317" width="299.2" height="26"/><rect x="14" y="343" width="359.2" height="26"/></g><path class="d-linea" d="M38 273L337.2 317L373.2 273M38 317H373.2M337.2 317V343"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">tam = os.path.getsize(afPanes)</text><text x="22" y="160.5">pos = -1</text><text x="22" y="186.5">alPanes.seek(0, 0)</text><text x="22" y="212.5">Mientras alPanes.tell() &lt; tam and pos == -1:</text><text x="46" y="238.5">p = alPanes.tell()</text><text x="46" y="264.5">reg = pickle.load(alPanes)</text><text x="268.4" y="289" text-anchor="middle">reg.codPan == cod</text><text x="46" y="334.5">pos = p</text><text x="22" y="360.5">return pos</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="310">v</text><text x="366.2" y="310" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Secuencial: Panes no tiene orden. Devuelve el byte donde empieza o -1</text><text x="14" y="71"># cod: str</text><text x="14" y="88"># tam, pos, p: int</text><text x="14" y="105"># reg: Pan</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">BUSCA_PAN(cod)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 701" width="740" height="701" style="width:740px;min-width:740px;max-width:none;height:701px" role="img" aria-label="Diagrama de Chapin del módulo CARGA_PANES, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="711.8" height="26"/><rect x="14" y="143" width="711.8" height="544"/><rect x="38" y="169" width="687.8" height="26"/><rect x="38" y="195" width="687.8" height="466"/><rect x="38" y="239" width="281.2" height="26"/><rect x="319.2" y="239" width="406.6" height="26"/><rect x="319.2" y="265" width="406.6" height="26"/><rect x="319.2" y="291" width="406.6" height="26"/><rect x="319.2" y="317" width="406.6" height="42"/><rect x="319.2" y="359" width="406.6" height="26"/><rect x="319.2" y="385" width="406.6" height="52"/><rect x="343.2" y="411" width="382.6" height="26"/><rect x="319.2" y="437" width="406.6" height="146"/><rect x="343.2" y="463" width="382.6" height="42"/><rect x="343.2" y="505" width="382.6" height="26"/><rect x="343.2" y="531" width="382.6" height="52"/><rect x="367.2" y="557" width="358.6" height="26"/><rect x="319.2" y="583" width="406.6" height="26"/><rect x="319.2" y="609" width="406.6" height="26"/><rect x="319.2" y="635" width="406.6" height="26"/><rect x="38" y="661" width="687.8" height="26"/></g><path class="d-linea" d="M38 195L319.2 239L725.8 195M38 239H725.8M319.2 239V661"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">Leer(cod)</text><text x="22" y="160.5">Mientras cod != "*":</text><text x="46" y="186.5">cod = cod.ljust(5, " ")</text><text x="352" y="211" text-anchor="middle">BUSCA_PAN(cod) != -1</text><text x="46" y="256.5">Mostrar("Ese pan ya está cargado")</text><text x="327.2" y="256.5">reg = Pan()</text><text x="327.2" y="282.5">reg.codPan = cod</text><text x="327.2" y="308.5">Leer(reg.nombre)</text><text x="327.2" y="334.5">reg.nombre =</text><text x="327.2" y="350.5">    reg.nombre.ljust(25, " ")</text><text x="327.2" y="376.5">Leer(reg.precioVenta)</text><text x="327.2" y="402.5">Mientras reg.precioVenta &lt;= 0:</text><text x="351.2" y="428.5">Leer(reg.precioVenta)</text><text x="327.2" y="454.5">for i in range(6):</text><text x="351.2" y="480.5">Mostrar("Código del ingrediente " +</text><text x="351.2" y="496.5">    str(i + 1) + ": ")</text><text x="351.2" y="522.5">Leer(reg.ingredientes[i])</text><text x="351.2" y="548.5">Mientras buscaIngre(reg.ingredientes[i]) == -1:</text><text x="375.2" y="574.5">Leer(reg.ingredientes[i])</text><text x="327.2" y="600.5">alPanes.seek(0, 2)</text><text x="327.2" y="626.5">pickle.dump(reg, alPanes)</text><text x="327.2" y="652.5">alPanes.flush()</text><text x="46" y="678.5">Leer(cod)</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="232">v</text><text x="718.8" y="232" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># cod: str</text><text x="14" y="71"># i: int</text><text x="14" y="88"># reg: Pan</text><text x="14" y="105"># Fin de datos: código "*"</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">CARGA_PANES()</text></svg></figure>
+
+<h4>2. Generación de nuevos precios</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 592 573" width="592" height="573" style="width:592px;min-width:592px;max-width:none;height:573px" role="img" aria-label="Diagrama de Chapin del módulo NUEVOS_PRECIOS, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="563.2" height="26"/><rect x="14" y="143" width="563.2" height="52"/><rect x="38" y="169" width="539.2" height="26"/><rect x="14" y="195" width="563.2" height="26"/><rect x="14" y="221" width="563.2" height="26"/><rect x="14" y="247" width="563.2" height="286"/><rect x="38" y="273" width="539.2" height="26"/><rect x="38" y="299" width="539.2" height="26"/><rect x="38" y="325" width="539.2" height="26"/><rect x="38" y="351" width="539.2" height="104"/><rect x="62" y="377" width="515.2" height="26"/><rect x="62" y="403" width="515.2" height="26"/><rect x="62" y="429" width="515.2" height="26"/><rect x="38" y="455" width="539.2" height="26"/><rect x="38" y="481" width="539.2" height="26"/><rect x="38" y="507" width="539.2" height="26"/><rect x="14" y="533" width="563.2" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">Leer(porc)</text><text x="22" y="160.5">Mientras porc &lt; 0:</text><text x="46" y="186.5">Leer(porc)</text><text x="22" y="212.5">tam = os.path.getsize(afPanes)</text><text x="22" y="238.5">alPanes.seek(0, 0)</text><text x="22" y="264.5">Mientras alPanes.tell() &lt; tam:</text><text x="46" y="290.5">pos = alPanes.tell()</text><text x="46" y="316.5">pan = pickle.load(alPanes)</text><text x="46" y="342.5">costo = 0</text><text x="46" y="368.5">for i in range(6):</text><text x="70" y="394.5">alIngredientes.seek(buscaIngre(pan.ingredientes[i]) * tamIng, 0)</text><text x="70" y="420.5">ing = pickle.load(alIngredientes)</text><text x="70" y="446.5">costo = costo + ing.precioCompra</text><text x="46" y="472.5">pan.precioVenta = costo + costo * porc / 100</text><text x="46" y="498.5">alPanes.seek(pos, 0)</text><text x="46" y="524.5">pickle.dump(pan, alPanes)</text><text x="22" y="550.5">alPanes.flush()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># porc, costo: float</text><text x="14" y="71"># tam, pos, i: int</text><text x="14" y="88"># pan: Pan</text><text x="14" y="105"># ing: Ingrediente</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">NUEVOS_PRECIOS()</text></svg></figure>
+
+<h4>3. Horneada</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 647 581" width="647" height="581" style="width:647px;min-width:647px;max-width:none;height:581px" role="img" aria-label="Diagrama de Chapin del módulo HORNEADA, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="618.2" height="26"/><rect x="14" y="143" width="618.2" height="26"/><rect x="14" y="169" width="618.2" height="372"/><rect x="38" y="195" width="594.2" height="26"/><rect x="38" y="221" width="594.2" height="26"/><rect x="38" y="247" width="594.2" height="294"/><rect x="38" y="291" width="250" height="42"/><rect x="288" y="291" width="344.2" height="26"/><rect x="288" y="317" width="344.2" height="26"/><rect x="288" y="343" width="344.2" height="198"/><rect x="312" y="369" width="320.2" height="42"/><rect x="312" y="411" width="320.2" height="26"/><rect x="312" y="437" width="320.2" height="26"/><rect x="312" y="463" width="320.2" height="26"/><rect x="312" y="489" width="320.2" height="26"/><rect x="312" y="515" width="320.2" height="26"/><rect x="14" y="541" width="618.2" height="26"/></g><path class="d-linea" d="M38 247L288 291L632.2 247M38 291H632.2M288 291V541"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">tam = os.path.getsize(afProduccion)</text><text x="22" y="160.5">alProduccion.seek(0, 0)</text><text x="22" y="186.5">Mientras alProduccion.tell() &lt; tam:</text><text x="46" y="212.5">prod = pickle.load(alProduccion)</text><text x="46" y="238.5">posPan = BUSCA_PAN(prod.codPan)</text><text x="312.6" y="263" text-anchor="middle">posPan == -1</text><text x="46" y="308.5">Mostrar("El pan", prod.codPan,</text><text x="46" y="324.5">    "no está cargado")</text><text x="296" y="308.5">alPanes.seek(posPan, 0)</text><text x="296" y="334.5">pan = pickle.load(alPanes)</text><text x="296" y="360.5">for i in range(6):</text><text x="320" y="386.5">posIng =</text><text x="320" y="402.5">    buscaIngre(pan.ingredientes[i])</text><text x="320" y="428.5">alIngredientes.seek(posIng * tamIng, 0)</text><text x="320" y="454.5">ing = pickle.load(alIngredientes)</text><text x="320" y="480.5">ing.existencia = ing.existencia - 1</text><text x="320" y="506.5">alIngredientes.seek(posIng * tamIng, 0)</text><text x="320" y="532.5">pickle.dump(ing, alIngredientes)</text><text x="22" y="558.5">alIngredientes.flush()</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="284">v</text><text x="625.2" y="284" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># tam, posPan, posIng, i: int</text><text x="14" y="71"># prod: Produccion</text><text x="14" y="88"># pan: Pan</text><text x="14" y="105"># ing: Ingrediente</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">HORNEADA()</text></svg></figure>
+
+<h4>4. Lista de faltantes</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 546 434" width="546" height="434" style="width:546px;min-width:546px;max-width:none;height:434px" role="img" aria-label="Diagrama de Chapin del módulo FALTANTES, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="517.2" height="26"/><rect x="14" y="126" width="517.2" height="26"/><rect x="14" y="152" width="517.2" height="26"/><rect x="14" y="178" width="517.2" height="26"/><rect x="14" y="204" width="517.2" height="190"/><rect x="38" y="230" width="493.2" height="26"/><rect x="38" y="256" width="493.2" height="138"/><rect x="38" y="300" width="457.2" height="26"/><rect x="38" y="326" width="457.2" height="42"/><rect x="38" y="368" width="457.2" height="26"/><rect x="14" y="394" width="517.2" height="26"/></g><path class="d-linea" d="M38 256L495.2 300L531.2 256M38 300H531.2M495.2 300V394"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">tam = os.path.getsize(afIngredientes)</text><text x="22" y="143.5">total = 0</text><text x="22" y="169.5">Mostrar("Código / Descripción / Faltante / Precio / Valor")</text><text x="22" y="195.5">alIngredientes.seek(0, 0)</text><text x="22" y="221.5">Mientras alIngredientes.tell() &lt; tam:</text><text x="46" y="247.5">ing = pickle.load(alIngredientes)</text><text x="385.1" y="272" text-anchor="middle">ing.existencia &lt; ing.cantMinima</text><text x="46" y="317.5">falta = ing.cantMinima - ing.existencia</text><text x="46" y="343.5">Mostrar(ing.codIngrediente, ing.descripcion, falta,</text><text x="46" y="359.5">    ing.precioCompra, falta * ing.precioCompra)</text><text x="46" y="385.5">total = total + falta * ing.precioCompra</text><text x="22" y="411.5">Mostrar("Valor total:", total)</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="293">v</text><text x="524.2" y="293" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># tam, falta: int</text><text x="14" y="71"># total: float</text><text x="14" y="88"># ing: Ingrediente</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">FALTANTES()</text></svg></figure>
+
+<h4>El mismo algoritmo en Python</h4>
+<p>Es el programa que se probó, con las mismas sentencias y en el mismo orden que las cajas. Cada <code>Leer</code> del diagrama es un <code>input</code>, convertido a <code>int</code> o <code>float</code> según la declaración, y cada <code>Mostrar</code> es un <code>print</code>.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> pickle
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Ingrediente</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.codIngrediente = <span class="hljs-number">0</span>
+        <span class="hljs-variable language_">self</span>.descripcion = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.precioCompra = <span class="hljs-number">0.0</span>
+        <span class="hljs-variable language_">self</span>.existencia = <span class="hljs-number">0</span>
+        <span class="hljs-variable language_">self</span>.cantMinima = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Pan</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.codPan = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.nombre = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.precioVenta = <span class="hljs-number">0.0</span>
+        <span class="hljs-variable language_">self</span>.ingredientes = [<span class="hljs-number">0</span>]*<span class="hljs-number">6</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Produccion</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.codPan = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.cantidad = <span class="hljs-number">0</span>
+
+<span class="hljs-comment"># afIngredientes, afPanes, afProduccion: str</span>
+<span class="hljs-comment"># alIngredientes, alPanes, alProduccion: archivo</span>
+<span class="hljs-comment"># tamIng: int</span>
+afIngredientes = <span class="hljs-string">&quot;INGREDIENTES.DAT&quot;</span>
+afPanes = <span class="hljs-string">&quot;PANES.DAT&quot;</span>
+afProduccion = <span class="hljs-string">&quot;PRODUCCION.DAT&quot;</span>
+alIngredientes = <span class="hljs-built_in">open</span>(afIngredientes, <span class="hljs-string">&quot;r+b&quot;</span>)
+alPanes = <span class="hljs-built_in">open</span>(afPanes, <span class="hljs-string">&quot;r+b&quot;</span>)
+alProduccion = <span class="hljs-built_in">open</span>(afProduccion, <span class="hljs-string">&quot;rb&quot;</span>)
+pickle.load(alIngredientes)
+tamIng = alIngredientes.tell()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">buscaIngre</span>(<span class="hljs-params">cod</span>):
+    <span class="hljs-comment"># Dicotómica: Ingredientes está ordenado por código. Devuelve el nro de registro o -1</span>
+    <span class="hljs-comment"># cod, inicio, fin, medio, pos: int</span>
+    <span class="hljs-comment"># reg: Ingrediente</span>
+    inicio = <span class="hljs-number">0</span>
+    fin = os.path.getsize(afIngredientes) // tamIng - <span class="hljs-number">1</span>
+    pos = -<span class="hljs-number">1</span>
+    <span class="hljs-keyword">while</span> inicio &lt;= fin <span class="hljs-keyword">and</span> pos == -<span class="hljs-number">1</span>:
+        medio = (inicio + fin) // <span class="hljs-number">2</span>
+        alIngredientes.seek(medio * tamIng, <span class="hljs-number">0</span>)
+        reg = pickle.load(alIngredientes)
+        <span class="hljs-keyword">if</span> reg.codIngrediente == cod:
+            pos = medio
+        <span class="hljs-keyword">elif</span> cod &lt; reg.codIngrediente:
+            fin = medio - <span class="hljs-number">1</span>
+        <span class="hljs-keyword">else</span>:
+            inicio = medio + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> pos
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">BUSCA_PAN</span>(<span class="hljs-params">cod</span>):
+    <span class="hljs-comment"># Secuencial: Panes no tiene orden. Devuelve el byte donde empieza o -1</span>
+    <span class="hljs-comment"># cod: str</span>
+    <span class="hljs-comment"># tam, pos, p: int</span>
+    <span class="hljs-comment"># reg: Pan</span>
+    tam = os.path.getsize(afPanes)
+    pos = -<span class="hljs-number">1</span>
+    alPanes.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alPanes.tell() &lt; tam <span class="hljs-keyword">and</span> pos == -<span class="hljs-number">1</span>:
+        p = alPanes.tell()
+        reg = pickle.load(alPanes)
+        <span class="hljs-keyword">if</span> reg.codPan == cod:
+            pos = p
+    <span class="hljs-keyword">return</span> pos
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">CARGA_PANES</span>():
+    <span class="hljs-comment"># cod: str</span>
+    <span class="hljs-comment"># i: int</span>
+    <span class="hljs-comment"># reg: Pan</span>
+    <span class="hljs-comment"># Fin de datos: código &quot;*&quot;</span>
+    cod = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Código de pan (* para terminar): &quot;</span>)
+    <span class="hljs-keyword">while</span> cod != <span class="hljs-string">&quot;*&quot;</span>:
+        cod = cod.ljust(<span class="hljs-number">5</span>, <span class="hljs-string">&quot; &quot;</span>)
+        <span class="hljs-keyword">if</span> BUSCA_PAN(cod) != -<span class="hljs-number">1</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ese pan ya está cargado&quot;</span>)
+        <span class="hljs-keyword">else</span>:
+            reg = Pan()
+            reg.codPan = cod
+            reg.nombre = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Nombre: &quot;</span>).ljust(<span class="hljs-number">25</span>, <span class="hljs-string">&quot; &quot;</span>)
+            reg.precioVenta = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Precio de venta: &quot;</span>))
+            <span class="hljs-keyword">while</span> reg.precioVenta &lt;= <span class="hljs-number">0</span>:
+                reg.precioVenta = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Tiene que ser mayor que 0: &quot;</span>))
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">6</span>):
+                reg.ingredientes[i] = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Código del ingrediente &quot;</span> + <span class="hljs-built_in">str</span>(i + <span class="hljs-number">1</span>) + <span class="hljs-string">&quot;: &quot;</span>))
+                <span class="hljs-keyword">while</span> buscaIngre(reg.ingredientes[i]) == -<span class="hljs-number">1</span>:
+                    reg.ingredientes[i] = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;No existe ese ingrediente, ingrese otro: &quot;</span>))
+            alPanes.seek(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>)
+            pickle.dump(reg, alPanes)
+            alPanes.flush()
+        cod = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Código de pan (* para terminar): &quot;</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">NUEVOS_PRECIOS</span>():
+    <span class="hljs-comment"># porc, costo: float</span>
+    <span class="hljs-comment"># tam, pos, i: int</span>
+    <span class="hljs-comment"># pan: Pan</span>
+    <span class="hljs-comment"># ing: Ingrediente</span>
+    porc = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Porcentaje de ganancia: &quot;</span>))
+    <span class="hljs-keyword">while</span> porc &lt; <span class="hljs-number">0</span>:
+        porc = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;No puede ser negativo: &quot;</span>))
+    tam = os.path.getsize(afPanes)
+    alPanes.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alPanes.tell() &lt; tam:
+        pos = alPanes.tell()
+        pan = pickle.load(alPanes)
+        costo = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">6</span>):
+            alIngredientes.seek(buscaIngre(pan.ingredientes[i]) * tamIng, <span class="hljs-number">0</span>)
+            ing = pickle.load(alIngredientes)
+            costo = costo + ing.precioCompra
+        pan.precioVenta = costo + costo * porc / <span class="hljs-number">100</span>
+        alPanes.seek(pos, <span class="hljs-number">0</span>)
+        pickle.dump(pan, alPanes)
+    alPanes.flush()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">HORNEADA</span>():
+    <span class="hljs-comment"># tam, posPan, posIng, i: int</span>
+    <span class="hljs-comment"># prod: Produccion</span>
+    <span class="hljs-comment"># pan: Pan</span>
+    <span class="hljs-comment"># ing: Ingrediente</span>
+    tam = os.path.getsize(afProduccion)
+    alProduccion.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alProduccion.tell() &lt; tam:
+        prod = pickle.load(alProduccion)
+        posPan = BUSCA_PAN(prod.codPan)
+        <span class="hljs-keyword">if</span> posPan == -<span class="hljs-number">1</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;El pan&quot;</span>, prod.codPan, <span class="hljs-string">&quot;no está cargado&quot;</span>)
+        <span class="hljs-keyword">else</span>:
+            alPanes.seek(posPan, <span class="hljs-number">0</span>)
+            pan = pickle.load(alPanes)
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">6</span>):
+                posIng = buscaIngre(pan.ingredientes[i])
+                alIngredientes.seek(posIng * tamIng, <span class="hljs-number">0</span>)
+                ing = pickle.load(alIngredientes)
+                ing.existencia = ing.existencia - <span class="hljs-number">1</span>
+                alIngredientes.seek(posIng * tamIng, <span class="hljs-number">0</span>)
+                pickle.dump(ing, alIngredientes)
+    alIngredientes.flush()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">FALTANTES</span>():
+    <span class="hljs-comment"># tam, falta: int</span>
+    <span class="hljs-comment"># total: float</span>
+    <span class="hljs-comment"># ing: Ingrediente</span>
+    tam = os.path.getsize(afIngredientes)
+    total = <span class="hljs-number">0</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Código / Descripción / Faltante / Precio / Valor&quot;</span>)
+    alIngredientes.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alIngredientes.tell() &lt; tam:
+        ing = pickle.load(alIngredientes)
+        <span class="hljs-keyword">if</span> ing.existencia &lt; ing.cantMinima:
+            falta = ing.cantMinima - ing.existencia
+            <span class="hljs-built_in">print</span>(ing.codIngrediente, ing.descripcion, falta, ing.precioCompra, falta * ing.precioCompra)
+            total = total + falta * ing.precioCompra
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Valor total:&quot;</span>, total)
+
+<span class="hljs-comment"># Programa principal</span>
+<span class="hljs-comment"># opcion: int</span>
+opcion = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> opcion != <span class="hljs-number">5</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;1. Carga de panes&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;2. Generación de nuevos precios&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;3. Horneada&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;4. Lista de faltantes&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;5. Salir&quot;</span>)
+    opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción: &quot;</span>))
+    <span class="hljs-keyword">while</span> opcion &lt; <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> opcion &gt; <span class="hljs-number">5</span>:
+        opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción inválida: &quot;</span>))
+    <span class="hljs-keyword">match</span> opcion:
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+            CARGA_PANES()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+            NUEVOS_PRECIOS()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+            HORNEADA()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+            FALTANTES()
+alIngredientes.close()
+alPanes.close()
+alProduccion.close()</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la hoja del examen y la página del 3° parcial y final (registros como clase, recorrer, búsquedas, actualizar un registro y alta). Las operaciones de archivos siguen las diapositivas de merge y corte de control. El Chapin sigue la forma de las diapositivas del examen de Historia Clínica de 2019. <code>buscaIngre</code> devuelve el número de registro, como pide la hoja.</p><p class="bloque-fuente">Quedó en duda: «Descontar una unidad» se leyó como una unidad de cada ingrediente por cada registro de producción. Si se descuenta por cada pan producido, va la cantidad del registro. La horneada no controla que alcance la existencia. Puede quedar por debajo de la mínima, y eso sale en la lista de faltantes. Si un pan de PRODUCCION no está en PANES, se avisa y se sigue. El fin de datos de la carga de panes es el código <code>*</code>. La hoja no nombra la opción de salir, y se sumó la 5. En Python, pickle graba un entero menor que 256 en menos bytes que uno más grande. Por eso una existencia que baja de 256 a 255 achica el registro del ingrediente. Entonces el registro deja de coincidir con la posición que calcula el programa. El material pide registros del mismo tamaño y solo muestra cómo lograrlo con textos (<code>ljust</code>). Las pruebas se hicieron con datos que no cambian el tamaño. Las diapositivas de la materia no muestran en Chapin la lectura de datos ni la selección múltiple. Acá van como <code>Leer</code> y como <code>Según</code>, con una columna por caso.</p><div class="em-votos" data-m="algoritmos-y-estructuras-de-datos" data-e="fin-2023-11-16" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Archivos" data-enlace="final.html#secuencial-y-de-acceso-directo" data-donde="3° parcial y final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Archivos</span><span class="ex-t-teoria"><a href="final.html#secuencial-y-de-acceso-directo">Secuencial y de acceso directo</a>, en 3° parcial y final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Búsqueda" data-enlace="parcial-2.html#busqueda-secuencial" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Búsqueda</span><span class="ex-t-teoria"><a href="parcial-2.html#busqueda-secuencial">Búsqueda secuencial</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Registros" data-enlace="final.html#registros" data-donde="3° parcial y final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Registros</span><span class="ex-t-teoria"><a href="final.html#registros">Registros</a>, en 3° parcial y final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2024-02-15.html">Anterior: Final, 15/02/2024 (Bullying)</a><a href="ej-fin-2023-10-19-pesquero.html">Siguiente: 3° parcial, 19/10/2023 (Pesquero)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta mayo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

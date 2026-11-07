@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hoja de repaso: Diseño de Sistemas de Información</title>
+<meta name="description" content="Todo en una hoja para imprimir.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="diseno-de-sistemas-de-informacion" data-pagina="machete">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Diseño de Sistemas de Información</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html" aria-current="page">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=diseno-de-sistemas-de-informacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=diseno-de-sistemas-de-informacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#practica-reglas">Práctica: reglas</a></li><li class="n2"><a href="#spring-mvc">Spring MVC</a></li><li class="n2"><a href="#usabilidad">Usabilidad</a></li><li class="n2"><a href="#norman">Norman</a></li><li class="n2"><a href="#accesibilidad-y-heuristicas">Accesibilidad y heurísticas</a></li><li class="n2"><a href="#leyes-de-ux">Leyes de UX</a></li><li class="n2"><a href="#proceso">Proceso</a></li><li class="n2"><a href="#arquitectura-de-informacion">Arquitectura de información</a></li><li class="n2"><a href="#ux-research-y-entregables">UX Research y entregables</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja machete" data-reportable>
+<h1>Hoja de repaso</h1>
+<p class="bajada">Diseño de Sistemas de Información, lo mínimo para la noche anterior.</p>
+
+
+<section class="sec"><h2 id="practica-reglas">Práctica: reglas</h2>
+<p><strong>Políticas v1.25.</strong> Sin material. Un DSD por paso del caso de uso. Se evalúa notación y consistencia.</p>
+<div class="tabla"><table><thead><tr><th>DSD</th><th>DCD</th></tr></thead><tbody><tr><td>Todas las cajas de activación y todos los retornos</td><td>Todos los métodos del DSD, con <code>get</code>, <code>set</code>, <code>create</code></td></tr><tr><td><code>create</code> sin caja ni retorno</td><td>Sin métodos de colección ni clase colección</td></tr><tr><td>Sin Yourdon entre UI, controlador e instancia</td><td>Tipos obligatorios, navegabilidad y multiplicidad</td></tr><tr><td>Una sola UI, actor sin línea de vida</td><td>Sin clases asociación ni clase UI</td></tr><tr><td>Guardar para otro evento: <code>var:Clase</code> en variable de instancia</td><td>Valores fijos de reglas como atributo</td></tr><tr><td>Decisiones y seteos por nota</td><td>Clase con solo <code>get</code> y <code>set</code> lleva nota</td></tr></tbody></table></div>
+<p><strong>DAO.</strong> <code>ClaseDao</code> con <code>&lt;&lt;Repository&gt;&gt;</code>. Uno por clase persistente con consulta o guardado. Composición, solo el todo. No calcula. <code>save</code> por objeto creado o modificado. <code>@Id</code> obligatorio.</p>
+<p><strong>Marcos.</strong> <code>alt</code>, <code>opt</code>, <code>loop [Para cada &lt;objeto&gt; en &lt;colección&gt;]</code>, <code>IS NOT NULL</code>, <code>IS NOT EMPTY</code>.</p>
+<p><strong>Colección.</strong> <code>create</code>, <code>get</code>, <code>size</code>, <code>isEmpty</code>, <code>add</code>, <code>addAll</code>, <code>contains</code>, <code>containsAll</code>, <code>remove</code>, <code>removeFromPosition</code>, <code>removeAll</code>.</p>
+<p><strong>GRASP.</strong> Experto, Creador, Bajo acoplamiento, Alta cohesión, Controlador.</p>
+</section>
+<section class="sec"><h2 id="spring-mvc">Spring MVC</h2>
+<div class="tabla"><table><thead><tr><th>Controlador</th><th>Modelo</th><th>Vista</th></tr></thead><tbody><tr><td>Delega. Sin lógica ni cálculos.</td><td>Dominio, Repositorios, Servicio. Sin presentación.</td><td>Presentación. Sin lógica de negocio.</td></tr></tbody></table></div>
+<p>Front Controller es <code>DispatcherServlet</code>. DAO devuelve objetos, nunca datos sueltos.</p>
+</section>
+<section class="sec"><h2 id="usabilidad">Usabilidad</h2>
+<p><strong>Nielsen.</strong> Facilidad de aprendizaje, eficiencia, cualidad de ser recordado, eficacia, satisfacción. <strong>Dimensiones.</strong> Empírica, dependiente, relativa, ética.</p>
+</section>
+<section class="sec"><h2 id="norman">Norman</h2>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Clave</th></tr></thead><tbody><tr><td>Affordance</td><td>Relación entre objeto y usuario</td></tr><tr><td>Signifier</td><td>Dónde va la acción</td></tr><tr><td>Mapping</td><td>Relación entre conjuntos</td></tr><tr><td>Feedback</td><td>Inmediato, informativo, priorizado</td></tr><tr><td>Constraints</td><td>Físicas, culturales, semánticas, lógicas</td></tr><tr><td>Modelo conceptual</td><td>Explicación simplificada</td></tr></tbody></table></div>
+<p><strong>Affordances.</strong> Patrón, metafórico, anti-affordance, falso, oculto. Los signifiers son más importantes que los affordances.</p>
+<p><strong>Forzamiento.</strong> Interlock (secuencia), lock-in (mantiene activa), lockout (impide entrar).</p>
+<p><strong>Etapas.</strong> Objetivo. Planificar, especificar, realizar. Percibir, interpretar, comparar. <strong>Brechas.</strong> Ejecución y evaluación. <strong>Niveles.</strong> Visceral, comportamiento, reflexivo.</p>
+<p><strong>Etapa y nivel.</strong> Plan y Compare, reflexivo. Specify e Interpret, comportamiento. Perform y Perceive, visceral.</p>
+<p><strong>7 principios.</strong> Descubrimiento, feedback, modelo conceptual, affordances, signifiers, mappings, constraints.</p>
+<p><strong>Memoria.</strong> STM, 5 a 7 elementos, frágil. LTM, sin límite práctico. Conocimiento de (declarativo) y cómo (procedimental).</p>
+<p><strong>Errores.</strong> Lapsus: captación, descripción-similitud, modo, memoria. Equivocaciones: reglas, conocimiento, memoria.</p>
+<p><strong>Errores y etapas.</strong> Equivocaciones en objetivo, plan y comparación (niveles altos). Lapsus en ejecución, percepción e interpretación. La mayoría de los errores cotidianos son lapsus, más en expertos.</p>
+</section>
+<section class="sec"><h2 id="accesibilidad-y-heuristicas">Accesibilidad y heurísticas</h2>
+<p><strong>WCAG.</strong> Perceptible, Operable, Comprensible, Robusto. 2.1 es aditiva sobre 2.0. Niveles A, AA, AAA.</p>
+<p><strong>Ley 26.653.</strong> Reglamentada el 20/08/2014. Estado, proveedores, contratistas y subsidiados. 13 y después 20 de 25 pautas de Nivel A.</p>
+<p><strong>Tiempos de respuesta.</strong> 0,1 s instantáneo, 1 s sin cortar el pensamiento, 10 s límite de atención.</p>
+<p><strong>Nielsen, 10.</strong> Visibilidad, coincidencia con el mundo real, control y libertad, consistencia, prevención, reconocer mejor que recordar, flexibilidad, estético y minimalista, ayudar con errores, ayuda y documentación.</p>
+</section>
+<section class="sec"><h2 id="leyes-de-ux">Leyes de UX</h2>
+<div class="tabla"><table><thead><tr><th>Ley</th><th>Dice</th></tr></thead><tbody><tr><td>Fitts</td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>&#61;</mo><mi>a</mi><mo>+</mo><mi>b</mi><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mo stretchy="false">(</mo><mn>2</mn><mi>D</mi><mi mathvariant="normal">/</mi><mi>W</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T &#61; a + b &#92;log&#95;2 (2D/W)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.1389em;">W</span><span class="mclose">)</span></span></span></span></td></tr><tr><td>Hick</td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>&#61;</mo><mi>a</mi><mo>+</mo><mi>b</mi><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T &#61; a + b &#92;log&#95;2 (n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></td></tr><tr><td>Miller</td><td>7 más o menos 2, reciente 4 más o menos 1</td></tr><tr><td>Gestalt</td><td>Proximidad, región común, similitud, cierre</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="proceso">Proceso</h2>
+<p><strong>DCU.</strong> Observación, ideación, prototipado, pruebas. <strong>Doble diamante.</strong> Diverge y converge dos veces. <strong>Design Thinking.</strong> Empatizar, definir, idear, prototipar, evaluar.</p>
+<p><strong>Elegir control.</strong> Espacio, sofisticación con la computadora, con el dominio, otras aplicaciones, tecnología.</p>
+</section>
+<section class="sec"><h2 id="arquitectura-de-informacion">Arquitectura de información</h2>
+<p><strong>Sistemas.</strong> Organización, etiquetado, navegación, búsqueda.</p>
+<p><strong>Esquemas.</strong> Exactos: alfabético, cronológico, geográfico. Ambiguos: temático, tareas, audiencia, metáforas, híbridos. <strong>Estructuras.</strong> Jerarquía, base de datos, hipertexto.</p>
+<p><strong>Pilares.</strong> Contexto organizacional, contenido, usuarios. <strong>Desafíos.</strong> Ambigüedad, heterogeneidad, perspectivas, políticas internas.</p>
+<p><strong>Consistencia de etiquetas.</strong> Estilo, presentación, sintaxis, granularidad, exhaustividad, audiencia.</p>
+<p><strong>Navegación.</strong> Global, local, contextual. Complementarios: mapas, índices, guías, configuradores, búsquedas. Avanzados: personalización, customization, visualización, social.</p>
+<p><strong>Card Sorting.</strong> Abierto, cerrado, híbrido. <strong>Tree Testing.</strong> Al menos 50 usuarios. Tasa de éxito, directness, tiempo, camino.</p>
+</section>
+<section class="sec"><h2 id="ux-research-y-entregables">UX Research y entregables</h2>
+<p><strong>Ejes.</strong> Actitud y comportamiento, cualitativo y cuantitativo, contexto de uso.</p>
+<p><strong>Entregables.</strong> Persona, User Journey Map, Empathy Mapping, Affinity Diagramming. <strong>Prototipos.</strong> Sketches, wireframes, storyboards, wireflows, mockups. Fidelidad: contenido, interacción, estilo visual.</p>
+<p><strong>Estadíos.</strong> Sketch, wireframe, mockup. Estático o interactivo según el objetivo, no el estadío.</p>
+<p><strong>Design Sprint.</strong> Comprender, idear, decidir, prototipo, probar.</p>
+<p><strong>Listas.</strong> Longitud, orden, agrupamiento, tipos, interacción, comportamiento dinámico.</p>
+<p><strong>Del Form.</strong> Planos de Garrett: Estrategia, Alcance, Estructura, Superficie. Primarios: focus groups, encuestas, entrevistas. Beneficios de la arquitectura: información ordenada, evitar efecto «rebote». Etiquetado: enlaces contextuales, encabezados.</p>
+<p><strong>Mobile.</strong> Vertical Stack, Filmstrip, Touch Tools, Bottom Navigation, Collections and Cards, Infinite List, Generous Borders, Progress Indicators, Richly Connected Apps.</p>
+<p><strong>En 5 de 9 teóricos:</strong> tildar todas las correctas.</p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

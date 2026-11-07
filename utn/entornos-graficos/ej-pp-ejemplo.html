@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ejemplo de parcial, Tema 1 (sin fecha): Entornos Gráficos</title>
+<meta name="description" content="Ejercicio de examen: Ejemplo de parcial, Tema 1 (sin fecha).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="entornos-graficos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Entornos Gráficos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-practica.html">Parcial de práctica</a></li><li class="em-fuera"><a href="parcial-teoria.html">Parcial de teoría</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=entornos-graficos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=entornos-graficos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Ejemplo de parcial, Tema 1 (sin fecha)</h1>
+<p class="bajada">Parcial de práctica</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="pp-ejemplo" data-titulo="Ejemplo de parcial, Tema 1 (sin fecha)" data-min="120" data-otro="ejercicios.html#pp" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="pp-ejemplo" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1BPfXir_zT8IT1Se4rDwzwsfnFPxSYdPE/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/pp-ejemplo-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/pp-ejemplo-e1.webp" width="1211" height="1341" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a><a class="sol-img" href="img/pp-ejemplo-e2.webp" aria-label="Abrir la hoja 2 del enunciado en grande"><img src="img/pp-ejemplo-e2.webp" width="1168" height="965" loading="lazy" alt="Hoja 2 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>1 y 2. El CV, con sus estilos y el script</h4>
+<p><code>index.html</code> ya trae lo del punto 2. La hoja interna da el color de los encabezados, la externa <code>estilos.css</code> el fondo del cuerpo y la alineación del formulario, y <code>validar.js</code> se carga como script externo.</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">HTML</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Mi CV<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;estilos.css&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
+<span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-tag">h2</span> {<span class="hljs-attribute">color</span>: <span class="hljs-number">#222222</span>;}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;validar.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pagina&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;principal&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cabecera&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>MI CV<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;enlaces&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://www.facebook.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;facebook.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Facebook&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://twitter.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;twitter.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Twitter&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://www.linkedin.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;linkedin.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;LinkedIn&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;medio&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;izquierda&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;caja&quot;</span>&gt;</span>Nombre y apellido<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;caja contacto&quot;</span>&gt;</span>Datos de contacto<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;foto&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;foto.png&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Foto de perfil&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;formContacto&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;contacto.php&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">onsubmit</span>=<span class="hljs-string">&quot;return validar()&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>Contacto<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;nombre&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;nombre&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Nombre&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Email&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;comentario&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;comentario&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Comentario&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Enviar&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;banner&quot;</span>&gt;</span>Espacio para banner color verde<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<p><code>estilos.css</code>. Las columnas se arman con <code>display:flex</code>. <code>margin-left: auto</code> empuja los íconos a la derecha de la cabecera.</p>
+<pre class="codigo"><code><span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">background-color</span>: lightblue;
+  <span class="hljs-attribute">font-family</span>: Arial, Helvetica, sans-serif;
+}
+<span class="hljs-selector-tag">form</span> {<span class="hljs-attribute">text-align</span>: right;}
+<span class="hljs-selector-class">.pagina</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">1040px</span>;
+}
+<span class="hljs-selector-class">.principal</span> {<span class="hljs-attribute">width</span>: <span class="hljs-number">880px</span>;}
+<span class="hljs-selector-class">.cabecera</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#d3d3d3</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#888888</span>;
+}
+<span class="hljs-selector-class">.cabecera</span> <span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">14px</span> <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">20px</span>;
+  <span class="hljs-attribute">font-weight</span>: normal;
+}
+<span class="hljs-selector-class">.enlaces</span> {<span class="hljs-attribute">margin-left</span>: auto;}
+<span class="hljs-selector-class">.enlaces</span> <span class="hljs-selector-tag">img</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">56px</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">56px</span>;
+}
+<span class="hljs-selector-class">.medio</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">20px</span> <span class="hljs-number">0</span>;
+}
+<span class="hljs-selector-class">.izquierda</span> {<span class="hljs-attribute">width</span>: <span class="hljs-number">366px</span>;}
+<span class="hljs-selector-class">.caja</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">35px</span> <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">25px</span> <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#d3d3d3</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#888888</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;
+  <span class="hljs-attribute">font-weight</span>: normal;
+}
+<span class="hljs-selector-class">.contacto</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">150px</span> <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fde8cf</span>;
+}
+<span class="hljs-selector-class">.foto</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">474px</span>;
+  <span class="hljs-attribute">height</span>: <span class="hljs-number">474px</span>;
+  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">34px</span>;
+}
+<span class="hljs-selector-tag">fieldset</span> {
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#d3d3d3</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#888888</span>;
+}
+<span class="hljs-selector-tag">fieldset</span> <span class="hljs-selector-tag">input</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">16px</span> <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">16px</span>;
+}
+<span class="hljs-selector-id">#nombre</span> {<span class="hljs-attribute">width</span>: <span class="hljs-number">300px</span>;}
+<span class="hljs-selector-id">#email</span> {<span class="hljs-attribute">width</span>: <span class="hljs-number">380px</span>;}
+<span class="hljs-selector-id">#comentario</span> {<span class="hljs-attribute">width</span>: <span class="hljs-number">595px</span>;}
+<span class="hljs-selector-class">.banner</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;
+  <span class="hljs-attribute">margin-left</span>: <span class="hljs-number">40px</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">200px</span> <span class="hljs-number">10px</span> <span class="hljs-number">0</span> <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#c3dfb0</span>;
+  <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#888888</span>;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">12px</span>;
+}</code></pre>
+<p><code>validar.js</code>. Recorre los campos de texto y, si uno está vacío, avisa, lo enfoca y devuelve <code>false</code>, que frena el envío. Corre ante el evento de envío, con el atributo <code>onsubmit</code> del formulario.</p>
+<pre class="codigo"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">validar</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">var</span> campos = [<span class="hljs-string">&quot;nombre&quot;</span>, <span class="hljs-string">&quot;email&quot;</span>, <span class="hljs-string">&quot;comentario&quot;</span>];
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; campos.<span class="hljs-property">length</span>; i++) {
+    <span class="hljs-keyword">var</span> campo = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(campos[i]);
+    <span class="hljs-keyword">if</span> (campo.<span class="hljs-property">value</span>.<span class="hljs-title function_">trim</span>() == <span class="hljs-string">&quot;&quot;</span>) {
+      <span class="hljs-title function_">alert</span>(<span class="hljs-string">&quot;Completá el campo &quot;</span> + campo.<span class="hljs-property">placeholder</span> + <span class="hljs-string">&quot;.&quot;</span>);
+      campo.<span class="hljs-title function_">focus</span>();
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}</code></pre>
+<h4>3. Para qué se usa el código</h4>
+<p>Es una hoja de estilo interna, porque va dentro de <code>&lt;style&gt;</code>. La primera regla pone en blanco el texto de las listas <code>ul</code> que están dentro del <code>div</code> con id <code>posterior</code>. La segunda pinta de azul los enlaces <code>a</code> que tienen el atributo <code>href</code> y están dentro de esas listas. <code>div#posterior ul</code> es un selector descendiente y <code>a[href]</code>, un selector de atributo.</p>
+<h4>4. En una línea</h4>
+<p><strong>a)</strong> Los URIs se componen normalmente de tres partes, el esquema de nombres del mecanismo para acceder al recurso, el nombre de la máquina que aloja el recurso y el nombre del recurso, dado como una ruta.</p>
+<p><strong>b)</strong> Las hojas de estilo separan el contenido de la presentación. Si el estilo está en una hoja aparte, cambiarlo en un lugar lo cambia en todas las páginas.</p>
+<p><strong>c)</strong> Un elemento desaprobado quedó anticuado por estructuras nuevas y puede declararse obsoleto en el futuro, pero los agentes de usuario deberían seguir dándole soporte. Uno obsoleto no tiene garantía de soporte, porque dejó de estar definido en la especificación.</p>
+<p><strong>d)</strong> El selector de id se escribe con <code>#</code> seguido del id, como <code>#nombre</code>, y corresponde a un único elemento del documento.</p>
+<p><strong>e)</strong> El selector de atributo toma los elementos que tienen ese atributo, como <code>a[href]</code>, que toma los enlaces con <code>href</code>.</p>
+<h4>5. Completar</h4>
+<div class="tabla"><table><thead><tr><th>Código</th><th>Nombre</th></tr></thead><tbody><tr><td><code>h2 {color: red;}</code></td><td>Regla</td></tr><tr><td><code>h2</code></td><td>Selector</td></tr><tr><td><code>color</code></td><td>Propiedad</td></tr><tr><td><code>red</code></td><td>Valor</td></tr><tr><td><code>;</code></td><td>Separador de declaraciones, cierra la declaración <code>color: red</code></td></tr></tbody></table></div>
+<h4>6. Entrega</h4>
+<p>No lleva código. Se mandan por correo <code>index.html</code>, <code>estilos.css</code> y <code>validar.js</code> adjuntos, con las respuestas de los puntos 3 a 5 en el cuerpo del mail.</p>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con Parcial de práctica, secciones Tres formas de aplicar estilos, Selectores, Modelo de caja, Ubicar elementos y Formularios, y Parcial de teoría, secciones La Web y HTML, Scripts y CSS en teoría.</p><p class="bloque-fuente">Quedó en duda: La hoja no tiene fecha. Los apuntes no traen un script de validación armado ni explican el selector de atributo, así que <code>validar.js</code> y la respuesta 4e no salen del material. El apunte no le da nombre al <code>;</code> del punto 5; acá se lo llamó separador de declaraciones. «Aplicar fondo celeste a la etiqueta body» y «declarar el color de fondo del cuerpo» en la hoja externa piden lo mismo, y se resolvieron con una sola regla. Si tu comisión quiere un color distinto en cada uno, el celeste puede ir en línea, <code>&lt;body style=&quot;background-color: lightblue;&quot;&gt;</code>, y le gana a la hoja externa por especificidad. En la maqueta va un nombre de ejemplo; acá quedó «Nombre y apellido». La palabra «Enlaces» sobre los íconos se tomó como una aclaración de que son enlaces. Colores y medidas son aproximados. El HTML, el CSS y el script se probaron en Chromium.</p><div class="em-votos" data-m="entornos-graficos" data-e="pp-ejemplo" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="HTML" data-enlace="parcial-practica.html#html-de-base" data-donde="Parcial de práctica"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">HTML</span><span class="ex-t-teoria"><a href="parcial-practica.html#html-de-base">HTML de base</a>, en Parcial de práctica</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="CSS" data-enlace="parcial-practica.html#css" data-donde="Parcial de práctica"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">CSS</span><span class="ex-t-teoria"><a href="parcial-practica.html#css">CSS</a>, en Parcial de práctica</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Formulario" data-enlace="parcial-practica.html#formularios" data-donde="Parcial de práctica"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Formulario</span><span class="ex-t-teoria"><a href="parcial-practica.html#formularios">Formularios</a>, en Parcial de práctica</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Selectores" data-enlace="parcial-practica.html#selectores" data-donde="Parcial de práctica"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">Selectores</span><span class="ex-t-teoria"><a href="parcial-practica.html#selectores">Selectores</a>, en Parcial de práctica</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Desaprobado y obsoleto" data-enlace="parcial-teoria.html#principios-de-html-4-01" data-donde="Parcial de teoría"><div class="ex-t-cab"><span class="ex-t-nom" id="exT4">Desaprobado y obsoleto</span><span class="ex-t-teoria"><a href="parcial-teoria.html#principios-de-html-4-01">Principios de HTML 4.01</a>, en Parcial de teoría</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT4"><label class="ex-op" data-v="bien"><input type="radio" name="exT4r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT4r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT4r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-pp-2024-06-26.html">Anterior: Parcial de práctica, 26/06/2024</a><a href="ej-pt-frecuentes.html">Siguiente: Preguntas frecuentes del parcial de teoría (lista sin fecha)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2024). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

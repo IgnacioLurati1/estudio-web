@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hoja de repaso: Soporte a la Gestión de Datos con Programación Visual</title>
+<meta name="description" content="Python, SQLite, SQLAlchemy, Flask y los requisitos del TPI en una hoja para imprimir.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="soporte-a-la-gestion-de-datos-con-programacion-visual" data-pagina="machete">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Soporte a la Gestión de Datos con Programación Visual</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="integrador.html">Seminario y TPI</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html" aria-current="page">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=soporte-a-la-gestion-de-datos-con-programacion-visual">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=soporte-a-la-gestion-de-datos-con-programacion-visual">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#python">Python</a></li><li class="n2"><a href="#objetos">Objetos</a></li><li class="n2"><a href="#sqlite-y-sql">SQLite y SQL</a></li><li class="n2"><a href="#sqlalchemy">SQLAlchemy</a></li><li class="n2"><a href="#flask">Flask</a></li><li class="n2"><a href="#tpi-y-seminario">TPI y seminario</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja machete" data-reportable>
+<h1>Hoja de repaso</h1>
+<p class="bajada">Lo del 1° parcial y los requisitos del TPI, en una hoja. Amarillo es lo que se tomó en el parcial de 2026, el único del Drive.</p>
+
+
+<section class="sec"><h2 id="python">Python</h2>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Lo que hay que tener</th></tr></thead><tbody><tr><td>Import</td><td><mark><code>from modulo import objeto</code></mark> usa el nombre directo. <code>import modulo</code> pide <code>modulo.nombre</code>. <code>import *</code> es mala práctica</td></tr><tr><td>Alcance</td><td>Local, enclosing, global, built-in (LEGB)</td></tr><tr><td>Números</td><td><code>7//2</code> da 3, <code>7%2</code> da 1, <code>**</code> eleva</td></tr><tr><td>Cadenas</td><td>Base 0, inmutables. <code>c[ini:fin]</code> no incluye <code>fin</code>. <code>c[-1]</code> es el último. <code>find</code> da -1 si no encuentra</td></tr><tr><td>Listas <code>[]</code></td><td>Mutables. <code>insert</code>, <code>append</code>, <code>remove</code>, <code>del</code>, <code>pop</code>, <code>sort</code></td></tr><tr><td>Tuplas <code>()</code></td><td>Inmutables. Con un elemento lleva coma: <code>(&quot;x&quot;,)</code></td></tr><tr><td>Diccionarios <code>{}</code></td><td><code>keys()</code>, <code>values()</code>, <code>clave in d.keys()</code>. Claves inmutables</td></tr><tr><td>Vacío</td><td><code>0</code> y <code>&#39;&#39;</code> valen <code>False</code>. <code>or</code> devuelve el primero verdadero</td></tr><tr><td>Funciones</td><td><code>def f(a, b=1, *otros)</code>. Sin <code>return</code> devuelve <code>None</code></td></tr><tr><td>Decorador</td><td>Recibe una función y devuelve otra. Varios corren de abajo hacia arriba</td></tr><tr><td>Excepciones</td><td><code>try</code>, <code>except</code>, <code>else</code> si no hubo error, <code>finally</code> siempre. <code>raise</code> lanza</td></tr><tr><td><code>__name__</code></td><td>Vale <mark><code>&quot;__main__&quot;</code></mark> si ejecutás el archivo y el nombre del módulo si lo importás</td></tr><tr><td>Paquete</td><td>Directorio con <code>__init__.py</code></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="objetos">Objetos</h2>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Qué es</th></tr></thead><tbody><tr><td>Clase y objeto</td><td>La clase es la plantilla. El objeto agrupa estado (atributos) y funcionalidad (métodos)</td></tr><tr><td><code>__init__</code>, <code>self</code></td><td>Se ejecuta al crear el objeto. <code>self</code> es el objeto actual y Python lo pasa solo</td></tr><tr><td>Herencia</td><td><code>class Hija(Padre)</code>. Llamar al padre: <code>Padre.metodo(self, args)</code></td></tr><tr><td>Herencia múltiple</td><td>Si dos padres tienen el mismo método, gana el de más a la izquierda</td></tr><tr><td>Polimorfismo</td><td>Objetos de distintas clases responden al mismo mensaje. No hay sobrecarga</td></tr><tr><td>Encapsulación</td><td><code>__nombre</code> es privado por <em>name mangling</em>. <code>property</code> tapa getters y setters</td></tr><tr><td>Especiales</td><td><code>__new__</code>, <code>__del__</code>, <code>__str__</code>, <code>__len__</code></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="sqlite-y-sql">SQLite y SQL</h2>
+<pre class="codigo"><code>con = sqlite3.connect(<span class="hljs-string">&#x27;archivo.db&#x27;</span>)   <span class="hljs-comment"># o &#x27;:memory:&#x27;</span>
+cur = con.cursor()
+cur.execute(<span class="hljs-string">&quot;INSERT INTO t VALUES (?, ?)&quot;</span>, (a, b))
+con.commit()                          <span class="hljs-comment"># sin esto no se guarda</span>
+cur.execute(<span class="hljs-string">&quot;SELECT ...&quot;</span>)
+filas = cur.fetchall()                <span class="hljs-comment"># fetchone, fetchmany(n)</span>
+con.close()</code></pre>
+<div class="tabla"><table><thead><tr><th>SQL</th><th>Forma</th></tr></thead><tbody><tr><td><mark>Consulta</mark></td><td><code>SELECT columnas FROM tabla WHERE condicion ORDER BY columna</code>. <code>*</code> es todas las columnas</td></tr><tr><td>Alta</td><td><code>INSERT INTO tabla (a, b) VALUES (x, y)</code></td></tr><tr><td>Cambio</td><td><code>UPDATE tabla SET a = x WHERE condicion</code>. Sin <code>WHERE</code>, cambia todas</td></tr><tr><td>Baja</td><td><code>DELETE FROM tabla WHERE condicion</code></td></tr></tbody></table></div>
+<p><code>?</code> y una tupla aparte evitan la inyección SQL. En <code>WHERE</code> la igualdad es con un <code>=</code>.</p>
+</section>
+<section class="sec"><h2 id="sqlalchemy">SQLAlchemy</h2>
+<p>Pasos: mapeo, clases, Engine, relacionar con metadatos, Session, usar la sesión.</p>
+<pre class="codigo"><code>Base = declarative_base()
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Persona</span>(<span class="hljs-title class_ inherited__">Base</span>):
+    __tablename__ = <span class="hljs-string">&#x27;persona&#x27;</span>
+    <span class="hljs-built_in">id</span> = Column(Integer, primary_key=<span class="hljs-literal">True</span>)
+engine = create_engine(<span class="hljs-string">&#x27;sqlite:///foo.db&#x27;</span>)
+Base.metadata.create_all(engine)
+session.add(obj); session.commit()
+session.query(Persona).<span class="hljs-built_in">filter</span>(...).order_by(...).<span class="hljs-built_in">all</span>()</code></pre>
+<p>Patrones: Data mapper, Unit of work, Identity map. <code>relationship</code> con <code>back_populates</code> hace bidireccional. Consultas: <code>all</code>, <code>first</code>, <code>count</code>, <code>filter</code>, <code>order_by</code>, <code>join</code>.</p>
+</section>
+<section class="sec"><h2 id="flask">Flask</h2>
+<pre class="codigo"><code><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, render_template, request, redirect, url_for
+app = Flask(__name__)
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/ruta/&lt;int:id&gt;&#x27;</span>, methods=[<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;POST&#x27;</span>]</span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">vista</span>(<span class="hljs-params"><span class="hljs-built_in">id</span></span>):
+    dato = request.form[<span class="hljs-string">&#x27;campo&#x27;</span>]      <span class="hljs-comment"># args.get para GET</span>
+    <span class="hljs-keyword">return</span> render_template(<span class="hljs-string">&#x27;a.html&#x27;</span>, x=dato)
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
+    app.run(debug=<span class="hljs-literal">True</span>)</code></pre>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Lo que hay que tener</th></tr></thead><tbody><tr><td>Rutas</td><td>Por defecto GET. Conversores <code>int</code>, <code>float</code>, <code>path</code></td></tr><tr><td>Jinja2</td><td><code>{% sentencia %}</code>, <code>{{ expresión }}</code>, <code>{# comentario #}</code>. HTML en <code>templates</code>, archivos en <code>static</code></td></tr><tr><td><code>request</code></td><td><code>form</code>, <code>args</code>, <code>cookies</code>, <code>files</code>, <code>method</code></td></tr><tr><td>Sesión</td><td><code>session[&#39;x&#39;]</code>, necesita <code>secret_key</code>. La cookie queda en el cliente</td></tr><tr><td>Redirección</td><td><code>redirect(url_for(&#39;funcion&#39;, param=valor))</code>, 302 por defecto</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="tpi-y-seminario">TPI y seminario</h2>
+<div class="tabla"><table><thead><tr><th>Pieza</th><th>Condición</th></tr></thead><tbody><tr><td>Datos</td><td>MySQL, Mongo o SQLite, directo o con ORM. Modelo del dominio</td></tr><tr><td>Negocio</td><td>Al menos una regla, con test sobre los métodos</td></tr><tr><td>Interfaz</td><td>Tkinter, Flask, Django, Kivy o API</td></tr><tr><td>Documento</td><td>Carátula, narrativa, abstract, requerimientos, stack, reglas, casos de uso, modelo, imágenes, referencias, links</td></tr><tr><td>Seminario</td><td>10 a 15 minutos, demo en vivo, mp4, documento y 5 preguntas. Hay que aprobar el quiz de cada uno</td></tr><tr><td>Grupo</td><td>3 a 4 integrantes, repo en GitHub, PEP 8</td></tr></tbody></table></div>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (un solo parcial, de 2026, las clases de 2023 y la bibliografía de la materia). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

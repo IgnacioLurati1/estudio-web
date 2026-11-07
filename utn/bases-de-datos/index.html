@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Para entender: Bases de Datos</title>
+<meta name="description" content="Bases de Datos de punta a punta, con lo que se toma en los exámenes.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/estrellas.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="bases-de-datos" data-pagina="inicio">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Bases de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html" aria-current="page">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=bases-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=bases-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#que-cae">Qué cae más</a></li><li class="n2"><a href="#rendir">Rendí un examen viejo</a></li><li class="n2"><a href="#que-se-toma">Qué se toma</a></li><li class="n2"><a href="#la-materia-contada-de-una">La materia, contada de una</a></li><li class="n3"><a href="#paso-1-entender-que-hay">Paso 1: entender qué hay</a></li><li class="n3"><a href="#paso-2-decidir-como-guardarlo">Paso 2: decidir cómo guardarlo</a></li><li class="n3"><a href="#paso-3-usarlo">Paso 3: usarlo</a></li><li class="n3"><a href="#paso-4-cuidarlo">Paso 4: cuidarlo</a></li><li class="n2"><a href="#como-se-evalua">Cómo se evalúa</a></li><li class="n2"><a href="#por-donde-empezar">Por dónde empezar</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Bases de Datos</h1>
+<p class="bajada">Cómo pasar de «una ferretería que anota todo en un Excel» a un sistema que no pierde datos, aunque se corte la luz en plena venta. Eso es toda la materia.</p><p class="pdf-ir em-fuera"><a class="b-sec" href="pdf.html"><svg class="pdf-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M11 5h18l8 8v30H11z"/><path d="M29 5v8h8"/><path d="M24 19v15"/><path d="M18 28l6 6 6-6"/></svg>Descargar en PDF</a></p><div id="sinInternet" class="si em-fuera" hidden></div><div class="es-materia" data-estrellas-materia="bases-de-datos" hidden></div><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Los exámenes de 2022 o antes son del plan anterior. En esta materia el contenido es el mismo, así que siguen sirviendo.</p>
+
+<div class="mapa">
+<a href="parcial-1.html"><strong>1° parcial</strong><span>DER, pasaje a tablas, normalización y álgebra relacional.</span><small data-progreso="parcial-1">Quiz sin hacer</small></a>
+<a href="parcial-2.html"><strong>2° parcial</strong><span>SQL en máquina, y la teoría del SGBD: transacciones, concurrencia, seguridad.</span><small data-progreso="parcial-2">Quiz sin hacer</small></a>
+<a href="final.html"><strong>Final</strong><span>Cómo es, qué se repite y dónde estudiar cada pregunta.</span><small data-progreso="final">Quiz sin hacer</small></a>
+<a href="ejercicios.html"><strong>Ejercicios</strong><span>Exámenes reales para hacer en papel o en la máquina, con su resolución si está en el Drive.</span></a>
+<a href="machete.html"><strong>Hoja de repaso</strong><span>Todo en una hoja, para imprimir antes de rendir.</span></a>
+</div>
+
+
+<section class="sec cae"><h2 id="que-cae">Qué cae más</h2>
+<p class="cae-baja">El sitio no tiene todos los exámenes que se tomaron, así que esto es una pista y no una promesa. Tocá un tema para ver en qué exámenes salió.</p>
+<h3 id="cae-parcial-1">1° parcial</h3>
+<p class="cae-de">Sale de 9 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">DER</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 9 de 9</span></summary><ul class="cae-ex"><li><a href="ej-jusenkyo.html">Jusenkyo Onsen Resort</a></li><li><a href="ej-calciferhowl.html">Portal Inmobiliario CalciferHowl</a></li><li><a href="ej-musicfest.html">MusicFest S.A.</a></li><li><a href="ej-nutritamo.html">Dietas Nutritamo</a></li><li><a href="ej-guarderia.html">Guardería Náutica</a></li><li><a href="ej-contrataciones.html">Contrataciones</a></li><li><a href="ej-convenciones.html">Convenciones Underground</a></li><li><a href="ej-olimpiadas.html">Olimpiadas</a></li><li><a href="ej-roleplay.html">Role Play</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Pasaje</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 9 de 9</span></summary><ul class="cae-ex"><li><a href="ej-jusenkyo.html">Jusenkyo Onsen Resort</a></li><li><a href="ej-calciferhowl.html">Portal Inmobiliario CalciferHowl</a></li><li><a href="ej-musicfest.html">MusicFest S.A.</a></li><li><a href="ej-nutritamo.html">Dietas Nutritamo</a></li><li><a href="ej-guarderia.html">Guardería Náutica</a></li><li><a href="ej-contrataciones.html">Contrataciones</a></li><li><a href="ej-convenciones.html">Convenciones Underground</a></li><li><a href="ej-olimpiadas.html">Olimpiadas</a></li><li><a href="ej-roleplay.html">Role Play</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Álgebra</span><span class="cae-barra" aria-hidden="true"><span style="width:89%"></span></span><span class="cae-num">en 8 de 9</span></summary><ul class="cae-ex"><li><a href="ej-calciferhowl.html">Portal Inmobiliario CalciferHowl</a></li><li><a href="ej-musicfest.html">MusicFest S.A.</a></li><li><a href="ej-nutritamo.html">Dietas Nutritamo</a></li><li><a href="ej-guarderia.html">Guardería Náutica</a></li><li><a href="ej-contrataciones.html">Contrataciones</a></li><li><a href="ej-convenciones.html">Convenciones Underground</a></li><li><a href="ej-olimpiadas.html">Olimpiadas</a></li><li><a href="ej-roleplay.html">Role Play</a></li></ul></details></li></ul>
+<h3 id="cae-final">Final</h3>
+<p class="cae-de">Sale de 9 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">DER</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 9 de 9</span></summary><ul class="cae-ex"><li><a href="ej-municipalidad.html">Municipalidad de Rosario</a></li><li><a href="ej-alquileres.html">Alquileres de autos</a></li><li><a href="ej-prestamos.html">Préstamos de equipos</a></li><li><a href="ej-kitana.html">Clínica Kitana</a></li><li><a href="ej-cooperativa.html">Cooperativa Sustentable</a></li><li><a href="ej-rrhh.html">Recursos Humanos</a></li><li><a href="ej-club-va.html">Club Social y Deportivo VA</a></li><li><a href="ej-saco-roto.html">Sastrería Saco Roto</a></li><li><a href="ej-mct.html">Manolo Carpa Tigre</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Pasaje</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 9 de 9</span></summary><ul class="cae-ex"><li><a href="ej-municipalidad.html">Municipalidad de Rosario</a></li><li><a href="ej-alquileres.html">Alquileres de autos</a></li><li><a href="ej-prestamos.html">Préstamos de equipos</a></li><li><a href="ej-kitana.html">Clínica Kitana</a></li><li><a href="ej-cooperativa.html">Cooperativa Sustentable</a></li><li><a href="ej-rrhh.html">Recursos Humanos</a></li><li><a href="ej-club-va.html">Club Social y Deportivo VA</a></li><li><a href="ej-saco-roto.html">Sastrería Saco Roto</a></li><li><a href="ej-mct.html">Manolo Carpa Tigre</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Álgebra</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 9 de 9</span></summary><ul class="cae-ex"><li><a href="ej-municipalidad.html">Municipalidad de Rosario</a></li><li><a href="ej-alquileres.html">Alquileres de autos</a></li><li><a href="ej-prestamos.html">Préstamos de equipos</a></li><li><a href="ej-kitana.html">Clínica Kitana</a></li><li><a href="ej-cooperativa.html">Cooperativa Sustentable</a></li><li><a href="ej-rrhh.html">Recursos Humanos</a></li><li><a href="ej-club-va.html">Club Social y Deportivo VA</a></li><li><a href="ej-saco-roto.html">Sastrería Saco Roto</a></li><li><a href="ej-mct.html">Manolo Carpa Tigre</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">SQL</span><span class="cae-barra" aria-hidden="true"><span style="width:67%"></span></span><span class="cae-num">en 6 de 9</span></summary><ul class="cae-ex"><li><a href="ej-municipalidad.html">Municipalidad de Rosario</a></li><li><a href="ej-cooperativa.html">Cooperativa Sustentable</a></li><li><a href="ej-rrhh.html">Recursos Humanos</a></li><li><a href="ej-club-va.html">Club Social y Deportivo VA</a></li><li><a href="ej-saco-roto.html">Sastrería Saco Roto</a></li><li><a href="ej-mct.html">Manolo Carpa Tigre</a></li></ul></details></li></ul></section><section class="sec ex-entrada"><h2 id="rendir">Rendí un examen viejo</h2>
+<p>Elegís uno real y lo hacés con reloj, sin ver la resolución. Al entregar te corregís y ves qué repasar.</p>
+<ul class="ex-ultimos"><li><a class="ex-ultimo" href="ej-jusenkyo.html#rendir"><span class="vh">Rendir con reloj el </span><span class="ex-u-inst">1° parcial</span><span class="vh"> del </span><span class="ex-u-fecha">06/06/2026</span><svg class="ex-u-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg></a></li><li><a class="ex-ultimo" href="ej-ad-2025.html#rendir"><span class="vh">Rendir con reloj el </span><span class="ex-u-inst">2° parcial</span><span class="vh"> del </span><span class="ex-u-fecha">01/12/2025</span><svg class="ex-u-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg></a></li><li><a class="ex-ultimo" href="ej-municipalidad.html#rendir"><span class="vh">Rendir con reloj el </span><span class="ex-u-inst">Final</span><span class="vh"> del </span><span class="ex-u-fecha">23/02/2026</span><svg class="ex-u-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg></a></li></ul>
+<p class="ex-otros"><a href="ejercicios.html">Elegir otro en Ejercicios</a></p></section><section class="sec"><h2 id="que-se-toma">Qué se toma</h2>
+<p>Contamos los temas en 15 teóricos del Drive: 7 finales (2024 a 2026), 5 primeros parciales y 3 segundos. En cada página, <mark>lo amarillo es lo que ya se tomó</mark>. Si tenés poco tiempo, en cada parcial o en el final apretá «Solo lo que se toma» arriba y queda únicamente eso.</p>
+<ul class="radar">
+<li><a href="parcial-1.html#normalizacion">Normalización</a><span class="r-v">9 de 15</span><i class="r-b" style="--v:.6"></i></li>
+<li><a href="parcial-1.html#de-la-narrativa-al-der">DER y pasaje a tablas</a><span class="r-v">7 de 15</span><i class="r-b" style="--v:.467"></i></li>
+<li><a href="final.html#modelo-de-datos">Qué es un modelo de datos</a><span class="r-v">7 de 15</span><i class="r-b" style="--v:.467"></i></li>
+<li><a href="parcial-2.html#transacciones">Transacciones</a><span class="r-v">7 de 15</span><i class="r-b" style="--v:.467"></i></li>
+<li><a href="parcial-2.html#sql-para-el-teorico">SQL escrito: corregir, DDL, JOIN</a><span class="r-v">7 de 15</span><i class="r-b" style="--v:.467"></i></li>
+<li><a href="parcial-1.html#claves-y-reglas-de-integridad">Claves y reglas de integridad</a><span class="r-v">7 de 15</span><i class="r-b" style="--v:.467"></i></li>
+<li><a href="parcial-2.html#tres-niveles-e-independencia">Niveles ANSI e independencia</a><span class="r-v">5 de 15</span><i class="r-b" style="--v:.333"></i></li>
+<li><a href="parcial-2.html#seguridad">Seguridad y confidencialidad</a><span class="r-v">5 de 15</span><i class="r-b" style="--v:.333"></i></li>
+<li><a href="parcial-2.html#archivos-contra-sgbd">SGBD contra archivos</a><span class="r-v">4 de 15</span><i class="r-b" style="--v:.267"></i></li>
+<li><a href="parcial-1.html#algebra-relacional">Álgebra relacional, en el teórico</a><span class="r-v">3 de 15</span><i class="r-b" style="--v:.2"></i></li>
+<li><a href="parcial-2.html#diccionario-de-datos">Diccionario de datos</a><span class="r-v">3 de 15</span><i class="r-b" style="--v:.2"></i></li>
+<li><a href="parcial-2.html#rutinas">Encapsulamiento: procedimientos, funciones, triggers</a><span class="r-v">3 de 15</span><i class="r-b" style="--v:.2"></i></li>
+<li><a href="parcial-2.html#arquitecturas">Arquitecturas</a><span class="r-v">3 de 15</span><i class="r-b" style="--v:.2"></i></li>
+<li><a href="parcial-1.html#entidades-fuertes-y-debiles">Entidad fuerte y débil</a><span class="r-v">2 de 15</span><i class="r-b" style="--v:.133"></i></li>
+<li><a href="parcial-1.html#especializacion-y-generalizacion">Especialización</a><span class="r-v">2 de 15</span><i class="r-b" style="--v:.133"></i></li>
+</ul>
+
+<p>Esto cuenta solo el teórico. La práctica es más previsible todavía: una narrativa que hay que pasar a DER, tablas y álgebra, y consultas SQL contra una base.</p>
+</section>
+<section class="sec"><h2 id="la-materia-contada-de-una">La materia, contada de una</h2>
+<p>Imaginate la ferretería Signos. Vende productos de distintas categorías, los precios cambian seguido y le fía a algunos clientes. Hoy lleva todo en planillas: el mismo cliente figura tres veces con tres teléfonos distintos, y nadie sabe cuánto stock queda de verdad.</p>
+<p>La materia recorre cuatro pasos para arreglar eso. Cada uno responde una pregunta.</p>
+<figure>
+<svg viewBox="0 0 720 142" role="img" aria-label="Cuatro pasos: entender el negocio con un DER, ordenarlo en tablas, consultarlo con SQL y protegerlo con el SGBD.">
+<rect class="d-caja" x="4" y="28" width="160" height="72" rx="4"/><text class="d-t" x="84" y="58">¿Qué hay?</text><text class="d-s" x="84" y="80">DER</text>
+<rect class="d-caja" x="188" y="28" width="160" height="72" rx="4"/><text class="d-t" x="268" y="58">¿Cómo lo guardo?</text><text class="d-s" x="268" y="80">Tablas y formas normales</text>
+<rect class="d-caja" x="372" y="28" width="160" height="72" rx="4"/><text class="d-t" x="452" y="58">¿Cómo lo uso?</text><text class="d-s" x="452" y="80">Álgebra y SQL</text>
+<rect class="d-caja" x="556" y="28" width="160" height="72" rx="4"/><text class="d-t" x="636" y="58">¿Cómo lo cuido?</text><text class="d-s" x="636" y="80">SGBD y transacciones</text>
+<path class="d-linea" d="M164 64h18M348 64h18M532 64h18"/>
+<path class="d-punta" d="M188 64l-8-4v8zM372 64l-8-4v8zM556 64l-8-4v8z"/>
+<text class="d-i" x="268" y="126">1° parcial hasta acá</text><path class="d-linea-m" d="M90 110H446"/>
+<text class="d-i" x="540" y="126">2° parcial</text><path class="d-linea-m" d="M452 110H716"/>
+</svg>
+</figure>
+
+<h3 id="paso-1-entender-que-hay">Paso 1: entender qué hay</h3>
+<p>Antes de tocar una computadora, charlás con el dueño y dibujás lo que importa: productos, categorías, clientes, ventas, y cómo se conectan. Ese dibujo es el <strong>DER</strong> (diagrama entidad-relación). No dice nada de tablas ni de MySQL. Es una foto del negocio que el dueño podría entender.</p>
+<p>A esto se lo llama <strong>modelo de datos</strong>: una forma ordenada de describir la realidad, quedándote solo con lo relevante.</p>
+<h3 id="paso-2-decidir-como-guardarlo">Paso 2: decidir cómo guardarlo</h3>
+<p>El DER se convierte en tablas con reglas fijas. Es el <strong>pasaje a tablas</strong>. Cada fila se identifica con una <strong>clave primaria</strong> y las tablas se conectan con <strong>claves foráneas</strong>.</p>
+<p>Si guardás todo en una sola tabla gigante, volvés al problema del Excel. Cambiar el nombre de una categoría obliga a tocar miles de filas. La <strong>normalización</strong> es el control de calidad que detecta eso.</p>
+<h3 id="paso-3-usarlo">Paso 3: usarlo</h3>
+<p>Con las tablas listas, le hacés preguntas a la base: «¿qué clientes nunca compraron?». El <strong>álgebra relacional</strong> es la versión matemática de esas preguntas. <strong>SQL</strong> es lo que escribís de verdad.</p>
+<p>Uno dice <em>cómo</em> obtener el resultado, paso a paso. El otro dice <em>qué</em> querés, y el motor decide cómo.</p>
+<h3 id="paso-4-cuidarlo">Paso 4: cuidarlo</h3>
+<p>Dos cajeros venden el último martillo a la vez. Se corta la luz justo cuando la venta se descontó del stock, pero no se registró el cobro. Alguien de ventas no debería ver los sueldos.</p>
+<p>Todo eso lo resuelve el <strong>SGBD</strong>, el programa que administra la base (MySQL, por ejemplo). Las <strong>transacciones</strong> hacen que una venta ocurra entera o no ocurra, y la <strong>bitácora</strong> permite reconstruir todo después de un corte.</p>
+</section>
+<section class="sec"><h2 id="como-se-evalua">Cómo se evalúa</h2>
+<p>Esto sale de cómo está ordenado el Drive y de los exámenes. Confirmalo con tu comisión, porque cambió entre años.</p>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué piden</th></tr></thead><tbody><tr><td>1° parcial, práctica</td><td>Una narrativa larga: DER, pasaje a tablas y dos o tres consultas en álgebra relacional</td></tr><tr><td>1° parcial, teoría (aprobación directa)</td><td>Cinco consignas de 2 puntos cada una. Normalización apareció en los cinco que revisamos</td></tr><tr><td>2° parcial, práctica</td><td>SQL en máquina. Para regularizar, parcialitos cortos; para aprobación directa, un parcial con migración, listados difíciles y rutinas</td></tr><tr><td>2° parcial, teoría</td><td>Preguntas escritas sobre SGBD, transacciones y seguridad, más un SQL con errores para corregir</td></tr><tr><td>Final</td><td>Una parte práctica y un teórico escrito de 4 a 8 preguntas. De 2020 a 2023 el teórico también fue de opción múltiple en el campus</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="por-donde-empezar">Por dónde empezar</h2>
+<p>En esta materia también se corrige la forma, y la cátedra tiene criterios propios para el DER y el SQL. Por eso <strong>las resoluciones de esta página son solo las que ya estaban en el Drive</strong>: nunca una hecha por nosotros.</p>
+<p>Si la estás cursando, seguí el orden de las páginas: arriba de cada tema tenés lo que se tomó y al final, un quiz.</p>
+<p>Si rendís en una semana, andá directo a <a href="final.html">Final</a> o al parcial que te toque, apretá «Solo lo que se toma», hacé el quiz y terminá con <a href="ejercicios.html#final">un final entero</a>.</p>
+<p>Y si te queda colgada una parte de los apuntes originales, están en el Drive: <a href="https://drive.google.com/drive/folders/1Bs-D5DlF1beNPyTZgXJNyD86MQmtTvOT">exámenes</a>, <a href="https://drive.google.com/drive/folders/1YfowmxwY3Eg30Keqx4pzhYbQZ4jjSj_L">resúmenes de otros estudiantes</a> y <a href="https://drive.google.com/drive/folders/1HYnuJjOMYISin4IudlWZ2DDsfktUDArk">material de cursado</a>.</p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta marzo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

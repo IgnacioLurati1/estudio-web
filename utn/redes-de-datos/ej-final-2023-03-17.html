@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final, 17/03/2023: Redes de Datos</title>
+<meta name="description" content="Ejercicio de examen: Final, 17/03/2023.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="redes-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Redes de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=redes-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=redes-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Final, 17/03/2023</h1>
+<p class="bajada">Final, 17/03/2023</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="final-2023-03-17" data-titulo="Final, 17/03/2023" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="final-2023-03-17" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1OP8B3UEi8vWBZgfbhADPnMwAznLrAtjL/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><p>UNIVERSIDAD TECNOLÓGICA NACIONAL - FACULTAD REGIONAL ROSARIO INGENIERÍA EN SISTEMAS DE INFORMACIÓN REDES DE DATOS Examen Final 17-03-2023</p>
+<p>Responda a los siguientes items:</p>
+<p>Medios de transmisión:</p>
+<ol>
+<li>Ordene los siguientes medios de transmisión según su capacidad, de mayor a menor y justifique su respuesta: Par trenzado, cable coaxil, fibra óptica.</li>
+</ol>
+<p>Red Ethernet:</p>
+<ol start="2">
+<li>Explique las características de funcionamiento de un “Hub.</li>
+<li>Describa el modo de funcionamiento de un “Switch”.</li>
+<li>Especifique cómo actúa el algoritmo “Spanning Tree”.</li>
+<li>Describa cómo es el campo de direccionamiento en la trama Ethernet.</li>
+<li>¿Para qué se realiza una petición ARP = Address Resolution Protocol? Explique el proceso.</li>
+</ol>
+<p>Capa de Red:</p>
+<ol start="7">
+<li>Explique las características de las direcciones IPv4.</li>
+<li>Escriba un ejemplo de dirección IPv4 de un host, si el prefijo de su red es 140.107.0.0 y la máscara de red a utilizar es 255.255.255.0 .</li>
+</ol>
+<p>Capa de Transporte:</p>
+<ol start="9">
+<li>Explique las características del direccionamiento en Capa de Transporte.</li>
+<li>¿Qué protocolo de capa 4 utilizaría para una transportar un “streaming” de voz, y qué protocolo usaría en capa 4 para realizar una transferencia bancaria? Justifique su respuesta.</li>
+</ol>
+</section>
+<section class="sec ex-preguntas" id="exPreguntas" hidden><h2 id="ex-preguntas">Preguntas con opciones</h2><p class="ex-baja">Salen de este examen, adaptadas. Dejalas para el final, porque las opciones pueden dar pistas.</p><ol class="qs"><li class="q" data-q="u99XYKLb_L" data-tema="Qué se tomó" data-enlace="final.html#que-se-tomo" data-tipo="mc"><div class="q-enun" id="qe-ex-1"><span class="q-n">1</span><div><p>¿Para qué se realiza una petición ARP?</p>
+<p class="q-origen">Se tomó: Final 17/03/2023, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-ex-1"><li><button type="button" class="op" data-ok="0">Para obtener una IP dinámica</button></li><li><button type="button" class="op" data-ok="1">Para averiguar la MAC asociada a una IP</button></li><li><button type="button" class="op" data-ok="0">Para saber el retardo hasta un host</button></li><li><button type="button" class="op" data-ok="0">Para elegir la mejor ruta</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><strong>ARP</strong> pregunta por broadcast quién tiene esa IP, y el dueño contesta con su MAC.</p>
+</div></li><li class="q" data-q="j4lxlO5kbY" data-tema="Preguntas con respuesta en el apunte" data-enlace="final.html#preguntas-con-respuesta-en-el-apunte" data-tipo="mc"><div class="q-enun" id="qe-ex-2"><span class="q-n">2</span><div><p>En Spanning Tree, ¿cómo se elige el switch raíz?</p>
+<p class="q-origen">Se tomó: Final 17/03/2023, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-ex-2"><li><button type="button" class="op" data-ok="0">El de mayor cantidad de puertos</button></li><li><button type="button" class="op" data-ok="1">El de menor dirección MAC</button></li><li><button type="button" class="op" data-ok="0">El primero que se enciende</button></li><li><button type="button" class="op" data-ok="0">El de mayor velocidad</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La raíz es el de <strong>menor MAC</strong>. Después se anulan los caminos redundantes.</p>
+</div></li></ol></section>
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p><strong>1.</strong> De mayor a menor, <strong>fibra óptica, cable coaxil y par trenzado</strong>. El apunte da como anchos de banda de referencia unos 50 Tbps para la fibra, 1 GHz para el coaxil y 1 MHz para el par trenzado. La fibra transmite luz, sin interferencias y con atenuación de menos de 1 dB/km. El par trenzado tiene el menor ancho de banda y depende de cuánto se trence para resistir el ruido.</p>
+<p><strong>2.</strong> El hub trabaja en la capa física. Recibe la señal por un puerto y la repite por todos los demás, sin desarmar la trama ni mirar direcciones. No permite comunicaciones simultáneas, todas las estaciones comparten el canal y puede haber colisiones. Su rendimiento es igual que el del bus de coaxil.</p>
+<p><strong>3.</strong> El switch trabaja en la capa de enlace, capa 2. Abre la trama, mira la dirección MAC de destino y la manda solo por el puerto de ese destino. La guarda un momento para evitar colisiones, y permite varias comunicaciones simultáneas. Al encenderse actúa como hub mientras arma su tabla de MAC y puertos, anotando de qué puerto viene cada dirección (<em>backward learning</em>). Los datos viejos de la tabla se borran periódicamente.</p>
+<p><strong>4.</strong> Cuando dos switches quedan unidos por dos caminos se forma un bucle, y como reenvían los destinos desconocidos por todos los puertos, las tramas se multiplican en una bola de nieve que colapsa la red. Spanning Tree (IEEE 802.1D) lo evita.</p>
+<ol>
+<li>Los switches se comunican y eligen como raíz al de menor MAC.</li>
+<li>Arman un árbol desde la raíz, con la menor cantidad de saltos.</li>
+<li>Anulan los caminos redundantes, y la topología queda sin bucles.</li>
+</ol>
+<p><strong>5.</strong> La trama lleva dos direcciones MAC de 6 bytes cada una, la de destino y la de origen, después del preámbulo.</p>
+<ul>
+<li>Si el primer bit es 0, la dirección es ordinaria, de una sola estación. Si es 1, es de grupo.</li>
+<li>Todos unos es broadcast.</li>
+<li>Los primeros 3 bytes son el código del fabricante, que asigna el IEEE.</li>
+</ul>
+<p><strong>6.</strong> ARP sirve para saber la dirección MAC que corresponde a una IP. Se usa cuando un host tiene que mandar un paquete a una IP de su red y necesita la MAC del destino para armar la trama.</p>
+<ol>
+<li>El host manda un broadcast en la LAN preguntando quién tiene esa IP.</li>
+<li>Todos lo reciben, y el host que tiene esa IP contesta con su MAC.</li>
+<li>Con esa MAC se arma la trama.</li>
+</ol>
+<p>Si el destino está en otra red, el host pide la MAC del <em>default gateway</em>.</p>
+<p><strong>7.</strong></p>
+<ul>
+<li>Tienen <strong>32 bits</strong>, que se escriben en cuatro bytes en decimal, como 192.168.55.44.</li>
+<li>Se dividen en <strong>prefijo de red</strong>, igual para todos los hosts de esa red, y <strong>parte de host</strong>. La <strong>máscara</strong> marca dónde termina el prefijo, y el AND entre dirección y máscara da la red.</li>
+<li>Hasta 1993 el largo del prefijo era fijo por <strong>clase</strong> (A /8, B /16, C /24). Hoy es variable, con <strong>CIDR</strong>.</li>
+<li>En cada red, la dirección con todos ceros en la parte de host es la red y la de todos unos, el broadcast.</li>
+<li>Pueden ser <strong>públicas</strong>, únicas en internet, o <strong>privadas</strong> (10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16), que salen a internet a través de NAT.</li>
+</ul>
+<p><strong>8.</strong> Con máscara 255.255.255.0 los tres primeros bytes son la red, 140.107.0, y el último es el host. Un ejemplo es <strong>140.107.0.10</strong>, y sirve cualquier valor de 1 a 254 en el último byte. No valen 140.107.0.0, que es la red, ni 140.107.0.255, el broadcast. Aunque 140 es de clase B, con esta máscara la red es una subred /24.</p>
+<p><strong>9.</strong> En la capa de transporte, el extremo de una conexión es el TSAP o <strong>puerto</strong>, de 16 bits. La IP lleva el paquete hasta el host, y el puerto de destino del segmento dice a qué proceso entregárselo. Así un host usa varios puertos a la vez con una sola IP. Los servicios conocidos usan puertos reservados, como Telnet 23, SMTP 25, HTTP 80 y FTP 21. Para hallar el puerto de un servicio, el apunte da el Port Mapper (puerto 111) y el Process Server.</p>
+<p><strong>10.</strong></p>
+<ul>
+<li><strong>Streaming de voz.</strong> UDP, porque en tiempo real no hay tiempo de retransmitir, y un paquete que llega tarde ya no sirve.</li>
+<li><strong>Transferencia bancaria.</strong> TCP, porque da una conexión confiable con retransmisión de los segmentos perdidos. La guía de capa de red pone el homebanking como ejemplo de servicio orientado a conexión, porque no tolera pérdidas ni errores de datos.</li>
+</ul>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con el resumen del 1° parcial (Fibra óptica, Hub y switch, Bucles y Spanning Tree, La trama de Ethernet) y del 2° parcial (Protocolos de control, Prefijo y máscara, Clases y prefijos, Públicas y privadas, Direccionamiento y sockets, TCP y UDP), y la página del final.</p><p class="bloque-fuente">Quedó en duda: Para el 1 el apunte no trae el orden armado, solo los anchos de banda de cada medio. En el 8 la red es de clase B con máscara de 24 bits; si la cátedra espera notar que es una subred, va dicho.</p><div class="em-votos" data-m="redes-de-datos" data-e="final-2023-03-17" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen. Las preguntas con opciones ya se corrigieron solas.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Medios" data-enlace="parcial-1.html#medios-guiados" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Medios</span><span class="ex-t-teoria"><a href="parcial-1.html#medios-guiados">Medios guiados</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Spanning Tree" data-enlace="parcial-1.html#bucles-y-spanning-tree" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Spanning Tree</span><span class="ex-t-teoria"><a href="parcial-1.html#bucles-y-spanning-tree">Bucles y Spanning Tree</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="ARP" data-enlace="parcial-1.html#como-viene-el-examen" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">ARP</span><span class="ex-t-teoria"><a href="parcial-1.html#como-viene-el-examen">Cómo viene el examen</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="IPv4" data-enlace="parcial-2.html#ipv4" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">IPv4</span><span class="ex-t-teoria"><a href="parcial-2.html#ipv4">IPv4</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Transporte" data-enlace="parcial-2.html#capa-de-transporte" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT4">Transporte</span><span class="ex-t-teoria"><a href="parcial-2.html#capa-de-transporte">Capa de transporte</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT4"><label class="ex-op" data-v="bien"><input type="radio" name="exT4r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT4r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT4r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-final-2023-08-04.html">Anterior: Final, 04/08/2023</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

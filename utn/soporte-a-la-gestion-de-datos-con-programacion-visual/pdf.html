@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Soporte a la Gestión de Datos con Programación Visual en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Soporte a la Gestión de Datos con Programación Visual, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="soporte-a-la-gestion-de-datos-con-programacion-visual" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Soporte a la Gestión de Datos con Programación Visual</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Soporte a la Gestión de Datos con Programación Visual</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial-1">1° parcial</a></li><li><a href="#pdf-integrador">Seminario y TPI</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (un solo parcial, de 2026, las clases de 2023 y la bibliografía de la materia). Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Soporte a la Gestión de Datos con Programación Visual</p><h1>Para entender la materia</h1>
+<p class="bajada">Se programa en Python un sistema completo, de la base de datos a la pantalla, y se aprueba con un parcial, un seminario y un trabajo integrador.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+<div class="ojo"><p class="ojo-t">Hay poco material de examen</p><p>En el Drive hay un solo parcial, el de 2026, con cuatro preguntas. Todo lo que dice esta guía sobre qué se toma sale de esa hoja. Tampoco hay programa de la materia. Las unidades salen de la presentación de la cátedra y de las clases de 2023.</p>
+</div>
+
+<section class="sec"><h2 id="inicio-la-idea-general">La idea general</h2>
+<p>La cátedra la resume así en su presentación: programación en Python, full stack, con patrón de tres capas. Los datos van en SQLite o MySQL. Se usan paquetes como Pandas, frameworks como Django, Flask o Kivy, APIs, GitHub, el ORM SQLAlchemy y PyCharm o VS Code.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Imaginate un sistema de turnos. Abajo hay una base que guarda los turnos. En el medio, código que decide si un turno se puede dar. Arriba, la pantalla que ve la gente. La materia te enseña a armar esos tres pisos en Python y a hacer que se hablen.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Capa</th><th>Qué pide la cátedra para el TPI</th></tr></thead><tbody><tr><td>Datos</td><td>Una base (MySQL, Mongo o SQLite), con acceso directo o con un ORM (Alchemy o Django)</td></tr><tr><td>Negocio</td><td>Al menos una regla de negocio, con un test que la verifique en los métodos de la clase de negocio</td></tr><tr><td>Interfaz</td><td>De escritorio con Tkinter, web con Flask, Django o Kivy, o una API</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido">El recorrido</h2>
+<p>Las clases de 2023 están en carpetas con su fecha. Eso da el orden en que se vio el primer semestre.</p>
+<div class="tabla"><table><thead><tr><th>Clase</th><th>Tema</th><th>En esta guía</th></tr></thead><tbody><tr><td>05/04/2023</td><td>Instalación (Python, PyCharm, Git, Workbench) e introducción a Python</td><td><a href="#parcial-1-lo-basico-de-python">Lo básico de Python</a></td></tr><tr><td>12/04/2023</td><td>Funciones y clases</td><td><a href="#parcial-1-funciones">Funciones</a></td></tr><tr><td>26/04/2023</td><td>Módulos, paquetes y <code>pip</code></td><td><a href="#parcial-1-modulos-y-paquetes">Módulos y paquetes</a></td></tr><tr><td>10/05/2023</td><td>Programación orientada a objetos</td><td><a href="#parcial-1-orientacion-a-objetos">Orientación a objetos</a></td></tr><tr><td>31/05/2023</td><td>SQLAlchemy</td><td><a href="#parcial-1-orm-con-sqlalchemy">ORM con SQLAlchemy</a></td></tr><tr><td>07/06/2023</td><td>Patrón MVC</td><td><a href="#parcial-1-mvc-y-tres-capas">MVC y tres capas</a></td></tr></tbody></table></div>
+<p>La guía de trabajos prácticos sigue el mismo camino. Los enunciados y sus tests están en archivos <code>.py</code>, en el <a href="https://github.com/frro-soporte">GitHub de la cátedra</a>.</p>
+<div class="tabla"><table><thead><tr><th>Práctico</th><th>Tema</th></tr></thead><tbody><tr><td>0</td><td>Uso de Git y GitHub</td></tr><tr><td>1</td><td>Lenguaje Python, sintaxis y elementos básicos y avanzados</td></tr><tr><td>2</td><td>Módulos e imports</td></tr><tr><td>3</td><td>Paradigma orientado a objetos</td></tr><tr><td>4</td><td>Bases de datos</td></tr><tr><td>5</td><td>Bases de datos con ORM (capa de datos)</td></tr><tr><td>6</td><td>Lógica de negocio (capa de negocio)</td></tr><tr><td>7</td><td>Presentación (capa de presentación)</td></tr><tr><td>TPI</td><td>Desarrollo de una aplicación completa</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="inicio-como-se-conecta">Cómo se conecta</h2>
+<p>Cada tema es una pieza del TPI. Python y objetos son la base de todo. <code>sqlite3</code> y SQLAlchemy arman la capa de datos. Las clases con reglas arman la capa de negocio. Flask arma la presentación.</p>
+<p>El parcial de 2026 junta dos de esas piezas en un programa corto, una página de Flask que lee de una base SQLite. Por eso conviene empezar a estudiar por <a href="#parcial-1-flask-con-sqlite">Flask con SQLite</a> y volver hacia atrás con lo que no entiendas.</p>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué es</th><th>Dónde se estudia</th></tr></thead><tbody><tr><td>1° parcial</td><td>«Temas a examinar son los dados en primer semestre», dice la presentación. El de 2026 fue una hoja para leer código y completarlo</td><td><a href="#pdf-parcial-1">1° parcial</a></td></tr><tr><td>Seminario</td><td>Exposición de 10 a 15 minutos con demo en vivo, un documento y 5 preguntas de opción múltiple. Cada seminario tiene un quiz que hay que aprobar</td><td><a href="#integrador-el-seminario">Seminario</a></td></tr><tr><td>TPI</td><td>Sistema en Python en tres capas, con documentación, presentación y defensa</td><td><a href="#integrador-el-trabajo-integrador">Trabajo integrador</a></td></tr></tbody></table></div>
+<p>No encontré en el Drive la nota mínima, las fechas vigentes ni las condiciones de promoción o de final. Preguntalas en tu comisión.</p>
+</section>
+<section class="sec"><h2 id="inicio-que-material-hay">Qué material hay</h2>
+<ul>
+<li><strong>De la cátedra.</strong> La presentación de la materia, las diapositivas de introducción a Python y de SQLAlchemy, y las consignas del seminario y del TPI.</li>
+<li><strong>Libros de la carpeta de bibliografía y de las clases.</strong> <em>Python para todos</em>, <em>Python para informáticos</em>, el tutorial de Flask de Tutorials Point, <em>Explore Flask</em> y el capítulo de bases de datos de <em>Foundations for Analytics</em>.</li>
+<li><strong>De alumnos.</strong> Un seminario de Power BI y un TPI de 2023. Sirven para ver la forma de la entrega, no como teoría de la cátedra.</li>
+<li><strong>No revisado.</strong> Los cuadernos de clase (<code>.ipynb</code>) y los <code>.py</code> no entraron en esta guía. Quedan en el Drive, en <code>Teoricas2023</code>. Ahí está casi todo lo de MVC y las lecciones de objetos.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Libros escritos para Python 2</p><p><em>Python para todos</em>, <em>Python para informáticos</em> y el tutorial de Flask usan Python 2 en sus ejemplos. La cátedra usa Python 3.8 o 3.9. En esta guía los ejemplos de esos libros van con <code>print(...)</code>, la forma de Python 3. Cualquier otro cambio está avisado.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-1" data-pagina="parcial-1" aria-label="1° parcial"><p class="pdf-de">Soporte a la Gestión de Datos con Programación Visual</p><h1>1° parcial</h1>
+<p class="bajada">Python, módulos, objetos, bases de datos con sqlite3 y SQLAlchemy, y Flask, con foco en leer y completar un programa corto.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-1-como-viene-el-examen">Cómo viene el examen</h2>
+<p>La cátedra dice «Temas a examinar son los dados en primer semestre» (<code>Teorica1Presentacion2022.docx</code>, diapositiva «Aprobar Parcial 1er»). En el Drive hay un solo parcial para ver cómo se toma.</p>
+<div class="tomado"><aside class="nota"><strong>Completar un programa de Flask con SQLite</strong><span>1° parcial 2026 (archivo del 30/06/2026)</span></aside><p>Es una hoja con un programa corto y partes tapadas con asteriscos. <mark>Hay que leer el código y decir qué falta.</mark> Son cuatro preguntas:</p>
+<ol>
+<li>En <code>from ****** import *****</code>, cuál es el módulo o librería principal que se importa.</li>
+<li>En esa misma línea, cuál es la clase que se importa.</li>
+<li>En <code>import *******</code>, qué librería nativa de Python hace falta para interactuar con <code>posts.db</code>.</li>
+<li>En <code>cursor.execute(*****)</code>, qué consulta SQL va entre comillas para traer todos los datos de la tabla de publicaciones.</li>
+</ol>
+<p>La hoja está en <a href="ejercicios.html">Ejercicios</a>. La teoría para contestarlas está en <a href="#parcial-1-importar">Importar</a>, <a href="#parcial-1-la-aplicacion-minima">La aplicación mínima</a>, <a href="#parcial-1-conexion-y-cursor">Conexión y cursor</a> y <a href="#parcial-1-el-sql-que-hace-falta">El SQL que hace falta</a>.</p>
+</div>
+<p>Con un solo parcial no se puede decir qué se repite. El resto de la página entra porque es del primer semestre, aunque en esa hoja no se haya tomado. Flask no tiene carpeta de clase en 2023: se vio como seminario y está en la bibliografía. Aun así, en 2026 se tomó.</p>
+<h3 id="parcial-1-como-leer-el-programa-del-parcial">Cómo leer el programa del parcial</h3>
+<p>Estos son los renglones que la hoja sí muestra. Conviene que sepas qué hace cada uno.</p>
+<div class="tabla"><table><thead><tr><th>Renglón visible</th><th>Qué hace</th><th>De dónde sale</th></tr></thead><tbody><tr><td><code>app = Flask(__name__)</code></td><td>Crea la aplicación. El constructor recibe el nombre del módulo actual</td><td>Flask Tutorial, pág. 3</td></tr><tr><td><code>@app.route(&#39;/&#39;)</code></td><td>Decorador que une la dirección <code>/</code> con la función que sigue</td><td>Flask Tutorial, pág. 3</td></tr><tr><td><code>db = sqlite3.connect(&#39;posts.db&#39;)</code></td><td>Abre la conexión con la base guardada en ese archivo</td><td>Python para informáticos, pág. 177</td></tr><tr><td><code>cursor = db.cursor()</code></td><td>Crea el cursor, por donde pasan las operaciones</td><td>Python para todos, pág. 120</td></tr><tr><td><code>cursor.execute(...)</code></td><td>Ejecuta la cadena con el SQL</td><td>Python para todos, pág. 121</td></tr><tr><td><code>data = cursor.fetchall()</code></td><td>Devuelve todas las filas del resultado</td><td>Foundations, págs. 149 y 150</td></tr><tr><td><code>db.close()</code></td><td>Cierra la conexión</td><td>Python para todos, págs. 123 y 124</td></tr><tr><td><code>if __name__ == &#39;__main__&#39;:</code></td><td>El código de adentro corre solo si ejecutás el archivo, no si lo importás</td><td>Python para todos, pág. 74</td></tr><tr><td><code>app.run(debug=True, ...)</code></td><td>Arranca el servidor de desarrollo. <code>debug</code> activa la recarga y el depurador</td><td>Flask Tutorial, págs. 3 y 4</td></tr></tbody></table></div>
+<p>En <code>run</code>, los demás parámetros son opciones que pasan al servidor Werkzeug (Flask Tutorial, pág. 3). El material no explica <code>threaded</code> ni <code>use_reloader</code>.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-lo-basico-de-python">Lo básico de Python</h2>
+<p>Salvo aviso, esta sección sale de las diapositivas de la cátedra, <a href="https://drive.google.com/file/d/1QtbwEDD0S9yYcURDZRlogX_s-C97pYri/view">introduccion a python2018_a.pptx</a>.</p>
+<p>Python es de código libre, interpretado, sensible a mayúsculas y minúsculas, y dinámicamente tipado. Los comentarios van con <code>#</code>. Los programas tienen extensión <code>.py</code> y se suelen llamar scripts. Los <code>.pyc</code> y <code>.pyo</code> son precompilados: si los encuentra, los usa.</p>
+<p>En PyCharm se crea un proyecto y se le asigna un intérprete. Desde la versión 2017.3 crea solo un entorno virtual por proyecto, aunque se puede elegir uno existente. La <a href="https://drive.google.com/file/d/1-5rIgrMc2-hQ927nLB1k4TH1VqYL8tiq/view">guía de instalación</a> indica <code>pip list</code> para comprobar que el intérprete quedó bien.</p>
+<h3 id="parcial-1-importar">Importar</h3>
+<div class="tomado"><aside class="nota"><strong>Se pidió completar líneas de import</strong><span>1° parcial 2026</span></aside><p>La diferencia entre las dos formas es <mark>qué nombre queda disponible y cómo se escribe después</mark>.</p>
+</div>
+<pre class="codigo"><code><span class="hljs-keyword">from</span> math <span class="hljs-keyword">import</span> pi      <span class="hljs-comment"># se lo puede usar directamente</span>
+<span class="hljs-keyword">import</span> math
+n = math.sin(<span class="hljs-number">0.15</span>)       <span class="hljs-comment"># hay que indicar la biblioteca</span>
+<span class="hljs-keyword">from</span> PyQt4.QtCore <span class="hljs-keyword">import</span> *
+x = QString()            <span class="hljs-comment"># no hace falta decir dónde está definido</span></code></pre>
+<p>La última forma es «sólo para pruebas, no es una buena práctica», dice la diapositiva. <em>Python para todos</em> (pág. 74) también la llama mala práctica.</p>
+<h3 id="parcial-1-alcance-de-los-nombres">Alcance de los nombres</h3>
+<p>Los nombres se buscan en este orden: local, enclosing, global y built-in (LEGB). Enclosing se refiere a que una función puede definirse dentro de otra.</p>
+<h3 id="parcial-1-tipos-y-referencias">Tipos y referencias</h3>
+<p>Los tipos son dinámicos, se definen al asignar valores. <code>type(...)</code> devuelve la clase del argumento. Las variables son referencias a objetos, y <code>id(objeto)</code> devuelve su identificador. Los números y los strings son inmutables: si cambiás el valor de una variable numérica, pasa a apuntar a otro objeto.</p>
+<h3 id="parcial-1-numeros">Números</h3>
+<p><code>int</code> (<code>n = 7</code>) y <code>float</code>, que se define por asignar un valor con punto decimal (<code>n = 7.0</code>). Se convierte con <code>float(entero)</code> o <code>int(decimal)</code>.</p>
+<div class="tabla"><table><thead><tr><th>Operador</th><th>Qué da</th><th>Ejemplo de la diapositiva</th></tr></thead><tbody><tr><td><code>//</code></td><td>Parte entera</td><td><code>7//2</code> da 3</td></tr><tr><td><code>%</code></td><td>Resto del cociente</td><td><code>7%2</code> da 1</td></tr><tr><td><code>**</code></td><td>Exponenciación</td><td></td></tr></tbody></table></div>
+<h3 id="parcial-1-cadenas">Cadenas</h3>
+<p>Son arrays con índice de base 0. Los valores negativos buscan desde la derecha, empezando en -1. En un slice <code>cadena[ini:fin]</code>, el último no está incluido.</p>
+<pre class="codigo"><code>c = <span class="hljs-string">&quot;La pelota roja&quot;</span>
+c[<span class="hljs-number">0</span>], c[<span class="hljs-number">5</span>], c[-<span class="hljs-number">1</span>]   <span class="hljs-comment"># (&#x27;L&#x27;, &#x27;l&#x27;, &#x27;a&#x27;)</span>
+c[:<span class="hljs-number">4</span>]               <span class="hljs-comment"># &#x27;La p&#x27;</span>
+c[-<span class="hljs-number">3</span>:]              <span class="hljs-comment"># &#x27;oja&#x27;</span>
+c[<span class="hljs-number">4</span>:<span class="hljs-number">7</span>]              <span class="hljs-comment"># &#x27;elo&#x27;</span>
+c.find(<span class="hljs-string">&quot;p&quot;</span>)         <span class="hljs-comment"># 3</span>
+c.find(<span class="hljs-string">&quot;q&quot;</span>)         <span class="hljs-comment"># -1, no lo encontró</span></code></pre>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>La diapositiva «Substrings» define <code>c = &quot;La pelota roja &quot;</code>, con un espacio al final, y dice que <code>c[-3:]</code> da <code>&#39;oja&#39;</code>. Con ese espacio daría <code>&#39;ja &#39;</code>. Acá va sin el espacio, como en la diapositiva anterior. Lo probé en Python. Archivo: <code>introduccion a python2018_a.pptx</code>.</p>
+</div>
+<p>Como son inmutables, no se puede asignar un carácter adentro:</p>
+<pre class="codigo"><code>p = <span class="hljs-string">&quot;pad&quot;</span>
+p[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;o&quot;</span>                      <span class="hljs-comment"># error</span>
+p = p[:<span class="hljs-number">1</span>] + <span class="hljs-string">&quot;o&quot;</span> + p[<span class="hljs-number">2</span>:]         <span class="hljs-comment"># así sí: &#x27;pod&#x27;</span>
+p = <span class="hljs-string">&quot;o&quot;</span>.join((p[:<span class="hljs-number">1</span>], p[<span class="hljs-number">2</span>:]))    <span class="hljs-comment"># otra forma, partiendo de &quot;pad&quot;: &#x27;pod&#x27;</span></code></pre>
+<p>Secuencias especiales: <code>\n</code> nueva línea, <code>\t</code> tabulado, <code>\\</code> para insertar una barra, <code>\&#39;</code> y <code>\&quot;</code> para insertar comillas.</p>
+<h3 id="parcial-1-logicos">Lógicos</h3>
+<p>Cualquier dato vacío equivale a <code>False</code> (<code>0</code>, <code>&#39;&#39;</code>). Hace la evaluación mínima necesaria. En un <code>or</code>, si el primer dato es verdadero, devuelve ese. Si no, devuelve el segundo.</p>
+<h3 id="parcial-1-listas">Listas</h3>
+<p>Se escriben con <code>[]</code> y se comportan como los strings al indexar, pero se pueden modificar.</p>
+<pre class="codigo"><code>frutas = [<span class="hljs-string">&quot;manzana&quot;</span>, <span class="hljs-string">&quot;pera&quot;</span>, <span class="hljs-string">&quot;durazno&quot;</span>, <span class="hljs-string">&quot;limón&quot;</span>]
+frutas[:<span class="hljs-number">2</span>]
+frutas[-<span class="hljs-number">1</span>]
+frutas.insert(<span class="hljs-number">3</span>, <span class="hljs-string">&quot;naranja&quot;</span>)   <span class="hljs-comment"># intercala</span>
+<span class="hljs-keyword">del</span> frutas[<span class="hljs-number">2</span>]                 <span class="hljs-comment"># borra</span>
+frutas.remove(<span class="hljs-string">&quot;pera&quot;</span>)         <span class="hljs-comment"># borra</span>
+frutas[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;uva&quot;</span>             <span class="hljs-comment"># cambia un elemento</span></code></pre>
+<p>La <a href="https://drive.google.com/file/d/166WjgDXsoFWOviGFq-Y5lTSP1tNazrU4/view">hoja de la clase</a> suma <code>append</code>, <code>reverse</code>, <code>sort</code>, <code>index</code> y <code>pop</code>, y las comprensiones de listas: <code>[n ** 2 for n in l]</code> arma una lista nueva con los cuadrados (<em>Python para todos</em>, pág. 61).</p>
+<h3 id="parcial-1-tuplas">Tuplas</h3>
+<p>Se escriben con <code>()</code> y son inmutables. Con 2 elementos o más no necesitan paréntesis.</p>
+<pre class="codigo"><code>vacia = ()
+uno = (<span class="hljs-string">&quot;canario&quot;</span>,)
+varios = (<span class="hljs-string">&quot;jilguero&quot;</span>, <span class="hljs-number">43.5</span>, <span class="hljs-string">&quot;otro&quot;</span>)
+origen = (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)</code></pre>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>La diapositiva «Tuplas» escribe <code>uno = (&quot;canario&quot;)</code>. Eso no es una tupla, es un string entre paréntesis. <em>Python para todos</em> (pág. 26) dice que hay que añadir una coma en las tuplas de un solo elemento. Lo puse con la coma.</p>
+</div>
+<h3 id="parcial-1-diccionarios">Diccionarios</h3>
+<p>Se escriben con <code>{}</code> y guardan pares clave-valor. Las claves deben ser inmutables, así que una tupla sirve.</p>
+<pre class="codigo"><code>articulos = {<span class="hljs-string">&quot;copa&quot;</span>: <span class="hljs-number">200</span>, <span class="hljs-string">&quot;vaso&quot;</span>: <span class="hljs-number">120</span>, <span class="hljs-string">&quot;tenedor&quot;</span>: <span class="hljs-number">30</span>}
+articulos[<span class="hljs-string">&quot;vaso&quot;</span>]               <span class="hljs-comment"># 120</span>
+articulos[<span class="hljs-string">&quot;cuchillo&quot;</span>] = <span class="hljs-number">130</span>     <span class="hljs-comment"># agrega la pareja</span>
+articulos.keys()                <span class="hljs-comment"># las claves</span>
+articulos.values()              <span class="hljs-comment"># los valores</span>
+<span class="hljs-string">&quot;vaso&quot;</span> <span class="hljs-keyword">in</span> articulos.keys()      <span class="hljs-comment"># True</span>
+datos3d = {(<span class="hljs-number">3</span>, <span class="hljs-number">7</span>, -<span class="hljs-number">2</span>): <span class="hljs-string">&quot;Verde&quot;</span>}</code></pre>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>La diapositiva escribe <code>dict(&#39;A&#39;:200, &#39;B&#39;:230, …)</code>, que no es Python válido. Con <code>dict</code> se escribe <code>dict(A=200, B=230)</code>. Lo probé en Python. Archivo: <code>introduccion a python2018_a.pptx</code>.</p>
+</div>
+<h3 id="parcial-1-control-de-flujo">Control de flujo</h3>
+<p>Sale de <em>Python para todos</em>, págs. 29 a 35. Lo indentado define el bloque.</p>
+<pre class="codigo"><code><span class="hljs-keyword">if</span> numero &lt; <span class="hljs-number">0</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Negativo&quot;</span>)
+<span class="hljs-keyword">elif</span> numero &gt; <span class="hljs-number">0</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Positivo&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Cero&quot;</span>)
+
+var = <span class="hljs-string">&quot;par&quot;</span> <span class="hljs-keyword">if</span> (num % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;impar&quot;</span>
+
+edad = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> edad &lt; <span class="hljs-number">18</span>:
+    edad = edad + <span class="hljs-number">1</span>
+
+secuencia = [<span class="hljs-string">&quot;uno&quot;</span>, <span class="hljs-string">&quot;dos&quot;</span>, <span class="hljs-string">&quot;tres&quot;</span>]
+<span class="hljs-keyword">for</span> elemento <span class="hljs-keyword">in</span> secuencia:
+    <span class="hljs-built_in">print</span>(elemento)</code></pre>
+<p>El <code>for</code> de Python recorre elementos, no posiciones. Para recorrer números está <code>range</code>.</p>
+<h3 id="parcial-1-funciones">Funciones</h3>
+<p>Sale de <em>Python para todos</em>, págs. 36 a 41. Se declaran con <code>def</code>. Declararla no la ejecuta. Solo asocia un nombre al código. Si no indicás un valor de retorno, devuelve <code>None</code>. Una cadena en la primera línea es el docstring.</p>
+<pre class="codigo"><code><span class="hljs-keyword">def</span> <span class="hljs-title function_">imprimir</span>(<span class="hljs-params">texto, veces = <span class="hljs-number">1</span></span>):       <span class="hljs-comment"># valor por defecto</span>
+    <span class="hljs-built_in">print</span>(veces * texto)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">varios</span>(<span class="hljs-params">param1, param2, *otros</span>):   <span class="hljs-comment"># otros es una tupla con los extra</span>
+    <span class="hljs-keyword">for</span> val <span class="hljs-keyword">in</span> otros:
+        <span class="hljs-built_in">print</span>(val)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">f</span>(<span class="hljs-params">x, y</span>):
+    <span class="hljs-keyword">return</span> x * <span class="hljs-number">2</span>, y * <span class="hljs-number">2</span>               <span class="hljs-comment"># devuelve una sola tupla</span>
+
+a, b = f(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+imprimir(veces = <span class="hljs-number">2</span>, texto = <span class="hljs-string">&quot;hola&quot;</span>)   <span class="hljs-comment"># por nombre, en cualquier orden</span></code></pre>
+<p>Una lambda es una función anónima en línea, con una sola expresión (pág. 60): <code>lambda n: n % 2.0 == 0</code>.</p>
+<h3 id="parcial-1-decoradores">Decoradores</h3>
+<p>Un decorador es «una función que recibe una función como parámetro y devuelve otra función como resultado» (<em>Python para todos</em>, pág. 63). Se aplica con <code>@</code> antes de la definición. Si hay varios, se ejecutan de abajo hacia arriba (pág. 64).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Es un envoltorio. Tenés una función, le ponés algo alrededor y seguís llamándola con el mismo nombre. El <code>@app.route</code> de Flask es uno de estos: envuelve tu función y la anota para una dirección web.</p>
+</div>
+<h3 id="parcial-1-excepciones">Excepciones</h3>
+<p>Sale de <em>Python para todos</em>, págs. 65 a 68. Son errores detectados durante la ejecución. Si no se capturan, el programa se interrumpe y muestra el traceback.</p>
+<pre class="codigo"><code><span class="hljs-keyword">try</span>:
+    z = x / y
+<span class="hljs-keyword">except</span> ZeroDivisionError:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Division por cero&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Solo si no hubo excepción&quot;</span>)
+<span class="hljs-keyword">finally</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Limpiando&quot;</span>)      <span class="hljs-comment"># se ejecuta siempre</span></code></pre>
+<p>Un <code>except</code> puede tratar varios tipos con una tupla. Para crear una excepción propia, armás una clase que herede de <code>Exception</code> y la lanzás con <code>raise</code>.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-modulos-y-paquetes">Módulos y paquetes</h2>
+<p>Sale de <em>Python para todos</em>, págs. 72 a 76.</p>
+<ul>
+<li>Un <strong>módulo</strong> es un archivo Python. Se importa con su nombre, sin la extensión.</li>
+<li><code>import</code> también ejecuta el código del módulo. Por eso un <code>print</code> suelto del módulo se imprime al importarlo.</li>
+<li>Python busca los módulos en los directorios de <code>PYTHONPATH</code>, que se ven con <code>sys.path</code>. Si no encuentra, lanza <code>ImportError</code>.</li>
+<li>Un <strong>paquete</strong> es un directorio con un archivo <code>__init__.py</code>, que suele estar vacío. Se separa con punto: <code>import paquete.modulo</code>.</li>
+</ul>
+<pre class="codigo"><code><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Se muestra siempre&quot;</span>)
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Se muestra si no es importacion&quot;</span>)</code></pre>
+<p>Al ejecutar el módulo directamente, <code>__name__</code> vale <code>&quot;__main__&quot;</code>. Al importarlo, vale el nombre del módulo.</p>
+<p>Para instalar paquetes se usa <code>pip</code>. El tutorial de Flask (pág. 2) usa <code>pip install virtualenv</code>, <code>virtualenv venv</code> y <code>pip install Flask</code>. Los cuadernos de la clase del 26/04/2023 tratan el tema, pero no entraron en esta guía.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-orientacion-a-objetos">Orientación a objetos</h2>
+<p>Sale del <a href="https://drive.google.com/file/d/1BZbqIRKBug6C-YjVU03dzhSQbgmN8wdM/view">capítulo de Python para todos</a> que la cátedra subió a la clase del 10/05/2023, págs. 42 a 52.</p>
+<h3 id="parcial-1-clases-y-objetos">Clases y objetos</h3>
+<p>«Un objeto es una entidad que agrupa un estado y una funcionalidad relacionadas.» El estado va en atributos y la funcionalidad, en métodos. Una clase es «una plantilla genérica a partir de la cuál instanciar los objetos» (págs. 42 y 43).</p>
+<pre class="codigo"><code><span class="hljs-keyword">class</span> <span class="hljs-title class_">Coche</span>:
+    <span class="hljs-string">&quot;&quot;&quot;Abstraccion de los objetos coche.&quot;&quot;&quot;</span>
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, gasolina</span>):
+        <span class="hljs-variable language_">self</span>.gasolina = gasolina
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Tenemos&quot;</span>, gasolina, <span class="hljs-string">&quot;litros&quot;</span>)
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">arrancar</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.gasolina &gt; <span class="hljs-number">0</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Arranca&quot;</span>)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;No arranca&quot;</span>)
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">conducir</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.gasolina &gt; <span class="hljs-number">0</span>:
+            <span class="hljs-variable language_">self</span>.gasolina -= <span class="hljs-number">1</span>
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Quedan&quot;</span>, <span class="hljs-variable language_">self</span>.gasolina, <span class="hljs-string">&quot;litros&quot;</span>)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;No se mueve&quot;</span>)
+
+mi_coche = Coche(<span class="hljs-number">3</span>)
+<span class="hljs-built_in">print</span>(mi_coche.gasolina)  <span class="hljs-comment"># 3</span>
+mi_coche.conducir()       <span class="hljs-comment"># Quedan 2 litros</span></code></pre>
+<p><code>__init__</code> se ejecuta justo después de crear el objeto. <code>self</code> es el primer parámetro de los métodos y se refiere al objeto actual. Python lo pasa solo. Por eso <code>Coche(3)</code> lleva un solo parámetro aunque la definición tenga dos.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La clase es el molde. Cada objeto es una torta hecha con ese molde. <code>self</code> es «esta torta», así cada una guarda su propia gasolina y no se mezcla con la del vecino.</p>
+</div>
+<h3 id="parcial-1-herencia">Herencia</h3>
+<p>La subclase contiene todos los atributos y métodos de la superclase. La clase padre se pone entre paréntesis.</p>
+<pre class="codigo"><code><span class="hljs-keyword">class</span> <span class="hljs-title class_">Instrumento</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, precio</span>):
+        <span class="hljs-variable language_">self</span>.precio = precio
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">tocar</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Estamos tocando musica&quot;</span>)
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Guitarra</span>(<span class="hljs-title class_ inherited__">Instrumento</span>):
+    <span class="hljs-keyword">pass</span></code></pre>
+<p>Escribir en la subclase un método con el mismo nombre es sobreescribirlo. Para llamar al del padre: <code>Instrumento.__init__(self, precio)</code>, y ahí sí hay que pasar <code>self</code> (pág. 46).</p>
+<p>Python permite herencia múltiple: <code>class Cocodrilo(Terrestre, Acuatico)</code>. Si dos padres tienen el mismo método, prevalece el de la clase más a la izquierda. Con ese ejemplo, <code>desplazar</code> imprime «El animal anda» (pág. 47).</p>
+<h3 id="parcial-1-polimorfismo">Polimorfismo</h3>
+<p>Es «la habilidad de objetos de distintas clases de responder al mismo mensaje» (pág. 47). En Python no existe la sobrecarga de métodos. El último sobreescribe a los anteriores (pág. 48).</p>
+<h3 id="parcial-1-encapsulacion">Encapsulación</h3>
+<p>Es impedir el acceso a ciertos métodos y atributos desde fuera de la clase. Python no tiene modificadores de acceso, depende del nombre (págs. 48 a 50):</p>
+<ul>
+<li>Si empieza con dos guiones bajos y no termina con dos, es privado.</li>
+<li>Si no, es público.</li>
+<li>Si empieza y termina con dos, es un método especial.</li>
+</ul>
+<p>No es realmente privado. El nombre se renombra (<em>name mangling</em>) y se puede llegar con <code>ej._Ejemplo__privado()</code>. Para un acceso controlado se escriben getters y setters, y <code>property</code> los esconde detrás de un atributo.</p>
+<pre class="codigo"><code><span class="hljs-keyword">class</span> <span class="hljs-title class_">Fecha</span>(<span class="hljs-title class_ inherited__">object</span>):
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.__dia = <span class="hljs-number">1</span>
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">getDia</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.__dia
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">setDia</span>(<span class="hljs-params">self, dia</span>):
+        <span class="hljs-keyword">if</span> dia &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> dia &lt; <span class="hljs-number">31</span>:
+            <span class="hljs-variable language_">self</span>.__dia = dia
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Error&quot;</span>)
+
+    dia = <span class="hljs-built_in">property</span>(getDia, setDia)</code></pre>
+<h3 id="parcial-1-metodos-especiales">Métodos especiales</h3>
+<div class="tabla"><table><thead><tr><th>Método</th><th>Cuándo se llama</th></tr></thead><tbody><tr><td><code>__init__(self, args)</code></td><td>Después de crear el objeto, para inicializar</td></tr><tr><td><code>__new__(cls, args)</code></td><td>Antes de <code>__init__</code>. Construye y devuelve el objeto</td></tr><tr><td><code>__del__(self)</code></td><td>Cuando el objeto va a ser borrado</td></tr><tr><td><code>__str__(self)</code></td><td>Con <code>print</code> o <code>str(obj)</code>, para representarlo como texto</td></tr><tr><td><code>__len__(self)</code></td><td>Con <code>len(obj)</code></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="parcial-1-bases-de-datos-con-sqlite3">Bases de datos con sqlite3</h2>
+<div class="tomado"><aside class="nota"><strong>Se tomó en un programa con huecos</strong><span>1° parcial 2026</span></aside><p>La hoja usa <mark><code>connect</code>, <code>cursor</code>, <code>execute</code>, <code>fetchall</code> y <code>close</code>, en ese orden</mark>, y pide una consulta SQL.</p>
+</div>
+<p>Python trae su propio módulo para SQLite. No hace falta un servidor aparte. Es una base liviana en disco (<em>Foundations for Analytics</em>, <a href="https://drive.google.com/file/d/19MzvmErPqqS32MESa49kd3kgzjoKS4ZQ/view">capítulo 4</a>, págs. 145 y 148). Otros módulos siguen la misma especificación, DB-API, así que el código casi no cambia con otra base (<em>Python para todos</em>, pág. 117).</p>
+<h3 id="parcial-1-el-sql-que-hace-falta">El SQL que hace falta</h3>
+<p>Sale de <em>Python para informáticos</em>, <a href="https://drive.google.com/file/d/1WL-h-kYne5WZgKpLouAKYsOHg_KP_4Iu/view">capítulo 14</a>, págs. 180 y 181. Hay cuatro comandos básicos, además de crear y borrar tablas.</p>
+<pre class="codigo"><code><span class="hljs-keyword">CREATE TABLE</span> Canciones (titulo TEXT, reproducciones <span class="hljs-type">INTEGER</span>)
+<span class="hljs-keyword">INSERT INTO</span> Canciones (titulo, reproducciones) <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">&#x27;My Way&#x27;</span>, <span class="hljs-number">15</span>)
+<span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> Canciones <span class="hljs-keyword">WHERE</span> titulo <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;My Way&#x27;</span>
+<span class="hljs-keyword">SELECT</span> titulo, reproducciones <span class="hljs-keyword">FROM</span> Canciones <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> titulo
+<span class="hljs-keyword">UPDATE</span> Canciones <span class="hljs-keyword">SET</span> reproducciones <span class="hljs-operator">=</span> <span class="hljs-number">16</span> <span class="hljs-keyword">WHERE</span> titulo <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;My Way&#x27;</span>
+<span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> Canciones <span class="hljs-keyword">WHERE</span> titulo <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;My Way&#x27;</span></code></pre>
+<ul>
+<li>El <code>*</code> pide todas las columnas. <code>WHERE</code> elige las filas.</li>
+<li>En SQL la igualdad es con un solo <code>=</code>, a diferencia de Python.</li>
+<li>Un <code>UPDATE</code> sin <code>WHERE</code> actualiza todas las filas de la tabla.</li>
+<li><code>DROP TABLE</code> borra la tabla y todo su contenido, sin opción de deshacer (pág. 178).</li>
+</ul>
+<h3 id="parcial-1-conexion-y-cursor">Conexión y cursor</h3>
+<p><code>connect</code> recibe la ruta del archivo, o <code>&#39;:memory:&#39;</code> para usar la RAM (<em>Python para todos</em>, pág. 120). Si el archivo no existe, se crea (<em>Python para informáticos</em>, pág. 177).</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> sqlite3
+conn = sqlite3.connect(<span class="hljs-string">&#x27;musica.sqlite3&#x27;</span>)
+cur = conn.cursor()
+cur.execute(<span class="hljs-string">&#x27;DROP TABLE IF EXISTS Canciones &#x27;</span>)
+cur.execute(<span class="hljs-string">&#x27;CREATE TABLE Canciones (titulo TEXT, reproducciones INTEGER)&#x27;</span>)
+conn.close()</code></pre>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La conexión es abrir la puerta de la base. El cursor es el empleado que entra con tus pedidos. Le das un SQL con <code>execute</code> y después te trae lo que encontró con <code>fetch</code>.</p>
+</div>
+<h3 id="parcial-1-traer-filas">Traer filas</h3>
+<p>Después de un <code>SELECT</code> hay tres métodos del cursor (<em>Python para todos</em>, pág. 122):</p>
+<div class="tabla"><table><thead><tr><th>Método</th><th>Devuelve</th></tr></thead><tbody><tr><td><code>fetchone()</code></td><td>La siguiente tupla, o <code>None</code> si no hay más</td></tr><tr><td><code>fetchmany(n)</code></td><td>La cantidad de tuplas indicada</td></tr><tr><td><code>fetchall()</code></td><td>Todas las tuplas</td></tr></tbody></table></div>
+<p>Cada fila es una tupla, y <code>fetchall</code> da la lista de esas tuplas (<em>Foundations</em>, pág. 150). También se puede recorrer el cursor con un <code>for</code>.</p>
+<h3 id="parcial-1-guardar-cambios">Guardar cambios</h3>
+<p>Cada cambio se confirma con <code>commit()</code>. Si no lo llamás, no se guarda (<em>Foundations</em>, pág. 148). <code>rollback()</code> cancela la transacción actual (<em>Python para todos</em>, págs. 121 y 122). Al terminar se cierran el cursor y la conexión (págs. 123 y 124).</p>
+<p>Este ejemplo es de <em>Foundations</em>, págs. 145 y 146, con los datos del libro:</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> sqlite3
+con = sqlite3.connect(<span class="hljs-string">&#x27;:memory:&#x27;</span>)
+query = <span class="hljs-string">&quot;&quot;&quot;CREATE TABLE sales
+           (customer VARCHAR(20),
+            product VARCHAR(40),
+            amount FLOAT,
+            date DATE);&quot;&quot;&quot;</span>
+con.execute(query)
+con.commit()
+
+data = [(<span class="hljs-string">&#x27;Richard Lucas&#x27;</span>, <span class="hljs-string">&#x27;Notepad&#x27;</span>, <span class="hljs-number">2.50</span>, <span class="hljs-string">&#x27;2014-01-02&#x27;</span>),
+        (<span class="hljs-string">&#x27;Jenny Kim&#x27;</span>, <span class="hljs-string">&#x27;Binder&#x27;</span>, <span class="hljs-number">4.15</span>, <span class="hljs-string">&#x27;2014-01-15&#x27;</span>),
+        (<span class="hljs-string">&#x27;Svetlana Crow&#x27;</span>, <span class="hljs-string">&#x27;Printer&#x27;</span>, <span class="hljs-number">155.75</span>, <span class="hljs-string">&#x27;2014-02-03&#x27;</span>),
+        (<span class="hljs-string">&#x27;Stephen Randolph&#x27;</span>, <span class="hljs-string">&#x27;Computer&#x27;</span>, <span class="hljs-number">679.40</span>, <span class="hljs-string">&#x27;2014-02-20&#x27;</span>)]
+statement = <span class="hljs-string">&quot;INSERT INTO sales VALUES(?, ?, ?, ?)&quot;</span>
+con.executemany(statement, data)
+con.commit()
+
+cursor = con.execute(<span class="hljs-string">&quot;SELECT * FROM sales&quot;</span>)
+rows = cursor.fetchall()</code></pre>
+<p><code>executemany</code> corre el SQL una vez por cada tupla. Ahí <code>rows</code> queda como una lista de cuatro tuplas (págs. 149 y 150). El mismo capítulo carga y actualiza filas desde un CSV con el módulo <code>csv</code> (págs. 152 y 157).</p>
+<h3 id="parcial-1-parametros-e-inyeccion-sql">Parámetros e inyección SQL</h3>
+<p>No armes el SQL pegando cadenas. Te deja vulnerable a la inyección SQL. Los <code>?</code> marcan dónde van los valores y se pasan aparte, en una tupla (<em>Python para todos</em>, pág. 123, y <em>Foundations</em>, pág. 149).</p>
+<pre class="codigo"><code>cursor.execute(<span class="hljs-string">&quot;&quot;&quot;select * from sucursales
+                  where ciudad=?&quot;&quot;&quot;</span>, (ciudad,))</code></pre>
+<p>En <code>sqlite3</code> el estilo es <code>qmark</code>, el del <code>?</code>. La coma de <code>(ciudad,)</code> es la de una tupla de un solo elemento.</p>
+<h3 id="parcial-1-otro-motor-sin-orm">Otro motor, sin ORM</h3>
+<p>La diapositiva «ejemplo básico SIN ORM» muestra lo mismo con MySQL. Se importa el conector (<code>pymysql</code>), se crea la conexión, después el cursor, se ejecuta y se cierra todo. MySQL Workbench es el ambiente gráfico que la cátedra hace instalar (<a href="https://drive.google.com/file/d/1YdyaRZfwF5Koy9XP4jeUMIY4EjCNxZVL/view">guía</a>).</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> pymysql
+conn = pymysql.connect(host=<span class="hljs-string">&#x27;localhost&#x27;</span>, port=<span class="hljs-number">3306</span>, user=<span class="hljs-string">&#x27;root&#x27;</span>, passwd=<span class="hljs-string">&#x27;1234&#x27;</span>, db=<span class="hljs-string">&#x27;mydb&#x27;</span>)
+cur = conn.cursor()
+cur.execute(<span class="hljs-string">&quot;SELECT * FROM bancos&quot;</span>)
+obj = cur.fetchone()
+lista = cur.fetchall()
+conn.commit()
+cur.close()
+conn.close()</code></pre>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>Cambié dos cosas de la diapositiva de <code>introduccion a python2018_sqlAlchemy.pptx</code>. Escribe <code>cur.commit()</code>, y el commit es de la conexión (<em>Python para todos</em>, pág. 121). También arma los parámetros de <code>connect</code> en una sola cadena, y <code>connect</code> los recibe por separado (<em>Python para todos</em>, pág. 120). No probé este código contra un MySQL.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-orm-con-sqlalchemy">ORM con SQLAlchemy</h2>
+<p>Salvo aviso, sale de las diapositivas de la cátedra, <a href="https://drive.google.com/file/d/1FPNP45wBLTZGa87fLV5F990szEZmbcbG/view">introduccion a python2018_sqlAlchemy.pptx</a>. La diapositiva da como actual la versión 1.2.7, así que algunas importaciones pueden diferir en una versión nueva.</p>
+<p>Un ORM (Object Relational Mapper) se usa para manejar las bases de datos como colecciones de objetos y eliminar trabajo repetitivo. Asocia clases de Python con tablas, e instancias de esas clases con filas. Sincroniza los cambios de los objetos con sus filas y permite expresar consultas en términos de las clases.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Sin ORM escribís SQL y recibís tuplas. Con ORM trabajás con un objeto <code>Persona</code>, le cambiás el nombre y le pedís a la sesión que guarde. El SQL lo arma él.</p>
+</div>
+<h3 id="parcial-1-patrones-que-implementa">Patrones que implementa</h3>
+<div class="tabla"><table><thead><tr><th>Patrón</th><th>Definición de la diapositiva</th></tr></thead><tbody><tr><td>Data mapper</td><td>«La tabla estará envuelta en una clase desde la que se podrá acceder a la información, realizar modificaciones, borrados e inserciones.»</td></tr><tr><td>Unit of work</td><td>«Mantiene una lista de los objetos afectados por una transacción de negocio y coordina la escritura de los cambios y la resolución de problemas de concurrencia.»</td></tr><tr><td>Identity map</td><td>Caché en memoria que evita traer dos veces los mismos datos. «Si los datos solicitados ya se han cargado desde la base de datos, el mapa de identidad devuelve la misma instancia del objeto ya instanciado.»</td></tr></tbody></table></div>
+<h3 id="parcial-1-los-pasos">Los pasos</h3>
+<ol>
+<li>Declarar el mapeo de la base de datos, lo que crea los metadatos.</li>
+<li>Crear clases para cada entidad.</li>
+<li>Crear el Engine para un motor de base de datos.</li>
+<li>Relacionar el Engine con los metadatos.</li>
+<li>Crear la Session y relacionarla con el Engine.</li>
+<li>Usar la sesión para gestionar los datos.</li>
+</ol>
+<h3 id="parcial-1-ejemplo-con-tablas-relacionadas">Ejemplo con tablas relacionadas</h3>
+<p><code>__tablename__</code> y una columna con <code>primary_key=True</code> son indispensables. Junté en un solo bloque los imports, que en las diapositivas aparecen por separado.</p>
+<pre class="codigo"><code><span class="hljs-keyword">from</span> sqlalchemy.ext.declarative <span class="hljs-keyword">import</span> declarative_base
+<span class="hljs-keyword">from</span> sqlalchemy <span class="hljs-keyword">import</span> Column, ForeignKey, Integer, String, create_engine
+<span class="hljs-keyword">from</span> sqlalchemy.orm <span class="hljs-keyword">import</span> relationship, sessionmaker
+
+Base = declarative_base()
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Persona</span>(<span class="hljs-title class_ inherited__">Base</span>):
+    __tablename__ = <span class="hljs-string">&#x27;persona&#x27;</span>
+    <span class="hljs-built_in">id</span> = Column(Integer, primary_key=<span class="hljs-literal">True</span>)
+    nombre = Column(String(<span class="hljs-number">250</span>), nullable=<span class="hljs-literal">False</span>)
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Domicilio</span>(<span class="hljs-title class_ inherited__">Base</span>):
+    __tablename__ = <span class="hljs-string">&#x27;domicilio&#x27;</span>
+    <span class="hljs-built_in">id</span> = Column(Integer, primary_key=<span class="hljs-literal">True</span>)
+    calle = Column(String(<span class="hljs-number">250</span>))
+    calle_nro = Column(String(<span class="hljs-number">250</span>))
+    cod_postal = Column(String(<span class="hljs-number">250</span>), nullable=<span class="hljs-literal">False</span>)
+    persona_id = Column(Integer, ForeignKey(<span class="hljs-string">&#x27;persona.id&#x27;</span>))
+    persona = relationship(Persona)
+
+engine = create_engine(<span class="hljs-string">&#x27;sqlite:///sqlalchemy_ejemplo.db&#x27;</span>)
+Base.metadata.create_all(engine)     <span class="hljs-comment"># equivale a Create Table en SQL</span></code></pre>
+<p>Para que la relación uno a muchos funcione en los dos sentidos se usa <code>back_populates</code>:</p>
+<pre class="codigo"><code><span class="hljs-keyword">class</span> <span class="hljs-title class_">Department</span>(<span class="hljs-title class_ inherited__">Base</span>):
+    __tablename__ = <span class="hljs-string">&#x27;department&#x27;</span>
+    <span class="hljs-built_in">id</span> = Column(Integer, primary_key=<span class="hljs-literal">True</span>)
+    name = Column(String)
+    employees = relationship(<span class="hljs-string">&#x27;Employee&#x27;</span>, back_populates=<span class="hljs-string">&#x27;department&#x27;</span>)
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Employee</span>(<span class="hljs-title class_ inherited__">Base</span>):
+    __tablename__ = <span class="hljs-string">&#x27;employee&#x27;</span>
+    <span class="hljs-built_in">id</span> = Column(Integer, primary_key=<span class="hljs-literal">True</span>)
+    name = Column(String)
+    department_id = Column(Integer, ForeignKey(<span class="hljs-string">&#x27;department.id&#x27;</span>))
+    department = relationship(<span class="hljs-string">&#x27;Department&#x27;</span>, back_populates=<span class="hljs-string">&#x27;employees&#x27;</span>)</code></pre>
+<h3 id="parcial-1-el-engine">El Engine</h3>
+<p>Es el objeto que actúa como interfaz con la base de datos. Usualmente lo emplea el ORM por dentro. La conexión se intenta recién al recibir una orden concreta (<em>lazy connecting</em>). La sintaxis es <code>dialect+driver://<wbr>username:password@<wbr>host:port/<wbr>database</code>.</p>
+<pre class="codigo"><code>create_engine(<span class="hljs-string">&#x27;mysql+pymysql://root:1234@localhost/soporte&#x27;</span>)
+create_engine(<span class="hljs-string">&#x27;sqlite:///foo.db&#x27;</span>)                 <span class="hljs-comment"># ruta relativa</span>
+create_engine(<span class="hljs-string">r&#x27;sqlite:///C:\path\to\foo.db&#x27;</span>)     <span class="hljs-comment"># ruta absoluta</span>
+create_engine(<span class="hljs-string">&#x27;sqlite://&#x27;</span>)                        <span class="hljs-comment"># en memoria</span></code></pre>
+<h3 id="parcial-1-la-sesion-y-las-consultas">La sesión y las consultas</h3>
+<pre class="codigo"><code>Base.metadata.bind = engine
+DBSession = sessionmaker()
+DBSession.bind = engine
+session = DBSession()
+
+oper = Persona()
+oper.nombre = <span class="hljs-string">&#x27;Juan Carlos&#x27;</span>
+session.add(oper)
+session.commit()     <span class="hljs-comment"># graba</span>
+
+lp = session.query(Persona).<span class="hljs-built_in">all</span>()</code></pre>
+<p>Se necesitan dos binds con el Engine: uno con los metadatos y otro con la fábrica de sesiones.</p>
+<div class="tabla"><table><thead><tr><th>Método de <code>session.query(Clase)</code></th><th>Qué hace</th></tr></thead><tbody><tr><td><code>.all()</code></td><td>Devuelve una lista</td></tr><tr><td><code>.first()</code></td><td>Devuelve un solo objeto</td></tr><tr><td><code>.count()</code></td><td>Cuenta</td></tr><tr><td><code>.filter(condicion)</code></td><td><code>.filter(Domicilio.persona == persona1).all()</code></td></tr><tr><td><code>.order_by(...)</code></td><td><code>.order_by(Persona.nombre).all()</code></td></tr><tr><td><code>.join(...)</code></td><td><code>.join(Persona).order_by(Persona.nombre).all()</code></td></tr></tbody></table></div>
+<p>El Expression Language complementa al ORM. Da una forma de escribir SQL independiente del motor, y permite aprovechar lo específico de alguno.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-flask">Flask</h2>
+<p>Sale del <a href="https://drive.google.com/file/d/1jGJYTYrlnOAY345QNvkIy3l-5giG3cRk/view">tutorial de Flask</a> de Tutorials Point, de la bibliografía. Las páginas son las impresas en la hoja. Ese libro es de 2015 y recomienda Python 2.7 (pág. 2). La cátedra usa Python 3.</p>
+<p>Flask es un framework web en Python, basado en el toolkit WSGI Werkzeug y el motor de plantillas Jinja2. Se lo llama micro framework. No trae capa de base de datos ni validación de formularios. Eso se suma con extensiones (pág. 1).</p>
+<h3 id="parcial-1-la-aplicacion-minima">La aplicación mínima</h3>
+<div class="tomado"><aside class="nota"><strong>Se tomó un programa de Flask</strong><span>1° parcial 2026</span></aside><p><mark>Hay que reconocer las partes de una aplicación de Flask</mark>, empezando por sus imports.</p>
+</div>
+<pre class="codigo"><code><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask
+app = Flask(__name__)
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">hello_world</span>():
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;Hello World&#x27;</span>
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
+    app.run()</code></pre>
+<p>Un objeto de la clase <code>Flask</code> es la aplicación WSGI. Su constructor recibe el nombre del módulo actual. <code>route</code> es un decorador que indica qué URL llama a la función. <code>run</code> arranca el servidor local (pág. 3).</p>
+<p><code>run(host, port, debug, options)</code> tiene todos los parámetros opcionales. <code>host</code> es 127.0.0.1 por defecto y <code>port</code>, 5000. Con <code>debug=True</code> el servidor se recarga solo y muestra un depurador (págs. 3 y 4).</p>
+<h3 id="parcial-1-rutas-y-variables">Rutas y variables</h3>
+<p>Una parte de la URL puede ser variable y llega como parámetro de la función (págs. 6 y 7).</p>
+<pre class="codigo"><code><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/hello/&lt;name&gt;&#x27;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">hello_name</span>(<span class="hljs-params">name</span>):
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;Hello %s!&#x27;</span> % name
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/blog/&lt;int:postID&gt;&#x27;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">show_blog</span>(<span class="hljs-params">postID</span>):
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;Blog Number %d&#x27;</span> % postID</code></pre>
+<p>Los conversores son <code>int</code>, <code>float</code> y <code>path</code>. Con <code>/python/</code>, la dirección <code>/python</code> y <code>/python/</code> dan lo mismo. Con <code>/flask</code>, pedir <code>/flask/</code> da 404 (pág. 7). También existe <code>app.add_url_rule</code> para unir una URL con una función (pág. 5).</p>
+<h3 id="parcial-1-metodos-http-y-request">Métodos HTTP y request</h3>
+<p>Por defecto, una ruta responde a GET. Se cambia con el argumento <code>methods</code> (pág. 10).</p>
+<div class="tabla"><table><thead><tr><th>Método</th><th>Qué hace, según el tutorial</th></tr></thead><tbody><tr><td>GET</td><td>Envía datos sin cifrar. Es el más común</td></tr><tr><td>HEAD</td><td>Igual a GET, sin cuerpo de respuesta</td></tr><tr><td>POST</td><td>Envía datos de un formulario HTML al servidor</td></tr><tr><td>PUT</td><td>Reemplaza las representaciones actuales del recurso</td></tr><tr><td>DELETE</td><td>Elimina las representaciones actuales del recurso</td></tr></tbody></table></div>
+<pre class="codigo"><code><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, redirect, url_for, request
+app = Flask(__name__)
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/success/&lt;name&gt;&#x27;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">success</span>(<span class="hljs-params">name</span>):
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;welcome %s&#x27;</span> % name
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/login&#x27;</span>, methods=[<span class="hljs-string">&#x27;POST&#x27;</span>, <span class="hljs-string">&#x27;GET&#x27;</span>]</span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">login</span>():
+    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&#x27;POST&#x27;</span>:
+        user = request.form[<span class="hljs-string">&#x27;nm&#x27;</span>]
+        <span class="hljs-keyword">return</span> redirect(url_for(<span class="hljs-string">&#x27;success&#x27;</span>, name=user))
+    <span class="hljs-keyword">else</span>:
+        user = request.args.get(<span class="hljs-string">&#x27;nm&#x27;</span>)
+        <span class="hljs-keyword">return</span> redirect(url_for(<span class="hljs-string">&#x27;success&#x27;</span>, name=user))</code></pre>
+<p>El objeto <code>request</code> hay que importarlo. Sus atributos son <code>form</code>, <code>args</code> (lo que va después del <code>?</code> en la URL), <code>cookies</code>, <code>files</code> y <code>method</code> (pág. 18).</p>
+<h3 id="parcial-1-plantillas">Plantillas</h3>
+<p><code>render_template</code> busca el HTML en la carpeta <code>templates</code>, junto al script (pág. 13). Jinja2 usa estos delimitadores (pág. 15):</p>
+<div class="tabla"><table><thead><tr><th>Delimitador</th><th>Para qué</th></tr></thead><tbody><tr><td><code>{% ... %}</code></td><td>Sentencias (<code>if</code>, <code>for</code>)</td></tr><tr><td><code>{{ ... }}</code></td><td>Expresiones que se imprimen</td></tr><tr><td><code>{# ... #}</code></td><td>Comentarios</td></tr></tbody></table></div>
+<pre class="codigo"><code><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/hello/&lt;user&gt;&#x27;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">hello_name</span>(<span class="hljs-params">user</span>):
+    <span class="hljs-keyword">return</span> render_template(<span class="hljs-string">&#x27;hello.html&#x27;</span>, name=user)</code></pre>
+<pre class="codigo"><code><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello {{ name }}!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></code></pre>
+<p>Los archivos estáticos, como JavaScript o CSS, van en la carpeta <code>static</code> y se enlazan con <code>url_for(&#39;static&#39;, filename=&#39;hello.js&#39;)</code> (pág. 17).</p>
+<h3 id="parcial-1-redirect-y-url-for">Redirect y url_for</h3>
+<p><code>url_for</code> arma la URL de una función a partir de su nombre. <code>redirect</code> manda a otra dirección, con código 302 por defecto (págs. 8 y 28).</p>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>En la pág. 8 del tutorial de Flask, la ruta es <code>/user/&lt;name&gt;</code>, pero el texto pide probar <code>/hello/admin</code>. Con ese código, la dirección que corresponde es <code>/user/admin</code>. En la pág. 17 escribe <code>filename=hrllo.js&#39;</code>. Arriba puse <code>&#39;hello.js&#39;</code>, el archivo que nombra el texto.</p>
+</div>
+<h3 id="parcial-1-cookies-y-sesiones">Cookies y sesiones</h3>
+<p>La cookie se guarda en la computadora del cliente, como archivo de texto. Se escribe sobre la respuesta y se lee de <code>request.cookies</code> (págs. 22 y 23).</p>
+<pre class="codigo"><code>resp = make_response(render_template(<span class="hljs-string">&#x27;readcookie.html&#x27;</span>))
+resp.set_cookie(<span class="hljs-string">&#x27;userID&#x27;</span>, user)
+name = request.cookies.get(<span class="hljs-string">&#x27;userID&#x27;</span>)</code></pre>
+<p>La sesión guarda datos del lado del servidor, entre que el cliente entra y sale. Se usa como un diccionario, <code>session[&#39;username&#39;]</code>, y necesita <code>app.secret_key</code> definida (págs. 25 y 26).</p>
+<h3 id="parcial-1-flask-con-sqlite">Flask con SQLite</h3>
+<div class="tomado"><aside class="nota"><strong>Se tomó esta combinación</strong><span>1° parcial 2026</span></aside><p>Una función de Flask que <mark>abre la base, ejecuta una consulta, trae todas las filas y las devuelve</mark>.</p>
+</div>
+<p>Este es el ejemplo completo del tutorial para listar registros (págs. 52 y 53).</p>
+<pre class="codigo"><code><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask, render_template, request
+<span class="hljs-keyword">import</span> sqlite3 <span class="hljs-keyword">as</span> sql
+app = Flask(__name__)
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/list&#x27;</span></span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">list</span>():
+    con = sql.connect(<span class="hljs-string">&quot;database.db&quot;</span>)
+    con.row_factory = sql.Row
+    cur = con.cursor()
+    cur.execute(<span class="hljs-string">&quot;select * from students&quot;</span>)
+    rows = cur.fetchall()
+    <span class="hljs-keyword">return</span> render_template(<span class="hljs-string">&quot;list.html&quot;</span>, rows=rows)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
+    app.run(debug=<span class="hljs-literal">True</span>)</code></pre>
+<p>Para insertar, usa <code>with sql.connect(&quot;database.db&quot;) as con</code>, un <code>INSERT</code> con <code>?</code>, y <code>commit</code>. Si algo falla, hace <code>rollback</code> dentro de un <code>except</code> (pág. 52).</p>
+<h3 id="parcial-1-flask-con-sqlalchemy">Flask con SQLAlchemy</h3>
+<p>La extensión <code>flask-sqlalchemy</code> suma el ORM a la aplicación (págs. 55 y 56).</p>
+<pre class="codigo"><code><span class="hljs-keyword">from</span> flask_sqlalchemy <span class="hljs-keyword">import</span> SQLAlchemy
+app.config[<span class="hljs-string">&#x27;SQLALCHEMY_DATABASE_URI&#x27;</span>] = <span class="hljs-string">&#x27;sqlite:///students.sqlite3&#x27;</span>
+db = SQLAlchemy(app)
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">students</span>(db.Model):
+    <span class="hljs-built_in">id</span> = db.Column(<span class="hljs-string">&#x27;student_id&#x27;</span>, db.Integer, primary_key=<span class="hljs-literal">True</span>)
+    name = db.Column(db.String(<span class="hljs-number">100</span>))</code></pre>
+<p><code>db.create_all()</code> crea la base. <code>db.session.add(obj)</code> inserta, <code>db.session.delete(obj)</code> borra y <code>students.query.all()</code> trae todo. <code>query.filter_by(...)</code> filtra.</p>
+<p><em>Explore Flask</em>, <a href="https://drive.google.com/file/d/1bc6TutRYVJU0dRqXzXRIf-bgbKn3xala/view">también en la bibliografía</a>, trata buenas prácticas, como organizar el proyecto o usar blueprints. No lo resumo porque no apareció en el parcial.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-mvc-y-tres-capas">MVC y tres capas</h2>
+<p>La clase del 07/06/2023 fue sobre el patrón Modelo Vista Controlador. Su contenido está en páginas guardadas y cuadernos que no entraron en esta guía, así que no te lo cuento de memoria. Leelo acá:</p>
+<ul>
+<li><a href="https://drive.google.com/file/d/1m-03uV1OGeLSk5aj0fRoUVTYrFKsFjEE/view">Model View Controller Pattern, Tutorialspoint</a></li>
+<li><a href="https://drive.google.com/file/d/1l-cstiggML_RelMDZBk9wqzxdu5KsMTG/view">MVC Explained, With Legos, Real Python</a></li>
+</ul>
+<p>El patrón de tres capas sí está definido por la cátedra, y es el que pide el TPI: <a href="#integrador-el-trabajo-integrador">capa de datos, de negocio y de interfaz</a>.</p>
+</section></section>
+<section class="pdf-parte" id="pdf-integrador" data-pagina="integrador" aria-label="Seminario y TPI"><p class="pdf-de">Soporte a la Gestión de Datos con Programación Visual</p><h1>Seminario y TPI</h1>
+<p class="bajada">Qué pide la cátedra para el seminario y el trabajo integrador, con la forma en que lo resolvió un grupo de 2023.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+<p>Todo lo que sigue sale de la <a href="https://drive.google.com/file/d/1ci20QcA9Szr8Q_0W_m7rnX64Tj7B3Tvy/view">consigna de la cátedra</a> (<code>SeminarioyTPI.pptx</code>) y de la presentación de la materia (<code>Teorica1Presentacion2022.docx</code>), salvo donde se aclara. Las fechas y los temas son de 2023. Confirmá los de tu año.</p>
+
+<section class="sec"><h2 id="integrador-como-se-trabaja">Cómo se trabaja</h2>
+<ul>
+<li>Grupos de 3 a 4 integrantes.</li>
+<li>Cada grupo arma un repositorio en GitHub y suma como colaboradores a la cátedra y a sus integrantes.</li>
+<li>La norma de programación es <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>.</li>
+<li>Las páginas de referencia son Stack Overflow y W3Schools.</li>
+</ul>
+<p>Git se configura con <code>git config --global user.name</code> y <code>user.email</code>, y se revisa con <code>git config --list</code> (<a href="https://drive.google.com/file/d/1-5rIgrMc2-hQ927nLB1k4TH1VqYL8tiq/view">guía de instalación</a>).</p>
+</section>
+<section class="sec"><h2 id="integrador-el-seminario">El seminario</h2>
+<p>Es un trabajo teórico-práctico que muestra las características de una herramienta, metodología, framework o similar. Lleva:</p>
+<ol>
+<li>Una presentación oral de 10 a 15 minutos, con demostración en vivo.</li>
+<li>La grabación en mp4, para subirla al canal de seminarios.</li>
+<li>Un documento con los datos del grupo, introducción, desarrollo, referencias y conclusión.</li>
+<li>Cinco preguntas de opción múltiple sobre el tema.</li>
+</ol>
+<div class="ojo"><p class="ojo-t">Dos versiones del tiempo</p><p>La consigna dice «entre 10-15 minutos por alumno». La presentación de la materia dice «entre 10-15 minutos», sin «por alumno». Preguntalo en tu comisión.</p>
+</div>
+<p>Cada seminario tiene un quiz, que «deben ser aprobado», dice la presentación. Por eso los temas de otros grupos también te tocan.</p>
+<div class="tabla"><table><thead><tr><th>Tema en 2023</th><th>Tema en 2023</th></tr></thead><tbody><tr><td>Análisis de series de tiempo</td><td>Data Collection</td></tr><tr><td>Base de datos orientada a objetos</td><td>Contenedores</td></tr><tr><td>Pipelines y workflows</td><td>Data Visualization</td></tr><tr><td>Visual Machine Learning</td><td>Power BI</td></tr><tr><td>Flask</td><td>Django</td></tr><tr><td>RPA</td><td>NoSQL</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="integrador-un-seminario-de-ejemplo-power-bi">Un seminario de ejemplo, Power BI</h2>
+<div class="ojo"><p class="ojo-t">Esto no es de la cátedra</p><p>Sale del seminario de un grupo de alumnos de 2023 (documento, diapositivas y guion). Es la única fuente. Sirve para ver qué profundidad se espera y para el quiz de ese tema. No lo tomes como definición oficial.</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p><strong>Business Intelligence.</strong> Software que se alimenta de datos de negocios y presenta reportes, paneles, tablas y gráficos para facilitar la toma de decisiones. No les dice a los usuarios qué hacer ni se trata solo de generar informes. Las herramientas ETL, o ETC en castellano (extracción, transformación y carga), sacan datos de distintas fuentes, los preparan y los cargan en un almacén de datos.</p>
+<p><strong>Power BI</strong> es la herramienta de análisis de datos y visualización de Microsoft. El flujo habitual tiene cuatro pasos:</p>
+<ol>
+<li>Integrar datos en Power BI Desktop y crear un informe.</li>
+<li>Publicarlo en el servicio Power BI.</li>
+<li>Compartir los paneles.</li>
+<li>Verlos en las aplicaciones móviles.</li>
+</ol>
+<p>Sus funciones principales son conexión, transformación y modelado de datos, creación de informes, paneles de control, y colaboración.</p>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Qué es, según el seminario</th></tr></thead><tbody><tr><td>Conjunto de datos</td><td>La colección de datos que usa para sus visualizaciones. Puede combinar muchos orígenes</td></tr><tr><td>Visualización</td><td>Gráficos, tablas, mapas o tarjetas</td></tr><tr><td>Tooltip</td><td>Mensaje emergente con información adicional sobre lo que muestra una visualización. No todas lo tienen</td></tr><tr><td>Informe</td><td>Colección de visualizaciones que aparecen juntas en una o varias páginas</td></tr><tr><td>Panel</td><td>Colección de visualizaciones de uno o más informes, en una sola página. Se crea en el servicio en línea, no en Desktop</td></tr><tr><td>Icono</td><td>Una visualización única dentro de un panel</td></tr></tbody></table></div>
+<p><strong>Granularidad.</strong> Es el nivel de detalle de un conjunto de datos. La alta está desglosada en detalles finos, como matrículas por programa dentro de una escuela. La baja está más generalizada, como el total por facultad. El documento aclara que la granularidad media «no existe en rigor».</p>
+<p><strong>Python en Power BI.</strong> Se puede usar un script de Python como origen de datos, desde Obtener datos, Otros, Script de Python. También hay un visual de Python, que recibe los datos en la variable <code>dataset</code>. Este ejemplo es del archivo de la defensa de ese grupo:</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+dataset.plot(kind=<span class="hljs-string">&#x27;scatter&#x27;</span>, x=<span class="hljs-string">&#x27;Age&#x27;</span>, y=<span class="hljs-string">&#x27;Weight&#x27;</span>, color=<span class="hljs-string">&#x27;red&#x27;</span>)
+plt.show()</code></pre>
+<p class="bloque-fuente">Seminario de un grupo de alumnos, 2023</p></div>
+</section>
+<section class="sec"><h2 id="integrador-el-trabajo-integrador">El trabajo integrador</h2>
+<div class="idea"><p>El TPI es donde se juntan todos los prácticos. Si hiciste el 4 al 7, ya tenés la forma de las tres capas.</p>
+</div>
+<p>Hay que hacer un sistema programado en Python que cumpla la arquitectura de capas.</p>
+<div class="tabla"><table><thead><tr><th>Capa</th><th>Condiciones de la cátedra</th></tr></thead><tbody><tr><td>Datos</td><td>Usa una base de datos (MySQL, Mongo o SQLite), con acceso directo o por un ORM (Alchemy, Django). Lleva la documentación del modelo del dominio</td></tr><tr><td>Negocio</td><td>Evalúa por lo menos una regla de negocio. Lleva un test que evalúa que se cumplan esas reglas en los métodos de la clase de negocio</td></tr><tr><td>Interfaz de usuario</td><td>Puede ser de escritorio (Tkinter), web (Flask, Django, Kivy) o una API</td></tr></tbody></table></div>
+<h3 id="integrador-la-documentacion">La documentación</h3>
+<p>Se imprime por duplicado, con carátula con los integrantes y el tema del trabajo. Debe contener:</p>
+<ol>
+<li>Carátula: materia, número de grupo, integrantes y tema</li>
+<li>Narrativa</li>
+<li>Abstract</li>
+<li>Requerimientos funcionales</li>
+<li>Requerimientos no funcionales</li>
+<li>Stack tecnológico</li>
+<li>Reglas de negocio</li>
+<li>Casos de uso principales</li>
+<li>Modelo de dominio</li>
+<li>Imágenes de la interfaz</li>
+<li>Referencia bibliográfica</li>
+<li>Link al código fuente y al documento</li>
+</ol>
+<p>La consigna escribe «Requerimientos No funcionales 2». No queda claro si pide dos. Consultalo.</p>
+<h3 id="integrador-elegir-el-tema">Elegir el tema</h3>
+<p>Son recomendaciones, no requisitos: que se relacione con el tema del seminario, que les resulte interesante, que consulte alguna API y que genere algún resultado visible.</p>
+<div class="tabla"><table><thead><tr><th>Trabajos anteriores interesantes</th><th>Temas ya presentados</th></tr></thead><tbody><tr><td>Elección de tema de Spotify votado por Twitter</td><td>Ecommerce</td></tr><tr><td>Precio de propiedades por barrio, con scraping de Mercado Libre</td><td>Red social</td></tr><tr><td>Turnos de peluquería, app Android con Kivy</td><td>Sistema de turnos</td></tr><tr><td>Visualizar datos de empresas en bolsa</td><td>Sistema de pedidos</td></tr><tr><td>Reconocimiento de imágenes</td><td>Sistema de inventario, sistema de cine</td></tr></tbody></table></div>
+<p>Las áreas que la consigna propone son web comunicación, web data, web scraping, IA, análisis de datos y big data.</p>
+<h3 id="integrador-un-tpi-de-ejemplo">Un TPI de ejemplo</h3>
+<div class="ojo"><p class="ojo-t">Esto no es de la cátedra</p><p>Es el trabajo de un grupo de alumnos de 2023, y no sé qué nota tuvo. Sirve para ver cómo se ve cada documento.</p>
+</div>
+<p>Es una aplicación de finanzas personales. Sale de una historia de uso: saldo mensual, gastos fijos, imprevistos y una lista de deseos que recomienda cuándo comprar.</p>
+<ul>
+<li><strong>Caso de uso.</strong> <a href="https://drive.google.com/file/d/1yStuCYTZ33hcpNo0uz4MVV3BEdx0a3gN/view">CU_TPI.docx</a> trae meta, actor primario, precondiciones, disparador, camino básico y caminos alternativos.</li>
+<li><strong>Modelo de datos.</strong> <a href="https://drive.google.com/file/d/1IKN5jig1x9shxh5yQWcYTPq3cDBWvcOh/view">DER_TPI.drawio.pdf</a> tiene <code>Usuario</code>, <code>gastos_fijos</code>, <code>wish</code>, <code>operación</code> y <code>Transacción</code>, con cardinalidades como <code>1..1</code> y <code>0..N</code>.</li>
+<li><strong>Otros archivos del grupo.</strong> En la carpeta también hay una matriz CRUD y el script de la base. No los enlazo. El script trae nombres de usuario y las planillas no las revisé.</li>
+</ul>
+<p>Mirar otros trabajos también ayuda. La presentación de la materia lista ejemplos de 2022 con repositorio en GitHub: scraping de propiedades con BeautifulSoup, ecommerce, ventas, detección de humo, información de empresas y un estacionamiento.</p>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (un solo parcial, de 2026, las clases de 2023 y la bibliografía de la materia). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

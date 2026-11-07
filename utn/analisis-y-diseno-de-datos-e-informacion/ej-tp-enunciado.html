@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TP integrador: enunciado de la huerta urbana: Análisis y Diseño de Datos e Información</title>
+<meta name="description" content="Ejercicio de examen: TP integrador: enunciado de la huerta urbana.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="analisis-y-diseno-de-datos-e-informacion" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Análisis y Diseño de Datos e Información</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="integrador.html">TP integrador</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=analisis-y-diseno-de-datos-e-informacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=analisis-y-diseno-de-datos-e-informacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>TP integrador: enunciado de la huerta urbana</h1>
+<p class="bajada">TP integrador</p>
+<div class="ej-acciones"><button type="button" id="ejHecho" class="b-sec" data-slug="tp-enunciado" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1z6wJV4OiDrQfANXoY4n_z5bu-31sDExK/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/tp-enunciado-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/tp-enunciado-e1.webp" width="912" height="1406" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a><a class="sol-img" href="img/tp-enunciado-e2.webp" aria-label="Abrir la hoja 2 del enunciado en grande"><img src="img/tp-enunciado-e2.webp" width="915" height="1406" loading="lazy" alt="Hoja 2 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a><a class="sol-img" href="img/tp-enunciado-e3.webp" aria-label="Abrir la hoja 3 del enunciado en grande"><img src="img/tp-enunciado-e3.webp" width="910" height="1406" loading="lazy" alt="Hoja 3 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a><a class="sol-img" href="img/tp-enunciado-e4.webp" aria-label="Abrir la hoja 4 del enunciado en grande"><img src="img/tp-enunciado-e4.webp" width="910" height="1406" loading="lazy" alt="Hoja 4 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p>Esta propuesta arma los entregables 1 a 6 para el producto mínimo del enunciado, con un bosquejo dibujado y el resto descripto. La defensa, el mapa de empatía y el Journey quedan para tu grupo, porque salen de lo que releven ustedes. Los flujos salen del proceso de negocio, que tiene su propia propuesta.</p>
+<h4>1. Bosquejos</h4>
+<div class="tabla"><table><thead><tr><th>Código</th><th>Bosquejo</th><th>Plataforma</th><th>Por qué</th></tr></thead><tbody><tr><td>B01</td><td>Inicio del Horticultor, con sus módulos, la última lectura y los avisos</td><td>Móvil</td><td>Le llegan las notificaciones y lo mira en la terraza</td></tr><tr><td>B02</td><td>Registrar siembra, con módulo, familia y cultivos</td><td>Móvil</td><td>Se carga al lado del módulo</td></tr><tr><td>B03</td><td>Indicar la fecha de siembra</td><td>Móvil</td><td>Igual que B02</td></tr><tr><td>B04</td><td>Registrar cosecha, con la fecha y los kilos de cada cultivo</td><td>Móvil</td><td>Pesa y carga en la terraza</td></tr><tr><td>B05</td><td>Familias, con sus estándares, meses de siembra, días hasta cosecha y ventana</td><td>Web</td><td>Carga larga y poco frecuente</td></tr><tr><td>B06</td><td>Cultivos, con nombre, foto, descripción y familia</td><td>Web</td><td>Igual que B05</td></tr><tr><td>B07</td><td>Reporte por período y cultivo</td><td>Web</td><td>Tabla y gráfico de tres años, necesita pantalla grande</td></tr></tbody></table></div>
+<p>Este es B04. Las notas al costado explican el comportamiento, como en los bosquejos de la clase 4.</p>
+<figure tabindex="0">
+<svg viewBox="0 0 700 520" role="img" aria-label="Bosquejo B04 Registrar cosecha, en un celular. Arriba, Huerta urbana y Salir. Campos Módulo, Familia, que se completa sola, y Fecha de cosecha. Una grilla con una fila por cultivo y su campo de kilos, con un tooltip. Un mensaje de resultado, los botones Regresar y Registrar, y al pie el manual y las preguntas frecuentes. Notas al costado explican cada parte.">
+<rect class="d-debil" x="20" y="10" width="320" height="500" rx="14"/>
+<rect class="d-caja" x="20" y="10" width="320" height="44" rx="14"/>
+<text class="d-t" x="110" y="37">Huerta urbana</text><text class="d-s" x="292" y="37">Salir</text>
+<text class="d-t" x="180" y="84">B04. Registrar cosecha</text>
+<text class="d-s" x="80" y="116">Módulo *</text><rect class="d-debil" x="140" y="99" width="180" height="26" rx="3"/><text class="d-s" x="220" y="117">3</text><path class="d-punta" d="M296 108h12l-6 8z"/>
+<text class="d-s" x="80" y="152">Familia</text><text class="d-s" x="230" y="152">Hojas verdes</text>
+<text class="d-s" x="80" y="188">Fecha *</text><rect class="d-debil" x="140" y="171" width="180" height="26" rx="3"/><text class="d-s" x="230" y="189">dd/mm/aaaa</text>
+<rect class="d-caja" x="40" y="214" width="280" height="28"/><text class="d-t" x="110" y="233">Cultivo</text><text class="d-t" x="236" y="233">Kilos *</text><text class="d-s" x="298" y="233">(?)</text>
+<rect class="d-debil" x="40" y="242" width="280" height="32"/><text class="d-s" x="110" y="263">Lechuga</text><rect class="d-debil" x="200" y="247" width="90" height="22" rx="3"/><text class="d-s" x="245" y="263">0,00</text>
+<rect class="d-debil" x="40" y="274" width="280" height="32"/><text class="d-s" x="110" y="295">Rúcula</text><rect class="d-debil" x="200" y="279" width="90" height="22" rx="3"/><text class="d-s" x="245" y="295">0,00</text>
+<rect class="d-caja-r" x="40" y="330" width="280" height="40" rx="4"/><text class="d-s" x="180" y="355">Se registró la cosecha del módulo 3</text>
+<rect class="d-caja" x="50" y="410" width="120" height="38" rx="6"/><text class="d-t" x="110" y="434">Regresar</text>
+<rect class="d-caja-r" x="190" y="410" width="120" height="38" rx="6"/><text class="d-t" x="250" y="434">Registrar</text>
+<path class="d-debil" d="M20 470h320"/><text class="d-s" x="100" y="494">Manual (i)</text><text class="d-s" x="250" y="494">Preguntas frecuentes</text>
+<path class="d-linea-m" d="M346 112h54M346 152h54M346 188h54M346 233h54M346 274h54M346 350h54M346 429h54M346 490h54"/>
+<text class="d-i" x="540" y="116">solo tus módulos con siembra en curso</text>
+<text class="d-i" x="540" y="156">se completa con la familia sembrada</text>
+<text class="d-i" x="540" y="192">calendario sin fechas futuras</text>
+<text class="d-i" x="540" y="237">(?) abre el tooltip de los kilos</text>
+<text class="d-i" x="540" y="278">una fila por cultivo del módulo</text>
+<text class="d-i" x="540" y="354">mensaje de éxito o de error</text>
+<text class="d-i" x="540" y="433">se habilita con todo completo</text>
+<text class="d-i" x="540" y="494">manual tradicional y PPFF</text>
+</svg>
+<figcaption>Bosquejo B04, registrar cosecha. Tocá el dibujo para verlo en pantalla completa.</figcaption>
+</figure>
+
+<h4>2. Diccionario de datos</h4>
+<p>Con la notación de la clase 1 y el código del bosquejo antes de cada diccionario, como piden los entregables.</p>
+<pre class="codigo"><code>B02 - Registrar siembra
+e: siembra = nroMódulo + códigoFamilia + 1{códigoCultivo}n
+s: resultadoSiembra = mensajeSiembra
+mensajeSiembra = [&quot;Se registró la siembra del módulo&quot; | &quot;Elegí al menos un cultivo&quot;]
+
+B03 - Indicar la fecha de siembra
+e: confirmaciónSiembra = nroMódulo + fechaSiembra
+s: resultadoFechaSiembra = mensajeFechaSiembra
+mensajeFechaSiembra = [&quot;Se registró la fecha de siembra&quot; | &quot;La fecha está fuera de la ventana de siembra de la familia&quot; | &quot;La fecha no está en un mes de siembra de la familia&quot;]
+
+B04 - Registrar cosecha
+e: cosecha = nroMódulo + fechaRealCosecha + 1{códigoCultivo + kilosCosechados}n
+s: resultadoCosecha = mensajeCosecha
+mensajeCosecha = [&quot;Se registró la cosecha del módulo&quot; | &quot;La fecha de cosecha no puede ser anterior a la de siembra&quot; | &quot;Los kilos tienen que ser mayores que 0&quot;]
+
+B05 - Familias
+e: familia = nombreFamilia + 3{estándar(e)}3 + 1{mesSiembra}12 + díasHastaCosecha + ventanaDías
+estándar(e) = magnitud + valorMínimo + valorMáximo
+magnitud = char(11); [temperatura | humedad | luz]
+s: resultadoFamilia = mensajeFamilia
+mensajeFamilia = [&quot;Se registró la familia&quot; | &quot;La ventana tiene que ser de 1 a 9 días&quot; | &quot;El mínimo tiene que ser menor que el máximo&quot;]
+
+B06 - Cultivos
+e: cultivo = nombreCultivo + foto + descripciónBreve + códigoFamilia
+
+B07 - Reporte
+e: pedidoReporte = fechaDesde + fechaHasta + códigoCultivo
+s: reporteCultivo = nombreCultivo + 3{períodoAnalizado(e)}3
+períodoAnalizado(e) = año + 0{lectura(e)}n + 0{acción(e)}n + (kilosCosechados)
+lectura(e) = fechaHora + sensor + valorLeído
+acción(e) = fechaHora + acción + componente + resultado</code></pre>
+<ul>
+<li>Los estándares son tres, uno por magnitud, con su mínimo y su máximo (regla 8). Los meses de siembra van de 1 a 12.</li>
+<li>El reporte de la regla 11e muestra el período pedido y el mismo período de los 2 años anteriores, por eso <code>3{períodoAnalizado(e)}3</code>. Los kilos van entre paréntesis porque se muestran solo si hubo cosecha.</li>
+</ul>
+<h4>3. Tabla de depuración</h4>
+<div class="tabla"><table><thead><tr><th>Bosquejo</th><th>ID</th><th>Alias</th><th>Tipo</th><th>Longitud</th><th>Discreto</th><th>Continuo</th><th>Formato</th><th>Criterio</th><th>Comentarios</th></tr></thead><tbody><tr><td>B02</td><td><code>nroMódulo</code></td><td>módulo</td><td>num</td><td>3</td><td></td><td></td><td></td><td>Módulo existente y sin siembra en curso</td><td>Se elige de una lista con los módulos libres</td></tr><tr><td>B02</td><td><code>códigoCultivo</code></td><td>cultivo</td><td>num</td><td>4</td><td></td><td></td><td></td><td>Al menos uno, todos de la familia elegida (regla 7)</td><td>La lista muestra solo los cultivos de la familia</td></tr><tr><td>B03</td><td><code>fechaSiembra</code></td><td></td><td>char</td><td>10</td><td></td><td></td><td><code>00/00/0000</code></td><td>En un mes de siembra de la familia, entre el día 10 menos la ventana y el día 10 más la ventana (regla 9), y no posterior a hoy</td><td>Calendario sin fechas futuras</td></tr><tr><td>B04</td><td><code>fechaRealCosecha</code></td><td></td><td>char</td><td>10</td><td></td><td></td><td><code>00/00/0000</code></td><td>No anterior a la fecha de siembra y no posterior a hoy</td><td>Calendario sin fechas futuras</td></tr><tr><td>B04</td><td><code>kilosCosechados</code></td><td>kilos</td><td>num</td><td>6</td><td></td><td>0,01 a 999,99</td><td><code>990,00</code></td><td>Mayor que 0</td><td>Uno por cultivo del módulo</td></tr><tr><td>B05</td><td><code>magnitud</code></td><td></td><td>char</td><td>11</td><td>temperatura, humedad, luz</td><td></td><td></td><td>Las tres, una vez cada una</td><td></td></tr><tr><td>B05</td><td><code>valorMínimo</code>, <code>valorMáximo</code></td><td></td><td>num</td><td>6</td><td></td><td></td><td><code>#990,0</code></td><td>Mínimo menor que máximo</td><td>La temperatura puede ser negativa</td></tr><tr><td>B05</td><td><code>mesSiembra</code></td><td></td><td>num</td><td>2</td><td>1 a 12</td><td></td><td></td><td>De 1 a 12 meses distintos</td><td>Casillas, una por mes</td></tr><tr><td>B05</td><td><code>ventanaDías</code></td><td>ventana</td><td>num</td><td>2</td><td></td><td>1 a 9</td><td><code>90</code></td><td>Entre 1 y 9</td><td>Con 9, la siembra va del 1 al 19 del mes. Con más, se saldría del mes</td></tr><tr><td>B07</td><td><code>fechaDesde</code>, <code>fechaHasta</code></td><td></td><td>char</td><td>10</td><td></td><td></td><td><code>00/00/0000</code></td><td>Desde no posterior a hasta</td><td></td></tr></tbody></table></div>
+<h4>4. Clases de equivalencia</h4>
+<p>El contexto de los ejemplos es una familia con ventana de 5 días y meses de siembra marzo y abril, un módulo sembrado el 12/11/2025 y hoy, 20/03/2026.</p>
+<div class="tabla"><table><thead><tr><th>Bosquejo</th><th>Atributo</th><th>Válida</th><th>Inválidas</th></tr></thead><tbody><tr><td>B03</td><td><code>fechaSiembra</code></td><td>V1.1. Mes de siembra, del 05 al 15 del mes, hasta hoy. Ejemplo 12/03/2026</td><td>I1.1. Antes del día 05. Ejemplo 04/03/2026. I1.2. Después del día 15. Ejemplo 16/03/2026. I1.3. Mes que no es de siembra. Ejemplo 10/01/2026. I1.4. Posterior a hoy. Ejemplo 12/04/2026</td></tr><tr><td>B04</td><td><code>kilosCosechados</code></td><td>V2.1. De 0,01 a 999,99. Ejemplo 2,50</td><td>I2.1. Menor que 0,01. Ejemplo 0. I2.2. Mayor que 999,99. Ejemplo 1000</td></tr><tr><td>B04</td><td><code>fechaRealCosecha</code></td><td>V3.1. Del 12/11/2025 a hoy. Ejemplo 15/02/2026</td><td>I3.1. Anterior a la siembra. Ejemplo 01/11/2025. I3.2. Posterior a hoy. Ejemplo 25/03/2026</td></tr><tr><td>B02</td><td><code>códigoCultivo</code></td><td>V4.1. Uno o más de la familia. Ejemplo Lechuga y Rúcula</td><td>I4.1. Ninguno. I4.2. De otra familia. Ejemplo Tomate</td></tr><tr><td>B05</td><td><code>ventanaDías</code></td><td>V5.1. De 1 a 9. Ejemplo 5</td><td>I5.1. Menor que 1. Ejemplo 0. I5.2. Mayor que 9. Ejemplo 10</td></tr></tbody></table></div>
+<p>La fecha de siembra junta dos condiciones, un rango alrededor del día 10 y un «debe ser» (mes de siembra y no futura). Por eso tiene cuatro inválidas. Los cultivos son una cantidad de valores sin tope, así que no hay inválida «por encima».</p>
+<h4>5. Casos de prueba</h4>
+<div class="tabla"><table><thead><tr><th>Nro. Caso</th><th>Bosquejo</th><th>Objetivo</th><th>Atributo y valor</th><th>Resultado esperado</th></tr></thead><tbody><tr><td>CP01</td><td>B03</td><td>V1.1</td><td><code>nroMódulo</code> 3, <code>fechaSiembra</code> 12/03/2026</td><td>Se registra. «Se registró la fecha de siembra»</td></tr><tr><td>CP02</td><td>B03</td><td>I1.1</td><td><code>nroMódulo</code> 3, <code>fechaSiembra</code> 04/03/2026</td><td>No se registra. «La fecha está fuera de la ventana de siembra de la familia», con la ventana del 05/03/2026 al 15/03/2026 a la vista</td></tr><tr><td>CP03</td><td>B03</td><td>I1.2</td><td><code>nroMódulo</code> 3, <code>fechaSiembra</code> 16/03/2026</td><td>No se registra. El mismo mensaje y la misma ventana que CP02</td></tr><tr><td>CP04</td><td>B03</td><td>I1.3</td><td><code>nroMódulo</code> 3, <code>fechaSiembra</code> 10/01/2026</td><td>No se registra. «La fecha no está en un mes de siembra de la familia», con los meses de siembra a la vista</td></tr><tr><td>CP05</td><td>B03</td><td>I1.4</td><td><code>nroMódulo</code> 3, <code>fechaSiembra</code> 12/04/2026</td><td>El calendario no deja elegir una fecha futura. Se resuelve en la interface</td></tr><tr><td>CP06</td><td>B04</td><td>V3.1 y V2.1</td><td><code>nroMódulo</code> 2, <code>fechaRealCosecha</code> 15/02/2026, Lechuga 2,50, Rúcula 1,20</td><td>Se registra. «Se registró la cosecha del módulo»</td></tr><tr><td>CP07</td><td>B04</td><td>I3.1</td><td><code>nroMódulo</code> 2, <code>fechaRealCosecha</code> 01/11/2025, Lechuga 2,50, Rúcula 1,20</td><td>No se registra. «La fecha de cosecha no puede ser anterior a la de siembra», con la fecha de siembra a la vista</td></tr><tr><td>CP08</td><td>B04</td><td>I3.2</td><td><code>nroMódulo</code> 2, <code>fechaRealCosecha</code> 25/03/2026, Lechuga 2,50, Rúcula 1,20</td><td>El calendario no deja elegir una fecha futura. Se resuelve en la interface</td></tr><tr><td>CP09</td><td>B04</td><td>I2.1</td><td><code>nroMódulo</code> 2, <code>fechaRealCosecha</code> 15/02/2026, Lechuga 0, Rúcula 1,20</td><td>No se registra. «Los kilos tienen que ser mayores que 0», marcando la fila de Lechuga</td></tr><tr><td>CP10</td><td>B04</td><td>I2.2</td><td><code>nroMódulo</code> 2, <code>fechaRealCosecha</code> 15/02/2026, Lechuga 1000, Rúcula 1,20</td><td>La máscara <code>990,00</code> no deja escribir más de tres enteros. Se resuelve en la interface</td></tr><tr><td>CP11</td><td>B02</td><td>V4.1</td><td><code>nroMódulo</code> 5, familia Hojas verdes, Lechuga y Rúcula</td><td>Se registra. «Se registró la siembra del módulo»</td></tr><tr><td>CP12</td><td>B02</td><td>I4.1</td><td><code>nroMódulo</code> 5, familia Hojas verdes, sin cultivos</td><td>No se registra. «Elegí al menos un cultivo»</td></tr><tr><td>CP13</td><td>B02</td><td>I4.2</td><td><code>nroMódulo</code> 5, familia Hojas verdes, Tomate</td><td>La lista muestra solo los cultivos de la familia. Se resuelve en la interface</td></tr><tr><td>CP14</td><td>B05</td><td>V5.1</td><td><code>ventanaDías</code> 5, con el resto de los datos válidos</td><td>Se registra. «Se registró la familia»</td></tr><tr><td>CP15</td><td>B05</td><td>I5.1</td><td><code>ventanaDías</code> 0, con el resto válido</td><td>No se registra. «La ventana tiene que ser de 1 a 9 días»</td></tr><tr><td>CP16</td><td>B05</td><td>I5.2</td><td><code>ventanaDías</code> 10, con el resto válido</td><td>No se registra. El mismo mensaje que CP15</td></tr></tbody></table></div>
+<p>Cada caso tiene a lo sumo una inválida. Cuatro clases se resuelven en la interface, y para esas alcanza con indicar la situación, como piden los entregables.</p>
+<h4>6. Ayudas</h4>
+<div class="tabla"><table><thead><tr><th>Ayuda</th><th>Dónde va el acceso</th><th>Por qué</th></tr></thead><tbody><tr><td>Manual tradicional</td><td>Al pie de todos los bosquejos</td><td>Va siempre, aunque nunca como única ayuda</td></tr><tr><td>Ayuda contextual</td><td>B03 y B05</td><td>La ventana de siembra y los estándares son reglas del dominio que no se ven en la pantalla</td></tr><tr><td>Tooltip</td><td>Kilos en B04, ventana y estándares en B05</td><td>Dicen la unidad y el rango sin salir de la pantalla</td></tr><tr><td>PPFF</td><td>Al pie de todos los bosquejos</td><td>Por ejemplo, por qué un cultivo no aparece en la lista de B02</td></tr><tr><td>Tutorial</td><td>B02 y B04, al primer ingreso</td><td>Siembra y cosecha se hacen pocas veces por temporada, y el Horticultor las usa de forma intermitente</td></tr><tr><td>Lo nuevo</td><td>B01</td><td>Para avisar un cambio, como cuando se defina la notificación de la regla 11c</td></tr><tr><td>Chatbot o mesa de ayuda</td><td>B01</td><td>Para las dudas que no resuelven el manual ni las PPFF. Junto con Lo nuevo o el tutorial, es lo que pide el nivel Excelente de R04</td></tr></tbody></table></div>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con Integrador (entregables y rúbricas R01 a R04), Final (la práctica paso a paso, máscaras, partición equivalente y casos de prueba) y el enunciado del TP, reglas 5 a 11.</p><p class="bloque-fuente">Quedó en duda: Las plataformas, los mensajes, los tipos y las longitudes, el tope de 999,99 kilos y la familia Hojas verdes con sus cultivos son de esta propuesta. El enunciado no los da. El material no trae la matriz de tipos de usuario y ayudas, así que la tabla de ayudas sale de la rúbrica R04 y de la clase 6. Usé <code>char</code> y <code>num</code> de la clase 1, y la plantilla usa <code>string</code> y <code>numb</code>. Faltan la defensa, el mapa de empatía y el Journey, que dependen del grupo.</p><div class="em-votos" data-m="analisis-y-diseno-de-datos-e-informacion" data-e="tp-enunciado" hidden></div></section>
+
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-practica-03-reversa.html">Anterior: Práctica 03: ingeniería reversa</a><a href="ej-tp-proceso.html">Siguiente: TP integrador: proceso de negocio principal</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN: presentación de la cátedra 2026, clases de teoría, prácticas y rúbricas del trabajo práctico. En el Drive no hay exámenes. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

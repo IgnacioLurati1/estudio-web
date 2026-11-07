@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aprobación directa, 11/11/2023: Ingeniería y Calidad de Software</title>
+<meta name="description" content="Ejercicio de examen: Aprobación directa, 11/11/2023.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="ingenieria-y-calidad-de-software" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Ingeniería y Calidad de Software</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="regularizacion.html">Regularización</a></li><li class="em-fuera"><a href="aprobacion-directa.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=ingenieria-y-calidad-de-software">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=ingenieria-y-calidad-de-software">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Aprobación directa, 11/11/2023</h1>
+<p class="bajada">Parcial de aprobación directa, 11/11/2023</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="ad-2023-11-11" data-titulo="Aprobación directa, 11/11/2023" data-min="120" data-otro="ejercicios.html#ad" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="ad-2023-11-11" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/14_Jbm1SXQplTUVORFvQKXGkdv-Q9gztw/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><p>Luego de haberse detectado que en el proyecto “Despacho automatizado * 2 puntos de Combustible” que se han introducido cambios a los requerimientos sin que se haya ejecutado ningún tipo de workflow de Gestión de Requerimientos, violando lo prescripto por la política de la Software Factory, y a pesar de haberse enviado al equipo de proyecto tres informes observando dicha práctica, la situación no ha cambiado. Por lo tanto, se eleva un informe al Gerente General de la Software Factory notificándolo de la situación //</p>
+<p>CMMi --&gt; Relacione la actividad descripta con el área de proceso y práctica específica que corresponda (solo una), o indique NINGUNA si no encuadra con ninguna de las opciones. 0089</p>
+<p>REQM / SP 1.5 Identificar las inconsistencias entre el trabajo del proyecto y los requerimientos</p>
+<p>REQM /SP 1.2 Obtener el compromiso sobre los requerimientos</p>
+<p>MA / SP 1.3 Especificar los procedimientos de recogida y de almacenamiento de datos</p>
+<p>REQM / SP 1.3 Gestionar los cambios de los requerimientos</p>
+<p>PPQA / SP 2.2 Establecer registros</p>
+<p>PPQA / SP 1.2 Evaluar objetivamente los productos de trabajo y los servicios</p>
+<p>REQM / SP 1.4 Mantener la trazabilidad bidireccional de los requerimientos</p>
+<p>PMC / SP 2.3 Gestionar las acciones correctivas</p>
+<p>NINGUNA de las otras áreas</p>
+<p>PMC / SP 1.5 Monitorizar la involucración de las partes interesadas</p>
+<p>PPQA / SP 2.1 Comunicar y asegurar la resolución de las no conformidades</p>
+<p>CM / SP 2.2 Controlar los elementos de configuración</p>
+<p>RD / SP 3.4 Analizar los requerimientos para alcanzar el equilibrio</p>
+<p>CM / SP 2.1 Seguir las peticiones de cambio</p>
+<p>En la medición de la calidad es un intento por cuantificar la facilidad de * 1 punto uso</p>
+<p>Implementacion Mantenibilidad Interfaz Rendimiento Empaquetamiento Fiabilidad Legales NINGUNA de las otras opciones Usabilidad Soporte</p>
+<p>Tomando en cuenta que la software factory vende ciertos productos a * 2 puntos más de un cliente, se ha constatado que hay una política de versionado que identifica claramente la versión del producto final y la línea base asociada, cada vez que se instala un producto en un cliente. Asimismo hay un política de almacenamiento y back up, que indica que los items de configuración asociados a cada línea base son almacenados en el repositorio de cada proyecto, mientras que la versión correspondiente del producto final se encuentre instalada en un cliente. Siendo que cuando los clientes van migrando a nuevas versiones del producto final, si el último cliente que usa una versión migra a una más nueva, dicha versión y los items de configuración asociados a la línea base, son eliminados del repositorio para no ocupar espacio inútilmente. Es decir, que en el repositorio solo hay versiones que están instaladas en al menos un cliente, y aquellas que ya no están en uso han sido eliminadas.</p>
+<p>BP --&gt; Dada la práctica descripta en el enunciado precedente, indicar si considera que podrían surgir o no, problemas de calidad en la Software Factory, optando por unos o varias de las afirmaciones siguientes, o indique NINGUNA si no encuadra con ninguna de las opciones. Si bien pueden elegirse más de una opción, no pueden combinarse al mismo tiempo las que consideran que SÍ hay problemas de calidad, con las que NO.</p>
+<p>No genera problemas de calidad, esta es una implementación correcta de CM</p>
+<p>Sí podría generar problemas de calidad, porque el problema principal es que no se toman métricas sobre las versiones antiguas previo a su eliminación</p>
+<p>No genera problemas de calidad, porque solo son relevantes las versiones vigentes a nivel cliente</p>
+<p>Sí podría generar problemas de calidad, porque en caso de ser necesario volver a una versión anterior no se dispondrán de los items de configuración necesarios</p>
+<p>NINGUNA de las otras opciones</p>
+<p>Sí podría generar problemas de calidad, porque no se hacen pruebas dinámicas de no confirmadad a las versiones antiguas antes de eliminarlas</p>
+<p>No genera problemas de calidad, esta es una implementación correcta de OPD</p>
+<p>Dada la información brindada, determine la versión que debe ser * 1 punto repuesta del lado del cliente y que garantice continuidad de trabajo</p>
+<p>Descripción</p>
+<p>Tenemos el producto de software SUN, un sistema de ventas mayoristas y minoristas. El producto ha pasado por diferentes versiones. Debajo se muestra un gráfico de evolución de versiones.</p>
+<p>Recientemente se ha implementado la versión 1.3 y se han encontrado problemas que impiden que continúe en línea.</p>
+<p>1.0 1.1 1.2 1.3</p>
+<p>Determine la veracidad de las siguientes afirmaciones * 3 puntos</p>
+<p>Si No</p>
+<p>Cuando se realiza una auditoria o evaluación centrada en aseguramiento de calidad se obtienen no conformidades (se realizan hallazgos) que se resuelven corrigiendo las mismas pero si esto no sucediera, solo deberíamos dejarlo sentado en el informe final</p>
+<p>Las no conformidades no se comunican solo se usan para realizar el informe final.</p>
+<p>Las no conformidades podrían cambiar la descripción de un proceso</p>
+<p>Determine la última versión del producto. * 1 punto</p>
+<p>Descripción El área de calidad ha sido convocada para dar una solución a un problema de versionado. Se han encontrado dos carpetas (A y B) no identificadas con versiones del producto. Las 2 versiones refieren a lo último que se hizo sobre el producto. Cada carpeta esta compuesta de paquetes. A = Altas 1.1 + Bajas 0.1 + Compras 0.1 + Pagos 1.2 B = Compras 0.1 + Altas 1.1 + Bajas 1.1 + Cheques 0.1 + Efectivo. 2.1</p>
+<p>Formato de la version de los paquetes &lt;cambio-menor&gt;.&lt;cambio-mayor&gt;</p>
+<p>cambio-menor = numero que refiere a cambios en el archivo correspondiente a correcciones de defectos cambio-mayor = numero que refiere a cambios en el archivo, debido a agregado, modificación o eliminación de funcionalidad.</p>
+<p>Política de versionado</p>
+<ol>
+<li>Cada cambio menor incrementa 1 de una versión a otra. El cambio mayor se mantiene inalterable</li>
+<li>Cada cambio mayor incrementa 1 de una versión a otra. El cambio menor se reinicializa a 0.</li>
+<li>Si hubiera cambios simultáneos aplica regla 02.</li>
+<li>La primera versión será 0.0</li>
+</ol>
+<p>A B No es posible determinarlo Es lo mismo, son equivalentes</p>
+<p>Se pide determinar los elementos susceptibles de incluir en la gestión * 2 puntos de configuración del proyecto.</p>
+<p>Nuestra empresa se denomina Alquimia, una empresa de desarrollo y mantenimiento de software, desarrolla la documentación de proyectos con diferentes procesadores de texto: Word 2010, Word 2019. Este año ha comenzado a estudiar la posibilidad de incorporar el Word 2021.</p>
+<p>En el año 2022, Alquimia deja de usar Word 2010 y todos sus proyectos nuevos comenzaron a utilizar Word 2019, mientras que los que comenzaron con el Word 2010 siguieron con el mismo procesador.</p>
+<p>Nuestro proyecto en cuestión no es nuevo, es un proyecto que comenzó en marzo del 2022 y se detuvo el 26/04/22. El proyecto reinició en octubre/2023. El proyecto usa tecnología móvil y WEB.</p>
+<p>En las minutas, los casos de uso (CU), las especificaciones complementarias (EC) y los planes de proyecto se escriben utilizando Word y además para los casos de uso existen plantillas.</p>
+<p>Las plantillas creadas en la software factory hasta el momento son: Plla-CU- 211001, Plla-EC-211001, Plla-CU-220501 y Plla-CU-230803.</p>
+<p>La política de la organización hasta el momento ha sido no innovar, es decir, que un proyecto que comienza con una determinada plantilla siga con esa plantilla.</p>
+<p>Estructura de las plantillas</p>
+<p>Plla-&lt;artefacto&gt;-&lt;AAMMDD&gt;</p>
+<p>&lt;artefacto&gt; = 2 letras que hacen referencia a un producto de trabajo. Ejemplo Casos de uso es CU y EC para especificaciones complementarias.</p>
+<p>AAMMDD= fecha invertida que indica cuando se creó o modificó la plantilla. Corresponde a la fecha de formato: DD/MM/AA</p>
+<p>Nota: los casos de uso y especificaciones ya indicados son casos de uso ya documentados.</p>
+<p>WORD 2010 WORD 2019 WORD 2021 Plla-CU-211001 Plla-EC-211001 Plla-CU-220501 Plla-CU-230803 CU-Definir gira</p>
+<p>CU-Confirmar-presentación-gira CU-Cancelar-presentación-gira CU-Establecer-Lugares CU-Agregar-Contactos EC-WEB EC-Moviles Ninguno de los mencionados</p>
+<p>El área de SQA de la software factory realiza controles sobre los * 2 puntos</p>
+<p>proyectos para determinar que se cumplan con los estándares definidos,</p>
+<p>tanto a nivel de proceso como a nivel de producto. En caso de encontrar</p>
+<p>no conformidades, emite un informe describiendo las mismas. A partir</p>
+<p>de ese momento es responsabilidad del líder de proyecto que se</p>
+<p>subsanen las no conformidades, y el área de SQA ya no vuelve a</p>
+<p>intervenir en ningún aspecto sobre dicho proyecto.</p>
+<p>BP --&gt; Dada la práctica descripta en el enunciado precedente, indicar si considera que podríansurgir o no, problemas de calidad en la Software Factory, optando por unos o varias de lasafirmaciones siguientes, o indique NINGUNA si no encuadra con ninguna de las opciones. Sibien pueden elegirse más de una opción, no pueden combinarse al mismo tiempo las queconsideran que SÍ hay problemas de calidad, con las que NO</p>
+<p>No genera problemas de calidad, porque lo descripto es una implementación completa de SQA</p>
+<p>No genera problemas de calidad, porque es buena práctica que el lider de proyecto esté al tanto de las no conformidades.</p>
+<p>Sí podría generar problemas de calidad, porque no contempla un mecanismo para controlar, por parte de un grupo externo al desarrollo, que se resuelvan las no conformidades</p>
+<p>Sí podría generar problemas de calidad, porque SQA hace solo controles a nivel artefacto</p>
+<p>Sí podría generar problemas de calidad, porque SQA no está verificando que se cumplan los requisitos. Esto es una falla grave ya que un sistema que no cumple con los requisitos no satisface nunca al cliente.</p>
+<p>Sí podría generar problemas de calidad, porque faltan almacenar métricas de las no conformidades escaladas al área de testing.</p>
+<p>No podría generar problemas de calidad, porque el líder de proyecto es quién está en mejores condiciones de hacer seguimiento de las no conformidades</p>
+<p>Sí podría generar problemas de calidad, porque el área de SQA debería participar de los relevamientos, y no solo de controlar los estándares</p>
+<p>Ninguna de las otras opciones</p>
+<p>En la medición de la calidad es la facilidad con la que un programa puede * 1 punto corregirse si se encuentra un error.</p>
+<p>Empaquetamiento NINGUNA de las otras opciones Rendimiento Modularidad Interfaz Corregibilidad Fiabilidad Mantenibilidad Implementacion Soporte</p>
+<p>Complete considerando el método PSM * 5 puntos</p>
+<p>Planificar Ejecutar Evaluar la Establecer y medición mantener el Seleccionar las compromiso medidas</p>
+<p>Comprar software de apoyo</p>
+<p>Informar los resultados</p>
+<p>Identificar puntos débiles a mejorar</p>
+<p>Construir un histograma con los resultados</p>
+<p>En el marco del proyecto “Sistemas para Alquiler de Autos”, controlar que * 1 punto los pasos de los C.U. han sido redactados utilizando las directrices de escritura de C.U., de acuerdo a lo definido en el estándar de la software factory. Una vez cumplido este control, los C.U. se entregarán a los usuarios clave para su revisión. //</p>
+<p>CMMi --&gt; Relacione la actividad descripta con el área de proceso y práctica específica que corresponda (solo una), o indique NINGUNA si no encuadra con ninguna de las opciones. 0089</p>
+<p>PPQA / SP 2.2 Establecer registros</p>
+<p>REQM / SP 1.1 Obtener una comprensión de los requerimientos</p>
+<p>CM / SP 2.2 Controlar los elementos de configuración</p>
+<p>NINGUNA de las otras áreas</p>
+<p>VAL / SP 2.1 Realizar la validación</p>
+<p>VER / SP 2.2 Llevar a cabo las revisiones entre pares MA / SP 1.3 Especificar los procedimientos de recogida y de almacenamiento de datos RD / SP 3.5 Validar los requerimientos</p>
+<p>RD / SP 1.1 Obtener las necesidades</p>
+<p>VAL / SP 1.2 Establecer el entorno de validación</p>
+<p>PPQA / SP 2.1 Comunicar y asegurar la resolución de las no conformidades</p>
+<p>MA / SP 2.2 Analizar los datos de la medición</p>
+<p>VER / SP 3.1 Realizar la verificación</p>
+<p>PPQA / SP 1.2 Evaluar objetivamente los productos de trabajo y los servicios</p>
+<p>RD / SP 1.2 Desarrollar los requerimientos de cliente</p>
+<p>VAL / SP 1.3 Establecer los procedimientos y los criterios de validación</p>
+<p>CM / SP 3.2 Realizar auditorías de configuración</p>
+<p>Respecto de Métricas * Verdadero 4 puntos</p>
+<p>Se deben usar las métricas Falso para valorar a los individuos.</p>
+<p>No se obsesione con una sola métrica ni excluya otras métricas importantes.</p>
+<p>A diferencia de las métricas de proceso de software que se usaron con propósitos tácticos, las medidas de proyecto de software son estratégicas.</p>
+<p>Si se puede medir se debe usar</p>
+</section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p><strong>1. Informe elevado al Gerente General.</strong> <strong>PPQA / SP 2.1 Comunicar y asegurar la resolución de las no conformidades.</strong> Cambiar requerimientos sin el workflow viola la política, así que es una no conformidad. Se le comunicó al equipo tres veces sin resultado, y entonces se escala al nivel apropiado de gerencia. Eso es asegurar la resolución. No es REQM, porque la actividad descripta no gestiona los cambios, controla que se cumpla el proceso.</p>
+<p><strong>2. Cuantificar la facilidad de uso.</strong> <strong>Usabilidad.</strong></p>
+<p><strong>3. BP, se borran las versiones que ningún cliente usa.</strong> <strong>Sí podría generar problemas de calidad, porque en caso de ser necesario volver a una versión anterior no se dispondrán de los items de configuración necesarios.</strong> Una línea base es la base del desarrollo posterior. Si se borra con sus elementos, no se puede recuperar, por ejemplo para volver atrás un cliente que migró y tuvo problemas. La guía de CM nombra justo ese riesgo.</p>
+<p><strong>4. Versión a reponer de SUN.</strong> <strong>1.2</strong>, si el gráfico de evolución es una línea recta de 1.0 a 1.3. La 1.3 no puede seguir en línea, y la anterior que estuvo funcionando es la 1.2. Si el gráfico muestra ramas, la respuesta es la última versión estable de la rama de la que sale la 1.3. El gráfico no está en el texto del examen.</p>
+<p><strong>5. Verdadero o falso sobre no conformidades.</strong></p>
+<div class="tabla"><table><thead><tr><th>Afirmación</th><th>Respuesta</th><th>Por qué</th></tr></thead><tbody><tr><td>Si las no conformidades no se resuelven, solo deberíamos dejarlo sentado en el informe final</td><td>No</td><td>Lo que no se resuelve en el proyecto se escala al nivel apropiado de gerencia</td></tr><tr><td>Las no conformidades no se comunican, solo se usan para el informe final</td><td>No</td><td>PPQA SP 2.1 pide comunicarlas y asegurar su resolución</td></tr><tr><td>Las no conformidades podrían cambiar la descripción de un proceso</td><td>Sí</td><td>Los resultados de las evaluaciones son una de las fuentes de mejoras de proceso de OPF (SP 1.3). Si el estándar no se puede cumplir, se puede corregir el proceso</td></tr></tbody></table></div>
+<p><strong>6. Última versión del producto.</strong> <strong>B</strong>.</p>
+<p>La política pone primero el cambio menor y después el mayor, y los números nunca bajan. Comparando paquete por paquete:</p>
+<div class="tabla"><table><thead><tr><th>Paquete</th><th>A</th><th>B</th><th>Cuál es posterior</th></tr></thead><tbody><tr><td>Altas</td><td>1.1</td><td>1.1</td><td>Iguales</td></tr><tr><td>Compras</td><td>0.1</td><td>0.1</td><td>Iguales</td></tr><tr><td>Bajas</td><td>0.1</td><td>1.1</td><td>B, tiene una corrección más</td></tr><tr><td>Pagos</td><td>1.2</td><td>No está</td><td></td></tr><tr><td>Cheques</td><td>No está</td><td>0.1</td><td></td></tr><tr><td>Efectivo</td><td>No está</td><td>2.1</td><td></td></tr></tbody></table></div>
+<p>Bajas pasó de 0.1 a 1.1, así que B es posterior a A y A no puede ser la última. Que Pagos no esté en B y aparezcan Cheques y Efectivo se explica con cambios de funcionalidad, que pueden agregar o eliminar.</p>
+<p><strong>7. Elementos de CM del proyecto en Alquimia.</strong> <strong>WORD 2019</strong>, <strong>Plla-CU-211001</strong>, <strong>Plla-EC-211001</strong>, <strong>CU-Definir gira</strong>, <strong>CU-Confirmar-presentación-gira</strong>, <strong>CU-Cancelar-presentación-gira</strong>, <strong>CU-Establecer-Lugares</strong>, <strong>CU-Agregar-Contactos</strong>, <strong>EC-WEB</strong> y <strong>EC-Moviles</strong>.</p>
+<ul>
+<li>El proyecto arrancó en marzo de 2022, y en 2022 los proyectos nuevos pasaron a Word 2019. Word 2010 quedó para los que ya venían con él. Word 2021 recién se está estudiando.</li>
+<li>La fecha de las plantillas es AAMMDD. En marzo de 2022 existían Plla-CU-211001 y Plla-EC-211001, del 01/10/21. Plla-CU-220501 es de mayo de 2022 y Plla-CU-230803 de agosto de 2023, posteriores al inicio.</li>
+<li>La política es no innovar, así que al reiniciar en octubre de 2023 el proyecto sigue con sus plantillas.</li>
+<li>Los casos de uso y las especificaciones ya están documentados y son productos de trabajo del proyecto.</li>
+</ul>
+<p><strong>8. BP, SQA emite el informe y no vuelve a intervenir.</strong> <strong>Sí podría generar problemas de calidad, porque no contempla un mecanismo para controlar, por parte de un grupo externo al desarrollo, que se resuelvan las no conformidades.</strong> SQA hace el seguimiento hasta el cierre y escala lo que no se resuelve. Si deja todo en manos del líder, nadie objetivo controla que se corrija.</p>
+<p><strong>9. Facilidad para corregir un programa si se encuentra un error.</strong> <strong>Mantenibilidad.</strong> «Corregibilidad» no es el nombre del atributo.</p>
+<p><strong>10. PSM.</strong></p>
+<div class="tabla"><table><thead><tr><th>Tarea</th><th>Actividad</th></tr></thead><tbody><tr><td>Seleccionar las medidas</td><td>Planificar la medición</td></tr><tr><td>Comprar software de apoyo</td><td>Planificar la medición, al adquirir tecnologías</td></tr><tr><td>Informar los resultados</td><td>Ejecutar la medición, al comunicar resultados</td></tr><tr><td>Identificar puntos débiles a mejorar</td><td>Evaluar la medición, al identificar mejoras</td></tr><tr><td>Construir un histograma con los resultados</td><td>Ejecutar la medición, al analizar y desarrollar productos de información</td></tr></tbody></table></div>
+<p><strong>11. Controlar que los pasos de los CU sigan las directrices del estándar.</strong> <strong>PPQA / SP 1.2 Evaluar objetivamente los productos de trabajo y los servicios.</strong> Se compara contra un estándar de la Software Factory, no contra requerimientos, así que es PPQA y no VER. La entrega a los usuarios clave viene después y no es la actividad que se pide relacionar.</p>
+<p><strong>12. Métricas.</strong></p>
+<div class="tabla"><table><thead><tr><th>Afirmación</th><th>Respuesta</th><th>Por qué</th></tr></thead><tbody><tr><td>Se deben usar las métricas para valorar a los individuos</td><td>Falso</td><td>Se miden procesos, productos y proyectos, no personas</td></tr><tr><td>No se obsesione con una sola métrica ni excluya otras métricas importantes</td><td>Verdadero</td><td>Una sola métrica da una visión parcial</td></tr><tr><td>Las métricas de proceso son tácticas y las de proyecto, estratégicas</td><td>Falso</td><td>Es al revés. Las de proceso son estratégicas y las de proyecto, tácticas</td></tr><tr><td>Si se puede medir se debe usar</td><td>Falso</td><td>GQM parte de una meta y unas preguntas. Se mide lo que responde una pregunta, no todo lo que se puede medir</td></tr></tbody></table></div>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la página Aprobación directa, secciones Gestión de configuración CM, Versionado, Medición y análisis MA y PSM.</p><p class="bloque-fuente">Quedó en duda: Falta el gráfico de versiones de SUN, así que el 1.2 supone una evolución en línea recta. La última versión sale B. En Alquimia se toma Word 2019 porque el cambio de 2022 no dice el mes. Usabilidad y Mantenibilidad salen de los atributos de calidad en general, no del resumen. Los verdadero o falso de métricas siguen el criterio general de Pressman.</p><div class="em-votos" data-m="ingenieria-y-calidad-de-software" data-e="ad-2023-11-11" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="CM" data-enlace="aprobacion-directa.html#gestion-de-configuracion-cm" data-donde="Aprobación directa"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">CM</span><span class="ex-t-teoria"><a href="aprobacion-directa.html#gestion-de-configuracion-cm">Gestión de configuración CM</a>, en Aprobación directa</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="PPQA" data-enlace="aprobacion-directa.html#aseguramiento-de-la-calidad-ppqa" data-donde="Aprobación directa"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">PPQA</span><span class="ex-t-teoria"><a href="aprobacion-directa.html#aseguramiento-de-la-calidad-ppqa">Aseguramiento de la calidad PPQA</a>, en Aprobación directa</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="MA" data-enlace="aprobacion-directa.html#medicion-y-analisis-ma" data-donde="Aprobación directa"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">MA</span><span class="ex-t-teoria"><a href="aprobacion-directa.html#medicion-y-analisis-ma">Medición y análisis MA</a>, en Aprobación directa</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="REQM" data-enlace="aprobacion-directa.html#requerimientos-rd-y-reqm" data-donde="Aprobación directa"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">REQM</span><span class="ex-t-teoria"><a href="aprobacion-directa.html#requerimientos-rd-y-reqm">Requerimientos RD y REQM</a>, en Aprobación directa</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-ad-2024-11-09.html">Anterior: Aprobación directa, 09/11/2024</a><a href="ej-fin-2026-05-08.html">Siguiente: Final, 08/05/2026</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta octubre de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

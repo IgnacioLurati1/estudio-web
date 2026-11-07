@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final, 25/09/2023 (Equipos de montaña): Paradigmas de Programación</title>
+<meta name="description" content="Ejercicio de examen: Final, 25/09/2023 (Equipos de montaña).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="paradigmas-de-programacion" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Paradigmas de Programación</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">Parcial de regularización</a></li><li class="em-fuera"><a href="ad.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=paradigmas-de-programacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=paradigmas-de-programacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Final, 25/09/2023 (Equipos de montaña)</h1>
+<p class="bajada">Final, 25/09/2023</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="fin-2023-09-25" data-titulo="Final, 25/09/2023 (Equipos de montaña)" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="fin-2023-09-25" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1C4uuxojiWndJCgkddi-QGAIfItA6VSlk/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/fin-2023-09-25-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/fin-2023-09-25-e1.webp" width="869" height="1305" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>1) Diagrama de clases</h4>
+<p>Los tres tipos de equipo calculan distinto el costo por día, así que son subclases. El descuento de esquí y el adicional de montañismo son iguales para todos, y van como variables de clase. El seguro es de cada equipo de aventura extrema. Es casi el mismo caso que el alquiler de herramientas del Ejercicio resuelto 3. Cada caja tiene arriba las variables de clase (vc) y de instancia (vi), y abajo los métodos de clase (mc) y de instancia (mi), como los diagramas de los cuestionarios del campus. La flecha punteada va de la subclase a la superclase, y la línea con cantidad es un ensamble. Los métodos que solo devuelven una variable no van en las cajas, para que se lean. Están al final del código. Tocá el dibujo para verlo en pantalla completa.</p>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1007 775" width="1007" height="775" style="width:1007px;min-width:1007px;max-width:none;height:775px" role="img" aria-label="Diagrama de clases de la empresa de alquiler de equipos de montaña. Empresa guarda los equipos, los clientes y los alquileres. Cada alquiler tiene un cliente y uno o más equipos. Equipo es la superclase de AventuraExtrema, con su seguro, de Esqui, con la variable de clase Descuento, y de Montanismo, con la variable de clase Adicional. Cada subclase calcula su costo por día."><g fill="none" stroke="currentColor" stroke-width="1.3"><rect x="272.0" y="10.0" width="198.8" height="224.0"/><path d="M272.0 36.0H470.8M272.0 105.0H470.8M317.0 36.0V234.0"/><rect x="20.0" y="308.0" width="140.8" height="149.0"/><path d="M20.0 334.0H160.8M20.0 418.0H160.8M65.0 334.0V457.0"/><rect x="206.8" y="308.0" width="307.5" height="269.0"/><path d="M206.8 334.0H514.3M206.8 433.0H514.3M382.3 334.0V577.0"/><rect x="560.3" y="308.0" width="162.5" height="164.0"/><path d="M560.3 334.0H722.8M560.3 418.0H722.8M605.3 334.0V472.0"/><rect x="296.2" y="651.0" width="143.0" height="104.0"/><path d="M296.2 677.0H439.2M296.2 716.0H439.2M342.4 677.0V755.0"/><rect x="485.2" y="651.0" width="227.8" height="104.0"/><path d="M485.2 677.0H713.0M485.2 716.0H713.0M617.2 677.0V755.0"/><rect x="759.0" y="651.0" width="227.8" height="104.0"/><path d="M759.0 677.0H986.8M759.0 716.0H986.8M891.0 677.0V755.0"/><path d="M321.7 234.0L90.4 308.0"/><path d="M371.4 234.0L360.6 308.0"/><path d="M421.1 234.0L641.5 308.0"/><path d="M206.8 321.0H160.8"/><path d="M514.3 321.0H560.3"/><path d="M641.5 472.0l-7 12h14z" fill="none"/><path stroke-dasharray="6 4" d="M641.5 484.0V611.0M367.8 611.0H872.9M367.8 611.0V651.0M599.1 611.0V651.0M872.9 611.0V651.0"/></g><g fill="currentColor" stroke="none" font-family="ui-monospace, Consolas, Menlo, monospace" font-size="12" text-anchor="middle"><text x="371.4" y="28.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Empresa</text><text x="280.0" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="325.0" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="325.0" y="66.0" text-anchor="start">equipos</text><text x="325.0" y="81.0" text-anchor="start">clientes</text><text x="325.0" y="96.0" text-anchor="start">alquileres</text><text x="280.0" y="119.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="325.0" y="119.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="325.0" y="135.0" text-anchor="start">inicializa</text><text x="325.0" y="150.0" text-anchor="start">menu</text><text x="325.0" y="165.0" text-anchor="start">alquilarEquipos</text><text x="325.0" y="180.0" text-anchor="start">buscarOCrearCliente</text><text x="325.0" y="195.0" text-anchor="start">nuevoCliente:</text><text x="325.0" y="210.0" text-anchor="start">buscarEquipo</text><text x="325.0" y="225.0" text-anchor="start">listarAlquileres</text><text x="90.4" y="326.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Cliente</text><text x="28.0" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="73.0" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="73.0" y="364.0" text-anchor="start">dni</text><text x="73.0" y="379.0" text-anchor="start">nombre</text><text x="73.0" y="394.0" text-anchor="start">apellido</text><text x="73.0" y="409.0" text-anchor="start">direccion</text><text x="28.0" y="432.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="73.0" y="432.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="73.0" y="448.0" text-anchor="start">cargaDatos:</text><text x="360.6" y="326.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Alquiler</text><text x="214.8" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="214.8" y="364.0" text-anchor="start">UltimoCodigo</text><text x="390.3" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="390.3" y="364.0" text-anchor="start">codigo</text><text x="390.3" y="379.0" text-anchor="start">fecha</text><text x="390.3" y="394.0" text-anchor="start">cliente</text><text x="390.3" y="409.0" text-anchor="start">equipos</text><text x="390.3" y="424.0" text-anchor="start">cantidadDias</text><text x="214.8" y="447.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="214.8" y="463.0" text-anchor="start">asignaUltimoCodigo:</text><text x="214.8" y="478.0" text-anchor="start">incrementaUltimoCodigo</text><text x="390.3" y="447.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="390.3" y="463.0" text-anchor="start">inicializa</text><text x="390.3" y="478.0" text-anchor="start">cargaDatos:</text><text x="390.3" y="493.0" text-anchor="start">cargaDias</text><text x="390.3" y="508.0" text-anchor="start">agregarEquipo:</text><text x="390.3" y="523.0" text-anchor="start">costoTotal</text><text x="390.3" y="538.0" text-anchor="start">emitirResumen</text><text x="390.3" y="553.0" text-anchor="start">fechaEntre:y:</text><text x="390.3" y="568.0" text-anchor="start">mostrarEnListado</text><text x="641.5" y="326.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Equipo</text><text x="568.3" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="613.3" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="613.3" y="364.0" text-anchor="start">codigo</text><text x="613.3" y="379.0" text-anchor="start">descripcion</text><text x="613.3" y="394.0" text-anchor="start">costoDiario</text><text x="613.3" y="409.0" text-anchor="start">disponible</text><text x="568.3" y="432.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="613.3" y="432.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="613.3" y="448.0" text-anchor="start">estaDisponible</text><text x="613.3" y="463.0" text-anchor="start">ocupar</text><text x="367.8" y="669.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">AventuraExtrema</text><text x="304.2" y="691.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="350.4" y="691.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="350.4" y="707.0" text-anchor="start">seguro</text><text x="304.2" y="730.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="350.4" y="730.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="350.4" y="746.0" text-anchor="start">costoPorDia</text><text x="599.1" y="669.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Esqui</text><text x="493.2" y="691.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="493.2" y="707.0" text-anchor="start">Descuento</text><text x="625.2" y="691.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="493.2" y="730.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="493.2" y="746.0" text-anchor="start">asignaDescuento:</text><text x="625.2" y="730.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="625.2" y="746.0" text-anchor="start">costoPorDia</text><text x="872.9" y="669.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Montanismo</text><text x="767.0" y="691.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="767.0" y="707.0" text-anchor="start">Adicional</text><text x="899.0" y="691.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="767.0" y="730.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="767.0" y="746.0" text-anchor="start">asignaAdicional:</text><text x="899.0" y="730.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="899.0" y="746.0" text-anchor="start">costoPorDia</text><text x="82.4" y="300.0" text-anchor="end">0..N</text><text x="352.6" y="300.0" text-anchor="end">0..N</text><text x="649.5" y="300.0" text-anchor="start">1..N</text><text x="166.8" y="316.0" text-anchor="start">1..1</text><text x="554.3" y="316.0" text-anchor="end">1..N</text></g></svg></figure>
+
+<h4>Menú principal</h4>
+<p>Esta consigna sí pide el menú. Es el molde de «Estructuras útiles en Smalltalk», con los puntos que le faltan, y el workspace que lo arranca.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Empresa, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#inicializa</span>
+equipos := <span class="hljs-type">OrderedCollection</span> new.
+clientes := <span class="hljs-type">OrderedCollection</span> new.
+alquileres := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#menu</span>
+<span class="hljs-comment">&quot;Menu de opciones iterativo&quot;</span>
+| op |
+[op ~= <span class="hljs-number">0</span>] whileTrue: [
+    <span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;MENU
+        1- Alquilar equipos
+        2- Listado de alquileres
+        0- Salir&#x27;</span>.
+    op := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la opción que desea ejecutar&#x27;</span>) asNumber.
+    op = <span class="hljs-number">1</span> ifTrue: [<span class="hljs-keyword">self</span> alquilarEquipos].
+    op = <span class="hljs-number">2</span> ifTrue: [<span class="hljs-keyword">self</span> listarAlquileres]]</code></pre>
+<pre class="codigo"><code>| w |
+w := <span class="hljs-type">Empresa</span> new.
+w inicializa.
+w menu</code></pre>
+<h4>2a) Alquilar equipos a un cliente</h4>
+<p><code>Empresa</code> es la clase principal y guarda las colecciones, como la clase principal de los ejercicios resueltos. Cada equipo elegido tiene que estar disponible y pasa a no disponible, como <code>ocupar</code> en el Ejercicio resuelto 3. Al final se imprime el resumen.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Empresa, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#alquilarEquipos</span>
+| cli alq equipo seguir |
+cli := <span class="hljs-keyword">self</span> buscarOCrearCliente.
+alq := <span class="hljs-type">Alquiler</span> new.
+alq inicializa.
+alq cargaDatos: cli.
+seguir := <span class="hljs-keyword">true</span>.
+[seguir] whileTrue: [
+    equipo := <span class="hljs-keyword">self</span> buscarEquipo.
+    equipo isNil
+        ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No hay un equipo disponible con ese código&#x27;</span>]
+        ifFalse: [
+            equipo ocupar.
+            alq agregarEquipo: equipo].
+    seguir := <span class="hljs-type">MessageBox</span> confirm: <span class="hljs-string">&#x27;¿Desea agregar otro equipo?&#x27;</span>].
+alq equipos isEmpty
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;El alquiler no tiene equipos y no se registró&#x27;</span>]
+    ifFalse: [
+        alq cargaDias.
+        alquileres add: alq.
+        alq emitirResumen]
+
+<span class="hljs-symbol">#buscarOCrearCliente</span>
+| dni cli |
+dni := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el DNI del cliente&#x27;</span>) asNumber.
+cli := clientes detect: [:unCliente | unCliente dni = dni] ifNone: [<span class="hljs-keyword">nil</span>].
+cli isNil ifTrue: [cli := <span class="hljs-keyword">self</span> nuevoCliente: dni].
+^cli
+
+<span class="hljs-symbol">#nuevoCliente</span>: unDni
+| cli |
+cli := <span class="hljs-type">Cliente</span> new.
+cli cargaDatos: unDni.
+clientes add: cli.
+^cli
+
+<span class="hljs-symbol">#buscarEquipo</span>
+| cod |
+cod := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el código del equipo&#x27;</span>) asNumber.
+^equipos detect: [:unEquipo | unEquipo codigo = cod and: [unEquipo estaDisponible]] ifNone: [<span class="hljs-keyword">nil</span>]
+
+<span class="hljs-comment">&quot;Cliente, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unDni
+dni := unDni.
+nombre := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el nombre&#x27;</span>.
+apellido := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el apellido&#x27;</span>.
+direccion := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la dirección&#x27;</span>.
+
+<span class="hljs-comment">&quot;Alquiler, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaUltimoCodigo</span>: unNumero
+<span class="hljs-type">UltimoCodigo</span> := unNumero
+
+<span class="hljs-symbol">#incrementaUltimoCodigo</span>
+<span class="hljs-type">UltimoCodigo</span> := <span class="hljs-type">UltimoCodigo</span> + <span class="hljs-number">1</span>
+
+<span class="hljs-comment">&quot;Alquiler, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#inicializa</span>
+equipos := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#cargaDatos</span>: unCliente
+<span class="hljs-type">Alquiler</span> incrementaUltimoCodigo.
+codigo := <span class="hljs-type">UltimoCodigo</span>.
+fecha := <span class="hljs-type">Date</span> today.
+cliente := unCliente.
+
+<span class="hljs-symbol">#cargaDias</span>
+cantidadDias := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la cantidad de días del alquiler&#x27;</span>) asNumber.
+
+<span class="hljs-symbol">#agregarEquipo</span>: unEquipo
+equipos add: unEquipo
+
+<span class="hljs-symbol">#costoTotal</span>
+| tot |
+tot := <span class="hljs-number">0.</span>
+equipos do: [:unEquipo | tot := tot + unEquipo costoPorDia].
+^tot * cantidadDias
+
+<span class="hljs-symbol">#emitirResumen</span>
+<span class="hljs-type">Transcript</span> clear;
+    show: <span class="hljs-string">&#x27;Fecha: &#x27;</span>, fecha printString; cr;
+    show: <span class="hljs-string">&#x27;Alquiler Nro. &#x27;</span>, codigo printString; cr;
+    show: <span class="hljs-string">&#x27;Cliente: &#x27;</span>, cliente dni printString, <span class="hljs-string">&#x27; &#x27;</span>, cliente apellido; cr.
+equipos do: [:unEquipo |
+    <span class="hljs-type">Transcript</span> show: unEquipo codigo printString; tab;
+        show: unEquipo descripcion; tab;
+        show: unEquipo costoPorDia printString; cr].
+<span class="hljs-type">Transcript</span> show: <span class="hljs-string">&#x27;Cantidad de días: &#x27;</span>, cantidadDias printString; cr;
+    show: <span class="hljs-string">&#x27;Costo total: &#x27;</span>, <span class="hljs-keyword">self</span> costoTotal printString; cr
+
+<span class="hljs-comment">&quot;Equipo, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#estaDisponible</span>
+^disponible
+
+<span class="hljs-symbol">#ocupar</span>
+disponible := <span class="hljs-keyword">false</span>
+
+<span class="hljs-comment">&quot;AventuraExtrema, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#costoPorDia</span>
+^costoDiario + seguro
+
+<span class="hljs-comment">&quot;Esqui, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaDescuento</span>: unPorcentaje
+<span class="hljs-type">Descuento</span> := unPorcentaje
+
+<span class="hljs-comment">&quot;Esqui, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#costoPorDia</span>
+^costoDiario - (costoDiario * <span class="hljs-type">Descuento</span> / <span class="hljs-number">100</span>)
+
+<span class="hljs-comment">&quot;Montanismo, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaAdicional</span>: unMonto
+<span class="hljs-type">Adicional</span> := unMonto
+
+<span class="hljs-comment">&quot;Montanismo, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#costoPorDia</span>
+^costoDiario + <span class="hljs-type">Adicional</span></code></pre>
+<h4>2b) Listado de alquileres por rango de fechas</h4>
+<p>Se ordena por fecha y después se filtra por el rango.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Empresa, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#listarAlquileres</span>
+| desde hasta lista |
+desde := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha desde (dd/mm/aaaa)&#x27;</span>).
+hasta := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha hasta (dd/mm/aaaa)&#x27;</span>).
+lista := (alquileres asSortedCollection: [:a :b | a fecha &lt; b fecha])
+    select: [:unAlq | unAlq fechaEntre: desde y: hasta].
+lista isEmpty
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No se han encontrado alquileres en ese período&#x27;</span>]
+    ifFalse: [
+        <span class="hljs-type">Transcript</span> clear;
+            show: <span class="hljs-string">&#x27;Fecha&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Código&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Cliente&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Equipos&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Monto&#x27;</span>; cr.
+        lista do: [:unAlq | unAlq mostrarEnListado]]
+
+<span class="hljs-comment">&quot;Alquiler, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#fechaEntre</span>: desde y: hasta
+^(fecha &gt;= desde) and: [fecha &lt;= hasta]
+
+<span class="hljs-symbol">#mostrarEnListado</span>
+<span class="hljs-type">Transcript</span> show: fecha printString; tab;
+    show: codigo printString; tab;
+    show: cliente nombre, <span class="hljs-string">&#x27; &#x27;</span>, cliente apellido; tab;
+    show: equipos size printString; tab;
+    show: <span class="hljs-keyword">self</span> costoTotal printString; cr</code></pre>
+<h4>Métodos que devuelven datos</h4>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Cliente, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#dni</span>
+^dni
+
+<span class="hljs-symbol">#nombre</span>
+^nombre
+
+<span class="hljs-symbol">#apellido</span>
+^apellido
+
+<span class="hljs-comment">&quot;Alquiler, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#fecha</span>
+^fecha
+
+<span class="hljs-symbol">#equipos</span>
+^equipos
+
+<span class="hljs-comment">&quot;Equipo, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#codigo</span>
+^codigo
+
+<span class="hljs-symbol">#descripcion</span>
+^descripcion</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con las páginas de Aprobación directa («Cómo leer la narrativa» y «Qué lleva el diagrama») y de Final («Las plantillas del Drive» y «Cómo se arma el programa»), que salen de «Estructuras útiles en Smalltalk» y de los Ejercicios resueltos 1 a 3 de Material Util. El menú es el molde «Menú genérico» y «Workspace genérico» de «Estructuras útiles en Smalltalk».</p><p class="bloque-fuente">Quedó en duda: El material no muestra cómo filtrar entre dos fechas. Acá se compara con <code>&gt;=</code> y <code>&lt;=</code> en <code>fechaEntre:y:</code>. El molde del menú arranca con <code>op</code> en <code>nil</code> y depende de que <code>nil ~= 0</code> dé verdadero. Si tu comisión lo inicializa antes, poné <code>op := 1.</code> al principio. La hoja no dice cuándo vuelve a estar disponible un equipo. Acá nada lo libera. Un código que no existe y uno de un equipo ocupado dan el mismo aviso. Se supone que las variables de clase ya tienen su valor, cargado con los métodos de clase <code>asigna...</code>. El código no se corrió en un Smalltalk real.</p><div class="em-votos" data-m="paradigmas-de-programacion" data-e="fin-2023-09-25" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Diagrama de clases" data-enlace="parcial-1.html#metodos-de-clase-y-de-instancia" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Diagrama de clases</span><span class="ex-t-teoria"><a href="parcial-1.html#metodos-de-clase-y-de-instancia">Métodos de clase y de instancia</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Smalltalk" data-enlace="parcial-1.html#que-se-tomo" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Smalltalk</span><span class="ex-t-teoria"><a href="parcial-1.html#que-se-tomo">Qué se tomó</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Menú" data-enlace="final.html#si-te-piden-menu" data-donde="Final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Menú</span><span class="ex-t-teoria"><a href="final.html#si-te-piden-menu">Si te piden menú</a>, en Final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2023-11-13.html">Anterior: Final, 13/11/2023 (Reciclaje)</a><a href="ej-fin-2023-08-28.html">Siguiente: Final, 28/08/2023 (Inmobiliaria El Hornero)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

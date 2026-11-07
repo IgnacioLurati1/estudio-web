@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2° parcial: Seguridad en los Sistemas de Información</title>
+<meta name="description" content="Continuidad del negocio con ISO 22301, pentesting, hardening, móviles y herramientas.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="seguridad-en-los-sistemas-de-informacion" data-pagina="parcial-2">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Seguridad en los Sistemas de Información</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html" aria-current="page">2° parcial</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=seguridad-en-los-sistemas-de-informacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=seguridad-en-los-sistemas-de-informacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#parte-teorica-continuidad-del-negocio">Parte teórica: continuidad del negocio</a></li><li class="n2"><a href="#que-es-la-continuidad">Qué es la continuidad</a></li><li class="n2"><a href="#el-ciclo-pdca">El ciclo PDCA</a></li><li class="n2"><a href="#lo-que-pide-cada-clausula">Lo que pide cada cláusula</a></li><li class="n2"><a href="#estrategias-y-soluciones">Estrategias y soluciones</a></li><li class="n2"><a href="#el-analisis-de-impacto-bia">El análisis de impacto (BIA)</a></li><li class="n2"><a href="#parte-practica-pentesting-y-hardening">Parte práctica: pentesting y hardening</a></li><li class="n2"><a href="#que-es-el-pentesting">Qué es el pentesting</a></li><li class="n2"><a href="#los-tipos-de-caja">Los tipos de caja</a></li><li class="n2"><a href="#las-fases">Las fases</a></li><li class="n2"><a href="#vulnerabilidades-amenazas-y-ataques">Vulnerabilidades, amenazas y ataques</a></li><li class="n2"><a href="#hardening">Hardening</a></li><li class="n2"><a href="#moviles">Móviles</a></li><li class="n2"><a href="#herramientas">Herramientas</a></li><li class="n2"><a href="#politicas-de-seguridad-y-ubicacion-del-firewall">Políticas de seguridad y ubicación del firewall</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>2° parcial</h1>
+<p class="bajada">Teoría: continuidad del negocio con ISO 22301. Práctica: pentesting, hardening, móviles, herramientas y políticas de seguridad.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>Son dos cuestionarios del campus, de 20 preguntas cada uno. Hay tres en el Drive.</p>
+<ul>
+<li><strong>Teoría:</strong> una sola, del 06/11/2025. Las 20 preguntas son de ISO 22301 y del sistema de gestión de la continuidad (SGCN). Cada una vale 1 punto sobre 20.</li>
+<li><strong>Práctica:</strong> dos, del 08/11/2024 y del 07/11/2025. Cada pregunta vale 0,50 puntos.</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Lo que se repitió entre las dos prácticas</strong><span>2° parcial práctica, 08/11/2024 y 07/11/2025</span></aside><p>Cuatro preguntas salieron iguales, con las opciones en otro orden. Son el objetivo principal del pentesting, el elemento que no se evalúa, la fase de gathering y qué sabe el auditor en caja negra. Las cuatro están abajo.</p>
+</div>
+<div class="ojo"><p class="ojo-t">De dónde sale cada respuesta</p><p>De lo que marca el campus al revisar el intento, con examen, pregunta y página. El Drive no trae la norma ni apuntes. Lo marcado «En criollo» es una ayuda para entender y no sale del material.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parte-teorica-continuidad-del-negocio">Parte teórica: continuidad del negocio</h2>
+<p>Lo que sigue, hasta la parte práctica, salió de la teoría del 06/11/2025.</p>
+</section>
+<section class="sec"><h2 id="que-es-la-continuidad">Qué es la continuidad</h2>
+<div class="tomado"><aside class="nota"><strong>Las dos definiciones que se piden</strong><span>2° parcial teoría, 06/11/2025</span></aside><ul>
+<li><strong>Continuidad del negocio (business continuity):</strong> <mark>capacidad de una organización para continuar la entrega de productos y servicios dentro de plazos aceptables a una capacidad predefinida durante una disrupción</mark>.</li>
+<li><strong>Gestión de la continuidad de negocio:</strong> <mark>proceso holístico de gestión que identifica amenazas potenciales y el impacto que esas amenazas pueden causar, proporcionando un marco para crear resiliencia organizativa con capacidad de respuesta eficaz</mark>.</li>
+</ul>
+<p>Fuente: 2° parcial teoría 06/11/2025, preguntas 4 (página 2) y 13 (página 7), respuesta del campus.</p>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La continuidad es poder seguir atendiendo mientras algo está roto. La gestión es el trabajo de prepararse para poder hacerlo.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>En qué se diferencia de otras normas</strong><span>2° parcial teoría, 06/11/2025</span></aside><p>La norma de continuidad se centra en <mark>el «qué pasaría si»</mark> y en la capacidad de identificar y planificar posibles impactos y riesgos para la empresa. Fuente: 2° parcial teoría 06/11/2025, pregunta 6, página 3, respuesta del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="el-ciclo-pdca">El ciclo PDCA</h2>
+<div class="tomado"><aside class="nota"><strong>Las fases y la cláusula 8</strong><span>2° parcial teoría, 06/11/2025</span></aside><p>La fase de <mark>«Actuar» es tomar medidas cuando sea necesario, basándose en el seguimiento, la medición y otros factores que impulsen la acción</mark>.</p>
+<p>La cláusula 8 (Operación) abarca principalmente la etapa de <mark>Hacer (implementar y operar)</mark>.</p>
+<p>Las consignas rotulan las otras fases así:</p>
+<div class="tabla"><table><thead><tr><th>Fase</th><th>Cómo la escribe la consigna</th></tr></thead><tbody><tr><td>Planificar</td><td>Establecer los objetivos y los recursos necesarios</td></tr><tr><td>Hacer</td><td>Aplicar lo planificado. Implementar y operar</td></tr><tr><td>Verificar</td><td>Supervisar y medir la eficacia. Monitorear y revisar</td></tr><tr><td>Actuar</td><td>Mantener y mejorar</td></tr></tbody></table></div>
+<p>Fuente: 2° parcial teoría 06/11/2025, preguntas 14 (página 7) y 16 (página 8), respuesta y opciones del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="lo-que-pide-cada-clausula">Lo que pide cada cláusula</h2>
+<div class="tomado"><aside class="nota"><strong>Las cláusulas que se preguntaron</strong><span>2° parcial teoría, 06/11/2025</span></aside><div class="tabla"><table><thead><tr><th>Cláusula</th><th>Lo que marca el campus</th><th>Pregunta y página</th></tr></thead><tbody><tr><td>4.2.2</td><td>Implementar y mantener <mark>un proceso para identificar, tener acceso y evaluar los requisitos legales y regulatorios aplicables</mark></td><td>1, pág. 1</td></tr><tr><td>4.3 Alcance</td><td>Los alcances documentados describen <mark>los procesos, actividades, productos o servicios internos y externos incluidos (o no incluidos)</mark></td><td>20, pág. 10</td></tr><tr><td>5.1 Liderazgo</td><td>La alta dirección demuestra compromiso <mark>asegurando la integración de los requisitos del SGCN en los procesos de negocio</mark> y <mark>garantizando que cuenta con los recursos adecuados</mark></td><td>11, pág. 6, y 19, pág. 10</td></tr><tr><td>6.1 Planificación</td><td>Sus riesgos y oportunidades se relacionan con <mark>la eficacia del sistema de gestión</mark></td><td>3, pág. 2</td></tr><tr><td>7.3 Concienciación</td><td>El personal debe ser consciente de <mark>la política del SGCN, su contribución a la eficacia del sistema, y sus roles antes, durante y después de las disrupciones</mark>, y de <mark>las implicaciones de no cumplir con los requisitos del SGCN</mark></td><td>2, pág. 1, y 10, pág. 5</td></tr><tr><td>7.5 Información documentada</td><td>El acceso se controla <mark>para que no pueda modificarse, corromperse, borrarse o ser consultada por personas a las que no corresponda</mark></td><td>12, pág. 6</td></tr><tr><td>8.1 Control operacional</td><td>Los procesos subcontratados y la cadena de suministro <mark>deben ser controlados</mark></td><td>5, pág. 3</td></tr><tr><td>8.2.3 Evaluación de riesgos</td><td>Sus riesgos se relacionan con <mark>la disrupción de las actividades del negocio</mark></td><td>3, pág. 2</td></tr></tbody></table></div>
+<p>Fuente: 2° parcial teoría 06/11/2025, las preguntas de la tabla, respuesta del campus. La frase de 8.2.3 está en la consigna de la pregunta 3. Las preguntas 2 y 19 no nombran su cláusula. Van en esa fila porque piden lo mismo que la 10 y la 11.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Dos clases de riesgo</p><p>La 8.2.3 mira los riesgos del negocio. La 6.1 mira los riesgos del propio sistema de gestión. Eso es justo lo que pide la pregunta 3. Fuente: 2° parcial teoría 06/11/2025, pregunta 3, página 2, consigna y respuesta del campus.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Política, cambios y proveedores</strong><span>2° parcial teoría, 06/11/2025</span></aside><ul>
+<li><strong>Política de continuidad.</strong> Además de dar un marco para establecer objetivos, debe incluir <mark>el compromiso de cumplir los requisitos aplicables y el compromiso de mejora continua</mark>.</li>
+<li><strong>Cambios en el SGCN.</strong> Además del propósito, las consecuencias potenciales y la disponibilidad de recursos, hay que considerar <mark>la integridad del SGCN</mark>.</li>
+<li><strong>Proveedores de alto riesgo.</strong> <mark>Asegurarse de que aplican controles al menos tan buenos como los de la organización, o buscar alternativas</mark>.</li>
+</ul>
+<p>Fuente: 2° parcial teoría 06/11/2025, preguntas 8 (página 4), 17 y 18 (página 9), respuesta del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="estrategias-y-soluciones">Estrategias y soluciones</h2>
+<div class="tomado"><aside class="nota"><strong>Con qué se eligen</strong><span>2° parcial teoría, 06/11/2025</span></aside><p>La selección de estrategias y soluciones se basa en estas cosas:</p>
+<ul>
+<li>La medida en que cumplen con los requisitos para continuar y recuperar las actividades prioritarias.</li>
+<li><mark>Reducir la probabilidad y la duración de las perturbaciones</mark>.</li>
+<li>Los costos y beneficios asociados.</li>
+<li><mark>La cantidad y el tipo de riesgo que la organización puede o no asumir</mark>.</li>
+<li>La propensión al riesgo, que la pregunta 7 nombra como otra base de selección.</li>
+</ul>
+<p>Fuente: 2° parcial teoría 06/11/2025, preguntas 7 (página 4) y 9 (página 5), respuesta y consigna del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="el-analisis-de-impacto-bia">El análisis de impacto (BIA)</h2>
+<div class="tomado"><aside class="nota"><strong>RTO</strong><span>2° parcial teoría, 06/11/2025</span></aside><p>El Objetivo de Tiempo de Recuperación (RTO) es <mark>el período de tiempo tras un incidente en el que se reanuda un producto o servicio o una actividad, o se recuperan los recursos</mark>. Fuente: 2° parcial teoría 06/11/2025, pregunta 15, página 8, respuesta del campus.</p>
+</div>
+<p>Las opciones de esa pregunta y de la 13 traen otras siglas con su definición. No fueron la respuesta pedida, pero sirven para no confundirlas.</p>
+<div class="tabla"><table><thead><tr><th>Sigla</th><th>Cómo la describe la opción</th></tr></thead><tbody><tr><td>PMPT</td><td>El tiempo máximo tolerable antes de que el impacto adverso sea inaceptable. Otra opción lo nombra Periodo Máximo de Interrupción Tolerable</td></tr><tr><td>MBCO</td><td>El nivel mínimo de servicios que una organización debe mantener tras una interrupción</td></tr></tbody></table></div>
+<p>Otra opción de la pregunta 15 habla del «punto hasta el que se restablece la información utilizada», sin darle nombre.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El RTO mide en cuánto tiempo volvés. El PMPT mide cuánto aguantás sin volver. El MBCO mide con qué nivel mínimo de servicio tenés que seguir.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parte-practica-pentesting-y-hardening">Parte práctica: pentesting y hardening</h2>
+<p>Lo que sigue salió de las prácticas del 08/11/2024 y del 07/11/2025.</p>
+</section>
+<section class="sec"><h2 id="que-es-el-pentesting">Qué es el pentesting</h2>
+<div class="tomado"><aside class="nota"><strong>Objetivo y alcance</strong><span>2° parcial práctica, 08/11/2024 y 07/11/2025</span></aside><ul>
+<li><strong>Objetivo principal:</strong> <mark>encontrar y prevenir fallos de seguridad</mark>. «Mejorar la seguridad de la empresa» estaba entre las opciones y no era la marcada. Salió en los dos años.</li>
+<li><strong>Qué no se evalúa en un pentest:</strong> <mark>la velocidad de procesamiento</mark>. Salió en los dos años.</li>
+<li><strong>Qué lo diferencia de una evaluación de vulnerabilidades:</strong> <mark>intenta explotar las vulnerabilidades encontradas</mark>.</li>
+<li><strong>Como método:</strong> es <mark>la simulación de ataques controlados para identificar fallos</mark>.</li>
+</ul>
+<p>Fuente: 2° parcial práctica 08/11/2024, preguntas 7 (página 3), 10 (página 4) y 12 (página 5). 2° parcial práctica 07/11/2025, preguntas 11 y 13 (página 6). 1° parcial práctica 27/09/2024, pregunta 12, página 5. Respuesta del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="los-tipos-de-caja">Los tipos de caja</h2>
+<div class="tomado"><aside class="nota"><strong>Cuánto sabe el auditor</strong><span>2° parcial práctica, 08/11/2024 y 07/11/2025</span></aside><div class="tabla"><table><thead><tr><th>Tipo</th><th>Lo que marca el campus</th><th>Pregunta</th></tr></thead><tbody><tr><td>Caja negra</td><td><mark>No tiene información previa sobre el sistema</mark>. <mark>Es la más realista en términos de ataque externo</mark></td><td>2024: 2 (pág. 1) y 15 (pág. 6). 2025: 16 (pág. 8)</td></tr><tr><td>Caja blanca</td><td><mark>Permite al auditor conocer toda la información del sistema</mark>. <mark>Es la considerada más completa</mark></td><td>2024: 8 (pág. 4). 2025: 12 (pág. 6)</td></tr><tr><td>Caja gris</td><td><mark>Evalúa desde el punto de vista de un usuario interno o un atacante con acceso limitado</mark></td><td>2025: 17 (pág. 8)</td></tr></tbody></table></div>
+<p>Caja azul aparece como opción en varias preguntas y nunca fue la marcada. Fuente: los dos exámenes de la tabla, respuesta del campus.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Realista no es lo mismo que completa</p><p>Caja negra es la más realista. Caja blanca es la más completa. Los dos superlativos se preguntaron por separado, en exámenes distintos. Fuente: 2° parcial práctica 08/11/2024, pregunta 2, página 1, y 07/11/2025, pregunta 12, página 6, respuesta del campus.</p>
+</div>
+<details class="pregunta"><summary><span>Se muestra una captura de Kali con un comando de Hydra contra un servicio FTP. Según el comando, ¿qué tipo de pentesting se está realizando?</span><small>2° parcial práctica, 07/11/2025</small></summary><div class="resp"><p>Grey Box. El campus no explica el motivo. Mirá la captura en <a href="ejercicios.html">Ejercicios</a>. Fuente: 2° parcial práctica 07/11/2025, pregunta 3, página 2, respuesta del campus.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="las-fases">Las fases</h2>
+<div class="tomado"><aside class="nota"><strong>Qué pasa en cada fase</strong><span>2° parcial práctica, 08/11/2024 y 07/11/2025</span></aside><ul>
+<li><strong>Gathering o recolección de información:</strong> <mark>se recopila toda la información posible sobre los sistemas, redes, software, hardware y otras fuentes externas, como metadatos y redes sociales</mark>. Salió en los dos años.</li>
+<li><strong>Análisis de vulnerabilidades:</strong> <mark>entran en juego la combinación de factores como herramientas de hacking, experiencia y astucia del auditor</mark>.</li>
+<li><strong>Acceso al sistema:</strong> <mark>el auditor organiza los ataques y mantiene el acceso al objetivo</mark>.</li>
+<li><strong>Generación de informes:</strong> es la fase final del white hat.</li>
+</ul>
+<p>Fuente: 2° parcial práctica 08/11/2024, preguntas 1 (página 1) y 13 (página 5). 2° parcial práctica 07/11/2025, preguntas 5 (página 3), 8 (página 5) y 14 (página 7). Respuesta del campus.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Astucia es análisis, no explotación</p><p>En la consigna de la astucia del auditor, «explotación de vulnerabilidades» era opción y no era la correcta. Fuente: 2° parcial práctica 07/11/2025, pregunta 8, página 5, respuesta del campus.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Cuando lo hace un black o grey hat</strong><span>2° parcial práctica, 07/11/2025</span></aside><ul>
+<li><strong>Fases que se reemplazan cuando las hace un black o grey hat:</strong> <mark>definición de reglas y límites, y generación de informes</mark>.</li>
+<li><strong>Con qué reemplaza el black hat la generación de informes:</strong> <mark>mantener acceso y borrador de huellas</mark>.</li>
+</ul>
+<p>Fuente: 2° parcial práctica 07/11/2025, preguntas 5 (página 3) y 7 (página 4), respuesta del campus.</p>
+</div>
+<div class="ojo"><p class="ojo-t">El orden de las fases</p><p>Ningún examen da la lista completa ni el orden, solo que el informe es la fase final. Buscá la lista en el material de tu comisión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="vulnerabilidades-amenazas-y-ataques">Vulnerabilidades, amenazas y ataques</h2>
+<div class="tomado"><aside class="nota"><strong>Clasificaciones</strong><span>2° parcial práctica, 08/11/2024</span></aside><ul>
+<li><strong>Vulnerabilidad por políticas de seguridad deficientes:</strong> es de tipo <mark>diseño</mark>. Las otras opciones eran uso e implementación.</li>
+<li><strong>Las tres principales categorías de amenazas en los sistemas:</strong> <mark>amenazas en la red, amenazas en los sistemas y amenazas en las aplicaciones</mark>.</li>
+</ul>
+<p>Fuente: 2° parcial práctica 08/11/2024, preguntas 3 (página 2) y 11 (página 5), respuesta del campus.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Reconocer el ataque por su descripción</strong><span>2° parcial práctica, 08/11/2024</span></aside><ul>
+<li><strong>Ingeniería social:</strong> <mark>manipulación psicológica para persuadir a la víctima de que revele credenciales u otra información</mark>, por conversaciones, correos o llamadas, sin software malicioso.</li>
+<li><strong>Phishing:</strong> <mark>el atacante se hace pasar por una entidad legítima para obtener información confidencial</mark>. Lo más común es enviar correos o mensajes que aparentan ser de una fuente confiable.</li>
+<li><strong>DDoS:</strong> <mark>realizar peticiones de acceso a una página web desde muchos servidores al mismo tiempo</mark>.</li>
+</ul>
+<p>Fuente: 2° parcial práctica 08/11/2024, preguntas 5 y 6 (página 3) y 19 (página 7), respuesta del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="hardening">Hardening</h2>
+<div class="tomado"><aside class="nota"><strong>Qué es y qué entra</strong><span>2° parcial práctica, 07/11/2025</span></aside><ul>
+<li><strong>Hardening:</strong> <mark>implementar configuraciones adicionales para mejorar la seguridad y reducir las vulnerabilidades de un sistema</mark>.</li>
+<li><strong>Ejemplo que entra en el concepto:</strong> <mark>deshabilitación de dispositivos ópticos, USB o similares</mark>.</li>
+<li><strong>Tres puntos del hardening en un host Windows:</strong> <mark>directiva de contraseña, activar firewall de Windows e instalar antivirus</mark>.</li>
+</ul>
+<p>Fuente: 2° parcial práctica 07/11/2025, preguntas 4 (página 3), 18 y 19 (página 9), respuesta del campus.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Las tres de Windows</p><p>Había seis opciones. Configurar IP fija, cambiar el usuario administrador por estándar y crear listas de acceso en el firewall no estaban marcadas. Fuente: 2° parcial práctica 07/11/2025, pregunta 19, página 9, respuesta del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="moviles">Móviles</h2>
+<div class="tomado"><aside class="nota"><strong>Android e iOS</strong><span>2° parcial práctica, 07/11/2025</span></aside><ul>
+<li><strong>Capas de la arquitectura interna de Android:</strong> <mark>aplicación, framework de aplicación, librerías y Linux Kernel</mark>. Los atacantes pueden escalar desde la capa de aplicación hasta el kernel para obtener control total.</li>
+<li><strong>Jailbreaking en iOS:</strong> <mark>es el proceso de romper la seguridad del sistema para obtener privilegios root</mark>. Se considera complejo porque el kernel está cifrado y el sistema es cerrado.</li>
+</ul>
+<p>Fuente: 2° parcial práctica 07/11/2025, preguntas 2 (página 2) y 15 (página 7), respuesta del campus.</p>
+</div>
+</section>
+<section class="sec"><h2 id="herramientas">Herramientas</h2>
+<div class="tomado"><aside class="nota"><strong>Para qué sirve cada una</strong><span>2° parcial práctica, 08/11/2024 y 07/11/2025</span></aside><div class="tabla"><table><thead><tr><th>Herramienta</th><th>Lo que marca el campus</th><th>Pregunta</th></tr></thead><tbody><tr><td>Kali</td><td><mark>Distribución completa de Linux especializada en auditoría de seguridad</mark></td><td>2024: 17, pág. 7</td></tr><tr><td>Metasploit</td><td><mark>Para simular ataques y realizar pruebas de penetración en sistemas</mark></td><td>2025: 9, pág. 5</td></tr><tr><td>John the Ripper</td><td><mark>Descifrar contraseñas sin conexión</mark></td><td>2024: 16, pág. 6</td></tr></tbody></table></div>
+<p>Fuente: los dos exámenes de la tabla, respuesta del campus.</p>
+</div>
+<details class="pregunta"><summary><span>Durante tareas de pentesting se detectó un parámetro cat vulnerable. ¿Qué herramienta se utilizó para encontrar esta falla?</span><small>2° parcial práctica, 07/11/2025</small></summary><div class="resp"><p>Sqlmap. Las otras opciones eran Nikto, Nessus y Nmap. Fuente: 2° parcial práctica 07/11/2025, pregunta 10, página 5, respuesta del campus.</p>
+</div></details>
+<details class="pregunta"><summary><span>En una salida de Nikto sobre un host, ¿cuál de las vulnerabilidades detectadas es de severidad alta?</span><small>2° parcial práctica, 07/11/2025</small></summary><div class="resp"><p>wp-config.php accesible. Las otras opciones eran cabeceras y versión de Apache expuestas, y phpinfo() accesible. Fuente: 2° parcial práctica 07/11/2025, pregunta 6, página 4, respuesta del campus.</p>
+</div></details>
+<details class="pregunta"><summary><span>Según una salida de Nmap con el puerto 22/tcp abierto y el nombre del servicio oculto, ¿qué comando se puede usar para intentar conectarse al equipo?</span><small>2° parcial práctica, 07/11/2025</small></summary><div class="resp"><p>ssh seguido de la IP del equipo. Las otras opciones eran tcp y ftp. Fuente: 2° parcial práctica 07/11/2025, pregunta 20, página 10, respuesta del campus.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="politicas-de-seguridad-y-ubicacion-del-firewall">Políticas de seguridad y ubicación del firewall</h2>
+<div class="tomado"><aside class="nota"><strong>Grados de política</strong><span>2° parcial práctica, 08/11/2024 y 07/11/2025</span></aside><ul>
+<li><strong>Política promiscua:</strong> <mark>no establece restricciones de acceso a los recursos del sistema</mark>.</li>
+<li><strong>Política prudente:</strong> <mark>es un grado de política de seguridad alto donde los recursos están limitados exclusivamente a las personas más imprescindibles</mark>.</li>
+</ul>
+<p>Fuente: 2° parcial práctica 08/11/2024, pregunta 20, página 8. 2° parcial práctica 07/11/2025, pregunta 1, página 1. Respuesta del campus.</p>
+</div>
+<div class="ojo"><p class="ojo-t">La prudente, no la extrema</p><p>En esa definición, «política extrema» era una opción y no era la correcta. Permisiva también aparece como opción, sin definición en ningún examen. Fuente: 2° parcial práctica 07/11/2025, pregunta 1, página 1, respuesta del campus.</p>
+</div>
+<details class="pregunta"><summary><span>Tenés que instalar un firewall dedicado para monitorear y controlar el tráfico entrante y saliente. ¿Dónde debería ir?</span><small>2° parcial práctica, 08/11/2024</small></summary><div class="resp"><p>Entre el módem del proveedor de internet y el router. Fuente: 2° parcial práctica 08/11/2024, pregunta 9, página 4, respuesta del campus.</p>
+</div></details>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-2" data-materia="seguridad-en-los-sistemas-de-informacion">
+<h2>Quiz del 2° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="TD5NzvhXIl" data-tema="Qué es la continuidad" data-enlace="parcial-2.html#que-es-la-continuidad" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-1"><span class="q-n">1</span><div><p>Según ISO 22301, ¿qué es la continuidad del negocio (business continuity)?</p>
+<p class="q-origen">Se tomó: 2° parcial teoría, 06/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-1"><li><button type="button" class="op" data-ok="0">El tiempo máximo tolerable antes de que el impacto adverso sea inaceptable (PMPT).</button></li><li><button type="button" class="op" data-ok="0">El proceso holístico para identificar amenazas y proporcionar un marco para la resiliencia organizativa.</button></li><li><button type="button" class="op" data-ok="1">Capacidad de una organización para continuar la entrega de productos y servicios dentro de plazos aceptables a una capacidad predefinida durante una disrupción.</button></li><li><button type="button" class="op" data-ok="0">El nivel mínimo de servicios que una organización debe mantener tras una interrupción (MBCO).</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es una <strong>capacidad</strong>. El proceso holístico es la definición de la gestión de la continuidad.</p>
+</div></li><li class="q" data-q="syZ7aogKZZ" data-tema="Qué es la continuidad" data-enlace="parcial-2.html#que-es-la-continuidad" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-2"><span class="q-n">2</span><div><p>La norma de continuidad de la actividad se diferencia de otras normas de gestión, ya que se centra principalmente en:</p>
+<p class="q-origen">Se tomó: 2° parcial teoría, 06/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-2"><li><button type="button" class="op" data-ok="0">La implementación diaria del ciclo Planificar-Hacer-Verificar-Actuar (PDCA).</button></li><li><button type="button" class="op" data-ok="1">El «qué pasaría si», identificando y planificando posibles impactos y riesgos para la empresa.</button></li><li><button type="button" class="op" data-ok="0">La protección del valor de la organización a largo plazo a través de la ciberseguridad.</button></li><li><button type="button" class="op" data-ok="0">La gestión diaria de la calidad de los procesos de la empresa.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se centra en el <strong>«qué pasaría si»</strong>.</p>
+</div></li><li class="q" data-q="JLJsSjd6TZ" data-tema="El ciclo PDCA" data-enlace="parcial-2.html#el-ciclo-pdca" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-3"><span class="q-n">3</span><div><p>¿Qué etapa del ciclo PDCA abarca principalmente la cláusula 8 (Operación) de la ISO 22301?</p>
+<p class="q-origen">Se tomó: 2° parcial teoría, 06/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-3"><li><button type="button" class="op" data-ok="0">Planificar (Establecer).</button></li><li><button type="button" class="op" data-ok="0">Verificar (Monitorear y revisar).</button></li><li><button type="button" class="op" data-ok="1">Hacer (Implementar y operar).</button></li><li><button type="button" class="op" data-ok="0">Actuar (Mantener y mejorar).</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La cláusula 8 abarca <strong>Hacer</strong>.</p>
+</div></li><li class="q" data-q="OZLhkCdgpV" data-tema="Lo que pide cada cláusula" data-enlace="parcial-2.html#lo-que-pide-cada-clausula" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-4"><span class="q-n">4</span><div><p>Los riesgos de la cláusula 8.2.3 (Evaluación de riesgos) se relacionan con la disrupción de las actividades del negocio. Los riesgos de la cláusula 6.1 (Planificación) se relacionan con:</p>
+<p class="q-origen">Se tomó: 2° parcial teoría, 06/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-4"><li><button type="button" class="op" data-ok="0">La política de continuidad de negocio.</button></li><li><button type="button" class="op" data-ok="0">La capacidad predefinida de productos y servicios.</button></li><li><button type="button" class="op" data-ok="1">La eficacia del sistema de gestión.</button></li><li><button type="button" class="op" data-ok="0">La madurez de los recursos de la organización.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La 6.1 mira <strong>la eficacia del sistema de gestión</strong>.</p>
+</div></li><li class="q" data-q="YX4_DKJrmu" data-tema="Lo que pide cada cláusula" data-enlace="parcial-2.html#lo-que-pide-cada-clausula" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-5"><span class="q-n">5</span><div><p>En relación con la gestión de proveedores, ¿qué se recomienda hacer con los proveedores de alto riesgo para el SGCN?</p>
+<p class="q-origen">Se tomó: 2° parcial teoría, 06/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-5"><li><button type="button" class="op" data-ok="1">Asegurarse de que aplican controles al menos tan buenos como los de su organización, o buscar alternativas.</button></li><li><button type="button" class="op" data-ok="0">Excluir a todos los proveedores del alcance del SGCN.</button></li><li><button type="button" class="op" data-ok="0">No incluir a los proveedores en el programa de ejercicios y pruebas.</button></li><li><button type="button" class="op" data-ok="0">Depender únicamente de las certificaciones de ciberseguridad del proveedor.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Controles <strong>al menos tan buenos</strong> o buscar alternativas.</p>
+</div></li><li class="q" data-q="UDlDgrbVm4" data-tema="Lo que pide cada cláusula" data-enlace="parcial-2.html#lo-que-pide-cada-clausula" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-6"><span class="q-n">6</span><div><p>¿Qué requisito debe incluir la política de continuidad de negocio, además de proporcionar un marco para el establecimiento de objetivos?</p>
+<p class="q-origen">Se tomó: 2° parcial teoría, 06/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-6"><li><button type="button" class="op" data-ok="0">La asignación de presupuesto para todas las acciones correctivas futuras.</button></li><li><button type="button" class="op" data-ok="0">Una referencia a la norma ISO 22300:2018 Vocabulario.</button></li><li><button type="button" class="op" data-ok="1">El compromiso de cumplir los requisitos aplicables y el compromiso de mejora continua.</button></li><li><button type="button" class="op" data-ok="0">Una lista detallada de los Periodos Máximos de Interrupción Tolerable (PMPT).</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los dos compromisos: <strong>cumplir los requisitos</strong> y <strong>mejora continua</strong>.</p>
+</div></li><li class="q" data-q="268SYn0zG0" data-tema="El análisis de impacto (BIA)" data-enlace="parcial-2.html#el-analisis-de-impacto-bia" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-7"><span class="q-n">7</span><div><p>En el marco del análisis del impacto empresarial (BIA), ¿qué representa el objetivo de tiempo de recuperación (RTO)?</p>
+<p class="q-origen">Se tomó: 2° parcial teoría, 06/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-7"><li><button type="button" class="op" data-ok="0">El tiempo máximo antes de que el impacto adverso sea inaceptable (PMPT).</button></li><li><button type="button" class="op" data-ok="0">El punto hasta el que se restablece la información utilizada.</button></li><li><button type="button" class="op" data-ok="0">El nivel mínimo de servicios que se deben mantener (MBCO).</button></li><li><button type="button" class="op" data-ok="1">El período de tiempo tras un incidente en el que se reanuda un producto o actividad.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El RTO es <strong>el período tras un incidente en el que se reanuda</strong>.</p>
+</div></li><li class="q" data-q="Rrqv8gM9Ir" data-tema="Qué es el pentesting" data-enlace="parcial-2.html#que-es-el-pentesting" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-8"><span class="q-n">8</span><div><p>¿Qué diferencia al pentesting de una evaluación de vulnerabilidades?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 08/11/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-8"><li><button type="button" class="op" data-ok="0">Solo se enfoca en la red interna</button></li><li><button type="button" class="op" data-ok="0">No utiliza herramientas de software</button></li><li><button type="button" class="op" data-ok="1">Intenta explotar las vulnerabilidades encontradas</button></li><li><button type="button" class="op" data-ok="0">Presenta un informe final.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El pentesting <strong>intenta explotar</strong> lo que encuentra.</p>
+</div></li><li class="q" data-q="LPQZq-Jt4t" data-tema="Los tipos de caja" data-enlace="parcial-2.html#los-tipos-de-caja" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-9"><span class="q-n">9</span><div><p>¿Qué tipo de prueba de hacking es considerada la más completa?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 07/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-9"><li><button type="button" class="op" data-ok="0">Pentesting de caja gris</button></li><li><button type="button" class="op" data-ok="0">Pentesting de caja negra</button></li><li><button type="button" class="op" data-ok="1">Pentesting de caja blanca</button></li><li><button type="button" class="op" data-ok="0">Pentesting de caja azul</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La más completa es <strong>caja blanca</strong>. La más realista en un ataque externo es caja negra.</p>
+</div></li><li class="q" data-q="AGgwCC9ksT" data-tema="Los tipos de caja" data-enlace="parcial-2.html#los-tipos-de-caja" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-10"><span class="q-n">10</span><div><p>Se quiere evaluar la seguridad desde el punto de vista de un usuario interno o un atacante con acceso limitado:</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 07/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-10"><li><button type="button" class="op" data-ok="1">Caja gris (Grey Box)</button></li><li><button type="button" class="op" data-ok="0">Caja negra (Black Box)</button></li><li><button type="button" class="op" data-ok="0">Caja azul (Blue Box)</button></li><li><button type="button" class="op" data-ok="0">Caja blanca (White Box)</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>caja gris</strong>.</p>
+</div></li><li class="q" data-q="a60o1cBvQN" data-tema="Las fases" data-enlace="parcial-2.html#las-fases" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-11"><span class="q-n">11</span><div><p>En esta etapa del pentesting entran en juego la combinación de factores como herramientas de hacking, experiencia y astucia del auditor:</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 07/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-11"><li><button type="button" class="op" data-ok="0">Gathering.</button></li><li><button type="button" class="op" data-ok="0">Explotación de vulnerabilidades.</button></li><li><button type="button" class="op" data-ok="1">Análisis de vulnerabilidades.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>análisis de vulnerabilidades</strong>.</p>
+</div></li><li class="q" data-q="862XULhd60" data-tema="Vulnerabilidades, amenazas y ataques" data-enlace="parcial-2.html#vulnerabilidades-amenazas-y-ataques" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-12"><span class="q-n">12</span><div><p>¿Qué tipo de vulnerabilidad se refiere a aquellas que existen debido a políticas de seguridad deficientes?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 08/11/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-12"><li><button type="button" class="op" data-ok="0">Uso</button></li><li><button type="button" class="op" data-ok="0">Implementación</button></li><li><button type="button" class="op" data-ok="1">Diseño</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>diseño</strong>.</p>
+</div></li><li class="q" data-q="-XMP7vl2Ll" data-tema="Hardening" data-enlace="parcial-2.html#hardening" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-13"><span class="q-n">13</span><div><p>¿Qué se considera «hardening» en el ámbito de la ciberseguridad?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 07/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-13"><li><button type="button" class="op" data-ok="1">Implementar configuraciones adicionales para mejorar la seguridad y reducir las vulnerabilidades de un sistema</button></li><li><button type="button" class="op" data-ok="0">Configurar controles de acceso para prevenir el acceso no autorizado</button></li><li><button type="button" class="op" data-ok="0">Auditar y monitorear continuamente el sistema para identificar posibles amenazas</button></li><li><button type="button" class="op" data-ok="0">Aumentar la resiliencia de la infraestructura mediante pruebas de penetración periódicas</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Son <strong>configuraciones adicionales</strong> para mejorar la seguridad y reducir vulnerabilidades.</p>
+</div></li><li class="q" data-q="ngY0ffuTGz" data-tema="Herramientas" data-enlace="parcial-2.html#herramientas" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-14"><span class="q-n">14</span><div><p>¿Cuál es el objetivo de la herramienta John the Ripper?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 08/11/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-14"><li><button type="button" class="op" data-ok="1">Descifrar contraseñas sin conexión.</button></li><li><button type="button" class="op" data-ok="0">Capturar tráfico en tiempo real.</button></li><li><button type="button" class="op" data-ok="0">Realizar análisis de tráfico en red.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>descifrar contraseñas sin conexión</strong>.</p>
+</div></li><li class="q" data-q="EEYwlvigvM" data-tema="Políticas de seguridad y ubicación del firewall" data-enlace="parcial-2.html#politicas-de-seguridad-y-ubicacion-del-firewall" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-15"><span class="q-n">15</span><div><p>Seleccione el tipo de política de seguridad que corresponde a la definición: «es un grado de política de seguridad alto donde los recursos están limitados exclusivamente a las personas más imprescindibles».</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 07/11/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-15"><li><button type="button" class="op" data-ok="1">Política prudente.</button></li><li><button type="button" class="op" data-ok="0">Política extrema.</button></li><li><button type="button" class="op" data-ok="0">Política promiscua.</button></li><li><button type="button" class="op" data-ok="0">Política permisiva.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El campus marca <strong>política prudente</strong>.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado solo con cinco exámenes del campus que hay en el Drive de UTN (2024 y 2025). El Drive no trae apuntes ni programa. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

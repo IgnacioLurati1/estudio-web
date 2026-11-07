@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cobol en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Cobol, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="cobol" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Cobol</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Cobol</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-final">Final</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (finales de 2009 a 2012, prácticas de 2011 y trabajos de alumnos de 2015). No hay nada de 2023 en adelante ni apunte de la cátedra. Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Cobol</p><h1>Para entender</h1>
+<p class="bajada">Qué hay en el Drive, qué se tomó y qué vas a tener que buscar en otro lado.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="nivel nivel-rapido">Materia del pasado. Ya no está en el plan de estudios.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p>
+<div class="ojo"><p class="ojo-t">Todo el material es del plan viejo y es poco</p><p>No hay nada de 2023 en adelante. Los finales son de 2009 a 2012, las prácticas de 2011 y los trabajos de 2015. No hay programa de la materia ni apunte de la cátedra. Sin exámenes nuevos no se puede saber si esto se sigue tomando igual. Si cursás hoy, preguntale primero a tu comisión.</p>
+</div>
+
+<section class="sec"><h2 id="inicio-que-es-la-materia">Qué es la materia</h2>
+<p>Las prácticas de la cátedra la llaman «Lenguaje Orientado a la Administración Comercial (COBOL)». Son de la Facultad Regional Rosario, Departamento de Ingeniería en Sistemas.</p>
+<p>Por lo que muestran los finales, se trata de programar con archivos de datos de una organización. Te dan los datos de una droguería, un club o una biblioteca. Vos declarás los registros y escribís el programa que carga, consulta o lista.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en una agenda de papel. Cada amigo es un registro. Su nombre, su teléfono y su dirección son campos. La agenda entera es el archivo. Esa comparación está en un trabajo de alumnos de 2015 y resume casi todo lo que se pide acá: describir bien la hoja de la agenda y después recorrerla.</p>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido-segun-el-material">El recorrido según el material</h2>
+<ol>
+<li><strong>Lógica antes que código.</strong> La <a href="ej-practica-0.html">Práctica 0</a> pide desarrollar la sucesión lógica de pasos y sugiere usar Chapín.</li>
+<li><strong>Datos.</strong> La <a href="ej-practica-1.html">Práctica 1</a> trabaja nombres, literales, modelos de caracteres, campos de edición y estructuras de registro.</li>
+<li><strong>Archivos.</strong> Un trabajo de alumnos de 2015 repasa los tipos de archivo y los verbos para manejarlos. Es la teoría que después usan los finales.</li>
+<li><strong>Programa completo.</strong> Los finales juntan todo.</li>
+</ol>
+<p>Ese orden sale de los números de las prácticas y de los trabajos. No hay un programa que lo confirme.</p>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua">Qué se evalúa</h2>
+<p>En el Drive hay solo finales. No hay parciales ni datos sobre cómo se regulariza o se aprueba. Tampoco figuran puntajes.</p>
+<p>Revisé los 6 finales: 08/05/2009, 26/11/2009, mayo de 2010, diciembre de 2010, febrero de 2011 y febrero de 2012.</p>
+<ul>
+<li><mark>Los 6 son prácticos.</mark> Ninguno trae preguntas sueltas de teoría.</li>
+<li><mark>5 de 6 piden un programa.</mark> El de diciembre de 2010 pide declarar almacenes y hacer dos listados.</li>
+<li><mark>4 de 6 combinan un archivo secuencial con uno indexado.</mark></li>
+</ul>
+<p>El detalle y las consignas están en <a href="#final-como-viene-el-final">Cómo viene el final</a>.</p>
+</section>
+<section class="sec"><h2 id="inicio-de-donde-sale-cada-cosa">De dónde sale cada cosa</h2>
+<div class="tabla"><table><thead><tr><th>Material</th><th>De quién es</th><th>Cómo lo usé</th></tr></thead><tbody><tr><td>6 finales, 2009 a 2012</td><td>Cátedra</td><td>Para saber qué se pide. Van completos en <a href="ejercicios.html">Ejercicios</a></td></tr><tr><td>Prácticas 0 y 1, 2011</td><td>Cátedra</td><td>Solo consignas, sin teoría. Marcan los temas</td></tr><tr><td>Trabajos prácticos 1, 2 y 3, 2015</td><td>Alumnos</td><td>Única teoría escrita del Drive. Citan clases de la materia, un libro y páginas web</td></tr><tr><td>Resolución de la Práctica 1 y dos programas, 2015</td><td>Alumnos</td><td>No van. No son oficiales</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Cómo leer la teoría de este resumen</p><p>Las definiciones de <a href="#pdf-final">la página del final</a> salen de trabajos de alumnos, no de la cátedra. Cada una dice de qué trabajo viene. Donde el trabajo tiene un error, está marcado. Lo que los finales piden y el material no explica está en <a href="#final-lo-que-se-pide-y-el-material-no-explica">una lista aparte</a>, sin completar de memoria.</p>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-como-usar-esto">Cómo usar esto</h2>
+<ol>
+<li>Leé <a href="#pdf-final">la página del final</a>. Es corta porque el material es corto.</li>
+<li>Conseguí un manual para los temas de la lista de faltantes.</li>
+<li>Intentá los <a href="ejercicios.html">finales</a> empezando por el de 2012. Ninguno tiene resolución oficial, así que comparalos con tu comisión.</li>
+</ol>
+</section></section>
+<section class="pdf-parte" id="pdf-final" data-pagina="final" aria-label="Final"><p class="pdf-de">Cobol</p><h1>Final</h1>
+<p class="bajada">Un programa sobre archivos a partir de un enunciado. La teoría sale de trabajos de alumnos de 2015, porque en el Drive no hay apunte de la cátedra.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="nivel nivel-rapido">Materia del pasado. Ya no está en el plan de estudios.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p><p class="aviso-viejo">Lo marcado «Plan viejo» es de 2022 o antes, del plan anterior. Puede no coincidir con lo que se toma hoy.</p>
+<div class="ojo"><p class="ojo-t">Antes de estudiar de acá</p><p>Todo es del plan viejo, de 2009 a 2015. Las definiciones vienen de trabajos prácticos de alumnos, con su fuente al lado. Lo que no está en el material no se completó de memoria. Está en <a href="#final-lo-que-se-pide-y-el-material-no-explica">la lista de faltantes</a>.</p>
+</div>
+
+<section class="sec"><h2 id="final-como-viene-el-final">Cómo viene el final</h2>
+<div class="tomado"><aside class="nota"><strong>Los 6 finales del Drive, todos prácticos</strong><span>Finales de 05/2009, 11/2009, 05/2010, 12/2010, 02/2011 y 02/2012 <em class="viejo">Plan viejo</em></span></aside><p>Ninguno trae preguntas sueltas de teoría. Te dan un caso con sus datos y piden programar sobre archivos.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Final</th><th>Caso</th><th>Archivos</th><th>Qué pide</th></tr></thead><tbody><tr><td>08/05/2009</td><td>Inscriptos</td><td>Indexado y secuencial</td><td>Menú con altas, bajas y listado por impresora, ordenado por provincia</td></tr><tr><td>26/11/2009</td><td>Deportes de un club</td><td>Indexado</td><td>Programa de carga y otro de consulta de horarios</td></tr><tr><td>Mayo de 2010</td><td>Deuda a proveedores</td><td>Secuencial e indexado</td><td>Definir los registros en formato gráfico. Consulta por pantalla y listado impreso</td></tr><tr><td>Diciembre de 2010</td><td>Tareas de una organización</td><td>A identificar</td><td>Identificar al menos 3 almacenes y declararlos. Dos listados</td></tr><tr><td>Febrero de 2011</td><td>Lotes de sueros</td><td>Indexado y secuencial</td><td>Carga, explicar si tiene que tener un orden, y consulta por pantalla con un porcentaje</td></tr><tr><td>Febrero de 2012</td><td>Libros de una biblioteca</td><td>Secuencial e indexado</td><td>Lógica y programa. Tres estadísticas, con los datos ya cargados</td></tr></tbody></table></div>
+<p>Los enunciados completos están en <a href="ejercicios.html">Ejercicios</a>.</p>
+<p>Lo que se repite, contado sobre esos 6:</p>
+<ul>
+<li><mark>Secuencial más indexado en el mismo enunciado:</mark> 4 (05/2009, 05/2010, 02/2011 y 02/2012).</li>
+<li><mark>Pedido explícito de un programa:</mark> 5, todos menos 12/2010.</li>
+<li><mark>Listado ordenado por un campo:</mark> 3 (05/2009, 12/2010 y 02/2012).</li>
+<li><mark>Consulta de un dato puntual:</mark> 3 (11/2009, 05/2010 y 02/2011).</li>
+<li><mark>Listado por impresora, dicho así:</mark> 3 (05/2009, 05/2010 y 12/2010).</li>
+<li>Programa de carga: 2 (11/2009 y 02/2011). El de 02/2012 aclara que los datos se dan por cargados.</li>
+<li>Datos que se repiten con un tope, como hasta 3 teléfonos o hasta 6 horarios: 2 (11/2009 y 05/2010).</li>
+</ul>
+</section>
+<section class="sec"><h2 id="final-la-forma-de-un-programa">La forma de un programa</h2>
+<p>Un programa tiene cuatro divisiones, en este orden. Se ven en el ejemplo de lectura del Trabajo Práctico 3 de alumnos, de 2015. Según ese mismo trabajo, el ejemplo sale de páginas web y no figura compilado.</p>
+<pre class="codigo"><code>IDENTIFICATION DIVISION.
+PROGRAM-ID. HELLO.
+
+ENVIRONMENT DIVISION.
+   INPUT-OUTPUT SECTION.
+      FILE-CONTROL.
+      SELECT STUDENT ASSIGN TO 'input.txt'
+      ORGANIZATION IS LINE SEQUENTIAL.
+
+DATA DIVISION.
+   FILE SECTION.
+   FD STUDENT.
+   01 STUDENT-FILE.
+      05 STUDENT-ID PIC 9(5).
+      05 NAME PIC A(25).
+
+   WORKING-STORAGE SECTION.
+   01 WS-STUDENT.
+      05 WS-STUDENT-ID PIC 9(5).
+      05 WS-NAME PIC A(25).
+   01 WS-EOF PIC A(1).
+
+PROCEDURE DIVISION.
+   OPEN INPUT STUDENT.
+      PERFORM UNTIL WS-EOF='Y'
+         READ STUDENT INTO WS-STUDENT
+            AT END MOVE 'Y' TO WS-EOF
+            NOT AT END DISPLAY WS-STUDENT
+         END-READ
+      END-PERFORM.
+   CLOSE STUDENT.
+STOP RUN.</code></pre>
+<div class="tabla"><table><thead><tr><th>División</th><th>Qué lleva en el ejemplo</th></tr></thead><tbody><tr><td><code>IDENTIFICATION</code></td><td>El nombre del programa, en <code>PROGRAM-ID</code></td></tr><tr><td><code>ENVIRONMENT</code></td><td>Qué archivos usa, en <code>FILE-CONTROL</code>, con un <code>SELECT</code> por archivo</td></tr><tr><td><code>DATA</code></td><td>El registro de cada archivo, en <code>FILE SECTION</code>, y las variables, en <code>WORKING-STORAGE SECTION</code></td></tr><tr><td><code>PROCEDURE</code></td><td>Las instrucciones. Termina en <code>STOP RUN</code></td></tr></tbody></table></div>
+<div class="idea"><p>Leelo de abajo para arriba. <code>PROCEDURE</code> abre el archivo, lee hasta el final y muestra cada registro. Todo lo de arriba existe para que esas pocas líneas sepan con qué trabajan.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final-los-datos">Los datos</h2>
+<h3 id="final-numeros-de-nivel">Números de nivel</h3>
+<p>Fuente: Trabajo Práctico 2 de alumnos, 2015, que cita «Clase 3, Cobol 2015» y a M. Koutchouk, <em>COBOL: construcción lógica de programas</em> (1986).</p>
+<p>El número de nivel denota la jerarquía de los datos.</p>
+<div class="tabla"><table><thead><tr><th>Nivel</th><th>Para qué</th><th>Dónde empieza</th></tr></thead><tbody><tr><td><code>01</code></td><td>Nombre de un registro o estructura</td><td>Zona A</td></tr><tr><td><code>02</code> a <code>49</code></td><td>Cualquier campo subordinado, elemental o compuesto</td><td>Zona B</td></tr><tr><td><code>66</code></td><td>Cláusula <code>RENAMES</code></td><td>Zona B</td></tr><tr><td><code>77</code></td><td>Campos independientes</td><td>Zona A</td></tr><tr><td><code>88</code></td><td>Nombres de condición</td><td>Zona B</td></tr></tbody></table></div>
+<p>La zona A son las columnas 8 a 11 de la hoja de codificación. La zona B arranca en la columna 12. El trabajo manda a la zona B todo menos los niveles <code>01</code> y <code>77</code>.</p>
+<p>Los números no tienen por qué ser correlativos. El mismo trabajo y el Trabajo Práctico 3 usan <code>10</code> y <code>05</code> directo abajo de un <code>01</code>.</p>
+<p>Un campo elemental es el que no se divide. Varios elementales agrupados forman un elemento de grupo.</p>
+<pre class="codigo"><code>01  DOMICILIO.
+    02  TIPO PIC XX.
+    02  NOMBRE PIC X(20).
+    02  NUMERO PIC 9(4).</code></pre>
+<div class="ojo"><p class="ojo-t">Dos frases del trabajo que confunden</p><p>El trabajo dice «un campo compuesto tendrá un nivel superior a cualquiera de sus campos elementales». Se refiere a la jerarquía. El número es menor, como se ve arriba: <code>DOMICILIO</code> es <code>01</code> y sus campos son <code>02</code>.</p>
+<p>También dice que el <code>01</code> «solo podrá pertenecer al nombre de un registro o estructura», y después muestra <code>01 RAYA PIC X(10)</code>, que no se divide. Si te lo preguntan, confirmalo con la cátedra.</p>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Es como el índice de un libro. El <code>01</code> es el capítulo, el <code>02</code> la sección, el <code>03</code> el apartado. Lo que importa es que el de adentro tenga un número más alto que el de afuera.</p>
+</div>
+<h3 id="final-como-se-ve-dibujada-una-estructura">Cómo se ve dibujada una estructura</h3>
+<p>La Práctica 1 de la cátedra dibuja los registros en cajas, con el nombre y el modelo de cada campo. El <a href="ejercicios.html#final-mayo-de-2010">final de mayo de 2010</a> pide definir los registros «en formato gráfico». Esta es la única muestra del Drive de cómo se dibuja, y el final no aclara si espera esa forma.</p>
+<p><img src="img/fig-estructura.webp" alt="Consigna 14 de la Práctica 1: dos registros dibujados como cajas anidadas, con el nombre y el modelo de cada campo"></p>
+<p>Pasar esos dibujos a código es el ejercicio 14 de esa práctica, así que acá no va resuelto. La <a href="ej-practica-1.html">hoja completa</a> está en Ejercicios.</p>
+<h3 id="final-la-clausula-picture">La cláusula PICTURE</h3>
+<p>Fuente: Trabajo Práctico 2 de alumnos, 2015. La cláusula imagen define el tipo de dato, el signo, la posición del punto decimal y la longitud. Las prácticas de la cátedra llaman «modelo» a lo que va en esa cláusula.</p>
+<div class="tabla"><table><thead><tr><th>Símbolo</th><th>Significa</th></tr></thead><tbody><tr><td><code>9</code></td><td>Valor numérico</td></tr><tr><td><code>A</code></td><td>Alfabético</td></tr><tr><td><code>X</code></td><td>Alfanumérico</td></tr><tr><td><code>V</code></td><td>Decimal implícito</td></tr><tr><td><code>S</code></td><td>Signo</td></tr><tr><td><code>P</code></td><td>Decimal asumido</td></tr></tbody></table></div>
+<p>Los tipos:</p>
+<ul>
+<li><strong>Numérico:</strong> solo dígitos del 0 al 9.</li>
+<li><strong>Alfabético:</strong> letras de la A a la Z y espacios.</li>
+<li><strong>Alfanumérico:</strong> dígitos, letras y caracteres especiales.</li>
+</ul>
+<p>El signo se usa con datos numéricos. El punto decimal se puede usar con datos numéricos, y según el trabajo su posición «no se incluye en los datos».</p>
+<p>La longitud se escribe repitiendo el símbolo o con paréntesis. El trabajo usa <code>PIC XX</code> y <code>PIC X(20)</code>, y las prácticas usan <code>9999</code> y <code>9(4)</code> para lo mismo.</p>
+<div class="ojo"><p class="ojo-t">Los modelos de edición no están explicados</p><p>La Práctica 1 trabaja mucho con modelos como los de <code>Z</code>, <code>*</code> o el signo de moneda. Ningún material del Drive dice cómo funcionan. Ver <a href="#final-lo-que-se-pide-y-el-material-no-explica">faltantes</a>.</p>
+</div>
+<h3 id="final-value-redefines-y-renames">VALUE, REDEFINES y RENAMES</h3>
+<p>Fuente: Trabajo Práctico 2 de alumnos, 2015.</p>
+<p><strong><code>VALUE</code></strong> es opcional. Va después del <code>PIC</code> e indica el valor inicial del campo hasta que se modifique. Sirve para elementales y para grupos.</p>
+<pre class="codigo"><code>01  RAYA PIC X(10) VALUE &quot;----------&quot;.</code></pre>
+<p><strong><code>REDEFINES</code></strong> sirve para darle a un dato otro formato o cambiarlo a otro tipo. El trabajo agrega que también se usa para crear arrays, sin mostrarlo.</p>
+<pre class="codigo"><code>01 WS-OLD PIC X(10).
+01 WS-NEW1 REDEFINES WS-OLD PIC 9(8).
+01 WS-NEW2 REDEFINES WS-OLD PIC A(10).</code></pre>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Es el mismo dato con otra etiqueta y otra forma de leerlo. No agrega un dato nuevo.</p>
+</div>
+<p><strong><code>RENAMES</code></strong> reagrupa datos con un nombre nuevo y usa el nivel <code>66</code>. Los datos renombrados tienen que venir en secuencia. No se pueden usar los niveles <code>01</code>, <code>77</code> ni <code>66</code>.</p>
+<pre class="codigo"><code>01 WS-OLD.
+10 WS-A PIC 9(12).
+10 WS-B PIC X(20).
+10 WS-C PIC A(25).
+10 WS-D PIC X(12).
+66 WS-NEW RENAMES WS-A THRU WS-C.</code></pre>
+</section>
+<section class="sec"><h2 id="final-los-archivos">Los archivos</h2>
+<h3 id="final-que-es-un-archivo">Qué es un archivo</h3>
+<p>Fuente de esta sección: Trabajo Práctico 3 de alumnos, 2015.</p>
+<p>Es un conjunto de registros homogéneos, almacenados en soporte externo, con una relación lógica entre sí. Cada dato de un registro es un campo.</p>
+<h3 id="final-tipos-segun-su-uso">Tipos según su uso</h3>
+<div class="tabla"><table><thead><tr><th>Clase</th><th>Tipos</th></tr></thead><tbody><tr><td>Permanentes</td><td>De constantes, maestros, históricos</td></tr><tr><td>De movimientos</td><td>Altas, bajas, modificación</td></tr><tr><td>De trabajo</td><td>No los divide</td></tr></tbody></table></div>
+<h3 id="final-secuencial-e-indexado">Secuencial e indexado</h3>
+<p>Un archivo <strong>secuencial</strong> guarda los registros físicamente contiguos en el soporte. A sus registros solo se accede de forma secuencial. Esta es la declaración que da el trabajo:</p>
+<pre class="codigo"><code>SELECT [OPTIONAL] nombre-de-fichero-interno
+ASSIGN TO dispositivo [nombre-de-fichero-externo]
+[ORGANIZATION IS] [LINE] SEQUENTIAL
+[ACCESS MODE IS SEQUENTIAL].</code></pre>
+<div class="ojo"><p class="ojo-t">Errata del trabajo</p><p>El Trabajo Práctico 3 imprime <code>[[ORGANIZATION IS]][LINE] SEQUENTIAL]</code>, con los corchetes desparejos. Acá quedó <code>[ORGANIZATION IS] [LINE] SEQUENTIAL</code>, porque es la única lectura con los corchetes parejos.</p>
+</div>
+<p>Un archivo <strong>indexado</strong> se declara con su clave. El trabajo no lo define con palabras, pero lo muestra en sus ejemplos:</p>
+<pre class="codigo"><code>SELECT STUDENT ASSIGN TO IN1
+   ORGANIZATION IS INDEXED
+   ACCESS IS RANDOM
+   RECORD KEY IS STUDENT-ID
+   FILE STATUS IS FS.</code></pre>
+<p>Otro ejemplo del mismo trabajo usa <code>ACCESS DYNAMIC</code>. Ninguno explica la diferencia entre <code>RANDOM</code> y <code>DYNAMIC</code>.</p>
+<div class="tomado"><aside class="nota"><strong>Se da por sabido que distingas los dos</strong><span>Finales de 05/2009, 05/2010, 02/2011 y 02/2012 <em class="viejo">Plan viejo</em></span></aside><p>Esos 4 enunciados dicen de entrada cuál archivo es secuencial y cuál indexado. Los de 05/2009, 05/2010 y 02/2011 dicen además cuál es la clave. <mark>Tu declaración tiene que respetar esa organización.</mark></p>
+</div>
+<h3 id="final-los-verbos">Los verbos</h3>
+<p>El trabajo nombra <code>OPEN</code>, <code>READ</code>, <code>WRITE</code>, <code>REWRITE</code>, <code>DELETE</code> y <code>CLOSE</code>.</p>
+<div class="tabla"><table><thead><tr><th>Verbo</th><th>Sintaxis que da el trabajo</th></tr></thead><tbody><tr><td><code>OPEN</code></td><td><code>OPEN &quot;mode&quot; file-name.</code></td></tr><tr><td><code>READ</code> secuencial</td><td><code>READ file-name NEXT RECORD INTO ws-file-structure</code> con <code>AT END</code> y <code>NOT AT END</code></td></tr><tr><td><code>READ</code> por clave</td><td><code>READ STUDENT KEY IS STUDENT-ID</code> con <code>INVALID KEY</code></td></tr><tr><td><code>WRITE</code></td><td><code>WRITE record-buffer [FROM ws-file-structure]</code></td></tr><tr><td><code>REWRITE</code></td><td><code>REWRITE record-buffer [FROM ws-file-structure]</code></td></tr><tr><td><code>DELETE</code></td><td><code>DELETE file-name RECORD</code> con <code>INVALID KEY</code> y <code>NOT INVALID KEY</code></td></tr><tr><td><code>CLOSE</code></td><td><code>CLOSE file-name.</code></td></tr></tbody></table></div>
+<p>Los modos de <code>OPEN</code> son entrada, salida, ampliar y entrada/salida.</p>
+<div class="tabla"><table><thead><tr><th>Modo</th><th>En el código</th><th>Lo muestra el trabajo</th></tr></thead><tbody><tr><td>Entrada</td><td><code>OPEN INPUT</code></td><td>Sí, para leer</td></tr><tr><td>Salida</td><td><code>OPEN OUTPUT</code></td><td>No, ver la errata de abajo</td></tr><tr><td>Ampliar</td><td><code>OPEN EXTEND</code></td><td>Sí, para agregar con <code>WRITE</code></td></tr><tr><td>Entrada/salida</td><td><code>OPEN I-O</code></td><td>Sí, para <code>REWRITE</code> y <code>DELETE</code></td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Errata del trabajo</p><p>El trabajo dice «sintaxis para leer» en <code>WRITE</code> y en <code>REWRITE</code>. Es un error de traducción. Sus propios ejemplos muestran que <code>WRITE</code> graba un registro y que <code>REWRITE</code> actualiza uno existente.</p>
+<p>Da los modos de <code>OPEN</code> solo en castellano. <code>OUTPUT</code> no aparece en ningún ejemplo del Drive. Lo puse yo como la palabra para «salida». Confirmalo en tu manual.</p>
+<p>Las comillas curvas de <code>‘KEY IS NOT EXISTING’</code> en el trabajo son cosa de Word. En un programa no las copies.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Los ejemplos de archivos no están probados</p><p>El trabajo informa la compilación de otros tres programas, no de estos. Tres de sus ejemplos dejan <code>FD STUDENT</code> sin punto, y usan <code>FILE STATUS IS FS</code> sin declarar <code>FS</code>. Sirven para ver la forma, no para copiarlos.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final-lo-que-se-pide-y-el-material-no-explica">Lo que se pide y el material no explica</h2>
+<p>Estos temas aparecen en los finales o en la Práctica 1, y ningún archivo del Drive los explica. Vas a necesitar un manual o a tu comisión.</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Dónde aparece</th></tr></thead><tbody><tr><td>Ordenar datos para un listado</td><td>Finales de 05/2009, 12/2010 y 02/2012</td></tr><tr><td>Imprimir un listado, con títulos y agrupado por un campo</td><td>Finales de 05/2009, 05/2010 y 12/2010</td></tr><tr><td>Datos que se repiten con un tope</td><td>Finales de 11/2009 y 05/2010</td></tr><tr><td>Un menú de opciones</td><td>Final de 05/2009</td></tr><tr><td>Condiciones, totales y porcentajes en <code>PROCEDURE</code></td><td>Finales de 05/2010, 02/2011 y 02/2012</td></tr><tr><td>Reglas de los nombres que crea el programador</td><td>Práctica 1, ejercicio 1</td></tr><tr><td>Literales numéricos y no numéricos</td><td>Práctica 1, ejercicios 2 a 4</td></tr><tr><td>Constantes figurativas</td><td>Práctica 1, ejercicio 5</td></tr><tr><td>Usos <code>DISPLAY</code>, <code>COMPUTATIONAL</code> y <code>COMPUTATIONAL-3</code></td><td>Práctica 1, ejercicios 6 y 7</td></tr><tr><td>Categorías de un ítem según su modelo</td><td>Práctica 1, ejercicio 8</td></tr><tr><td>Modelos de edición y <code>DECIMAL-POINT IS COMMA</code></td><td>Práctica 1, ejercicios 11 a 13</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="final-el-contexto-mainframe-terminal-y-batch">El contexto: mainframe, terminal y batch</h2>
+<p>Fuente: Trabajo Práctico 1 de alumnos, 2015, que sale de páginas web. Ningún final lo pide. Los trabajos de 2015 muestran compilaciones en un sistema z/OS, así que da una idea de dónde se corrían los programas.</p>
+<ul>
+<li><strong>Mainframe:</strong> computadora grande, potente y costosa. La usa una gran compañía para procesar muchos datos, como transacciones bancarias.</li>
+<li><strong>Terminal:</strong> dispositivo para interactuar con una computadora. También se lo llama consola.</li>
+<li><strong>Emulador de terminal:</strong> programa que simula el funcionamiento de una terminal.</li>
+<li><strong>Procesamiento batch:</strong> los programas, los datos y las órdenes se remiten juntos, en lote. Hay poca o ninguna interacción con el usuario mientras corre.</li>
+</ul>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (finales de 2009 a 2012, prácticas de 2011 y trabajos de alumnos de 2015). No hay nada de 2023 en adelante ni apunte de la cátedra. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

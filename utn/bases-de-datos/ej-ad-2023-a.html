@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Parcial de aprobación directa, tema A: Bases de Datos</title>
+<meta name="description" content="Ejercicio de examen: Parcial de aprobación directa, tema A.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+</head>
+<body data-materia="bases-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Bases de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=bases-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=bases-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#resolucion">Resolución</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Parcial de aprobación directa, tema A</h1>
+<p class="bajada">2° parcial, 27/11/2023</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="ad-2023-a" data-titulo="Parcial de aprobación directa, tema A" data-min="120" data-otro="ejercicios.html#parcial-2" data-sol="oficial"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="ad-2023-a" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1JzSOsr4xEhdcLtJVCL8utjI4eTXCxROO/view" target="_blank" rel="noopener">Resolución de cátedra en el Drive</a><a href="https://drive.google.com/file/d/1EcjElJ-ANOzy-dvSBGPREsSOxKrzrO_a/view" target="_blank" rel="noopener">Script de la base</a><a href="https://drive.google.com/file/d/1ZEV0FXokWF8EJXJSo-bwrBHyBzdSSmcB/view" target="_blank" rel="noopener">Script de los datos</a></div>
+<p class="ex-fuera">El caso completo está en <a href="ej-convenciones.html">Convenciones Underground</a>.</p>
+<section class="sec ej-texto ex-caso" id="exCaso" hidden><h2 id="ex-caso">El caso</h2><h4>Evaluación de Modelos de Datos y Álgebra Relacional</h4>
+<h4>Modelos de Datos</h4>
+<ul>
+<li><strong>a)</strong> (4,5 puntos) Esquematice el modelo E-R que se deriva de la narrativa.</li>
+<li><strong>b)</strong> (4,5 puntos) Transforme el modelo E-R en un Modelo Relacional (pasaje a tablas), indicando los atributos de cada tabla indicando aquellos que pueden admitir valores nulos, indique las claves primarias y foráneas, en estas últimas indique, cuando se requiera, si admiten o no valores nulos.</li>
+</ul>
+<h4>Operaciones del Álgebra Relacional</h4>
+<ul>
+<li><strong>c)</strong> (1 punto) Desarrolle las operaciones en Álgebra relacional de los Requerimientos planteados.</li>
+</ul>
+<p>La empresa Underground Org se dedica a la gestión y organización de eventos masivos como convenciones de cómics o cine; eventos de cosplay; premieres de cine, tv o libros; convenciones temáticas o científicas; etc. Debido al éxito reciente, la misma nos ha solicitado el desarrollo de un sistema de información para poder llevar adelante sus actividades de forma más eficiente y aumentar el volumen de eventos que realiza.</p>
+<p>Al decidir organizar un evento(1), además de los datos del mismo, la empresa debe decidir las salas(2) que utilizará y las presentaciones(4) que se realizarán y los empleados(7) asignados(8) al evento. En algunos eventos se designan espacios para instalar stands(9) que se pueden alquilar(10). Una vez organizado el evento se informa a posibles clientes(11) quiénes pueden contratar el alquiler(10) de uno o más stands(9).</p>
+<p>Una vez que se realiza publicidad sobre el evento comienza la venta de entradas(12). Las entradas podrán ser vendidas hasta el fin del evento. La empresa ofrece la posibilidad de que en cada venta el comprador elija(13) a qué presentaciones asistirá y el valor de la misma se calculará en función de ello(15). Una vez vendida una entrada no podrán contratarse nuevas presentaciones para la misma.</p>
+<h4>Reglas de Negocio</h4>
+<ol>
+<li>Los eventos se identifican por un id único y secuencial que asigna el sistema automáticamente. De los mismos deben definirse la fecha de inicio y fin (ya que un evento puede durar varios días consecutivos), la temática del mismo, el tipo (convención, presentación, etc), un nombre para el evento y un valor base de la entrada que sirve para calcular el valor total de la entrada(15)</li>
+<li>Las salas pertenecen a una locación(3) y se identifican por un número que depende de la locación. De la sala se conoce nombre, metros cuadrados, capacidad máxima y estado de la sala (reparación, remodelación, etc).</li>
+<li>Las locaciones se identifican por un id único y secuencial que asigna el sistema automáticamente. De las mismas se registra, nombre, ubicación gps, dirección y zona.</li>
+<li>En los eventos se realizan varias presentaciones, por ejemplo, concursos, paneles de discusión, shows, etc. Al crear una presentación para un evento, se debe definir un nombre, descripción, fecha y hora de inicio, fecha y hora de fin, valor adicional a la presentación para el cálculo del valor total de la entrada(15), tipo (no está codificado) y en qué sala(2) y locación se realizará. También deberán registrarse los presentadores(5) que realizan(6) cada presentación. Un evento puede utilizar la misma sala para varias presentaciones y en una sala pueden realizarse presentaciones para muchos eventos pero en una sala, en una fecha y hora de inicio se realizará una única presentación para un evento.</li>
+<li>Los presentadores se identifican por un id único y secuencial que asigna el sistema automáticamente y de los mismos se registra cuit, teléfono, email.</li>
+<li>Una presentación puede ser realizada por muchos presentadores o ninguno (son presentaciones que no requieren conducción) y un presentador puede realizar varias presentaciones en el mismo evento o en varios y en cada una puede actuar como Artista (se debe registrar la denominación, puede ser nombre, apellido, seudónimo, o el nombre del grupo, según el artista prefiera), Disertante (se registra nombre, apellido y opcionalmente puede proveer un texto corto de su CV), Panelista (se registra nombre, apellido y especialidad) u otro no especificado (no es necesario registrar más información en este caso). Solo se registran los presentadores para cada presentación, no interesa conocer para cada presentación si el presentador actuó como Artista, Disertante, Panelista u otros. Un mismo presentador puede actuar como Artista, Disertante, Panelista u otro.</li>
+<li>Los empleados se identifican por su cuil y de los mismos se registra nombre, apellido, teléfono, email, dirección, fecha de nacimiento y categoría.</li>
+<li>A cada evento se pueden asignar muchos empleados. Al asignar un empleado a un evento se lo hace para toda la duración del evento y se le asigna un rol (director, encargado, tramoyista, camarero, encargado de compras, etc) que no cambia para ese evento pero puede cambiar en cada uno al que es asignado.</li>
+<li>Si un evento cuenta con stands los mismos se deben crear para que luego puedan ser ofrecidos a los clientes y los puedan alquilar(10). Los mismos se identifican por un número que depende del evento, y se registra un valor sugerido para que los ofrezcan, una ubicación para explicar a los clientes (entrada, área principal, comedor, salida de las salas, etc) y el tipo de stand al que pertenece (no está codificado).</li>
+<li>Cada stand puede ser alquilado por un único cliente(11), al alquilar uno se debe registrar el valor acordado (aunque hay un valor sugerido se tiene la libertad para negociar precios por arriba o por debajo del mismo) y la fecha en que fue contratado.</li>
+<li>Los clientes se identifican por su cuit y se registra la razón social, teléfono, dirección fiscal, email y categoría.</li>
+<li>Las entradas a un evento se numeran de forma secuencial para el evento al que pertenecen. Al vender una entrada debe registrarse la fecha y hora de venta, el comprador(14) y el asistente(14), ya que una persona puede comprar entradas para otros pero debe informar los datos del asistente en caso de extravío.</li>
+<li>Durante la compra de la entrada el comprador adquiere también el acceso a la o las presentaciones que desea.</li>
+<li>Las personas ya sean compradores o asistentes se identifican por un id único y secuencial que asigna el sistema automáticamente. De los mismos se registra nombre, apellido, tipo y número de documento, email y teléfono.</li>
+<li>El valor total de la entrada se calcula como el valor base de la entrada al evento(1) más la sumatoria del valor adicional de las presentaciones(4) que fueron adquiridas con la entrada. El valor base de la entrada a un evento(1) es el valor sin incluir ninguna presentación (en algunos eventos puede ser 0).</li>
+</ol>
+<h4>Requerimientos de información</h4>
+<ol>
+<li>Listar las personas que asistieron a una presentación del presentador Hagane Kurodome, durante abril de este año. Indicar id y nombre del evento, nombre de la presentación y del asistente id, nombre, apellido y dirección de correo electrónico.</li>
+<li>Listar las locaciones cuyas salas hayan sido utilizadas en eventos del año 2022 y no hayan sido utilizadas en el año 2023 .</li>
+</ol>
+</section>
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><h4>A.AD01: Posibles presentadores</h4>
+<p>Varias veces la empresa se encuentra ante el inconveniente de que un presentador cancele cerca de la fecha de un evento y deben reemplazarlo rápidamente. A tal fin se necesita una lista de presentadores posibles para reemplazarlo. Para ello crear un procedimiento almacenado posibles_presentadores que reciba una temática, y un rango de fechas y liste los posibles presentadores que:</p>
+<ol>
+<li>Hayan participado o vayan a participar en el futuro de una presentación en un evento de la temática ingresada.</li>
+<li>No estén participando de ninguna presentación en ese mismo horario. Indicar id, nombre, apellido, denominación y especialidad del presentador y del evento y presentación de las que participó o participará id y nombre del evento y nombre de la presentación.</li>
+</ol>
+<p>Probar el procedimiento con la temática &quot;Ciencia Ficcion&quot; para un evento que se organizaría entre 10 de diciembre de 2023 y 21 de diciembre de 2023.</p>
+<h4>A.AD02: Salas más pequeñas</h4>
+<p>La empresa desea ahorrar en el costo de las salas que alquila. Para ello se debe identificar para las presentaciones futuras si existe otra sala en la misma locación con menor capacidad pero suficiente para las entradas vendidas. Listar para todas las presentaciones futuras, la capacidad máxima de la sala y calcular la cantidad de entradas vendidas. En función de ello determinar si existe una sala diferente en la misma locación, que tenga menos capacidad que la sala ya asignada pero suficiente para las entradas vendidas. Indicar id y nombre de la locación, número, nombre y capacidad máxima de la sala actual, cantidad de entradas vendidas y de las salas potenciales número, nombre y capacidad máxima.</p>
+<h4>A.AD03: Registrar cambio en encargados</h4>
+<p>A menudo la empresa debe reasignar los encargados de un evento y luego es difícil saber quienes estuvieron a cargo de un evento y durante que período fueron desasignados o saber exactamente cuando y que rol usaron, también desea modificar las condiciones de los encargados ya que en los eventos más grandes y complejos está siendo difícil la gestión. Por este motivo la empresa necesita:</p>
+<ol>
+<li>Convertir el rol del encargado en una entidad rol con un id autoincremental y una descripción.</li>
+<li>Migrar los roles actualmente registrados en encargado_evento a la endidad rol y reemplazar la columna rol por una CF al id de rol.</li>
+<li>Registrar en encargado_evento la fecha de asignación obligatoria y fecha fin de asignación opcional. A los que se encuentran registrados actualmente asignarles la fecha del evento como fecha de asignación y sin fecha de fin.</li>
+<li>Ajustar la clave primaria según esta regla: Un empleado puede ser asignado y desasignado a un evento una o varias veces para desempeñar uno o más roles al mismo tiempo o en momentos diferentes y varios empleados pueden desempeñar el mismo rol simultáneamente.</li>
+</ol>
+</section>
+
+<section class="sec" id="resolucion-s"><h2 id="resolucion">Resolución</h2><details class="sol-grande"><summary>Ver la resolución: SQL</summary><p class="sol-t">A.AD01: Posibles presentadores</p><div class="sol-bloque"><pre class="codigo"><code>USE `convenciones_underground`;
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">procedure</span> IF <span class="hljs-keyword">EXISTS</span> `posibles_presentadores`;
+
+USE `convenciones_underground`;
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">procedure</span> IF <span class="hljs-keyword">EXISTS</span>`convenciones_underground`.`posibles_presentadores`;
+;
+
+DELIMITER $$
+USE `convenciones_underground`$$
+<span class="hljs-keyword">CREATE</span> DEFINER<span class="hljs-operator">=</span>`root`@`localhost` <span class="hljs-keyword">PROCEDURE</span>
+`posibles_presentadores`(<span class="hljs-keyword">in</span> tematica <span class="hljs-type">varchar</span>(<span class="hljs-number">255</span>),<span class="hljs-keyword">in</span> f_desde <span class="hljs-type">date</span>,<span class="hljs-keyword">in</span> f_hasta <span class="hljs-type">date</span>)
+
+<span class="hljs-keyword">BEGIN</span>
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> pre.id, pre.nombre, pre.apellido, pre.especialidad, pre.denominacion, e.id,
+e.nombre, p.nombre
+<span class="hljs-keyword">from</span> evento e
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> presentacion p <span class="hljs-keyword">on</span> e.id <span class="hljs-operator">=</span> p.id_evento
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> presentador_presentacion pe <span class="hljs-keyword">on</span> pe.id_locacion <span class="hljs-operator">=</span> p.id_locacion <span class="hljs-keyword">and</span> pe.nro_sala <span class="hljs-operator">=</span>
+p.nro_sala <span class="hljs-keyword">and</span> pe.fecha_hora_ini <span class="hljs-operator">=</span> p.fecha_hora_ini
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> presentador pre <span class="hljs-keyword">on</span> pe.id_presentador <span class="hljs-operator">=</span> pre.id <span class="hljs-keyword">where</span> e.tematica <span class="hljs-operator">=</span> tematica <span class="hljs-keyword">and</span>
+pe.id_presentador <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (
+
+          <span class="hljs-keyword">select</span> pps.id_presentador
+          <span class="hljs-keyword">from</span> presentador_presentacion pps
+          <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> presentacion p1 <span class="hljs-keyword">on</span> pps.id_locacion <span class="hljs-operator">=</span> p1.id_locacion <span class="hljs-keyword">and</span> pps.nro_sala <span class="hljs-operator">=</span>
+          p1.nro_sala <span class="hljs-keyword">and</span> pps.fecha_hora_ini <span class="hljs-operator">=</span> p1.fecha_hora_ini
+          <span class="hljs-keyword">where</span> p1.fecha_hora_ini <span class="hljs-keyword">between</span> f_desde <span class="hljs-keyword">and</span> f_hasta <span class="hljs-keyword">or</span> p1.fecha_hora_fin <span class="hljs-keyword">between</span>
+          f_desde <span class="hljs-keyword">and</span> f_hasta
+          );
+<span class="hljs-keyword">END</span>$$
+
+DELIMITER ;
+;
+
+<span class="hljs-keyword">call</span> posibles_presentadores (<span class="hljs-string">&#x27;Ciencia Ficcion&#x27;</span>,<span class="hljs-string">&#x27;20231210&#x27;</span>,<span class="hljs-string">&#x27;20231221&#x27;</span>);</code></pre></div><p class="sol-t">A.AD02: Salas más pequeñas</p><div class="sol-bloque"><pre class="codigo"><code><span class="hljs-keyword">drop</span> temporary <span class="hljs-keyword">table</span> if <span class="hljs-keyword">exists</span> salas_mas_grandes;
+<span class="hljs-keyword">create</span> temporary <span class="hljs-keyword">table</span> if <span class="hljs-keyword">not</span> <span class="hljs-keyword">exists</span> salas_mas_grandes
+<span class="hljs-keyword">select</span> l.id <span class="hljs-keyword">as</span> id_locacion, l.nombre <span class="hljs-keyword">as</span> locacion_nombre, s.nro, s.nombre <span class="hljs-keyword">as</span> sala_nombre,
+s.capacidad_maxima, <span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>) <span class="hljs-keyword">as</span> entradas_vendidas
+<span class="hljs-keyword">from</span> presentacion p
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> sala s <span class="hljs-keyword">on</span> s.nro <span class="hljs-operator">=</span> p.nro_sala <span class="hljs-keyword">and</span> s.id_locacion <span class="hljs-operator">=</span> p.id_locacion
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> locacion l <span class="hljs-keyword">on</span> l.id <span class="hljs-operator">=</span> s.id_locacion
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> presentacion_entrada pe <span class="hljs-keyword">on</span> p.id_locacion <span class="hljs-operator">=</span> pe.id_locacion <span class="hljs-keyword">and</span> p.nro_sala <span class="hljs-operator">=</span>
+pe.nro_sala <span class="hljs-keyword">and</span> p.fecha_hora_ini <span class="hljs-operator">=</span> pe.fecha_hora_ini
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> entrada e <span class="hljs-keyword">on</span> e.id_evento <span class="hljs-operator">=</span> pe.id_evento <span class="hljs-keyword">and</span> e.nro <span class="hljs-operator">=</span> pe.nro_entrada
+<span class="hljs-keyword">where</span> p.fecha_hora_ini <span class="hljs-operator">&gt;</span> now() <span class="hljs-keyword">and</span> e.id_comprador <span class="hljs-keyword">is</span> <span class="hljs-keyword">not null</span>
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> id_locacion, l.nombre, s.nro, s.nombre, s.capacidad_maxima;
+
+<span class="hljs-keyword">select</span> smg.<span class="hljs-operator">*</span>, sl.nombre, sl.nro, sl.capacidad_maxima
+<span class="hljs-keyword">from</span> salas_mas_grandes smg
+<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> sala sl <span class="hljs-keyword">on</span> smg.nro <span class="hljs-operator">=</span> sl.nro <span class="hljs-keyword">and</span> smg.id_locacion <span class="hljs-operator">=</span> sl.id_locacion <span class="hljs-keyword">and</span>
+sl.capacidad_maxima <span class="hljs-operator">&lt;</span> smg.capacidad_maxima <span class="hljs-keyword">and</span> sl.capacidad_maxima <span class="hljs-operator">&gt;</span>
+smg.entradas_vendidas;</code></pre></div><p class="sol-t">A.AD03: Registrar cambio en encargados</p><div class="sol-bloque"><pre class="codigo"><code>use convenciones_underground;
+<span class="hljs-keyword">CREATE TABLE</span> `rol` (
+
+          `codigo` <span class="hljs-type">INT</span> UNSIGNED <span class="hljs-keyword">NOT NULL</span> AUTO_INCREMENT,
+          `descripcion` <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">45</span>) <span class="hljs-keyword">NOT NULL</span>,
+          <span class="hljs-keyword">PRIMARY KEY</span> (`codigo`));
+
+<span class="hljs-keyword">ALTER TABLE</span> `encargado_evento`
+          <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> fecha_asignacion <span class="hljs-type">date</span> <span class="hljs-keyword">null</span>,
+          <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> fecha_fin_asignacion <span class="hljs-type">date</span> <span class="hljs-keyword">null</span>,
+          <span class="hljs-keyword">ADD CONSTRAINT</span> fk_rol_encargado <span class="hljs-keyword">FOREIGN KEY</span>(`rol`) <span class="hljs-keyword">REFERENCES</span> `rol`(`codigo`)
+          <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE <span class="hljs-keyword">ON</span>
+
+<span class="hljs-keyword">DELETE</span> RESTRICT;
+
+<span class="hljs-keyword">begin</span>;
+
+<span class="hljs-keyword">insert into</span> rol(descripcion)
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> rol <span class="hljs-keyword">from</span> encargado_evento;
+<span class="hljs-keyword">update</span> encargado_evento
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> rol <span class="hljs-keyword">on</span> rol.descripcion <span class="hljs-operator">=</span> encargado_evento.rol
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> evento e <span class="hljs-keyword">on</span> encargado_evento.id_evento <span class="hljs-operator">=</span> e.id
+<span class="hljs-keyword">set</span> encargado_evento.rol <span class="hljs-operator">=</span> rol.codigo, fecha_asignacion <span class="hljs-operator">=</span> e.fecha_desde;
+
+<span class="hljs-keyword">commit</span>;
+
+<span class="hljs-keyword">ALTER TABLE</span> `encargado_evento`
+          <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">PRIMARY KEY</span> (`id_evento`, `cuil_encargado`, `fecha_asignacion`),
+          MODIFY <span class="hljs-keyword">COLUMN</span> `fecha_asignacion` <span class="hljs-type">DATE</span> <span class="hljs-keyword">NOT NULL</span>;</code></pre></div></details></section>
+
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="SQL" data-enlace="parcial-2.html#sql-para-la-practica" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">SQL</span><span class="ex-t-teoria"><a href="parcial-2.html#sql-para-la-practica">SQL para la práctica</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-ad-2025.html">Anterior: Parcial de aprobación directa, tema A</a><a href="ej-ad-2023-b.html">Siguiente: Parcial de aprobación directa, tema B</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta marzo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aprobación directa, 09/11/2024: Ingeniería y Calidad de Software</title>
+<meta name="description" content="Ejercicio de examen: Aprobación directa, 09/11/2024.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="ingenieria-y-calidad-de-software" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Ingeniería y Calidad de Software</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="regularizacion.html">Regularización</a></li><li class="em-fuera"><a href="aprobacion-directa.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=ingenieria-y-calidad-de-software">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=ingenieria-y-calidad-de-software">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Aprobación directa, 09/11/2024</h1>
+<p class="bajada">Parcial de aprobación directa, 09/11/2024</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="ad-2024-11-09" data-titulo="Aprobación directa, 09/11/2024" data-min="120" data-otro="ejercicios.html#ad" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="ad-2024-11-09" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1FHQ36kePOqZWTJlaPv0ktw20shlhswtK/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><p>6/9/25, 6:29 p.m. ICSW Parcial Aprob. Dir. 9/nov/2024</p>
+<p>Si estuviera en el año 2002, indique que es lo que debería quedar bajo la gestión de configuración para garantizar la evolución que se tuvo.</p>
+<p>Desde el 2002, nuestra software factory se especializa en el desarrollo de aplicaciones que responden a requerimientos del sistema de contrataciones. Se ha utilizado el lenguaje A para el desarrollo de las aplicaciones de escritorio y el lenguaje B para el desarrollo de aplicaciones móviles. Recién en 2010 se aplico el estándar de interfaces. Las app móvil ha comenzado en los últimos 2 años. Los manuales en formato PDF creados con MS-Word 2002 han sido reemplazados por un módulo que se integra a nuestros productos proveyendo de un manual on-line sensible al contexto. Estos últimos surgieron en los últimos 10 años. El dueño nos dice orgulloso que los manuales han estado desde la primera versión.</p>
+<p>Nota: no se hace mención explicita en la lista que esta debajo de todos los elementos aunque seguramente podrá deducir que debió estar</p>
+<p>Documentacion del sistema de contrataciones App de escritorio Lenguaje A Código fuente Estandares de interfaces MS-WORD 2002 Manuales en archivos .doc Manuales en archivos .pdf Lenguaje B Modulo de manual on-line</p>
+<p>Comentarios Se pide productos de software, no productos de trabajo</p>
+<p>6/9/25, 6:29 p.m. ICSW Parcial Aprob. Dir. 9/nov/2024</p>
+<p>Determinar la cantidad de releases minimos en los proyectos que se plantean *</p>
+<p>La versión release es una versión de lanzamiento, es decir, que el software se hace público.</p>
+<p>1 2 3 4 5 Puntuación</p>
+<p>Estamos</p>
+<p>desarrollando</p>
+<p>el producto de</p>
+<p>software</p>
+<p>ALFA 3, el</p>
+<p>proyecto está</p>
+<p>basado en un</p>
+<p>ciclo</p>
+<p>incremental</p>
+<p>con 4</p>
+<p>incrementos</p>
+<p>Estamos</p>
+<p>realizando un</p>
+<p>proyecto para</p>
+<p>crear un</p>
+<p>software que</p>
+<p>lo llamaremos</p>
+<p>ALFA. ALFA</p>
+<p>se desarrolla</p>
+<p>basado en un</p>
+<p>ciclo en</p>
+<p>cascada</p>
+<p>6/9/25, 6:29 p.m. ICSW Parcial Aprob. Dir. 9/nov/2024</p>
+<p>¿Cuál sería el plazo aproximado de supervivencia en años que provee la estructura de versión del producto A que se describe a continuación?</p>
+<p>Estructura de versión de productos de software: &lt;x&gt;.&lt;y&gt;, donde &lt;x&gt; = cambio de funcionalidad. 2 dígitos. Primera versión 01. &lt;y&gt; = corrección de error. 2 dígitos. Primer cambio se inicializa con 01. Se incrementa en 1 cada vez que se realiza una corrección y se inicializa a 0 cuando cambia la funcionalidad. Nota: la primera versión del archivo será 01.00. Se sabe que existen modificaciones trimestrales de funcionalidad y cambios quincenales por errores. A continuación se presentan las opciones en años:</p>
+<p>1 2 6 16 20 22 24 28 30 38 50</p>
+<p>6/9/25, 6:29 p.m. ICSW Parcial Aprob. Dir. 9/nov/2024</p>
+<p>Una auditoria en aseguramiento de la calidad termina cuando</p>
+<p>se resuelven las no conformidades se presenta el informe de resultados se lleva a cabo la auditoria se realiza el registro de la auditoria</p>
+<p>En un sistema de gestión de inventario, el cliente solicita que la</p>
+<p>plataforma permita el acceso desde dispositivos móviles, pero no</p>
+<p>especifica cuáles dispositivos o sistemas operativos deben ser</p>
+<p>compatibles. Según las mejores prácticas de RD, ¿cómo debería proceder</p>
+<p>el equipo de requisitos?</p>
+<p>Definir una lista de dispositivos y sistemas operativos estándar y confirmar esta lista con el cliente para asegurar que el requisito sea claro y específico.</p>
+<p>Documentar el requisito de acceso móvil como está descrito y permitir al equipo de desarrollo seleccionar los dispositivos y sistemas compatibles.</p>
+<p>Ignorar el requisito de compatibilidad específica y centrarse en crear una interfaz adaptable.</p>
+<p>Implementar el acceso móvil en una gama amplia de dispositivos y ajustar la lista de compatibilidad en función de las pruebas de usuario.</p>
+<p>6/9/25, 6:29 p.m. ICSW Parcial Aprob. Dir. 9/nov/2024</p>
+<p>El área de SQA de la software factory realiza controles sobre los</p>
+<p>proyectos para determinar que se cumplan con los estándares definidos,</p>
+<p>tanto a nivel de proceso como a nivel de producto. En caso de encontrar</p>
+<p>no conformidades, emite un informe describiendo las mismas. A partir</p>
+<p>de ese momento es responsabilidad del líder de proyecto que se</p>
+<p>subsanen las no conformidades, el área de SQA realiza dos</p>
+<p>inspecciones adicionales (a los 15 días y a los 30 días) para verificar que</p>
+<p>las no conformidades hayan sido subsanadas. Si no se corrigen, reporta</p>
+<p>el problema al Gerente de Desarrollo con quien se tiene buena</p>
+<p>comunicación ya que tanto los PMs como SQA depende de esa gerencia.</p>
+<p>BP --&gt; Dada la práctica descripta en el enunciado precedente, indicar si considera que podríansurgir o no, problemas de calidad en la Software Factory, optando por unos o varias de lasafirmaciones siguientes, o indique NINGUNA si no encuadra con ninguna de las opciones. Sibien pueden elegirse más de una opción, no pueden combinarse al mismo tiempo las queconsideran que SÍ hay problemas de calidad, con las que NO</p>
+<p>No genera problemas de calidad, porque lo descripto es una implementación completa de SQA</p>
+<p>No genera problemas de calidad, porque es buena práctica que el lider de proyecto esté al tanto de las no conformidades.</p>
+<p>Sí podría generar problemas de calidad, porque no contempla un mecanismo para controlar, por parte de un grupo externo al desarrollo, que se resuelvan las no conformidades</p>
+<p>Sí podría generar problemas de calidad, porque SQA hace solo controles a nivel artefacto</p>
+<p>Sí podría generar problemas de calidad, porque SQA no está verificando que se cumplan los requisitos. Esto es una falla grave ya que un sistema que no cumple con los requisitos no satisface nunca al cliente.</p>
+<p>Sí podría generar problemas de calidad, porque faltan almacenar métricas de las no conformidades escaladas al área de testing.</p>
+<p>No podría generar problemas de calidad, porque el líder de proyecto es quién está en mejores condiciones de hacer seguimiento de las no conformidades</p>
+<p>Sí podría generar problemas de calidad, porque el área de SQA debería participar de los relevamientos, y no solo de controlar los estándares</p>
+<p>Sí podría generar problemas de calidad, porque el área de SQA debería depender de otra gerencia para evitar conflicto de intereses al escalar</p>
+<p>6/9/25, 6:29 p.m. ICSW Parcial Aprob. Dir. 9/nov/2024</p>
+<p>Sí podría generar problemas de calidad, porque las inspecciones solo las pueden hacer el área de Verificación</p>
+<p>Ninguna de las otras opciones</p>
+<p>6/9/25, 6:29 p.m. ICSW Parcial Aprob. Dir. 9/nov/2024</p>
+<p>Tomando en cuenta que la software factory vende ciertos productos a más de un cliente, se ha constatado que hay una política de versionado que identifica claramente la versión del producto final y la versión de cada artefacto generado en el proyecto. Cada artefacto tiene un nro. de versión independiente del resto, y no se guarda relación con las versiones de otros artefactos. Asimismo hay un política de almacenamiento y back up, que indica que los items de configuración son almacenados en el repositorio de cada proyecto. Siendo que cuando los clientes van migrando a nuevas versiones del producto final, no se borra ningún artefacto del repositorio del proyecto. Solo cuando un producto se descontinua definitivamente es que se elimina el repositorio del proyecto. Es decir, que en el repositorio de proyecto solo hay artefactos de productos finales que no han sido descontinuados.</p>
+<p>BP --&gt; Dada la práctica descripta en el enunciado precedente, indicar si considera que podrían surgir o no, problemas de calidad en la Software Factory, optando por unos o varias de las afirmaciones siguientes, o indique NINGUNA si no encuadra con ninguna de las opciones. Si bien pueden elegirse más de una opción, no pueden combinarse al mismo tiempo las que consideran que SÍ hay problemas de calidad, con las que NO.</p>
+<p>No genera problemas de calidad, esta es una implementación correcta de CM (dado que se conservan en el repositorio todas las versiones de los artefactos)</p>
+<p>No genera problemas de calidad, esta es una implementación correcta de OPD</p>
+<p>Sí podría generar problemas de calidad, porque en caso de ser necesario volver a una versión anterior no hay información sobre la relación de versiones entre artefactos</p>
+<p>No genera problemas de calidad, porque solo son relevantes las versiones vigentes a nivel cliente</p>
+<p>Sí podría generar problemas de calidad, porque no se hacen pruebas dinámicas de no confirmidad a las versiones antiguas antes de eliminarlas</p>
+<p>Sí podría generar problemas de calidad, porque el problema principal es que no se almacenan los artefactos genereados en los proyectos en un repositorio organizacional</p>
+<p>NINGUNA de las otras opciones</p>
+<p>6/9/25, 6:29 p.m. ICSW Parcial Aprob. Dir. 9/nov/2024</p>
+<p>En la especificación de un sistema de educación en línea, se detecta que los requisitos de usabilidad son vagos, sin detalles sobre métricas específicas como el tiempo de carga y la facilidad de navegación. Según RD, ¿cuál sería el siguiente paso correcto para asegurar que los requisitos de usabilidad sean adecuados y medibles?</p>
+<p>Solicitar una reunión con el cliente para definir métricas específicas de usabilidad que se alineen con sus expectativas, y actualizar la documentación de requisitos para incluir estos detalles.</p>
+<p>Completar la especificación de requisitos de usabilidad con métricas estándar de la industria y proceder con el desarrollo de la interfaz de usuario.</p>
+<p>Implementar una interfaz de usuario básica que se ajuste a criterios estándar y revisar la usabilidad una vez que el sistema esté desarrollado.</p>
+<p>Agregar las métricas de usabilidad según los recursos disponibles y ajustar las métricas de navegación y carga en fases posteriores del proyecto.</p>
+<p>Ninguna de las otras opciones</p>
+<p>6/9/25, 6:29 p.m. ICSW Parcial Aprob. Dir. 9/nov/2024</p>
+<p>En la fase de pruebas de un sistema de e-commerce, se identifica que el cliente quiere que el sistema registre automáticamente el comportamiento de navegación de los usuarios para personalizar las recomendaciones de productos. Este cambio implica cumplir con normativas de protección de datos y privacidad. Según REQM, ¿cuál es el primer paso a seguir?</p>
+<p>Consultar con el equipo de legal y privacidad sobre el cumplimiento normativo del registro de datos de navegación y actualizar la matriz de trazabilidad para reflejar los impactos de privacidad del cambio.</p>
+<p>Incluir el requisito de personalización en la matriz de trazabilidad y realizar las modificaciones necesarias en el sistema para registrar el comportamiento de los usuarios.</p>
+<p>Documentar el cambio en el sistema de gestión de requisitos y solicitar una excepción en las políticas de privacidad para permitir el registro de datos.</p>
+<p>Implementar el registro de datos y ajustar los términos de uso para que los usuarios estén informados del cambio.</p>
+<p>6/9/25, 6:29 p.m. ICSW Parcial Aprob. Dir. 9/nov/2024</p>
+<p>Durante la implementación de un sistema de control de acceso para una fábrica, se descubre que el cliente necesita añadir restricciones horarias específicas para los usuarios externos. Esta solicitud no fue planteada inicialmente y afecta a varios subsistemas. ¿Qué proceso seguiría el equipo para gestionar correctamente esta solicitud según REQM?</p>
+<p>Realizar un análisis exhaustivo de cómo las restricciones horarias afectarán otros subsistemas y actualizar la matriz de trazabilidad para reflejar estos impactos antes de proceder.</p>
+<p>Registrar el cambio en el sistema de gestión de requisitos, actualizar la matriz de trazabilidad con las restricciones horarias y comenzar la implementación.</p>
+<p>Ajustar los requisitos actuales de acceso para adaptarse a las restricciones sin realizar cambios en la matriz de trazabilidad.</p>
+<p>Consultar con el cliente si está dispuesto a reducir otros requisitos de acceso para acomodar las restricciones horarias sin modificar los subsistemas existentes.</p>
+</section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p><strong>1. Qué debía quedar bajo CM en 2002.</strong> <strong>App de escritorio</strong>, <strong>Lenguaje A</strong> y <strong>MS-WORD 2002</strong>.</p>
+<p>En 2002 se hacían aplicaciones de escritorio con el lenguaje A, y los manuales, que están desde la primera versión, se armaban con MS-Word 2002 y se pasaban a PDF. Para poder reconstruir y seguir evolucionando esa versión hacen falta el producto y las herramientas con que se hace. CMMI, en CM SP 1.1, nombra a los compiladores entre los elementos de configuración. La nota avisa que el texto no nombra todo lo de la lista, pero se deduce. El comentario pide productos de software, así que la documentación, el código fuente y los manuales, que son productos de trabajo, no van en esta respuesta.</p>
+<p>Quedan afuera por fecha el estándar de interfaces (2010), el lenguaje B y la app móvil (los últimos 2 años) y el módulo de manual on-line (los últimos 10 años).</p>
+<p><strong>2. Releases mínimos.</strong></p>
+<div class="tabla"><table><thead><tr><th>Proyecto</th><th>Releases</th><th>Por qué</th></tr></thead><tbody><tr><td>ALFA 3, incremental con 4 incrementos</td><td>4</td><td>Cada incremento entrega un producto operativo</td></tr><tr><td>ALFA, en cascada</td><td>1</td><td>Cada fase espera a la anterior y el producto se hace público una sola vez, al final</td></tr></tbody></table></div>
+<p><strong>3. Supervivencia de la estructura de versión.</strong> <strong>24</strong> años.</p>
+<p>El número que se agota es <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>. Va de 01 a 99 y cambia una vez por trimestre. De 01 a 99 hay 98 cambios, que son <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>98</mn><mo>×</mo><mn>3</mn><mo>&#61;</mo><mn>294</mn></mrow><annotation encoding="application/x-tex">98 &#92;times 3 &#61; 294</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">98</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">294</span></span></span></span> meses, unos 24,5 años. Con la 99 vigente un trimestre más, son <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>99</mn><mo>×</mo><mn>3</mn><mo>&#61;</mo><mn>297</mn></mrow><annotation encoding="application/x-tex">99 &#92;times 3 &#61; 297</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">99</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">297</span></span></span></span> meses, unos 24,75 años. La opción más cercana es 24.</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span></span></span></span> no limita. Las correcciones son quincenales, unas 6 por trimestre, y <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span></span></span></span> vuelve a 0 con cada cambio de funcionalidad, así que nunca pasa de 06.</p>
+<p><strong>4. Una auditoría de calidad termina cuando.</strong> <strong>Se resuelven las no conformidades.</strong> SQA hace el seguimiento de las no conformidades hasta su cierre. El informe no cierra la auditoría.</p>
+<p><strong>5. Acceso móvil sin dispositivos especificados.</strong> <strong>Definir una lista de dispositivos y sistemas operativos estándar y confirmar esta lista con el cliente para asegurar que el requisito sea claro y específico.</strong> RD SP 3.3 pide requerimientos completos y verificables, y «desde dispositivos móviles» no se puede verificar. La lista la propone el equipo, pero la confirma el cliente. Dejarlo a criterio del desarrollo, ignorarlo o ir ajustando con pruebas no lo completa.</p>
+<p><strong>6. BP, SQA revisa a los 15 y 30 días y escala al Gerente de Desarrollo.</strong> <strong>Sí podría generar problemas de calidad, porque el área de SQA debería depender de otra gerencia para evitar conflicto de intereses al escalar.</strong></p>
+<p>Acá SQA sí hace el seguimiento y sí escala. El problema es a quién. CMMI pide objetividad y un canal independiente para informar al nivel apropiado de gerencia. Si SQA y los PM dependen del mismo gerente, quien recibe la no conformidad es también responsable de los proyectos que la generaron. La buena comunicación no reemplaza la independencia. Las inspecciones no son exclusivas de Verificación, y verificar requisitos no es tarea de SQA.</p>
+<p><strong>7. BP, versiones de artefactos sin relación entre sí.</strong> <strong>Sí podría generar problemas de calidad, porque en caso de ser necesario volver a una versión anterior no hay información sobre la relación de versiones entre artefactos.</strong></p>
+<p>Guardar todo no alcanza. Sin líneas base (CM SP 1.3) no se sabe qué versión de cada artefacto formaba cada versión del producto final, y no se puede recuperar una línea base anterior. Para un producto que tienen varios clientes en versiones distintas, eso impide reproducir un problema en la versión del cliente. No es un problema de OPD ni de pruebas a versiones viejas.</p>
+<p><strong>8. Requisitos de usabilidad vagos.</strong> <strong>Solicitar una reunión con el cliente para definir métricas específicas de usabilidad que se alineen con sus expectativas, y actualizar la documentación de requisitos para incluir estos detalles.</strong> Un requisito tiene que ser verificable, y las métricas las tiene que acordar el cliente. Las otras opciones las fija el equipo por su cuenta o las patean para después.</p>
+<p><strong>9. Registrar la navegación de los usuarios.</strong> <strong>Consultar con el equipo de legal y privacidad sobre el cumplimiento normativo del registro de datos de navegación y actualizar la matriz de trazabilidad para reflejar los impactos de privacidad del cambio.</strong> REQM SP 1.3 pide evaluar el impacto antes de aceptar el cambio, y SP 1.4 mantener la trazabilidad. Las otras implementan primero o piden saltear la normativa.</p>
+<p><strong>10. Restricciones horarias que afectan varios subsistemas.</strong> <strong>Realizar un análisis exhaustivo de cómo las restricciones horarias afectarán otros subsistemas y actualizar la matriz de trazabilidad para reflejar estos impactos antes de proceder.</strong> REQM SP 1.3 evalúa el impacto del cambio antes de incorporarlo, y la trazabilidad bidireccional muestra qué subsistemas toca. La segunda opción registra el cambio pero arranca a implementar sin evaluar el impacto.</p>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la página Aprobación directa, secciones Gestión de configuración CM, Versionado, Aseguramiento de la calidad PPQA, Buenas prácticas y Requerimientos RD y REQM.</p><p class="bloque-fuente">Quedó en duda: En lo que queda bajo CM en 2002, no queda claro si el código fuente y los manuales cuentan como productos de software o como productos de trabajo. Los releases salen 4 y 1 con la definición del enunciado. En la buena práctica 6 va solo la opción del conflicto de intereses, y la del mecanismo externo es discutible. En la 10 va la opción del análisis de impacto.</p><div class="em-votos" data-m="ingenieria-y-calidad-de-software" data-e="ad-2024-11-09" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="CM" data-enlace="aprobacion-directa.html#gestion-de-configuracion-cm" data-donde="Aprobación directa"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">CM</span><span class="ex-t-teoria"><a href="aprobacion-directa.html#gestion-de-configuracion-cm">Gestión de configuración CM</a>, en Aprobación directa</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="PPQA" data-enlace="aprobacion-directa.html#aseguramiento-de-la-calidad-ppqa" data-donde="Aprobación directa"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">PPQA</span><span class="ex-t-teoria"><a href="aprobacion-directa.html#aseguramiento-de-la-calidad-ppqa">Aseguramiento de la calidad PPQA</a>, en Aprobación directa</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="RD" data-enlace="aprobacion-directa.html#requerimientos-rd-y-reqm" data-donde="Aprobación directa"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">RD</span><span class="ex-t-teoria"><a href="aprobacion-directa.html#requerimientos-rd-y-reqm">Requerimientos RD y REQM</a>, en Aprobación directa</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="REQM" data-enlace="aprobacion-directa.html#requerimientos-rd-y-reqm" data-donde="Aprobación directa"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">REQM</span><span class="ex-t-teoria"><a href="aprobacion-directa.html#requerimientos-rd-y-reqm">Requerimientos RD y REQM</a>, en Aprobación directa</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-ad-2025-11-08.html">Anterior: Aprobación directa, 08/11/2025</a><a href="ej-ad-2023-11-11.html">Siguiente: Aprobación directa, 11/11/2023</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta octubre de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

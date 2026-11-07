@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-solo>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Emergencia: Algoritmos y Estructuras de Datos</title>
+<meta name="description" content="Lo necesario para rendir Algoritmos y Estructuras de Datos.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/w.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/expr.js" defer></script>
+<script src="../_/w.js" defer></script>
+<script src="interactivos.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="algoritmos-y-estructuras-de-datos" data-pagina="emergencia">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Algoritmos y Estructuras de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html" aria-current="page">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">3° parcial y final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=algoritmos-y-estructuras-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=algoritmos-y-estructuras-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#1-parcial">1° parcial</a></li><li class="n2"><a href="#2-parcial">2° parcial</a></li><li class="n2"><a href="#3-parcial-y-final">3° parcial y final</a></li><li class="n2"><a href="#reglas-de-los-trabajos-practicos">Reglas de los trabajos prácticos</a></li><li class="n2"><a href="#que-cae">Qué cae más</a></li><li class="n2"><a href="#examenes">Exámenes</a></li><li class="n3"><a href="#ex-parcial-1">1° parcial</a></li><li class="n3"><a href="#ex-parcial-2">2° parcial</a></li><li class="n3"><a href="#ex-final">3° parcial y final</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Protocolo de emergencia</h1>
+<p class="bajada">Lo justo de Algoritmos y Estructuras de Datos para cada instancia, con el examen encima.</p>
+
+<p class="em-salto"><a href="#examenes">Ir a los exámenes</a></p>
+
+<div class="ojo"><p class="ojo-t">Lo de 2022 para atrás</p><p>Es del plan viejo. Las cantidades de este resumen cuentan solo exámenes de 2023 en adelante. El 1° parcial de 2022 usa el mismo tipo de narrativa. Antes de 2021 casi todos pedían Pascal. Mirá los viejos solo para practicar más.</p>
+</div>
+<figure>
+<svg viewBox="0 0 720 142" role="img" aria-label="Tres tramos, cada uno suma una herramienta al anterior. Estructuras de control para el 1° parcial, datos en memoria para el 2° parcial y datos en disco para el 3° parcial y el final.">
+<rect class="d-caja" x="4" y="28" width="224" height="72" rx="4"/><text class="d-t" x="116" y="58">Estructuras de control</text><text class="d-s" x="116" y="80">Secuencia, decisión, menú</text>
+<rect class="d-caja" x="248" y="28" width="224" height="72" rx="4"/><text class="d-t" x="360" y="58">Datos en memoria</text><text class="d-s" x="360" y="80">Arreglos, búsquedas, orden</text>
+<rect class="d-caja" x="492" y="28" width="224" height="72" rx="4"/><text class="d-t" x="604" y="58">Datos en disco</text><text class="d-s" x="604" y="80">Registros y archivos</text>
+<path class="d-linea" d="M228 64h14M472 64h14"/>
+<path class="d-punta" d="M248 64l-8-4v8zM492 64l-8-4v8z"/>
+<text class="d-i" x="116" y="126">1° parcial</text><path class="d-linea-m" d="M14 110H218"/>
+<text class="d-i" x="360" y="126">2° parcial</text><path class="d-linea-m" d="M258 110H462"/>
+<text class="d-i" x="604" y="126">3° parcial y final</text><path class="d-linea-m" d="M502 110H706"/>
+</svg>
+</figure>
+
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué piden</th></tr></thead><tbody><tr><td>1° parcial</td><td>Una narrativa en Chapin con repeticiones, un fin de datos y un menú iterativo</td></tr><tr><td>2° parcial</td><td>Arreglos o matrices, una función de búsqueda que devuelve la posición o -1, listados ordenados y menú</td></tr><tr><td>3° parcial</td><td>Dos o tres archivos de registros ya creados y menú, con una parte para regularizar</td></tr><tr><td>Final</td><td>Lo mismo que el 3° parcial y, en 7 de las 16 mesas de 2023 en adelante, una parte de teoría con código corto</td></tr></tbody></table></div>
+<p>Las propuestas de los exámenes van en Chapin, con un diagrama por módulo y su declaración de variables, como piden las hojas. Abajo de cada una está el mismo algoritmo en Python, el lenguaje de los TP, para que lo puedas probar.</p>
+<div class="ojo"><p class="ojo-t">Un Chapin no es código</p><p>En Chapin no se escribe <code>if</code> ni <code>while</code>. Se dibujan cajas: decisión con dos ramas (V y F), repetición con la condición en el encabezado de la caja. El único pedido de lenguaje en el diagrama es el de los archivos. Varias hojas piden que esas sentencias usen las palabras reservadas del lenguaje que cursaste (3° parcial de octubre de 2024, finales de marzo, abril y agosto de 2025).</p>
+</div>
+
+<section class="sec"><h2 id="1-parcial">1° parcial</h2>
+<p>Una sola narrativa en diagrama de Chapin. Cuando no sabés cuántos datos hay, se usa un valor que marca el final (un cero, un <code>*</code>). El patrón es siempre el mismo.</p>
+<pre class="codigo"><code>leer dato
+mientras dato &lt;&gt; fin
+    procesar dato
+    leer dato</code></pre>
+<p>La primera lectura va <strong>antes</strong> del bucle y la segunda <strong>al final</strong> de cada vuelta. Con eso el valor de fin nunca se procesa. Si el enunciado dice «Proponer un fin de datos acorde», tiene que ser un valor que no pueda ser un dato real.</p>
+<div class="tabla"><table><thead><tr><th>Estructura</th><th>Cuándo se usa</th><th>Condición</th><th>Ejecuta mínimo una vez</th></tr></thead><tbody><tr><td><code>PARA</code> (FOR)</td><td>Cantidad <strong>conocida</strong> de veces</td><td>Tiene contador propio</td><td>No, si el rango es vacío</td></tr><tr><td><code>MIENTRAS</code> (WHILE)</td><td>Cantidad <strong>desconocida</strong></td><td>Se evalúa <strong>antes</strong></td><td>No</td></tr><tr><td><code>REPETIR HASTA</code> (REPEAT UNTIL)</td><td>Cantidad desconocida, como en una validación</td><td>Se evalúa <strong>después</strong></td><td><strong>Sí</strong></td></tr></tbody></table></div>
+<p>Fuente de la tabla: Práctica 1, secciones «Estructura Para», «Mientras» y «Repetir hasta»; Preguntas de Teoría Anual, pregunta 8.</p>
+<p>Cuando hay una cantidad conocida de grupos y cada uno trae una cantidad desconocida de datos, se combinan un <code>PARA</code> y un <code>MIENTRAS</code>.</p>
+<ul>
+<li><strong>Contador</strong>: arranca en 0 y suma 1 cada vez que pasa algo.</li>
+<li><strong>Acumulador</strong>: arranca en 0 y suma un valor.</li>
+<li><strong>Máximo</strong>: se guarda el mayor visto hasta ahora y, si hace falta, el dato que lo identifica (por ejemplo el código). Se inicializa antes del bucle, se compara dentro y se muestra al final.</li>
+</ul>
+<p>Un <strong>porcentaje</strong> se calcula como parte dividida el total por 100, y la parte y el total son dos contadores o acumuladores. Un <strong>promedio</strong> es un acumulador dividido por un contador.</p>
+<div class="ojo"><p class="ojo-t">Dónde se inicializa</p><p>El blanqueo de un contador o acumulador va <strong>antes</strong> del bucle que lo usa. Si el dato se calcula por cada grupo, el blanqueo va dentro de la repetición de grupos y antes de la de datos. Un resumen recuerda este orden para un máximo: blanquear el acumulado, generar el acumulado, blanquear el máximo, comparar y asignar. Fuente: Resumen Teórico Anual (de alumno), página 19.</p>
+</div>
+<p>«Validar» es repetir la lectura hasta que el dato esté en el rango permitido. El <strong>menú iterativo</strong> se muestra, se lee la opción validada y se ejecuta con una selección múltiple, y se repite hasta elegir salir. En las preguntas frecuentes de los TP, la cátedra lo arma en Python. La variable de opción se inicializa para forzar la entrada, el bucle corre mientras la opción sea distinta de 0, y la opción se valida con un segundo <code>while</code>. Fuente: TP N°2 Preguntas frecuentes (2024), páginas 2 y 3.</p>
+<div class="idea"><p>Python no tiene <code>REPETIR HASTA</code>. Las preguntas frecuentes de los TP lo arman así: una asignación antes del <code>while</code> que obliga a entrar, con el comentario «así lo obligo a entrar al mientras y lo convierto en un Repetir». Fuente: TP N°2 Preguntas frecuentes (2024), página 3.</p>
+</div>
+<h3 id="que-llevar-a-la-hoja-del-1-parcial">Qué llevar a la hoja del 1° parcial</h3>
+<ul>
+<li>Declaración de variables con su tipo.</li>
+<li>Un módulo por cada tarea (carga, cálculo, menú, cada opción).</li>
+<li>Inicializaciones antes de los bucles.</li>
+<li>Validaciones donde el enunciado habla de rango o de opciones.</li>
+<li>Un fin de datos que no sea un dato real.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="2-parcial">2° parcial</h2>
+<p>Una narrativa en Chapin que pide <strong>diseñar las estructuras de datos</strong> y armar un menú iterativo. Para cada dato, decí si es un arreglo de una dimensión, una matriz o un arreglo de registros, con el rango de índices.</p>
+<h3 id="subprogramas-y-parametros">Subprogramas y parámetros</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Procedimiento</th><th>Función</th></tr></thead><tbody><tr><td>Resultados</td><td>Uno, ninguno o varios</td><td><strong>Uno solo</strong></td></tr><tr><td>Cómo los devuelve</td><td>Por parámetros</td><td>Por su nombre</td></tr><tr><td>Cómo se invoca</td><td>Nombrándolo, con los parámetros entre paréntesis</td><td>Dentro de una exhibición, asignación o decisión. <strong>No</strong> en una lectura</td></tr></tbody></table></div>
+<p>Fuente: Autotest 2, preguntas 4, 10 y 11; Resumen Teórico Anual (de alumno), página 2.</p>
+<ul>
+<li><strong>Por valor</strong>: el subprograma trabaja con una <strong>copia</strong>. Lo que cambie dentro no vuelve al módulo que llamó. Son parámetros de entrada.</li>
+<li><strong>Por referencia</strong> (<code>var</code> en Pascal): se pasa la dirección de la variable. Lo que cambie dentro <strong>sí</strong> vuelve. Son parámetros de entrada y salida.</li>
+</ul>
+<p>Fuente: Autotest 2, preguntas 3 y 17; ResumenFinalAyED 2025, página 3; Resumen Teórico Anual, página 4.</p>
+<div class="ojo"><p class="ojo-t">Parametrizar sirve para otra cosa</p><p>Usar parámetros permite realizar el <strong>mismo proceso con distintos datos</strong>. No sirve para hacer distintas acciones con los mismos datos. Fuente: Autotest 2, pregunta 15. La consigna se tomó tal cual en el final de marzo de 2025.</p>
+</div>
+<p>Varios enunciados traen subprogramas que no se desarrollan («NO programarla», «NO desarrollar»). Hay que invocarlos con los parámetros correctos y usar lo que devuelven.</p>
+<h3 id="arreglos">Arreglos</h3>
+<p>Un <strong>arreglo</strong> es una secuencia de posiciones de memoria consecutivas con datos del <strong>mismo tipo</strong>, a las que se accede directamente con un índice. Es una estructura <strong>estática</strong>: el tamaño se fija al declararlo y no se puede redimensionar durante la ejecución.</p>
+<p>Fuente: Autotest 2, preguntas 7 y 14; Resumen Teórico Anual, página 5; «resumen arreglos» (de alumno), página 1.</p>
+<p>En Python, la cátedra los declara así, con estos comentarios:</p>
+<pre class="codigo"><code>unidimensional = [<span class="hljs-number">0</span>]*<span class="hljs-number">8</span> <span class="hljs-comment"># Arreglo de 0 a 7 de enteros</span>
+multidimensional=[[<span class="hljs-number">0</span>]*<span class="hljs-number">4</span> <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">50</span>)] <span class="hljs-comment"># Arreglo multi de 4x50 de enteros</span></code></pre>
+<p>Fuente: TP N°2 Preguntas frecuentes (2024), página 2.</p>
+<div class="ojo"><p class="ojo-t">El índice arranca en 0 en Python</p><p>En <code>[0]*8</code>, los índices van de 0 a 7. Mirá cómo numera cada enunciado. Franquicia numera las sucursales de 0 a 7, y Juego de Mesa identifica a los jugadores de 1 a 100.</p>
+</div>
+<p>Dos arreglos <strong>paralelos</strong> usan el mismo índice para datos de una misma entidad. Cuando los códigos son números chicos y consecutivos, el código <strong>es</strong> el índice y se acumula directo en <code>V[codigo]</code>. Una matriz se recorre con dos <code>PARA</code> anidados, fila y columna.</p>
+<h3 id="busquedas">Búsquedas</h3>
+<p><strong>Secuencial</strong>: recorre el arreglo desde la primera posición hasta encontrar el dato o llegar al final. <strong>No exige</strong> que el arreglo esté ordenado. Se escribe como <strong>función</strong> que devuelve la posición o un valor que significa «no está». Los enunciados de 2024 y 2025 piden <code>-1</code>.</p>
+<p><strong>Dicotómica</strong>: exige el arreglo <strong>ordenado</strong>. Variables <code>comienzo</code>, <code>fin</code> y <code>medio = (comienzo + fin) DIV 2</code>.</p>
+<ul>
+<li>Si <code>V[medio]</code> es el dato, lo encontró en <code>medio</code>.</li>
+<li>Si el dato es <strong>menor</strong>, <code>fin = medio - 1</code>.</li>
+<li>Si el dato es <strong>mayor</strong>, <code>comienzo = medio + 1</code>.</li>
+<li>Se repite <strong>hasta</strong> encontrarlo o hasta que <code>comienzo &gt; fin</code>.</li>
+</ul>
+<p>Fuente: «resumen arreglos» (de alumno), página 1; Resumen Teórico Anual (de alumno), página 12; Práctica 3, ejercicio 20, que la pide por su nombre. Los tres coinciden en la idea.</p>
+<figure class="w w-interactivo" data-w="interactivo" data-nombre="dicotomica" data-cfg="{&quot;valores&quot;:[3,7,12,18,21,25,30,34,41,47,52,58,63,70,76],&quot;dato&quot;:47}"><figcaption><span class="w-t">Probá la búsqueda dicotómica</span><span class="w-f">Fuente: «resumen arreglos» (de alumno), página 1</span></figcaption><div class="w-lienzo"></div><div class="w-desc">Un arreglo ordenado de 15 números. Elegís un dato y avanzás de a un paso. En cada paso se ve comienzo, fin y medio, y qué mitad se descarta.</div></figure>
+<div class="ojo"><p class="ojo-t">Cuál elegir</p><p>Se elige según el <strong>orden de los elementos</strong>, no según el tipo de dato ni la dimensión. Si el arreglo no está ordenado, solo sirve la secuencial. Fuente: Autotest 2, pregunta 16.</p>
+</div>
+<h3 id="ordenamiento">Ordenamiento</h3>
+<p>Comparar cada posición con todas las siguientes e intercambiar si están fuera de orden. Dos <code>PARA</code> anidados, <code>i</code> de 1 a N-1 y <code>k</code> de i+1 a N. Si <code>V[i] &gt; V[k]</code> se intercambian con una variable auxiliar. Para ordenar al revés, se invierte la comparación. Con dos arreglos paralelos, <strong>cada intercambio se hace en los dos arreglos</strong> para que sigan correspondiéndose (ordenamiento con arrastre, Práctica 3, ejercicio 19). En una matriz, se mueve la fila entera con un <code>PARA</code> más.</p>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>La recursividad aparece en el Autotest 2 de 2021: una llamada es recursiva cuando el subprograma se invoca a sí mismo. No la pide ningún examen de 2023 en adelante, y los TP de 2024 y 2025 consideran inválidas las resoluciones que la usan.</p>
+</div>
+</section>
+<section class="sec"><h2 id="3-parcial-y-final">3° parcial y final</h2>
+<p>Dos o tres archivos <strong>ya creados</strong>, con su orden dicho en el enunciado. Casi siempre hay que leer <strong>y actualizar</strong> registros. Antes de elegir una búsqueda, mirá qué dice cada archivo.</p>
+<h3 id="registros-y-archivos">Registros y archivos</h3>
+<p>Un <strong>registro</strong> (<code>RECORD</code> en Pascal) agrupa campos que pueden ser de <strong>tipos distintos</strong>, y se accede a cada campo por su nombre, no por un índice. En Python se arma una <strong>clase</strong> con un constructor que inicializa los campos, como en las diapositivas de la cátedra:</p>
+<pre class="codigo"><code><span class="hljs-keyword">class</span> <span class="hljs-title class_">Historia</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.Nhc = <span class="hljs-number">0</span>
+        <span class="hljs-variable language_">self</span>.Dni = <span class="hljs-string">&quot; &quot;</span></code></pre>
+<p>Un <strong>archivo</strong> es un conjunto de registros del mismo tipo guardado en memoria auxiliar (disco, pendrive). La información <strong>no se pierde</strong> al apagar. Fuente: Resumen Teórico Anual (de alumno), página 9; ResumenFinalAyED 2025 (de alumno), página 2.</p>
+<p>La cátedra pide usar la librería <code>pickle</code> y registros del <strong>mismo tamaño</strong> dentro del archivo. Fuente: TP N°3 2024, página 3; TP N°3 Preguntas frecuentes (2024), página 2.</p>
+<div class="tabla"><table><thead><tr><th>Qué querés hacer</th><th>En Python</th><th>En Pascal</th></tr></thead><tbody><tr><td>Abrir uno existente</td><td><code>open(ruta, &quot;r+b&quot;)</code></td><td><code>RESET (f)</code></td></tr><tr><td>Crear uno nuevo</td><td><code>open(ruta, &quot;w+b&quot;)</code></td><td><code>REWRITE (f)</code>, <strong>borra lo anterior</strong></td></tr><tr><td>Leer un registro</td><td><code>reg = pickle.load(archLog)</code></td><td><code>READ (f, reg)</code></td></tr><tr><td>Escribir un registro</td><td><code>pickle.dump(reg, archLog)</code></td><td><code>WRITE (f, reg)</code></td></tr><tr><td>Posicionarse</td><td><code>archLog.seek(posicion, 0)</code></td><td><code>SEEK (f, nro)</code></td></tr><tr><td>Dónde está el puntero</td><td><code>archLog.tell()</code></td><td><code>FILEPOS (f)</code></td></tr><tr><td>Tamaño</td><td><code>os.path.getsize(rutaFisica)</code>, en bytes</td><td><code>FILESIZE (f)</code>, en registros</td></tr><tr><td>Volcar a disco</td><td><code>archLog.flush()</code></td><td></td></tr></tbody></table></div>
+<p>Fuente: diapositivas «Merge y corte de control sobre archivos», páginas 4 a 8; Resumen Teórico Anual (de alumno), páginas 10 y 11. Los modos de <code>open</code> salen de los resúmenes de alumnos de abajo.</p>
+<div class="idea"><p>Las diapositivas de la cátedra lo muestran así. Después de leer el primer registro, <code>tell()</code> da el tamaño de un registro, porque el puntero avanzó justo eso. Como todos miden lo mismo, la cantidad de registros es <code>getsize // tamReg</code>, y el registro número <code>i</code> está en el byte <code>i * tamReg</code>.</p>
+</div>
+<p>Las preguntas frecuentes de la cátedra dicen «usar ljust» para que todos los registros midan lo mismo. Un texto se completa con espacios hasta el largo que le toca, como en <code>reg.nombre = reg.nombre.ljust(30, &quot; &quot;)</code>. Sin eso, el cálculo de la cantidad de registros y de las posiciones no da. Fuente: TP N°3 Preguntas frecuentes (2024), página 2.</p>
+<div class="ojo"><p class="ojo-t">Un archivo en Pascal no alterna lectura y escritura</p><p>El libro dice que «no se pueden alternar las operaciones de lectura y escritura en un archivo». El Resumen Teórico Anual (página 10) trabaja por eso con dos archivos, el viejo y el nuevo. En Python, los modos <code>r+b</code> y <code>w+b</code> leen y graban sobre el mismo archivo.</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Estos dos resúmenes de alumnos coinciden. Ningún apunte de la cátedra en el Drive trae la tabla, así que confirmala con tu comisión.</p>
+<div class="tabla"><table><thead><tr><th>Modo</th><th>Para qué</th><th>Si no existe</th><th>Si existe</th></tr></thead><tbody><tr><td><code>rb</code></td><td>Solo lectura</td><td>No lo crea</td><td>Lo abre</td></tr><tr><td><code>r+b</code></td><td>Lectura y grabación</td><td>No lo crea</td><td>Lo abre, con el puntero al inicio</td></tr><tr><td><code>wb</code></td><td>Solo grabación</td><td>Lo crea</td><td>Borra su contenido</td></tr><tr><td><code>w+b</code></td><td>Grabación y lectura</td><td>Lo crea</td><td>Borra su contenido</td></tr><tr><td><code>ab</code></td><td>Agrega al final</td><td>Lo crea</td><td>Lo deja igual y graba al final</td></tr><tr><td><code>a+b</code></td><td>Agrega al final y lee</td><td>Lo crea</td><td>Lo deja igual, con el puntero al final</td></tr></tbody></table></div>
+<p>Fuente: «resumen registros y archivos», página 2; ResumenFinalAyED 2025, página 1.</p>
+<p>Los dos resúmenes muestran esta apertura, que vale para un archivo que puede no existir:</p>
+<pre class="codigo"><code>archFisico = &quot;c:\\ruta.dat&quot;
+si os.path.exists(archFisico)
+    archLogico = open(archFisico, &quot;r+b&quot;)
+sino
+    archLogico = open(archFisico, &quot;w+b&quot;)</code></pre>
+<p class="bloque-fuente">Dos resúmenes de alumnos</p></div>
+<h3 id="recorrer-buscar-y-actualizar">Recorrer, buscar y actualizar</h3>
+<pre class="codigo"><code>tam = os.path.getsize(archFisico)
+archLogico.seek(0, 0)
+mientras archLogico.tell() &lt; tam
+    reg = pickle.load(archLogico)
+    procesar reg</code></pre>
+<p>Si el tamaño es 0, el archivo está vacío. Conviene avisar con un cartel.</p>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Es igual que en arreglos, pero leyendo del disco. Se escribe como función que devuelve la posición o <code>-1</code>.</p>
+<ul>
+<li><strong>Secuencial</strong>: se recorre desde el principio hasta encontrar la clave o llegar al final. No hace falta que el archivo esté ordenado.</li>
+<li><strong>Dicotómica</strong>: el archivo tiene que estar <strong>ordenado</strong> por la clave. Se calcula el medio entre el primero y el último registro, se hace <code>seek(medio * tamReg, 0)</code>, se lee y se compara. Si no coincide, se descarta una mitad y se repite.</li>
+<li><strong>Posición relativa (acceso directo)</strong>: el número del registro es su posición. Se va directo con <code>seek</code>, sin buscar. Sirve cuando el enunciado dice que el código es la posición.</li>
+</ul>
+<p>Fuente: «resumen registros y archivos», página 4; ResumenFinalAyED 2025, página 7; Resumen (2025), páginas 3 y 6 (los tres de alumnos, coinciden).</p>
+<p class="bloque-fuente">Tres resúmenes de alumnos</p></div>
+<p>Para actualizar un registro, estos son los pasos.</p>
+<ol>
+<li>Buscar la posición del registro.</li>
+<li>Posicionarse en ese registro.</li>
+<li>Leerlo y modificar el campo.</li>
+<li><strong>Volver a posicionarse</strong> en el mismo registro y grabarlo.</li>
+<li><code>flush()</code>.</li>
+</ol>
+<p>Hay que volver porque la lectura avanza el puntero. Si no se retrocede, se pisa el registro siguiente. Un <strong>alta</strong> va al final con <code>seek(0, 2)</code>. Una <strong>baja lógica</strong> no borra el registro, marca un campo para que se lo ignore. Para un listado <strong>ordenado</strong> de un archivo que no lo está, se puede pasar a memoria y ordenar ahí. También se puede ordenar sobre el disco con el mismo método de los arreglos.</p>
+<div class="ojo"><p class="ojo-t">Funciones que no se programan</p><p>Los enunciados dicen cosas como «la función MES() que No debe programarse», «DIAHOY()» o «DEV_MES_ACTUAL() (no programar)». Hay que <strong>invocarlas</strong> con los parámetros correctos y usar lo que devuelven, sin dibujarlas.</p>
+</div>
+<h3 id="merge-y-corte-de-control">Merge y corte de control</h3>
+<p><strong>Dados dos archivos ordenados por la misma clave, se genera un tercero también ordenado.</strong> Si un mismo código está en los dos, se guardan ambos. Se lee un registro de cada archivo, se graba el menor y se avanza solo en el archivo del que salió. Cuando uno se termina, se copia el resto del otro. Fuente: Resumen Teórico Anual (de alumno), página 15.</p>
+<div class="ojo"><p class="ojo-t">Hay que tener cuidado con el último registro</p><p>El esquema arranca leyendo un registro de cada archivo, así que necesita que <strong>ambos tengan al menos un dato</strong>. También hay que saber qué registro quedó sin guardar al llegar al fin de uno. Fuente: Resumen Teórico Anual (de alumno), página 15; diapositivas de la cátedra, páginas 4 y 5.</p>
+</div>
+<p>El <strong>corte de control</strong> se usa cuando los datos vienen agrupados (ordenados) por una clave y querés un resultado por cada grupo. Sobre archivos, las diapositivas de la cátedra marcan la diferencia así: «cada vez que traigamos un registro para procesar, el puntero avanzó. Si cambio de grupo debemos retroceder para no perder un registro». Al detectar el cambio de clave, se muestra el resultado del grupo y se vuelve atrás el tamaño de un registro con <code>seek</code>.</p>
+<h3 id="regularidad-y-aprobacion-directa">Regularidad y aprobación directa</h3>
+<p>Los seis 3° parciales marcan qué apartados hace cada uno. En Pesquero y Reparación de electrodomésticos (19/10/2023), regularidad son los apartados 2 y 3, y aprobación directa el desarrollo completo. En Normativas (octubre de 2024) y Bicicletas (noviembre de 2024), la aprobación directa es el enunciado completo y la regularidad, los puntos 1 y 3. En Gimnasio (25/10/2024), regularidad son los puntos 1, 3 y 4, y aprobación directa los puntos 1, 2 y 5. En Verdulería (2025), regularidad son los apartados 1 y 2.</p>
+<p>Dos finales también traen una versión para regularizar, llamada globalizador. En Imprenta (21/02/2024), el final son los puntos 1, 3 y 4, y el globalizador, los puntos 1 y 2. En la hoja de febrero de 2025, el final es el enunciado completo y el globalizador, los puntos 1 y 2.</p>
+<h3 id="la-parte-de-teoria">La parte de teoría</h3>
+<p>En 7 de las 16 mesas de 2023 en adelante, el Drive trae una parte teórica. Son preguntas conceptuales y código corto en el lenguaje que cursaste. <mark>Las 7 tocan arreglos</mark>, 4 tocan parámetros y 4 tocan archivos.</p>
+<details class="pregunta"><summary><span>¿Qué es lo significativo de parametrizar los subprogramas?</span><small>Final marzo 2025</small></summary><div class="resp"><p>Realizar iguales acciones o mismo proceso, con distintos datos.</p>
+<p>Fuente: Autotest 2, pregunta 15 (Examenes/Autotest, con la respuesta correcta marcada).</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Qué diferencia hay entre pasar un parámetro por valor y por referencia?</span><small>Final 17/12/2025</small></summary><div class="resp"><p>Por valor, las modificaciones solo son válidas dentro del procedimiento. Por referencia, el parámetro permite la actualización y retorna su valor final al módulo que invocó.</p>
+<p>Fuente: Autotest 2, preguntas 3 y 17 (Examenes/Autotest, con la respuesta correcta marcada).</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Un arreglo se puede ir redimensionando en tiempo de ejecución?</span><small>Final 15/02/2024</small></summary><div class="resp"><p>No. La respuesta correcta de la cátedra a esa afirmación es «Falso».</p>
+<p>Fuente: Autotest 2, pregunta 14 (Examenes/Autotest).</p>
+</div></details>
+<div class="ojo"><p class="ojo-t">Serialización</p><p>El final de marzo de 2025 la pregunta, pero ningún apunte de la cátedra del Drive la define. Solo aparece en el margen de un resumen de alumno. Preguntale a tu comisión.</p>
+</div>
+<h3 id="que-llevar-a-la-hoja-del-3-parcial-y-el-final">Qué llevar a la hoja del 3° parcial y el final</h3>
+<ul>
+<li>Declaración de los <strong>registros</strong> y <strong>archivos</strong> al principio (tipos y variables).</li>
+<li>Una función por cada búsqueda y un módulo por cada opción del menú.</li>
+<li>Las sentencias de archivos con las palabras reservadas de tu lenguaje.</li>
+<li>Al actualizar: buscar, posicionar, leer, cambiar, <strong>volver a posicionar</strong> y grabar.</li>
+<li>Qué pasa si no existe (cartel) y qué pasa si el archivo está vacío.</li>
+<li>Lo que el enunciado dice «no programar» solo se invoca.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="reglas-de-los-trabajos-practicos">Reglas de los trabajos prácticos</h2>
+<p>Las preguntas frecuentes de la cátedra fijan reglas que también marcan la forma de pensar la materia.</p>
+<ul>
+<li>Los arreglos tienen tamaño predefinido. No se usan métodos que cambien su tamaño en ejecución.</li>
+<li>Se consideran inválidas las resoluciones con recursividad.</li>
+<li>No se usan métodos de strings como <code>find</code>, <code>join</code>, <code>split</code> o <code>strip</code>, ni expresiones regulares.</li>
+<li>Las únicas librerías aceptadas son las necesarias: <code>pickle</code>, <code>random</code> o <code>math</code>, <code>date</code> o <code>datetime</code>, <code>os</code> (opcional) y <code>getpass</code> o similar.</li>
+<li>Los archivos usan <code>pickle</code> y registros del mismo tamaño (se completan con <code>ljust</code>).</li>
+<li>La declaración de variables va como comentario arriba de cada módulo, con el formato <code>nombre: tipo</code>.</li>
+<li>Evitá el uso excesivo de banderas.</li>
+</ul>
+<p>Fuente: «TP N°2: Preguntas frecuentes» (2024), páginas 2 a 4; «TP N°3: Preguntas frecuentes» (2024), páginas 2, 4 y 5; TP N°3 (2024), página 3.</p>
+</section>
+<section class="sec cae"><h2 id="que-cae">Qué cae más</h2>
+<p class="cae-baja">El sitio no tiene todos los exámenes que se tomaron, así que esto es una pista y no una promesa. Tocá un tema para ver en qué exámenes salió.</p>
+<h3 id="cae-parcial-2">2° parcial</h3>
+<p class="cae-de">Sale de 6 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">Funciones</span><span class="cae-barra" aria-hidden="true"><span style="width:67%"></span></span><span class="cae-num">en 4 de 6</span></summary><ul class="cae-ex"><li><a href="ej-p2-2025-08-25.html">2° parcial, 25/08/2025 (Franquicia de Hamburguesas)</a></li><li><a href="ej-p2-2024-08-14-corralon.html">2° parcial, 14/08/2024 (Corralón de máquinas)</a></li><li><a href="ej-p2-2024-08-14-perfumes.html">2° parcial, 14/08/2024 (Industria de perfumes)</a></li><li><a href="ej-p2-2023-05-16.html">2° parcial, 16/05/2023 (Lombrices)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Arreglos</span><span class="cae-barra" aria-hidden="true"><span style="width:50%"></span></span><span class="cae-num">en 3 de 6</span></summary><ul class="cae-ex"><li><a href="ej-p2-2025-08-25.html">2° parcial, 25/08/2025 (Franquicia de Hamburguesas)</a></li><li><a href="ej-p2-2024-08-14-corralon.html">2° parcial, 14/08/2024 (Corralón de máquinas)</a></li><li><a href="ej-p2-2024-08-14-perfumes.html">2° parcial, 14/08/2024 (Industria de perfumes)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Matrices</span><span class="cae-barra" aria-hidden="true"><span style="width:50%"></span></span><span class="cae-num">en 3 de 6</span></summary><ul class="cae-ex"><li><a href="ej-p2-2025-08-22.html">2° parcial, 22/08/2025 (Instituto de Idiomas)</a></li><li><a href="ej-p2-2025-08-19.html">2° parcial, 19/08/2025 (Juego de mesa)</a></li><li><a href="ej-p2-2023-05-16.html">2° parcial, 16/05/2023 (Lombrices)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Ordenamiento</span><span class="cae-barra" aria-hidden="true"><span style="width:33%"></span></span><span class="cae-num">en 2 de 6</span></summary><ul class="cae-ex"><li><a href="ej-p2-2025-08-25.html">2° parcial, 25/08/2025 (Franquicia de Hamburguesas)</a></li><li><a href="ej-p2-2025-08-22.html">2° parcial, 22/08/2025 (Instituto de Idiomas)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Parámetros</span><span class="cae-barra" aria-hidden="true"><span style="width:33%"></span></span><span class="cae-num">en 2 de 6</span></summary><ul class="cae-ex"><li><a href="ej-p2-2025-08-19.html">2° parcial, 19/08/2025 (Juego de mesa)</a></li><li><a href="ej-p2-2024-08-14-perfumes.html">2° parcial, 14/08/2024 (Industria de perfumes)</a></li></ul></details></li></ul>
+<h3 id="cae-final">3° parcial y final</h3>
+<p class="cae-de">Sale de 16 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">Archivos</span><span class="cae-barra" aria-hidden="true"><span style="width:94%"></span></span><span class="cae-num">en 15 de 16</span></summary><ul class="cae-ex"><li><a href="ej-fin-2026-04-15.html">Final, 15/04/2026 (Actas de examen)</a></li><li><a href="ej-fin-2025-10-15.html">3° parcial, 2025 (Verdulería)</a></li><li><a href="ej-fin-2025-09-17.html">Final, 17/09/2025 (Domótica)</a></li><li><a href="ej-fin-2025-08-20.html">Final, 20/08/2025 (Diagnóstico automotriz)</a></li><li><a href="ej-fin-2025-04-16.html">Final, 16/04/2025 (Estación de Servicio)</a></li><li><a href="ej-fin-2025-02-12.html">Final y globalizador, 12/02/2025 (Evaluación de alumnos)</a></li><li><a href="ej-fin-2024-12-18.html">Final, 18/12/2024 (Playa de estacionamiento)</a></li><li><a href="ej-fin-2024-11-20.html">3° parcial o globalizador, 20/11/2024 (Alquiler de bicicletas)</a></li><li><a href="ej-fin-2024-10-25.html">3° parcial, 25/10/2024 (Gimnasio)</a></li><li><a href="ej-fin-2024-10-24.html">3° parcial, octubre de 2024 (Normativas)</a></li><li><a href="ej-fin-2024-02-21.html">Final y globalizador, 21/02/2024 (Imprenta)</a></li><li><a href="ej-fin-2024-02-15.html">Final, 15/02/2024 (Bullying)</a></li><li><a href="ej-fin-2023-11-16.html">Final, 16/11/2023 (Panadería)</a></li><li><a href="ej-fin-2023-10-19-pesquero.html">3° parcial, 19/10/2023 (Pesquero)</a></li><li><a href="ej-fin-2023-10-19-electrodomesticos.html">3° parcial, 19/10/2023 (Reparación de electrodomésticos)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Búsqueda</span><span class="cae-barra" aria-hidden="true"><span style="width:44%"></span></span><span class="cae-num">en 7 de 16</span></summary><ul class="cae-ex"><li><a href="ej-fin-2026-04-15.html">Final, 15/04/2026 (Actas de examen)</a></li><li><a href="ej-fin-2025-09-17.html">Final, 17/09/2025 (Domótica)</a></li><li><a href="ej-fin-2025-02-12.html">Final y globalizador, 12/02/2025 (Evaluación de alumnos)</a></li><li><a href="ej-fin-2024-12-18.html">Final, 18/12/2024 (Playa de estacionamiento)</a></li><li><a href="ej-fin-2024-10-24.html">3° parcial, octubre de 2024 (Normativas)</a></li><li><a href="ej-fin-2023-11-16.html">Final, 16/11/2023 (Panadería)</a></li><li><a href="ej-fin-2023-10-19-electrodomesticos.html">3° parcial, 19/10/2023 (Reparación de electrodomésticos)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Registros</span><span class="cae-barra" aria-hidden="true"><span style="width:31%"></span></span><span class="cae-num">en 5 de 16</span></summary><ul class="cae-ex"><li><a href="ej-fin-2025-10-15.html">3° parcial, 2025 (Verdulería)</a></li><li><a href="ej-fin-2025-04-16.html">Final, 16/04/2025 (Estación de Servicio)</a></li><li><a href="ej-fin-2024-11-20.html">3° parcial o globalizador, 20/11/2024 (Alquiler de bicicletas)</a></li><li><a href="ej-fin-2024-10-24.html">3° parcial, octubre de 2024 (Normativas)</a></li><li><a href="ej-fin-2023-11-16.html">Final, 16/11/2023 (Panadería)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Posición relativa</span><span class="cae-barra" aria-hidden="true"><span style="width:31%"></span></span><span class="cae-num">en 5 de 16</span></summary><ul class="cae-ex"><li><a href="ej-fin-2025-09-17.html">Final, 17/09/2025 (Domótica)</a></li><li><a href="ej-fin-2025-04-16.html">Final, 16/04/2025 (Estación de Servicio)</a></li><li><a href="ej-fin-2024-10-25.html">3° parcial, 25/10/2024 (Gimnasio)</a></li><li><a href="ej-fin-2024-02-21.html">Final y globalizador, 21/02/2024 (Imprenta)</a></li><li><a href="ej-fin-2023-10-19-pesquero.html">3° parcial, 19/10/2023 (Pesquero)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Teoría</span><span class="cae-barra" aria-hidden="true"><span style="width:19%"></span></span><span class="cae-num">en 3 de 16</span></summary><ul class="cae-ex"><li><a href="ej-fin-2026-04-15.html">Final, 15/04/2026 (Actas de examen)</a></li><li><a href="ej-fin-2025-03-12.html">Final, marzo de 2025 (Estación de Servicio)</a></li><li><a href="ej-fin-2024-02-15.html">Final, 15/02/2024 (Bullying)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Ordenamiento</span><span class="cae-barra" aria-hidden="true"><span style="width:19%"></span></span><span class="cae-num">en 3 de 16</span></summary><ul class="cae-ex"><li><a href="ej-fin-2025-10-15.html">3° parcial, 2025 (Verdulería)</a></li><li><a href="ej-fin-2025-08-20.html">Final, 20/08/2025 (Diagnóstico automotriz)</a></li><li><a href="ej-fin-2024-02-21.html">Final y globalizador, 21/02/2024 (Imprenta)</a></li></ul></details></li></ul></section>
+<section class="sec em-examenes"><h2 id="examenes">Exámenes</h2>
+<p class="em-leyenda">«Respuesta oficial» es lo que está en el Drive. «Propuesta sin verificar» es una respuesta armada con inteligencia artificial que ningún docente revisó.</p>
+<h3 id="ex-parcial-1">1° parcial</h3><ul class="em-lista"><li class="em-fila"><a href="ej-p1-2024-05-16.html"><span class="em-nom">1° parcial, 16/05/2024 (Ferreterías)</span><span class="ej-fecha">16/05/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-p1-2023-05-17.html"><span class="em-nom">1° parcial, 17/05/2023 (Vacunas)</span><span class="ej-fecha">17/05/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul>
+<h3 id="ex-parcial-2">2° parcial</h3><ul class="em-lista"><li class="em-fila"><a href="ej-p2-2025-08-25.html"><span class="em-nom">2° parcial, 25/08/2025 (Franquicia de Hamburguesas)</span><span class="ej-fecha">25/08/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-p2-2025-08-22.html"><span class="em-nom">2° parcial, 22/08/2025 (Instituto de Idiomas)</span><span class="ej-fecha">22/08/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-p2-2025-08-19.html"><span class="em-nom">2° parcial, 19/08/2025 (Juego de mesa)</span><span class="ej-fecha">19/08/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-p2-2024-08-14-corralon.html"><span class="em-nom">2° parcial, 14/08/2024 (Corralón de máquinas)</span><span class="ej-fecha">14/08/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-p2-2024-08-14-perfumes.html"><span class="em-nom">2° parcial, 14/08/2024 (Industria de perfumes)</span><span class="ej-fecha">14/08/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-p2-2023-05-16.html"><span class="em-nom">2° parcial, 16/05/2023 (Lombrices)</span><span class="ej-fecha">16/05/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul>
+<h3 id="ex-final">3° parcial y final</h3><ul class="em-lista"><li class="em-fila"><a href="ej-fin-2026-04-15.html"><span class="em-nom">Final, 15/04/2026 (Actas de examen)</span><span class="ej-fecha">15/04/2026</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2025-10-15.html"><span class="em-nom">3° parcial, 2025 (Verdulería)</span><span class="ej-fecha">15/10/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2025-09-17.html"><span class="em-nom">Final, 17/09/2025 (Domótica)</span><span class="ej-fecha">17/09/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2025-08-20.html"><span class="em-nom">Final, 20/08/2025 (Diagnóstico automotriz)</span><span class="ej-fecha">20/08/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2025-04-16.html"><span class="em-nom">Final, 16/04/2025 (Estación de Servicio)</span><span class="ej-fecha">16/04/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2025-03-12.html"><span class="em-nom">Final, marzo de 2025 (Estación de Servicio)</span><span class="ej-fecha">12/03/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2025-02-12.html"><span class="em-nom">Final y globalizador, 12/02/2025 (Evaluación de alumnos)</span><span class="ej-fecha">12/02/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2024-12-18.html"><span class="em-nom">Final, 18/12/2024 (Playa de estacionamiento)</span><span class="ej-fecha">18/12/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2024-11-20.html"><span class="em-nom">3° parcial o globalizador, 20/11/2024 (Alquiler de bicicletas)</span><span class="ej-fecha">20/11/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2024-10-25.html"><span class="em-nom">3° parcial, 25/10/2024 (Gimnasio)</span><span class="ej-fecha">25/10/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2024-10-24.html"><span class="em-nom">3° parcial, octubre de 2024 (Normativas)</span><span class="ej-fecha">24/10/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2024-02-21.html"><span class="em-nom">Final y globalizador, 21/02/2024 (Imprenta)</span><span class="ej-fecha">21/02/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2024-02-15.html"><span class="em-nom">Final, 15/02/2024 (Bullying)</span><span class="ej-fecha">15/02/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-11-16.html"><span class="em-nom">Final, 16/11/2023 (Panadería)</span><span class="ej-fecha">16/11/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-10-19-pesquero.html"><span class="em-nom">3° parcial, 19/10/2023 (Pesquero)</span><span class="ej-fecha">19/10/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-10-19-electrodomesticos.html"><span class="em-nom">3° parcial, 19/10/2023 (Reparación de electrodomésticos)</span><span class="ej-fecha">19/10/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul></section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta mayo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

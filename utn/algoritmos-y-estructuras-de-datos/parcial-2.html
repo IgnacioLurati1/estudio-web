@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2° parcial: Algoritmos y Estructuras de Datos</title>
+<meta name="description" content="Subprogramas, parámetros, arreglos, búsquedas y ordenamiento.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/w.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/expr.js" defer></script>
+<script src="../_/w.js" defer></script>
+<script src="interactivos.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="algoritmos-y-estructuras-de-datos" data-pagina="parcial-2">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Algoritmos y Estructuras de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html" aria-current="page">2° parcial</a></li><li class="em-fuera"><a href="final.html">3° parcial y final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=algoritmos-y-estructuras-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=algoritmos-y-estructuras-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#subprogramas-y-parametros">Subprogramas y parámetros</a></li><li class="n3"><a href="#parametros-formales-y-actuales">Parámetros formales y actuales</a></li><li class="n3"><a href="#por-valor-y-por-referencia">Por valor y por referencia</a></li><li class="n3"><a href="#variables-locales-y-globales">Variables locales y globales</a></li><li class="n3"><a href="#donde-va-un-procedimiento-en-un-programa-pascal">Dónde va un procedimiento en un programa Pascal</a></li><li class="n3"><a href="#para-que-sirven-los-subprogramas">Para qué sirven los subprogramas</a></li><li class="n2"><a href="#arreglos">Arreglos</a></li><li class="n3"><a href="#declaracion">Declaración</a></li><li class="n3"><a href="#recorrer-carga-y-exhibicion">Recorrer: carga y exhibición</a></li><li class="n3"><a href="#arreglos-paralelos">Arreglos paralelos</a></li><li class="n3"><a href="#el-indice-como-codigo">El índice como código</a></li><li class="n3"><a href="#arreglos-bidimensionales-matrices">Arreglos bidimensionales (matrices)</a></li><li class="n2"><a href="#busqueda-secuencial">Búsqueda secuencial</a></li><li class="n2"><a href="#busqueda-dicotomica">Búsqueda dicotómica</a></li><li class="n2"><a href="#ordenamiento">Ordenamiento</a></li><li class="n3"><a href="#ordenamiento-con-arrastre">Ordenamiento con arrastre</a></li><li class="n3"><a href="#ordenar-filas-de-una-matriz">Ordenar filas de una matriz</a></li><li class="n2"><a href="#merge-de-arreglos">Merge de arreglos</a></li><li class="n2"><a href="#funciones-que-el-enunciado-pide-invocar">Funciones que el enunciado pide invocar</a></li><li class="n2"><a href="#estructuras-de-datos-y-declarativa">Estructuras de datos y declarativa</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>2° parcial</h1>
+<p class="bajada">Subprogramas con parámetros y arreglos: cargar datos en memoria, buscarlos, ordenarlos y recorrerlos.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>Una narrativa en Chapin que pide <strong>diseñar las estructuras de datos</strong> y armar un menú iterativo. Conté los 6 parciales de 2023 en adelante: Lombrices (16/05/2023), Corralón de Máquinas y Perfumes (14/08/2024), Juego de Mesa (19/08/2025), Instituto de Idiomas (agosto de 2025) y Franquicia de Hamburguesas (25/08/2025).</p>
+<div class="tomado"><aside class="nota"><strong>Lo que se repite</strong><span>2° parciales de 2023 a 2025</span></aside><p>Los 6 piden menú iterativo. Los 5 de 2024 y 2025 piden una <strong>función de búsqueda</strong>, y en 4 de ellos el enunciado dice que devuelve la posición o <code>-1</code>. Lombrices pide una función que recorre una matriz. <mark>3 piden un listado ordenado</mark> (Idiomas, Juego de Mesa y Franquicia). 3 piden proponer un fin de datos (Corralón, Perfumes y Franquicia). 3 traen subprogramas que solo se invocan (Corralón, Perfumes y Juego de Mesa). 4 trabajan con una matriz (Lombrices, Perfumes, Idiomas y Juego de Mesa).</p>
+</div>
+</section>
+<section class="sec"><h2 id="subprogramas-y-parametros">Subprogramas y parámetros</h2>
+<p>Hay dos tipos de subprograma.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Procedimiento</th><th>Función</th></tr></thead><tbody><tr><td>Resultados</td><td>Uno, ninguno o varios</td><td><strong>Uno solo</strong></td></tr><tr><td>Cómo los devuelve</td><td>Por parámetros</td><td>Por su nombre</td></tr><tr><td>Cómo se invoca</td><td>Nombrándolo, con los parámetros entre paréntesis</td><td>Dentro de una exhibición, asignación o decisión. <strong>No</strong> en una lectura</td></tr></tbody></table></div>
+<p>Fuente: Autotest 2, preguntas 4, 10 y 11; Resumen Teórico Anual (de alumno), página 2.</p>
+<div class="ojo"><p class="ojo-t">Parámetros por referencia en una función</p><p>El Resumen Teórico Anual dice que una función solo puede tener parámetros por valor. El libro lo corrige. En Pascal, procedimientos y funciones pueden usar parámetros por valor y por referencia, pero la referencia «no es apropiada en las funciones». Fuente: <em>Algoritmos y Programación en Pascal</em>, sección 8.6.2.</p>
+</div>
+<h3 id="parametros-formales-y-actuales">Parámetros formales y actuales</h3>
+<ul>
+<li><strong>Formales</strong>: los del encabezado del subprograma. En Pascal se declaran con su tipo.</li>
+<li><strong>Actuales</strong>: los de la invocación.</li>
+</ul>
+<p>Se corresponden por <strong>posición</strong>, en el mismo orden, y tienen que coincidir en cantidad y en tipo. Fuente: Autotest 2, preguntas 12 y 13.</p>
+<h3 id="por-valor-y-por-referencia">Por valor y por referencia</h3>
+<ul>
+<li><strong>Por valor</strong>: el subprograma trabaja con una <strong>copia</strong>. Lo que cambie dentro no vuelve al módulo que llamó. Son parámetros de entrada.</li>
+<li><strong>Por referencia</strong> (<code>var</code> en Pascal): se pasa la dirección de la variable. Lo que cambie dentro <strong>sí</strong> vuelve. Son parámetros de entrada y salida.</li>
+</ul>
+<p>Se usa referencia cuando el valor modificado tiene que quedar disponible afuera. Fuente: Autotest 2, preguntas 3 y 17; ResumenFinalAyED 2025, página 3; Resumen Teórico Anual, página 4. El 2° parcial de 2025 los usa en un encabezado: <code>JUGADA(var T:Tablero, var cantidad_aciertos:int, ficha:int)</code>.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Por valor le das al subprograma una fotocopia. Puede rayarla toda y tu hoja queda igual. Por referencia le das la hoja original, así que lo que escriba queda escrito.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Parametrizar sirve para otra cosa</p><p>Usar parámetros permite realizar el <strong>mismo proceso con distintos datos</strong>. No sirve para hacer distintas acciones con los mismos datos. Fuente: Autotest 2, pregunta 15. La consigna se tomó tal cual en el final de marzo de 2025.</p>
+</div>
+<h3 id="variables-locales-y-globales">Variables locales y globales</h3>
+<ul>
+<li><strong>Global</strong>: se declara en el programa principal y se ve dentro y fuera de los subprogramas.</li>
+<li><strong>Local</strong>: se declara dentro del subprograma y solo se ve ahí. Sus valores se pierden cuando el subprograma devuelve el control.</li>
+</ul>
+<p>Una local puede tener el mismo nombre que una global. Dentro del subprograma manda la local. Fuente: Autotest 2, preguntas 9, 19 y 20; Resumen Teórico Anual, página 5; ResumenFinalAyED 2025, página 3.</p>
+<h3 id="donde-va-un-procedimiento-en-un-programa-pascal">Dónde va un procedimiento en un programa Pascal</h3>
+<p>Va antes de su llamado y antes del programa principal, después del bloque declarativo. Fuente: Autotest 2, pregunta 8.</p>
+<h3 id="para-que-sirven-los-subprogramas">Para qué sirven los subprogramas</h3>
+<p>Mayor legibilidad, dividir un programa en bloques más chicos y reutilizar el subprograma. Fuente: Autotest 2, pregunta 1.</p>
+</section>
+<section class="sec"><h2 id="arreglos">Arreglos</h2>
+<p>Un <strong>arreglo</strong> es una secuencia de posiciones de memoria consecutivas con datos del <strong>mismo tipo</strong>, a las que se accede directamente con un índice. Es una estructura <strong>estática</strong>: el tamaño se fija al declararlo y no se puede redimensionar durante la ejecución.</p>
+<ul>
+<li>El tipo del <strong>índice</strong> nunca puede ser real. Puede ser entero, char, booleano o un subrango.</li>
+<li>El tipo de los <strong>elementos</strong> puede ser cualquiera.</li>
+<li>Para guardar nombres (texto), el tipo es string.</li>
+</ul>
+<p>Fuente: Autotest 2, preguntas 7 y 14; Resumen Teórico Anual, página 5; «resumen arreglos» (de alumno), página 1.</p>
+<h3 id="declaracion">Declaración</h3>
+<p>En Pascal:</p>
+<pre class="codigo"><code><span class="hljs-keyword">type</span>
+  vector = <span class="hljs-keyword">array</span> [<span class="hljs-number">1</span>..<span class="hljs-number">30</span>] <span class="hljs-keyword">of</span> integer;
+<span class="hljs-keyword">var</span>
+  v: vector;</code></pre>
+<p>Si el arreglo es bidimensional se separan los índices con coma, por ejemplo <code>ARRAY [1 .. 1000 , 1 .. 2] OF int</code>. Fuente: Autotest 2, pregunta 5.</p>
+<p>En Python, la cátedra los declara así, con estos comentarios:</p>
+<pre class="codigo"><code>unidimensional = [<span class="hljs-number">0</span>]*<span class="hljs-number">8</span> <span class="hljs-comment"># Arreglo de 0 a 7 de enteros</span>
+multidimensional=[[<span class="hljs-number">0</span>]*<span class="hljs-number">4</span> <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">50</span>)] <span class="hljs-comment"># Arreglo multi de 4x50 de enteros</span></code></pre>
+<p>Fuente: TP N°2 Preguntas frecuentes (2024), página 2. Ahí mismo dice «NO está permitido utilizar cualquier método de Python que pueda alterar el tamaño del arreglo en tiempo de ejecución».</p>
+<div class="ojo"><p class="ojo-t">El índice arranca en 0 en Python</p><p>En <code>[0]*8</code>, los índices van de 0 a 7. Mirá cómo numera cada enunciado. Franquicia numera las sucursales de 0 a 7, y Juego de Mesa identifica a los jugadores de 1 a 100.</p>
+</div>
+<h3 id="recorrer-carga-y-exhibicion">Recorrer: carga y exhibición</h3>
+<p>Se recorren con <code>PARA</code> desde el primer índice al último. La carga lee <code>V[i]</code> y la exhibición muestra <code>V[i]</code>. Se hacen como procedimientos con el arreglo como parámetro. Práctica 3, ejercicios 1 y 2.</p>
+<h3 id="arreglos-paralelos">Arreglos paralelos</h3>
+<p>Dos arreglos que usan el <strong>mismo índice</strong> para guardar datos de una misma entidad, como el número de documento en uno y la nota en otro (Práctica 3, ejercicio 15). Después se busca en uno y se usa la posición en el otro.</p>
+<h3 id="el-indice-como-codigo">El índice como código</h3>
+<p>Cuando los códigos son números chicos y consecutivos, el código <strong>es</strong> el índice. Se acumula directo en <code>V[codigo]</code> sin buscar. Con eso se arman listados «para cada vendedor, el total», aunque los datos lleguen desordenados. Práctica 3, ejercicio 14.</p>
+<div class="tomado"><aside class="nota"><strong>Estructuras indexadas por código</strong><span>2° parcial 14/08/2024 y 25/08/2025</span></aside><p>Perfumes dice que el índice del arreglo de nombres «se relaciona con el código del perfume». Franquicia numera las sucursales de 0 a 7 y codifica los tipos de hamburguesa de 0 a 9. Los datos «pueden venir varias veces para el mismo juego de datos», así que hay que acumular.</p>
+</div>
+<h3 id="arreglos-bidimensionales-matrices">Arreglos bidimensionales (matrices)</h3>
+<p>Se declaran con dos índices, fila y columna, y se recorren con dos <code>PARA</code> anidados. Ejemplo de la Práctica 3 para cargar:</p>
+<pre class="codigo"><code>PARA I ← 1 hasta 10
+    PARA J ← 1 hasta 15
+        Leer ( M [ I , J ] )</code></pre>
+<p>La práctica incluye sumar la diagonal principal y la secundaria de una matriz cuadrada. Práctica 3, «Arreglos Multidimensionales», ejemplo y ejercicio 2.</p>
+<div class="tomado"><aside class="nota"><strong>Matrices de distintos tamaños</strong><span>2° parciales de 2023 a 2025, final 17/12/2025 y mesa 13/05/2026</span></aside><p>Lombrices divide cada granja en celdas de 3 x 3. Perfumes usa una medida por perfume y por fragancia (10 perfumes, 3 fragancias). Idiomas inicializa en 0 una matriz con una fila por idioma y dos columnas, correctas e incorrectas. Juego de Mesa usa un tablero de 6 filas por 4 columnas. La mesa del 17/12/2025 pide cargar una matriz de 5x10x3 antes del menú, y la del 13/05/2026 pide sumar la diagonal secundaria de una de 20x20.</p>
+</div>
+<p>Con más dimensiones, la idea es la misma, es decir un índice más. La sintaxis multidimensional del resumen admite N índices (Resumen Teórico Anual, página 5). Los apuntes no muestran un ejemplo de tres dimensiones.</p>
+</section>
+<section class="sec"><h2 id="busqueda-secuencial">Búsqueda secuencial</h2>
+<p>Recorre el arreglo desde la primera posición hasta encontrar el dato o llegar al final. <strong>No exige</strong> que el arreglo esté ordenado. En el peor caso hace tantos intentos como la <strong>longitud</strong> del arreglo.</p>
+<p>Pasos:</p>
+<ol>
+<li>Poner la posición en el primer índice.</li>
+<li>Avanzar mientras no encuentre el dato y no se pase del límite.</li>
+<li>Al salir, si el elemento de esa posición coincide, lo encontró.</li>
+</ol>
+<p>Se escribe como <strong>función</strong> que devuelve la posición o un valor que significa «no está». Los enunciados de 2024 y 2025 piden <code>-1</code>.</p>
+<p>Fuente: Autotest 2, pregunta 21; «resumen arreglos» (de alumno), página 1; Práctica 3, ejercicios 16 y 17.</p>
+</section>
+<section class="sec"><h2 id="busqueda-dicotomica">Búsqueda dicotómica</h2>
+<p>Exige el arreglo <strong>ordenado</strong>. Se mira el elemento del medio. Si coincide, terminó. Si no, se descarta una mitad y se sigue en la otra.</p>
+<p>Variables: <code>comienzo</code>, <code>fin</code> y <code>medio = (comienzo + fin) DIV 2</code>.</p>
+<ul>
+<li>Si <code>V[medio]</code> es el dato, lo encontró en <code>medio</code>.</li>
+<li>Si el dato es <strong>menor</strong>, <code>fin = medio - 1</code>.</li>
+<li>Si el dato es <strong>mayor</strong>, <code>comienzo = medio + 1</code>.</li>
+<li>Se repite <strong>hasta</strong> encontrarlo o hasta que <code>comienzo &gt; fin</code>.</li>
+</ul>
+<p>Fuente: «resumen arreglos» (de alumno), página 1; Resumen Teórico Anual (de alumno), página 12; Práctica 3, ejercicio 20, que la pide por su nombre. Los tres coinciden en la idea.</p>
+<figure class="w w-interactivo" data-w="interactivo" data-nombre="dicotomica" data-cfg="{&quot;valores&quot;:[3,7,12,18,21,25,30,34,41,47,52,58,63,70,76],&quot;dato&quot;:47}"><figcaption><span class="w-t">Probá la búsqueda dicotómica</span><span class="w-f">Fuente: «resumen arreglos» (de alumno), página 1</span></figcaption><div class="w-lienzo"></div><div class="w-desc">Un arreglo ordenado de 15 números. Elegís un dato y avanzás de a un paso. En cada paso se ve comienzo, fin y medio, y qué mitad se descarta.</div></figure>
+<div class="tomado"><aside class="nota"><strong>Se pide por su nombre</strong><span>2° parcial 2025 (Idiomas) y mesa 13/05/2026</span></aside><p>Idiomas pide «una función de búsqueda dicotómica enviando como parámetro el nombre del idioma», que devuelve la posición o -1. La mesa del 13/05/2026 pregunta cómo trabaja la búsqueda dicotómica.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Cuál elegir</p><p>Se elige según el <strong>orden de los elementos</strong>, no según el tipo de dato ni la dimensión. Si el arreglo no está ordenado, solo sirve la secuencial. Fuente: Autotest 2, pregunta 16.</p>
+</div>
+</section>
+<section class="sec"><h2 id="ordenamiento">Ordenamiento</h2>
+<p>El método que aparece en los resúmenes es comparar cada posición con todas las siguientes e intercambiar si están fuera de orden (uno lo llama «método falso burbuja»). Dos <code>PARA</code> anidados: <code>i</code> de 1 a N-1 y <code>k</code> de i+1 a N. Si <code>V[i] &gt; V[k]</code> se intercambian con una variable auxiliar. Para ordenar al revés, se invierte la comparación.</p>
+<p>Fuente: «resumen arreglos» (de alumno), página 1; Resumen Teórico Anual (de alumno), página 12. La Práctica 3 lo ejercita en el ejercicio 18.</p>
+<h3 id="ordenamiento-con-arrastre">Ordenamiento con arrastre</h3>
+<p>Cuando hay dos arreglos paralelos (por ejemplo un código y su total) y ordenás uno por el valor del otro, <strong>cada intercambio se hace en los dos arreglos</strong> para que sigan correspondiéndose. Práctica 3, ejercicio 19, «Ordenamiento con arrastre».</p>
+<div class="tomado"><aside class="nota"><strong>Listados ordenados</strong><span>2° parciales de 2025</span></aside><p>Franquicia pide un listado <strong>decreciente</strong> del total recaudado por sucursal, con su nombre. Juego de Mesa pide los puntajes en forma <strong>creciente</strong> con los nombres de los jugadores. Idiomas pide ordenar alfabéticamente el arreglo de idiomas.</p>
+</div>
+<h3 id="ordenar-filas-de-una-matriz">Ordenar filas de una matriz</h3>
+<p>Se compara el valor de una columna elegida y, si hay que intercambiar, se mueve la fila entera con un <code>PARA</code> más. Fuente: Resumen (2025) (de alumno), página 10. La Práctica 3 pide listados ordenados sobre matrices en sus ejercicios de arreglos multidimensionales. El final de marzo de 2025 lo toma en su parte de teoría.</p>
+</section>
+<section class="sec"><h2 id="merge-de-arreglos">Merge de arreglos</h2>
+<p>Si tenés dos arreglos <strong>ya ordenados</strong>, el merge (intercalación) genera un tercero también ordenado. Se avanza con un índice por arreglo, se copia el menor y se avanza en el que se copió. Cuando se termina uno, se copia lo que queda del otro. Fuente: Práctica 3, ejercicio 23, «Método MERGE (Intercalación)»; Resumen (2025) (de alumno), página 8.</p>
+<p>El mismo esquema se usa con archivos. Ver <a href="final.html#merge-de-archivos">el merge de archivos</a>. La mesa del 20/08/2025 pide el merge entre dos arreglos unidimensionales en su parte de teoría.</p>
+</section>
+<section class="sec"><h2 id="funciones-que-el-enunciado-pide-invocar">Funciones que el enunciado pide invocar</h2>
+<p>Varios enunciados traen subprogramas que no se desarrollan. Corralón dice que <code>Calcula-Dias()</code> se invoca y «NO programarla». Perfumes pide invocar <code>VENTAS(preciototal, cantidad_pedida)</code> con «NO desarrollar». Juego de Mesa da el encabezado <code>CargaRAndom(nro1:int, nro2:int) : int (No programarla)</code>. Hay que invocarlos con los parámetros correctos y usar lo que devuelven.</p>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>La recursividad aparece en el Autotest 2 de 2021: una llamada es recursiva cuando el subprograma se invoca a sí mismo. No la pide ningún examen de 2023 en adelante, y los TP de 2024 y 2025 consideran inválidas las resoluciones que la usan.</p>
+</div>
+</section>
+<section class="sec"><h2 id="estructuras-de-datos-y-declarativa">Estructuras de datos y declarativa</h2>
+<p>El enunciado pide «diseñar las estructuras de datos más convenientes», y Franquicia suma «el dibujo de las estructuras de datos utilizadas». Para cada dato, decí si es un arreglo de una dimensión, una matriz o un arreglo de registros, con el rango de índices. En la hoja se escribe la declaración con el tipo de cada elemento.</p>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-2" data-materia="algoritmos-y-estructuras-de-datos">
+<h2>Quiz del 2° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="-8_A0FsDx-" data-tema="Por valor y por referencia" data-enlace="parcial-2.html#por-valor-y-por-referencia" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-1"><span class="q-n">1</span><div><p>¿Qué tipo de parámetro permite que un procedimiento actualice una variable y el cambio quede visible afuera?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-1"><li><button type="button" class="op" data-ok="0">Por valor</button></li><li><button type="button" class="op" data-ok="0">El nombre del procedimiento</button></li><li><button type="button" class="op" data-ok="1">Por variable o por referencia</button></li><li><button type="button" class="op" data-ok="0">Ninguno, los subprogramas no pueden cambiar variables de afuera</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El parámetro por referencia pasa la dirección de la variable. Lo que se cambie adentro vuelve al módulo que llamó.</p>
+</div></li><li class="q" data-q="chkkTdLWvA" data-tema="Subprogramas y parámetros" data-enlace="parcial-2.html#subprogramas-y-parametros" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-2"><span class="q-n">2</span><div><p>¿Cuántos valores retorna una función a través de su nombre?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-2"><li><button type="button" class="op" data-ok="1">Uno</button></li><li><button type="button" class="op" data-ok="0">Ninguno</button></li><li><button type="button" class="op" data-ok="0">Varios</button></li><li><button type="button" class="op" data-ok="0">Depende de sus parámetros</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Una función devuelve un único resultado a través de su nombre. Un procedimiento puede devolver uno, ninguno o varios, por parámetros.</p>
+</div></li><li class="q" data-q="C0hpVZRCdp" data-tema="Subprogramas y parámetros" data-enlace="parcial-2.html#subprogramas-y-parametros" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-3"><span class="q-n">3</span><div><p>¿Dónde NO se puede invocar una función?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-3"><li><button type="button" class="op" data-ok="0">En una asignación</button></li><li><button type="button" class="op" data-ok="0">En una decisión</button></li><li><button type="button" class="op" data-ok="0">En una exhibición</button></li><li><button type="button" class="op" data-ok="1">En una lectura</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La función devuelve un valor que se usa en una expresión. Por eso va en una asignación, una decisión o una exhibición.</p>
+</div></li><li class="q" data-q="qQHU8-uGL0" data-tema="Parámetros formales y actuales" data-enlace="parcial-2.html#parametros-formales-y-actuales" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-4"><span class="q-n">4</span><div><p>¿Cómo se corresponden los parámetros formales con los actuales?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-4"><li><button type="button" class="op" data-ok="0">Por tipo, sin importar el orden</button></li><li><button type="button" class="op" data-ok="1">Por posición, en el mismo orden</button></li><li><button type="button" class="op" data-ok="0">Por nombre</button></li><li><button type="button" class="op" data-ok="0">No hace falta que coincida la cantidad</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Tienen que coincidir en cantidad, orden y tipo. El primer actual se corresponde con el primer formal.</p>
+</div></li><li class="q" data-q="gtQkU7P4kF" data-tema="Variables locales y globales" data-enlace="parcial-2.html#variables-locales-y-globales" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-5"><span class="q-n">5</span><div><p>Si una variable local tiene el mismo nombre que una global, dentro del procedimiento...</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-5"><li><button type="button" class="op" data-ok="1">Manda la local</button></li><li><button type="button" class="op" data-ok="0">Manda la global</button></li><li><button type="button" class="op" data-ok="0">No se puede declarar</button></li><li><button type="button" class="op" data-ok="0">Depende del enunciado</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se puede declarar una local con el mismo nombre que una global. Dentro del subprograma, la local tiene prioridad.</p>
+</div></li><li class="q" data-q="o_49CrYPtY" data-tema="Variables locales y globales" data-enlace="parcial-2.html#variables-locales-y-globales" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-6"><span class="q-n">6</span><div><p>¿Qué es una variable global?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-6"><li><button type="button" class="op" data-ok="0">Una que solo existe dentro de un subprograma</button></li><li><button type="button" class="op" data-ok="0">Una que vive en la memoria auxiliar</button></li><li><button type="button" class="op" data-ok="1">Una declarada en el programa principal, que se puede usar dentro y fuera de los subprogramas</button></li><li><button type="button" class="op" data-ok="0">Una que no hace falta declarar</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las locales se declaran dentro del subprograma y no tienen valor fuera de él.</p>
+</div></li><li class="q" data-q="V0p4NRB7eW" data-tema="Parametrizar" data-enlace="parcial-2.html#para-que-sirven-los-subprogramas" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-7"><span class="q-n">7</span><div><p>¿Qué es lo significativo de parametrizar los subprogramas?</p>
+<p class="q-origen">Se tomó: Final de marzo de 2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-7"><li><button type="button" class="op" data-ok="0">Realizar distintas acciones con iguales datos</button></li><li><button type="button" class="op" data-ok="0">Modularizar el programa principal</button></li><li><button type="button" class="op" data-ok="1">Realizar iguales acciones o mismo proceso con distintos datos</button></li><li><button type="button" class="op" data-ok="0">Que el programa ocupe menos memoria</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Lo dice el autotest de la cátedra, con esa respuesta marcada como correcta.</p>
+</div></li><li class="q" data-q="Ymf5aFGSek" data-tema="Arreglos" data-enlace="parcial-2.html#arreglos" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-8"><span class="q-n">8</span><div><p>¿Se puede redimensionar un arreglo durante la ejecución del programa?</p>
+<p class="q-origen">Se tomó: Final 15/02/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-8"><li><button type="button" class="op" data-ok="0">Sí, si el operador carga más datos</button></li><li><button type="button" class="op" data-ok="0">Sí, pero solo para arreglos de enteros</button></li><li><button type="button" class="op" data-ok="0">Solo los bidimensionales</button></li><li><button type="button" class="op" data-ok="1">No, es una estructura estática y su tamaño se define al declararlo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El arreglo es estático. La cantidad de elementos se fija en la declaración.</p>
+</div></li><li class="q" data-q="Z9yunNWTdQ" data-tema="Arreglos" data-enlace="parcial-2.html#arreglos" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-9"><span class="q-n">9</span><div><p>¿Qué tipo de dato NUNCA puede ser el índice de un arreglo?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-9"><li><button type="button" class="op" data-ok="0">Integer</button></li><li><button type="button" class="op" data-ok="1">Real</button></li><li><button type="button" class="op" data-ok="0">Char</button></li><li><button type="button" class="op" data-ok="0">Boolean</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El índice puede ser entero, char, booleano o subrango. Nunca real.</p>
+</div></li><li class="q" data-q="Q7D8oMpMPM" data-tema="Búsqueda secuencial" data-enlace="parcial-2.html#busqueda-secuencial" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-10"><span class="q-n">10</span><div><p>En una búsqueda secuencial sobre un arreglo, la cantidad máxima de intentos para encontrar un elemento es...</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-10"><li><button type="button" class="op" data-ok="0">La mitad de la longitud más uno</button></li><li><button type="button" class="op" data-ok="0">Siempre uno</button></li><li><button type="button" class="op" data-ok="0">Depende del orden de los datos</button></li><li><button type="button" class="op" data-ok="1">Igual a la longitud del arreglo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>En el peor caso hay que recorrer todo el arreglo.</p>
+</div></li><li class="q" data-q="rOINXGQUFq" data-tema="Búsqueda dicotómica" data-enlace="parcial-2.html#busqueda-dicotomica" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-11"><span class="q-n">11</span><div><p>¿De qué depende elegir entre búsqueda secuencial y dicotómica?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-11"><li><button type="button" class="op" data-ok="1">Del orden de los elementos del arreglo</button></li><li><button type="button" class="op" data-ok="0">De la dimensión del arreglo</button></li><li><button type="button" class="op" data-ok="0">Del tipo de datos del arreglo</button></li><li><button type="button" class="op" data-ok="0">Del lenguaje elegido</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La dicotómica exige que el arreglo esté ordenado. Si no lo está, solo se puede usar la secuencial.</p>
+</div></li><li class="q" data-q="Ro22x5ulYV" data-tema="Búsqueda dicotómica" data-enlace="parcial-2.html#busqueda-dicotomica" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-12"><span class="q-n">12</span><div><p>Cuando en la búsqueda dicotómica el dato buscado es MENOR que el elemento del medio, ¿qué se hace?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-12"><li><button type="button" class="op" data-ok="0">Se pasa a buscar en la mitad superior, con comienzo = medio + 1</button></li><li><button type="button" class="op" data-ok="0">Se termina la búsqueda</button></li><li><button type="button" class="op" data-ok="1">Se pasa a buscar en la mitad inferior, con fin = medio - 1</button></li><li><button type="button" class="op" data-ok="0">Se vuelve a calcular el medio con el mismo rango</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se descarta la mitad donde no puede estar el dato. Si es menor, queda la mitad de los menores.</p>
+</div></li><li class="q" data-q="2uQNEoBXNX" data-tema="Ordenamiento con arrastre" data-enlace="parcial-2.html#ordenamiento-con-arrastre" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-13"><span class="q-n">13</span><div><p>En un ordenamiento «con arrastre», ¿qué se hace cuando hay dos arreglos paralelos?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-13"><li><button type="button" class="op" data-ok="0">Se ordena solo el primero</button></li><li><button type="button" class="op" data-ok="1">Cada intercambio se hace en los dos arreglos para que sigan correspondiéndose</button></li><li><button type="button" class="op" data-ok="0">Se ordena el segundo y se vuelve a copiar en el primero</button></li><li><button type="button" class="op" data-ok="0">Se usa una búsqueda dicotómica en lugar de ordenar</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los dos arreglos comparten el índice de una misma entidad. Si se mueve un elemento de uno, el otro debe moverse igual.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta mayo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

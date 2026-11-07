@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Eje 1: entorno: Informática Jurídica</title>
+<meta name="description" content="Derecho, norma jurídica, pirámide de Kelsen, poderes del Estado, fueros y delito.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="informatica-juridica" data-pagina="entorno">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Informática Jurídica</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="entorno.html" aria-current="page">Eje 1: entorno</a></li><li class="em-fuera"><a href="firma.html">Eje 2: firma</a></li><li class="em-fuera"><a href="contratos.html">Eje 3: contratos</a></li><li class="em-fuera"><a href="ejusticia.html">Eje 4: e-Justicia</a></li><li class="em-fuera"><a href="pericia.html">Eje 5: pericia</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios y TP</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=informatica-juridica">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=informatica-juridica">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#las-palabras-de-la-materia">Las palabras de la materia</a></li><li class="n2"><a href="#tipos-de-derecho">Tipos de Derecho</a></li><li class="n2"><a href="#sistema-juridico">Sistema jurídico</a></li><li class="n3"><a href="#caracteres-del-sistema">Caracteres del sistema</a></li><li class="n3"><a href="#la-piramide-de-kelsen">La pirámide de Kelsen</a></li><li class="n2"><a href="#la-norma-juridica">La norma jurídica</a></li><li class="n3"><a href="#la-ley">La ley</a></li><li class="n2"><a href="#los-tres-poderes">Los tres poderes</a></li><li class="n3"><a href="#poder-legislativo-sistema-bicameral-arts-44-a-74">Poder Legislativo: sistema bicameral (arts. 44 a 74)</a></li><li class="n3"><a href="#poder-ejecutivo-arts-87-a-107">Poder Ejecutivo (arts. 87 a 107)</a></li><li class="n2"><a href="#poder-judicial">Poder Judicial</a></li><li class="n3"><a href="#quienes-forman-el-sistema-de-justicia">Quiénes forman el sistema de justicia</a></li><li class="n3"><a href="#instancias">Instancias</a></li><li class="n3"><a href="#actores-no-solo-abogados">Actores: no solo abogados</a></li><li class="n3"><a href="#fueros">Fueros</a></li><li class="n3"><a href="#nacion-o-provincia">Nación o provincia</a></li><li class="n2"><a href="#delito">Delito</a></li><li class="n3"><a href="#dolo-y-culpa">Dolo y culpa</a></li><li class="n3"><a href="#pena-y-resarcimiento">Pena y resarcimiento</a></li><li class="n2"><a href="#donde-leer-las-normas">Dónde leer las normas</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Eje 1: entorno del negocio</h1>
+<p class="bajada">Qué es el Derecho, cómo se ordenan las normas, quién hace qué en el Estado y ante quién se discute un conflicto.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+<p>La base es la presentación «2 - Entorno del Negocio» de 2026. Las páginas sin otra aclaración son de ese archivo. Lo de 2025 sale de «2.2 - Entorno Del Negocio».</p>
+
+<section class="sec"><h2 id="las-palabras-de-la-materia">Las palabras de la materia</h2>
+<div class="teorema"><p class="teorema-t">Derecho</p><p>El Derecho es el conjunto de normas jurídicas generales positivas que surgen de la sociedad y que tienen la finalidad de regular la convivencia entre los miembros de esa sociedad, las personas, y de estos con el Estado.</p>
+<p class="bloque-fuente">Presentación «1 - Presentación de la Materia», 2025, pág. 12</p></div>
+<div class="teorema"><p class="teorema-t">Informática</p><p>El conjunto de conocimientos científicos y técnicas que hacen posible el tratamiento automático de la información por medio de ordenadores electrónicas.</p>
+<p class="bloque-fuente">Presentación «1 - Presentación de la Materia», 2025, pág. 12</p></div>
+<p><strong>Jurídica</strong> es lo «que atañe al derecho o se ajusta a él» (RAE, pág. 2). La RAE tiene 17 acepciones de «derecho». La presentación 2025 las lista (pág. 4) y la 13 es la que nos importa: un conjunto de principios y normas que regulan las relaciones humanas y cuya observancia puede imponerse de manera coactiva.</p>
+</section>
+<section class="sec"><h2 id="tipos-de-derecho">Tipos de Derecho</h2>
+<p>Son cuatro pares. Se clasifican por separado, así que una misma cosa cae en un lado de cada par (presentación «1 - Presentación», 2026, pág. 7).</p>
+<div class="tabla"><table><thead><tr><th>Par</th><th>Un lado</th><th>El otro lado</th></tr></thead><tbody><tr><td>Objetivo y subjetivo</td><td>La norma escrita</td><td>La facultad del individuo de exigir su cumplimiento</td></tr><tr><td>Escrito y consuetudinario</td><td>La ley promulgada y formalizada</td><td>Las normas basadas en la costumbre y la tradición</td></tr><tr><td>Nacional e internacional</td><td>Las leyes que rigen dentro del territorio de un Estado</td><td>Las que regulan las relaciones entre Estados</td></tr><tr><td>Público y privado</td><td>Relaciones de subordinación con el Estado</td><td>Relaciones de coordinación entre particulares en igualdad</td></tr></tbody></table></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Objetivo y subjetivo es lo que más se confunde. Pensalo como la regla y tu botón para usarla. La norma que dice cómo se hace un testamento es derecho objetivo. Tu posibilidad de hacer el tuyo es derecho subjetivo.</p>
+</div>
+<p>La cátedra tiene un ejercicio de clase para practicar esto, con su corrección: <a href="ejercicios.html">Clasificar según tipos de Derecho</a>.</p>
+</section>
+<section class="sec"><h2 id="sistema-juridico">Sistema jurídico</h2>
+<p>Un <strong>sistema</strong> es un «módulo de elementos interrelacionados que desarrollan interacciones entre sí». Aplicado al Derecho (pág. 18):</p>
+<div class="teorema"><p class="teorema-t">Sistema jurídico</p><p>Conjunto de las normas, las instituciones y los agentes que hacen al derecho que rige en un determinado territorio.</p>
+<p class="bloque-fuente">Presentación «2 - Entorno del Negocio», 2026, pág. 18</p></div>
+<p>La presentación 2025 (pág. 14) agrega que es un ordenamiento vinculado por relaciones de fundamentación, derivación y coordinación. Las normas forman parte de un todo. No están aisladas ni inconexas.</p>
+<p>El sistema jurídico está regido por el Estado. Busca favorecer la convivencia y fijar pautas de conducta, y limita el libre albedrío. Es distinto en distintos países. La misma acción puede ser delito o no serlo, o tener otra pena. En la República Argentina, el ordenamiento jurídico se ordena desde la Constitución (pág. 23).</p>
+<p>El <strong>Estado</strong> tiene tres componentes: territorio, habitantes y orden jurídico (pág. 19).</p>
+<h3 id="caracteres-del-sistema">Caracteres del sistema</h3>
+<div class="tabla"><table><thead><tr><th>Carácter</th><th>Qué significa (pág. 19)</th></tr></thead><tbody><tr><td>Unidad</td><td>Una fuente fundacional única</td></tr><tr><td>Coherencia</td><td>Ausencia absoluta de contradicciones internas</td></tr><tr><td>Jerarquía</td><td>Orden estricto de precedencia en la ejecución</td></tr><tr><td>Especialidad / Cronología</td><td>Reglas lógicas para resolución de conflictos</td></tr><tr><td>Plenitud</td><td>Principio de clausura (art. 19): lo que no está prohibido, está permitido</td></tr></tbody></table></div>
+<p>La coherencia se sostiene con tres criterios para resolver conflictos entre normas, que la presentación 2025 agrupa bajo ese carácter (pág. 17): <strong>jerárquico</strong>, <strong>de especialidad</strong> y <strong>cronológico</strong>. La presentación 2026 los muestra como renglones propios.</p>
+<div class="idea"><p>La cátedra lo compara con un sistema operativo. Territorio es la infraestructura, habitantes son los usuarios y orden jurídico es el código base (pág. 19). Una norma inferior que contradice a la superior es un «error de sistema» (pág. 21).</p>
+</div>
+<p>Bajo plenitud, la presentación 2025 (pág. 17) pone dos cosas: los delitos informáticos y el art. 19. No desarrolla el vínculo en la diapositiva.</p>
+<h3 id="la-piramide-de-kelsen">La pirámide de Kelsen</h3>
+<p>Ordena las normas por jerarquía. Cada nivel depende del de arriba.</p>
+<p><img src="img/fig-kelsen.webp" alt="Pirámide de Kelsen aplicada a la Argentina, con tres niveles"></p>
+<div class="tabla"><table><thead><tr><th>Nivel</th><th>Qué entra (pág. 20)</th></tr></thead><tbody><tr><td>Fundamental</td><td>Constitución Nacional y pactos internacionales de derechos humanos</td></tr><tr><td>Legal</td><td>Leyes nacionales, tratados, leyes orgánicas, decretos</td></tr><tr><td>Base</td><td>Reglamentos, ordenanzas, sentencias, contratos</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">La pirámide de 2025 no lista lo mismo</p><p>La presentación 2025 trae dos pirámides de Kelsen con otro contenido por nivel. En la pág. 15: fundamental, Constitución y pactos internacionales; legal, leyes orgánicas, especiales, leyes ordinarias y decretos de ley; base, reglamentos, ordenanzas y sentencias. En la pág. 16: fundamental, Constitución nacional y tratados de DD.HH.; legal, leyes nacionales, locales y tratados; base, normas, sentencias, contratos y testamentos. Si te piden ubicar normas en la pirámide, preguntá en tu comisión cuál toma.</p>
+</div>
+<p><strong>Principio de jerarquía y supremacía (art. 31 CN, pág. 21).</strong> La ley suprema de la Nación es la Constitución, las leyes del Congreso y los tratados. Las autoridades provinciales están obligadas a conformarse a ella. Cualquier norma inferior que la contradiga es inválida. A una ley provincial contradictoria la cátedra la marca como inconstitucional.</p>
+</section>
+<section class="sec"><h2 id="la-norma-juridica">La norma jurídica</h2>
+<p>Según Kelsen, una norma es jurídica porque tiene sanción (págs. 22 y 27). Tiene tres pasos.</p>
+<div class="tabla"><table><thead><tr><th>Paso</th><th>Qué es</th></tr></thead><tbody><tr><td>Supuesto de hecho</td><td>La condición o el acto</td></tr><tr><td>Fuerza coercitiva</td><td>La regla que establece una sanción impuesta por la fuerza en caso de resistencia</td></tr><tr><td>Efecto jurídico</td><td>La sanción, socialmente organizada y ejecutada por el grupo social</td></tr></tbody></table></div>
+<p>La presencia de la sanción es lo que le da a la norma su carácter jurídico. La <strong>ciencia jurídica</strong> se ocupa de estudiar estos sistemas.</p>
+<p>Las características de la norma jurídica son tres: <strong>coercibilidad</strong>, <strong>heteronomía</strong> y <strong>bilateralidad</strong> (pág. 25). La presentación no las define con palabras. Coercibilidad se entiende por lo de arriba. Para las otras dos, buscá la definición de tu comisión.</p>
+<div class="ojo"><p class="ojo-t">Hay dos «tres caracteres»</p><p>Los caracteres del sistema (unidad, coherencia, plenitud) no son las características de la norma (coercibilidad, heteronomía, bilateralidad). El TP2 de 2025 pide trabajar con los primeros y el de 2026, con los segundos.</p>
+</div>
+<h3 id="la-ley">La ley</h3>
+<ul>
+<li>Exige o prohíbe algo en consonancia con la justicia y para el bien de la sociedad en su conjunto.</li>
+<li>La norma jurídica no es única: también hay decreto, resolución y ordenanza.</li>
+</ul>
+<p>Fuente: pág. 24.</p>
+<div class="ojo"><p class="ojo-t">Sancionada, ¿por quién?</p><p>La presentación se contradice. La pág. 3 dice que el Poder Legislativo «escribe y sanciona las leyes». La pág. 24 dice «Aprobada: Poder Legislativo» y «Sancionada: Poder Ejecutivo». Copiamos las dos tal como están. Consultá con la cátedra cuál espera.</p>
+</div>
+</section>
+<section class="sec"><h2 id="los-tres-poderes">Los tres poderes</h2>
+<div class="tabla"><table><thead><tr><th>Poder</th><th>Qué hace (pág. 3)</th></tr></thead><tbody><tr><td>Legislativo</td><td>Escribe y sanciona las leyes. Es el motor de creación de reglas</td></tr><tr><td>Ejecutivo</td><td>Administra el país y ejecuta las leyes. Es el núcleo de procesamiento administrativo</td></tr><tr><td>Judicial</td><td>Interpreta la ley y resuelve conflictos. Es el sistema de manejo de errores y resolución</td></tr></tbody></table></div>
+<h3 id="poder-legislativo-sistema-bicameral-arts-44-a-74">Poder Legislativo: sistema bicameral (arts. 44 a 74)</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Cámara de Diputados</th><th>Senado</th></tr></thead><tbody><tr><td>Representa a</td><td>El pueblo de la Nación</td><td>Las provincias y CABA</td></tr><tr><td>Proporción</td><td>Según la cantidad de habitantes</td><td>3 senadores por provincia (igualdad territorial)</td></tr><tr><td>Mandato</td><td>4 años, se renueva por mitades cada 2 años</td><td>6 años, se renueva por tercios cada 2 años</td></tr><tr><td>Iniciativa exclusiva</td><td>Impuestos y reclutamiento de tropas</td><td>Acuerdos para jueces y embajadores</td></tr></tbody></table></div>
+<p>Fuente: pág. 4.</p>
+<h3 id="poder-ejecutivo-arts-87-a-107">Poder Ejecutivo (arts. 87 a 107)</h3>
+<ul>
+<li><strong>Presidente de la Nación.</strong> Jefe supremo, jefe de gobierno y responsable político de la administración general (art. 99).</li>
+<li><strong>Vicepresidente.</strong> Preside el Senado y reemplaza al presidente en caso de vacancia.</li>
+<li><strong>Jefe de Gabinete de Ministros.</strong> Ejerce la administración general del país y ejecuta el presupuesto (art. 100).</li>
+<li><strong>Ministros secretarios.</strong> Despachan los negocios de la Nación en sus áreas.</li>
+</ul>
+<p>Fuente: pág. 5.</p>
+</section>
+<section class="sec"><h2 id="poder-judicial">Poder Judicial</h2>
+<p>Es uno de los tres poderes de la República Argentina. Es a la vez poder político y servicio público. Lo regula la sección tercera de la segunda parte de la Constitución (arts. 108 a 119, con los 116 y 117 como centrales).</p>
+<p><strong>Misión.</strong> Asegurar la supremacía de la Constitución, ser su intérprete final, custodiar los derechos y garantías, y participar en el gobierno de la República (pág. 6).</p>
+<p><strong>Valores</strong> (pág. 7):</p>
+<ul>
+<li><strong>Independencia.</strong> Externa, de los otros poderes del Estado. Interna, de los tribunales superiores.</li>
+<li><strong>Imparcialidad.</strong> Neutralidad objetiva ante las partes en conflicto.</li>
+</ul>
+<h3 id="quienes-forman-el-sistema-de-justicia">Quiénes forman el sistema de justicia</h3>
+<p>La presentación 2025 (pág. 18) dice que está compuesto por el Poder Judicial de la Nación, el Poder Judicial de cada provincia, el Ministerio Público Fiscal, el Ministerio Público de la Defensa y el Consejo de la Magistratura.</p>
+<ul>
+<li><strong>Corte Suprema de Justicia de la Nación (CSJN).</strong> Es el vértice del sistema. Requisitos (art. 111): ser abogado de la Nación con 8 años de ejercicio y tener las calidades para ser senador (30 años de edad, 6 de ciudadanía, renta mínima). Los designa el Presidente con acuerdo de dos tercios de los miembros presentes del Senado (art. 99 inc. 4). Fuente: pág. 10.</li>
+<li><strong>Consejo de la Magistratura (art. 114).</strong> Selecciona jueces por concurso público, emite ternas vinculantes, tiene facultades disciplinarias y abre procesos de remoción. También administra los recursos y ejecuta el presupuesto de la justicia. Su composición busca equilibrio entre política, jueces, abogados y academia. Fuente: pág. 9.</li>
+<li><strong>Ministerio Público (art. 120).</strong> Órgano independiente, con autonomía funcional y autarquía financiera. Sus miembros gozan de inmunidades funcionales, y se coordina con el Poder Judicial de la Nación. Promueve la actuación de la justicia en defensa de la legalidad y de los intereses generales. Se divide en Procuración General (fiscales, acusación) y Defensoría General (defensores, garantías). Fuente: pág. 11.</li>
+</ul>
+<h3 id="instancias">Instancias</h3>
+<p>De abajo hacia arriba (pág. 8):</p>
+<ol>
+<li>Juzgados de Paz, Pequeñas Causas o Comunitarios.</li>
+<li>Juzgados de 1ª Instancia.</li>
+<li>Cámaras de Apelaciones o tribunales de 2ª Instancia.</li>
+<li>Corte Suprema.</li>
+</ol>
+<p>En Santa Fe el orden es el mismo, con la Corte Suprema de Justicia Provincial arriba de todo y los juzgados de primera instancia divididos por fuero. Lo regula la Ley Orgánica del Poder Judicial Provincial (pág. 15).</p>
+<p>Los roles son <strong>magistrados</strong>, <strong>funcionarios</strong> y <strong>empleados</strong> (2025, pág. 19). Los niveles se conectan por la <strong>apelación</strong>.</p>
+<h3 id="actores-no-solo-abogados">Actores: no solo abogados</h3>
+<p>Martilleros, procuradores, agrimensores, asistentes sociales, arquitectos, contadores, escribanos, traductores, calígrafos, médicos, psiquiatras e ingenieros (2025, pág. 9). La presentación «1 - Presentación» de 2026 (pág. 10) dice que el funcionamiento del Poder Judicial «requiere una red de profesionales especializados para procesar la evidencia y la verdad objetiva». Marca a ingenieros y peritos informáticos como cruciales para la recolección, preservación y análisis de evidencia digital y el mantenimiento de la e-Justicia.</p>
+<h3 id="fueros">Fueros</h3>
+<p><strong>Fuero:</strong> competencia a la que legalmente están sometidas las partes según la materia específica del conflicto (pág. 16).</p>
+<div class="tabla"><table><thead><tr><th>Fuero</th><th>Qué trata</th></tr></thead><tbody><tr><td>Civil</td><td>Disputas entre particulares, contratos, daños y perjuicios</td></tr><tr><td>Comercial</td><td>Sociedades, quiebras, títulos de crédito</td></tr><tr><td>Penal</td><td>Delitos, investigación de crímenes, sanciones</td></tr><tr><td>Laboral</td><td>Conflictos de trabajo, despidos, accidentes (ART)</td></tr><tr><td>Familia</td><td>Divorcios, adopciones, cuotas alimentarias</td></tr><tr><td>Contencioso-administrativo</td><td>Demandas y litigios directos contra el Estado</td></tr></tbody></table></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Instancia y fuero son dos ejes distintos. El fuero es de qué tema se trata, como la sección de un negocio. La instancia es en qué escalón estás. Un juicio laboral puede estar en primera instancia y, si apelan, pasar a la cámara, sin dejar de ser laboral.</p>
+</div>
+<h3 id="nacion-o-provincia">Nación o provincia</h3>
+<p>Las provincias conservan todo el poder no delegado por la Constitución al gobierno federal (arts. 5, 121 y 122). Se dan sus instituciones, eligen sus gobernadores, legisladores y jueces sin intervención federal y aseguran su administración de justicia (págs. 13 y 14). También dictan sus propias constituciones y códigos de procedimiento, y manejan la justicia ordinaria, como delitos comunes o disputas entre vecinos locales (pág. 14).</p>
+<p>Del lado federal, la pág. 14 resume el art. 116 como asuntos de estricto interés nacional, conflictos que cruzan fronteras provinciales o internacionales, y causas donde la Nación es parte, narcotráfico, terrorismo y contrabando.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Jurisdicción nacional o federal</th><th>Jurisdicción provincial (ej. Santa Fe)</th></tr></thead><tbody><tr><td>Naturaleza del fuero</td><td>De excepción: limitado y expreso</td><td>Común u ordinario: todo lo no delegado</td></tr><tr><td>Máximo tribunal</td><td>CSJN</td><td>Corte Suprema de Justicia Provincial</td></tr><tr><td>Ejemplos</td><td>Narcotráfico, contrabando, delitos informáticos federales, juicios contra el Estado Nacional</td><td>Robos comunes, divorcios, litigios comerciales locales, juicios laborales provinciales</td></tr></tbody></table></div>
+<p>Fuente: pág. 17.</p>
+<p><strong>Competencia federal (art. 116, pág. 12).</strong> Se define de tres formas.</p>
+<ul>
+<li><strong>Por la materia.</strong> Puntos regidos por la Constitución, leyes nacionales y tratados internacionales.</li>
+<li><strong>Por las personas.</strong> Causas de embajadores o cónsules, asuntos donde la Nación es parte, conflictos entre dos o más provincias o entre vecinos de distintas provincias.</li>
+<li><strong>Por el lugar.</strong> Causas de almirantazgo y jurisdicción marítima.</li>
+</ul>
+<div class="idea"><p>Para ubicar un caso, hacé dos preguntas en orden. ¿Es de excepción federal por materia, personas o lugar? Si no, va a la justicia provincial. Después, ¿de qué tema es? Eso te da el fuero.</p>
+</div>
+</section>
+<section class="sec"><h2 id="delito">Delito</h2>
+<p>Son acciones o conductas contrarias a la ley. Afectan bienes como la vida, la libertad o la propiedad (pág. 26). De acá salen dos pares que hay que distinguir.</p>
+<h3 id="dolo-y-culpa">Dolo y culpa</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Dolo (ejecución intencional)</th><th>Culpa (falla por negligencia)</th></tr></thead><tbody><tr><td>Concepto</td><td>Existe la voluntad, el conocimiento y la intención de cometer el acto ilícito</td><td>No hay intención directa de dañar, pero el daño ocurre por negligencia, imprudencia o impericia</td></tr><tr><td>Analogía técnica</td><td>Un ataque DDoS premeditado para tumbar un servidor</td><td>Un desarrollador que deja un puerto abierto por error de configuración, causando una fuga de datos</td></tr><tr><td>Cómo reconocerlo</td><td>Quería hacerlo y conocía las consecuencias</td><td>No quería el resultado, pero falló en su deber de cuidado</td></tr></tbody></table></div>
+<p>Fuente: pág. 28.</p>
+<h3 id="pena-y-resarcimiento">Pena y resarcimiento</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Pena (castigo)</th><th>Resarcimiento (restauración)</th></tr></thead><tbody><tr><td>Ámbito</td><td>Derecho Penal</td><td>Derecho Civil, responsabilidad civil</td></tr><tr><td>Objetivo</td><td>Castigar al infractor, privar de bienes o libertad y prevenir futuros delitos</td><td>Reparar el daño a la víctima, devolviendo las cosas al estado anterior o con una compensación económica</td></tr><tr><td>Quién lo ejecuta</td><td>El Estado (monopolio de la fuerza)</td><td>Demanda del particular afectado</td></tr><tr><td>Ejemplo</td><td>Prisión, inhabilitación profesional, multas penales</td><td>Indemnización económica por pérdida de ganancias o daño moral</td></tr></tbody></table></div>
+<p>Fuente: pág. 29.</p>
+<p>Los delitos informáticos en particular están en <a href="pericia.html#delitos-informaticos">Eje 5</a>.</p>
+</section>
+<section class="sec"><h2 id="donde-leer-las-normas">Dónde leer las normas</h2>
+<p>La presentación 2025 (pág. 20) enlaza la Ley 13.998, la Ley Orgánica del Poder Judicial de Santa Fe y la norma de Infoleg. Los sitios de consulta están en <a href="ejusticia.html#donde-consultar">Eje 4</a>.</p>
+</section><section class="sec quiz" id="quiz" data-quiz="entorno" data-materia="informatica-juridica">
+<h2>Quiz del eje 1</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="iQGaPg4dE0" data-tema="Tipos de Derecho" data-enlace="entorno.html#tipos-de-derecho" data-tipo="mc"><div class="q-enun" id="qe-entorno-1"><span class="q-n">1</span><div><p>Según la cátedra, ¿qué distingue al derecho público del privado?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-entorno-1"><li><button type="button" class="op" data-ok="0">Si la norma está escrita o viene de la costumbre</button></li><li><button type="button" class="op" data-ok="1">Relaciones de subordinación con el Estado frente a relaciones de coordinación entre particulares en igualdad</button></li><li><button type="button" class="op" data-ok="0">Si rige dentro de un Estado o entre Estados</button></li><li><button type="button" class="op" data-ok="0">La norma frente a la facultad de exigir su cumplimiento</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las otras opciones describen los pares <strong>escrito y consuetudinario</strong>, <strong>nacional e internacional</strong> y <strong>objetivo y subjetivo</strong>.</p>
+</div></li><li class="q" data-q="X6lpIewTIn" data-tema="Sistema jurídico" data-enlace="entorno.html#sistema-juridico" data-tipo="mc"><div class="q-enun" id="qe-entorno-2"><span class="q-n">2</span><div><p>¿Cuáles son los componentes del Estado?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-entorno-2"><li><button type="button" class="op" data-ok="0">Poderes, leyes y jueces</button></li><li><button type="button" class="op" data-ok="0">Nación, provincias y municipios</button></li><li><button type="button" class="op" data-ok="1">Territorio, habitantes y orden jurídico</button></li><li><button type="button" class="op" data-ok="0">Unidad, coherencia y plenitud</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Unidad, coherencia y plenitud son caracteres del <strong>sistema jurídico</strong>, no componentes del Estado.</p>
+</div></li><li class="q" data-q="PM7IVdZc_a" data-tema="Caracteres del sistema" data-enlace="entorno.html#caracteres-del-sistema" data-tipo="mc"><div class="q-enun" id="qe-entorno-3"><span class="q-n">3</span><div><p>¿Con qué se vincula el carácter de plenitud del sistema jurídico?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-entorno-3"><li><button type="button" class="op" data-ok="1">Con el principio de clausura del art. 19</button></li><li><button type="button" class="op" data-ok="0">Con la supremacía del art. 31</button></li><li><button type="button" class="op" data-ok="0">Con el Consejo de la Magistratura</button></li><li><button type="button" class="op" data-ok="0">Con la competencia federal del art. 116</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><strong>Plenitud</strong> es el principio de clausura: lo que no está prohibido, está permitido.</p>
+</div></li><li class="q" data-q="IQzvSrMV8z" data-tema="La pirámide de Kelsen" data-enlace="entorno.html#la-piramide-de-kelsen" data-tipo="mc"><div class="q-enun" id="qe-entorno-4"><span class="q-n">4</span><div><p>En la pirámide de Kelsen aplicada a la Argentina, ¿en qué nivel están las sentencias y los contratos?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-entorno-4"><li><button type="button" class="op" data-ok="0">Fundamental</button></li><li><button type="button" class="op" data-ok="0">Legal</button></li><li><button type="button" class="op" data-ok="0">Constitucional</button></li><li><button type="button" class="op" data-ok="1">Base</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El nivel <strong>base</strong> reúne reglamentos, ordenanzas, sentencias y contratos.</p>
+</div></li><li class="q" data-q="MBSeDnLfhE" data-tema="La norma jurídica" data-enlace="entorno.html#la-norma-juridica" data-tipo="mc"><div class="q-enun" id="qe-entorno-5"><span class="q-n">5</span><div><p>Según Kelsen, ¿qué le da a una norma su carácter jurídico?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-entorno-5"><li><button type="button" class="op" data-ok="0">Que esté escrita</button></li><li><button type="button" class="op" data-ok="1">La presencia de la sanción</button></li><li><button type="button" class="op" data-ok="0">Que la apruebe el Congreso</button></li><li><button type="button" class="op" data-ok="0">Que sea justa</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación lo dice textual: la presencia de la sanción es lo que confiere a la norma su carácter jurídico.</p>
+</div></li><li class="q" data-q="iGOK8p_lbq" data-tema="Poder Judicial" data-enlace="entorno.html#poder-judicial" data-tipo="mc"><div class="q-enun" id="qe-entorno-6"><span class="q-n">6</span><div><p>¿Qué órgano selecciona jueces por concurso público y emite ternas vinculantes?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-entorno-6"><li><button type="button" class="op" data-ok="0">La Corte Suprema</button></li><li><button type="button" class="op" data-ok="0">El Ministerio Público</button></li><li><button type="button" class="op" data-ok="1">El Consejo de la Magistratura</button></li><li><button type="button" class="op" data-ok="0">El Senado</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es el <strong>Consejo de la Magistratura</strong> (art. 114), que además administra los recursos de la justicia.</p>
+</div></li><li class="q" data-q="gFd9GVEDYQ" data-tema="Quiénes forman el sistema de justicia" data-enlace="entorno.html#quienes-forman-el-sistema-de-justicia" data-tipo="mc"><div class="q-enun" id="qe-entorno-7"><span class="q-n">7</span><div><p>¿Cómo se designa a un miembro de la Corte Suprema de la Nación?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-entorno-7"><li><button type="button" class="op" data-ok="1">Lo designa el Presidente con acuerdo de dos tercios de los miembros presentes del Senado</button></li><li><button type="button" class="op" data-ok="0">Lo elige el Consejo de la Magistratura por sí solo</button></li><li><button type="button" class="op" data-ok="0">Lo vota la Cámara de Diputados</button></li><li><button type="button" class="op" data-ok="0">Lo elige la propia Corte</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es el art. 99 inc. 4, que la presentación llama «protocolo de instalación».</p>
+</div></li><li class="q" data-q="grElNJQumD" data-tema="Nación o provincia" data-enlace="entorno.html#nacion-o-provincia" data-tipo="mc"><div class="q-enun" id="qe-entorno-8"><span class="q-n">8</span><div><p>¿Cómo caracteriza la cátedra al fuero federal?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-entorno-8"><li><button type="button" class="op" data-ok="0">Común u ordinario</button></li><li><button type="button" class="op" data-ok="0">Residual</button></li><li><button type="button" class="op" data-ok="1">De excepción, limitado y expreso</button></li><li><button type="button" class="op" data-ok="0">Exclusivo de lo penal</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El provincial es el <strong>común</strong>: todo lo no delegado. El federal es de <strong>excepción</strong>.</p>
+</div></li><li class="q" data-q="w6qLWFKRML" data-tema="Dolo y culpa" data-enlace="entorno.html#dolo-y-culpa" data-tipo="mc"><div class="q-enun" id="qe-entorno-9"><span class="q-n">9</span><div><p>Un desarrollador deja un puerto abierto por error de configuración y eso causa una fuga de datos. ¿Qué ejemplifica la cátedra con este caso?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-entorno-9"><li><button type="button" class="op" data-ok="0">Dolo</button></li><li><button type="button" class="op" data-ok="1">Culpa</button></li><li><button type="button" class="op" data-ok="0">Resarcimiento</button></li><li><button type="button" class="op" data-ok="0">Heteronomía</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es la analogía técnica de la diapositiva para la <strong>culpa</strong>: no quería el resultado, pero falló en su deber de cuidado.</p>
+</div></li><li class="q" data-q="lXy3zqbARW" data-tema="Pena y resarcimiento" data-enlace="entorno.html#pena-y-resarcimiento" data-tipo="mc"><div class="q-enun" id="qe-entorno-10"><span class="q-n">10</span><div><p>¿Qué corresponde al resarcimiento?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-entorno-10"><li><button type="button" class="op" data-ok="0">Lo ejecuta el Estado con el monopolio de la fuerza</button></li><li><button type="button" class="op" data-ok="0">Busca prevenir futuros delitos</button></li><li><button type="button" class="op" data-ok="0">Incluye la inhabilitación profesional</button></li><li><button type="button" class="op" data-ok="1">Busca reparar el daño a la víctima y surge de la demanda del particular afectado</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las otras tres opciones describen la <strong>pena</strong>, del Derecho Penal.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material de cursado 2025 y 2026 del Drive de UTN. El Drive no trae ningún parcial ni final, así que no dice qué se toma ni cómo viene el examen. Manda lo que indique tu comisión. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final: Paradigmas de Programación</title>
+<meta name="description" content="Las piezas de Smalltalk para registrar y listar.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="paradigmas-de-programacion" data-pagina="final">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Paradigmas de Programación</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">Parcial de regularización</a></li><li class="em-fuera"><a href="ad.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html" aria-current="page">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=paradigmas-de-programacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=paradigmas-de-programacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#que-se-tomo">Qué se tomó</a></li><li class="n2"><a href="#que-pide-cada-consigna-de-listado">Qué pide cada consigna de listado</a></li><li class="n2"><a href="#si-te-piden-menu">Si te piden menú</a></li><li class="n2"><a href="#las-plantillas-del-drive">Las plantillas del Drive</a></li><li class="n3"><a href="#crear-un-objeto-y-mandarle-un-mensaje">Crear un objeto y mandarle un mensaje</a></li><li class="n3"><a href="#carga-si-no-existe">Carga si no existe</a></li><li class="n3"><a href="#cargadatos-setters-y-getters">cargaDatos, setters y getters</a></li><li class="n3"><a href="#fecha">Fecha</a></li><li class="n3"><a href="#mensajes-de-colecciones">Mensajes de colecciones</a></li><li class="n3"><a href="#ordenar-con-assortedcollection">Ordenar con asSortedCollection</a></li><li class="n3"><a href="#los-mensajes-de-coleccion-segun-el-apunte">Los mensajes de colección según el apunte</a></li><li class="n3"><a href="#metodo-filtro">Método filtro</a></li><li class="n2"><a href="#como-se-arma-el-programa">Cómo se arma el programa</a></li><li class="n3"><a href="#buscar-o-crear">Buscar o crear</a></li><li class="n3"><a href="#elegir-la-subclase">Elegir la subclase</a></li><li class="n3"><a href="#cargar-varios-en-un-ciclo">Cargar varios en un ciclo</a></li><li class="n3"><a href="#numerar-solo-y-crear-la-coleccion-interna">Numerar solo y crear la colección interna</a></li><li class="n3"><a href="#sumar-un-total-y-cada-subclase-con-su-calculo">Sumar un total y cada subclase con su cálculo</a></li><li class="n3"><a href="#escribir-en-el-transcript">Escribir en el Transcript</a></li><li class="n2"><a href="#lo-que-el-material-no-trae">Lo que el material no trae</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Final</h1>
+<p class="bajada">El mismo examen de diagrama y Smalltalk, y las piezas de código que aparecen en el material del Drive.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="que-se-tomo">Qué se tomó</h2>
+<p>Contamos los 11 finales de 2023 a 2026 que hay en el Drive.</p>
+<div class="tabla"><table><thead><tr><th>Fecha</th><th>Negocio</th><th>Qué se registra</th><th>Qué pide además</th></tr></thead><tbody><tr><td>27/02/2023</td><td>Fábrica de electrodomésticos</td><td>Pedido</td><td>Alta del cliente. Informar el número de pedido</td></tr><tr><td>03/04/2023</td><td>Carpintería</td><td>Orden de fabricación</td><td>Alta del cliente. Asignar el primer carpintero disponible o abortar con un mensaje</td></tr><tr><td>29/05/2023</td><td>Parque nacional</td><td>Visita y sus actividades</td><td>Un método para cada registro, más el listado</td></tr><tr><td>28/08/2023</td><td>Inmobiliaria El Hornero</td><td>Venta o alquiler</td><td>Actualizar el estado de la propiedad</td></tr><tr><td>25/09/2023</td><td>Alquiler de equipos de montaña</td><td>Alquiler</td><td>Menú principal. Alta del cliente. Equipos disponibles, con actualización. Emitir un resumen</td></tr><tr><td>13/11/2023</td><td>Reciclaje</td><td>Orden de reciclaje</td><td>Alta del reciclador. Imprimir un resumen</td></tr><tr><td>11/12/2023</td><td>Milla Fiel</td><td>Consumo</td><td>Alta del cliente. Mostrar las millas obtenidas</td></tr><tr><td>28/04/2025</td><td>Taller de obras de arte</td><td>Solicitud de restauración</td><td>Alta del cliente. Asignar el primer restaurador disponible de la especialidad. Informar el costo total</td></tr><tr><td>27/04/2026</td><td>Plataforma de cursos online</td><td>Venta de cursos</td><td>Alta del estudiante. Validar que el curso exista. Imprimir un comprobante</td></tr><tr><td>18/05/2026</td><td>Tienda de instrumentos</td><td>Compra</td><td>Alta del cliente. Validar existencia y stock. Actualizar el stock. Informar el total</td></tr><tr><td>31/08/2026</td><td>Editorial Tecnobook</td><td>Compra</td><td>Alta del cliente. Verificar que la cantidad sea mayor a cero. Emitir un recibo</td></tr></tbody></table></div>
+<p>El de Tecnobook se titula «Evaluación» y está en la carpeta de finales del Drive. Las hojas de Carpintería, El Hornero y Montaña dan solo el mes. El día sale del nombre del archivo.</p>
+<div class="tomado"><aside class="nota"><strong>Estructura repetida</strong><span>11 de 11 finales, 2023 a 2026</span></aside><p>Los once piden <mark>diagrama de clases</mark> y <mark>métodos en Smalltalk</mark> para registrar una operación y emitir un listado. <mark>9 de 11 listan por rango de fechas</mark>. Los otros dos son Fábrica, por una fecha, y Reciclaje, por un reciclador. 7 de 11 aclaran que no se programa el menú.</p>
+</div>
+</section>
+<section class="sec"><h2 id="que-pide-cada-consigna-de-listado">Qué pide cada consigna de listado</h2>
+<p>Lo que dicen los enunciados de 2023 en adelante. La tabla no resuelve nada, solo marca qué se pide.</p>
+<div class="tabla"><table><thead><tr><th>Examen</th><th>Filtro</th><th>Orden</th></tr></thead><tbody><tr><td>Vivero, 13/02/2023</td><td>Ninguno. Se muestra al armar el pedido</td><td>Precio base descendente</td></tr><tr><td>Fábrica, 27/02/2023</td><td>Una fecha que ingresa el usuario</td><td>Dirección del cliente, alfabético</td></tr><tr><td>Carpintería, 03/04/2023</td><td>Rango de fechas</td><td>Fecha ascendente</td></tr><tr><td>Parque nacional, 29/05/2023</td><td>Rango de fechas</td><td>Fecha, cronológico</td></tr><tr><td>El Hornero, 28/08/2023</td><td>Rango de fechas</td><td>Comisión decreciente</td></tr><tr><td>Montaña, 25/09/2023</td><td>Rango de fechas</td><td>Fecha creciente</td></tr><tr><td>Reciclaje, 13/11/2023</td><td>Un reciclador</td><td>Fecha creciente</td></tr><tr><td>Milla Fiel, 11/12/2023</td><td>Rango de fechas</td><td>No lo pide</td></tr><tr><td>Antigüedades, 24/06/2024</td><td>Rango de fechas</td><td>Fecha ascendente</td></tr><tr><td>Biblioteca, 07/11/2024</td><td>Préstamos activos</td><td>No lo pide</td></tr><tr><td>Veterinaria, 07/11/2024</td><td>Rango de fechas</td><td>Fecha ascendente</td></tr><tr><td>Obras de arte, 28/04/2025</td><td>Rango de fechas</td><td>Fecha ascendente</td></tr><tr><td>Mascotas, 03/11/2025</td><td>Fecha actual</td><td>Monto descendente</td></tr><tr><td>Verdulería, 05/11/2025</td><td>Última semana</td><td>Fecha de venta</td></tr><tr><td>Cursos, 27/04/2026</td><td>Rango de fechas</td><td>Tipo de curso</td></tr><tr><td>Instrumentos, 18/05/2026</td><td>Rango de fechas</td><td>Fecha descendente</td></tr><tr><td>Tecnobook, 31/08/2026</td><td>Rango de fechas</td><td>Fecha ascendente</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Lo que más se repite en el listado</strong><span>17 enunciados, 2023 a 2026</span></aside><p><mark>11 de 17 piden un rango de fechas</mark> y 10 de 17 ordenan por fecha. 4 de 17 piden un orden descendente. Tecnobook pide además el importe total de todas las compras listadas.</p>
+</div>
+</section>
+<section class="sec"><h2 id="si-te-piden-menu">Si te piden menú</h2>
+<div class="tomado"><aside class="nota"><strong>El menú</strong><span>17 enunciados, 2023 a 2026</span></aside><p><mark>2 de 17 lo piden</mark>: el Vivero (13/02/2023) y Montaña (25/09/2023). 12 de 17 aclaran que no se programa. Carpintería, El Hornero y Milla Fiel no dicen nada. Desde 2024, los 9 aclaran que no.</p>
+</div>
+<pre class="codigo"><code>menu
+<span class="hljs-comment">&quot;Menu de opciones iterativo&quot;</span>
+|op|
+[op ~= <span class="hljs-number">0</span>] whileTrue: [
+    <span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;MENU
+        1- Opcion 1
+        2- Opcion 2
+        3- Opcion 3
+        0- Salir&#x27;</span>.
+    op := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la opción que desea ejecutar&#x27;</span>) asNumber.
+    op = <span class="hljs-number">1</span> ifTrue: [<span class="hljs-keyword">self</span> metodo1].
+    op = <span class="hljs-number">2</span> ifTrue: [<span class="hljs-keyword">self</span> metodo2].
+    op = <span class="hljs-number">3</span> ifTrue: [<span class="hljs-keyword">self</span> metodo3]]</code></pre>
+<pre class="codigo"><code>|w|
+w := <span class="hljs-type">Lugar</span> new.
+w inicializa.
+w menu</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, página 1, «Menú genérico» y «Workspace genérico». En el original faltan los puntos finales entre las líneas del ciclo. Es un molde genérico y no dice quién lo escribió.</p>
+</section>
+<section class="sec"><h2 id="las-plantillas-del-drive">Las plantillas del Drive</h2>
+<p>El archivo «Estructuras útiles en Smalltalk» de Material Util da moldes genéricos. No dice quién lo escribió. Los copiamos cambiando comillas tipográficas por rectas y arreglando lo que marcamos.</p>
+<h3 id="crear-un-objeto-y-mandarle-un-mensaje">Crear un objeto y mandarle un mensaje</h3>
+<pre class="codigo"><code>nombreObjeto := <span class="hljs-type">Clase</span> new.
+nombreObjeto metodo.</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, página 1, «Crear objeto y que ejecute un método».</p>
+<h3 id="carga-si-no-existe">Carga si no existe</h3>
+<p>La plantilla pide el dato que identifica al objeto y lo busca en la colección. Si no hay, crea el objeto, le pide los datos y lo agrega. Después crea el objeto de la operación y le pasa el que encontró o creó.</p>
+<pre class="codigo"><code>|parametro objetoNuevo clasecita|
+parametro := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese parametro&#x27;</span>.
+objetoNuevo := lista detect: [:i | i oParametro = parametro] ifNone: [
+    objetoNuevo := <span class="hljs-type">Lugar</span> new.
+    objetoNuevo cargaDatos.
+    objetos add: objetoNuevo].
+clasecita := <span class="hljs-type">Clase</span> new.
+clasecita cargaDatos: objetoNuevo</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «Carga si no existe genérica». En el original la variable temporal se declara <code>clasesita</code> y después se usa <code>clasecita</code>. Acá va igual en los dos lugares. Los ejercicios resueltos hacen lo mismo en dos pasos, como se ve en <a href="#buscar-o-crear">Buscar o crear</a>.</p>
+<h3 id="cargadatos-setters-y-getters">cargaDatos, setters y getters</h3>
+<pre class="codigo"><code>cargaDatos
+<span class="hljs-keyword">self</span> iPelicula: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la pelicula que se exhibe en la sala&#x27;</span>).
+<span class="hljs-keyword">self</span> iHorario: ((<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el horario de la pelicula en la sala&#x27;</span>) asNumber).
+
+iNombre: unString
+nombre := unString
+
+oNombre
+^nombre</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «cargaDatos genérico», «Métodos setter» y «Métodos getter». En el original a la segunda línea le faltan comillas. Si el dato es un número, se convierte con <code>asNumber</code>.</p>
+<h3 id="fecha">Fecha</h3>
+<pre class="codigo"><code>fecha := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha&#x27;</span>).
+fecha := <span class="hljs-type">Date</span> today.</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «Carga fecha genérico». <code>Date today</code> da la fecha del día. Son dos formas distintas, no dos pasos.</p>
+<h3 id="mensajes-de-colecciones">Mensajes de colecciones</h3>
+<pre class="codigo"><code>listadofiltrado := (listado asSortedCollection: [:a :b | a oParam &lt; b oParam])
+    select: [:i | i metodoFiltro = <span class="hljs-keyword">true</span>].
+listadofiltrado isEmpty
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No se han encontrado&#x27;</span>]
+    ifFalse: [
+        <span class="hljs-type">Transcript</span> clear; show: <span class="hljs-string">&#x27;Nombre&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Edad&#x27;</span>; cr.
+        listadofiltrado do: [:i | i muestraInfo]]</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «Listado filtrado y ordenado genérico». En el original falta el <code>:</code> después de <code>asSortedCollection</code> y dos puntos finales. El método <code>muestraInfo</code> escribe con <code>Transcript show: nombre; tab; show: edad; cr</code>.</p>
+<div class="tabla"><table><thead><tr><th>Mensaje</th><th>Para qué se usa en el material</th></tr></thead><tbody><tr><td><code>detect:ifNone:</code></td><td>Buscar un objeto, con un bloque por si no está</td></tr><tr><td><code>select:</code></td><td>Quedarse con los que cumplen la condición</td></tr><tr><td><code>asSortedCollection:</code></td><td>Ordenar con un bloque de dos parámetros</td></tr><tr><td><code>do:</code></td><td>Ejecutar el bloque con cada elemento</td></tr><tr><td><code>isEmpty</code></td><td>Saber si no hay elementos</td></tr><tr><td><code>add:</code></td><td>Agregar a la colección</td></tr></tbody></table></div>
+<p>En el Ejercicio resuelto 3 se pide un listado «ordenado de forma creciente» y el bloque compara con <code>&lt;</code>. Fuente: Ejercicio resuelto 3, páginas 1 y 6. Ahí el original tiene un error: compara <code>unaHerr codigo &lt; unaHerr codigo</code>, y el segundo debería ser <code>otraHerr</code>.</p>
+<h3 id="ordenar-con-assortedcollection">Ordenar con asSortedCollection</h3>
+<p>Una SortedCollection guarda los objetos en el orden que indica un bloque de dos argumentos, llamado sortBlock. La regla del apunte de colecciones es esta. <mark>La colección guarda el primer argumento adelante del segundo cuando el bloque da <code>true</code>.</mark> El bloque puede tener varias sentencias, pero tiene que devolver <code>true</code> o <code>false</code>.</p>
+<pre class="codigo"><code>[:a :b | a &lt;= b]
+    <span class="hljs-comment">&quot;devuelve true cuando a es menor o igual a b&quot;</span></code></pre>
+<p>Ese bloque deja los elementos en orden ascendente, y es el que usa SortedCollection si no le pasás otro. Para otro orden se escribe otro bloque. Estos dos son los ejemplos del apunte.</p>
+<pre class="codigo"><code>#(<span class="hljs-number">4</span> <span class="hljs-number">3</span> <span class="hljs-number">5</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span>) asSortedCollection: [:a :b | a &gt;= b].
+#(<span class="hljs-string">&#x27;uno&#x27;</span> <span class="hljs-string">&#x27;dos&#x27;</span> <span class="hljs-string">&#x27;tres&#x27;</span>) asSortedCollection: [:x :y | x size &gt;= y size].</code></pre>
+<p>Con la regla de arriba, en el primero queda adelante el mayor, y en el segundo, la palabra más larga.</p>
+<p>Cada vez que se agrega un elemento, la colección usa el sortBlock. El primer argumento es siempre el objeto nuevo y el segundo, uno que ya estaba. Recorre los elementos en orden hasta que el bloque da <code>true</code>. Si no da <code>true</code> con ninguno, el nuevo queda último. Por eso mantener una colección ordenada tiene un costo cada vez que se agrega algo, y el apunte pide usarla con prudencia.</p>
+<p>Fuente: Colecciones (Material Util), «SortedCollection (Colección Ordenada)».</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El bloque contesta una sola pregunta: «¿el primero va antes que el segundo?». Si comparás con <code>&lt;=</code>, va antes el más chico. Si comparás con <code>&gt;=</code>, va antes el más grande. Para ordenar objetos, comparás un dato de cada uno, como en el molde del listado (<code>a oParam &lt; b oParam</code>).</p>
+</div>
+<h3 id="los-mensajes-de-coleccion-segun-el-apunte">Los mensajes de colección según el apunte</h3>
+<div class="tabla"><table><thead><tr><th>Mensaje</th><th>Qué hace</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td><code>new</code></td><td>Crea una colección con un tamaño por omisión. En una de tamaño fijo la crea vacía, sin lugares, y no conviene</td><td><code>Bag new</code></td></tr><tr><td><code>new: unNúmero</code></td><td>En una de tamaño fijo, crea esa cantidad de lugares y fuera de ese rango no se puede indexar. En una de tamaño variable, reserva espacio, pero la colección sigue vacía hasta que se agregue algo</td><td><code>(Array new: 10) size</code> da 10. <code>(OrderedCollection new: 10) size</code> da 0</td></tr><tr><td><code>with:</code></td><td>Crea una colección con los objetos que recibe, de uno a cuatro (<code>with:with:</code> y así). Vale para todas las colecciones</td><td><code>OrderedCollection with: 1 with: 2 with: 3 with: 4</code></td></tr><tr><td><code>size</code></td><td>Devuelve cuántos elementos tiene. Si está vacía, da cero</td><td></td></tr><tr><td><code>do: unBloque</code></td><td>Recorre cada elemento y ejecuta el bloque de un argumento con él. Se usa por lo que hace el bloque, no por lo que devuelve</td><td>Sumar <code>#(1 2 3 4 5)</code> en una variable da 15</td></tr><tr><td><code>add: unObjeto</code></td><td>Agrega el objeto y lo devuelve. Solo en colecciones que pueden crecer</td><td><code>Bag new add: 1</code></td></tr><tr><td><code>remove: unObjeto</code></td><td>Elimina el objeto y lo devuelve. Busca por igualdad, no por identidad, y saca el primero que encuentra. Si no está, aparece la ventana de depuración. Solo en colecciones que pueden crecer o disminuir</td><td></td></tr><tr><td><code>at: unNúmero put: unObjeto</code></td><td>Pone el objeto en ese índice y lo devuelve. Solo en colecciones indexadas. Con un índice inválido aparece la ventana de depuración</td><td><code>(Array new: 10) at: 5 put: &#39;cadena 5&#39;</code></td></tr><tr><td><code>at: unNúmero</code></td><td>Devuelve el objeto de ese índice. Solo en colecciones indexadas</td><td></td></tr><tr><td><code>, unaColección</code></td><td>Pega dos colecciones en una tercera, de la misma clase que el receptor, que tiene que ser indexada. Sirve para agrandar una de tamaño fijo</td><td><code>unaColeccion, (Array with: &#39;cadena 3&#39;)</code></td></tr><tr><td><code>detect: unBloque</code></td><td>Devuelve el primer elemento para el que el bloque da verdadero</td><td><code>#(4 7 10 3 7) detect: [:nro | nro &gt; 7]</code> da 10</td></tr><tr><td><code>select: unBloque</code></td><td>Devuelve los elementos para los que el bloque da verdadero</td><td><code>&#39;ahora es el momento&#39; select: [:letra | letra isVowel]</code> da las vocales</td></tr><tr><td><code>reject: unBloque</code></td><td>Devuelve los elementos para los que el bloque da falso</td><td>El mismo, con <code>reject:</code>, da las consonantes</td></tr><tr><td><code>collect: unBloque</code></td><td>Crea una colección nueva del mismo tamaño, con lo que devuelve el bloque para cada elemento</td><td><code>#(&#39;ahora&#39; &#39;es&#39; &#39;el&#39; &#39;momento&#39; 123) collect: [:elemento | elemento isString]</code> da <code>true true true true false</code></td></tr></tbody></table></div>
+<p>Fuente: Colecciones (Material Util), «Mensajes a las Colecciones».</p>
+<p>Qué mensajes entiende cada colección, según la tabla del mismo apunte:</p>
+<div class="tabla"><table><thead><tr><th>Colección</th><th><code>do:</code></th><th><code>add:</code></th><th><code>remove:</code></th><th><code>at:</code></th><th><code>at:put:</code></th><th><code>removeIndex:</code></th><th><code>,</code></th><th><code>detect:</code> <code>select:</code> <code>reject:</code> <code>collect:</code></th></tr></thead><tbody><tr><td>Bag</td><td>S</td><td>S</td><td>S</td><td>N</td><td>N</td><td>N</td><td>N</td><td>S</td></tr><tr><td>Set</td><td>S</td><td>S</td><td>S</td><td>N</td><td>N</td><td>N</td><td>N</td><td>S</td></tr><tr><td>Array</td><td>S</td><td>N</td><td>N</td><td>S</td><td>S</td><td>N</td><td>S</td><td>S</td></tr><tr><td>OrderedCollection</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td></tr><tr><td>SortedCollection</td><td>S</td><td>S</td><td>S</td><td>S</td><td>N</td><td>S</td><td>S</td><td>S</td></tr><tr><td>Dictionary</td><td>S</td><td>S</td><td>N</td><td>S</td><td>S</td><td>N</td><td>N</td><td>S</td></tr></tbody></table></div>
+<p>Fuente: Colecciones, «Resumen de colecciones y mensajes». En la hoja, los cuatro de la última columna van separados y todos dicen S.</p>
+<div class="ojo"><p class="ojo-t">String y Symbol en esa tabla</p><p>La tabla del apunte marca para String y Symbol <code>at:</code> en N y <code>at:put:</code> en S. El texto del mismo apunte dice lo contrario. String «soporta los mensajes at: y at:put:», y Symbol no soporta «ningún método que pueda cambiar su valor como at:put:». No elegimos. Si te lo toman, preguntá en la cursada.</p>
+</div>
+<h3 id="metodo-filtro">Método filtro</h3>
+<pre class="codigo"><code>valor1 &lt; valor2 ifTrue: [^<span class="hljs-keyword">true</span>] ifFalse: [^<span class="hljs-keyword">false</span>]</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «Método filtro genérico». En el original falta un <code>:</code> después de <code>ifFalse</code>. Un método filtro devuelve un booleano con <code>^</code>.</p>
+</section>
+<section class="sec"><h2 id="como-se-arma-el-programa">Cómo se arma el programa</h2>
+<p>Estas piezas salen de los tres ejercicios resueltos de Material Util. No son exámenes y no dicen quién los escribió. Coinciden en la forma, y eso es lo que usamos.</p>
+<div class="ojo"><p class="ojo-t">No los copies sin mirar</p><p>Traen errores de tipeo. <code>#Mayorisa</code> por <code>#Mayorista</code> e <code>ItemProducto</code> por <code>ItemPedido</code> en el 1. <code>cursosEncontrados = cursos select:</code> con <code>=</code> en vez de <code>:=</code> en el 2. Tampoco son lo que pide un examen de 2023 en adelante. Sirven para ver la forma.</p>
+</div>
+<ul>
+<li>Hay una clase principal que guarda las colecciones (<code>clientes</code>, <code>productos</code>, <code>pedidos</code>) y los métodos del programa. Fuente: Ejercicio resuelto 1, página 4.</li>
+<li>Cada clase tiene su <code>cargaDatos</code> y los métodos que devuelven sus datos.</li>
+<li>La subclase llama a <code>super cargaDatos</code> y suma lo suyo. Fuente: Ejercicio resuelto 2, páginas 9 y 10.</li>
+</ul>
+<h3 id="buscar-o-crear">Buscar o crear</h3>
+<pre class="codigo"><code><span class="hljs-symbol">#buscarOCrearAlumno</span>
+|dni alu |
+dni := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese DNI del alumno&#x27;</span>) asNumber.
+alu := alumnos detect: [:unAlumno | unAlumno dni = dni ] ifNone: [<span class="hljs-keyword">nil</span>].
+alu isNil ifTrue: [ alu := <span class="hljs-keyword">self</span> nuevoAlumno ].
+^ alu
+
+<span class="hljs-symbol">#nuevoAlumno</span>
+|alu|
+alu := <span class="hljs-type">Alumno</span> new.
+alu cargaDatos.
+alumnos add: alu.
+^ alu</code></pre>
+<p>Fuente: Ejercicio resuelto 2, página 7.</p>
+<h3 id="elegir-la-subclase">Elegir la subclase</h3>
+<pre class="codigo"><code><span class="hljs-symbol">#nuevoCliente</span>
+| tipo cli |
+[ cli isNil ] whileTrue: [
+    tipo := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el tipo de cliente (1) Mayorista, (2) Minorista&#x27;</span>.
+    tipo = <span class="hljs-string">&#x27;1&#x27;</span> ifTrue: [ cli := <span class="hljs-type">Mayorista</span> new].
+    tipo = <span class="hljs-string">&#x27;2&#x27;</span> ifTrue: [ cli := <span class="hljs-type">Minorista</span> new].
+].
+cli cargaDatos.
+^ cli</code></pre>
+<p>Fuente: Ejercicio resuelto 1, páginas 5 y 6. La variable arranca en <code>nil</code> y el ciclo se repite hasta que el tipo sea válido. El archivo «Estructuras útiles» tiene otro molde para lo mismo, en «Selección tipo genérico».</p>
+<pre class="codigo"><code>|aux tipo|
+aux := <span class="hljs-keyword">true</span>.
+[aux = <span class="hljs-keyword">true</span>] whileTrue: [
+    tipo := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el tipo (A/B)&#x27;</span>) asUppercase.
+    tipo = <span class="hljs-string">&#x27;A&#x27;</span> | (tipo = <span class="hljs-string">&#x27;B&#x27;</span>) ifTrue: [aux := <span class="hljs-keyword">false</span>]].
+tipo = <span class="hljs-string">&#x27;A&#x27;</span> ifTrue: [objeto := <span class="hljs-type">TiposA</span> new] ifFalse: [objeto := <span class="hljs-type">TiposB</span> new].
+objeto cargaDatos: parametro.
+objetos add: objeto.</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «Selección tipo genérico». Repite la pregunta hasta que el tipo sea A o B, y recién ahí crea la subclase que corresponde. En el original falta el corchete que cierra el ciclo y faltan puntos finales. Lo cerramos después de la validación, que es lo que sugiere la sangría de la hoja. <code>asUppercase</code> pasa lo que se escribió a mayúsculas, así <code>a</code> también vale.</p>
+<h3 id="cargar-varios-en-un-ciclo">Cargar varios en un ciclo</h3>
+<pre class="codigo"><code>cont := <span class="hljs-keyword">true</span>.
+[ cont ] whileTrue: [
+    <span class="hljs-keyword">self</span> mostrarHerramientasDisponibles.
+    cod := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el codigo de la herramienta&#x27;</span>) asNumber.
+    herr := herramientas detect: [:unaHerramienta | unaHerramienta codigo = cod] ifNone: [ <span class="hljs-keyword">nil</span> ].
+    herr notNil ifTrue: [
+        herr ocupar.
+        alq agregarHerramienta: herr.
+    ].
+    cont := <span class="hljs-type">MessageBox</span> confirm: <span class="hljs-string">&#x27;¿Desea continuar agregando herramientas?&#x27;</span>.
+].
+alquileres add: alq.</code></pre>
+<p>Fuente: Ejercicio resuelto 3, página 5. <code>herr ocupar</code> cambia el estado de la herramienta. Es un método suyo que pone <code>disponible := &#39;ND&#39;</code>. Fuente: Ejercicio resuelto 3, página 9.</p>
+<h3 id="numerar-solo-y-crear-la-coleccion-interna">Numerar solo y crear la colección interna</h3>
+<pre class="codigo"><code><span class="hljs-symbol">#Alquiler</span>
+
+<span class="hljs-type">M</span>étodos de clase
+
+<span class="hljs-symbol">#incrementaUltimoCodigo</span>
+<span class="hljs-type">UltimoCodigo</span> := <span class="hljs-type">UltimoCodigo</span> + <span class="hljs-number">1</span>
+
+<span class="hljs-type">M</span>étodos de instancia
+
+<span class="hljs-symbol">#inicializa</span>
+herramientas := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#cargaDatos</span>
+codigo := <span class="hljs-type">UltimoCodigo</span>.
+<span class="hljs-type">Alquiler</span> incrementaUltimoCodigo.
+fecha := <span class="hljs-type">Date</span> today.</code></pre>
+<p>Fuente: Ejercicio resuelto 3, página 7, recortado.</p>
+<h3 id="sumar-un-total-y-cada-subclase-con-su-calculo">Sumar un total y cada subclase con su cálculo</h3>
+<pre class="codigo"><code><span class="hljs-symbol">#costoTotal</span>
+|tot|
+tot := <span class="hljs-number">0.</span>
+herramientas do: [:unaHerramienta | tot := tot + unaHerramienta costoTotal ].
+^ tot * cantidadDias</code></pre>
+<p>Cada herramienta responde <code>costoTotal</code> a su manera, y <code>Alquiler</code> no pregunta de qué tipo es. Fuente: Ejercicio resuelto 3, páginas 8 y 9. El mismo recurso sirve para el tipo que piden los listados. Cada subclase tiene un método <code>tipo</code> que devuelve su texto. Fuente: Ejercicio resuelto 2, páginas 9 y 10.</p>
+<h3 id="escribir-en-el-transcript">Escribir en el Transcript</h3>
+<pre class="codigo"><code><span class="hljs-type">Transcript</span>
+    show: <span class="hljs-string">&#x27;Fecha: &#x27;</span>, fecha printString; cr; cr;
+    show: <span class="hljs-string">&#x27;Cliente: &#x27;</span>, cliente razonSocial; cr.</code></pre>
+<p>Fuente: Ejercicio resuelto 1, página 9. Los números y las fechas se pasan a texto con <code>printString</code>, y los textos se pegan con la coma.</p>
+</section>
+<section class="sec"><h2 id="lo-que-el-material-no-trae">Lo que el material no trae</h2>
+<div class="ojo"><p class="ojo-t">Temas que se toman y no pudimos explicar</p><p>Estos temas aparecen en los exámenes de 2023 en adelante. No hay un ejemplo en el material que pudimos validar, y no los inventamos.</p>
+<ul>
+<li>Filtrar por rango de fechas: lo piden 11 de 17. El material trae <code>select:</code>, el método filtro y comparaciones sueltas, pero no dos fechas juntas.</li>
+<li>Descontar y validar stock: lo piden Instrumentos y Verdulería.</li>
+</ul>
+<p>Preguntalo en la cursada. El orden descendente, que piden Vivero, El Hornero, Mascotas e Instrumentos, sí está en el apunte de colecciones. Lo explicamos en <a href="#ordenar-con-assortedcollection">Ordenar con asSortedCollection</a>.</p>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="final" data-materia="paradigmas-de-programacion">
+<h2>Quiz del final</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="KD-4XCwUJa" data-tema="Las plantillas del Drive" data-enlace="final.html#carga-si-no-existe" data-tipo="mc"><div class="q-enun" id="qe-final-1"><span class="q-n">1</span><div><p>En la plantilla del Drive, ¿qué mensaje de colección se usa para buscar un objeto y crear uno nuevo si no está?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-1"><li><button type="button" class="op" data-ok="0">select:</button></li><li><button type="button" class="op" data-ok="0">do:</button></li><li><button type="button" class="op" data-ok="1">detect:ifNone:</button></li><li><button type="button" class="op" data-ok="0">asSortedCollection:</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><code>detect:ifNone:</code> busca el elemento, y el bloque de <code>ifNone:</code> se ocupa del caso en que no está.</p>
+</div></li><li class="q" data-q="LKjEJVazju" data-tema="Las plantillas del Drive" data-enlace="final.html#mensajes-de-colecciones" data-tipo="mc"><div class="q-enun" id="qe-final-2"><span class="q-n">2</span><div><p>En la plantilla de listado, ¿qué se usa para ordenar la colección con un bloque de dos parámetros?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-2"><li><button type="button" class="op" data-ok="1">asSortedCollection:</button></li><li><button type="button" class="op" data-ok="0">isEmpty</button></li><li><button type="button" class="op" data-ok="0">add:</button></li><li><button type="button" class="op" data-ok="0">asNumber</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La plantilla ordena con <code>asSortedCollection: [:a :b | ...]</code> y filtra con <code>select:</code>.</p>
+</div></li><li class="q" data-q="JUnOnc8caE" data-tema="Las plantillas del Drive" data-enlace="final.html#cargadatos-setters-y-getters" data-tipo="mc"><div class="q-enun" id="qe-final-3"><span class="q-n">3</span><div><p>¿Qué mensaje se usa en las plantillas para pasar a número lo que devuelve Prompter?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-3"><li><button type="button" class="op" data-ok="0">asUppercase</button></li><li><button type="button" class="op" data-ok="0">printString</button></li><li><button type="button" class="op" data-ok="0">isEmpty</button></li><li><button type="button" class="op" data-ok="1">asNumber</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><code>(Prompter prompt: &#39;...&#39;) asNumber</code> convierte el texto en número.</p>
+</div></li><li class="q" data-q="mRWYlvRCvg" data-tema="Las plantillas del Drive" data-enlace="final.html#fecha" data-tipo="mc"><div class="q-enun" id="qe-final-4"><span class="q-n">4</span><div><p>En las plantillas, ¿qué expresión da la fecha del día?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-4"><li><button type="button" class="op" data-ok="0">Date new</button></li><li><button type="button" class="op" data-ok="1">Date today</button></li><li><button type="button" class="op" data-ok="0">Prompter today</button></li><li><button type="button" class="op" data-ok="0">Transcript date</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>También aparece <code>Date fromString:</code> para convertir una fecha ingresada.</p>
+</div></li><li class="q" data-q="y53P3FZ2Ra" data-tema="Las plantillas del Drive" data-enlace="final.html#metodo-filtro" data-tipo="mc"><div class="q-enun" id="qe-final-5"><span class="q-n">5</span><div><p>¿Cómo devuelve un método Smalltalk un valor al que lo llamó?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-5"><li><button type="button" class="op" data-ok="0">Con return</button></li><li><button type="button" class="op" data-ok="0">Con el signo :=</button></li><li><button type="button" class="op" data-ok="1">Con el signo ^</button></li><li><button type="button" class="op" data-ok="0">Con Transcript</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La plantilla del método filtro usa <code>^true</code> y <code>^false</code>, igual que los getters (<code>^nombre</code>).</p>
+</div></li><li class="q" data-q="q5hLTVppND" data-tema="Cómo se arma el programa" data-enlace="final.html#como-se-arma-el-programa" data-tipo="mc"><div class="q-enun" id="qe-final-6"><span class="q-n">6</span><div><p>Según el glosario, ¿para qué se usa super dentro de un método?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-6"><li><button type="button" class="op" data-ok="1">Para llegar a un método redefinido, buscando desde la superclase del receptor</button></li><li><button type="button" class="op" data-ok="0">Para crear una clase nueva</button></li><li><button type="button" class="op" data-ok="0">Para borrar el objeto</button></li><li><button type="button" class="op" data-ok="0">Para guardar en una colección</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es el patrón de <code>super cargaDatos</code> en una subclase.</p>
+</div></li><li class="q" data-q="hHgSUK8Mjm" data-tema="Cómo se arma el programa" data-enlace="final.html#cargar-varios-en-un-ciclo" data-tipo="mc"><div class="q-enun" id="qe-final-7"><span class="q-n">7</span><div><p>En el Ejercicio resuelto 3, ¿con qué se decide si el ciclo de carga sigue?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-7"><li><button type="button" class="op" data-ok="0">Con Prompter prompt: y asNumber</button></li><li><button type="button" class="op" data-ok="0">Con Transcript cr</button></li><li><button type="button" class="op" data-ok="0">Con MessageBox notify:</button></li><li><button type="button" class="op" data-ok="1">Con MessageBox confirm:</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><code>cont := MessageBox confirm: &#39;...&#39;</code> guarda la respuesta, y <code>[ cont ] whileTrue:</code> la usa.</p>
+</div></li><li class="q" data-q="p9ugfpSXOj" data-tema="Cómo se arma el programa" data-enlace="final.html#numerar-solo-y-crear-la-coleccion-interna" data-tipo="mc"><div class="q-enun" id="qe-final-8"><span class="q-n">8</span><div><p>En el Ejercicio resuelto 3, ¿qué hace #inicializa en Alquiler?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-8"><li><button type="button" class="op" data-ok="0">Le da un número</button></li><li><button type="button" class="op" data-ok="1">Crea la colección de herramientas con OrderedCollection new</button></li><li><button type="button" class="op" data-ok="0">Pide la fecha</button></li><li><button type="button" class="op" data-ok="0">Busca al cliente</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La colección interna se crea antes de empezar a agregar.</p>
+</div></li><li class="q" data-q="VAak4K4ADN" data-tema="Cómo se arma el programa" data-enlace="final.html#escribir-en-el-transcript" data-tipo="mc"><div class="q-enun" id="qe-final-9"><span class="q-n">9</span><div><p>En los ejercicios resueltos, ¿qué se le manda a un número o una fecha para mostrarlo en el Transcript?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-9"><li><button type="button" class="op" data-ok="0">asNumber</button></li><li><button type="button" class="op" data-ok="0">isEmpty</button></li><li><button type="button" class="op" data-ok="1">printString</button></li><li><button type="button" class="op" data-ok="0">new</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Por ejemplo <code>fecha printString</code>. Los textos se pegan con la coma.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

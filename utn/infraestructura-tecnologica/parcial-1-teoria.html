@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>1° parcial, teoría: Infraestructura Tecnológica</title>
+<meta name="description" content="Data center, piso técnico, sensores, Tiers, disponibilidad, costos, incendios, UPS y PUE.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="infraestructura-tecnologica" data-pagina="parcial-1-teoria">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Infraestructura Tecnológica</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1-teoria.html" aria-current="page">1° parcial, teoría</a></li><li class="em-fuera"><a href="parcial-1-practica.html">1° parcial, práctica</a></li><li class="em-fuera"><a href="parcial-2-teoria.html">2° parcial, teoría</a></li><li class="em-fuera"><a href="parcial-2-practica.html">2° parcial, práctica</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=infraestructura-tecnologica">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=infraestructura-tecnologica">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#que-es-un-data-center">Qué es un data center</a></li><li class="n2"><a href="#piso-tecnico">Piso técnico</a></li><li class="n2"><a href="#racks">Racks</a></li><li class="n2"><a href="#sensores">Sensores</a></li><li class="n2"><a href="#tiers">Tiers</a></li><li class="n2"><a href="#metricas-de-disponibilidad">Métricas de disponibilidad</a></li><li class="n3"><a href="#disponibilidad-real">Disponibilidad real</a></li><li class="n2"><a href="#costos-ante-una-amenaza-fisica">Costos ante una amenaza física</a></li><li class="n2"><a href="#seguridad-fisica">Seguridad física</a></li><li class="n2"><a href="#deteccion-de-incendios">Detección de incendios</a></li><li class="n3"><a href="#acciones-preventivas">Acciones preventivas</a></li><li class="n2"><a href="#extincion">Extinción</a></li><li class="n3"><a href="#como-funciona-la-extincion-por-gas">Cómo funciona la extinción por gas</a></li><li class="n3"><a href="#cada-agente-gaseoso">Cada agente gaseoso</a></li><li class="n3"><a href="#extincion-con-agua">Extinción con agua</a></li><li class="n2"><a href="#alimentacion-electrica">Alimentación eléctrica</a></li><li class="n3"><a href="#220-v-y-doble-alimentacion">220 V y doble alimentación</a></li><li class="n2"><a href="#ups">UPS</a></li><li class="n3"><a href="#topologias-de-ups">Topologías de UPS</a></li><li class="n3"><a href="#bateria-e-inversor">Batería e inversor</a></li><li class="n3"><a href="#como-elegir-y-mantener-una-ups">Cómo elegir y mantener una UPS</a></li><li class="n2"><a href="#generadores">Generadores</a></li><li class="n3"><a href="#sus-elementos">Sus elementos</a></li><li class="n3"><a href="#ats-y-tiempos">ATS y tiempos</a></li><li class="n3"><a href="#elegir-probar-e-instalar">Elegir, probar e instalar</a></li><li class="n2"><a href="#pue-y-dcie">PUE y DCiE</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>1° parcial, teoría</h1>
+<p class="bajada">Estructura de un data center, Tiers, disponibilidad, incendios, energía y PUE.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>Hay tres parciales de 2023 en adelante en el Drive, del 04/10/2023, 01/10/2025 y 30/09/2026. Los tres traen 8 preguntas abiertas de 1,25 cada una. Los de 22/09/2022 y 10/10/2018 no entran en la cuenta.</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>En cuántos de los 3</th><th>Exámenes</th></tr></thead><tbody><tr><td><a href="#metricas-de-disponibilidad">MTTR, MTTF, MTBF y disponibilidad, con cuenta</a></td><td>3</td><td>2023, 2025, 2026</td></tr><tr><td><a href="#pue-y-dcie">PUE y DCiE de dos data centers, con cuenta</a></td><td>3</td><td>2023, 2025, 2026</td></tr><tr><td><a href="#costos-ante-una-amenaza-fisica">Costos ante una amenaza física</a></td><td>3</td><td>2023, 2025, 2026</td></tr><tr><td><a href="#extincion">Cañerías de extinción</a></td><td>2</td><td>2023, 2026</td></tr><tr><td><a href="#ups">Métrica de calidad de una UPS</a></td><td>2</td><td>2023, 2026</td></tr><tr><td><a href="#sensores">Sensores de humedad</a></td><td>2</td><td>2025, 2026</td></tr><tr><td><a href="#tiers">Redundancia N por Tier</a></td><td>2</td><td>2023, 2025</td></tr><tr><td><a href="#piso-tecnico">Cargas en piso técnico</a></td><td>2</td><td>2025, 2026</td></tr><tr><td><a href="#tiers">Capas de Tier y descripción</a></td><td>1</td><td>2025</td></tr><tr><td><a href="#metricas-de-disponibilidad">Las tres métricas, describir</a></td><td>1</td><td>2025</td></tr><tr><td><a href="#deteccion-de-incendios">Detectores por etapa</a></td><td>1</td><td>2026</td></tr><tr><td><a href="#extincion">HCFC y HFC, agente más usado</a></td><td>1</td><td>2023</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="que-es-un-data-center">Qué es un data center</h2>
+<p>Un data center, o CDP, es un espacio con características físicas especiales de refrigeración, protección y redundancia. El apunte distingue sala de servidores, centro de cómputos y data center. Sus elementos son los racks, la electricidad, la refrigeración, la seguridad física y el cableado. Fuente: apunte 1, Estructura Física, páginas 1 a 3.</p>
+<p>La definición completa del apunte dice para qué sirve ese espacio, «cuyo objetivo es alojar todo el equipamiento tecnológico de la Organización brindando seguridad, confiabilidad y asegurando la disponibilidad de los servicios informáticos». Es uno de los principales activos de la organización. Construirlo y operarlo cuesta por metro cuadrado mucho más que una oficina, y por eso el diseño no puede fallar.</p>
+<p>La clasificación, según dimensión y prestaciones:</p>
+<ul>
+<li><strong>Sala de servidores:</strong> estructura chica, pocos servidores, muy informal.</li>
+<li><strong>Centro de cómputos:</strong> dimensión mediana. Puede tener racks y condiciones de seguridad y ambientales básicas.</li>
+<li><strong>Data center:</strong> gran dimensión. Todo va obligatoriamente en racks ordenados, con seguridad regulada y controles estrictos eléctricos y ambientales, incluso con sistemas redundantes.</li>
+</ul>
+<p>Fuente: apunte 1, Estructura Física, página 1.</p>
+</section>
+<section class="sec"><h2 id="piso-tecnico">Piso técnico</h2>
+<p>Es un piso elevado de barras de acero y paneles. Por debajo pasan el aire y los cables. El apunte dice que «su función principal es proveer un canal por donde fluirá el aire que refrigerará los equipos y también por donde pasarán los cables». Algunos datos del apunte:</p>
+<ul>
+<li>Pedestales de 4 a 70 cm de alto, con 2 cm de regulación. Se fijan a la carpeta con adhesivo especial, y además con tornillos o clavos.</li>
+<li>El hueco entre el piso real y el piso técnico suele medir de 45 a 70 cm, según cuántos cables lleve el proyecto.</li>
+<li>Placas de 60 x 60. Hay otros tamaños, como 61 x 61 o 70 x 70. Las más recomendables son las de acero.</li>
+<li>Pasillos de 90 a 120 cm, con rampa de acceso.</li>
+<li>Tolerancias de 1 mm entre placas y 2 mm contra las paredes. El piso no se apoya en paredes ni columnas.</li>
+<li>Desnivel aceptado de 1,5 mm en 3 m como máximo, y de 2,5 mm en toda la planta.</li>
+</ul>
+<p>Fuente: apunte 1, páginas 3 a 6.</p>
+<p>Para instalarlo, el apunte pide esto:</p>
+<ul>
+<li>Un plano o boceto del lugar, para planificar cómo van las baldosas y los cortes en terminaciones, esquinas y columnas.</li>
+<li>La loza o carpeta limpia, libre de contaminantes y totalmente nivelada. Las de cemento pulido son las más recomendables. En obra nueva, el cemento tiene que estar fraguado y seco.</li>
+<li>Niveladores láser y control del nivel durante todo el proceso.</li>
+<li>Un diseño que minimice la cantidad de cortes.</li>
+</ul>
+<p>Para calcular la superficie, la cantidad de servidores engaña, porque un servidor puede ser chico u ocupar un rack entero. El apunte dice que el criterio más acertado es el peso, el calor que se va a generar y la potencia eléctrica necesaria. Las unidades de refrigeración y las UPS suelen ir dentro del área de servidores, pero pueden estar en un ambiente contiguo. Fuente: apunte 1, páginas 5 y 6.</p>
+<details class="pregunta"><summary><span>Como deben ubicarse las cargas en un piso técnico</span><small>1° parcial teoría, 01/10/2025 y 30/09/2026</small></summary><div class="resp"><p>El apunte no usa la palabra «ubicar». Habla de cargas concentradas o puntuales, que son puntos de pequeña superficie que soportan todo el peso. Las patas del mobiliario fijo ejercen una carga puntual más fuerte. Con una superficie de apoyo mayor, el peso se distribuye en una zona más amplia y baja la concentración.</p>
+<p>Fuente: apunte 1, Estructura Física, páginas 4 y 5.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="racks">Racks</h2>
+<p>El estándar es EIA-310-D, con racks de 19 pulgadas. Una unidad de altura (1U) mide 1,75 pulgadas, o 44,45 mm. El de 42U es el más popular. Los equipos con hot swap se cambian sin apagar. El procesador puede consumir hasta el 45 % de la energía del equipo. Fuente: apunte 1, páginas 6 a 8.</p>
+<p>El apunte define el rack como «un bastidor metálico cuyo fin es alojar equipamiento informático». Su función principal es proteger los equipos, mantenerlos ordenados y seguros, y optimizar el espacio. Las medidas están normalizadas para que sirva cualquier fabricante. Lo que agrega:</p>
+<ul>
+<li><strong>Ancho:</strong> el más común es de 19 pulgadas (600 mm). También hay de 23 pulgadas, homologados por EIA-310-D. La distancia horizontal entre las guías es de 18,312 pulgadas, o 465,1 mm.</li>
+<li><strong>Alto:</strong> hay de 24U, 30U, 36U, 42U, 44U y 51U. El de 42U es el más popular por su relación costo y beneficio. Los servidores suelen ocupar 1U, 2U o 4U, y un switch de 24 puertos ocupa 1U.</li>
+<li><strong>Agujeros:</strong> los de huecos cuadrados son los más populares, porque simplifican la instalación de las guías.</li>
+<li><strong>Guías deslizables o rail kits:</strong> el servidor sale hacia adelante como un cajón, sin apagarlo ni mover a los demás. Los cables tienen que ser lo bastante largos.</li>
+<li><strong>Hot swap:</strong> hoy la mayoría de las fuentes y de los discos de un RAID se cambian en caliente. Algunos servidores permiten cambiar procesadores o memoria. Siempre se consulta el manual del fabricante.</li>
+<li><strong>Puertas:</strong> la de adelante es un panel perforado, como una rejilla, con cerradura, para que entre el aire frío. Atrás tiene que haber lugar para pasar los cables por los laterales sin cortar la salida del aire caliente.</li>
+<li><strong>Zonas sísmicas:</strong> se refuerzan los vértices con una chapa angular.</li>
+<li><strong>Racks abiertos:</strong> son marcos, de dos o de cuatro postes, y no tienen todas las prestaciones de un rack. Los de cuatro postes se usan muy poco.</li>
+</ul>
+<p>Fuente: apunte 1, Estructura Física, páginas 6 a 8.</p>
+<p>Los equipos de comunicaciones, como routers, switches y firewalls, procesan poco, consumen poco y generan poco calor. Los servidores consumen más y generan más calor, y el procesador es el componente que más consume. La eficiencia de las fuentes subió del 72 % en 2003 al 79 % en 2006 y al 90 % o más en 2012. Algunos servidores se apagan solos si pasan el límite del fabricante, en general entre 40 y 45 °C. Fuente: apunte 1, páginas 8 y 9.</p>
+</section>
+<section class="sec"><h2 id="sensores">Sensores</h2>
+<details class="pregunta"><summary><span>Describa la ubicación ideal de los sensores de humedad en los racks del Datacenter</span><small>1° parcial teoría, 01/10/2025 y 30/09/2026</small></summary><div class="resp"><p>Van en los pasillos fríos. El apunte dice «colocar un sensor de humedad por fila en la parte frontal del Rack a la mitad de la fila».</p>
+<p>Fuente: apunte 1, Estructura Física, página 9.</p>
+</div></details>
+<p>Los otros sensores, en la misma página:</p>
+<ul>
+<li><strong>Temperatura:</strong> al frente de los racks, entre 1,40 y 1,70 m de altura. Atrás, uno cada 5 racks.</li>
+<li><strong>Líquidos:</strong> en el piso, cerca de las fuentes de agua.</li>
+</ul>
+<p>Lo que completa el apunte sobre el monitoreo ambiental, en las páginas 9 y 10:</p>
+<ul>
+<li><strong>Para qué sirve:</strong> prevenir una falla o atacarla antes de que los usuarios se den cuenta. Lo fundamental es la proactividad y definir bien los umbrales que disparan las alertas a las personas indicadas.</li>
+<li><strong>Humedad:</strong> los sensores van en los pasillos fríos, lo bastante separados entre sí como para tomar muestras en distintos puntos.</li>
+<li><strong>Líquidos:</strong> cerca de las posibles fuentes de fuga, como las unidades de refrigeración o las cañerías.</li>
+<li><strong>Puertas:</strong> en todas las que dan acceso al data center, aunque ya haya acceso restringido. También en los racks, o al menos en los críticos.</li>
+<li><strong>Red:</strong> los sensores se consultan por TCP/IP y la información se junta en una consola. También hay sensores inalámbricos, más fáciles y baratos de instalar.</li>
+<li><strong>Software:</strong> tiene que ser escalable, ubicar e identificar cada sensor y avisar por varios medios, como SNMP, correo o HTTP Post. Además tiene que poder conectarse con otras consolas de monitoreo.</li>
+<li><strong>Recolección:</strong> conviene tener varios puntos de recolección distribuidos, con alertas en cada uno, en vez de mandar todo a un solo punto central. Así no hay un punto único de falla.</li>
+<li><strong>Umbrales:</strong> se definen de forma centralizada y se pueden cambiar según la situación, por ejemplo con el cambio de estación.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="tiers">Tiers</h2>
+<p>Antes conviene tener clara la letra N. Si hacen falta tres generadores, el apunte cuenta así:</p>
+<div class="tabla"><table><thead><tr><th>Configuración</th><th>Generadores</th></tr></thead><tbody><tr><td>N</td><td>3</td></tr><tr><td>N+1</td><td>4</td></tr><tr><td>N+2</td><td>5</td></tr><tr><td>2N</td><td>6</td></tr><tr><td>2N+1</td><td>7</td></tr></tbody></table></div>
+<p>Fuente: apunte 1, página 12.</p>
+<p>La definición del apunte es «N es la necesidad de la carga crítica o el requerimiento mínimo para operar de forma normal». Vale para todo, sea equipamiento eléctrico, refrigeración o extinción de incendios. En 2N+1, seis generadores mantienen toda la infraestructura duplicada y uno queda de repuesto para una contingencia. Cuantos más sistemas redundantes, más sube el costo, como mínimo en proporción. Fuente: apunte 1, página 12.</p>
+<p>Dos reglas generales de las capas:</p>
+<ul>
+<li>A mayor número de capa, mayor disponibilidad y mayor costo de construcción.</li>
+<li>Cada capa cumple los requisitos de las anteriores. Un data center de Capa IV cumple todo lo de las Capas III, II y I.</li>
+</ul>
+<p>Fuente: apunte 1, página 12.</p>
+<details class="pregunta"><summary><span>De acuerdo al Tier o número de capa, indique qué configuración de redundancia en función de N aplica</span><small>1° parcial teoría, 04/10/2023 y 01/10/2025</small></summary><div class="resp"><p>La tabla del apunte da N para el Tier I, N+1 para el II, N+1 para el III y 2(N+1) para el IV.</p>
+<p>Fuente: apunte 1, Estructura Física, página 16.</p>
+</div></details>
+<details class="pregunta"><summary><span>La clasificación de centro de datos en Tiers: en cuántas capas se divide, describa brevemente cada una</span><small>1° parcial teoría, 01/10/2025</small></summary><div class="resp"><p>Son cuatro capas.</p>
+<ul>
+<li><strong>Capa I, básico.</strong> Sin redundancia y con varios puntos únicos de falla. Sale de servicio al menos una vez al año por mantenimiento. Carga máxima del 100 %.</li>
+<li><strong>Capa II, componentes redundantes.</strong> Diseño N+1, con piso falso, UPS y generadores, conectado a una sola línea de distribución.</li>
+<li><strong>Capa III, mantenimiento concurrente.</strong> Doble línea de distribución. Carga máxima del 90 %.</li>
+<li><strong>Capa IV, tolerante a fallas.</strong> Dos líneas activas y dos UPS independientes, cada una N+1. Tiene EPO, el corte de emergencia.</li>
+</ul>
+<p>Fuente: apunte 1, Estructura Física, páginas 12 a 15.</p>
+</div></details>
+<p>Lo que el apunte agrega de cada capa:</p>
+<ul>
+<li><strong>Capa I:</strong> puede sufrir interrupciones planeadas y no planeadas. Tiene aire acondicionado y distribución de energía, pero puede tener o no piso técnico, UPS o generador. Si los tiene, pueden no ser redundantes. Una urgencia puede obligar a paradas más frecuentes, y un error de operación o una falla detiene el data center.</li>
+<li><strong>Capa II:</strong> es «ligeramente menos susceptible» a interrupciones. Su diseño es «lo necesario más uno» (N+1), o sea, al menos un sistema de contingencia por componente. La carga máxima en situaciones críticas es del 100 %. El mantenimiento de la línea de distribución u otros componentes puede interrumpir el procesamiento.</li>
+<li><strong>Capa III:</strong> permite cualquier actividad planificada de mantenimiento sin interrumpir la operación. Planificadas son el mantenimiento preventivo y programado, las reparaciones o reemplazos, agregar o quitar elementos y las pruebas. Con doble línea, una se mantiene mientras la otra lleva toda la carga. Las actividades no programadas, los errores de operación y las fallas inesperadas todavía pueden interrumpirlo. Muchos se diseñan para pasar a Capa IV más adelante.</li>
+<li><strong>Capa IV:</strong> además de lo anterior, sigue operando ante un evento crítico no planificado. Las dos líneas activas van en configuración «sistema» + «sistema». La carga máxima en situaciones críticas es del 90 %, y sigue habiendo cierta exposición a fallas. La única parada prevista es la activación de un EPO, una vez cada cinco años.</li>
+</ul>
+<p>Algunas organizaciones piden «cinco nueves», o sea 99,999 % de disponibilidad. En la historia, la Capa I aparece en los sesenta, la II en los setenta, la III a fines de los ochenta y principios de los noventa, y la IV hacia 1995. Fuente: apunte 1, Estructura Física, páginas 12 a 15.</p>
+<p>La tabla del apunte junta todo lo demás:</p>
+<p><img src="img/fig-tabla-tiers.webp" alt="Tabla comparativa de los cuatro Tiers, del apunte 1"></p>
+<div class="tabla"><table><thead><tr><td></td><th>Tier I</th><th>Tier II</th><th>Tier III</th><th>Tier IV</th></tr></thead><tbody><tr><td>Redundancia</td><td>N</td><td>N+1</td><td>N+1</td><td>2(N+1)</td></tr><tr><td>Alimentaciones</td><td>1</td><td>1</td><td>1 activa y 1 pasiva</td><td>2</td></tr><tr><td>Personal</td><td>Ninguno</td><td>1 en un turno</td><td>1 por turno</td><td>24x7x365</td></tr><tr><td>Mantenimiento en operación</td><td>No</td><td>No</td><td>Sí</td><td>Sí</td></tr><tr><td>Piso</td><td>30 cm</td><td>45 cm</td><td>70 a 75 cm</td><td>70 a 75 cm</td></tr><tr><td>Tolerancia a fallos únicos</td><td>No</td><td>No</td><td>No</td><td>Sí</td></tr><tr><td>Disponibilidad</td><td>99,671 %</td><td>99,749 %</td><td>99,982 %</td><td>99,991 %</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">El apunte da dos valores para la Capa IV</p><p>El texto de la página 14 dice 99,995 % y la tabla de la página 16 dice 99,991 %. Preguntá cuál se toma.</p>
+</div>
+</section>
+<section class="sec"><h2 id="metricas-de-disponibilidad">Métricas de disponibilidad</h2>
+<details class="pregunta"><summary><span>Describa las tres métricas de disponibilidad estudiadas</span><small>1° parcial teoría, 01/10/2025</small></summary><div class="resp"><ul>
+<li><strong>MTTF (mean time to failure):</strong> tiempo medio hasta que se produce un fallo.</li>
+<li><strong>MTTR (mean time to repair):</strong> tiempo medio que se tarda en poner de nuevo en marcha el sistema.</li>
+<li><strong>MTBF (mean time between failures):</strong> tiempo medio entre fallos.</li>
+</ul>
+<p>Fuente: apunte 4, Métricas de Disponibilidad, página 1 del PDF.</p>
+</div></details>
+<p>Las fórmulas del apunte 4:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MTTF</mtext><mo>&#61;</mo><mfrac><mtext>tiempo total de funcionamiento correcto</mtext><mtext>cantidad de fallos</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{MTTF}&#61;&#92;frac{&#92;text{tiempo total de funcionamiento correcto}}{&#92;text{cantidad de fallos}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">MTTF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">cantidad de fallos</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">tiempo total de funcionamiento correcto</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MTTR</mtext><mo>&#61;</mo><mfrac><mtext>tiempo total de inactividad</mtext><mtext>cantidad de fallos</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{MTTR}&#61;&#92;frac{&#92;text{tiempo total de inactividad}}{&#92;text{cantidad de fallos}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">MTTR</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">cantidad de fallos</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">tiempo total de inactividad</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MTBF</mtext><mo>&#61;</mo><mfrac><mtext>tiempo total</mtext><mtext>cantidad de fallos</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{MTBF}&#61;&#92;frac{&#92;text{tiempo total}}{&#92;text{cantidad de fallos}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">MTBF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">cantidad de fallos</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">tiempo total</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>El apunte arma las tres a partir de un gráfico. F es el momento en que el dispositivo falla y R el momento en que vuelve a estar disponible. Cada intervalo tiene su nombre:</p>
+<ul>
+<li><strong>TTR (time to repair):</strong> el tiempo que hace falta para volver a poner en marcha el sistema.</li>
+<li><strong>TTF (time to failure):</strong> el tiempo que pasa hasta que falla.</li>
+<li><strong>TBF (time between failures):</strong> el tiempo entre fallos.</li>
+</ul>
+<p>Las métricas con M son el promedio de cada uno. La disponibilidad sale de dos formas, y las dos dan lo mismo en el ejemplo del apunte:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Disponibilidad</mtext><mo>&#61;</mo><mfrac><mtext>MTTF</mtext><mtext>MTBF</mtext></mfrac><mo>&#61;</mo><mfrac><mtext>tiempo de funcionamiento</mtext><mtext>tiempo total</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{Disponibilidad}&#61;&#92;frac{&#92;text{MTTF}}{&#92;text{MTBF}}&#61;&#92;frac{&#92;text{tiempo de funcionamiento}}{&#92;text{tiempo total}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Disponibilidad</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">MTBF</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">MTTF</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.2519em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">tiempo total</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">tiempo de funcionamiento</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>El apunte llama a la segunda «quizás más intuitiva». El tiempo total va en la misma unidad que las caídas, por eso convierte los meses a minutos con meses de 30 días. Fuente: apunte 4, Métricas de Disponibilidad, páginas 1 y 2 del PDF.</p>
+<div class="tomado"><aside class="nota"><strong>Calcular MTTR, MTTF, MTBF y el porcentaje de disponibilidad de un servidor con varias caídas</strong><span>1° parcial teoría, 04/10/2023, 01/10/2025 y 30/09/2026</span></aside><p>Es la consigna más repetida, junto con PUE y costos. Te dan cuántas caídas hubo, en cuántos meses y cuánto duró cada una. Las cuentas no se resuelven acá. Practicala con <a href="ejercicios.html">el examen de 2026</a> y seguí el ejemplo de abajo.</p>
+</div>
+<div class="ejemplo"><p class="ejemplo-t">Un servidor con 5 caídas en 3 meses</p><p>Tres caídas duraron 5 minutos, una 30 y otra 40. El apunte toma el mes de 30 días.</p>
+<ul>
+<li>Tiempo total: 129600 minutos.</li>
+<li>Inactividad: 85 minutos.</li>
+<li>Funcionamiento correcto: 129515 minutos.</li>
+<li>MTTR = 85 / 5 = 17 minutos.</li>
+<li>MTTF = 129515 / 5 = 25903 minutos.</li>
+<li>MTBF = 129600 / 5 = 25920 minutos.</li>
+<li>Disponibilidad = 129515 / 129600 = 99,93 %.</li>
+</ul>
+<p class="bloque-fuente">Apunte 4, Métricas de Disponibilidad, página 1 del PDF</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Cuánto puede estar caído un equipo con cinco nueves</p><p>El apunte dice que el mayor nivel de exigencia son los cinco nueves, 99,999 %. El método es pasar el período a minutos y quedarse con lo que sobra.</p>
+<ul>
+<li>Un mes de 30 días tiene 43200 minutos. El 99,999 % de eso es 43199,568 minutos funcionando. Quedan 0,432 minutos, o sea 25,92 segundos, de caída por mes como máximo.</li>
+<li>Un año tiene 525600 minutos. El 99,999 % es 525594,74. Quedan 5,25 minutos de caída por año como máximo.</li>
+</ul>
+<p class="bloque-fuente">Apunte 4, Métricas de Disponibilidad, página 2 del PDF</p></div>
+<div class="ojo"><p class="ojo-t">El apunte 1 define distinto el MTTF</p><p>La página 16 del apunte 1 llama a MTTF «tiempo medio entre fallas». El apunte 4 le da ese nombre a MTBF. Para las cuentas usá las fórmulas del apunte 4, que son las que tienen ejemplo.</p>
+</div>
+<p>El apunte 1 describe las otras dos con otras palabras. MTBF «nos indica el tiempo promedio en el cual se tiene alta probabilidad de otra falla después de que haya ocurrido una anterior». Al MTTR lo llama Mean Time To Recover, «el tiempo promedio que se requiere desde que el sistema falla hasta su completa recuperación». Fuente: apunte 1, Estructura Física, página 17.</p>
+<h3 id="disponibilidad-real">Disponibilidad real</h3>
+<p>El apunte 1 advierte que el tiempo de interrupción no es lo inverso del tiempo de disponibilidad. También cuenta el tiempo de recuperación y testeo, que muchas veces supera a la interrupción real.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Disponibilidad real</mtext><mo>&#61;</mo><mtext>Disponibilidad</mtext><mo>−</mo><mrow><mtext>tiempo de interrupci</mtext><mover accent="true"><mtext>o</mtext><mo>ˊ</mo></mover><mtext>n</mtext></mrow><mo>−</mo><mrow><mtext>tiempo de recuperaci</mtext><mover accent="true"><mtext>o</mtext><mo>ˊ</mo></mover><mtext>n</mtext></mrow></mrow><annotation encoding="application/x-tex">&#92;text{Disponibilidad real}&#61;&#92;text{Disponibilidad}-&#92;text{tiempo de interrupción}-&#92;text{tiempo de recuperación}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Disponibilidad real</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Disponibilidad</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">tiempo de interrupci</span><span class="mord katex-accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">o</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">n</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">tiempo de recuperaci</span><span class="mord katex-accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord">o</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.25em;"><span class="mord">ˊ</span></span></span></span></span></span></span><span class="mord">n</span></span></span></span></span></span></p>
+<div class="ejemplo"><p class="ejemplo-t">Un servidor que se reinicia solo</p><p>El servidor tarda 5 minutos en volver. La base de datos que corre ahí tarda 10 minutos más en estar online. El administrador de la base tarda otros 10 minutos en verificar los datos. La interrupción fue de 25 minutos, así que la disponibilidad real del servicio ese día fue de 23:30 horas, no de 23:55.</p>
+<p class="bloque-fuente">Apunte 1, Estructura Física, página 17</p></div>
+<div class="ojo"><p class="ojo-t">Errata del apunte en ese ejemplo</p><p>El apunte escribe 23:30 horas. Pero 24 horas menos 25 minutos dan 23:35. La idea no cambia. La caída de 5 minutos le costó 25 al servicio.</p>
+</div>
+</section>
+<section class="sec"><h2 id="costos-ante-una-amenaza-fisica">Costos ante una amenaza física</h2>
+<p>El apunte separa las causas de una interrupción importante en dos grupos:</p>
+<ul>
+<li><strong>Desastres naturales:</strong> huracanes, inundaciones, terremotos, tornados, incendios y tsunamis.</li>
+<li><strong>Causadas por el hombre:</strong> sabotajes, fallas humanas, fallas en el suministro eléctrico y fallas en la red, entre otras.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, página 1.</p>
+<details class="pregunta"><summary><span>Ante la ocurrencia de una amenaza física hay costos asociados que pueden ser tipificados, cuál es la clasificación</span><small>1° parcial teoría, 04/10/2023, 01/10/2025 y 30/09/2026</small></summary><div class="resp"><ul>
+<li><strong>De oportunidad:</strong> las utilidades que se pierden por no estar disponibles.</li>
+<li><strong>Directos:</strong> influyen directamente en las finanzas y son fáciles de medir. Por ejemplo, empleados esperando, transacciones, recuperación, testeo y demandas.</li>
+<li><strong>Indirectos:</strong> se sabe que existen, pero son difíciles de medir. Por ejemplo, satisfacción, clientes perdidos, imagen y relaciones públicas.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, página 2.</p>
+</div></details>
+<p>El apunte también da una fórmula de costo de interrupción, Costo = P x A x E x H. P son las personas afectadas, A el porcentaje medio de afectación, E el costo de la hora y H las horas.</p>
+<div class="ojo"><p class="ojo-t">Errata en el ejemplo del apunte</p><p>El ejemplo usa P = 8, A = 100, E = 60 y H = 5, y llega a $240 000. Si A es un porcentaje, el 100 % debería valer 1 y no 100. Fuente: apunte 2, páginas 2 y 3.</p>
+</div>
+<p>En el ejemplo, una falla eléctrica deja sin sistema la línea de cajas de un banco. P son los 8 cajeros que trabajaban, y A vale el 100 % porque sin sistema no pueden operar. H suma lo que tarda en volver la corriente y lo que tarda el administrador en restablecer el servicio. El apunte recomienda arrancar juntando datos estadísticos de las interrupciones pasadas y de cuánto duraron. Fuente: apunte 2, página 2.</p>
+</section>
+<section class="sec"><h2 id="seguridad-fisica">Seguridad física</h2>
+<p>Lo que pide el apunte 2, en las páginas 3 y 4:</p>
+<ul>
+<li><strong>Acceso:</strong> solo entra quien tiene que hacer una tarea que no se puede hacer de forma remota. Esas personas tienen que entender la importancia del equipamiento, para evitar fallas por falta de entrenamiento.</li>
+<li><strong>Cámaras o CCTV:</strong> son medidas reactivas, no preventivas, porque no evitan el incidente, aunque a veces disuaden. Tienen que permitir identificar a las personas y cubrir la mayor superficie posible, las puertas y las zonas críticas. Hace falta una política clara de cómo se catalogan las grabaciones, dónde se guardan, quién accede, con qué procedimiento y por cuánto tiempo se conservan.</li>
+<li><strong>Personal de seguridad:</strong> calificado, entrenado y con procedimientos claros. Por ejemplo, acompaña a un técnico que entra a un área crítica.</li>
+<li><strong>Sensores para el personal de seguridad:</strong> láser barrera, de pisada, de contacto o de vibraciones.</li>
+<li><strong>Visitantes:</strong> se registran al entrar y al salir, con nombre, fecha, hora y motivo. Saltear el procedimiento con una cara conocida puede ser catastrófico.</li>
+<li><strong>Robo de información:</strong> se documenta qué elementos de transferencia de información pueden entrar o salir, y quiénes están autorizados.</li>
+<li><strong>Balance entre riesgo y costo:</strong> el equipamiento de seguridad, su mantenimiento y los sueldos del personal tienen que estar en equilibrio con el valor de la información que se protege.</li>
+<li><strong>Seguridad lógica:</strong> no es tarea de la administración del data center, pero no se deja de lado. Las amenazas digitales afectan la confidencialidad, la integridad y la disponibilidad de la información. Entre ellas están los hackers, los virus y los cuellos de botella en las redes.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, páginas 3 y 4.</p>
+</section>
+<section class="sec"><h2 id="deteccion-de-incendios">Detección de incendios</h2>
+<details class="pregunta"><summary><span>Mencione la clasificación de detectores de incendio según la etapa en que se encuentra el evento</span><small>1° parcial teoría, 30/09/2026</small></summary><div class="resp"><ul>
+<li><strong>Pre combustión:</strong> el fuego empieza a originarse y todavía no se ve. Lo detectan sensores de alta sensibilidad con tecnología CCD.</li>
+<li><strong>Humo visible:</strong> aparecen indicios de humo.</li>
+<li><strong>Fuego con llamas:</strong> ya aparecen las llamas. Los detectores térmicos del mercado no se recomiendan para data centers.</li>
+<li><strong>Calor intenso:</strong> después de varios minutos, las llamas toman temperatura elevada y es muy difícil de controlar.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, página 5.</p>
+</div></details>
+<p>Lo que el apunte agrega de cada etapa y de los detectores:</p>
+<ul>
+<li><strong>CCD</strong> quiere decir Cloud Chamber Detection, detector de cámara de niebla. Detecta partículas de hasta 0,002 micrones.</li>
+<li><strong>Humo visible:</strong> el detector nota el humo en el aire por la absorción o la difusión de la luz.</li>
+<li><strong>Dónde poner la plata:</strong> «Si la idea es proteger la información, no tiene sentido gastar dinero en un sistema de detección de llamas, porque ya será demasiado tarde». Los esfuerzos van a las dos primeras etapas. Lo mismo vale para el calor intenso.</li>
+<li><strong>Mantenimiento:</strong> los detectores de humo se prueban al menos cada seis meses y se limpian de polvo y suciedad. La limpieza, la verificación y el ajuste de sensibilidad se hacen según el fabricante, y la sensibilidad normalmente se ajusta en laboratorio.</li>
+<li><strong>Dónde no van:</strong> donde puedan dar falsas alarmas o tengan vibraciones. Sirven con aire de hasta 5 m/s. En los ductos de recirculación tienen que recibir suficiente humo para activarse.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, páginas 5 y 6.</p>
+<p>La central de detección recibe los datos de los sensores y dispara alarmas y extinción. Va conectada a la UPS y puede dividir el data center en zonas. Fuente: apunte 2, página 4.</p>
+<p>El apunte la define como uno de los elementos fundamentales, «por ser un punto concentrador de información». Recibe los datos de los sensores de humo o térmicos y activa la extinción y las alarmas, como sirenas, alertas a celulares o a consolas de monitoreo. Con zonas, descarga el agente solo en el área afectada. Es chica, de unos 20 x 30 x 5 cm, y va en la pared, en el centro de monitoreo o fuera del data center antes de la puerta principal, por el riesgo que puede tener el agente para las personas. Tiene que tener activación y desactivación manual. Fuente: apunte 2, página 4.</p>
+<h3 id="acciones-preventivas">Acciones preventivas</h3>
+<ul>
+<li>Conviene que el data center esté aislado de otros edificios.</li>
+<li>No se fuma en las instalaciones.</li>
+<li>Los desperdicios se sacan enseguida.</li>
+<li>Los muebles son metálicos.</li>
+<li>No conviene usar material acústico, porque en general es inflamable.</li>
+<li>Se hacen inspecciones oculares para encontrar material inflamable.</li>
+<li>Debajo del piso técnico se junta basura y a veces se guardan materiales. Se inspecciona periódicamente, a cargo de alguien cuya prioridad sea la protección contra incendios.</li>
+<li>Los papeles y cintas se reducen al mínimo. Los registros importantes se duplican en una ubicación remota, y se guardan en gabinetes metálicos con llave. Las bibliotecas de cintas tienen su propio sistema de extinción.</li>
+<li>Lo que está en depósito para usar en el futuro se etiqueta. Los cables abandonados se sacan, porque su aislamiento puede largar humo con partículas gruesas que corroen los equipos.</li>
+<li>Hay alarmas sonoras y visuales para prevenir pérdidas humanas y poner en alerta al personal.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, páginas 4 y 5.</p>
+</section>
+<section class="sec"><h2 id="extincion">Extinción</h2>
+<p>Los agentes gaseosos del apunte son cinco grupos:</p>
+<ul>
+<li>CO2.</li>
+<li>Halones, discontinuados en 1994.</li>
+<li>Inertes, como IG-01, IG-55 e IG-541.</li>
+<li>HCFC.</li>
+<li>HFC.</li>
+</ul>
+<p>Fuente: apunte 2, páginas 6 a 8.</p>
+<h3 id="como-funciona-la-extincion-por-gas">Cómo funciona la extinción por gas</h3>
+<p>Se basa en eliminar el oxígeno. El agente gaseoso baja el porcentaje de oxígeno del aire hasta cortar la cadena de combustión. Funciona bien en áreas cerradas. Los pasos del apunte:</p>
+<ol>
+<li>Los sensores detectan el incendio y avisan a la central dónde se genera.</li>
+<li>La central abre la válvula de los tanques.</li>
+<li>El gas viaja por las cañerías de los pasillos hasta los picos difusores, ubicados para cubrir toda la superficie.</li>
+</ol>
+<p>Los tanques guardan gas a muy alta presión, así que van en zonas aisladas y no transitadas. Al diseñar se tienen en cuenta el volumen del área, el equipamiento que se protege, el lugar para los tanques y el agente elegido, porque según el agente hacen falta más o menos tanques. Fuente: apunte 2, página 6.</p>
+<h3 id="cada-agente-gaseoso">Cada agente gaseoso</h3>
+<ul>
+<li><strong>CO2:</strong> se usa hace unos 80 años. Es más pesado que el aire y al salir forma niebla, que baja la visión. Es tóxico en cierta concentración y puede matar, por eso algunos países lo prohíben en áreas ocupadas. Tiene el mejor efecto extintor de todos los gases inertes, no conduce electricidad ni deja residuos. Se almacena cerca de la zona y su recarga es barata, pero necesita más tubos que otros agentes para la misma superficie.</li>
+<li><strong>Halones:</strong> son flúor, cloro, bromo y yodo combinados con carbono. Los modernos, como el Halón 1301, 1211, 1202 y 2402, dañaban la capa de ozono, y en 1994 se discontinuó su producción. El flúor quedó como sucesor por su volatilidad, estabilidad, baja toxicidad y poder de extinción.</li>
+<li><strong>Inertes:</strong> casi no reaccionan con otros elementos. El argón se obtiene separando oxígeno y nitrógeno del aire. No es tóxico, no deja residuos, se saca con ventilación y permite poner los tanques lejos de la zona. Se adapta a una instalación de halón, su costo es moderado, es seguro para las personas y no daña el ozono. Las mezclas son IG-01 (Ar 100 %), IG-55 (Ar 50 % y N2 50 %) e IG-541 (Ar 40 %, N2 52 % y CO2 8 %).</li>
+<li><strong>HCFC:</strong> se basan en flúor, con hidrógeno, cloro y carbono. Son el HCFC-124, la mezcla A, el HCFC-22 y el HCFC-123. Son seguros en áreas ocupadas, no dejan residuos, no conducen ni corroen. Descargan en 10 segundos o menos a no más de 5 m, y el agente se guarda muy cerca de la zona.</li>
+<li><strong>HFC:</strong> los tipos son HFC-227ea, HFC-125, HFC-23, HFC-236fa y FK-5-1-12, con los mismos elementos en distintas proporciones.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, páginas 7 y 8.</p>
+<p>Los <strong>extintores portátiles</strong> van en un lugar estratégico, de fácil acceso y señalizado. El HFC-236fa, vendido como FE-36, es el reemplazo ideal del Halón 1211. Son rápidos de instalar, baratos, fáciles de usar, seguros para las personas, y no dejan residuos ni conducen electricidad. Fuente: apunte 2, página 8.</p>
+<details class="pregunta"><summary><span>Qué diferencia hay entre los extintores HCFC y HFC, cuál es el más adecuado para tecnología y por qué</span><small>1° parcial teoría, 04/10/2023</small></summary><div class="resp"><p>El HCFC tiene flúor y cloro, y extingue por absorción de calor. Está en desuso por el cloro. El HFC es similar, pero sin cloro. El apunte da al HFC-227ea como el más usado en IT para data centers, por su alta eficacia con una concentración baja.</p>
+<p>Fuente: apunte 2, Seguridad e Incendios, página 8.</p>
+</div></details>
+<details class="pregunta"><summary><span>Describa el tipo de agente extintor más utilizado e indique un nombre comercial</span><small>1° parcial teoría, 04/10/2023</small></summary><div class="resp"><p>El HFC-227ea, que DuPont vende como FM-200®.</p>
+<p>Fuente: apunte 2, Seguridad e Incendios, página 8.</p>
+</div></details>
+<h3 id="extincion-con-agua">Extinción con agua</h3>
+<p>El apunte avisa que puede ser poco práctica, porque probablemente dañe los equipos que se quieren proteger. Fuente: apunte 2, página 8.</p>
+<details class="pregunta"><summary><span>Según la forma en que la cañería de extinción transporta el agua, cuáles son los tipos, descríbalos</span><small>1° parcial teoría, 04/10/2023 y 30/09/2026</small></summary><div class="resp"><ul>
+<li><strong>Mojada:</strong> es la más común. Está llena de agua, que sale apenas se activan los rociadores. Tiene riesgo de goteras y puede subir la humedad.</li>
+<li><strong>Seca:</strong> cargada con aire comprimido y nitrógeno. El agua empuja el aire y después sale por los rociadores.</li>
+<li><strong>Pre acción:</strong> usa cañería seca y un tablero que hace de doble control. Verifica por segunda vez si hay incendio. Es la altamente recomendada para data centers.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, página 8.</p>
+</div></details>
+<p>Sobre los rociadores, el apunte agrega esto:</p>
+<ul>
+<li><strong>Rociadores:</strong> están pensados para proteger la estructura del edificio y no se recomiendan para data centers. Se los encuentra donde un organismo regulador los exige. Se activan entre 74 y 79 °C, rango que se puede cambiar.</li>
+<li><strong>Rociadores finos o mist:</strong> largan un rocío muy fino que apaga el fuego absorbiendo calor, y el vapor bloquea el oxígeno. Así atacan dos de los tres lados del triángulo de fuego. Usan poca agua y mojan la menor superficie posible, por eso son cada vez más comunes.</li>
+<li><strong>Si el edificio no exige rociadores:</strong> la alternativa es un agente limpio gaseoso.</li>
+<li><strong>Si no se puede permitir ninguna interrupción:</strong> se instalan los dos. El gas actúa primero y los rociadores quedan como segunda alternativa. El gas casi no falla, salvo que esté mal instalado o que alguien deje las puertas abiertas.</li>
+<li><strong>Debajo del piso elevado:</strong> puede ir rociador, CO2 o agente inerte. Si el hueco es muy bajo para el rociador, va gas. Si se usa CO2, la descarga es de baja velocidad, para que no suba más allá de la rodilla y deje evacuar.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, páginas 9 y 10.</p>
+</section>
+<section class="sec"><h2 id="alimentacion-electrica">Alimentación eléctrica</h2>
+<p>El data center tiene que seguir funcionando sin interrupción y de forma transparente para los usuarios, pase lo que pase afuera. El primer paso es definir el consumo eléctrico, contando el crecimiento futuro. Cambiar la estructura eléctrica con el data center funcionando puede costar diez veces más que hacerlo bien en el diseño. Fuente: apunte 3, Alimentación Eléctrica, página 1.</p>
+<p>Los elementos eléctricos del apunte:</p>
+<ul>
+<li><strong>Transformadores:</strong> suben o bajan el voltaje. Si es muy grande puede necesitar su propia conexión a tierra. Suele ir fuera del data center, porque genera calor y es un foco de incendio potencial.</li>
+<li><strong>Tablero eléctrico principal:</strong> recibe el flujo que entra desde la red del proveedor. Da información y subdistribuye la energía hacia adentro.</li>
+<li><strong>Subpaneles (circuit breaker):</strong> distribuyen en áreas grandes y permiten hacer mantenimiento sin cortar el suministro. Soportan de 480 V a 120 V.</li>
+<li><strong>PDU (Power Distribution Unit):</strong> distribuye la energía. También baja voltaje y amperaje a niveles más útiles, por ejemplo de 220 V 30 A monofásica a enchufes de 110 V 15 A o 20 A.</li>
+<li><strong>Cables:</strong> llevan la corriente desde el panel principal, los transformadores, los subpaneles y las PDU.</li>
+<li><strong>Tomas y fichas:</strong> conectan los equipos en cada rack. Cambian según las regulaciones de cada país, el voltaje y el amperaje.</li>
+</ul>
+<p>Fuente: apunte 3, página 1.</p>
+<p>Para elegir la alimentación se tienen en cuenta el tamaño del data center, la naturaleza de los equipos, el tipo y la calidad de la red de la zona, el presupuesto y el costo del kWh. Al proveedor le sale más barato dar corriente a mayor tensión. Para una distribución optimizada, conviene que el transformador esté integrado en la PDU. En instalaciones medianas o chicas, algunas PDU traen la UPS integrada. Fuente: apunte 3, página 2.</p>
+<h3 id="220-v-y-doble-alimentacion">220 V y doble alimentación</h3>
+<ul>
+<li><strong>220 V en vez de 110 V:</strong> para la misma potencia la corriente es la mitad. Eso ahorra conductores y mejora la eficiencia. El riesgo eléctrico es apenas mayor y los requisitos de puesta a tierra son iguales. El ejemplo del apunte es una UPS de 20 A, que soporta cuatro servidores a 110 V y ocho a 220 V, ocupando lo mismo y generando casi el mismo calor.</li>
+<li><strong>Medidas de control:</strong> conviene saber el consumo en kVA de cada rack y de cada fila de racks, para elegir la PDU, y los kVA por metro cuadrado de todo el data center.</li>
+<li><strong>Dos fuentes por equipo:</strong> si falla una PDU, el equipo crítico sigue. Cada fuente se conecta a una alimentación distinta del fondo del rack, una del lado izquierdo y otra del derecho, y cada una sale de otra PDU. Esta conexión funciona bien en ambientes chicos. Su desventaja es que cruza muchos cables entre las unidades y los racks, y puede obstruir el aire bajo el piso técnico. No se recomienda en data centers grandes.</li>
+<li><strong>Una PDU por fila:</strong> va en la cabecera o en el medio de la fila y alimenta a su fila y a la siguiente. Las PDU quedan entrecruzadas, y cada rack recibe dos fuentes. Así se puede hacer mantenimiento sin apagar los equipos.</li>
+</ul>
+<p>Fuente: apunte 3, páginas 3, 4 y 11.</p>
+</section>
+<section class="sec"><h2 id="ups">UPS</h2>
+<p>La definición del apunte es «Un UPS (Uninterruptible Power Supply) o en español SAI (Sistema de Alimentación Ininterrumpida) es una fuente de suministro eléctrico que es alimentada por una batería cuyo fin es seguir dando energía a dispositivos de misión crítica en el caso de interrupción eléctrica, con un tiempo de respuesta &lt; a 250 milisegundos». Permite usar los servidores varios minutos durante un corte. Además mejora la calidad del suministro, porque estabiliza la energía entrante, aísla la fuente normal, filtra, corrige la forma de onda y la frecuencia de línea, y protege los equipos. Fuente: apunte 3, Alimentación Eléctrica, página 4.</p>
+<details class="pregunta"><summary><span>A la hora de evaluar una UPS, cuál es la métrica que indica una mejor calidad y cómo se calcula</span><small>1° parcial teoría, 04/10/2023 y 30/09/2026</small></summary><div class="resp"><p>El apunte dice que un concepto muy importante para evaluar una UPS es la eficiencia. Es el cociente entre la salida y la entrada de energía, en porcentaje. Mientras mayor sea, más conveniente.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Eficiencia</mtext><mo>&#61;</mo><mfrac><mtext>Salida</mtext><mtext>Entrada</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">&#92;text{Eficiencia}&#61;&#92;frac{&#92;text{Salida}}{&#92;text{Entrada}}&#92;times 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Eficiencia</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Entrada</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Salida</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span></span></p>
+<p>Fuente: apunte 3, Alimentación Eléctrica, página 5.</p>
+</div></details>
+<div class="ejemplo"><p class="ejemplo-t">Eficiencia de una UPS</p><p>Entran 100 kW y salen 90 kW, así que la eficiencia es 90 %. Los 10 kW perdidos, por 24 horas y 365 días, son 87 600 kWh por año.</p>
+<p class="bloque-fuente">Apunte 3, Alimentación Eléctrica, página 5</p></div>
+<p>El apunte aclara por qué importa. La eficiencia nunca es del 100 %, porque los componentes internos consumen, como transformadores, placas, rectificadores e inversores. Lo perdido se va en calor u otras transformaciones. En el ejemplo, con el kWh a 3 dólares, los 87 600 kWh son 262 800 dólares por año. Fuente: apunte 3, página 5.</p>
+<h3 id="topologias-de-ups">Topologías de UPS</h3>
+<p>Son cuatro, y cambian en costo y disponibilidad. El apunte las compara con una carga de IT de 600 kW y módulos de 200 kW:</p>
+<div class="tabla"><table><thead><tr><th>Topología</th><th>Qué hace</th><th>Módulos para 600 kW</th></tr></thead><tbody><tr><td>Capacidad normal (N)</td><td>Soporta la carga actual por un tiempo limitado. Es la más económica, pero no responde a ninguna falla de la UPS, y su mantenimiento arriesga una interrupción. Para ambientes chicos</td><td>3</td></tr><tr><td>Redundancia paralela aislada (N)</td><td>Como la anterior, pero con módulos de distintos fabricantes. Da flexibilidad al comprar, y complica y encarece instalación, monitoreo y mantenimiento. Para ambientes medianos</td><td>2 de un proveedor y 1 de otro</td></tr><tr><td>Redundancia paralela (N+1)</td><td>Un módulo adicional tolera la falla de un solo módulo y permite mantenimiento sin cortar el servicio. Es la más usada en data centers. Para ambientes medianos</td><td>4</td></tr><tr><td>Redundancia doble (2N)</td><td>El doble de la capacidad total. Si falla un sistema entero de UPS, el otro soporta toda la carga. Es la más robusta y la más cara</td><td>6</td></tr></tbody></table></div>
+<p>Fuente: apunte 3, Alimentación Eléctrica, página 5.</p>
+<h3 id="bateria-e-inversor">Batería e inversor</h3>
+<p>Están en todos los tipos de UPS.</p>
+<ul>
+<li><strong>Batería:</strong> guarda la energía y la entrega en un corte. Su capacidad se mide en amperes por hora. La UPS se calcula para una autonomía de 5 a 15 minutos. Guarda la energía en corriente continua, así que hay que convertirla a alterna para los equipos.</li>
+<li><strong>Inversor:</strong> pasa la continua de las baterías a alterna para la salida de la UPS. También hace lo inverso para cargar las baterías.</li>
+<li><strong>Temperatura:</strong> lo recomendado son 20 °C. La vida útil normal de la batería es de 5 años. Si trabaja siempre a 30 °C, dura un 50 % menos. La relación no es lineal, y a 40 °C la vida útil queda en el 20 %. Por eso las baterías van en un ambiente de temperatura controlada.</li>
+</ul>
+<p>Fuente: apunte 3, página 6.</p>
+<p>Los tipos de UPS del apunte:</p>
+<ul>
+<li><strong>Off-line o stand-by.</strong></li>
+<li><strong>On-line de línea interactiva.</strong></li>
+<li><strong>Conversión doble:</strong> la más común en data centers, por su confiabilidad y calidad.</li>
+<li><strong>Conversión delta:</strong> de mejor eficiencia que la doble, según el apunte.</li>
+</ul>
+<p>Fuente: apunte 3, páginas 6 a 8.</p>
+<p>Cómo funciona cada una, según el apunte:</p>
+<ul>
+<li><strong>Off-line, stand-by o pasivas:</strong> en modo normal la red alimenta los equipos, y una parte chica pasa por el cargador a la batería. Si se corta la red, la batería alimenta y el inversor pasa de continua a alterna. Se usa en instalaciones chicas, monofásicas, con autonomía reducida.</li>
+<li><strong>On-line, línea interactiva o activas:</strong> el inversor está conectado a la red porque hace una doble conversión constante. La corriente pasa siempre por el rectificador, que carga la batería y alimenta al inversor. En un corte, las baterías alimentan al inversor y la salida no se interrumpe ni milisegundos. Es común en instalaciones medianas.</li>
+<li><strong>On-line de conversión doble:</strong> un rectificador pasa de alterna a continua y carga la batería, y un inversor vuelve a alterna para mantener el flujo constante. Tiene buen desempeño, pero mucho desgaste de componentes. Se usa en data centers grandes.</li>
+<li><strong>On-line de conversión delta:</strong> es una tecnología propietaria de APC, de 1995. El transformador delta alimenta la entrada del inversor y aprovecha solo la diferencia entre la energía de la red y la de la batería. Así es más eficiente y se desgasta menos. En un TCO a 10 años con una configuración 2N de 300 kVA, el apunte la da un 58 % más económica que la de conversión doble.</li>
+</ul>
+<p>Fuente: apunte 3, Alimentación Eléctrica, páginas 6 a 8.</p>
+<h3 id="como-elegir-y-mantener-una-ups">Cómo elegir y mantener una UPS</h3>
+<p>El apunte advierte que muchos fabricantes dan la capacidad en VA, o sea potencia aparente, que puede ser alrededor del 60 % de la potencia real. Una UPS de 1 kVA da unos 600 W, y no alcanza para un servidor de 800 W, que se apaga. Los factores para elegir:</p>
+<ul>
+<li>Calcular el costo del impacto de una interrupción, para saber cuánto invertir. De eso dependen la disponibilidad pedida, el tipo de UPS y la topología.</li>
+<li>Poner caminos redundantes entre el banco de baterías y la unidad de distribución.</li>
+<li>Pedir las curvas de eficiencia de los fabricantes y tomar la eficiencia como factor clave.</li>
+<li>Tener en cuenta que la eficiencia baja cuando baja la carga. Los datos tienen que venir según la carga, en general al 25, 50, 75 y 100 %, y no como un único valor a carga máxima.</li>
+<li>Elegir una estructura modular que permita crecer.</li>
+<li>Preguntarse la vida útil y el costo de reposición de las baterías, si los equipos tienen doble fuente y si hace falta doble cableado para todos o solo para algunos.</li>
+<li>Elegir la tecnología de distribución más eficiente para la zona y los equipos que ya hay.</li>
+</ul>
+<p>Fuente: apunte 3, página 9.</p>
+<p>Para alargar su vida útil, el apunte pide estudiar la curva de eficiencia del fabricante y las pérdidas en las conversiones de alterna a continua y al revés. El mantenimiento preventivo es de dos clases, de unas dos horas como máximo por sistema:</p>
+<ul>
+<li><strong>Rutinario:</strong> revisar alarmas, análisis térmico, inspección de cables y conectores por corrosión, medir parámetros del sistema y de las baterías, limpiar filtros, gabinetes y ventiladores, reajustar conexiones y hacer un reporte. Si una UPS está 10 °C por encima de lo esperado, se toman medidas correctivas.</li>
+<li><strong>Con paro total:</strong> limpieza interna, revisión de herrajes, cables, motores, ventiladores y componentes de potencia, medición de voltaje por celda de las baterías, y pruebas de sincronía, transferencia, corte de entrada y autonomía. Después se pone el sistema en línea con la carga crítica. Para mover una UPS montada en un rack, primero se vacía toda su carga, para evitar una descarga accidental.</li>
+</ul>
+<p>La vida útil de la UPS se estima en diez años, y la de las baterías en cuatro o cinco. Conviene cambiar todas las baterías juntas, para que todas tengan el mismo esfuerzo y simplificar el control. Fuente: apunte 3, páginas 10 y 11.</p>
+<p>Otros datos del mismo apunte:</p>
+<ul>
+<li>La batería da de 5 a 15 minutos, y conviene a 20 °C. A más temperatura, dura menos.</li>
+<li>La UPS responde en menos de 250 ms.</li>
+<li>Conviene alimentar con 220 V, y cada equipo con dos fuentes.</li>
+<li>1 kVA equivale a unos 600 W.</li>
+<li>El generador arranca en 10 a 15 segundos, con un ATS que hace el cambio.</li>
+<li>El tanque de combustible debe dar 60 horas, y 96 horas para algunas certificaciones.</li>
+</ul>
+<p>Fuente: apunte 3, páginas 3, 4, 6, 9, 13 y 15.</p>
+</section>
+<section class="sec"><h2 id="generadores">Generadores</h2>
+<p>Son sistemas de contingencia. Si se corta la red, siguen dando electricidad al data center, y forman parte del diseño a la hora de elegir la UPS. Transforman la energía mecánica de la combustión en energía eléctrica. Según el apunte, los cortes de suministro causan el 31 % de las interrupciones en data centers, el 45 % de las pérdidas masivas de datos y el 33 % de las fallas de hardware. Fuente: apunte 3, Alimentación Eléctrica, página 11.</p>
+<p>Son muy caros. Arrancan en 300 000 dólares para hasta 2000 kW, y los más grandes cuestan millones. Su vida útil es de 20 a 30 años, con repuestos y mantenimiento que suman. Además pueden tardar en llegar o en instalarse, y los proveedores tienen poco stock. Por eso elegir bien es parte fundamental del diseño. Fuente: apunte 3, página 11.</p>
+<h3 id="sus-elementos">Sus elementos</h3>
+<ul>
+<li><strong>Motor principal a combustible:</strong> de cuatro tiempos, en general a diésel o gas. El combustible depende de la ubicación y del acceso.</li>
+<li><strong>Alternador:</strong> convierte la energía mecánica en eléctrica. Transforma el movimiento rotatorio en corriente alterna por inducción electromagnética, como en un auto.</li>
+<li><strong>Regulador de velocidad:</strong> mantiene las RPM del motor y estabiliza la frecuencia de salida. A más RPM, más electricidad. Si hay varios generadores, todos se sincronizan a las mismas RPM, para no sobrecargar la red ni recalentar uno.</li>
+<li><strong>Regulador de voltaje:</strong> va a la salida y da el voltaje correcto, sin picos que dañen la instalación.</li>
+</ul>
+<p>Las fluctuaciones de frecuencia son normales mientras el regulador de velocidad ajusta. Por eso hace falta monitorear RPM, voltaje, temperatura, niveles de fluidos y alarmas. Fuente: apunte 3, páginas 11 a 13.</p>
+<div class="tabla"><table><thead><tr><th>Combustible</th><th>Ventajas</th><th>Desventajas</th></tr></thead><tbody><tr><td>Diésel</td><td>Fácil de almacenar, pocos problemas si se guarda mucho tiempo, menos amenaza de fuego, más horas de operación</td><td>Daño ambiental, cuesta arrancar con frío</td></tr><tr><td>Gas</td><td>Limpio, menos emisiones, menor costo de mantenimiento y menor riesgo</td><td>Costo inicial alto, tamaño limitado, pocos proveedores, pueden cortarlo en una emergencia, fugas explosivas</td></tr><tr><td>Gasolina</td><td>Fácil de conseguir, arranca más rápido que el diésel con frío</td><td>Alto riesgo de incendio al almacenarla, y guardarla le hace mal al generador</td></tr></tbody></table></div>
+<p>Fuente: apunte 3, página 12.</p>
+<div class="ojo"><p class="ojo-t">Lo que más falla</p><p>El apunte dice que es fundamental mantener la batería de arranque del generador. Estadísticamente, los generadores que no arrancan bien son la principal causa de fallas eléctricas. También se cambian los filtros de aire y de combustible. Fuente: apunte 3, página 12.</p>
+</div>
+<h3 id="ats-y-tiempos">ATS y tiempos</h3>
+<p>El ATS, o switch de transferencia automática, cambia el origen de la energía cuando se corta la red. Todos los del mercado responden en menos de un segundo, y van desde menos de 600 V hasta 35 kV. Desde que se detecta la falla hasta que el motor da energía estabilizada, lo ideal son diez a quince segundos. Los más modernos tardan menos de seis, y menos de un minuto también es aceptable. Fuente: apunte 3, página 13.</p>
+<h3 id="elegir-probar-e-instalar">Elegir, probar e instalar</h3>
+<p>Las preguntas para elegir son el nivel de redundancia, la carga total en kW, cuánto tiempo seguido tiene que andar en el peor caso, el consumo por hora, qué combustibles hay en la zona, los costos de mantenimiento y repuestos, si la ubicación molesta a los vecinos, dónde van el generador y el combustible, y qué regulaciones de emisiones hay. Fuente: apunte 3, páginas 13 y 14.</p>
+<p>El mantenimiento es clave, porque el generador tiene que estar siempre listo aunque ande unas 6 horas al año. Lo que pide el apunte:</p>
+<ul>
+<li>Una prueba de 10 a 20 horas seguidas, al menos una vez al año, porque puede hacer falta hasta 100 horas de uso continuo.</li>
+<li>Testeo térmico y de emisiones, y pruebas esporádicas.</li>
+<li>Registrar todas las actividades.</li>
+<li>Revisar cables, conectores, filtros de aire, ventilación, correas, sensores y alarmas, baterías de arranque, temperatura, aceite y refrigerante.</li>
+</ul>
+<p>Al instalarlo, la conexión a tierra es fundamental y hay que cumplir los códigos eléctricos de la región. Importan las vibraciones, las emisiones y el ruido, y hay que protegerlo de la lluvia y de las temperaturas extremas. Se refrigera como un auto, con un ventilador sobre el radiador. Fuente: apunte 3, página 14.</p>
+<p>El tanque de combustible es crítico por el riesgo de inflamación:</p>
+<ul>
+<li><strong>Ubicación:</strong> por comodidad va cerca del generador, y el generador cerca del data center. Eso facilita las cañerías, pero deja material inflamable cerca del edificio.</li>
+<li><strong>Capacidad:</strong> al menos 60 horas de autonomía según el consumo de los generadores. Algunas certificaciones piden hasta 96 horas.</li>
+<li><strong>Material:</strong> metálico o plástico.</li>
+<li><strong>Ambiente:</strong> el calor extremo aumenta el riesgo de incendio, y el frío extremo el de congelamiento.</li>
+<li><strong>Tiempo:</strong> el combustible con más de 12 meses en el tanque se reemplaza, porque genera sedimentos que dañan el generador.</li>
+</ul>
+<p>Fuente: apunte 3, Alimentación Eléctrica, página 15.</p>
+</section>
+<section class="sec"><h2 id="pue-y-dcie">PUE y DCiE</h2>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>PUE</mtext><mo>&#61;</mo><mfrac><mtext>Demanda total del data center</mtext><mtext>Demanda de equipos TI</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{PUE}&#61;&#92;frac{&#92;text{Demanda total del data center}}{&#92;text{Demanda de equipos TI}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">PUE</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.2519em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Demanda de equipos TI</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Demanda total del data center</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>DCiE</mtext><mo>&#61;</mo><mfrac><mtext>Demanda de equipos TI</mtext><mtext>Demanda total del data center</mtext></mfrac><mo>×</mo><mn>100</mn><mtext> </mtext><mi mathvariant="normal">%</mi><mo>&#61;</mo><mfrac><mn>1</mn><mtext>PUE</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{DCiE}&#61;&#92;frac{&#92;text{Demanda de equipos TI}}{&#92;text{Demanda total del data center}}&#92;times 100&#92;,&#92;%&#61;&#92;frac{1}{&#92;text{PUE}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">DCiE</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Demanda total del data center</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Demanda de equipos TI</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">100</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">%</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">PUE</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>Fuente: apunte 5, Eficiencia Energética, página 2 del PDF en adelante.</p>
+<p>Las definiciones del apunte, con sus siglas:</p>
+<ul>
+<li><strong>DCiE (data center infrastructure Efficiency):</strong> «La relación entre la energía requerida para atender las demandas de los equipos de TI y la energía total demandada por el data center».</li>
+<li><strong>PUE (Power Usage Effectiveness):</strong> «Energía requerida para mantener operando el data center en relación con la demanda de energía de los equipos de TI. En términos matemáticos el PUE es el recíproco del DciE».</li>
+</ul>
+<p>En la demanda total entra todo lo que sostiene a los equipos de IT. El apunte la desarma así. La energía de la red pasa primero por la parte de potencia, como switchgear, UPS y baterías, y por la de enfriamiento, como chillers y CRAC. Recién después llega a la carga de IT, que son servidores, storage y equipos de telecomunicaciones. Fuente: apunte 5, páginas 2 y 7 del PDF.</p>
+<p>Los niveles de eficiencia del apunte:</p>
+<div class="tabla"><table><thead><tr><th>PUE</th><th>DCiE</th><th>Nivel</th></tr></thead><tbody><tr><td>3,0</td><td>33 %</td><td>Muy ineficiente</td></tr><tr><td>2,5</td><td>40 %</td><td>Ineficiente</td></tr><tr><td>2,0</td><td>50 %</td><td>Promedio</td></tr><tr><td>1,5</td><td>67 %</td><td>Eficiente</td></tr><tr><td>1,2</td><td>83 %</td><td>Muy eficiente</td></tr></tbody></table></div>
+<p>Fuente: apunte 5, página 6.</p>
+<div class="ejemplo"><p class="ejemplo-t">Dos casos del apunte</p><ul>
+<li>100 000 kW en total y 80 000 kW de IT dan PUE 1,25 y DCiE 0,8.</li>
+<li>200 kW en total y 94 kW de IT dan PUE 2,13 y DCiE 47 %. El soporte es enfriamiento 80, UPS 24 e iluminación 2.</li>
+</ul>
+<p class="bloque-fuente">Apunte 5, Eficiencia Energética, páginas 5 y 6</p></div>
+<div class="tomado"><aside class="nota"><strong>PUE y DCiE de dos data centers y cuál es más eficiente</strong><span>1° parcial teoría, 04/10/2023, 01/10/2025 y 30/09/2026</span></aside><p>Te dan el consumo total y cuánto va a refrigeración, iluminación y UPS. Fijate que el dato de IT no viene. El total incluye el soporte. Las cuentas no se resuelven acá. Comparás con la tabla de arriba, donde el PUE menor es el nivel más eficiente.</p>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-1-teoria" data-materia="infraestructura-tecnologica">
+<h2>Practicá el 1° parcial de teoría</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="kUXwBKyE-G" data-tema="Piso técnico" data-enlace="parcial-1-teoria.html#piso-tecnico" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-teoria-1"><span class="q-n">1</span><div><p>¿Qué hace que baje la concentración de una carga sobre el piso técnico?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 2025 y 2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-teoria-1"><li><button type="button" class="op" data-ok="0">Que el mueble tenga patas más finas</button></li><li><button type="button" class="op" data-ok="1">Una superficie de apoyo mayor</button></li><li><button type="button" class="op" data-ok="0">Bajar la altura de los pedestales</button></li><li><button type="button" class="op" data-ok="0">Cambiar placas de acero por otras más chicas</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Con una superficie de apoyo mayor, el peso se distribuye en una zona más amplia.</p>
+</div></li><li class="q" data-q="_9xkAEKoaC" data-tema="Sensores" data-enlace="parcial-1-teoria.html#sensores" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-teoria-2"><span class="q-n">2</span><div><p>¿Dónde va el sensor de humedad?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 2025 y 2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-teoria-2"><li><button type="button" class="op" data-ok="0">Uno por rack, en la parte trasera</button></li><li><button type="button" class="op" data-ok="0">Uno por sala, en el techo</button></li><li><button type="button" class="op" data-ok="1">Uno por fila, en la parte frontal del rack, a la mitad de la fila</button></li><li><button type="button" class="op" data-ok="0">En el piso, cerca de las fuentes de agua</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte lo ubica por fila, al frente del rack y a la mitad de la fila.</p>
+</div></li><li class="q" data-q="nzxUg5FcFm" data-tema="Tiers" data-enlace="parcial-1-teoria.html#tiers" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-teoria-3"><span class="q-n">3</span><div><p>¿Qué configuración de redundancia corresponde al Tier IV?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 2023 y 2025, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-teoria-3"><li><button type="button" class="op" data-ok="0">N</button></li><li><button type="button" class="op" data-ok="0">N+1</button></li><li><button type="button" class="op" data-ok="0">2N+1</button></li><li><button type="button" class="op" data-ok="1">2(N+1)</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La tabla del apunte da 2(N+1) para el Tier IV.</p>
+</div></li><li class="q" data-q="qskvTRSbuf" data-tema="Tiers" data-enlace="parcial-1-teoria.html#tiers" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-teoria-4"><span class="q-n">4</span><div><p>Si hacen falta tres generadores, ¿cuántos hay en una configuración 2N?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-teoria-4"><li><button type="button" class="op" data-ok="1">6</button></li><li><button type="button" class="op" data-ok="0">4</button></li><li><button type="button" class="op" data-ok="0">5</button></li><li><button type="button" class="op" data-ok="0">7</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte da N 3, N+1 4, N+2 5, 2N 6 y 2N+1 7.</p>
+</div></li><li class="q" data-q="iWzrkYF_qr" data-tema="Métricas de disponibilidad" data-enlace="parcial-1-teoria.html#metricas-de-disponibilidad" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-teoria-5"><span class="q-n">5</span><div><p>Según el apunte de métricas, ¿qué mide el MTTR?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 2025, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-teoria-5"><li><button type="button" class="op" data-ok="0">El tiempo medio hasta que se produce un fallo</button></li><li><button type="button" class="op" data-ok="0">El tiempo medio entre fallos</button></li><li><button type="button" class="op" data-ok="1">El tiempo medio que se tarda en poner de nuevo en marcha</button></li><li><button type="button" class="op" data-ok="0">El tiempo total de funcionamiento correcto</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>MTTR es el tiempo total de inactividad dividido la cantidad de fallos.</p>
+</div></li><li class="q" data-q="h93qzLJqpb" data-tema="Costos ante una amenaza física" data-enlace="parcial-1-teoria.html#costos-ante-una-amenaza-fisica" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-teoria-6"><span class="q-n">6</span><div><p>La pérdida de imagen después de una caída, ¿en qué tipo de costo entra?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 2023, 2025 y 2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-teoria-6"><li><button type="button" class="op" data-ok="0">De oportunidad</button></li><li><button type="button" class="op" data-ok="0">Directo</button></li><li><button type="button" class="op" data-ok="1">Indirecto</button></li><li><button type="button" class="op" data-ok="0">De mantenimiento</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los indirectos son difíciles de medir. Entre ellos están la satisfacción, los clientes y la imagen.</p>
+</div></li><li class="q" data-q="ggsUHUSIHI" data-tema="Detección de incendios" data-enlace="parcial-1-teoria.html#deteccion-de-incendios" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-teoria-7"><span class="q-n">7</span><div><p>¿En qué etapa el fuego todavía no se ve, pero lo detectan sensores con tecnología CCD?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-teoria-7"><li><button type="button" class="op" data-ok="1">Pre combustión</button></li><li><button type="button" class="op" data-ok="0">Humo visible</button></li><li><button type="button" class="op" data-ok="0">Fuego con llamas</button></li><li><button type="button" class="op" data-ok="0">Calor intenso</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>En pre combustión el fuego empieza a originarse y no es visible al ojo humano.</p>
+</div></li><li class="q" data-q="MuaKqQediB" data-tema="Extinción" data-enlace="parcial-1-teoria.html#extincion" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-teoria-8"><span class="q-n">8</span><div><p>¿Qué cañería verifica por segunda vez si hay incendio antes de largar el agua?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 2023 y 2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-teoria-8"><li><button type="button" class="op" data-ok="0">Mojada</button></li><li><button type="button" class="op" data-ok="0">Seca</button></li><li><button type="button" class="op" data-ok="1">Pre acción</button></li><li><button type="button" class="op" data-ok="0">Ninguna de las tres</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Pre acción usa cañería seca y un tablero que funciona como doble control.</p>
+</div></li><li class="q" data-q="zofz9GbJCK" data-tema="Extinción" data-enlace="parcial-1-teoria.html#extincion" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-teoria-9"><span class="q-n">9</span><div><p>¿Cuál es la diferencia entre HCFC y HFC que da el apunte?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 2023, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-teoria-9"><li><button type="button" class="op" data-ok="0">El HCFC no sirve en áreas ocupadas</button></li><li><button type="button" class="op" data-ok="1">El HFC es similar, pero sin cloro</button></li><li><button type="button" class="op" data-ok="0">El HFC usa agua y el HCFC gas</button></li><li><button type="button" class="op" data-ok="0">El HCFC es el más usado hoy en IT</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los HFC son similares a los HCFC, sin cloro.</p>
+</div></li><li class="q" data-q="VQtmA6w3KC" data-tema="UPS" data-enlace="parcial-1-teoria.html#ups" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-teoria-10"><span class="q-n">10</span><div><p>¿Cómo se define la eficiencia de una UPS?</p>
+<p class="q-origen">Se tomó: 1° parcial teoría, 2023 y 2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-teoria-10"><li><button type="button" class="op" data-ok="0">Entrada sobre salida, en kW</button></li><li><button type="button" class="op" data-ok="0">Horas de batería por kVA</button></li><li><button type="button" class="op" data-ok="1">Salida sobre entrada, en porcentaje</button></li><li><button type="button" class="op" data-ok="0">Carga máxima sobre carga real</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte la define como el cociente entre salida y entrada, por 100.</p>
+</div></li><li class="q" data-q="yIrFhTrX0w" data-tema="PUE y DCiE" data-enlace="parcial-1-teoria.html#pue-y-dcie" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-teoria-11"><span class="q-n">11</span><div><p>Según la tabla del apunte, ¿qué nivel corresponde a un PUE de 1,5?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-teoria-11"><li><button type="button" class="op" data-ok="0">Muy eficiente</button></li><li><button type="button" class="op" data-ok="1">Eficiente</button></li><li><button type="button" class="op" data-ok="0">Promedio</button></li><li><button type="button" class="op" data-ok="0">Ineficiente</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La tabla da 1,5 y 67 % como eficiente.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

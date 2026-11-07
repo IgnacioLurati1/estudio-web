@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hoja de repaso: Sintaxis y Semántica de los Lenguajes</title>
+<meta name="description" content="Todo en una hoja para imprimir.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="sintaxis-y-semantica-de-los-lenguajes" data-pagina="machete">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Sintaxis y Semántica de los Lenguajes</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final y aprobación directa</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html" aria-current="page">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=sintaxis-y-semantica-de-los-lenguajes">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=sintaxis-y-semantica-de-los-lenguajes">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#compilador">Compilador</a></li><li class="n2"><a href="#cadenas-y-lenguajes">Cadenas y lenguajes</a></li><li class="n2"><a href="#expresiones-regulares">Expresiones regulares</a></li><li class="n2"><a href="#gramaticas">Gramáticas</a></li><li class="n2"><a href="#automatas-finitos">Autómatas finitos</a></li><li class="n2"><a href="#pila-turing-y-ala">Pila, Turing y ALA</a></li><li class="n2"><a href="#c-tipos-y-operadores">C: tipos y operadores</a></li><li class="n2"><a href="#c-cadenas-entrada-y-salida">C: cadenas, entrada y salida</a></li><li class="n2"><a href="#c-estructuras-punteros-y-funciones">C: estructuras, punteros y funciones</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja machete" data-reportable>
+<h1>Hoja de repaso</h1>
+<p class="bajada">Todo junto y corto. Se imprime en dos columnas. <button type="button" id="imprimir" class="b-sec">Imprimir</button></p>
+
+
+<section class="sec"><h2 id="compilador">Compilador</h2>
+<p><strong>Lenguaje:</strong> léxico (símbolos), sintaxis (reglas), semántica (significado).</p>
+<p><strong>Análisis:</strong> léxico, sintáctico, semántico. <strong>Síntesis:</strong> código intermedio, optimización, código ejecutable. Siempre: tabla de símbolos y errores.</p>
+<p><strong>Errores:</strong> léxico (token inválido), sintáctico (estructura), semántico (operación no permitida). Se informan al final del análisis.</p>
+<p><strong>Token:</strong> categoría. <strong>Patrón:</strong> regla (e.r.). <strong>Lexema:</strong> cadena concreta.</p>
+<p><strong>Compilador:</strong> todo antes de ejecutar. <strong>Intérprete:</strong> línea por línea, durante la ejecución.</p>
+</section>
+<section class="sec"><h2 id="cadenas-y-lenguajes">Cadenas y lenguajes</h2>
+<p>Alfabeto: finito. Cadena: finita. |ε| = 0. <code>s⁰ = ε</code>. La concatenación <strong>no</strong> es conmutativa.</p>
+<p><strong>Prefijo:</strong> corta a la derecha. <strong>Sufijo:</strong> corta a la izquierda. <strong>Subcadena:</strong> corta ambos. <strong>Subsecuencia:</strong> saltea.</p>
+<p><code>∅</code> (sin cadenas) ≠ <code>{ε}</code> (una cadena). <code>L⁰ = {ε}</code>. <code>L*</code> siempre tiene ε. <code>L⁺ = L¹ ∪ L² ∪ …</code>. <code>L ⊆ V*</code>.</p>
+</section>
+<section class="sec"><h2 id="expresiones-regulares">Expresiones regulares</h2>
+<p>Precedencia: <code>*</code>, luego <code>.</code>, luego <code>|</code>.</p>
+<p><code>|</code> es conmutativa y asociativa. <code>.</code> es asociativa y distributiva sobre <code>|</code>. <code>r.ε = r</code>. <code>r** = r*</code>.</p>
+<p><code>r+ = r r*</code>. <code>r? = r|ε</code>. <code>r* = r+ | ε</code>.</p>
+<p>ε está en un producto solo si está en los dos factores.</p>
+</section>
+<section class="sec"><h2 id="gramaticas">Gramáticas</h2>
+<p><code>G = {VT, VN, P, S}</code>. El orden cambia: mirá mayúsculas (VN) y minúsculas (VT).</p>
+<p>Forma sentencial: con no terminales. Sentencia: solo terminales.</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Producción</th><th>Máquina</th></tr></thead><tbody><tr><td>0</td><td><code>α → β</code></td><td>Turing</td></tr><tr><td>1</td><td><code>αAβ → αγβ</code></td><td>ALA</td></tr><tr><td>2</td><td><code>A → γ</code></td><td>Pila</td></tr><tr><td>3</td><td><code>A → aB</code>, <code>A → a</code></td><td>Finito</td></tr></tbody></table></div>
+<p>Una gramática genera un solo lenguaje. Un lenguaje puede tener varias gramáticas.</p>
+</section>
+<section class="sec"><h2 id="automatas-finitos">Autómatas finitos</h2>
+<p><strong>AFN:</strong> varios estados, varias transiciones por símbolo, admite ε. <strong>AFD:</strong> un estado, a lo sumo una transición, sin ε.</p>
+<p>AFN: <code>mueve: S×V → P(S)</code>. AFD: devuelve un estado.</p>
+<p>Cadena: aceptada, no aceptada o abortada. Tabla llena: sin vacíos.</p>
+<p><strong>Thompson:</strong> símbolo <code>i→f</code>. Unión: <code>i</code> y <code>f</code> nuevos con ε. Concatenación: se fusiona final con inicio. Cerradura: <code>i</code> y <code>f</code> nuevos con ε directa y ε de vuelta. Un solo inicio y un solo final.</p>
+<p><strong>Subconjuntos:</strong> inicio = cerradura-ε(s₀). Nuevo estado = cerradura-ε(mueve(T,a)). Final si contiene un final del AFN.</p>
+<p><strong>Minimizar:</strong> partición {finales}{no finales}. Se divide hasta que no cambia. Un representante por grupo.</p>
+</section>
+<section class="sec"><h2 id="pila-turing-y-ala">Pila, Turing y ALA</h2>
+<p><strong>APD:</strong> AF + pila LIFO. Estados START, READ, POP, PUSH, ACCEPT, REJECT. Reconoce GLC.</p>
+<p><strong>MT:</strong> cinta, cabeza, alfabetos Σ y Γ, estados (START, HALT), programa <code>(leída, escrita, R o L)</code>. Determinista. Falla si va a la izquierda de la celda i.</p>
+<p><strong>ALA:</strong> MT con cinta acotada. <code>{E, A, B, δ, q0 inicial, F, #, $}</code>. Tipo 1.</p>
+</section>
+<section class="sec"><h2 id="c-tipos-y-operadores">C: tipos y operadores</h2>
+<p>Mayúsculas y minúsculas son distintas. Palabras clave en minúscula.</p>
+<p>Tipos: <code>char</code>, <code>int</code>, <code>float</code>, <code>double</code>, <code>void</code>. Modificadores: <code>short</code>, <code>long</code>, <code>signed</code>, <code>unsigned</code>.</p>
+<p>Identificador: letras, dígitos y <code>_</code>. No empieza con dígito. <code>#define NOMBRE valor</code>, sin <code>=</code> ni <code>;</code>.</p>
+<p><code>%</code> es resto entero (no para <code>float</code>). <code>++n</code> modifica y usa. <code>n++</code> usa y modifica.</p>
+<p>Verdadero es distinto de 0. Falso es 0. <code>=</code> asigna, <code>==</code> compara. <code>c ? a : b</code>.</p>
+<p><code>switch</code>: solo igualdad, cada <code>case</code> sigue hasta el <code>break</code>, <code>default</code> opcional. <code>do-while</code> entra una vez como mínimo. <code>continue</code> salta a la siguiente vuelta.</p>
+</section>
+<section class="sec"><h2 id="c-cadenas-entrada-y-salida">C: cadenas, entrada y salida</h2>
+<p>Cadena: <code>char s[n+1]</code> con <code>&#39;\0&#39;</code> al final. No se asigna con <code>=</code>: se usa <code>strcpy</code>. En <code>scanf(&quot;%s&quot;, s)</code> va sin <code>&amp;</code>.</p>
+<p><code>strlen</code> longitud. <code>strcpy(d,o)</code> copia. <code>strcat</code> agrega. <code>strcmp</code> da 0 si son iguales. <code>strstr</code>, <code>strchr</code> dan puntero o <code>NULL</code>.</p>
+<p><code>isalpha</code>, <code>isdigit</code>, <code>isalnum</code>, <code>isspace</code>, <code>islower</code>, <code>isupper</code>, <code>tolower</code>, <code>toupper</code>. Devuelven 0 o distinto de 0.</p>
+<p><code>\n</code> línea, <code>\t</code> tabulador, <code>\0</code> nulo, <code>\\</code> barra.</p>
+<p><code>%c</code> carácter, <code>%d</code> <code>%i</code> entero, <code>%f</code> real, <code>%s</code> cadena, <code>%p</code> puntero, <code>%u</code> sin signo, <code>%x</code> hexa, <code>%%</code> signo.</p>
+<p><code>%s</code> lee hasta un blanco. <code>gets</code> lee hasta el enter. <code>puts</code> pasa de línea solo.</p>
+</section>
+<section class="sec"><h2 id="c-estructuras-punteros-y-funciones">C: estructuras, punteros y funciones</h2>
+<p><code>struct t {campos};</code> con <code>;</code>. Campo: <code>v.campo</code>. Con puntero: <code>p-&gt;campo</code>. Arreglo: <code>a[i].campo</code>. Anidada: <code>v.a.b</code>.</p>
+<p><code>&amp;x</code> dirección. <code>*p</code> contenido. <code>p+1</code> avanza un elemento. <code>a[i]</code> es <code>*(a+i)</code>. Un puntero se incrementa, un arreglo no.</p>
+<p>Un puntero sin dirección es un error. Usá <code>NULL</code> para «ninguno».</p>
+<p><strong>Por valor:</strong> copia, no cambia el original. <strong>Por referencia:</strong> <code>f(&amp;a)</code> con parámetro <code>int *x</code>, cambia el original. Los arreglos van siempre por referencia.</p>
+<p><code>return</code> devuelve un solo valor. <code>void</code> no devuelve.</p>
+<p>Variable <code>static</code>: conserva su valor entre llamadas, y arranca en 0.</p>
+<p>Compilar: preprocesador, compilador (<code>.obj</code>), enlazador (<code>.exe</code>).</p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (autotests y exámenes de 2024 a 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

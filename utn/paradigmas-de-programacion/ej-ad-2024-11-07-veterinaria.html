@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aprobación directa, 07/11/2024 (Hospital veterinario): Paradigmas de Programación</title>
+<meta name="description" content="Ejercicio de examen: Aprobación directa, 07/11/2024 (Hospital veterinario).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="paradigmas-de-programacion" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Paradigmas de Programación</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">Parcial de regularización</a></li><li class="em-fuera"><a href="ad.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=paradigmas-de-programacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=paradigmas-de-programacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Aprobación directa, 07/11/2024 (Hospital veterinario)</h1>
+<p class="bajada">Aprobación directa, 07/11/2024</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="ad-2024-11-07-veterinaria" data-titulo="Aprobación directa, 07/11/2024 (Hospital veterinario)" data-min="120" data-otro="ejercicios.html#ad" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="ad-2024-11-07-veterinaria" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1zAJ4KwCqgxULVfnOsTq2XCITVxtj6DK2/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/ad-2024-11-07-veterinaria-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/ad-2024-11-07-veterinaria-e1.webp" width="900" height="1096" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>1) Diagrama de clases</h4>
+<p>Hay dos jerarquías. Cada animal guarda un dato distinto según su tipo, y los tratamientos especializados suman un costo adicional. El costo adicional es distinto para cada tratamiento, y va en la instancia. El precio lo calcula el tratamiento con el costo base del animal que atiende. Cada caja tiene arriba las variables de clase (vc) y de instancia (vi), y abajo los métodos de clase (mc) y de instancia (mi), como los diagramas de los cuestionarios del campus. La flecha punteada va de la subclase a la superclase, y la línea con cantidad es un ensamble. Los métodos que solo devuelven una variable no van en las cajas, para que se lean. Están al final del código. Tocá el dibujo para verlo en pantalla completa.</p>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1082 745" width="1082" height="745" style="width:1082px;min-width:1082px;max-width:none;height:745px" role="img" aria-label="Diagrama de clases del hospital veterinario. Hospital guarda los animales, los tratamientos, los veterinarios y las atenciones. Cada atención tiene un animal, un tratamiento y el veterinario que intervino. Animal es la superclase de Perro, Gato y Ave, cada una con su dato propio. Tratamiento es la superclase de General y de Especializado, que suma su costo adicional al precio."><g fill="none" stroke="currentColor" stroke-width="1.3"><rect x="445.1" y="10.0" width="191.5" height="239.0"/><path d="M445.1 36.0H636.6M445.1 120.0H636.6M490.1 36.0V249.0"/><rect x="228.5" y="323.0" width="445.2" height="209.0"/><path d="M228.5 349.0H673.7M228.5 448.0H673.7M404.0 349.0V532.0"/><rect x="20.0" y="323.0" width="162.5" height="119.0"/><path d="M20.0 349.0H182.5M20.0 403.0H182.5M65.0 349.0V442.0"/><rect x="719.7" y="323.0" width="155.2" height="164.0"/><path d="M719.7 349.0H874.9M719.7 448.0H874.9M764.7 349.0V487.0"/><rect x="920.9" y="323.0" width="140.8" height="134.0"/><path d="M920.9 349.0H1061.7M920.9 418.0H1061.7M965.9 349.0V457.0"/><rect x="111.4" y="606.0" width="140.8" height="104.0"/><path d="M111.4 632.0H252.2M111.4 671.0H252.2M156.4 632.0V710.0"/><rect x="298.2" y="606.0" width="140.8" height="104.0"/><path d="M298.2 632.0H439.0M298.2 671.0H439.0M343.2 632.0V710.0"/><rect x="485.0" y="606.0" width="140.8" height="104.0"/><path d="M485.0 632.0H625.8M485.0 671.0H625.8M530.0 632.0V710.0"/><rect x="671.8" y="606.0" width="90.0" height="104.0"/><path d="M671.8 632.0H761.8M671.8 671.0H761.8M716.8 632.0V710.0"/><rect x="807.8" y="606.0" width="162.5" height="119.0"/><path d="M807.8 632.0H970.3M807.8 671.0H970.3M852.8 632.0V725.0"/><path d="M483.4 249.0L101.2 323.0"/><path d="M521.7 249.0L451.1 323.0"/><path d="M560.0 249.0L797.3 323.0"/><path d="M598.3 249.0L991.3 323.0"/><path d="M228.5 336.0H182.5"/><path d="M673.7 336.0H719.7"/><path d="M606.9 323.0V291.0H1040.6V323.0"/><path d="M797.3 487.0l-7 12h14z" fill="none"/><path d="M991.3 457.0l-7 12h14z" fill="none"/><path stroke-dasharray="6 4" d="M797.3 499.0V566.0M181.8 566.0H797.3M181.8 566.0V606.0M368.6 566.0V606.0M555.4 566.0V606.0M991.3 469.0V584.0M716.8 584.0H991.3M716.8 584.0V606.0M889.0 584.0V606.0"/></g><g fill="currentColor" stroke="none" font-family="ui-monospace, Consolas, Menlo, monospace" font-size="12" text-anchor="middle"><text x="540.9" y="28.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Hospital</text><text x="453.1" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="498.1" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="498.1" y="66.0" text-anchor="start">animales</text><text x="498.1" y="81.0" text-anchor="start">tratamientos</text><text x="498.1" y="96.0" text-anchor="start">veterinarios</text><text x="498.1" y="111.0" text-anchor="start">atenciones</text><text x="453.1" y="134.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="498.1" y="134.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="498.1" y="150.0" text-anchor="start">inicializa</text><text x="498.1" y="165.0" text-anchor="start">registrarAtencion</text><text x="498.1" y="180.0" text-anchor="start">buscarOCrearAnimal</text><text x="498.1" y="195.0" text-anchor="start">nuevoAnimal:</text><text x="498.1" y="210.0" text-anchor="start">buscarVeterinario</text><text x="498.1" y="225.0" text-anchor="start">buscarTratamiento</text><text x="498.1" y="240.0" text-anchor="start">listarAtenciones</text><text x="451.1" y="341.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Atencion</text><text x="236.5" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="236.5" y="379.0" text-anchor="start">UltimoCodigo</text><text x="412.0" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="412.0" y="379.0" text-anchor="start">codigo</text><text x="412.0" y="394.0" text-anchor="start">fecha</text><text x="412.0" y="409.0" text-anchor="start">animal</text><text x="412.0" y="424.0" text-anchor="start">tratamiento</text><text x="412.0" y="439.0" text-anchor="start">veterinario</text><text x="236.5" y="462.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="236.5" y="478.0" text-anchor="start">asignaUltimoCodigo:</text><text x="236.5" y="493.0" text-anchor="start">incrementaUltimoCodigo</text><text x="412.0" y="462.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="412.0" y="478.0" text-anchor="start">cargaDatos:tratamiento:veterinario:</text><text x="412.0" y="493.0" text-anchor="start">importe</text><text x="412.0" y="508.0" text-anchor="start">fechaEntre:y:</text><text x="412.0" y="523.0" text-anchor="start">mostrarEnListado</text><text x="101.2" y="341.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Veterinario</text><text x="28.0" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="73.0" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="73.0" y="379.0" text-anchor="start">matricula</text><text x="73.0" y="394.0" text-anchor="start">nombreCompleto</text><text x="28.0" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="73.0" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="797.3" y="341.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Animal</text><text x="727.7" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="772.7" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="772.7" y="379.0" text-anchor="start">historia</text><text x="772.7" y="394.0" text-anchor="start">nombre</text><text x="772.7" y="409.0" text-anchor="start">costoBase</text><text x="772.7" y="424.0" text-anchor="start">nombreDueno</text><text x="772.7" y="439.0" text-anchor="start">telefonoDueno</text><text x="727.7" y="462.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="772.7" y="462.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="772.7" y="478.0" text-anchor="start">cargaDatos:</text><text x="991.3" y="341.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Tratamiento</text><text x="928.9" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="973.9" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="973.9" y="379.0" text-anchor="start">codigo</text><text x="973.9" y="394.0" text-anchor="start">nombre</text><text x="973.9" y="409.0" text-anchor="start">precioBase</text><text x="928.9" y="432.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="973.9" y="432.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="973.9" y="448.0" text-anchor="start">precioPara:</text><text x="181.8" y="624.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Perro</text><text x="119.4" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="164.4" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="164.4" y="662.0" text-anchor="start">raza</text><text x="119.4" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="164.4" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="164.4" y="701.0" text-anchor="start">cargaDatos:</text><text x="368.6" y="624.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Gato</text><text x="306.2" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="351.2" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="351.2" y="662.0" text-anchor="start">pelaje</text><text x="306.2" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="351.2" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="351.2" y="701.0" text-anchor="start">cargaDatos:</text><text x="555.4" y="624.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Ave</text><text x="493.0" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="538.0" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="538.0" y="662.0" text-anchor="start">especie</text><text x="493.0" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="538.0" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="538.0" y="701.0" text-anchor="start">cargaDatos:</text><text x="716.8" y="624.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">General</text><text x="679.8" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="724.8" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="679.8" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="724.8" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="724.8" y="701.0" text-anchor="start">tipo</text><text x="889.0" y="624.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Especializado</text><text x="815.8" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="860.8" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="860.8" y="662.0" text-anchor="start">costoAdicional</text><text x="815.8" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="860.8" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="860.8" y="701.0" text-anchor="start">precioPara:</text><text x="860.8" y="716.0" text-anchor="start">tipo</text><text x="93.2" y="315.0" text-anchor="end">1..N</text><text x="443.1" y="315.0" text-anchor="end">0..N</text><text x="805.3" y="315.0" text-anchor="start">0..N</text><text x="999.3" y="315.0" text-anchor="start">1..N</text><text x="188.5" y="331.0" text-anchor="start">1..1</text><text x="713.7" y="331.0" text-anchor="end">1..1</text><text x="1046.6" y="319.0" text-anchor="start">1..1</text></g></svg></figure>
+
+<h4>2a) Registrar la atención de un animal</h4>
+<p><code>Hospital</code> es la clase principal y guarda las colecciones, como la clase principal de los ejercicios resueltos. El animal se busca por su historia clínica. Si no está, se elige su tipo con el ciclo de «Elegir la subclase» y se da de alta. El tratamiento y el veterinario se piden hasta que existan. Al final se informa el importe.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Hospital, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#inicializa</span>
+animales := <span class="hljs-type">OrderedCollection</span> new.
+tratamientos := <span class="hljs-type">OrderedCollection</span> new.
+veterinarios := <span class="hljs-type">OrderedCollection</span> new.
+atenciones := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#registrarAtencion</span>
+| ani vet trat aten |
+ani := <span class="hljs-keyword">self</span> buscarOCrearAnimal.
+vet := <span class="hljs-keyword">nil</span>.
+[vet isNil] whileTrue: [vet := <span class="hljs-keyword">self</span> buscarVeterinario].
+trat := <span class="hljs-keyword">nil</span>.
+[trat isNil] whileTrue: [trat := <span class="hljs-keyword">self</span> buscarTratamiento].
+aten := <span class="hljs-type">Atencion</span> new.
+aten cargaDatos: ani tratamiento: trat veterinario: vet.
+atenciones add: aten.
+<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;Importe total a pagar: &#x27;</span>, aten importe printString
+
+<span class="hljs-symbol">#buscarOCrearAnimal</span>
+| hc ani |
+hc := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el número de historia clínica&#x27;</span>) asNumber.
+ani := animales detect: [:unAnimal | unAnimal historia = hc] ifNone: [<span class="hljs-keyword">nil</span>].
+ani isNil ifTrue: [ani := <span class="hljs-keyword">self</span> nuevoAnimal: hc].
+^ani
+
+<span class="hljs-symbol">#nuevoAnimal</span>: unaHistoria
+| tipo ani |
+[ani isNil] whileTrue: [
+    tipo := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el tipo de animal (1) Perro, (2) Gato, (3) Ave&#x27;</span>.
+    tipo = <span class="hljs-string">&#x27;1&#x27;</span> ifTrue: [ani := <span class="hljs-type">Perro</span> new].
+    tipo = <span class="hljs-string">&#x27;2&#x27;</span> ifTrue: [ani := <span class="hljs-type">Gato</span> new].
+    tipo = <span class="hljs-string">&#x27;3&#x27;</span> ifTrue: [ani := <span class="hljs-type">Ave</span> new]].
+ani cargaDatos: unaHistoria.
+animales add: ani.
+^ani
+
+<span class="hljs-symbol">#buscarVeterinario</span>
+| mat |
+mat := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la matrícula del veterinario&#x27;</span>) asNumber.
+^veterinarios detect: [:unVet | unVet matricula = mat] ifNone: [<span class="hljs-keyword">nil</span>]
+
+<span class="hljs-symbol">#buscarTratamiento</span>
+| cod |
+cod := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el código del tratamiento&#x27;</span>) asNumber.
+^tratamientos detect: [:unTrat | unTrat codigo = cod] ifNone: [<span class="hljs-keyword">nil</span>]
+
+<span class="hljs-comment">&quot;Animal, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unaHistoria
+historia := unaHistoria.
+nombre := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el nombre del animal&#x27;</span>.
+costoBase := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el costo base&#x27;</span>) asNumber.
+nombreDueno := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el nombre del dueño&#x27;</span>.
+telefonoDueno := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el teléfono del dueño&#x27;</span>.
+
+<span class="hljs-comment">&quot;Perro, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unaHistoria
+<span class="hljs-keyword">super</span> cargaDatos: unaHistoria.
+raza := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la raza&#x27;</span>.
+
+<span class="hljs-comment">&quot;Gato, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unaHistoria
+<span class="hljs-keyword">super</span> cargaDatos: unaHistoria.
+pelaje := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el tipo de pelaje (corto, largo)&#x27;</span>.
+
+<span class="hljs-comment">&quot;Ave, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unaHistoria
+<span class="hljs-keyword">super</span> cargaDatos: unaHistoria.
+especie := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la especie&#x27;</span>.
+
+<span class="hljs-comment">&quot;Atencion, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaUltimoCodigo</span>: unNumero
+<span class="hljs-type">UltimoCodigo</span> := unNumero
+
+<span class="hljs-symbol">#incrementaUltimoCodigo</span>
+<span class="hljs-type">UltimoCodigo</span> := <span class="hljs-type">UltimoCodigo</span> + <span class="hljs-number">1</span>
+
+<span class="hljs-comment">&quot;Atencion, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unAnimal tratamiento: unTratamiento veterinario: unVeterinario
+<span class="hljs-type">Atencion</span> incrementaUltimoCodigo.
+codigo := <span class="hljs-type">UltimoCodigo</span>.
+fecha := <span class="hljs-type">Date</span> today.
+animal := unAnimal.
+tratamiento := unTratamiento.
+veterinario := unVeterinario.
+
+<span class="hljs-symbol">#importe</span>
+^tratamiento precioPara: animal
+
+<span class="hljs-comment">&quot;Tratamiento, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#precioPara</span>: unAnimal
+^precioBase + unAnimal costoBase
+
+<span class="hljs-comment">&quot;Especializado, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#precioPara</span>: unAnimal
+^(<span class="hljs-keyword">super</span> precioPara: unAnimal) + costoAdicional</code></pre>
+<h4>2b) Listado de atenciones por rango de fechas</h4>
+<p>Se ordena por fecha y después se filtra por el rango. Cada tratamiento responde <code>tipo</code> con su nombre.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Hospital, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#listarAtenciones</span>
+| desde hasta lista |
+desde := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha desde (dd/mm/aaaa)&#x27;</span>).
+hasta := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha hasta (dd/mm/aaaa)&#x27;</span>).
+lista := (atenciones asSortedCollection: [:a :b | a fecha &lt; b fecha])
+    select: [:unaAten | unaAten fechaEntre: desde y: hasta].
+lista isEmpty
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No se han encontrado atenciones en ese período&#x27;</span>]
+    ifFalse: [
+        <span class="hljs-type">Transcript</span> clear;
+            show: <span class="hljs-string">&#x27;Ficha&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Fecha&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Animal&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Dueño&#x27;</span>; tab;
+            show: <span class="hljs-string">&#x27;Matrícula&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Veterinario&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Tratamiento&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Importe&#x27;</span>; cr.
+        lista do: [:unaAten | unaAten mostrarEnListado]]
+
+<span class="hljs-comment">&quot;Atencion, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#fechaEntre</span>: desde y: hasta
+^(fecha &gt;= desde) and: [fecha &lt;= hasta]
+
+<span class="hljs-symbol">#mostrarEnListado</span>
+<span class="hljs-type">Transcript</span> show: animal historia printString; tab;
+    show: fecha printString; tab;
+    show: animal nombre; tab;
+    show: animal nombreDueno; tab;
+    show: veterinario matricula printString; tab;
+    show: veterinario nombreCompleto; tab;
+    show: tratamiento tipo; tab;
+    show: <span class="hljs-keyword">self</span> importe printString; cr
+
+<span class="hljs-comment">&quot;General, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#tipo</span>
+^<span class="hljs-string">&#x27;General&#x27;</span>
+
+<span class="hljs-comment">&quot;Especializado, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#tipo</span>
+^<span class="hljs-string">&#x27;Especializado&#x27;</span></code></pre>
+<h4>Métodos que devuelven datos</h4>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Atencion, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#fecha</span>
+^fecha
+
+<span class="hljs-comment">&quot;Veterinario, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#matricula</span>
+^matricula
+
+<span class="hljs-symbol">#nombreCompleto</span>
+^nombreCompleto
+
+<span class="hljs-comment">&quot;Animal, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#historia</span>
+^historia
+
+<span class="hljs-symbol">#nombre</span>
+^nombre
+
+<span class="hljs-symbol">#costoBase</span>
+^costoBase
+
+<span class="hljs-symbol">#nombreDueno</span>
+^nombreDueno
+
+<span class="hljs-comment">&quot;Tratamiento, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#codigo</span>
+^codigo</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con las páginas de Aprobación directa («Cómo leer la narrativa» y «Qué lleva el diagrama») y de Final («Las plantillas del Drive» y «Cómo se arma el programa»), que salen de «Estructuras útiles en Smalltalk» y de los Ejercicios resueltos 1 a 3 de Material Util.</p><p class="bloque-fuente">Quedó en duda: El material no muestra cómo filtrar entre dos fechas. Acá se compara con <code>&gt;=</code> y <code>&lt;=</code> en <code>fechaEntre:y:</code>. La hoja nombra la especie entre los datos de todos los animales y otra vez como dato propio del ave. Acá la especie es solo del ave, y en perro y gato la dice la subclase. La consigna pide un «número de ficha» que la hoja no define. Acá es el número de historia clínica del animal. Otra lectura es el código de la atención. Tampoco dice cómo se elige el veterinario. Acá se ingresa su matrícula, porque los veterinarios ya están cargados. Se supone que las variables de clase ya tienen su valor, cargado con los métodos de clase <code>asigna...</code>. El código no se corrió en un Smalltalk real.</p><div class="em-votos" data-m="paradigmas-de-programacion" data-e="ad-2024-11-07-veterinaria" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Diagrama de clases" data-enlace="parcial-1.html#metodos-de-clase-y-de-instancia" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Diagrama de clases</span><span class="ex-t-teoria"><a href="parcial-1.html#metodos-de-clase-y-de-instancia">Métodos de clase y de instancia</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Smalltalk" data-enlace="parcial-1.html#que-se-tomo" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Smalltalk</span><span class="ex-t-teoria"><a href="parcial-1.html#que-se-tomo">Qué se tomó</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-ad-2025-11-03.html">Anterior: Aprobación directa, 03/11/2025 (Tienda de mascotas)</a><a href="ej-ad-2024-11-07-biblioteca.html">Siguiente: Aprobación directa, 07/11/2024 (Biblioteca)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

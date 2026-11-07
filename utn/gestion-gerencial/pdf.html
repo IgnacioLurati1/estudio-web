@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gestión Gerencial en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Gestión Gerencial, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="gestion-gerencial" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Gestión Gerencial</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Gestión Gerencial</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial">Parcial</a></li><li><a href="#pdf-final">Final</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta junio de 2026, contados por alumnos). No hay programa vigente en el Drive: si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Gestión Gerencial</p><h1>Para entender</h1>
+<p class="bajada">Cómo una organización decide a dónde va, cómo se arma para llegar y cómo cambia sin romperse, mirado desde el lugar de quien trabaja en sistemas.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p><p class="aviso-viejo">Los exámenes de 2022 o antes son del plan anterior. En esta materia el contenido es el mismo, así que siguen sirviendo.</p>
+<div class="ojo"><p class="ojo-t">Qué tan firme es este resumen</p><p>Conviene que lo sepas antes de estudiar.</p>
+<ul>
+<li><strong>No hay programa vigente en el Drive.</strong> Casi todo el material se llama «Administración Gerencial». Lo que tiene fecha es de 2012 a 2019. Ubiqué los temas con los exámenes y con esos resúmenes.</li>
+<li><strong>De la cátedra hay poco.</strong> La <a href="https://drive.google.com/file/d/1Yd7Qn9GxzPn46UBcnXPTn1mElojQjxX1/view">ficha de implementación-apropiación</a> y cuatro artículos del mismo autor. El resto de la teoría sale de resúmenes de alumnos. Lo uso cuando coinciden entre sí, y cito archivo y página.</li>
+<li><strong>Los exámenes nuevos son recuerdos de alumnos.</strong> No hay hojas de examen de 2024 a 2026, solo lo que alguien contó. Sirven para ver temas, no para copiar la letra exacta.</li>
+<li><strong>El tema más pedido no está en el material de la materia.</strong> El cuadro de mando integral salió en los 3 exámenes teóricos de 2024 y 2025, y ningún resumen de la materia lo explica. Lo que hay en <a href="#final-cuadro-de-mando-integral">su sección</a> viene de otras dos materias. Preguntale a tu cátedra qué definición espera.</li>
+</ul>
+</div>
+
+<section class="sec"><h2 id="inicio-la-idea-general">La idea general</h2>
+<p>Pensá en cualquier empresa que conozcas. Alguien decidió qué quiere ser dentro de diez años. Alguien armó áreas, jefes y reglas para llegar. Y además, entre la gente, hay una forma de hacer las cosas que no figura en ningún papel. Esas tres cosas son la materia.</p>
+<p>Una <strong>organización</strong> es un sistema social diseñado para lograr metas y objetivos. Está formado por personas que interactúan en el marco de una estructura. La materia la mira a través de tres dimensiones, que forman un sistema y no se pueden pensar por separado.</p>
+<div class="tabla"><table><thead><tr><th>Dimensión</th><th>De qué se ocupa</th><th>Pregunta que responde</th></tr></thead><tbody><tr><td><strong>Estrategia</strong></td><td>Pone a la organización en relación con el contexto</td><td>¿A dónde vamos y cómo competimos?</td></tr><tr><td><strong>Estructura</strong></td><td>Formaliza el comportamiento de la gente</td><td>¿Quién hace qué, con quién y cómo?</td></tr><tr><td><strong>Cultura</strong></td><td>Las relaciones humanas y los valores compartidos</td><td>¿Cómo se hacen de verdad las cosas acá?</td></tr></tbody></table></div>
+<p>Fuente: Resumen 2 (2012), pág. 4. Resumen sintético, págs. 18 y 26.</p>
+<p>Una empresa es <strong>competitiva</strong> cuando su rentabilidad supera a la media del sector (Resumen sintético, pág. 5). Para lograrlo tiene que haber sinergia entre las tres dimensiones (Resumen 2, pág. 4).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Si una empresa dice que quiere ser la más innovadora, pero para cualquier idea hay que pedir cinco firmas, y a la gente que propone algo la miran raro, la estrategia dice una cosa, la estructura otra y la cultura otra. Buena parte de la materia es aprender a ver esos choques.</p>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-por-que-le-importa-a-alguien-de-sistemas">Por qué le importa a alguien de sistemas</h2>
+<p>La cátedra tiene una opinión fuerte sobre tu profesión. Según la ficha, el profesional de sistemas tendría que ser un <strong>analista simbólico</strong>. Eso es alguien que interpreta las demandas de información de calidad para los distintos niveles de decisión, en forma integrada, y desarrolla las tecnologías que lo posibilitan. Lo opuesto es ser un eterno «apagador de incendios» que solo da soporte (Ficha de cátedra 2015, pág. 4).</p>
+<p>La <strong>información de calidad</strong> es la que, a partir de procesos de integración y coordinación desde los niveles transaccionales, brinda el insumo básico para decidir en los niveles político, estratégico, táctico y operativo (Ficha de cátedra 2015, pág. 2).</p>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido">El recorrido</h2>
+<ol>
+<li><strong><a href="#final-conceptos-de-base">Conceptos de base</a>.</strong> Organización, gestión, contexto y paradigmas.</li>
+<li><strong><a href="#final-dimension-estrategica">Estrategia</a>.</strong> Misión, visión, objetivos y plan estratégico. Las herramientas para analizar el contexto, como PESTLE, cadena de valor, las cinco fuerzas, FCE y FODA.</li>
+<li><strong><a href="#parcial-estrategias-genericas-de-porter">Posicionamiento</a>.</strong> Las estrategias genéricas de Porter, el modelo Delta y el reloj de Bowman.</li>
+<li><strong><a href="#final-cuadro-de-mando-integral">Cuadro de mando integral</a>.</strong> Cómo se mide si la estrategia se cumple.</li>
+<li><strong><a href="#final-dimension-estructural">Estructura</a>.</strong> Sus variables y el diseño de organizaciones de Mintzberg.</li>
+<li><strong><a href="#final-dimension-cultural">Cultura</a>.</strong> Liderazgo, conflicto, motivación y cómo se mantiene viva.</li>
+<li><strong><a href="#final-cambio-organizacional">Cambio</a>.</strong> Por qué la gente se resiste y cómo se maneja.</li>
+<li><strong><a href="#final-reingenieria-de-procesos">Reingeniería</a>.</strong> Rediseñar los procesos desde cero.</li>
+<li><strong><a href="#final-implementacion-apropiacion-de-tecnologias">Implementación-apropiación</a>.</strong> Cómo se mete un sistema en una organización de forma que la gente lo haga propio.</li>
+</ol>
+</section>
+<section class="sec"><h2 id="inicio-como-se-conecta">Cómo se conecta</h2>
+<p>La estrategia manda. La estructura depende de ella, y la cultura tiene que estar alineada para que los objetivos se cumplan (Recopilación de finales, págs. 5 y 15).</p>
+<p>Cuando el contexto cambia, la organización tiene que cambiar. Ahí aparecen la resistencia al cambio y los modelos para manejarla. La reingeniería es la forma más drástica de ese cambio.</p>
+<p>Un sistema de información es también un cambio. Por eso la ficha pide relevar desde las definiciones estratégicas hacia abajo. Si no se hace, en sus palabras, «automatizamos el presente y no sistematizamos el futuro» (Ficha de cátedra 2015, pág. 12).</p>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p>Leí todo lo que hay de 2023 en adelante, más los 9 finales de 2016 a 2018 de una recopilación.</p>
+<div class="tabla"><table><thead><tr><th>Examen</th><th>Cómo fue, según quien lo contó</th><th>Temas</th></tr></thead><tbody><tr><td>2024, sin fecha exacta</td><td>Cuatro consignas teóricas</td><td>Cuadro de mando, fuerzas de Porter, reingeniería, análisis de contexto</td></tr><tr><td>Final, 08/08/2025</td><td>Tres preguntas escritas</td><td>Cuadro de mando, cultura, análisis de contexto</td></tr><tr><td>Examen escrito, 05/09/2025</td><td>Multiple choice y una definición</td><td>Cuadro de mando, cultura, políticas, herramientas de análisis de contexto</td></tr><tr><td>Parcial, 26/05/2026</td><td>El archivo del Drive está vacío</td><td>Sin datos</td></tr><tr><td>Parcial, 02/06/2026</td><td>Cuatro escenarios cortos de empresas</td><td>Inconsistencias y propuestas de solución</td></tr></tbody></table></div>
+<p>En esos 3 exámenes teóricos de 2024 y 2025, lo que más se repite es esto.</p>
+<ul>
+<li><mark>Cuadro de mando integral</mark>, 3 de 3.</li>
+<li><mark>Análisis de contexto y sus herramientas</mark>, 3 de 3.</li>
+<li><mark>Cultura organizacional</mark>, 2 de 3.</li>
+<li>Fuerzas de Porter, reingeniería y políticas, 1 de 3 cada una.</li>
+</ul>
+<p>En los 9 finales de 2016 a 2018 lo que más aparece es cambio y resistencia (6 de 9), plan estratégico y definición de estrategia (5 de 9) y reingeniería (3 de 9). También salieron Mintzberg, estructura de reinos y modelo Delta. Esos temas no aparecen en los recuerdos nuevos, pero son muy pocos exámenes para descartarlos.</p>
+<div class="ojo"><p class="ojo-t">Finales y parcial piden cosas distintas</p><p>El final, según lo contado, mide definiciones y conceptos. El único parcial con contenido mide si aplicás esos conceptos a una empresa. Hay un solo recuerdo de parcial, así que no sabés todavía qué temas entran. Preguntalo en tu comisión.</p>
+</div>
+<p>En 2019 la cursada de una comisión también tenía trabajos prácticos sobre una empresa real y un integrador con defensa. Están en el Drive, pero son trabajos de alumnos y no encontré nada que diga si siguen vigentes.</p>
+</section>
+<section class="sec"><h2 id="inicio-como-usar-este-resumen">Cómo usar este resumen</h2>
+<ul>
+<li>Para el <strong>parcial</strong>, arrancá por <a href="#pdf-parcial">su página</a>. Trae el método y la teoría de posicionamiento.</li>
+<li>Para el <strong>final</strong>, <a href="#pdf-final">esta página</a> tiene toda la teoría. El amarillo marca lo que salió en exámenes de 2024 en adelante.</li>
+<li>Las <a href="ejercicios.html">consignas reales</a> van sin resolver. No hay resoluciones oficiales en el Drive.</li>
+<li>Antes de rendir, la <a href="machete.html">hoja de repaso</a>.</li>
+</ul>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial" data-pagina="parcial" aria-label="Parcial"><p class="pdf-de">Gestión Gerencial</p><h1>Parcial</h1>
+<p class="bajada">Leer una empresa: qué dice que quiere ser, qué hace de verdad y dónde no cierra.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p>
+
+
+<section class="sec"><h2 id="parcial-como-viene-el-parcial">Cómo viene el parcial</h2>
+<div class="tomado"><aside class="nota"><strong>Cuatro escenarios cortos, de cuatro empresas distintas</strong><span>Parcial, 02/06/2026, contado por un alumno</span></aside><p>«Tomaron básicamente 4 escenarios cortitos y tenías que desarrollar en base a eso, buscar inconsistencias y proponer soluciones o cosas así. En uno te decía que se quería proponer la empresa como diferenciación, pero despedía personal para abaratar costos y vos tenias que desarrollar en base a eso, y así 4 escenarios de 4 empresas distintas.»</p>
+</div>
+<p>Eso es todo lo que hay. El archivo del otro parcial, del 26/05/2026, está vacío en el Drive. Con un solo recuerdo no puedo decirte qué temas entran. Preguntá el temario en tu comisión.</p>
+<p>Por el ejemplo contado, seguro necesitás las estrategias de Porter y la relación entre las tres dimensiones. El resto de la teoría está en <a href="#pdf-final">la página del final</a>.</p>
+</section>
+<section class="sec"><h2 id="parcial-como-encarar-un-escenario">Cómo encarar un escenario</h2>
+<div class="idea"><p>Esta guía está armada para este resumen. No es un formato de la cátedra. Sale de la teoría de abajo, y sirve para no quedarte en blanco.</p>
+<ol>
+<li><strong>Qué dice que quiere ser.</strong> Buscá la misión, los objetivos o el posicionamiento que declara.</li>
+<li><strong>Qué hace.</strong> Separá las decisiones concretas. Pueden ser de costos, de gente, de jerarquía o de procesos.</li>
+<li><strong>A qué dimensión pertenece cada cosa.</strong> Estrategia, estructura o cultura.</li>
+<li><strong>Compará contra los requisitos.</strong> Cada posicionamiento pide capacidades y una forma de organizarse, y están en las tablas de abajo.</li>
+<li><strong>Nombrá la inconsistencia con el vocabulario de la materia.</strong> Decí qué variable choca con qué.</li>
+<li><strong>Proponé.</strong> La solución tiene que atacar la causa y volver a alinear las dimensiones.</li>
+</ol>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-las-tres-dimensiones-tienen-que-cerrar">Las tres dimensiones tienen que cerrar</h2>
+<p>Lo que sigue es lo que sostiene cualquier respuesta a un caso.</p>
+<ul>
+<li>La estructura depende de la estrategia. Es en función de los objetivos y metas propuestas que se establece la estructura más adecuada (Recopilación de finales, pág. 5).</li>
+<li>La cultura debe estar alineada con las estrategias que se proponen. Si no, no se logran los objetivos definidos (Recopilación de finales, pág. 15).</li>
+<li>Los objetivos tácticos y operativos se alinean y se subordinan a los estratégicos (Resumen sintético, pág. 19).</li>
+<li>La estrategia no es solo definirla. El gran problema es hacer que se cumpla (Resumen sintético, pág. 22).</li>
+</ul>
+<p>Dos organizaciones del mismo tamaño y sector pueden tener estructuras muy parecidas. Se comportan distinto porque su cultura es distinta (Resumen sintético, pág. 26).</p>
+</section>
+<section class="sec"><h2 id="parcial-estrategias-genericas-de-porter">Estrategias genéricas de Porter</h2>
+<p>Una <strong>estrategia competitiva</strong> emprende acciones ofensivas o defensivas para crear una posición defendible en un sector, enfrentar con éxito a las <a href="#final-las-cinco-fuerzas-de-porter">cinco fuerzas</a> y obtener un rendimiento superior sobre la inversión (Resumen sintético, pág. 24).</p>
+<p>Una <strong>ventaja competitiva</strong> es la posibilidad de conseguir una posición ventajosa respecto de los competidores. Hace falta una característica, habilidad o capacidad que la competencia no pueda atacar fácilmente en el largo plazo (Resumen sintético, pág. 24).</p>
+<p>Porter plantea que no se puede tener a la vez buenos costos y un producto de alta calidad, y que hay que definirse. La falta de definición baja la rentabilidad (Resumen sintético, pág. 22).</p>
+<p>Son tres estrategias, internamente consistentes, para crear una posición defendible a largo plazo. «La implantación efectiva de estas estrategias requiere de un compromiso total y del apoyo con todos los elementos organizacionales que estarían diluidos si existe más de un objetivo primario» (Resumen 3, pág. 9).</p>
+<div class="tabla"><table><thead><tr><td></td><th>Liderazgo en costos</th><th>Diferenciación</th><th>Alta segmentación o enfoque</th></tr></thead><tbody><tr><td><strong>Qué es</strong></td><td>Instalaciones que producen grandes volúmenes con eficiencia y foco en reducir costos</td><td>Crear algo que el mercado perciba como único, lo que permite subir precio y margen. Se logra por diseño o imagen de marca, tecnología, características particulares, servicio al cliente o cadena de distribuidores</td><td>Competir en costos o en diferenciación, en un ámbito más reducido. Puede ser un grupo de compradores, un segmento de la línea de producto o un mercado geográfico</td></tr><tr><td><strong>Cuándo conviene</strong></td><td>Muchos compradores sensibles al precio</td><td>El material no da una condición. Como efecto, nombra mayor fidelización de clientes</td><td>Mercado desabastecido o mal servido, con buen potencial de crecimiento, que no sea del interés de la competencia en el corto y mediano plazo, y con tamaño suficiente para ser rentable</td></tr><tr><td><strong>Requisitos</strong></td><td>Inversión constante de capital y acceso al capital. Habilidad en la ingeniería del proceso. Supervisión intensa de la mano de obra. Productos diseñados para facilitar su fabricación. Sistemas de distribución de bajo costo</td><td>Fuerte habilidad de comercialización. Ingeniería del producto. Instinto creativo. Fuerte capacidad en la investigación básica. Reputación de liderazgo tecnológico y de calidad. Larga tradición en el sector o una combinación de habilidades únicas derivadas de otros negocios. Fuerte cooperación de los canales de distribución</td><td>Combinación de las anteriores, dirigida a un objetivo estratégico particular</td></tr><tr><td><strong>Cómo se organiza</strong></td><td>Rígido control de costos. Reportes de control frecuentes y detallados. Organización y responsabilidades estructuradas. Incentivos basados en alcanzar objetivos estrictamente cuantitativos</td><td>Fuerte coordinación entre investigación y desarrollo, desarrollo del producto y comercialización. Mediciones e incentivos subjetivos. Fuerte motivación para atraer trabajadores altamente capacitados, científicos o gente creativa</td><td>Combinación de las políticas anteriores, dirigidas al objetivo estratégico particular</td></tr><tr><td><strong>Favorable contra</strong></td><td>Rivalidad, poder del proveedor, sustitutos</td><td>Rivalidad, competidores potenciales, poder del proveedor, poder del cliente</td><td>Depende de cuál de las dos aplique</td></tr><tr><td><strong>Limitaciones</strong></td><td>Muchas veces no se dispone de los datos apropiados para construirla</td><td>Impide una elevada participación en el mercado. A menudo requiere una percepción de exclusividad, incompatible con una participación alta. Suele pedir un trueque con la posición de costo, porque las actividades que la crean son costosas</td><td>Implica limitaciones en la participación total del mercado que se puede alcanzar. Supone un trueque entre lo rentable y el volumen de ventas</td></tr><tr><td><strong>Riesgos</strong></td><td>Otro con costos menores. Que el cliente deba resignar algo imprescindible, como la calidad</td><td>Mucha diferencia con la empresa líder en costos. Que decaiga la necesidad del diferencial. Que lo imiten</td><td>Que crezca la distancia entre lo que pide el segmento y lo que le das. Nuevos competidores</td></tr></tbody></table></div>
+<p>Fuente: Resumen de Administración Gerencial, págs. 8 y 9. Resumen sintético, págs. 24 y 25. Recopilación de finales, págs. 7 y 8. Resumen 3, págs. 9 y 10. Resumen 2, págs. 16 y 17. Lista de preguntas de un alumno, sin fecha, pág. 1.</p>
+<p>Otro resumen nombra riesgos distintos, que no contradicen a los de la tabla (Resumen 2, pág. 18).</p>
+<ul>
+<li><strong>Costos.</strong> Un cambio tecnológico que anule la experiencia o el aprendizaje pasado. Que los recién llegados aprendan fácil y rápido. No ver el cambio que hace falta en el producto o en la comercialización. La inflación en los costos.</li>
+<li><strong>Diferenciación.</strong> Que la diferencia de costo con los competidores baratos sea demasiado grande para que la diferenciación retenga la lealtad a la marca. Que decaiga la necesidad del factor diferenciante. Que la imitación achique la diferencia percibida.</li>
+<li><strong>Enfoque.</strong> Que los competidores encuentren submercados dentro del segmento y dejen fuera de foco a la empresa. Que se amplíe la diferencia de costo con los que atienden todo el mercado, y se pierda la ventaja de servir a un segmento limitado.</li>
+</ul>
+<h3 id="parcial-por-que-cada-una-protege">Por qué cada una protege</h3>
+<p>La fila «Favorable contra» tiene una explicación (Resumen 3, pág. 9).</p>
+<ul>
+<li><strong>Costos.</strong> Con costos más bajos, la empresa todavía gana cuando sus competidores ya se comieron sus utilidades peleando. Le da flexibilidad para aguantar los aumentos de los insumos de proveedores poderosos. Y la deja mejor parada que sus competidores frente a los sustitutos.</li>
+<li><strong>Diferenciación.</strong> La lealtad de los clientes la aísla de la rivalidad. Esa lealtad, y lo que le costaría a un competidor superar el carácter único, son barreras de ingreso. Los márgenes más altos le permiten tratar con el poder del proveedor, y mitiga el poder del comprador.</li>
+<li><strong>Enfoque.</strong> Tiene una posición de costo bajo frente a su objetivo, o alta diferenciación, o ambas. Por eso logra rendimientos mayores al promedio aunque no sea la más barata ni la más diferenciada del mercado entero.</li>
+</ul>
+<h3 id="parcial-posicionamiento-a-la-mitad">Posicionamiento a la mitad</h3>
+<p>Es lo que le pasa a la empresa que falla en definir una de las tres estrategias (Resumen 3, págs. 10 y 11).</p>
+<ul>
+<li><strong>Qué le pasa.</strong> «Esta empresa tiene garantizados beneficios bajos, o bien, pierde los clientes de gran volumen que exigen precios bajos o debe despedirse de sus utilidades para alejar a su empresa de la competencia de bajo costo.»</li>
+<li><strong>Qué le pasa adentro.</strong> «Es probable que esta empresa sufra de una cultura empresarial borrosa y de un conjunto conflictivo en su estructura organizacional y de sistemas de motivación.»</li>
+<li><strong>Qué tiene que hacer.</strong> Tomar una decisión estratégica fundamental. O da los pasos para lograr el liderazgo en costos, o por lo menos la paridad en costos, o se orienta a un objetivo particular (enfoque) o a lograr algo único (diferenciación). Las dos últimas pueden achicar su participación en el mercado. La elección depende de las capacidades y limitaciones de la empresa.</li>
+</ul>
+<p>Otro resumen lo muestra con una curva en forma de U (Resumen 2, pág. 18). El rendimiento sobre la inversión es alto con poca participación en el mercado, si la empresa se concentra en un segmento. También es alto con mucha participación, si se diferencia o lidera en costos. En el medio, sin diferenciación, sin liderazgo en costos y sin segmento, el rendimiento es bajo. La relación no vale en todos los sectores. En algunos no hay lugar para el enfoque o la diferenciación, y todo es un juego de costos. En otros el costo importa poco, por cómo son el comprador y el producto.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Costos es jugar a ser el más barato sin perder plata. Diferenciación es que te paguen más porque nadie hace lo tuyo. Enfoque es elegir una porción chica del mercado y jugar uno de esos dos juegos ahí adentro.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-modelo-delta">Modelo Delta</h2>
+<p>Es de Hax y Wilde. Es un conjunto de esquemas y metodologías para articular e implementar estrategias eficaces, para cada negocio y para la empresa como un todo (Resumen sintético, pág. 23).</p>
+<p>Los modelos clásicos miran el producto. Delta pone en el centro el <strong>vínculo con el cliente</strong>, un lazo cercano con conocimiento profundo de sus necesidades. Considera a los mercados como complejos y formados por grandes redes de empresas (Resumen sintético, págs. 22 y 23).</p>
+<p>«La clave es atraer, satisfacer y retener al cliente.» El vínculo puede formarse directamente con el cliente, o indirectamente a través de empresas complementarias a las que el cliente tiene acceso. El primer paso para definir la estrategia es elegir el posicionamiento, que capta la esencia de cómo la empresa compite y atiende a sus clientes (Resumen 3, pág. 13).</p>
+<div class="tabla"><table><thead><tr><th>Opción</th><th>En qué se basa</th><th>Foco y rasgos</th></tr></thead><tbody><tr><td><strong>Mejor producto</strong></td><td>Economía del producto y cadena de abastecimiento interna</td><td>Productos estandarizados, clientes genéricos. El foco es el competidor. Su desventaja es el vínculo mínimo con el cliente</td></tr><tr><td><strong>Solución integral para el cliente</strong></td><td>Economía del cliente</td><td>Conocerlo a fondo y darle un paquete coherente de productos y servicios. Busca alianzas con terceros. La innovación la guían las necesidades de los principales clientes</td></tr><tr><td><strong>Consolidación del sistema</strong></td><td>Economía del sistema</td><td>Incluye empresa, clientes, proveedores y complementarias. La clave es atraer y desarrollar empresas complementarias, que además excluyen a los competidores</td></tr></tbody></table></div>
+<p>Fuente: Resumen sintético, págs. 22 a 24. Resumen de Administración Gerencial, págs. 9 y 10.</p>
+<p>El modelo describe un pasaje de madurez, de la economía del producto a la del cliente y de ahí a la del sistema (Resumen sintético, pág. 22).</p>
+<p><strong>Qué le ofrece al cliente cada una.</strong> En mejor producto, la proposición de valor es el producto mismo y sus atributos, que no dependen del cliente. En solución integral, crece por la interacción entre el cliente y el producto, y eso estrecha el vínculo. En consolidación del sistema, se amplifica por la interacción con otros clientes (Resumen 3, pág. 14). Por eso se busca que «el valor de un producto o servicio aumente significativamente cuando este es utilizado también por otras personas» (Resumen sintético, pág. 24).</p>
+<div class="tabla"><table><thead><tr><th>Dimensión</th><th>Mejor producto</th><th>Solución integral</th><th>Consolidación del sistema</th></tr></thead><tbody><tr><td><strong>Ámbito</strong></td><td>El producto</td><td>La empresa entera</td><td>La empresa y sus complementarias</td></tr><tr><td><strong>Contra quién se compara</strong></td><td>Los competidores</td><td>Las actividades de los clientes</td><td>También las complementarias</td></tr><tr><td><strong>Oferta</strong></td><td>Estandarizada</td><td>Ajustada al cliente</td><td>Ampliada con lo de las complementarias</td></tr><tr><td><strong>Cadena de abastecimiento</strong></td><td>Interna</td><td>Incluye al cliente y al proveedor</td><td>Todo el sistema</td></tr><tr><td><strong>Canales</strong></td><td>Genéricos, de mercado masivo</td><td>Directos al cliente</td><td>Masivos, directos e indirectos</td></tr><tr><td><strong>Innovación</strong></td><td>Centrada en sí misma</td><td>Desarrollo conjunto con el cliente</td><td>Se aprovecha en todo el sistema</td></tr><tr><td><strong>Tecnología de información</strong></td><td>Información interna</td><td>Protocolos abiertos para una relación estrecha con el cliente</td><td>Base para integrar a las complementarias con una interfaz común</td></tr><tr><td><strong>Resultado</strong></td><td>Vínculo débil, mirada hacia adentro</td><td>Centro de gravedad afuera, en el cliente</td><td>El sistema atrae clientes nuevos y fideliza a los actuales</td></tr></tbody></table></div>
+<p>Fuente: Resumen 3, págs. 15 y 16.</p>
+<h3 id="parcial-las-formas-de-vincularse">Las formas de vincularse</h3>
+<p>Cada opción tiene su forma de vincularse con el cliente (Resumen de Administración Gerencial, págs. 9 y 10). Los resúmenes no les ponen el mismo nombre. Van los dos.</p>
+<div class="tabla"><table><thead><tr><th>Opción</th><th>Forma</th><th>Qué es</th><th>Comentario</th></tr></thead><tbody><tr><td>Mejor producto</td><td>Liderazgo en costos</td><td>Ser el proveedor de costos más bajos en una categoría no diferenciada</td><td>Hay un solo productor con los costos más bajos. Es el vínculo más débil, porque siempre puede aparecer alguien más barato</td></tr><tr><td>Mejor producto</td><td>Diferenciación</td><td>Diferenciar características y funciones para que el cliente lo prefiera y pague más</td><td>Apenas aparece, los competidores tienden a imitarlo. La ventaja no es sustentable</td></tr><tr><td>Solución integral</td><td>Redefinir la experiencia del cliente</td><td>Mirar la experiencia completa, desde que compra hasta que termina el ciclo de vida del producto</td><td>Se basa en conocer a fondo a los clientes, segmentarlos y tratar distinto a cada segmento</td></tr><tr><td>Solución integral</td><td>Maximizar el alcance horizontal (portafolio extendido)</td><td>Un conjunto completo de productos y servicios para todas sus necesidades, en un solo lugar</td><td>Busca quedarse con la mayor parte del gasto del cliente</td></tr><tr><td>Solución integral</td><td>Integración directa con el cliente</td><td>Sustituir o potenciar actividades que hoy hace el propio cliente. Es el outsourcing llevado al extremo</td><td>La empresa es un paquete de competencias que se transfieren al cliente para mejorar su posición económica</td></tr><tr><td>Consolidación del sistema</td><td>Acceso restringido</td><td>Barreras que impiden a los competidores llegar al cliente, porque el canal no admite más de un proveedor</td><td>Muy difícil de lograr y de sostener. Se tienden a crear regulaciones para evitarlo</td></tr><tr><td>Consolidación del sistema</td><td>Mercado dominante (intercambio dominante)</td><td>Ser la interfaz entre compradores y vendedores, muy difícil de reemplazar una vez que se formó una masa crítica</td><td>La más alcanzable de las tres. Ser el primero es crítico</td></tr><tr><td>Consolidación del sistema</td><td>Estándar de propiedad registrada</td><td>El cliente es atraído por la amplitud de la red de complementarias que trabajan con el producto</td><td>La más extrema. En la mayoría de las industrias no está disponible, y si se logra los retornos son inmensos</td></tr></tbody></table></div>
+<p>Fuente: Resumen 3, pág. 16. Resumen 2, págs. 19 a 21.</p>
+<p>En consolidación del sistema al cliente le cuesta cambiar de proveedor. Queda «enganchado» con él (Resumen 3, pág. 16). Los <strong>complementadores</strong> son los proveedores cuyos productos y servicios aumentan el valor que tus clientes perciben en lo tuyo. Esa red ayuda a dejar tu producto adentro del sistema y a la competencia afuera (Resumen 2, pág. 21).</p>
+<p><strong>Procesos de adaptación.</strong> Son los que posibilitan alinear la ejecución con la estrategia (Resumen sintético, pág. 22). Son tres (Lista de preguntas de un alumno, sin fecha, pág. 1).</p>
+<ul>
+<li><strong>Innovación.</strong> Desarrollo de nuevos productos, con un flujo continuo.</li>
+<li><strong>Orientación al cliente.</strong> Gestión de la interfaz con el cliente, y selección de los clientes atractivos.</li>
+<li><strong>Eficacia operacional.</strong> Producir y despachar con el costo y la estructura de activos más eficaz para la posición elegida.</li>
+</ul>
+<h3 id="parcial-en-que-se-parecen-y-en-que-no">En qué se parecen y en qué no</h3>
+<p>El modelo de Porter hace foco en el producto que se intenta vender. El modelo Delta hace foco en el vínculo con el cliente. En común, los dos bien implementados dan a la empresa una o más ventajas competitivas (Resumen sintético, pág. 25).</p>
+<div class="ojo"><p class="ojo-t">Lo que preguntaron de Delta en un oral</p><p>Una lista de un alumno, sin fecha, cuenta qué le preguntaron (pág. 1). Es un solo testimonio. Tomalo como pista de lo que se pide, no como respuesta.</p>
+<ul>
+<li><strong>Cuál es el objetivo de sus estrategias.</strong> En la lista, generar vínculo con el cliente.</li>
+<li><strong>A qué tipo de organización se aplica.</strong> Le pedían la configuración estructural, y según el alumno era «en redes». Él mismo dice que no sabe dónde lo dice el material. Mirá <a href="#parcial-modelos-de-redes-e-hibridos">Modelos de redes e híbridos</a>.</li>
+<li><strong>Cuáles son sus tres aportes.</strong> Él respondió el triángulo y los tres procesos de adaptación, y no supo el tercero. Ningún resumen del Drive enumera «tres aportes».</li>
+</ul>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-modelos-de-redes-e-hibridos">Modelos de redes e híbridos</h2>
+<p><strong>Redes.</strong> Las empresas se fusionan, se adquieren y forman conglomerados. Colaboran en algunos aspectos y compiten en otros. Una red compensa las competencias que no podés desarrollar. Tiene que haber una arquitectura de negocios común (Resumen sintético, pág. 22).</p>
+<p><strong>Híbridos.</strong> Complementan a Porter en contextos dinámicos, sin la complejidad de las redes. Los clientes piden hoy un grado conjunto relativamente alto de calidad y de costo. El reloj estratégico de Bowman toma las posiciones de Porter y agrega puntos intermedios entre costos y calidad (Resumen sintético, pág. 22). Las anotaciones de una clase de 2019 lo nombran como el modelo híbrido que se ve en la materia.</p>
+</section>
+<section class="sec"><h2 id="parcial-variables-para-ubicar-lo-que-choca">Variables para ubicar lo que choca</h2>
+<p>La definición de cada una está en <a href="#final-dimension-estructural">Final</a>. Acá van para repasar con qué vocabulario nombrar una inconsistencia.</p>
+<div class="tabla"><table><thead><tr><th>Dimensión</th><th>Variables</th></tr></thead><tbody><tr><td>Estrategia</td><td>Valores, misión, visión, objetivos estratégicos, estrategia</td></tr><tr><td>Estructura</td><td>Departamentalización, roles y funciones, jerarquía, responsabilidades, comunicación formal, procesos, políticas, procedimientos, centralización de decisiones, evaluación de desempeño, remuneraciones</td></tr><tr><td>Cultura</td><td>Cultura, liderazgo, manejo del poder, nivel de conflicto, motivación, clima laboral, comunicación informal, confianza</td></tr></tbody></table></div>
+<p>Fuente: Resumen de Administración Gerencial, págs. 5, 11, 12, 17 a 19.</p>
+<div class="ojo"><p class="ojo-t">Dos listas parecidas</p><p>Los resúmenes no enumeran igual las variables. Una <a href="https://drive.google.com/file/d/1KX1RvpVfndk3N8q7jRJ43wjhfvapjfqh/view">lista de preguntas de un alumno</a> suma a la cultura el trabajo en equipo, la negociación, el compromiso y el alineamiento. Si tu cátedra usa otra lista, usá la suya.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-final" data-pagina="final" aria-label="Final"><p class="pdf-de">Gestión Gerencial</p><h1>Final</h1>
+<p class="bajada">Toda la teoría: estrategia y sus herramientas, cuadro de mando, estructura, cultura, cambio, reingeniería e implementación-apropiación.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p>
+
+
+<section class="sec"><h2 id="final-como-viene-el-final">Cómo viene el final</h2>
+<div class="tomado"><aside class="nota"><strong>Tres o cuatro consignas teóricas, escritas</strong><span>2024, 08/08/2025 y 05/09/2025, contados por alumnos</span></aside><p>En 2024 fueron cuatro consignas y el 08/08/2025 tres preguntas. El 05/09/2025 fue multiple choice en tres consignas, más una definición. Los finales de 2016 a 2018 de la recopilación también traen entre tres y cuatro preguntas teóricas.</p>
+</div>
+<p>En cada tema pongo qué se preguntó y dónde, sin contestarlo. El amarillo marca lo que salió de 2024 en adelante. Los temas sin amarillo salieron en finales de 2016 a 2018, o no salieron en lo que hay.</p>
+<div class="ojo"><p class="ojo-t">De dónde sale esta teoría</p><p>Salvo la <a href="#final-implementacion-apropiacion-de-tecnologias">ficha de cátedra</a>, todo sale de resúmenes de alumnos, y de la bibliografía que esos resúmenes nombran. Son libros de Porter, Mintzberg, Robbins, Hammer y Champy, y Hax y Wilde (Resumen 2, pág. 56). Las definiciones cambian un poco de un resumen a otro. Si tu cátedra te dio otra, usá la suya.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final-conceptos-de-base">Conceptos de base</h2>
+<div class="tomado"><aside class="nota"><strong>Defina organización y amplíe conceptos</strong><span>Finales 10/03/17 y 24/02/17</span></aside><p>Consigna de la recopilación, sin la respuesta. La teoría está justo acá abajo.</p>
+</div>
+<ul>
+<li><strong>Organización.</strong> Sistema social intencional que, mediante un modelo de gestión, intenta satisfacer demandas socialmente valoradas. Está formada por personas que interactúan en el marco de una estructura para cumplir metas y objetivos.</li>
+<li><strong>Sus elementos.</strong> Conjunto de personas, objetivo común, recursos, esfuerzo combinado de los recursos, y un sistema de relaciones y dependencias.</li>
+<li><strong>Empresa.</strong> Organización cuyo fin principal es el lucro.</li>
+<li><strong>Gestión.</strong> Proceso integral que promueve el desarrollo organizacional. Es una parte esencial del trabajo gerencial.</li>
+<li><strong>Contexto.</strong> Todo lo que rodea a la organización. Tiene que adaptarse a él para crecer y sobrevivir. No conocerlo a fondo lleva a ineficiencias, y hasta puede hacer desaparecer a la compañía.</li>
+<li><strong>Competitividad.</strong> Resultado de todas las prácticas de gestión en relación con la competencia. Hay competitividad cuando la rentabilidad supera a la media del sector.</li>
+<li><strong>Proceso.</strong> Conjunto de actividades interrelacionadas que generan valor al cliente.</li>
+<li><strong>Cliente.</strong> Componente esencial de la gestión. La insatisfacción del cliente se asume como un error de gestión.</li>
+</ul>
+<p>Fuente: Resumen sintético, págs. 3 a 5.</p>
+<h3 id="final-competencias-profesionales">Competencias profesionales</h3>
+<p>Son saberes que se ponen en acción durante la práctica profesional (Resumen sintético, pág. 3).</p>
+<ul>
+<li><strong>Saber hacer.</strong> Lo cognitivo y los procedimientos aprendidos.</li>
+<li><strong>Saber ser.</strong> Lo social, ligado a la personalidad.</li>
+<li><strong>Saber estar.</strong> Adaptarse al contexto de trabajo y actualizar los otros dos saberes.</li>
+</ul>
+<h3 id="final-paradigmas">Paradigmas</h3>
+<p><strong>Paradigma</strong> es un modelo cuyo núcleo se acepta sin cuestionar. Da la base para resolver problemas (Resumen sintético, pág. 4).</p>
+<ul>
+<li><strong>De la simplicidad.</strong> Contextos estables, sin aspectos subjetivos. Separa a los que piensan de los que hacen.</li>
+<li><strong>De la complejidad.</strong> Hace hincapié en las interrelaciones. Los fenómenos no tienen causas únicas.</li>
+</ul>
+<p>Un contexto complejo tiene principios propios (Resumen 1, pág. 1).</p>
+<ul>
+<li><strong>Sistemático.</strong> No se conocen las partes sin conocer el todo.</li>
+<li><strong>Holográmico.</strong> La parte está en el todo y el todo está inscripto en la parte.</li>
+<li><strong>Bucle retroactivo.</strong> Causa y efecto interactúan en forma cíclica.</li>
+<li><strong>Bucle recursivo.</strong> Autoproducción y autoorganización.</li>
+<li><strong>Autonomía y dependencia.</strong> Un equilibrio entre las dos.</li>
+<li><strong>Dialógico.</strong> Une dos nociones que parecen excluirse pero que son inseparables en una misma realidad.</li>
+</ul>
+<h3 id="final-sociedad-industrial-y-sociedad-del-conocimiento">Sociedad industrial y sociedad del conocimiento</h3>
+<div class="tabla"><table><thead><tr><th>Sociedad industrial</th><th>Sociedad de la información o del conocimiento</th></tr></thead><tbody><tr><td>Impulsada por la energía</td><td>Impulsada por la información</td></tr><tr><td>Organización vertical</td><td>Organización horizontal</td></tr><tr><td>Jefatura, actitud de mando</td><td>Liderazgo</td></tr><tr><td>Producción en masa</td><td>Responde a nichos de mercado</td></tr><tr><td>Trabajador individual</td><td>Equipo de trabajo</td></tr><tr><td>Aprendizaje episódico</td><td>Aprendizaje continuo</td></tr><tr><td>Productos tangibles</td><td>Productos intangibles</td></tr><tr><td>Ventajas comparativas</td><td>Ventajas competitivas</td></tr><tr><td>Unidad productiva, la empresa</td><td>Redes de empresas</td></tr><tr><td>Contextos fijos, realidad simple</td><td>Contextos variables, realidad compleja</td></tr><tr><td>Organización definida estructuralmente</td><td>Organización definida por procesos</td></tr><tr><td>Gestión táctico-operativa</td><td>Gestión estratégica</td></tr></tbody></table></div>
+<p>Fuente: Resumen 3, pág. 1. Preguntas y respuestas frecuentes, págs. 15 y 16.</p>
+</section>
+<section class="sec"><h2 id="final-dimension-estrategica">Dimensión estratégica</h2>
+<p>Pone en relación a la organización con el contexto. Se despliega definiendo valores, misión, visión, objetivos estratégicos y estrategia (Resumen sintético, pág. 19).</p>
+<h3 id="final-valores-mision-y-vision">Valores, misión y visión</h3>
+<ul>
+<li><strong>Valores.</strong> Conjunto de principios, creencias y reglas compartidas que regulan la gestión. Son el soporte de la cultura (Resumen 2, pág. 4).</li>
+<li><strong>Misión.</strong> Razón de ser de la organización, el propósito para el que fue creada. Escueta y precisa. Define a qué cliente se dirige, y por lo general no cambia (Resumen sintético, pág. 4).</li>
+<li><strong>Visión.</strong> Imagen de la organización a futuro. Desafiante y creíble. Proyecta la misión hacia adelante (Resumen sintético, pág. 4).</li>
+</ul>
+<h3 id="final-objetivos-y-metas">Objetivos y metas</h3>
+<div class="tomado"><aside class="nota"><strong>Defina estrategia. Defina y mencione diferencias entre meta y objetivos</strong><span>Final 10/03/17</span></aside><p>Consigna de la recopilación, sin la respuesta.</p>
+</div>
+<p>Los <strong>objetivos</strong> son los logros que la organización persigue en un plazo determinado. Son coherentes con la misión y están alineados con la visión. Las <strong>metas</strong> son logros que se proyectan en plazos cortos, con una declaración explícita de los elementos involucrados (Resumen sintético, pág. 21).</p>
+<div class="tabla"><table><thead><tr><th>Objetivos</th><th>Qué alcance tienen</th></tr></thead><tbody><tr><td><strong>Estratégicos</strong></td><td>Largo plazo. Orientan a toda la organización y son la base de los otros</td></tr><tr><td><strong>Tácticos</strong></td><td>Afectan a un área. Buscan mejorar calidad, eficiencia, eficacia y economía de los procesos</td></tr><tr><td><strong>Operativos</strong></td><td>Plazos más cortos. Declaran tipo de producto, niveles de actividad y estándares de productividad</td></tr></tbody></table></div>
+<p>Fuente: Resumen de Administración Gerencial, págs. 5 y 6. Resumen sintético, pág. 19.</p>
+<p>Unas anotaciones de clase de 2019 dicen que los objetivos estratégicos son tres, rentabilidad, desarrollo de nuevos mercados y desarrollo de nuevos productos. Lo demás sería táctico (Anotaciones de clases, 28/03/2019).</p>
+<h3 id="final-estrategia-y-sus-niveles">Estrategia y sus niveles</h3>
+<p><strong>Estrategia</strong> es un patrón de comportamiento para cumplir los objetivos estratégicos. Indica cómo llevar adelante el despliegue organizacional. Según Porter, es crear una posición única y valiosa en el mercado (Resumen sintético, pág. 4).</p>
+<p>También se define como un modo de dar forma a las metas y objetivos de largo plazo, con los programas de acción y los recursos para alcanzarlos (Recopilación de finales, pág. 5).</p>
+<div class="tabla"><table><thead><tr><th>Nivel</th><th>Pregunta</th><th>Qué define o usa</th></tr></thead><tbody><tr><td><strong>Corporativo</strong></td><td>¿En qué negocio debemos estar?</td><td>Objetivos y alcance global</td></tr><tr><td><strong>Competitivo</strong></td><td>¿En qué segmento competimos, con qué productos?</td><td>Estrategias genéricas</td></tr><tr><td><strong>Operativo</strong></td><td>¿Cómo contribuye cada componente, como marketing, diseño o I+D?</td><td>Cadena de valor</td></tr></tbody></table></div>
+<p>Fuente: Resumen sintético, pág. 5.</p>
+<p><strong>Estrategia planificada y emergente.</strong> La planificada es racional, formalizada y sistemática, y le quita capacidad de reacción a la organización. La emergente es más incremental e intuitiva, y responde a los cambios del entorno (Resumen de Administración Gerencial, págs. 3 y 4).</p>
+<h3 id="final-plan-estrategico">Plan estratégico</h3>
+<div class="tomado"><aside class="nota"><strong>Pasos del plan, quién lo arma, cómo se relaciona con la estructura y cómo interviene la cumbre</strong><span>Finales 17/11/17, 05/05/17 y 24/02/17</span></aside><p>Consignas de la recopilación, sin la respuesta. La lista completa está en <a href="ejercicios.html">Ejercicios</a>.</p>
+</div>
+<p>La planificación estratégica define la dimensión estratégica y cómo llevarla adelante. Se realiza a largo plazo, pero tiene en cuenta el corto y el mediano (Resumen sintético, pág. 20).</p>
+<p><strong>Los siete pasos</strong> (Resumen sintético, págs. 20 y 21).</p>
+<ol>
+<li>Declaración de la visión.</li>
+<li>Declaración de la misión y establecimiento de valores.</li>
+<li>Análisis externo, oportunidades y amenazas.</li>
+<li>Análisis interno, fortalezas y debilidades.</li>
+<li>Establecimiento de los objetivos generales. Alcanzables, mensurables y cuantificables en un tiempo determinado.</li>
+<li>Diseño, evaluación y selección de estrategias.</li>
+<li>Diseño de planes estratégicos, documentos que dicen cómo se alcanzan los objetivos.</li>
+</ol>
+<p><strong>Para qué sirve</strong> (Resumen sintético, pág. 20). Define en qué dirección ir, ayuda a usar mejor los recursos, neutraliza amenazas, potencia oportunidades, facilita el cambio y reparte responsabilidades.</p>
+<p><strong>La cumbre estratégica</strong> asegura que la organización cumpla su misión y que se cumplan los objetivos del plan. Su coordinación es por ajuste mutuo, porque hay poca repetición y poca estandarización en sus decisiones. Los desvíos se registran para compararlos con el plan y no repetirlos (Resumen sintético, pág. 21).</p>
+<h3 id="final-proceso-de-direccion-estrategica">Proceso de dirección estratégica</h3>
+<p>Tiene tres actividades (Resumen 1, pág. 2).</p>
+<ol>
+<li><strong>Análisis estratégico.</strong> Pone a la organización en relación con el contexto, interno y externo, con las <a href="#final-herramientas-de-analisis-del-contexto">herramientas</a>.</li>
+<li><strong>Elección estratégica.</strong> Define objetivos, planifica y selecciona estrategias. Ahí entran <a href="#parcial-estrategias-genericas-de-porter">Porter y Delta</a>.</li>
+<li><strong>Implementación estratégica.</strong> Define la misión estratégica, la estructura, la cultura y los procesos de negocio.</li>
+</ol>
+</section>
+<section class="sec"><h2 id="final-herramientas-de-analisis-del-contexto">Herramientas de análisis del contexto</h2>
+<div class="tomado"><aside class="nota"><strong>Para qué se hace y qué información da el análisis de contexto, y sus herramientas</strong><span>2024, 08/08/2025 y 05/09/2025</span></aside><p>En 2024, <mark>«Para que hace un análisis de contexto una organización»</mark>. El 08/08/2025, <mark>«qué tipo de información obtiene la organización al analizar el contexto»</mark>. El 05/09/2025, multiple choice <mark>«sobre herramientas de análisis de contexto»</mark>. Con otra letra, en el final 24/02/18: «Enuncie las herramientas que permiten ver la posición de la empresa en el mercado donde participa».</p>
+</div>
+<p>Ningún material responde con esa letra qué tipo de información se obtiene. Lo más cercano es lo que mira cada herramienta, abajo.</p>
+<p>Los análisis van de lo más general a lo más particular. Arrancan por escenarios y PEST, siguen con cadena de valor, fuerzas de Porter y factores críticos de éxito, y terminan en FODA, que arma las opciones estratégicas (Resumen sintético, pág. 18).</p>
+<p>La tabla es para ubicar cada herramienta.</p>
+<div class="tabla"><table><thead><tr><th>Herramienta</th><th>Qué mira</th><th>Interno o externo</th></tr></thead><tbody><tr><td>Análisis de escenarios</td><td>Futuros probables e incertidumbre</td><td>Externo</td></tr><tr><td>PESTLE</td><td>Fuerzas del entorno general</td><td>Externo</td></tr><tr><td>Cadena de valor</td><td>Actividades y costos propios y del sector</td><td>Interno y sector</td></tr><tr><td>Cinco fuerzas de Porter</td><td>Competencia en el sector industrial</td><td>Externo, sector</td></tr><tr><td>Factores críticos de éxito</td><td>Áreas que aseguran el rendimiento competitivo</td><td>Interno y externo</td></tr><tr><td>FODA</td><td>Diagnóstico y opciones estratégicas</td><td>Interno y externo</td></tr></tbody></table></div>
+<p>Fuente: Resumen sintético, págs. 5 a 10 y 18. La columna de la derecha la deduje de esas páginas.</p>
+<h3 id="final-analisis-de-escenarios">Análisis de escenarios</h3>
+<p>Los escenarios son descripciones provisorias y exploratorias de un futuro probable. No son un pronóstico. Reflejan problemas, amenazas y oportunidades, se fundan en diagnósticos y se revisan periódicamente. Sirven para detectar incertidumbre y preparar planes de contingencia (Resumen sintético, págs. 5 y 6. Resumen 1, pág. 2).</p>
+<p>Pasos para construirlos (Resumen sintético, pág. 6).</p>
+<ol>
+<li>Estudiar el tema.</li>
+<li>Identificar variables.</li>
+<li>Comprobar el grado de poder y los conflictos entre actores sociales.</li>
+<li>Diseñar el escenario probable.</li>
+<li>Diseñar escenarios alternativos.</li>
+</ol>
+<h3 id="final-pestle">PESTLE</h3>
+<p>Estudia el impacto de las fuerzas del medio ambiente, para aprovechar oportunidades y eliminar amenazas. Los factores son políticos, económicos, socioculturales, tecnológicos, jurídicos y ambientales (Resumen sintético, pág. 6).</p>
+<div class="ojo"><p class="ojo-t">Vas a verlo con varios nombres</p><p>PEST, PESTLE y PESTLA. El resumen de 24 páginas enumera cinco factores y el sintético seis. Unas notas de alumno avisan de un error típico, el factor de escala, como analizar a una pyme con la mirada de una multinacional (Resumen 1, pág. 2).</p>
+</div>
+<h3 id="final-cadena-de-valor">Cadena de valor</h3>
+<p>Identifica las actividades que crean valor para el cliente y las de apoyo. Es indispensable para estudiar la estructura de costos (Resumen sintético, pág. 6).</p>
+<div class="tabla"><table><thead><tr><th>Actividades primarias</th><th>Actividades de soporte</th></tr></thead><tbody><tr><td>Logística de entrada</td><td>Compras</td></tr><tr><td>Operaciones</td><td>Desarrollo de tecnología</td></tr><tr><td>Logística de salida</td><td>Dirección de recursos humanos</td></tr><tr><td>Comercialización y ventas</td><td>Infraestructura institucional</td></tr><tr><td>Servicio posventa</td><td></td></tr></tbody></table></div>
+<p>El <strong>margen</strong> es la diferencia entre el valor total y los costos totales. El análisis se hace en dos niveles. Uno compara a la organización con su sector industrial. El otro la compara con otras organizaciones, para ver qué hace adentro y qué terceriza (Resumen sintético, pág. 7).</p>
+<h3 id="final-las-cinco-fuerzas-de-porter">Las cinco fuerzas de Porter</h3>
+<div class="tomado"><aside class="nota"><strong>Desarrollar 3 fuerzas de Porter</strong><span>2024</span></aside><p><mark>«Desarrollar 3 fuerzas de porter»</mark>. Sin fecha, una lista de preguntas frecuentes pide desarrollar el poder de negociación de los proveedores y la intensidad de la rivalidad.</p>
+</div>
+<p>Es el análisis estructural del sector industrial. Las cinco fuerzas determinan la utilidad potencial, medida como rendimiento a largo plazo del capital invertido. A competencia más intensa, utilidad más baja (Resumen sintético, pág. 7).</p>
+<p><strong>Rivalidad entre competidores.</strong> Las empresas son mutuamente dependientes. La competencia es intensa cuando hay muchos competidores o muy parejos, crecimiento lento, costos fijos o de almacenamiento altos, falta de diferenciación, aumentos de capacidad, competidores diversos, intereses estratégicos elevados y fuertes barreras de salida (Resumen sintético, págs. 7 y 8).</p>
+<p><strong>Amenaza de productos sustitutos.</strong> Cumplen la misma función para el mismo público, con otra tecnología. Ponen un techo al precio. Los más peligrosos tienen mejor relación precio y calidad, o vienen de sectores con altos rendimientos (Resumen sintético, pág. 8).</p>
+<p><strong>Nuevos ingresos.</strong> Traen capacidad adicional y ganas de ganar mercado, y pueden bajar la rentabilidad. Los frenan las barreras de ingreso (Resumen sintético, págs. 8 y 9).</p>
+<ul>
+<li>Economías de escala.</li>
+<li>Diferenciación del producto.</li>
+<li>Requisitos de capital.</li>
+<li>Costos de cambiar de proveedor.</li>
+<li>Acceso a canales de distribución.</li>
+<li>Desventajas en costos independientes de la escala, como patentes, acceso a materias primas, ubicación, subsidios o curva de aprendizaje.</li>
+</ul>
+<p><strong>Poder de negociación de los clientes.</strong> Buscan mejor precio y calidad, haciendo competir a los vendedores. Un grupo de compradores es poderoso si compra mucho respecto de las ventas del vendedor, si cambiar de proveedor le cuesta poco, si tiene bajas utilidades, si amenaza con integrarse hacia atrás y si tiene información total (Resumen sintético, pág. 9).</p>
+<p>Otros dos resúmenes completan la lista con tres circunstancias más (Resumen 3, págs. 7 y 8. Resumen 2, pág. 14).</p>
+<ul>
+<li>Lo que compra al sector es una fracción importante de sus costos o de sus compras.</li>
+<li>Los productos que compra son estándar o no diferenciados, y puede encontrar proveedores alternativos.</li>
+<li>El producto del sector no es importante para la calidad de sus propios productos. Si lo fuera, sería menos sensible al precio.</li>
+</ul>
+<p>Estos factores cambian con el tiempo o por las decisiones de la empresa. Por eso elegir a qué grupos de compradores venderles es una decisión estratégica vital (Resumen 2, pág. 14).</p>
+<p><strong>Poder de negociación de los proveedores.</strong> Pueden amenazar con subir los precios o bajar la calidad de lo que venden. Un grupo de proveedores es poderoso si se dan estas circunstancias (Resumen 3, pág. 8. Resumen 2, pág. 14).</p>
+<ul>
+<li>Está dominado por pocas empresas y es más concentrado que el sector al que vende.</li>
+<li>No está obligado a competir con productos sustitutos para vender en ese sector.</li>
+<li>La empresa no es un cliente importante para el grupo proveedor.</li>
+<li>Vende un insumo importante para el negocio del comprador.</li>
+<li>Sus productos están diferenciados o tienen costos por cambio de proveedor.</li>
+<li>Representa una amenaza real de integración hacia adelante.</li>
+</ul>
+<p>La Recopilación de finales nombra solo tres de esas seis (pág. 9). La <strong>mano de obra</strong> también es un proveedor, y en muchos sectores tiene mucho poder. Se evalúa igual, sumando su grado de organización y si se puede ampliar la oferta de los trabajadores que escasean (Resumen 2, págs. 14 y 15).</p>
+<p><strong>El gobierno.</strong> En muchos sectores es comprador o proveedor, y puede afectar la posición frente a los sustitutos y la rivalidad con reglamentos y subsidios. Ningún análisis estructural está completo sin ver cómo lo afecta la acción del gobierno, presente y futura (Resumen 2, pág. 15).</p>
+<h3 id="final-factores-criticos-de-exito">Factores críticos de éxito</h3>
+<p>Son un número limitado de áreas que, si dan resultados satisfactorios, aseguran el rendimiento competitivo. Cada negocio tiene los suyos y tienen que poder medirse. Se relevan en la planeación de los sistemas de información (Resumen sintético, pág. 9).</p>
+<p>Sus fuentes de información son el sector industrial, la propia empresa, el medio ambiente y los factores temporales. Estos últimos son áreas que hoy no preocupan pero son vitales para operar (Resumen sintético, págs. 9 y 10).</p>
+<h3 id="final-foda">FODA</h3>
+<p>Herramienta para diagnosticar y determinar estrategias. Evalúa factores internos (fortalezas y debilidades) y externos (oportunidades y amenazas). La estrategia busca un ajuste entre la capacidad interna y la situación externa. Se diseña sobre los activos competitivos, las fortalezas, y evita depender de los pasivos, las debilidades (Resumen sintético, pág. 10).</p>
+<p>Las oportunidades y las amenazas son fuerzas externas que la organización no controla. Una oportunidad es potencial de mejora o crecimiento. Una amenaza es un aspecto negativo (Resumen sintético, pág. 10).</p>
+<h3 id="final-comparar-opciones-estrategicas">Comparar opciones estratégicas</h3>
+<p>Si hay varias opciones, se comparan con un modelo. Los más comunes miran la factibilidad organizacional, como la económica, financiera, productiva y comercial. También hay análisis políticos, que estudian cómo reaccionaría cada stakeholder. En una <strong>matriz interés-poder</strong> se ubica a cada stakeholder para saber qué acción tomar con él (Resumen sintético, pág. 19).</p>
+<h3 id="final-estrategia-informatica">Estrategia informática</h3>
+<p>La estrategia de tecnología de información se encadena con la estrategia de negocios (Resumen de Administración Gerencial, pág. 10).</p>
+<div class="tabla"><table><thead><tr><th>Nivel</th><th>Decisiones</th><th>Sistemas</th></tr></thead><tbody><tr><td><strong>Estratégico</strong></td><td>No estructuradas y de largo plazo</td><td>Inteligencia de negocios, data warehouse, minería de datos, soporte de decisiones</td></tr><tr><td><strong>Táctico</strong></td><td></td><td>ERP, CRM</td></tr><tr><td><strong>Operativo</strong></td><td>Repetitivas y programables, de corto plazo</td><td>Bases de datos transaccionales</td></tr></tbody></table></div>
+<p>Fuente: Resumen de Administración Gerencial, pág. 10.</p>
+</section>
+<section class="sec"><h2 id="final-cuadro-de-mando-integral">Cuadro de mando integral</h2>
+<div class="tomado"><aside class="nota"><strong>Definición de cuadro de mando integral y para qué se usa</strong><span>2024, 08/08/2025 y 05/09/2025</span></aside><p>En 2024, <mark>«Cuadro de mando Integral, definición y para que se usa»</mark>. El 08/08/2025, <mark>«defina cuadro de mando integral»</mark>. El 05/09/2025, multiple choice. Salió primero en los tres.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Esto no sale del material de esta materia</p><p>Ningún apunte ni resumen de Gestión Gerencial en el Drive explica el cuadro de mando. Solo aparece nombrado en notas de alumno como tema para el escrito (Resumen del apunte de implementación, pág. 3). Lo de abajo viene de otras dos materias. Pedile a tu cátedra su definición.</p>
+</div>
+<p><strong>Lo que dice la cátedra de Administración de Sistemas de Información de UTN Rosario.</strong> El Balanced Scorecard, o Cuadro de Mando Integral, «es una metodología para alinear la estrategia de las organizaciones con los indicadores de gestión, creada en 1992 por Norton y Kaplan». Ayuda a medir y monitorear. Permite traducir una estrategia en objetivos relacionados, midiendo indicadores agrupados en cuatro perspectivas (Administración de Sistemas de Información, Unidad 1, Planeamiento Estratégico, págs. 44 y 45).</p>
+<p>Un <a href="https://drive.google.com/file/d/1atFoEMFzeSbl0mlBRiUjrd4_vFHIX3xp/view">resumen de alumno de Gestión Ingenieril</a> coincide en las cuatro perspectivas y les pone indicadores de ejemplo (pág. 16).</p>
+<div class="tabla"><table><thead><tr><th>Perspectiva</th><th>Qué mira</th><th>Indicadores de ejemplo</th></tr></thead><tbody><tr><td><strong>Financiera</strong></td><td>Sirve de enfoque para los objetivos e indicadores de las demás</td><td>Ventas y utilidades, retorno de inversión</td></tr><tr><td><strong>Clientes</strong></td><td>Lo que desea el cliente</td><td>Participación de mercado, quejas de clientes</td></tr><tr><td><strong>Procesos internos</strong></td><td>Cómo los procesos satisfacen lo detectado en clientes</td><td>Índices de calidad, tiempo de entrega</td></tr><tr><td><strong>Aprendizaje o crecimiento</strong></td><td>Lo que genera desempeño excelente en las otras</td><td>Proyectos de nuevos productos, proyectos de inversión</td></tr></tbody></table></div>
+<p>El mismo resumen da como beneficios alinear metas y medidas de desempeño con la estrategia en todos los niveles, facilitar que se comuniquen y comprendan, y fomentar la retroalimentación estratégica y el aprendizaje (pág. 14).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Tenés una estrategia escrita en un papel lindo. El cuadro de mando es lo que la baja a números que alguien mira todos los meses, para saber si vas camino a cumplirla.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final-dimension-estructural">Dimensión estructural</h2>
+<div class="tomado"><aside class="nota"><strong>Defina estructura y sus variables</strong><span>Preguntas frecuentes de la recopilación, sin fecha</span></aside><p>Consigna repetida en la recopilación y en una lista de alumnos. En el final 04/08/17 pidieron estructura organizacional y sus pasos, y la recopilación no trae respuesta.</p>
+</div>
+<p>La <strong>estructura</strong> es la suma total de las formas en que una organización divide su mano de obra en tareas diferentes y luego las coordina (Recopilación de finales, pág. 11). Formaliza el comportamiento, para que la gente sepa qué hacer, cómo y cuándo (Resumen de Administración Gerencial, pág. 11).</p>
+<p>Los cambios de contexto la tensionan, por eso se busca un diseño flexible. El <strong>organigrama</strong> es un mapa de la división del trabajo, las posiciones, las unidades y la autoridad. Solo muestra lo formal (Resumen de Administración Gerencial, pág. 11).</p>
+<h3 id="final-variables">Variables</h3>
+<div class="tabla"><table><thead><tr><th>Variable</th><th>Qué es</th></tr></thead><tbody><tr><td><strong>Departamentalización</strong></td><td>División del trabajo. Junta actividades con sentidos similares</td></tr><tr><td><strong>Roles y funciones</strong></td><td>El rol es la expectativa de comportamiento. Las funciones, las responsabilidades esenciales del puesto</td></tr><tr><td><strong>Jerarquía</strong></td><td>Lugar formal que la persona ocupa en la estructura</td></tr><tr><td><strong>Responsabilidades</strong></td><td>Exigencia de compromiso que se le asigna a un puesto. Impacta en la evaluación de desempeño</td></tr><tr><td><strong>Comunicación formal</strong></td><td>Canales diseñados. En general lineal, vertical y descendente</td></tr><tr><td><strong>Procesos</strong></td><td>Actividades relacionadas que transforman entradas en salidas y generan valor al cliente</td></tr><tr><td><strong>Procedimientos</strong></td><td>Forma especificada de llevar a cabo una actividad o proceso. Duran menos que las políticas</td></tr><tr><td><strong>Centralización</strong></td><td>Dónde se toman las decisiones. Define estructuralmente el modelo de gestión</td></tr><tr><td><strong>Evaluación de desempeño</strong></td><td>Da retroalimentación y orienta el comportamiento. Su salida entra en el modelo de remuneraciones</td></tr><tr><td><strong>Remuneraciones</strong></td><td>Traduce el desempeño a valores monetarios. Principal fuente de conflictos</td></tr></tbody></table></div>
+<p>Fuente: Resumen de Administración Gerencial, págs. 11 y 12. Recopilación de finales, pág. 11.</p>
+<h3 id="final-politicas">Políticas</h3>
+<div class="tomado"><aside class="nota"><strong>Definición de políticas</strong><span>05/09/2025</span></aside><p><mark>«la definición de políticas»</mark>, una de las cuatro consignas de ese examen.</p>
+</div>
+<p>Son definiciones explícitas o implícitas que guían la práctica. Se cambian ante cambios estructurales (Resumen de Administración Gerencial, pág. 12). Pueden ser de remuneraciones, antigüedad, ascenso o motivación, entre otras. Se definen de acuerdo a la cultura y suponen un compromiso de la empresa (Recopilación de finales, pág. 11).</p>
+<p>El resumen sintético agrega de dónde salen y cuánto duran (pág. 12).</p>
+<ul>
+<li><strong>De dónde salen.</strong> Suelen desprenderse de valores y componentes culturales, pero se definen específicamente.</li>
+<li><strong>Cuánto duran.</strong> Tienen un relativo grado de perdurabilidad en el tiempo. Duran más que los procedimientos, que también son permanentes pero menos.</li>
+<li><strong>La tensión.</strong> Deben adaptarse a los cambios de contexto y lidiar con esa tensión. No deben invalidar la innovación y el desarrollo.</li>
+</ul>
+<h3 id="final-roles-del-gerente">Roles del gerente</h3>
+<div class="tomado"><aside class="nota"><strong>Roles de un gerente en las tres dimensiones</strong><span>Final 01/12/17</span></aside><p>Consigna de la recopilación, sin la respuesta.</p>
+</div>
+<p>Los roles de un gerente supervisor son supervisión, dotación de personal, seguridad y salud, y recursos humanos (Resumen de Administración Gerencial, pág. 12).</p>
+<h3 id="final-mecanismos-de-coordinacion">Mecanismos de coordinación</h3>
+<p>Una vez dividido el trabajo, hay que coordinarlo. Según Mintzberg los mecanismos son estos (Resumen sintético, págs. 13 y 14. Resumen de Administración Gerencial, págs. 12 y 13).</p>
+<ul>
+<li><strong>Ajuste mutuo.</strong> Comunicación informal. Natural en organizaciones simples.</li>
+<li><strong>Supervisión directa.</strong> Un jefe. Su desventaja es que genera desconfianza.</li>
+<li><strong>Estandarización de procesos.</strong> Se especifica el contenido del trabajo.</li>
+<li><strong>Estandarización de producciones.</strong> Se especifica el resultado.</li>
+<li><strong>Estandarización de destrezas.</strong> Se especifica la capacitación requerida.</li>
+</ul>
+<p>Al crecer, cambia el mecanismo dominante. Va del ajuste mutuo a la supervisión directa, de ahí a la estandarización, y vuelve al ajuste mutuo cuando el trabajo es demasiado complejo para formalizarlo (Resumen de Administración Gerencial, pág. 13).</p>
+<h3 id="final-las-cinco-partes-de-la-organizacion">Las cinco partes de la organización</h3>
+<div class="tabla"><table><thead><tr><th>Parte</th><th>Qué hace</th></tr></thead><tbody><tr><td><strong>Núcleo operativo</strong></td><td>El trabajo básico. Es el corazón de la organización</td></tr><tr><td><strong>Cumbre estratégica</strong></td><td>Asegura que se cumpla la misión. Supervisa, administra las condiciones de frontera y desarrolla la estrategia</td></tr><tr><td><strong>Línea media</strong></td><td>Gerentes intermedios entre la cumbre y los operadores. Reportan hacia arriba</td></tr><tr><td><strong>Tecnoestructura</strong></td><td>Analistas que estandarizan el trabajo, por fuera de lo operativo</td></tr><tr><td><strong>Staff de apoyo</strong></td><td>Da apoyo a la organización, independiente del núcleo operativo</td></tr></tbody></table></div>
+<p>Fuente: Resumen de Administración Gerencial, pág. 13.</p>
+<h3 id="final-parametros-de-diseno">Parámetros de diseño</h3>
+<div class="tomado"><aside class="nota"><strong>Nombrar los 9 parámetros de diseño, y explicar encadenamientos laterales</strong><span>Preguntas frecuentes de la recopilación, sin fecha</span></aside><p>Consigna de la recopilación, sin la respuesta.</p>
+</div>
+<p>Son los componentes básicos de la estructura organizativa (Recopilación de finales, pág. 12).</p>
+<div class="tabla"><table><thead><tr><th>Grupo</th><th>Parámetros</th></tr></thead><tbody><tr><td><strong>Diseño de posiciones</strong></td><td>Especialización de tarea, formalización del comportamiento, capacitación y adoctrinamiento</td></tr><tr><td><strong>Diseño de superestructura</strong></td><td>Agrupamiento de unidades, dimensión de la unidad</td></tr><tr><td><strong>Encadenamientos laterales</strong></td><td>Sistemas de planeamiento y control, dispositivos de enlace</td></tr><tr><td><strong>Sistema de toma de decisiones</strong></td><td>Descentralización vertical, descentralización horizontal</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">El número no da igual en todos lados</p><p>La lista de arriba, de la recopilación, da nueve si contás capacitación y adoctrinamiento como uno. El resumen de 24 páginas los separa y le quedan diez renglones. Mirá cómo los cuenta tu cátedra.</p>
+</div>
+<p><strong>Especialización.</strong> La horizontal es la amplitud, cuántas tareas hace la persona. La vertical es la profundidad, cuánto control tiene sobre ellas. Un puesto muy especializado en vertical hace la tarea sin saber para qué ni poder decidir cómo (Recopilación de finales, pág. 14).</p>
+<p><strong>Formalización.</strong> Cómo la organización estandariza los procesos de trabajo. Tiene tres formas, por posición, por corriente de trabajo y por reglas (Recopilación de finales, pág. 12).</p>
+<p><strong>Capacitación y adoctrinamiento.</strong> La capacitación da conocimientos y destrezas. El adoctrinamiento enseña valores y normas. Una es más importante donde las tareas son complejas, y el otro donde los cargos son críticos o remotos (Recopilación de finales, págs. 13 y 14).</p>
+<p><strong>Dispositivos de enlace.</strong> Se usan cuando ni la supervisión directa ni la estandarización alcanzan (Recopilación de finales, pág. 14).</p>
+<ul>
+<li><strong>Posiciones de enlace.</strong> Sin autoridad formal. Comunican dos unidades directamente.</li>
+<li><strong>Fuerzas de tareas y comisiones permanentes.</strong> Las primeras se arman para una tarea y se deshacen. Las segundas se reúnen con regularidad.</li>
+<li><strong>Gerentes integradores.</strong> Influyen sobre otros gerentes sin autoridad formal.</li>
+<li><strong>Estructuras matriciales.</strong> Varios gerentes de línea responden en conjunto por las mismas decisiones.</li>
+</ul>
+<h3 id="final-dimension-de-la-unidad">Dimensión de la unidad</h3>
+<div class="tomado"><aside class="nota"><strong>Extensión de la unidad, con estandarización o con supervisión directa</strong><span>Finales 01/09/17 y 04/08/17</span></aside><p>La recopilación pregunta si «será mayor o menor» y por qué. También, sin fecha, la relación entre la dimensión de la unidad, las estandarizaciones y el ajuste mutuo. La teoría está abajo.</p>
+</div>
+<p>Es el tamaño de cada unidad o grupo de trabajo (Recopilación de finales, pág. 12).</p>
+<ul>
+<li><strong>Estandarización.</strong> Cuanto mayor es, menos supervisión directa hace falta. Pueden asignarse más puestos a un supervisor, y crece la unidad.</li>
+<li><strong>Ajuste mutuo.</strong> Cuanto mayor es la confianza en él, menor es la unidad. Tareas complejas e interdependientes piden unidades chicas.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Parte</th><th>Tamaño de unidad esperado</th></tr></thead><tbody><tr><td>Núcleo operativo</td><td>Grande, por la estandarización</td></tr><tr><td>Cumbre estratégica</td><td>Pequeño, por el ajuste mutuo</td></tr><tr><td>Línea media</td><td>Pequeño, si requiere mucha coordinación con otras partes</td></tr><tr><td>Tecnoestructura</td><td>Pequeño, por el contacto constante con la línea media</td></tr><tr><td>Staff de apoyo</td><td>Grande en las unidades de trabajo no calificado</td></tr></tbody></table></div>
+<p>Fuente: Resumen de Administración Gerencial, pág. 14. Resumen sintético, pág. 18.</p>
+<h3 id="final-centralizacion-y-descentralizacion">Centralización y descentralización</h3>
+<div class="tomado"><aside class="nota"><strong>Qué lleva a las organizaciones a centralizar o descentralizar</strong><span>Preguntas frecuentes de la recopilación, sin fecha</span></aside><p>Consigna de la recopilación, sin la respuesta.</p>
+</div>
+<p>En la <strong>centralización</strong>, el poder de decidir descansa en un solo punto. En la <strong>descentralización</strong>, se dispersa entre varias personas.</p>
+<p>Se recurre a descentralizar porque no todo se entiende desde un centro, porque un centro no puede procesar toda la información a tiempo, y porque motiva a la gente creativa (Recopilación de finales, pág. 13).</p>
+<ul>
+<li><strong>Vertical.</strong> Baja el poder de decisión por la cadena de autoridad, desde la cumbre hacia la línea media.</li>
+<li><strong>Horizontal.</strong> Pasa poder de los gerentes a los no gerentes, como staff, analistas y operadores.</li>
+</ul>
+<h3 id="final-configuraciones-estructurales">Configuraciones estructurales</h3>
+<div class="tabla"><table><thead><tr><th>Configuración</th><th>Mecanismo clave</th><th>Parte clave</th></tr></thead><tbody><tr><td>Estructura simple</td><td>Supervisión directa</td><td>Cumbre estratégica</td></tr><tr><td>Burocracia mecánica</td><td>Estandarización de procesos</td><td>Tecnoestructura</td></tr><tr><td>Burocracia profesional</td><td>Estandarización de destrezas</td><td>Núcleo operativo</td></tr><tr><td>Forma divisional</td><td>Estandarización de producciones</td><td>Línea media</td></tr><tr><td>Adhocracia</td><td>Ajuste mutuo</td><td>Staff de apoyo</td></tr></tbody></table></div>
+<p>Fuente: Resumen de Administración Gerencial, pág. 15. Resumen 3, pág. 24.</p>
+<p><strong>Adhocracia.</strong> Fusiona expertos de distintas disciplinas en grupos de proyecto. Es orgánica, descentralizada, con poca formalización y alta especialización horizontal. Se orienta a innovar. La <strong>operativa</strong> innova para sus clientes. La <strong>administrativa</strong> deja el núcleo operativo aparte y aplica adhocracia al componente administrativo (Resumen de Administración Gerencial, págs. 15 y 16).</p>
+<p><strong>Estructura de redes.</strong> Desaparecen las tres partes tradicionales. Todo se interrelaciona, y el gerente general queda en el centro como líder facilitador (Resumen de Administración Gerencial, pág. 15).</p>
+<h3 id="final-estructura-de-reinos">Estructura de reinos</h3>
+<div class="tomado"><aside class="nota"><strong>Definir estructura de reinos, y sus inconvenientes</strong><span>Finales 17/11/17 y 24/02/17</span></aside><p>Consignas de la recopilación, sin la respuesta.</p>
+</div>
+<p>También se la llama de colonias. Cada área se maneja como si fuera una organización aparte, desligada del resto. El pensamiento es vertical convergente (Recopilación de finales, pág. 2).</p>
+<p>Afecta tres cosas (Recopilación de finales, pág. 6).</p>
+<ul>
+<li><strong>Fluidez.</strong> Las ideas nacen abajo, y cada nivel jerárquico las filtra.</li>
+<li><strong>Flexibilidad.</strong> Cada área se encasilla en su enfoque, sin intercambiar con las otras.</li>
+<li><strong>Originalidad.</strong> Quien tiene una idea primero debe convencer a su gerente, y ese gerente a los directores.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="final-dimension-cultural">Dimensión cultural</h2>
+<div class="tomado"><aside class="nota"><strong>Defina cultura organizacional</strong><span>08/08/2025 y 05/09/2025</span></aside><p><mark>El 08/08/2025, «defina cultura organizacional», como pregunta escrita. El 05/09/2025, multiple choice de cultura.</mark> Antes, en los finales 24/02/18 y 10/03/17, cómo se mantiene la cultura. Sin fecha, variables, tipos, efectos de una cultura fuerte y subculturas.</p>
+</div>
+<p>Las definiciones del material no coinciden palabra por palabra.</p>
+<ul>
+<li>«Sistema de significados compartidos por los miembros de una organización, que la distinguen de otras» (Recopilación de finales, pág. 15).</li>
+<li>«Sistema de valores, formas de pensar, formas de hacer, relacionarse, que son compartidas por los miembros de la organización» (Resumen sintético, pág. 26).</li>
+<li>«Conjunto de normas o modos tradicionales de comportamiento que un grupo de personas ha desarrollado con el pasar de los años» (Lista de preguntas de un alumno, sin fecha, pág. 1).</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Lo que cuenta un alumno</p><p>En esa lista, un alumno cuenta que en un examen le dijeron que esperaban la palabra «comportamiento» en la definición. Es un solo testimonio, sin fecha. Tomalo como pista.</p>
+</div>
+<h3 id="final-tipos-de-cultura">Tipos de cultura</h3>
+<ul>
+<li><strong>Dominante.</strong> Expresa los valores centrales que comparte la mayoría.</li>
+<li><strong>Subcultura.</strong> Minicultura producto de la división de departamentos y la geografía.</li>
+<li><strong>Fuerte.</strong> Sus valores centrales se sostienen con firmeza y están muy compartidos.</li>
+<li><strong>Débil.</strong> Hay poco convencimiento, y el control se ejerce con procedimientos y burocracia.</li>
+</ul>
+<p>Fuente: Recopilación de finales, pág. 15. Resumen sintético, pág. 30.</p>
+<p><strong>Subculturas.</strong> A favor, definen límites, dan identidad, facilitan el compromiso y estabilizan el sistema social del área. En contra, sus valores pueden diferir de los centrales, sus tiempos y objetivos no siempre son coherentes con el resto, y dificultan la interacción entre áreas (Resumen sintético, pág. 30).</p>
+<p><strong>Efectos de una cultura fuerte.</strong> Baja la rotación, sube la lealtad y el compromiso, y sustituye a la formalización. Cuanto más fuerte es, menos reglas escritas hacen falta (Recopilación de finales, pág. 16).</p>
+<h3 id="final-las-siete-caracteristicas">Las siete características</h3>
+<p>Hay siete características básicas que captan la esencia de la cultura de una organización (Preguntas y respuestas frecuentes, págs. 9, 10 y 19).</p>
+<ul>
+<li><strong>Innovación y correr riesgos.</strong> Grado en que se alienta a los empleados a ser innovadores y correr riesgos.</li>
+<li><strong>Minuciosidad.</strong> Grado en que se espera exactitud, capacidad de análisis y atención a los detalles.</li>
+<li><strong>Orientación a los resultados.</strong> Grado en que la gerencia se centra en los resultados más que en las técnicas y procedimientos para conseguirlos.</li>
+<li><strong>Orientación a las personas.</strong> Grado en que las decisiones de la gerencia toman en cuenta el efecto de los resultados en los integrantes.</li>
+<li><strong>Orientación a los equipos.</strong> Grado en que el trabajo se organiza en equipos más que individualmente.</li>
+<li><strong>Agresividad.</strong> Grado en que las personas son osadas y competitivas, antes que despreocupadas.</li>
+<li><strong>Estabilidad.</strong> Grado en que las actividades mantienen el estado de las cosas, en lugar de crecer.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Características no son variables</p><p>En ese archivo, una anotación corrige una respuesta. Las variables de la cultura (liderazgo, clima, conflicto, comunicación informal, motivación, trabajo en equipo) son lo que se pedía, y estas siete son otra cosa, las características (Preguntas y respuestas frecuentes, pág. 9). No mezcles las dos listas.</p>
+</div>
+<h3 id="final-funciones-de-la-cultura">Funciones de la cultura</h3>
+<p>Son cinco (Resumen 3, pág. 28).</p>
+<ol>
+<li>Define los límites. Distingue a una organización de las otras.</li>
+<li>Transmite una sensación de identidad a los integrantes.</li>
+<li>Facilita el compromiso con algo que supera los intereses personales.</li>
+<li>Aumenta la estabilidad del sistema social. Mantiene unida a la organización al darle criterios sobre lo que los empleados deben decir y hacer.</li>
+<li>Crea sentido y permite el control. Orienta y da forma a las actitudes y comportamientos de los individuos.</li>
+</ol>
+<h3 id="final-cuando-la-cultura-es-un-inconveniente">Cuándo la cultura es un inconveniente</h3>
+<ul>
+<li><strong>Barrera al cambio.</strong> Cuando los valores compartidos no son los que harían más eficaz a la organización. Pasa sobre todo cuando el entorno es dinámico.</li>
+<li><strong>Barrera a la diversidad.</strong> Se contrata gente de orígenes diversos por el vigor que aporta, pero en una cultura fuerte esas diferencias se apagan porque la gente trata de adaptarse.</li>
+<li><strong>Barrera a adquisiciones y fusiones.</strong> El resumen solo la nombra.</li>
+</ul>
+<p>Fuente: Resumen 3, págs. 28 y 29.</p>
+<h3 id="final-como-nace-se-mantiene-y-se-transmite">Cómo nace, se mantiene y se transmite</h3>
+<p>La fuente original son los <strong>fundadores</strong>. Contratan a quienes piensan como ellos, los adoctrinan y socializan, y su comportamiento es un modelo a seguir (Recopilación de finales, pág. 16).</p>
+<p>Tres fuerzas la mantienen (Recopilación de finales, pág. 1. Resumen sintético, págs. 29 y 30).</p>
+<ul>
+<li><strong>Selección.</strong> Contratar a quienes sustentan la cultura.</li>
+<li><strong>Dirección.</strong> Lo que dicen y hacen los altos ejecutivos establece normas.</li>
+<li><strong>Socialización.</strong> Adaptar a los nuevos. Tiene tres etapas, lo que aprendió antes de entrar, el encuentro con la realidad y el ajuste a los valores de su grupo.</li>
+</ul>
+<p>Se transmite a los empleados por anécdotas, ritos, símbolos materiales y lenguaje (Recopilación de finales, pág. 16).</p>
+<h3 id="final-variables-de-la-cultura">Variables de la cultura</h3>
+<p><strong>Liderazgo.</strong> Proceso de influencia que cambia el comportamiento para alcanzar objetivos organizacionales (Resumen sintético, pág. 26).</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Cómo es</th></tr></thead><tbody><tr><td><strong>Formal</strong></td><td>Lo da la organización, con jerarquía y poder de sanción. No asegura autoridad</td></tr><tr><td><strong>Informal</strong></td><td>Natural, surge de la interrelación. Base subjetiva</td></tr><tr><td><strong>Autocrático</strong></td><td>Un líder decide todo. Reduce el cambio y la innovación. Se recomienda en crisis extrema</td></tr><tr><td><strong>Participativo</strong></td><td>Busca opiniones, y él asume la responsabilidad. Da flexibilidad y adaptación</td></tr><tr><td><strong>Tradicional</strong></td><td>Modos heredados de jerarquía o costumbre, como la impronta familiar</td></tr><tr><td><strong>Carismático</strong></td><td>Centrado en las características personales</td></tr><tr><td><strong>Racional-legal</strong></td><td>Surge de un proceso formal de selección. No asegura que funcione como líder de ese grupo</td></tr></tbody></table></div>
+<p>Fuente: Resumen sintético, págs. 27 y 28. Las notas de Resumen 1, pág. 4, suman el <strong>liberal</strong>, que deja hacer.</p>
+<p><strong>Comunicación.</strong> Intercambio de información, valores y objetivos para cambiar el comportamiento. Puede ser formal o informal, y horizontal, vertical o transversal (Resumen 1, pág. 5). La informal complementa a la formal y en una organización chica puede ser toda la comunicación (Resumen sintético, pág. 29).</p>
+<p><strong>Nivel de conflicto.</strong> Choque de intereses que dificulta actividades, procesos y relaciones (Resumen sintético, pág. 28).</p>
+<ul>
+<li><strong>Concepción negativista.</strong> Lo considera una disfunción. Saca a las personas involucradas y no ataca las causas, así que vuelve.</li>
+<li><strong>Concepción positiva.</strong> Lo entiende como una demanda de cambio. Elimina las causas.</li>
+</ul>
+<p><strong>Motivación.</strong> Proceso que anima a que se hagan las cosas. Relaciona las metas personales con las organizacionales (Resumen sintético, pág. 28).</p>
+<ul>
+<li><strong>Extrínseca.</strong> Por lo que rodea al trabajo, como sueldo y prestaciones.</li>
+<li><strong>Intrínseca.</strong> Por el trabajo en sí, como tareas desafiantes.</li>
+<li><strong>Modelo de McClelland.</strong> Afiliación, logro y poder.</li>
+</ul>
+<p><strong>Las demás.</strong></p>
+<ul>
+<li><strong>Trabajo en equipo.</strong> Sinergia positiva. El resultado supera la suma de los aportes individuales (Recopilación de finales, pág. 15).</li>
+<li><strong>Compromiso.</strong> Grado en que alguien se identifica con la organización y sus metas (Recopilación de finales, pág. 15).</li>
+<li><strong>Clima laboral.</strong> Percepción de las personas sobre su contexto de trabajo. Se mide con encuestas y cuestionarios (Resumen sintético, pág. 29).</li>
+<li><strong>Confianza.</strong> Creencia de que la organización actuará acorde a los intereses de todos. Los modelos descentralizados se basan en ella (Resumen sintético, pág. 29).</li>
+<li><strong>Manejo del poder.</strong> Tiene que promover el hacer, alineando voluntades (Resumen sintético, pág. 28).</li>
+</ul>
+</section>
+<section class="sec"><h2 id="final-cambio-organizacional">Cambio organizacional</h2>
+<div class="tomado"><aside class="nota"><strong>Fuentes y tácticas del cambio y la resistencia, y modelo de Lewin</strong><span>Finales 01/12/17, 17/11/17, 01/09/17, 04/08/17, 24/02/17 y 29/11/16</span></aside><p>Salió en 6 de los 9 finales de la recopilación. No aparece en los recuerdos de 2024 a 2026.</p>
+</div>
+<p><strong>Razones estratégicas para cambiar</strong> (Resumen sintético, pág. 30). Adquirir una ventaja competitiva, ejecutar decisiones de la dirección o cumplir disposiciones legales, y apoyar adquisiciones.</p>
+<p><strong>Seis fuerzas que estimulan el cambio</strong> (Resumen sintético, págs. 30 y 31). Naturaleza de la fuerza de cambio (más diversidad cultural, más profesionales, empleados nuevos sin suficientes habilidades), tecnología, crisis económicas, competencia, tendencias sociales y política mundial.</p>
+<p><strong>Planeado y emergente.</strong> El cambio planeado es deliberado. El emergente deriva espontáneamente, por decisiones no contempladas o por factores externos e internos (Preguntas y respuestas frecuentes, pág. 15).</p>
+<h3 id="final-resistencia-al-cambio">Resistencia al cambio</h3>
+<div class="tabla"><table><thead><tr><th>Individual</th><th>Organizacional</th></tr></thead><tbody><tr><td>Hábitos</td><td>Inercia estructural</td></tr><tr><td>Seguridad</td><td>Enfoque limitado en el cambio</td></tr><tr><td>Factores económicos</td><td>Inercia en los grupos</td></tr><tr><td>Miedo a lo desconocido</td><td>Amenaza a la destreza</td></tr><tr><td>Procesamiento selectivo de la información</td><td>Amenaza a las relaciones de poder</td></tr><tr><td></td><td>Amenaza a la asignación de recursos</td></tr></tbody></table></div>
+<p>Fuente: Resumen sintético, pág. 31.</p>
+<p>La resistencia puede ser manifiesta, implícita, inmediata o diferida. La diferida enturbia el vínculo entre la causa y la reacción. Puede aparecer semanas, meses o años después, y parecer fuera de proporción. La implícita es sutil, como pérdida de lealtad y de motivación, más errores y más ausentismo (Recopilación de finales, pág. 17).</p>
+<h3 id="final-tacticas-para-vencer-la-resistencia">Tácticas para vencer la resistencia</h3>
+<ol>
+<li><strong>Educación y comunicación.</strong> Mostrar las razones del cambio.</li>
+<li><strong>Participación.</strong> Es difícil resistir una decisión de la que uno formó parte.</li>
+<li><strong>Facilitación y apoyo.</strong> Asesoramiento y terapia. Es lento y caro.</li>
+<li><strong>Negociación.</strong> Canjear algo de valor por menos oposición.</li>
+<li><strong>Manipulación y cooptación.</strong> Influencia encubierta.</li>
+<li><strong>Coerción.</strong> Amenazas o fuerza directa.</li>
+</ol>
+<p>Fuente: Recopilación de finales, pág. 2. Resumen sintético, págs. 32 y 33.</p>
+<h3 id="final-modelo-de-tres-etapas-de-lewin">Modelo de tres etapas de Lewin</h3>
+<p>Parte de un estado de equilibrio, el statu quo (Resumen sintético, pág. 32).</p>
+<ol>
+<li><strong>Descongelar.</strong> Reducir las fuerzas que mantienen el nivel actual de comportamiento. Se aumentan las impulsoras, se bajan las restrictivas, o se combinan.</li>
+<li><strong>Cambiar.</strong> Desplazarse al nuevo estado, con nuevos valores, hábitos, conductas y actitudes.</li>
+<li><strong>Recongelar.</strong> Estabilizar el nuevo equilibrio, con cultura, normas y políticas que lo apoyen.</li>
+</ol>
+<div class="ojo"><p class="ojo-t">El nombre</p><p>En parte del material y en una consigna de 2016 figura «Lewis». Otros resúmenes y el final 04/08/17 dicen «Lewin».</p>
+</div>
+<h3 id="final-otros-modelos">Otros modelos</h3>
+<p><strong>Investigación de la acción.</strong> El cambio se basa en acumular y analizar datos. El agente es regularmente un consultor externo. Tiene cinco etapas, diagnóstico, análisis, retroalimentación, acción y evaluación (Resumen sintético, pág. 33).</p>
+<p><strong>Desarrollo organizacional.</strong> Intervenciones de cambio planeado, fundadas en valores humanistas y democráticos. Sus valores son respeto por las personas, confianza y apoyo, distribución del poder, confrontación y participación (Resumen sintético, págs. 33 y 34).</p>
+</section>
+<section class="sec"><h2 id="final-reingenieria-de-procesos">Reingeniería de procesos</h2>
+<div class="tomado"><aside class="nota"><strong>Características de una organización luego de aplicar reingeniería</strong><span>2024</span></aside><p><mark>«Mencione características de una organización luego de que se aplico reingenieria»</mark>. La misma idea salió en el final 29/11/16. Y qué es reingeniería, en los finales 24/02/18 y 01/09/17.</p>
+</div>
+<p>Según Hammer y Champy, es «la revisión fundamental y el rediseño radical de procesos para alcanzar mejoras espectaculares en medidas críticas de rendimiento tales como costos, calidad, servicios y rapidez» (Recopilación de finales, pág. 1. Resumen 3, pág. 42).</p>
+<div class="tabla"><table><thead><tr><th>Palabra clave</th><th>Qué significa</th></tr></thead><tbody><tr><td><strong>Fundamental</strong></td><td>Determina qué debe tener la empresa y cómo debe hacerlo. No da nada por sentado</td></tr><tr><td><strong>Radical</strong></td><td>Va a la raíz. Abandona lo viejo, no hace cambios superficiales</td></tr><tr><td><strong>Espectacular</strong></td><td>No busca mejoras marginales, sino saltos gigantescos</td></tr><tr><td><strong>Procesos</strong></td><td>Actividades que reciben insumos y crean productos de valor para el cliente</td></tr></tbody></table></div>
+<p>Tres tipos de empresa la hacen. Las que tienen problemas de subsistencia, las que ven problemas a futuro y las que están bien y quieren crecer (Resumen de Administración Gerencial, pág. 22).</p>
+<h3 id="final-que-no-es-reingenieria">Qué no es reingeniería</h3>
+<p>No es automatización, que solo hace más eficiente lo que ya se hacía. No es reingeniería de software, que reconstruye sistemas viejos. No es mejora de calidad, que trabaja dentro de los procesos existentes (Recopilación de finales, pág. 17). Tampoco es reorganización, ni parches (Resumen de Administración Gerencial, pág. 22).</p>
+<h3 id="final-caracteristicas-de-un-proceso-redisenado">Características de un proceso rediseñado</h3>
+<ul>
+<li>Varios oficios se combinan en uno, con un trabajador de caso o un equipo de caso. Es la compresión horizontal.</li>
+<li>Los trabajadores toman decisiones. Es la compresión vertical.</li>
+<li>Los pasos se ejecutan en orden natural.</li>
+<li>Los procesos tienen múltiples versiones.</li>
+<li>El trabajo se realiza en el sitio razonable.</li>
+<li>Se reducen verificaciones y controles.</li>
+<li>Un gerente de caso ofrece un solo punto de contacto.</li>
+<li>Prevalecen operaciones híbridas, centralizadas y descentralizadas.</li>
+</ul>
+<p>Fuente: Recopilación de finales, pág. 6. Preguntas y respuestas frecuentes, págs. 1 y 2. Resumen 3, págs. 38 y 39.</p>
+<div class="ojo"><p class="ojo-t">Faltaba una</p><p>La lista de la Recopilación trae siete. Preguntas y respuestas frecuentes y Resumen 3 traen ocho, con el <strong>gerente de caso</strong>. Sirve cuando los pasos del proceso son tan complejos o dispersos que no se pueden integrar en una persona ni en un grupo chico. Ante el cliente actúa como responsable de todo el proceso, aunque no lo sea. Necesita acceso a todos los sistemas de información de quienes hacen el trabajo, y poder consultarlos y pedirles ayuda (Resumen 3, pág. 39).</p>
+</div>
+<p>Lo que quiere decir cada una (Resumen 3, págs. 38 y 39. Preguntas y respuestas frecuentes, págs. 1 y 2).</p>
+<ul>
+<li><strong>Orden natural.</strong> Los pasos siguen lo que hace falta hacer, no un orden lineal artificial. Varios pueden ir en simultáneo.</li>
+<li><strong>Múltiples versiones.</strong> Un mismo proceso tiene varias versiones, cada una ajustada a un mercado, una situación o un insumo.</li>
+<li><strong>Sitio razonable.</strong> El trabajo cruza fronteras organizacionales. El cliente del proceso puede hacer parte o todo, y se eliminan pases y costos indirectos.</li>
+<li><strong>Menos controles.</strong> Se usan solo hasta donde se justifican económicamente.</li>
+<li><strong>Híbridas.</strong> La informática permite que las unidades funcionen autónomas, y la organización conserva ventajas de la centralización, como la economía de escala.</li>
+</ul>
+<h3 id="final-cambios-en-la-organizacion">Cambios en la organización</h3>
+<div class="tabla"><table><thead><tr><th>Pasa de</th><th>A</th></tr></thead><tbody><tr><td>Departamentos funcionales</td><td>Equipos de proceso</td></tr><tr><td>Tareas simples</td><td>Tareas multidimensionales</td></tr><tr><td>Trabajadores controlados</td><td>Trabajadores facultados</td></tr><tr><td>Entrenamiento</td><td>Educación</td></tr><tr><td>Medir actividades</td><td>Medir resultados</td></tr><tr><td>Ascender por rendimiento</td><td>Ascender por habilidad</td></tr><tr><td>Valores proteccionistas</td><td>Valores productivos</td></tr><tr><td>Gerentes supervisores</td><td>Gerentes entrenadores</td></tr><tr><td>Estructuras jerárquicas</td><td>Estructuras planas</td></tr><tr><td>Ejecutivos anotadores de tantos</td><td>Ejecutivos líderes</td></tr></tbody></table></div>
+<p>Fuente: Resumen sintético, págs. 37 y 38.</p>
+<p><strong>Diamante del sistema de negocios.</strong> Personal y procesos, oficios, administración y valores. Dependen unos de otros (Resumen sintético, pág. 38).</p>
+<h3 id="final-herramientas-e-infotecnologia">Herramientas e infotecnología</h3>
+<p>Sus herramientas son visualización de procesos, investigación operativa, gestión del cambio, benchmarking e infotecnología (Resumen de Administración Gerencial, pág. 23).</p>
+<p>La <strong>infotecnología</strong> es requisito del rediseño, pero no es una solución en sí misma. Pide pensar en forma inductiva. Primero se identifica una solución poderosa, y después se ve qué problema puede resolver (Resumen de Administración Gerencial, pág. 23).</p>
+<p>Se apoya en técnicas relacionadas como análisis de valor, just in time, control de calidad e investigación operativa (Resumen de Administración Gerencial, pág. 24).</p>
+</section>
+<section class="sec"><h2 id="final-implementacion-apropiacion-de-tecnologias">Implementación-apropiación de tecnologías</h2>
+<p>Esta es la parte con respaldo directo de la cátedra, en la <a href="https://drive.google.com/file/d/1Yd7Qn9GxzPn46UBcnXPTn1mElojQjxX1/view">ficha de cátedra de 2015</a>.</p>
+<div class="tomado"><aside class="nota"><strong>Involucrados y proceso de implementación-apropiación</strong><span>Preguntas frecuentes de la recopilación, sin fecha</span></aside><p>Consignas sin fecha. También, en el final 01/12/17, qué método de implementación-apropiación usar para que un cambio sea aceptable. No aparece en los recuerdos de 2024 a 2026.</p>
+</div>
+<p>La <strong>implementación</strong> es el proceso por el que se incorporan sistemas de información a los procesos de negocio, para obtener información de calidad, de acuerdo con el plan estratégico. La <strong>apropiación</strong> es el proceso de aprendizaje que lleva a personas, grupos u organizaciones a tener control sobre los usos de las TIC, en coherencia con sus entornos (Resumen 1, pág. 6).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Implementar es que el sistema esté instalado y andando. Apropiarse es que la gente lo use porque le ve sentido, y no porque la obligan.</p>
+</div>
+<h3 id="final-el-orden-correcto">El orden correcto</h3>
+<ol>
+<li>Se define la estrategia corporativa.</li>
+<li>Se releva la información de calidad que hace falta.</li>
+<li>Se define la estrategia de sistemas de información.</li>
+<li>Se elige la tecnología, a partir de las matrices de requerimientos.</li>
+</ol>
+<p>Fuente: Ficha de cátedra 2015, págs. 2 y 3.</p>
+<p>La estrategia de sistemas y la de comunicación atraviesan transversalmente a la organización. Colaboran con las demás estrategias, subordinadas a la corporativa (Ficha de cátedra 2015, pág. 7).</p>
+<h3 id="final-lo-que-pasa-en-la-realidad">Lo que pasa en la realidad</h3>
+<p>Las definiciones responden a demandas coyunturales y no a lineamientos estratégicos. Aparecen aplicaciones de uso local que generan <strong>islotes aislados</strong> de información (Ficha de cátedra 2015, pág. 3).</p>
+<ul>
+<li><strong>Apagador de incendios.</strong> El profesional que solo resuelve la coyuntura, sin sentido estratégico (pág. 4).</li>
+<li><strong>Farmacéuticos de software.</strong> Quienes definen la tecnología sin análisis previo, o con relevamientos por mail (pág. 7).</li>
+<li><strong>Automatizar el presente.</strong> Sin lineamientos estratégicos, el sistema automatiza lo habitual y no sistematiza el futuro (págs. 2 y 12).</li>
+</ul>
+<h3 id="final-como-se-encara">Cómo se encara</h3>
+<p><strong>Negociación.</strong> El profesional negocia con los altos ejecutivos una propuesta integral, sin descuidar la gestión operativa. Pide liderazgo, negociación y comunicación eficaz, y confiar en los colaboradores para delegar (Ficha de cátedra 2015, págs. 5 y 6).</p>
+<p><strong>Top-down.</strong> Las demandas de información se relevan desde las definiciones estratégicas hacia abajo. Si no hay definiciones, se relevan las opiniones de los ejecutivos de alto nivel, sobre todo de la coalición directiva real (Ficha de cátedra 2015, pág. 7).</p>
+<p><strong>Horizonte.</strong> En sistemas de gestión gerencial para empresas medianas o grandes, habla de entre 3 y 5 años (Ficha de cátedra 2015, pág. 7).</p>
+<p><strong>Pymes.</strong> Primero hay que sistematizar los procesos fundamentales. Meter un sistema sin eso suma confusión (Ficha de cátedra 2015, pág. 6).</p>
+<p><strong>Matriz de requerimientos.</strong> Sistematiza las demandas de información. Es la base sobre la que las empresas desarrolladoras arman su propuesta y cotizan. Una ambigüedad ahí genera discusiones y retrasos después (Ficha de cátedra 2015, págs. 8 y 9).</p>
+<h3 id="final-quienes-participan">Quiénes participan</h3>
+<div class="tabla"><table><thead><tr><th>Actor</th><th>Rol</th></tr></thead><tbody><tr><td><strong>Sponsor</strong></td><td>Alto ejecutivo. Gestiona los recursos e integra el comité de decisiones</td></tr><tr><td><strong>Gerente de proyecto</strong></td><td>Máximo responsable de la gestión del proyecto. En general, gerente de sistemas o de auditoría</td></tr><tr><td><strong>Líderes de proyecto</strong></td><td>Profesionales senior de las áreas más relevantes</td></tr><tr><td><strong>Consultores tecnológicos</strong></td><td>Representan a la desarrolladora en la implementación</td></tr><tr><td><strong>Consultora de gestión del cambio</strong></td><td>Trabaja las resistencias. Mide clima antes, durante y después</td></tr><tr><td><strong>Usuarios clave</strong></td><td>Elegidos por mapeo de conocimiento experto. Adecuan los procesos a los módulos</td></tr><tr><td><strong>Usuarios críticos</strong></td><td>Usuarios experimentados. Transfieren su experiencia a los usuarios finales</td></tr><tr><td><strong>Usuario final</strong></td><td>Carga datos y hace búsquedas. Es el cliente operativo</td></tr></tbody></table></div>
+<p>Fuente: Ficha de cátedra 2015, págs. 8, 11 y 12.</p>
+<p>La ficha propone pasar de usuarios a <strong>clientes internos</strong>, sujetos dinámicos y no «metedores de dedos» acríticos. Eso pide construir confianza y conocimiento compartido (Ficha de cátedra 2015, pág. 12).</p>
+<h3 id="final-comunicacion-y-capacitacion">Comunicación y capacitación</h3>
+<p>Hay que informar los lineamientos importantes para que la gente alinee expectativas. El momento importa. Decir lo correcto, en el momento justo, a quien corresponde, minimiza los rumores (Ficha de cátedra 2015, pág. 10). Hace falta el compromiso de la más alta gerencia, y no convocar a la gente en los momentos clave de su área (págs. 10 y 11).</p>
+<p>El primer momento lógico es la capacitación en los módulos. Es lo primero que pide planificación precisa y negociar la presencia de los convocados. Ahí se empieza a ver la resistencia de los superiores, y si no se destraba se apela al sponsor (Ficha de cátedra 2015, págs. 12 y 13).</p>
+<h3 id="final-dificultades-del-proceso">Dificultades del proceso</h3>
+<ul>
+<li>La definición coyuntural del proceso, sin lineamientos estratégicos a futuro.</li>
+<li>La falta de presencia de los colaboradores clave.</li>
+<li>Problemas en la gestión integral del proyecto.</li>
+<li>Conflictos por la interpretación de las matrices de requerimientos.</li>
+<li>Interrupciones no contempladas.</li>
+</ul>
+<p>Fuente: Ficha de cátedra 2015, págs. 13 y 14.</p>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta junio de 2026, contados por alumnos). No hay programa vigente en el Drive: si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

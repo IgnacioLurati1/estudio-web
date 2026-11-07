@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>1° parcial: Sintaxis y Semántica de los Lenguajes</title>
+<meta name="description" content="Compiladores, alfabetos, lenguajes y C hasta arreglos, cadenas y entrada y salida.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="sintaxis-y-semantica-de-los-lenguajes" data-pagina="parcial-1">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Sintaxis y Semántica de los Lenguajes</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html" aria-current="page">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final y aprobación directa</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=sintaxis-y-semantica-de-los-lenguajes">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=sintaxis-y-semantica-de-los-lenguajes">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene">Cómo viene</a></li><li class="n2"><a href="#que-es-un-compilador">Qué es un compilador</a></li><li class="n3"><a href="#compilador-e-interprete">Compilador e intérprete</a></li><li class="n2"><a href="#token-patron-y-lexema">Token, patrón y lexema</a></li><li class="n2"><a href="#las-fases-del-compilador">Las fases del compilador</a></li><li class="n3"><a href="#como-trabaja-el-analizador-lexico">Cómo trabaja el analizador léxico</a></li><li class="n3"><a href="#como-trabaja-el-analizador-sintactico">Cómo trabaja el analizador sintáctico</a></li><li class="n3"><a href="#como-trabaja-el-analizador-semantico">Cómo trabaja el analizador semántico</a></li><li class="n3"><a href="#la-tabla-de-simbolos">La tabla de símbolos</a></li><li class="n3"><a href="#la-etapa-de-sintesis">La etapa de síntesis</a></li><li class="n2"><a href="#los-tres-tipos-de-error">Los tres tipos de error</a></li><li class="n2"><a href="#alfabeto-cadena-y-sus-partes">Alfabeto, cadena y sus partes</a></li><li class="n3"><a href="#partes-de-una-cadena">Partes de una cadena</a></li><li class="n3"><a href="#operaciones-entre-cadenas">Operaciones entre cadenas</a></li><li class="n2"><a href="#lenguajes-y-sus-operaciones">Lenguajes y sus operaciones</a></li><li class="n3"><a href="#operaciones-sobre-lenguajes">Operaciones sobre lenguajes</a></li><li class="n2"><a href="#c-compilar-y-enlazar">C: compilar y enlazar</a></li><li class="n2"><a href="#c-tipos-operadores-y-expresiones">C: tipos, operadores y expresiones</a></li><li class="n3"><a href="#palabras-clave-y-mayusculas">Palabras clave y mayúsculas</a></li><li class="n3"><a href="#identificadores">Identificadores</a></li><li class="n3"><a href="#tipos-de-datos">Tipos de datos</a></li><li class="n3"><a href="#variables-locales-y-globales">Variables locales y globales</a></li><li class="n3"><a href="#constantes-simbolicas-con-define">Constantes simbólicas con #define</a></li><li class="n3"><a href="#codigos-de-barra-invertida">Códigos de barra invertida</a></li><li class="n3"><a href="#operadores">Operadores</a></li><li class="n3"><a href="#conversion-de-tipos">Conversión de tipos</a></li><li class="n2"><a href="#c-control-de-flujo">C: control de flujo</a></li><li class="n2"><a href="#c-arreglos-y-cadenas">C: arreglos y cadenas</a></li><li class="n3"><a href="#funciones-de-lt-ctype-h-gt-y-lt-string-h-gt">Funciones de &amp;lt;ctype.h&amp;gt; y &amp;lt;string.h&amp;gt;</a></li><li class="n2"><a href="#c-entrada-y-salida">C: entrada y salida</a></li><li class="n3"><a href="#printf">printf</a></li><li class="n3"><a href="#scanf">scanf</a></li><li class="n3"><a href="#entrada-y-salida-sin-formato">Entrada y salida sin formato</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>1° parcial</h1>
+<p class="bajada">Compiladores y lenguajes en teoría. C hasta arreglos, cadenas y entrada y salida en práctica.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene">Cómo viene</h2>
+<p>Teoría y práctica se rinden por separado. El cronograma del cursado virtual dice que el primer examen de teoría «incluye Compiladores y Lenguajes con su guía práctica». El primero de práctica llega hasta la actividad P05, es decir arreglos, cadenas, <code>ctype.h</code> y <code>string.h</code>. Las expresiones regulares recién entran en el <a href="parcial-2.html#expresiones-regulares">2° parcial</a>.</p>
+<p>Son preguntas de opción múltiple en el aula virtual. Las capturas de los autotests del Drive muestran hasta 10 preguntas de 1 punto cada una.</p>
+<div class="tomado"><aside class="nota"><strong>Qué preguntó el 1° autotest</strong><span>Autotests 2024: teoría 25 capturas, práctica 37 capturas</span></aside><p><strong>Teoría.</strong> Compilador contra intérprete, síntesis, el <code>.exe</code>, las tablas en memoria, lexemas de un código, palabras reservadas, y luego símbolo, alfabeto, cadena, potencias y concatenación de lenguajes.</p>
+<p><strong>Práctica.</strong> Declarar cadenas, <code>printf</code> y <code>scanf</code>, <code>gets</code> y <code>puts</code>, <code>switch</code> y <code>break</code>, condicional, <code>for</code> y <code>while</code>, <code>strlen</code>, <code>strcmp</code>, <code>strcat</code>, <code>ctype.h</code>, <code>#define</code>.</p>
+<p>Son capturas sueltas, algunas repetidas. Sirven para ver los temas, no para contar cuánto pesa cada uno. Varias preguntas volvieron iguales en la formativa de teoría del 09/06/26.</p>
+</div>
+</section>
+<section class="sec"><h2 id="que-es-un-compilador">Qué es un compilador</h2>
+<p>Un <strong>lenguaje de programación</strong> es un conjunto de símbolos más un conjunto de reglas para combinarlos. Tiene tres cosas.</p>
+<ul>
+<li><strong>Léxico.</strong> Los símbolos permitidos, el vocabulario.</li>
+<li><strong>Sintaxis.</strong> Las reglas de construcción, cómo se arman las frases.</li>
+<li><strong>Semántica.</strong> El significado de lo que se construyó.</li>
+</ul>
+<p>Los lenguajes de bajo nivel (máquina y ensamblador) dependen del hardware y cada instrucción es una acción. Los de alto nivel son independientes de la máquina y cada instrucción suele ser varias acciones. Por eso necesitan un <strong>traductor</strong>.</p>
+<p>Un <strong>compilador</strong> traduce todo el programa fuente a un programa objeto antes de ejecutarlo. Queda definido por tres lenguajes: el que compila (fuente), el que genera (objeto) y el lenguaje en que está escrito (implantación).</p>
+<p>El compilador no trabaja solo. Lo asisten otros programas.</p>
+<ul>
+<li><strong>Preprocesador.</strong> Incluye archivos, expande macros, saca comentarios.</li>
+<li><strong>Enlazador (linker).</strong> Arma el ejecutable sumando al objeto las funciones de biblioteca.</li>
+<li><strong>Depurador.</strong> Sirve para seguir el programa paso a paso.</li>
+<li><strong>Ensamblador.</strong> Se usa si el compilador genera lenguaje ensamblador en vez de objeto.</li>
+</ul>
+<p>Fuente: apunte «1. Introducción – Compiladores», págs. 1 a 3.</p>
+<h3 id="compilador-e-interprete">Compilador e intérprete</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Los apuntes de la cátedra no desarrollan el intérprete, pero el 1° autotest lo pregunta. Este cuadro sale de un resumen de alumnos del Drive de 2024. El resumen coincide con la clave del aula en la captura de esa pregunta, que está en <a href="ejercicios.html">Ejercicios</a>.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Compilador</th><th>Intérprete</th></tr></thead><tbody><tr><td>Cuándo traduce</td><td>Antes de ejecutar</td><td>Durante la ejecución</td></tr><tr><td>Cómo</td><td>Todo el código</td><td>Línea por línea</td></tr><tr><td>Errores</td><td>En conjunto, al final de la compilación</td><td>Después de cada línea</td></tr><tr><td>Lenguajes típicos</td><td>C, C++, Pascal</td><td>Python, PHP, Ruby</td></tr></tbody></table></div>
+<p>Fuente: Resumen «Traductores: compiladores e intérpretes» (Drive, Resúmenes), sección «Diferencias entre Intérpretes y Compiladores».</p>
+<p class="bloque-fuente">Resumen de alumnos, 2024</p></div>
+</section>
+<section class="sec"><h2 id="token-patron-y-lexema">Token, patrón y lexema</h2>
+<p>Son tres palabras que se confunden. Se entienden mejor con el castellano.</p>
+<div class="idea"><p>En «la flor es blanca», cada palabra tiene una categoría: artículo, sustantivo, verbo, adjetivo. Esa categoría es el <strong>token</strong>. La palabra concreta es el <strong>lexema</strong>. La regla que dice qué palabras entran en la categoría es el <strong>patrón</strong>.</p>
+</div>
+<div class="teorema"><p class="teorema-t">Componente léxico o token</p><p>Elemento básico propios del lenguaje (en el idioma castellano son las palabras). Es una cadena de caracteres que se ajusta a un patrón determinado y que tiene un significado en el lenguaje. Se los puede considerar agrupados en categorías (o tipos). Las categorías de tokens pueden variar de un lenguaje a otro, pero en general se distinguen las siguientes: palabras reservadas, identificadores, constantes numéricas y literales, operadores.</p>
+<p>A cada token le corresponde una estructura lexicológica de la forma <code>&lt;tipo del token, valor léxico&gt;</code>. Tipo de token: es una categoría léxica («constante», «identificador», «operador», etc.). Valor léxico: datos relacionados con el token en particular (valor de la constante, índice del símbolo en la tabla de símbolos, etc.).</p>
+<p class="bloque-fuente">Apunte «1. Introducción – Compiladores», pág. 4</p></div>
+<div class="teorema"><p class="teorema-t">Patrón</p><p>Es la regla de generación de la secuencia de caracteres que podría representar a determinado token. La definición formal de la descripción de un patrón se realiza con una herramienta lingüística especial denominada expresión regular.</p>
+<p class="bloque-fuente">Apunte «1. Introducción – Compiladores», pág. 5</p></div>
+<div class="teorema"><p class="teorema-t">Lexema (valor léxico)</p><p>Cadena que se encuentra en el programa fuente que es posible identificarla como un token; es decir, concuerda con el patrón que describe al token. Podríamos sintetizar diciendo que, el patrón es una definición formal y el lexema es la cadena que encaja en esa definición. A un token le puede corresponder uno o más lexemas.</p>
+<p class="bloque-fuente">Apunte «1. Introducción – Compiladores», pág. 5</p></div>
+<div class="teorema"><p class="teorema-t">Atributo</p><p>Atributo = característica propia de cada tipo de token.</p>
+<p class="bloque-fuente">Apunte «1. Introducción – Compiladores», pág. 5</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Componentes léxicos del C y lexemas de Pascal</p><p>En C, <code>while</code> e <code>if</code> son palabras reservadas, <code>==</code> es operador de relación, <code>=</code> es operador de asignación y <code>+</code> es operador aritmético de suma. Para Pascal, son lexemas del token de categoría identificador <code>A12</code> y <code>sub_total</code>, y son lexemas del token de categoría palabra reservada <code>if</code>, <code>read</code> y <code>begin</code>.</p>
+<p class="bloque-fuente">Apunte «1. Introducción – Compiladores», págs. 4 y 5</p></div>
+<div class="tomado"><aside class="nota"><strong>Lexemas y categorías de un código</strong><span>1° autotest 2024; formativa 09/06/26; recuerdo 13/02/25; parcial AD 22/06/26</span></aside><p>Los autotests muestran un programa corto en C y piden la afirmación correcta sobre el tipo de algunos lexemas. El recuerdo del 13/02/25 pregunta cómo se llaman las categorías a las que pertenece cada cadena del fuente. La práctica del 22/06/26 pide programar un analizador léxico que devuelva la categoría de cada lexema. <mark>Este tema se toma en teoría y también en código.</mark></p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Palabras reservadas</strong><span>1° autotest 2024 y formativa 09/06/26</span></aside><p>Se pregunta por palabras como <code>int</code> y <code>void</code>. La lista está en <a href="#palabras-clave-y-mayusculas">C: tipos, operadores y expresiones</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="las-fases-del-compilador">Las fases del compilador</h2>
+<p>El compilador pasa por seis fases en dos etapas, con dos módulos que acompañan todo el proceso.</p>
+<div class="tabla"><table><thead><tr><th>Etapa</th><th>Fase</th></tr></thead><tbody><tr><td>Análisis (front-end)</td><td>1. Análisis léxico (scanner). 2. Análisis sintáctico (parser). 3. Análisis semántico</td></tr><tr><td>Síntesis (back-end)</td><td>4. Generación de código intermedio. 5. Optimización de código intermedio. 6. Generación de código ejecutable</td></tr><tr><td>Siempre presentes</td><td>7. Administración de la tabla de símbolos y tipos. 8. Gestión de errores</td></tr></tbody></table></div>
+<p>Fuente: apunte «1. Introducción – Compiladores», págs. 6 y 7.</p>
+<p>El apunte también lo mira como dos etapas. En la <strong>etapa inicial</strong> el proceso depende del lenguaje fuente y es completamente independiente de la máquina. En la <strong>etapa final</strong> se hace dependiente de la máquina e independiente del lenguaje fuente. Las fases no son estrictas. En la práctica se entremezclan, el orden puede variar y un compilador puede juntar varias en una sola.</p>
+<div class="ojo"><p class="ojo-t">Un camino de ida</p><p>El apunte dice que el proceso de compilación «es irreversible e inclusive puede considerarse destructivo, ya que no hay forma de reconstituir el programa fuente a partir del ejecutable».</p>
+<p>Fuente: apunte «1. Introducción – Compiladores», pág. 6.</p>
+</div>
+<p>Cada fase de análisis hace lo siguiente.</p>
+<ul>
+<li><strong>Léxico.</strong> Lee el texto del programa carácter a carácter desde un buffer, ignora espacios y comentarios y emite tokens. Entrada: cadena de caracteres. Salida: secuencia de pares token-lexema. Guarda identificadores y constantes en la <strong>tabla de símbolos</strong>.</li>
+<li><strong>Sintáctico.</strong> Recibe los tokens y verifica que lleguen en el orden que permite la gramática. Construye un árbol sintáctico. El análisis léxico suele ser una subrutina del sintáctico, y el sintáctico guía gran parte de la compilación.</li>
+<li><strong>Semántico.</strong> Revisa el significado: compatibilidad de tipos, que los operadores sean válidos, que lo declarado coincida con su uso y que los parámetros de un subprograma coincidan en cantidad y tipo.</li>
+</ul>
+<p>Fuente: apunte «1. Introducción – Compiladores», págs. 7 a 16.</p>
+<h3 id="como-trabaja-el-analizador-lexico">Cómo trabaja el analizador léxico</h3>
+<p>El AL opera <strong>bajo petición del AS</strong>. Le devuelve un token cada vez que el AS lo necesita para avanzar en la gramática. El apunte detalla su funcionamiento así.</p>
+<ul>
+<li>A partir de la lectura carácter a carácter de la entrada, construye un token válido.</li>
+<li>Pasa el token válido al AS.</li>
+<li>Gestiona el manejo de la entrada.</li>
+<li>Ignora espacios en blanco, comentarios y caracteres innecesarios.</li>
+<li>Avisa de los errores encontrados.</li>
+<li>Lleva la cuenta del número de línea, para incluirlo en el informe de errores.</li>
+</ul>
+<p>Cada carácter leído se guarda en un <strong>buffer</strong>. Cuando llega uno que no le sirve para construir el token, se detiene y envía al AS los caracteres acumulados. Con la próxima petición limpia el buffer y vuelve a leer el carácter donde paró, porque ese no se envió.</p>
+<div class="ejemplo"><p class="ejemplo-t">El buffer con «real x; begin end.»</p><div class="tabla"><table><thead><tr><th>Entrada</th><th>Buffer</th><th>Acción</th></tr></thead><tbody><tr><td><code>r</code>, <code>e</code>, <code>a</code>, <code>l</code></td><td>De <code>r</code> a <code>real</code></td><td>Leer otro carácter</td></tr><tr><td>Espacio en blanco</td><td><code>real</code></td><td>Enviar token y limpiar buffer</td></tr><tr><td><code>x</code></td><td><code>x</code></td><td>Leer otro carácter</td></tr><tr><td><code>;</code></td><td><code>x</code></td><td>Enviar token y limpiar buffer</td></tr><tr><td><code>;</code></td><td><code>;</code></td><td>Leer otro carácter</td></tr><tr><td><code>b</code></td><td><code>;</code></td><td>Enviar token y limpiar buffer</td></tr><tr><td><code>b</code>, <code>e</code>, <code>g</code>, <code>i</code>, <code>n</code></td><td>De <code>b</code> a <code>begin</code></td><td>Leer otro carácter</td></tr><tr><td>Espacio en blanco</td><td><code>begin</code></td><td>Enviar token y limpiar buffer</td></tr><tr><td><code>e</code>, <code>n</code>, <code>d</code></td><td>De <code>e</code> a <code>end</code></td><td>Leer otro carácter</td></tr><tr><td><code>.</code></td><td><code>end</code></td><td>Enviar token y limpiar buffer</td></tr><tr><td><code>.</code></td><td><code>.</code></td><td>Leer otro carácter</td></tr><tr><td>Fin de entrada</td><td><code>.</code></td><td>Enviar token y finaliza proceso</td></tr></tbody></table></div>
+<p>En síntesis, lee caracteres hasta completar un token y emite el par token-lexema. Fijate que el <code>;</code> y la <code>b</code> se leen dos veces. La primera vez cierran el token anterior y la segunda arrancan el suyo.</p>
+<p class="bloque-fuente">Apunte «1. Introducción – Compiladores», pág. 9</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Entrada y salida del AL</p><p>Con la entrada <code>A := BT * C + 3;</code> el AL reconoce identificadores, el operador de asignación, operadores aritméticos y una constante numérica. En la tabla de símbolos quedan <code>A</code>, <code>BT</code> y <code>C</code> como variables enteras y <code>3</code> como constante entera. La salida es la secuencia de pares.</p>
+<p><code>&lt;Identificador, A&gt; &lt;Operador Asig&gt; &lt;Identificador, BT&gt; &lt;Operador aritm, *&gt; &lt;Identificador, C&gt; &lt;Operador aritm, +&gt; &lt;Cte.numer., 3&gt;</code></p>
+<p>Con <code>ZETA := X * M_T + 273;</code> la salida tiene la misma estructura, porque son los mismos tipos de token, pero con distinto valor de lexema.</p>
+<p class="bloque-fuente">Apunte «1. Introducción – Compiladores», pág. 8</p></div>
+<h3 id="como-trabaja-el-analizador-sintactico">Cómo trabaja el analizador sintáctico</h3>
+<p>La sintaxis de un lenguaje se basa en <strong>categorías sintácticas</strong>, como las instrucciones, los identificadores, las constantes, las expresiones, las asignaciones y los operadores. Cuando una regla dice que en tal contexto va tal categoría, ahí puede y debe ir cualquier construcción de esa categoría.</p>
+<ul>
+<li><strong>Entrada.</strong> Los tokens que produce el AL. No maneja la secuencia de caracteres.</li>
+<li><strong>Proceso.</strong> Examina los tokens según van apareciendo y analiza <strong>solamente la primera componente</strong> de cada par. La segunda se usa en otros pasos. Comprueba que lleguen en el orden de la gramática y, si no, genera el informe de error.</li>
+<li><strong>Salida.</strong> Un árbol sintáctico.</li>
+</ul>
+<p>En el <strong>árbol sintáctico</strong> los nodos interiores son los operadores y los hijos de cada nodo son los operandos. Para que el árbol sea válido, <strong>cada bifurcación necesita una regla sintáctica</strong>. Para <code>X := Z * 23</code> la raíz es <code>:=</code>, con hijos <code>X</code> y <code>*</code>, y el <code>*</code> tiene hijos <code>Z</code> y <code>23</code>.</p>
+<div class="teorema"><p class="teorema-t">Principio básico de la sintaxis</p><p>El principio básico de la sintaxis consiste en que una construcción corresponde a una categoría sintáctica determinada, sí y solo sí es posible construir un árbol sintáctico en donde en la raíz aparezca la categoría sintáctica pretendida y la lectura secuencial de las hojas corresponde a la construcción dada.</p>
+<p class="bloque-fuente">Apunte «1. Introducción – Compiladores», págs. 11 y 12</p></div>
+<div class="ejemplo"><p class="ejemplo-t">B + * C contra B + 15</p><p>La regla es <code>expresion → expresion operador aritmético expresión</code>. Para <code>B + * C</code> el AL devuelve <code>&lt;Identificador, B&gt; &lt;Operador aritm, +&gt; &lt;Operador aritm, *&gt; &lt;Identificador, C&gt;</code>. El AS toma solo las categorías y ve <code>&lt;Identificador&gt; &lt;Operador aritm&gt; &lt;Operador aritm&gt; &lt;Identificador&gt;</code>. No cumple la regla, así que es un error. Para <code>B + 15</code> ve <code>&lt;Identificador&gt; &lt;Operador aritm&gt; &lt;Constante&gt;</code>, y sí cumple.</p>
+<p class="bloque-fuente">Apunte «1. Introducción – Compiladores», pág. 12</p></div>
+<p>El AL y el AS trabajan juntos. El apunte remarca que su accionar «apunta a comprobar que el programa está bien construido respecto a las reglas impuestas por el lenguaje (las que definen el léxico y las que definen la sintaxis)».</p>
+<h3 id="como-trabaja-el-analizador-semantico">Cómo trabaja el analizador semántico</h3>
+<p>Es la fase más compleja, porque comprueba que el programa sea coherente. Para el significado de los tokens recurre a sus <strong>atributos</strong>, que no son más que información específica de ellos. El AS invoca al Ase y a la generación de código mientras hace su propio análisis, así que esas tareas se superponen.</p>
+<ul>
+<li><strong>Entrada.</strong> El árbol jerárquico que resulta del AS.</li>
+<li><strong>Salida.</strong> Un <strong>árbol semántico</strong>, es decir un árbol sintáctico en el que cada una de sus ramas adquirió el significado que debe tener.</li>
+</ul>
+<div class="ejemplo"><p class="ejemplo-t">A := B + C</p><p>En Pascal, el Ase comprueba que <code>B</code> y <code>C</code> sean de un tipo compatible con el que requiere el <code>+</code>. Si son reales o enteros los suma, pero si son cadenas los concatena.</p>
+<p class="bloque-fuente">Apunte «1. Introducción – Compiladores», pág. 15</p></div>
+<p>Fuente: apunte «1. Introducción – Compiladores», págs. 8 a 15.</p>
+<h3 id="la-tabla-de-simbolos">La tabla de símbolos</h3>
+<p>Es una tabla con una fila por cada identificador que aparece en el programa. El apunte le da estos campos: nombre, categoría, tipo, cantidad y lista de parámetros, y dirección.</p>
+<p>Está en la memoria donde corre el programa compilado. El valor de un símbolo puede cambiar durante la ejecución, pero <strong>la dirección de memoria es fija y se define en la compilación</strong>. Si el símbolo es una estructura de datos, la dirección es la de su primer elemento. Para un subprograma, el tipo es el de retorno, y la cantidad y la lista de parámetros solo se llenan en ese caso.</p>
+<p>La acompaña la <strong>tabla de tipos</strong>, que es esencial para que el Ase pueda trabajar. Arranca con los tipos primitivos y se le suman los que define el usuario. Guarda el identificador del tipo, el tipo base si es un tipo compuesto del usuario, la dimensión (cantidad de elementos, 1 para los primitivos) y el alcance. Suele tener además un código para referirse más fácil a cada tipo. Todas las fases usan las dos tablas, sobre todo el AS y el Ase, así que tienen que ser estructuras de acceso fácil.</p>
+<div class="ejemplo"><p class="ejemplo-t">Las tablas de un fragmento Pascal</p><p>Solo hay dos tipos primitivos, <code>integer</code> y <code>char</code>. Las variables se guardan desde la dirección 9000, un entero ocupa 2 direcciones y un carácter ocupa 1. El fragmento es <code>Type Ar = array [0..9] of integer;</code> y después <code>Var x: Ar; car: char; z: integer;</code>.</p>
+<p>Primero solo se inicializa la tabla de tipos, con <code>char</code> y <code>integer</code>. Al procesar el <code>Type</code> se suma <code>Ar</code>. Al procesar el <code>Var</code> se llena la tabla de símbolos.</p>
+<div class="tabla"><table><thead><tr><th>Código del tipo</th><th>Nombre</th><th>Dimensión</th></tr></thead><tbody><tr><td>0</td><td><code>char</code></td><td>1</td></tr><tr><td>1</td><td><code>integer</code></td><td>1</td></tr><tr><td>2</td><td><code>Ar</code></td><td>10</td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><th>Código del símbolo</th><th>Nombre</th><th>Categoría</th><th>Tipo</th><th>Dirección</th></tr></thead><tbody><tr><td>0</td><td><code>x</code></td><td>variable</td><td>2</td><td>9000</td></tr><tr><td>1</td><td><code>car</code></td><td>variable</td><td>0</td><td>9020</td></tr><tr><td>2</td><td><code>z</code></td><td>variable</td><td>1</td><td>9021</td></tr></tbody></table></div>
+<p><code>x</code> ocupa de 9000 a 9019 porque son 10 enteros de 2 direcciones.</p>
+<p class="bloque-fuente">Apunte «1. Introducción – Compiladores», págs. 14 y 15</p></div>
+<p>Fuente: apunte «1. Introducción – Compiladores», págs. 13 a 15.</p>
+<div class="tomado"><aside class="nota"><strong>Tablas y código fuente en memoria</strong><span>1° autotest 2024</span></aside><p>Tres preguntas piden qué estructura de C usarías para guardar la tabla de símbolos, la tabla de errores y el código fuente. La del código fuente trae la clave del aula en <a href="ejercicios.html">Ejercicios</a>.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Cuándo se informan los errores</p><p>El apunte dice que el análisis <strong>no se detiene</strong> en el primer error. Cada fase procesa el error y sigue, y «todos los errores se informan al final de la etapa de análisis y recién ahí se detiene la compilación». Un error no siempre se detecta en su fase, y algunos recién se ven al ejecutar.</p>
+<p>Fuente: apunte «1. Introducción – Compiladores», pág. 7.</p>
+</div>
+<p>El tratamiento de los errores, en cualquiera de las fases, debe cumplir al menos tres requisitos.</p>
+<ol>
+<li>Reportar su presencia de manera clara y precisa.</li>
+<li>Recuperarse lo suficientemente rápido como para ser capaz de detectar los errores siguientes.</li>
+<li>No demorar significativamente el procesamiento de los programas correctos.</li>
+</ol>
+<p>Fuente: apunte «1. Introducción – Compiladores», pág. 7.</p>
+<h3 id="la-etapa-de-sintesis">La etapa de síntesis</h3>
+<ul>
+<li><strong>Generación de código intermedio.</strong> Después del AS y el Ase, algunos compiladores generan una representación intermedia explícita. Es un lenguaje sencillo, cercano a una máquina abstracta y no a un procesador concreto. Se traduce fácil al lenguaje de máquina de cada procesador. Así, la parte larga y compleja, la anterior al código intermedio, es común a todos los procesadores.</li>
+<li><strong>Optimización de código intermedio.</strong> Mejora el código intermedio para que el código de máquina resulte más rápido. Toma el código de forma global y lo adapta al procesador al que va dirigido.</li>
+<li><strong>Generación de código objeto.</strong> Es la fase final. Recibe el código intermedio junto con la información de la tabla de símbolos que hace falta para las direcciones, y traduce cada instrucción intermedia a una secuencia de instrucciones de máquina.</li>
+</ul>
+<p>El programa objeto puede salir de tres formas.</p>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Qué genera</th><th>Características</th></tr></thead><tbody><tr><td>Lenguaje de máquina absoluto</td><td>El <code>.EXE</code> directo, en una posición fija de memoria</td><td>Más eficiente pero menos flexible. Existe solo en compiladores antiguos</td></tr><tr><td>Lenguaje de máquina redireccionable</td><td>Un <code>.OBJ</code> que pasa por la linkedición para llegar al <code>.EXE</code></td><td>Las posiciones de memoria no son definitivas. Se pueden compilar subrutinas por separado y llamarlas desde otros módulos. Es lo más común en compiladores comerciales</td></tr><tr><td>Lenguaje simbólico</td><td>Un <code>.ASM</code>, en ensamblador con macros, que se ensambla para llegar al <code>.EXE</code></td><td>Útil en arquitecturas con poca memoria</td></tr></tbody></table></div>
+<p>Fuente: apunte «1. Introducción – Compiladores», págs. 16 y 17.</p>
+<div class="tomado"><aside class="nota"><strong>Síntesis y análisis</strong><span>1° autotest 2024 y formativa 09/06/26</span></aside><p>Los autotests traen verdaderos y falsos sobre qué hace la síntesis y si es lo mismo que el análisis. La tabla de arriba alcanza para contestarlos.</p>
+</div>
+</section>
+<section class="sec"><h2 id="los-tres-tipos-de-error">Los tres tipos de error</h2>
+<p>Es una clasificación que se pide sobre un programa real, línea por línea.</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Cuándo ocurre</th><th>Quién lo ve</th></tr></thead><tbody><tr><td>Léxico</td><td>Los caracteres no forman un token válido</td><td>Análisis léxico</td></tr><tr><td>Sintáctico</td><td>Los tokens no cumplen las reglas de estructura</td><td>Análisis sintáctico</td></tr><tr><td>Semántico</td><td>La construcción es una operación no permitida, aunque la sintaxis sea correcta</td><td>Análisis semántico</td></tr></tbody></table></div>
+<p>Ejemplos del apunte, uno por uno.</p>
+<ul>
+<li><strong>Léxico.</strong> Una coma como separador decimal. Un símbolo no permitido dentro de un identificador.</li>
+<li><strong>Sintáctico.</strong> Paréntesis sin balancear. Dos operadores seguidos, como <code>B + * C</code>.</li>
+<li><strong>Semántico.</strong> Sumar un nombre de arreglo con un nombre de procedimiento. Usar un identificador declarado de un tipo como si fuera de otro. Usar un índice real en un arreglo.</li>
+</ul>
+<p>Fuente: apunte «1. Introducción – Compiladores», págs. 9 a 13, 15 y 16.</p>
+<div class="ojo"><p class="ojo-t">Lo semántico depende del lenguaje</p><p>El apunte da el caso <code>car := num + 4</code>, con <code>car</code> de tipo carácter y <code>num</code> entero. En Pascal es un error semántico. El mismo apunte aclara que un compilador de C lo hubiera dado como válido. Mirá los tipos con las reglas de C y no con las de otro lenguaje.</p>
+<p>Fuente: apunte «1. Introducción – Compiladores», págs. 15 y 16.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Clasificar los errores de un código en C</strong><span>Recuerdos 08/08/24 y 22/06/26</span></aside><p>Se da un programa en C y un cuadro con «N° de línea, descripción y léxico, sintáctico o semántico» para 6 o 7 líneas. En el recuerdo del 22/06/26 vale 3 puntos de 10, lo mismo que Thompson. No lo vi en las capturas de autotests. Practicá leyendo cada línea con las tres definiciones de arriba. Cuidado con el archivo del 08/08/24 del Drive, porque trae una «posible solución» de un alumno que confunde semántico con error lógico.</p>
+</div>
+</section>
+<section class="sec"><h2 id="alfabeto-cadena-y-sus-partes">Alfabeto, cadena y sus partes</h2>
+<div class="teorema"><p class="teorema-t">Símbolo</p><p>Es una entidad indivisible, que no se va a definir. Normalmente los símbolos son letras (a, b, c, …, Z), dígitos (0, 1, …, 9) y otros caracteres (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>¿</code>, …). Los símbolos también pueden estar formados por varias letras o caracteres, así por ejemplo las palabras reservadas de un lenguaje de programación son símbolos de dicho lenguaje.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 19</p></div>
+<div class="teorema"><p class="teorema-t">Alfabeto o vocabulario</p><p>Conjunto finito de «símbolos». Los alfabetos se definen por enumeración de los símbolos que contienen. Utilizaremos la letra V para referenciar un alfabeto, para definir que un símbolo a pertenece a un alfabeto V se utiliza la notación a ϵ V.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 19</p></div>
+<div class="teorema"><p class="teorema-t">Cadena sobre un alfabeto</p><p>Toda secuencia finita de símbolos tomados de un determinado alfabeto. Puede haber repetición, es decir, un símbolo puede aparecer varias veces dentro de la cadena. También se llama a la cadena, palabra, tira o string. Utilizaremos la letra s minúscula para referenciar una cadena.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 19</p></div>
+<div class="teorema"><p class="teorema-t">Longitud de una cadena s</p><p>Esta dada por la cantidad de apariciones u ocurrencias de símbolos en la cadena, es decir, cantidad de símbolos o letras que la componen. Se indica |s|.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 19</p></div>
+<div class="teorema"><p class="teorema-t">Cadena vacía</p><p>Es una cadena especial de longitud cero, es decir, no posee símbolos. Se indica o representa con la letra ε (épsilon). |ε| = 0.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 20</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Alfabetos, cadenas y longitud</p><p>Con <code>V2 = {0, 1}</code>, el alfabeto binario, <code>s2 = 001101</code> es una cadena de <code>V2</code>. Con <code>V = {a, b, c, …, z}</code>, <code>s1 = sintaxis</code> tiene <code>|s1| = 8</code> y <code>s3 = for</code> tiene <code>|s3| = 3</code>.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», págs. 19 y 20</p></div>
+<h3 id="partes-de-una-cadena">Partes de una cadena</h3>
+<div class="teorema"><p class="teorema-t">Partes de una cadena</p><p><strong>Prefijo de una cadena s:</strong> toda cadena que resulta de eliminar 0 o más ocurrencias de símbolos de la cadena s desde el extremo derecho. Si no elimino ninguno me queda s, si elimino todos me queda ε, por lo tanto, s y ε son prefijos. Se define como prefijo propiamente dicho a aquel que no es ni s ni ε.</p>
+<p><strong>Sufijo:</strong> cadena que se obtiene eliminando 0 o más símbolos desde la izquierda. Sufijo propiamente dicho es aquel que no es ni s ni ε.</p>
+<p><strong>Subcadena de una cadena s:</strong> toda cadena que se obtiene al eliminar un prefijo y un sufijo de s. Subcadena propiamente dicha es aquella que no es ni s ni ε.</p>
+<p><strong>Subsecuencia de s:</strong> cualquier cadena que se forma eliminando 0 o más símbolos, no necesariamente consecutivos, de s.</p>
+<p>∀ s, tanto s como ε son prefijo, sufijo y subcadena.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 20</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Partes de sintaxis</p><p>Con <code>s = sintaxis</code>: prefijo <code>sin</code>, sufijo <code>taxis</code>, subcadena <code>inta</code>, subsecuencia <code>sinas</code>.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 20</p></div>
+<div class="ojo"><p class="ojo-t">Subcadena contra subsecuencia</p><p>Una subcadena son símbolos <strong>seguidos</strong>. Una subsecuencia puede saltear. Toda subcadena es subsecuencia, pero no al revés.</p>
+</div>
+<h3 id="operaciones-entre-cadenas">Operaciones entre cadenas</h3>
+<div class="teorema"><p class="teorema-t">Concatenación de cadenas</p><p>Sean x e y dos cadenas cualesquiera sobre el alfabeto V, se denomina concatenación de x e y y se representa x.y a una nueva cadena que se obtiene agregando y a x. Es decir, es la palabra formada al escribir los símbolos de la primera seguidos inmediatamente por los símbolos de la segunda.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 21</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Concatenar vice y director</p><p>Con <code>x = vice</code> e <code>y = director</code>: <code>x.y = vicedirector</code> e <code>y.x = directorvice</code>, por lo tanto <code>x.y ≠ y.x</code>.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 21</p></div>
+<div class="teorema"><p class="teorema-t">Potencia entera n ≥ 0 de una cadena s</p><p>Estamos en presencia de una definición por recurrencia: <code>s⁰ = ε</code> (cadena vacía) y <code>sⁱ = sⁱ⁻¹ . s</code> (con i &gt; 0) <code>= s.s.s. … s</code> (i veces).</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 21</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Potencia 3</p><p><code>s³ = s² . s = (s¹ . s) . s = ((s⁰ . s) . s) . s = ((ε . s) . s) . s = (s . s) . s = s . s . s</code>. Con <code>s = ja</code>, <code>s³ = jajaja</code>.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 21</p></div>
+<div class="tomado"><aside class="nota"><strong>Definiciones sueltas de cadenas</strong><span>1° autotest 2024 y formativa 09/06/26</span></aside><p>Las capturas piden qué es un símbolo, si un alfabeto puede ser infinito, qué es una cadena sobre un alfabeto, la longitud de ε y qué parte de una palabra es un trozo dado, como GUA en LENGUAJE. Todo sale de las definiciones de esta sección.</p>
+</div>
+</section>
+<section class="sec"><h2 id="lenguajes-y-sus-operaciones">Lenguajes y sus operaciones</h2>
+<div class="teorema"><p class="teorema-t">Lenguaje</p><p>Conjunto (finito o infinito) de cadenas que se pueden formar con un alfabeto (finito). Se representa con la letra L.</p>
+<p>Lenguaje sobre un alfabeto V es cualquier conjunto de cadenas sobre ese alfabeto. Lenguaje sobre V es cualquier subconjunto de V*.</p>
+<p><code>V*</code>: conjunto de todas las palabras posibles obtenidas de V incluyendo la palabra vacía (es un conjunto infinito ∞).</p>
+<p><code>L ⊆ V*</code> (L está contenido en V* o es igual a V*).</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 21</p></div>
+<div class="teorema"><p class="teorema-t">Lenguaje vacío</p><p>Existe un lenguaje denominado lenguaje vacío, que es un conjunto vacío y que se denota con Ø o { }. El lenguaje vacío no debe confundirse con un lenguaje que contenga una sola cadena y que esta sea la cadena vacía, es decir {ε}, ya que el nº de elementos (cardinalidad) de estos dos conjuntos es diferente.</p>
+<p>Cardinal (Ø) = 0. Cardinal ({ε}) = 1.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 22</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Lenguajes sobre un alfabeto</p><p><code>V</code> es un lenguaje sobre V. <code>V*</code> es un lenguaje sobre V. <code>{ε}</code> es un lenguaje, tiene una cadena que es vacía. <code>Ø</code> o <code>{ }</code> es un lenguaje, conjunto vacío, no tiene cadenas. Con los dígitos como V, <code>L1(V) = {nº de 2 cifras}</code> es un lenguaje.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», págs. 21 y 22</p></div>
+<h3 id="operaciones-sobre-lenguajes">Operaciones sobre lenguajes</h3>
+<div class="teorema"><p class="teorema-t">Unión, concatenación y potencia</p><p><strong>Unión de L y M:</strong> <code>L U M = { s / s está en L o s está en M }</code>.</p>
+<p><strong>Concatenación de L con M:</strong> <code>L . M = { s / s = r . t con r en L y t en M }</code>. No es conmutativa. Puedo concatenar un lenguaje consigo mismo, o sea, L . L es válido.</p>
+<p><strong>Potencia entera n ≥ 0 de un lenguaje L:</strong> <code>L⁰ = { ε }</code>, conjunto que contiene la cadena vacía. <code>Lⁱ = Lⁱ⁻¹ . L</code> (con i &gt; 0).</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 22</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Concatenar R y S</p><p><code>R . S = {no; si} . {33; 9a} = {no33; no9a; si33; si9a}</code>. <code>S . R = {33; 9a} . {no; si} = {33no; 33si; 9ano; 9asi}</code>. <code>R . R = {no; si} . {no; si} = {nono; sisi; nosi; sino}</code>.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 22</p></div>
+<div class="teorema"><p class="teorema-t">Cerradura o clausura de Kleene de L</p><p><code>L* = L⁰ U L¹ U L² U … U Lⁿ</code> (unión de todas las potencias del lenguaje de 0 en adelante). <code>L* = { ε } U L U L . L U (L . L) . L U …</code>, por lo tanto L* es un lenguaje infinito que contiene al propio lenguaje, y ε siempre está en la cerradura.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», págs. 22 y 23</p></div>
+<div class="teorema"><p class="teorema-t">Cerradura de Kleene del alfabeto tomado como lenguaje</p><p><code>V* = V⁰ U V¹ U V² U V³ U …</code> (unión de todas las potencias enteras de V de 0 en adelante). Cuando tomo el alfabeto como lenguaje y hago la cerradura de Kleene del alfabeto lo que obtengo es el universo de todas las cadenas sobre V.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 23</p></div>
+<div class="teorema"><p class="teorema-t">Cerradura positiva de L</p><p><code>L⁺ = L¹ U L² U L³ U …</code> (unión de todas las potencias positivas de L de 1 en adelante). <code>L⁺ U {ε} = L*</code>.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 23</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Operaciones con L y M</p><p>Con <code>L = { a, aab }</code> y <code>M = { b, bb }</code>: <code>L U M = { a, aab, b, bb }</code>, <code>LM = { ab, aabb, abb, aabbb }</code>, <code>L* = { ε, a, aab, aa, aaab, aaba, aabaab, … }</code>, <code>L² = { aa, aaab, aaba, aabaab }</code>.</p>
+<p class="bloque-fuente">Apunte «2. Lenguajes», pág. 23</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Letras y dígitos</p><p>Sobre un alfabeto de letras y dígitos se toman los lenguajes <code>L = { A, B, …, Z, a, b, …, z }</code> y <code>D = { 0, 1, …, 9 }</code>.</p>
+<div class="tabla"><table><thead><tr><th>Lenguaje</th><th>Qué cadenas tiene, según el apunte</th></tr></thead><tbody><tr><td><code>L U D</code></td><td>Letras y dígitos</td></tr><tr><td><code>L . D</code></td><td>Cadenas de 1 letra seguida por 1 dígito</td></tr><tr><td><code>L⁴</code></td><td>Cadenas de 4 letras</td></tr><tr><td><code>L*</code></td><td>Cadenas de letras, incluida ε</td></tr><tr><td><code>D⁺</code></td><td>Cadenas de 1 o más dígitos, es decir los enteros positivos</td></tr><tr><td><code>L . (L U D)</code></td><td>Cadenas de letras y dígitos que empiezan con una letra</td></tr><tr><td><code>(L U D)*</code></td><td>Cadenas de letras y dígitos, incluida la cadena vacía</td></tr><tr><td><code>L . (L U D)*</code></td><td>Cadenas de letras y dígitos que empiezan con una letra. No incluye la cadena vacía. Es el lenguaje formal de los identificadores de Pascal</td></tr><tr><td><code>L . (L U D)⁺</code></td><td>Cadenas de letras y dígitos de por lo menos longitud 2 que empiezan con una letra</td></tr></tbody></table></div>
+<p class="bloque-fuente">Apunte «2. Lenguajes», págs. 23 y 24</p></div>
+<div class="ojo"><p class="ojo-t">Dos renglones del cuadro, al pie de la letra</p><p>El apunte describe <code>L*</code> como «cadenas de 1 o más letras, incluída ε», que es lo mismo que decir 0 o más letras. Y a <code>L . (L U D)</code> le pone la misma descripción que a los identificadores. Con la definición de concatenación del mismo apunte, en cambio, da cadenas de <strong>exactamente 2</strong> símbolos, una letra seguida de una letra o un dígito. Las dos versiones salen del apunte. Si te lo toman, consultá cuál pide tu comisión.</p>
+</div>
+<div class="idea"><p>Concatenar lenguajes es como armar todos los pares posibles con un elemento de cada uno, en orden. Invertir el orden da un lenguaje distinto.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Cuentas con lenguajes chicos</strong><span>1° autotest 2024 y formativa 09/06/26</span></aside><p>Las preguntas dan lenguajes de pocas palabras y piden <code>L1.L2</code>, o <code>L⁰</code> y <code>L³</code>, o la palabra de menor longitud de un lenguaje definido por comprensión, o si <code>L ⊆ V*</code>. Si ε está en uno de los dos lenguajes, ojo al armar los pares. Tenés una con la clave del aula en <a href="ejercicios.html">Ejercicios</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="c-compilar-y-enlazar">C: compilar y enlazar</h2>
+<p>Un programa en C pasa por el <strong>preprocesador</strong>, el <strong>compilador</strong> y el <strong>enlazador</strong>.</p>
+<ol>
+<li>Se escribe el código fuente (<code>.c</code>).</li>
+<li>El compilador lo traduce a un módulo <strong>objeto</strong> (<code>.obj</code>). Si hay errores, no se produce.</li>
+<li>Los <strong>archivos de cabecera</strong> (<code>.h</code>) declaran funciones y nombres de uso general y se incluyen con <code>#include</code>.</li>
+<li>El <strong>enlazador</strong> une el módulo objeto con las funciones de la <strong>biblioteca</strong> y produce el ejecutable (<code>.exe</code>).</li>
+</ol>
+<p>Compilar sin errores no alcanza para tener un ejecutable. El apunte dice que el objeto «no es todavía directamente ejecutable» y que el enlazado es lo que lo produce.</p>
+<p>Fuente: apunte «Lenguaje C», págs. 9 a 11.</p>
+<p>El cursado usa <strong>Code::Blocks</strong> como entorno. El apunte habla de Turbo C, así que algunas funciones suyas, como las de <code>conio.h</code>, no están disponibles. Fuente: cronograma «Práctica - Cursado Virtual», pág. 5.</p>
+</section>
+<section class="sec"><h2 id="c-tipos-operadores-y-expresiones">C: tipos, operadores y expresiones</h2>
+<h3 id="palabras-clave-y-mayusculas">Palabras clave y mayúsculas</h3>
+<p>En C las mayúsculas y las minúsculas son <strong>distintas</strong>, y todas las palabras clave van en minúscula. El apunte da el ejemplo de <code>else</code>, que es palabra clave, mientras que <code>ELSE</code> o <code>Else</code> no lo son. Son 32 palabras, entre ellas <code>int</code>, <code>char</code>, <code>void</code>, <code>return</code>, <code>break</code>, <code>case</code>, <code>default</code>, <code>else</code>, <code>for</code>, <code>if</code>, <code>struct</code>, <code>switch</code> y <code>while</code>.</p>
+<p>Fuente: apunte «Lenguaje C», pág. 2.</p>
+<h3 id="identificadores">Identificadores</h3>
+<p>Se forman con letras, dígitos y guión bajo. <strong>No pueden empezar con dígito</strong> ni coincidir con una palabra clave. Se acostumbra usar minúsculas para variables y mayúsculas para constantes.</p>
+<p>Fuente: apunte «Lenguaje C», pág. 12. Correctos: <code>cont</code>, <code>prueba_1</code>, <code>NUM_3</code>. Incorrectos: <code>1cont</code>, <code>hola!</code>, <code>acum-12</code>.</p>
+<h3 id="tipos-de-datos">Tipos de datos</h3>
+<p>Cuatro tipos básicos: <code>char</code>, <code>int</code>, <code>float</code> (simple precisión) y <code>double</code> (doble precisión). Más <code>void</code>, que significa «sin valor» y sirve para funciones que no devuelven nada o no reciben parámetros. No existen variables de tipo <code>void</code>.</p>
+<p>Los <strong>modificadores</strong> son <code>short</code>, <code>long</code>, <code>unsigned</code> y <code>signed</code>. Con <code>unsigned</code>, todos los bits representan el número y no hay signo.</p>
+<p>Internamente los caracteres se guardan en ASCII. Por eso un <code>char</code> se puede tratar como un número, y al asignar un <code>char</code> a un <code>int</code> se guarda su código ASCII.</p>
+<p>Fuente: apunte «Lenguaje C», págs. 12, 13, 23 y 24.</p>
+<h3 id="variables-locales-y-globales">Variables locales y globales</h3>
+<p>Toda variable se declara antes de usarse. Hay tres lugares. Dentro de una función o bloque son <strong>locales</strong>, en la definición de parámetros son <strong>parámetros formales</strong> y fuera de todas las funciones son <strong>globales</strong>.</p>
+<ul>
+<li><strong>Locales.</strong> Solo se conocen dentro de su función o bloque. Se crean al entrar y se destruyen al salir, así que no conservan el valor entre llamadas. Sin inicializar tienen basura.</li>
+<li><strong>Globales.</strong> Se conocen en todo el programa y mantienen su valor toda la ejecución. Si una local tiene el mismo nombre, dentro de esa función el nombre se refiere a la local.</li>
+</ul>
+<p>El apunte da tres razones para evitar las globales innecesarias. Usan memoria todo el tiempo, hacen a la función menos general porque depende de algo definido afuera, y en programas grandes traen problemas cuando se modifica su valor en algún lugar.</p>
+<p>Una local <code>static</code> mantiene su valor entre llamadas, pero solo se conoce en su bloque.</p>
+<p>Fuente: apunte «Lenguaje C», págs. 14 a 17.</p>
+<h3 id="constantes-simbolicas-con-define">Constantes simbólicas con #define</h3>
+<p><code>#define</code> es una directiva del preprocesador. Define constantes simbólicas y sustitución de macros, con el formato <code>#define &lt;nombre de macro&gt; &lt;nombre de reemplazo&gt;</code>. El apunte da <code>#define FALSO 0</code>. Durante la compilación, cada aparición del nombre se reemplaza por su valor. El formato no lleva <code>=</code> ni <code>;</code>.</p>
+<p>Fuente: apunte «Lenguaje C», pág. 6.</p>
+<h3 id="codigos-de-barra-invertida">Códigos de barra invertida</h3>
+<p>Representan caracteres que no se pueden escribir desde el teclado.</p>
+<div class="tabla"><table><thead><tr><th>Código</th><th>Significado</th></tr></thead><tbody><tr><td><code>\n</code></td><td>Salto de línea</td></tr><tr><td><code>\t</code></td><td>Tabulación horizontal</td></tr><tr><td><code>\b</code></td><td>Espacio atrás</td></tr><tr><td><code>\r</code></td><td>Retorno de carro</td></tr><tr><td><code>\0</code></td><td>Nulo</td></tr><tr><td><code>\\</code></td><td>Barra invertida</td></tr><tr><td><code>\&quot;</code> y <code>\&#39;</code></td><td>Comillas</td></tr><tr><td><code>\a</code></td><td>Alerta</td></tr><tr><td><code>\f</code></td><td>Salto de página</td></tr><tr><td><code>\v</code></td><td>Tabulador vertical</td></tr><tr><td><code>\o</code> y <code>\x</code></td><td>Constante octal y hexadecimal</td></tr></tbody></table></div>
+<p>Fuente: apunte «Lenguaje C», pág. 19.</p>
+<h3 id="operadores">Operadores</h3>
+<ul>
+<li><strong>Aritméticos.</strong> <code>+ - * / %</code>. El <code>%</code> es el resto de la división entera y no se aplica a <code>float</code> ni <code>double</code>.</li>
+<li><strong>Incremento y decremento.</strong> <code>++</code> y <code>--</code>. En <strong>prefijo</strong> (<code>++n</code>) primero modifica y después usa el valor. En <strong>sufijo</strong> (<code>n++</code>) usa el valor y después modifica.</li>
+<li><strong>Relacionales.</strong> <code>&gt; &lt; &gt;= &lt;= == !=</code>. Dan un entero, 1 si es verdadero y 0 si es falso.</li>
+<li><strong>Lógicos.</strong> <code>&amp;&amp; || !</code>. En C, <strong>cierto es cualquier valor distinto de 0 y falso es 0</strong>, incluso los negativos cuentan como ciertos.</li>
+<li><strong>Asignación.</strong> <code>=</code>. Las formas abreviadas son <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code> y <code>%=</code>. La comparación es <code>==</code>, y no hay que confundirlas.</li>
+<li><strong>Condicional.</strong> <code>Exp1 ? Exp2 : Exp3</code>. Si <code>Exp1</code> es cierta se evalúa <code>Exp2</code>. Si no, <code>Exp3</code>.</li>
+<li><strong><code>sizeof</code>.</strong> Devuelve el tamaño en bytes.</li>
+</ul>
+<p>Precedencia entre aritméticos: primero <code>++ --</code> y el menos unario, luego <code>* / %</code>, luego <code>+ -</code>. A igual prioridad se evalúa de izquierda a derecha. Entre lógicos, <code>!</code> va antes que <code>&amp;&amp;</code>, y este antes que <code>||</code>.</p>
+<p>Fuente: apunte «Lenguaje C», págs. 20 a 22 y 26.</p>
+<h3 id="conversion-de-tipos">Conversión de tipos</h3>
+<p>Hay conversión <strong>implícita</strong> (automática) y <strong>explícita</strong> con moldes o <code>cast</code>: <code>(tipo) expresión</code>.</p>
+<p>El apunte separa dos cosas. Una es el tipo del resultado de la expresión, que da la regla 1. La otra es el tipo con que ese resultado se guarda en la variable, que da la regla 2.</p>
+<ul>
+<li><strong>Regla 1.</strong> Si en una expresión aritmética hay operandos de distinto tipo, antes de operar se igualan según la escala <code>char → int → float → double</code>. Un <code>char</code> pasa a <code>int</code> con su código ASCII.</li>
+<li><strong>Regla 2.</strong> En una asignación, el resultado se guarda convertido al tipo de la variable, sean cuales sean los tipos de la expresión.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Asignación</th><th>Qué se guarda</th></tr></thead><tbody><tr><td><code>int = char</code></td><td>El código ASCII del carácter</td></tr><tr><td><code>int = float</code></td><td>El entero, truncando los decimales</td></tr><tr><td><code>float = double</code></td><td>En simple precisión, redondeando los decimales</td></tr><tr><td><code>float = int</code></td><td>El valor entero con parte decimal 0</td></tr><tr><td><code>float = char</code></td><td>El código ASCII con parte decimal 0</td></tr><tr><td><code>char = float</code></td><td>El carácter correspondiente, truncando los decimales</td></tr></tbody></table></div>
+<div class="ejemplo"><p class="ejemplo-t">Mismo resultado, distinta variable</p><p><code>a = 7 + 3.8</code> da 10.8. Si <code>a</code> es <code>int</code> se guarda 10, si es <code>float</code> se guarda 10.800000 y si es <code>char</code> se guarda el carácter de código 10, el salto de línea. <code>a = &#39;A&#39; + 5.9</code> da 70.9. Con <code>int</code> se guarda 70, con <code>float</code> 70.900000 y con <code>char</code> la letra <code>F</code>.</p>
+<p class="bloque-fuente">Apunte «Lenguaje C», pág. 24</p></div>
+<p>Si una expresión que se asigna a un <code>char</code> da más de 255 o menos de 0, se guarda el carácter de los 8 bits menos significativos.</p>
+<p>Fuente: apunte «Lenguaje C», págs. 23 a 25.</p>
+</section>
+<section class="sec"><h2 id="c-control-de-flujo">C: control de flujo</h2>
+<ul>
+<li><strong><code>if / else</code>.</strong> Decide por una condición. Cualquier valor distinto de 0 es verdadero.</li>
+<li><strong><code>switch</code>.</strong> Compara una variable con constantes enteras o de carácter. Cada <code>case</code> sigue de largo hasta un <code>break</code> o el final del <code>switch</code>. La parte <code>default</code> es opcional.</li>
+<li><strong><code>for</code>, <code>while</code>, <code>do-while</code>.</strong> Iteración. El <code>do-while</code> ejecuta el cuerpo <strong>al menos una vez</strong>. El <code>for</code> y el <code>while</code> evalúan antes, así que pueden no entrar nunca.</li>
+<li><strong>Bucle infinito.</strong> C lo permite, como <code>for ( ; ; )</code>, y se interrumpe con <code>break</code>.</li>
+<li><strong><code>break</code>.</strong> Sale del ciclo o del <code>case</code>.</li>
+<li><strong><code>continue</code>.</strong> Salta a la siguiente iteración, sin salir.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">A qué if va el else</p><p>Sin llaves, un <code>else</code> va con el <code>if</code> más cercano que no tenga <code>else</code>, aunque el sangrado muestre otra cosa. En el ejemplo del apunte, <code>if (número &gt; 6) if (número &lt; 12) printf(&quot;correcto\n&quot;); else printf(&quot;error\n&quot;);</code> con 5 no imprime nada, con 10 imprime «correcto» y con 15 «error». Con llaves alrededor del <code>if</code> de adentro, el <code>else</code> pasa al de afuera, y con 5 imprime «error» y con 15 nada.</p>
+<p>Fuente: apunte «Lenguaje C», pág. 27.</p>
+</div>
+<p>En el <code>for</code>, la inicialización se hace una única vez al principio. La condición se evalúa antes de cada vuelta, así que puede ejecutarse de 0 a n veces. El incremento se hace al final de cada vuelta. Cualquiera de las tres partes se puede omitir, pero los <code>;</code> quedan. Fuente: apunte «Lenguaje C», págs. 29 y 30.</p>
+<p>Puntos del <code>switch</code> que da el apunte: solo comprueba <strong>igualdad</strong>, no relacionales ni lógicos. No puede haber dos <code>case</code> con el mismo valor. Las constantes de carácter se convierten a su valor entero.</p>
+<p>Fuente: apunte «Lenguaje C», págs. 26 a 35.</p>
+<div class="tomado"><aside class="nota"><strong>Seguir un programa corto</strong><span>1° autotest de práctica 2024</span></aside><p>Es la pregunta típica de práctica: un programa de pocas líneas y cuatro salidas posibles. Salen con <code>switch</code> y <code>break</code>, el condicional, <code>for</code> y <code>while</code>, <code>%</code>, <code>!</code> y <code>strlen</code>. Las capturas con la clave del aula están en <a href="ejercicios.html">Ejercicios</a>. Antes de abrirla, seguí el programa en papel y después compilalo.</p>
+</div>
+</section>
+<section class="sec"><h2 id="c-arreglos-y-cadenas">C: arreglos y cadenas</h2>
+<p>Un <strong>arreglo</strong> es una colección de variables del mismo tipo con un nombre común, en memoria contigua. Se accede con un índice, que <strong>empieza en 0</strong>. C no revisa los límites.</p>
+<p>Declaración: <code>tipo nombre[tamaño];</code></p>
+<p>Una <strong>cadena</strong> en C se simula con un arreglo de <code>char</code> terminado en el carácter nulo <code>&#39;\0&#39;</code>. Por eso <strong>hay que reservar un lugar más</strong> que los caracteres que querés guardar. Una cadena de diez caracteres necesita <code>char cadena[11]</code>.</p>
+<p>Fuente: apunte «Lenguaje C», págs. 36 a 38.</p>
+<p>Un arreglo <strong>bidimensional</strong> se declara <code>tipo nombre[filas][columnas];</code>, con un par de corchetes por dimensión. <code>t[2][3]</code> es el elemento de la 3ª fila y la 4ª columna. Lo mismo vale para más dimensiones. El apunte remarca que en todos los casos <strong>el nombre del arreglo es un puntero al primer elemento</strong>. En la declaración el número entre corchetes es la cantidad de elementos. Al usar el arreglo, es el índice.</p>
+<p>Al inicializar un arreglo con menos valores que su tamaño, los que faltan valen 0. Con más valores que su tamaño, según el compilador da error o al menos un aviso. Un bidimensional se puede inicializar de corrido o fila por fila, cada fila entre <code>{ }</code>.</p>
+<pre class="codigo"><code><span class="hljs-type">int</span> num[<span class="hljs-number">3</span>][<span class="hljs-number">4</span>] = {<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>};
+<span class="hljs-type">int</span> temp[<span class="hljs-number">3</span>][<span class="hljs-number">5</span>] = { { <span class="hljs-number">15</span>, <span class="hljs-number">17</span>, <span class="hljs-number">20</span>, <span class="hljs-number">25</span>, <span class="hljs-number">10</span> },
+                   { <span class="hljs-number">18</span>, <span class="hljs-number">20</span>, <span class="hljs-number">21</span>, <span class="hljs-number">23</span>, <span class="hljs-number">18</span> },
+                   { <span class="hljs-number">12</span>, <span class="hljs-number">17</span>, <span class="hljs-number">23</span>, <span class="hljs-number">29</span>, <span class="hljs-number">16</span> } };</code></pre>
+<p>Fuente: apunte «Lenguaje C», págs. 36 y 37.</p>
+<pre class="codigo"><code><span class="hljs-type">char</span> a[<span class="hljs-number">5</span>] = <span class="hljs-string">&quot;hola&quot;</span>;            <span class="hljs-comment">/* equivale a */</span>
+<span class="hljs-type">char</span> b[<span class="hljs-number">5</span>] = {<span class="hljs-string">&#x27;h&#x27;</span>,<span class="hljs-string">&#x27;o&#x27;</span>,<span class="hljs-string">&#x27;l&#x27;</span>,<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;\0&#x27;</span>};</code></pre>
+<p>Reglas que da el apunte:</p>
+<ul>
+<li>Con <code>scanf(&quot;%s&quot;, nombre)</code> <strong>no se usa <code>&amp;</code></strong>, porque el nombre de un arreglo ya es la dirección de <code>nombre[0]</code>.</li>
+<li><strong>No se puede asignar una cadena con <code>=</code></strong> (<code>nombre = &quot;Jose&quot;</code> es ilegal). Se usa <code>strcpy</code>. Tampoco se concatena con <code>+</code>. Se usa <code>strcat</code>.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Nombre de arreglo contra puntero</p><p>Un puntero es una variable y se puede hacer <code>p++</code>. Un arreglo no es una variable modificable, así que <code>a++</code> y <code>a = p</code> son ilegales. Lo vas a ver con más detalle en <a href="parcial-2.html#c-punteros">el 2° parcial</a>.</p>
+</div>
+<h3 id="funciones-de-lt-ctype-h-gt-y-lt-string-h-gt">Funciones de <code>&lt;ctype.h&gt;</code> y <code>&lt;string.h&gt;</code></h3>
+<p>Las de <code>ctype.h</code> devuelven verdadero (distinto de 0) si el argumento cumple la condición, y falso (0) si no.</p>
+<div class="tabla"><table><thead><tr><th>Función</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>isalpha(c)</code></td><td>¿Es alfabético?</td></tr><tr><td><code>isdigit(c)</code></td><td>¿Es un dígito?</td></tr><tr><td><code>isalnum(c)</code></td><td>¿Es alfanumérico?</td></tr><tr><td><code>isspace(c)</code></td><td>¿Es un espacio en blanco?</td></tr><tr><td><code>islower(c)</code> / <code>isupper(c)</code></td><td>¿Es minúscula o mayúscula?</td></tr><tr><td><code>tolower(c)</code> / <code>toupper(c)</code></td><td>Convierte y devuelve el carácter</td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><th>Función de <code>string.h</code></th><th>Qué hace</th></tr></thead><tbody><tr><td><code>strlen(s1)</code></td><td>Longitud sin contar el <code>\0</code></td></tr><tr><td><code>strcpy(s1, s2)</code></td><td>Copia <code>s2</code> en <code>s1</code> y retorna <code>s1</code></td></tr><tr><td><code>strcat(s1, s2)</code></td><td>Agrega <code>s2</code> al final de <code>s1</code></td></tr><tr><td><code>strcmp(s1, s2)</code></td><td>Compara. Negativo si <code>s1&lt;s2</code>, 0 si son iguales, positivo si <code>s1&gt;s2</code></td></tr><tr><td><code>strstr(s1, s2)</code></td><td>Puntero a la primera aparición de <code>s2</code> en <code>s1</code>, o <code>NULL</code></td></tr><tr><td><code>strchr(s1, c)</code></td><td>Puntero a la primera aparición del carácter, o <code>NULL</code></td></tr></tbody></table></div>
+<p>Fuente: apunte «Lenguaje C», págs. 64 y 65.</p>
+<div class="tomado"><aside class="nota"><strong>Funciones de biblioteca</strong><span>1° autotest de práctica 2024</span></aside><p>Las capturas preguntan a qué archivo de cabecera pertenece una función, qué devuelve <code>strcmp</code>, cuánto da <code>strlen</code> y qué hace una función de <code>ctype.h</code> concreta.</p>
+</div>
+</section>
+<section class="sec"><h2 id="c-entrada-y-salida">C: entrada y salida</h2>
+<p>El cronograma de práctica la pone en la actividad P02, antes de arreglos. Con <code>printf</code> y <code>scanf</code> se trabaja todo el curso.</p>
+<h3 id="printf">printf</h3>
+<p>Su forma es <code>printf(&quot;cadena de control&quot;, argumentos)</code>. Cada especificador de la cadena toma un argumento. Hace falta uno por argumento y del tipo correcto. Si no, el apunte avisa que salen resultados confusos.</p>
+<div class="tabla"><table><thead><tr><th>Especificador</th><th>Imprime</th></tr></thead><tbody><tr><td><code>%c</code></td><td>Un carácter</td></tr><tr><td><code>%d</code> o <code>%i</code></td><td>Un entero decimal</td></tr><tr><td><code>%f</code></td><td>Un real en punto flotante, con 6 decimales si no decís otra cosa</td></tr><tr><td><code>%e</code> / <code>%g</code></td><td>Notación científica, o el más corto entre <code>%e</code> y <code>%f</code></td></tr><tr><td><code>%o</code> / <code>%x</code></td><td>Un entero en octal o en hexadecimal</td></tr><tr><td><code>%u</code></td><td>Un entero sin signo</td></tr><tr><td><code>%s</code></td><td>Una cadena, hasta el <code>&#39;\0&#39;</code></td></tr><tr><td><code>%p</code></td><td>Un puntero, es decir una dirección</td></tr><tr><td><code>%%</code></td><td>Un signo <code>%</code></td></tr></tbody></table></div>
+<p>Fuente: apunte «Lenguaje C», págs. 57 a 59.</p>
+<h3 id="scanf">scanf</h3>
+<p>Su forma es <code>scanf(&quot;cadena de control&quot;, lista de argumentos)</code>. Es la inversa de <code>printf</code>. Los argumentos son punteros que dicen dónde guardar lo leído.</p>
+<ul>
+<li>Para un tipo básico, el nombre de la variable va precedido por <code>&amp;</code>.</li>
+<li>Para una cadena, el nombre va sin <code>&amp;</code>.</li>
+<li>Un <code>%s</code> lee hasta encontrar un espacio en blanco. Para leer una cadena con espacios, el apunte da <code>&quot;%[^\n]&quot;</code>, o la función <code>gets</code>.</li>
+<li>Un blanco en la cadena de control salta los blancos de la entrada.</li>
+</ul>
+<p>Fuente: apunte «Lenguaje C», págs. 59 a 61.</p>
+<h3 id="entrada-y-salida-sin-formato">Entrada y salida sin formato</h3>
+<div class="tabla"><table><thead><tr><th>Función</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>getchar()</code></td><td>Lee un carácter. No recibe argumentos</td></tr><tr><td><code>putchar(c)</code></td><td>Muestra un carácter</td></tr><tr><td><code>gets(s)</code></td><td>Lee una línea hasta el enter y le agrega el nulo. Toma espacios</td></tr><tr><td><code>puts(s)</code></td><td>Muestra una cadena y pasa de línea solo. Reconoce <code>\n</code> y <code>\t</code>. Si le ponés <code>\n</code>, deja una línea en blanco</td></tr></tbody></table></div>
+<p><code>getche</code> y <code>getch</code> son de <code>conio.h</code>, que el cronograma aclara que no está disponible.</p>
+<p>Fuente: apunte «Lenguaje C», págs. 61 a 63; cronograma «Práctica - Cursado Virtual», pág. 5.</p>
+<div class="ojo"><p class="ojo-t">gets en un compilador moderno</p><p>El apunte y las claves del aula usan <code>gets</code>, y los enunciados también. El estándar actual de C lo sacó, así que tu compilador puede rechazarlo o avisarte. Para el examen seguí lo que pide la cátedra. Para compilar en tu máquina, probá la forma <code>&quot;%[^\n]&quot;</code> del apunte.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Entrada y salida</strong><span>1° autotest de práctica 2024</span></aside><p>Las capturas piden qué instrucción sirve para guardar una dirección con espacios, si <code>scanf</code> lee un <code>char</code> con un formato dado, y si hay que escribir <code>\n</code> en un <code>puts</code>.</p>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-1" data-materia="sintaxis-y-semantica-de-los-lenguajes">
+<h2>Quiz del 1° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="resJYim58d" data-tema="Token, patrón y lexema" data-enlace="parcial-1.html#token-patron-y-lexema" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-1"><span class="q-n">1</span><div><p>Según el apunte, ¿cómo se llama la regla de generación de la secuencia de caracteres que podría representar a determinado token?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-1"><li><button type="button" class="op" data-ok="0">Lexema</button></li><li><button type="button" class="op" data-ok="0">Token</button></li><li><button type="button" class="op" data-ok="1">Patrón</button></li><li><button type="button" class="op" data-ok="0">Lenguaje</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El <strong>patrón</strong> es esa regla y se describe con una expresión regular. El <strong>lexema</strong> es la cadena del fuente que encaja en ella.</p>
+</div></li><li class="q" data-q="m24c_X9bof" data-tema="Las fases del compilador" data-enlace="parcial-1.html#las-fases-del-compilador" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-2"><span class="q-n">2</span><div><p>¿Cuál de estas fases NO pertenece a la etapa de análisis?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-2"><li><button type="button" class="op" data-ok="0">Análisis léxico</button></li><li><button type="button" class="op" data-ok="0">Análisis sintáctico</button></li><li><button type="button" class="op" data-ok="0">Análisis semántico</button></li><li><button type="button" class="op" data-ok="1">Optimización de código intermedio</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La optimización de código intermedio es de la <strong>síntesis</strong> (back-end). El análisis son las fases léxica, sintáctica y semántica.</p>
+</div></li><li class="q" data-q="lnLZGuNPOb" data-tema="Las fases del compilador" data-enlace="parcial-1.html#las-fases-del-compilador" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-3"><span class="q-n">3</span><div><p>Cuando el análisis léxico detecta un identificador o una constante, ¿dónde guarda su lexema y sus atributos?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-3"><li><button type="button" class="op" data-ok="0">En el árbol sintáctico</button></li><li><button type="button" class="op" data-ok="1">En la tabla de símbolos</button></li><li><button type="button" class="op" data-ok="0">En el archivo objeto</button></li><li><button type="button" class="op" data-ok="0">En el enlazador</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se usa la <strong>tabla de símbolos</strong>, una estructura de datos donde los tokens se van almacenando a medida que aparecen.</p>
+</div></li><li class="q" data-q="4TV0XCEDbf" data-tema="Los tres tipos de error" data-enlace="parcial-1.html#los-tres-tipos-de-error" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-4"><span class="q-n">4</span><div><p>Un identificador se declara como un tipo y después se lo usa como si fuera de otro. ¿Qué tipo de error es, según el apunte?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-4"><li><button type="button" class="op" data-ok="0">Léxico</button></li><li><button type="button" class="op" data-ok="0">Sintáctico</button></li><li><button type="button" class="op" data-ok="1">Semántico</button></li><li><button type="button" class="op" data-ok="0">Ninguno, es válido siempre</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte lo da como ejemplo de error <strong>semántico</strong>: la construcción es una operatoria no permitida, aunque la sintaxis sea correcta.</p>
+</div></li><li class="q" data-q="6AeHARFXqm" data-tema="Alfabeto, cadena y sus partes" data-enlace="parcial-1.html#alfabeto-cadena-y-sus-partes" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-5"><span class="q-n">5</span><div><p>Según el apunte, un alfabeto o vocabulario es un conjunto de símbolos que es:</p>
+<p class="q-origen">Se tomó: Formativa de teoría 09/06/2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-5"><li><button type="button" class="op" data-ok="1">Finito</button></li><li><button type="button" class="op" data-ok="0">Infinito</button></li><li><button type="button" class="op" data-ok="0">Vacío siempre</button></li><li><button type="button" class="op" data-ok="0">Finito solo si es binario</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La definición dice «conjunto finito de símbolos». Con un alfabeto finito se pueden hacer infinitas cadenas.</p>
+</div></li><li class="q" data-q="BABq8NgPr3" data-tema="Alfabeto, cadena y sus partes" data-enlace="parcial-1.html#alfabeto-cadena-y-sus-partes" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-6"><span class="q-n">6</span><div><p>Un prefijo de una cadena <code>s</code> se obtiene eliminando 0 o más símbolos de:</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-6"><li><button type="button" class="op" data-ok="0">El extremo izquierdo</button></li><li><button type="button" class="op" data-ok="1">El extremo derecho</button></li><li><button type="button" class="op" data-ok="0">Cualquier posición</button></li><li><button type="button" class="op" data-ok="0">Los dos extremos a la vez</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El prefijo se forma eliminando símbolos <strong>desde el extremo derecho</strong>. El sufijo, desde la izquierda.</p>
+</div></li><li class="q" data-q="V-pSIlsZH8" data-tema="Alfabeto, cadena y sus partes" data-enlace="parcial-1.html#alfabeto-cadena-y-sus-partes" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-7"><span class="q-n">7</span><div><p>La longitud de la cadena vacía ε es:</p>
+<p class="q-origen">Se tomó: 1° autotest de teoría 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-7"><li><button type="button" class="op" data-ok="0">1</button></li><li><button type="button" class="op" data-ok="0">No tiene longitud</button></li><li><button type="button" class="op" data-ok="0">Infinita</button></li><li><button type="button" class="op" data-ok="1">0</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La cadena vacía es una cadena especial de longitud cero: <code>|ε| = 0</code>.</p>
+</div></li><li class="q" data-q="UysGBAOwe3" data-tema="Lenguajes y sus operaciones" data-enlace="parcial-1.html#lenguajes-y-sus-operaciones" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-8"><span class="q-n">8</span><div><p>¿Qué diferencia hay entre el lenguaje vacío <code>Ø</code> y el lenguaje <code>{ε}</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-8"><li><button type="button" class="op" data-ok="0">Ninguna, son el mismo conjunto</button></li><li><button type="button" class="op" data-ok="0"><code>Ø</code> tiene una cadena y <code>{ε}</code> tiene cero</button></li><li><button type="button" class="op" data-ok="1"><code>Ø</code> tiene cero cadenas y <code>{ε}</code> tiene una, la vacía</button></li><li><button type="button" class="op" data-ok="0"><code>{ε}</code> es infinito y <code>Ø</code> es finito</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Tienen cardinal distinto: el de <code>Ø</code> es 0 y el de <code>{ε}</code> es 1. El apunte pide no confundirlos.</p>
+</div></li><li class="q" data-q="2whvsvdioe" data-tema="Lenguajes y sus operaciones" data-enlace="parcial-1.html#operaciones-sobre-lenguajes" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-9"><span class="q-n">9</span><div><p>Para cualquier lenguaje <code>L</code>, ¿qué se cumple sobre la cerradura de Kleene <code>L*</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-9"><li><button type="button" class="op" data-ok="1">Siempre contiene a ε</button></li><li><button type="button" class="op" data-ok="0">No contiene a ε</button></li><li><button type="button" class="op" data-ok="0">Es siempre un lenguaje finito</button></li><li><button type="button" class="op" data-ok="0">Es igual a <code>L¹</code></button></li></ul><div class="q-expl" tabindex="-1" hidden><p><code>L*</code> es la unión de las potencias de 0 en adelante y <code>L⁰ = {ε}</code>. Por eso ε <strong>siempre</strong> está en la cerradura.</p>
+</div></li><li class="q" data-q="ql3Bj7-Pfy" data-tema="Palabras clave" data-enlace="parcial-1.html#palabras-clave-y-mayusculas" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-10"><span class="q-n">10</span><div><p>Según el apunte, ¿cuál de estas es una palabra clave de C?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-10"><li><button type="button" class="op" data-ok="0"><code>ELSE</code></button></li><li><button type="button" class="op" data-ok="0"><code>Else</code></button></li><li><button type="button" class="op" data-ok="0"><code>eLse</code></button></li><li><button type="button" class="op" data-ok="1"><code>else</code></button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Mayúsculas y minúsculas son diferentes y todas las palabras claves están en minúscula. El apunte aclara que <code>ELSE</code> o <code>Else</code> no lo son.</p>
+</div></li><li class="q" data-q="U7h5SOkXQ2" data-tema="C: control de flujo" data-enlace="parcial-1.html#c-control-de-flujo" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-11"><span class="q-n">11</span><div><p>En un <code>switch</code>, ¿qué dice el apunte de la parte <code>default</code>?</p>
+<p class="q-origen">Se tomó: 1° autotest de práctica 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-11"><li><button type="button" class="op" data-ok="1">Es opcional</button></li><li><button type="button" class="op" data-ok="0">Es obligatoria</button></li><li><button type="button" class="op" data-ok="0">Va siempre primera</button></li><li><button type="button" class="op" data-ok="0">Solo se usa con <code>char</code></button></li></ul><div class="q-expl" tabindex="-1" hidden><p>«La parte default es opcional, y si no aparece, no se lleva a cabo ninguna acción al fallar todas las pruebas.»</p>
+</div></li><li class="q" data-q="ftbVFx_yOB" data-tema="C: arreglos y cadenas" data-enlace="parcial-1.html#c-arreglos-y-cadenas" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-12"><span class="q-n">12</span><div><p>En C, para guardar una cadena de diez caracteres hay que declarar un arreglo de <code>char</code> de tamaño:</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-12"><li><button type="button" class="op" data-ok="0">9</button></li><li><button type="button" class="op" data-ok="0">10</button></li><li><button type="button" class="op" data-ok="1">11</button></li><li><button type="button" class="op" data-ok="0">Depende del compilador</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Hace falta un lugar más para el carácter nulo <code>&#39;\0&#39;</code> que cierra la cadena: <code>char cadena[11]</code>.</p>
+</div></li><li class="q" data-q="-BCugMLDX5" data-tema="C: arreglos y cadenas" data-enlace="parcial-1.html#c-arreglos-y-cadenas" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-13"><span class="q-n">13</span><div><p>En <code>scanf(&quot;%s&quot;, nombre)</code>, donde <code>nombre</code> es un arreglo de <code>char</code>, ¿por qué no se escribe <code>&amp;</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-13"><li><button type="button" class="op" data-ok="0">Porque <code>%s</code> no admite direcciones</button></li><li><button type="button" class="op" data-ok="1">Porque el nombre de un arreglo ya equivale a <code>&amp;nombre[0]</code></button></li><li><button type="button" class="op" data-ok="0">Porque es una constante</button></li><li><button type="button" class="op" data-ok="0">Es un error del apunte</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El nombre de un arreglo es la dirección de su primer elemento. En una variable de un tipo básico sí hace falta el <code>&amp;</code>.</p>
+</div></li><li class="q" data-q="eumRlnkaMp" data-tema="C: entrada y salida" data-enlace="parcial-1.html#scanf" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-14"><span class="q-n">14</span><div><p>Hay que leer una cadena que puede traer espacios. Según el apunte, ¿hasta dónde lee cada función?</p>
+<p class="q-origen">Se tomó: 1° autotest de práctica 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-14"><li><button type="button" class="op" data-ok="0"><code>%s</code> y <code>gets</code> leen hasta el primer blanco</button></li><li><button type="button" class="op" data-ok="0"><code>%s</code> lee hasta el enter y <code>gets</code> hasta el primer blanco</button></li><li><button type="button" class="op" data-ok="1"><code>%s</code> lee hasta un espacio en blanco y <code>gets</code> hasta el enter</button></li><li><button type="button" class="op" data-ok="0">Las dos leen un solo carácter</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Con <code>%s</code> se leen caracteres hasta el siguiente espacio en blanco. <code>gets</code> lee hasta el enter y agrega el nulo.</p>
+</div></li><li class="q" data-q="suziOlBcyM" data-tema="C: entrada y salida" data-enlace="parcial-1.html#entrada-y-salida-sin-formato" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-15"><span class="q-n">15</span><div><p>Según el apunte, ¿qué hace <code>puts</code> al terminar de mostrar la cadena?</p>
+<p class="q-origen">Se tomó: 1° autotest de práctica 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-15"><li><button type="button" class="op" data-ok="0">Se queda en la misma línea</button></li><li><button type="button" class="op" data-ok="1">Pasa de línea automáticamente</button></li><li><button type="button" class="op" data-ok="0">Borra la pantalla</button></li><li><button type="button" class="op" data-ok="0">Espera un enter</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><code>puts</code> pasa de línea sola. Por eso, si se coloca <code>\n</code>, deja una línea en blanco.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (autotests y exámenes de 2024 a 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

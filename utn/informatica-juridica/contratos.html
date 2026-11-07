@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Eje 3: contratos: Informática Jurídica</title>
+<meta name="description" content="Contrato, tipos y elementos, contratos electrónicos, consumidor y smart contracts.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="informatica-juridica" data-pagina="contratos">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Informática Jurídica</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="entorno.html">Eje 1: entorno</a></li><li class="em-fuera"><a href="firma.html">Eje 2: firma</a></li><li class="em-fuera"><a href="contratos.html" aria-current="page">Eje 3: contratos</a></li><li class="em-fuera"><a href="ejusticia.html">Eje 4: e-Justicia</a></li><li class="em-fuera"><a href="pericia.html">Eje 5: pericia</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios y TP</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=informatica-juridica">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=informatica-juridica">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#que-es-un-contrato">Qué es un contrato</a></li><li class="n3"><a href="#tipos-de-contrato">Tipos de contrato</a></li><li class="n2"><a href="#elementos-del-contrato">Elementos del contrato</a></li><li class="n3"><a href="#objeto-art-1003-ccc">Objeto (art. 1003 CCC)</a></li><li class="n3"><a href="#causa-arts-1012-a-1014-ccc">Causa (arts. 1012 a 1014 CCC)</a></li><li class="n3"><a href="#forma-art-1015-ccc">Forma (art. 1015 CCC)</a></li><li class="n3"><a href="#consentimiento">Consentimiento</a></li><li class="n2"><a href="#el-acto-voluntario-art-260-cccn">El acto voluntario (art. 260 CCCN)</a></li><li class="n2"><a href="#contratos-electronicos">Contratos electrónicos</a></li><li class="n3"><a href="#equivalencia-funcional">Equivalencia funcional</a></li><li class="n3"><a href="#validez-legal">Validez legal</a></li><li class="n3"><a href="#b2c-y-b2b">B2C y B2B</a></li><li class="n3"><a href="#click-wrap-y-browse-wrap">Click-wrap y browse-wrap</a></li><li class="n2"><a href="#el-consumidor">El consumidor</a></li><li class="n3"><a href="#boton-de-arrepentimiento-art-1110">Botón de arrepentimiento (art. 1110)</a></li><li class="n3"><a href="#jurisprudencia-el-proveedor-responde-por-su-algoritmo">Jurisprudencia: el proveedor responde por su algoritmo</a></li><li class="n2"><a href="#smart-contracts">Smart contracts</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Eje 3: contratos electrónicos</h1>
+<p class="bajada">Qué es un contrato, sus tipos y elementos, qué cambia en lo digital y cómo se protege al consumidor.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+<p>Hay dos presentaciones que se complementan. «5 - Contratos» de 2025 trae la base del contrato en general. «4 - Contratos Electrónicos» de 2026 trae lo digital. Las citamos como 2025 y 2026.</p>
+
+<section class="sec"><h2 id="que-es-un-contrato">Qué es un contrato</h2>
+<div class="teorema"><p class="teorema-t">Contrato (Art. 957 CCC)</p><p>Contrato es el acto jurídico mediante el cual dos o más partes manifiestan su consentimiento para crear, regular, modificar, transferir o extinguir relaciones jurídicas patrimoniales.</p>
+<p class="bloque-fuente">«5 - Contratos», 2025, pág. 4</p></div>
+<p>La RAE lo define como un «pacto o convenio, oral o escrito, entre partes que se obligan sobre materia o cosa determinada, y a cuyo cumplimiento pueden ser compelidas». Compeler es obligar a alguien, con fuerza o por autoridad, a que haga lo que no quiere (2025, pág. 3).</p>
+<p>La misma diapositiva trae una tercera definición.</p>
+<div class="teorema"><p class="teorema-t">Contrato</p><p>Acuerdo legal, oral o escrito, manifestado en común entre dos o más personas con Capacidad Jurídica (partes del contrato), que se vinculan en virtud del mismo, regulando sus relaciones a una determinada finalidad o cosa, y a cuyo cumplimiento pueden compelerse de manera recíproca.</p>
+<p class="bloque-fuente">«5 - Contratos», 2025, pág. 3</p></div>
+<ul>
+<li><strong>Principios:</strong> autonomía de voluntad y buena fe.</li>
+<li><strong>Características:</strong> capacidad para contratar y consentimiento.</li>
+</ul>
+<p>Fuente: 2025, pág. 4.</p>
+<h3 id="tipos-de-contrato">Tipos de contrato</h3>
+<div class="tabla"><table><thead><tr><th>Criterio</th><th>Una clase</th><th>La otra</th></tr></thead><tbody><tr><td>Quién queda obligado</td><td><strong>Unilateral:</strong> obligaciones solo para una parte. <strong>Bilateral:</strong> para ambas. <strong>Multipartes:</strong> contratos entre dos o más partes</td><td></td></tr><tr><td>Onerosidad</td><td><strong>Oneroso:</strong> gravámenes y beneficios recíprocos, con sacrificio de ambos. Ej. compraventa</td><td><strong>Gratuito:</strong> beneficio para una sola parte. Ej. comodato</td></tr><tr><td>Certeza</td><td><strong>Conmutativo:</strong> prestaciones ciertas desde que se celebra. Ej. compraventa de una casa</td><td><strong>Aleatorio:</strong> depende de un acontecimiento futuro e incierto. Ej. contratos relacionados con la siembra</td></tr><tr><td>Regulación</td><td><strong>Nominado o típico:</strong> previsto y regulado en la ley</td><td><strong>Innominado o atípico:</strong> la ley no le da nombre ni lo regula</td></tr><tr><td>Tiempo</td><td><strong>Instantáneo:</strong> se cumple al celebrarse. Ej. compraventa al contado</td><td><strong>De tracto sucesivo:</strong> se cumple en un período. Ej. distribución de bebidas</td></tr><tr><td>Forma</td><td><strong>Formal:</strong> la ley ordena un medio para manifestar el consentimiento</td><td><strong>Informal:</strong> no hace falta</td></tr></tbody></table></div>
+<p>Entre los formales, un contrato es <strong>solemne</strong> si además requiere ciertos ritos para cobrar vigencia, como el matrimonio. Si no, es <strong>no solemne</strong>.</p>
+<p>Fuente: 2025, págs. 5 a 10.</p>
+</section>
+<section class="sec"><h2 id="elementos-del-contrato">Elementos del contrato</h2>
+<p>La presentación 2026 (pág. 7) nombra tres componentes necesarios. La de 2025 (pág. 11) también nombra tres, pero cambia uno.</p>
+<div class="tabla"><table><thead><tr><th>2026, «componentes necesarios»</th><th>2025, «elementos»</th></tr></thead><tbody><tr><td>Consentimiento</td><td>Forma</td></tr><tr><td>Objeto</td><td>Objeto</td></tr><tr><td>Causa</td><td>Causa</td></tr></tbody></table></div>
+<h3 id="objeto-art-1003-ccc">Objeto (art. 1003 CCC)</h3>
+<p>Es la prestación prometida por las partes, el bien o el hecho sobre los que recae la obligación contraída: dar, hacer o no hacer. La presentación 2026 (pág. 7) dice que es «obligatoriamente lícito, física y jurídicamente posible, y determinado/determinable». La de 2025 (pág. 12) dice que «debe ser real, posible, lícito, determinado o susceptible de determinación».</p>
+<p>No pueden ser objeto del contrato (2025, pág. 12):</p>
+<ol>
+<li>El hecho imposible o prohibido por la ley, o contrario a la moral y al orden público, o lesivo de los derechos ajenos o de la dignidad de la persona humana.</li>
+<li>Un bien que por un motivo especial se haya prohibido que lo sea.</li>
+<li>El hecho contrario a las buenas costumbres.</li>
+</ol>
+<h3 id="causa-arts-1012-a-1014-ccc">Causa (arts. 1012 a 1014 CCC)</h3>
+<p>Es el «para qué», «el motivo fundamental, directo y jurídico que induce a contratar» (2026, pág. 7). La presentación 2025 (pág. 13) la ubica en el Libro 3, Título 2, Capítulo 6 del CCC (art. 1012). Debe existir en la celebración y subsistir durante la ejecución. Su falta hace nulo el contrato. Una causa falsa o ilícita invalida el acuerdo (2025, pág. 13, y 2026, pág. 7).</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Qué es</th></tr></thead><tbody><tr><td>Causa fuente</td><td>Conjunto de fenómenos aptos para generar relaciones jurídicas obligatorias</td></tr><tr><td>Causa fin</td><td>Finalidad más próxima, más inmediata</td></tr><tr><td>Causa motivo</td><td>Móviles subjetivos o determinantes que las partes tienen en cuenta de manera mediata al tiempo de celebrar un contrato</td></tr></tbody></table></div>
+<div class="ejemplo"><p class="ejemplo-t">Comprar una casa</p><p>La causa fuente es el contrato. La causa fin del vendedor es recibir el precio y la del comprador, la casa. La causa motivo es que el sujeto compra un inmueble para vivienda.</p>
+<p class="bloque-fuente">«5 - Contratos», 2025, pág. 13</p></div>
+<h3 id="forma-art-1015-ccc">Forma (art. 1015 CCC)</h3>
+<p>Son las solemnidades que deben observarse al tiempo de la formación del acto jurídico: la escritura, la presencia de testigos, que lo haga un escribano u oficial público, o con el concurso del juez del lugar. Dice cómo se manifiesta y se perfecciona. Hay libertad de forma, con excepciones como el matrimonio o la escritura pública.</p>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>La diapositiva «Forma» de «5 - Contratos», 2025, pág. 14, imprime «Forma (Art. 1012, 1013, 1014)». Pusimos art. 1015 porque la misma presentación, en la pág. 11, asigna a la forma el art. 1015 y a la causa los 1013 y 1014, y en la pág. 13 ubica a la causa en el 1012.</p>
+</div>
+<h3 id="consentimiento">Consentimiento</h3>
+<p>Expresión libre, voluntaria y sin vicios: error, dolo o violencia. Puede ser expresa o tácita (2026, pág. 7).</p>
+</section>
+<section class="sec"><h2 id="el-acto-voluntario-art-260-cccn">El acto voluntario (art. 260 CCCN)</h2>
+<p>Tiene cuatro elementos. La presentación 2026 (pág. 3) los traduce a lo digital.</p>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Qué es</th><th>En una interfaz</th></tr></thead><tbody><tr><td>Discernimiento</td><td>Aptitud cognitiva</td><td>Claridad de interfaz. Riesgo: dark patterns diseñados para engañar al usuario</td></tr><tr><td>Intención</td><td>Propósito real de realizar el acto</td><td>Inducción algorítmica al error</td></tr><tr><td>Libertad</td><td>Ausencia total de coacción</td><td>Arquitecturas de la elección restrictivas que limitan las opciones del usuario</td></tr><tr><td>Exteriorización</td><td>Manifestación externa</td><td>Ejecución de eventos digitales, como <code>onClick</code> u <code>onSubmit</code></td></tr></tbody></table></div>
+<div class="idea"><p>Acá te toca como desarrollador. El botón que escondés, la opción ya tildada o el texto confuso pueden afectar la voluntad de quien contrata.</p>
+</div>
+</section>
+<section class="sec"><h2 id="contratos-electronicos">Contratos electrónicos</h2>
+<div class="teorema"><p class="teorema-t">Contrato electrónico (Art. 1105 del CCC)</p><p>Acuerdos de voluntades cuya celebración se perfecciona sin la presencia física de las partes contratantes y a través del uso de medios electrónicos.</p>
+<p class="bloque-fuente">«5 - Contratos», 2025, pág. 15</p></div>
+<ul>
+<li>La manifestación del consentimiento es por un medio electrónico.</li>
+<li>Tiene los mismos efectos que los contratos celebrados entre presentes.</li>
+<li>La presentación 2025 indica que esta regulación solo aplica a los contratos de consumo.</li>
+</ul>
+<h3 id="equivalencia-funcional">Equivalencia funcional</h3>
+<p>La Comisión de las Naciones Unidas para el Derecho Mercantil Internacional (UNCITRAL) establece que un documento no pierde validez legal por el solo hecho de existir en formato electrónico. Es el paso del intercambio electrónico de datos (EDI) a la desmaterialización de la voluntad (2026, pág. 2).</p>
+<p>Tiene tres patas:</p>
+<ul>
+<li><strong>Accesibilidad.</strong> El documento debe poder ser accedido para su consulta en todo momento y lugar.</li>
+<li><strong>Integridad.</strong> Garantía técnica de que el documento no sufrió alteraciones.</li>
+<li><strong>Autoría.</strong> Capacidad inequívoca de garantizar la identidad de quien firma.</li>
+</ul>
+<p>Los principios rectores de los contratos electrónicos son <strong>equivalencia funcional</strong> y <strong>no discriminación</strong> (2025, pág. 17).</p>
+<h3 id="validez-legal">Validez legal</h3>
+<ul>
+<li><strong>Ley 26.685.</strong> Autoriza expedientes, documentos, firmas y comunicaciones electrónicas, firmas digitales y domicilios electrónicos en todos los procesos judiciales y administrativos ante el Poder Judicial de la Nación.</li>
+<li><strong>BCRA, Comunicaciones A 5535/2014 y 6112/2016.</strong> Las entidades financieras pueden conservar, en sustitución de los originales en papel, fotografías, microfilmaciones o reproducciones digitalizadas de sus comprobantes, si no se oponen disposiciones legales.</li>
+</ul>
+<p>Fuente: 2025, pág. 16.</p>
+<h3 id="b2c-y-b2b">B2C y B2B</h3>
+<div class="tabla"><table><thead><tr><td></td><th>B2C (empresa a consumidor)</th><th>B2B (entre empresas)</th></tr></thead><tbody><tr><td>Estilo</td><td>Estandarización contractual</td><td>Tailor made, soluciones no estandarizadas</td></tr><tr><td>Herramientas</td><td>Desarrollos con APIs de identidad existentes</td><td>Contrato marco previo, emails, WhatsApp, redes sociales, portal ad hoc, terceros de confianza, plataformas con APIs de identidad</td></tr><tr><td>Identificación</td><td>Empresa con firma digital (de aplicación). Consumidor con firma electrónica (app de enrollment)</td><td>Ambas empresas con firma digital</td></tr></tbody></table></div>
+<p>Fuente: 2025, págs. 18 y 19.</p>
+<h3 id="click-wrap-y-browse-wrap">Click-wrap y browse-wrap</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Click-wrap</th><th>Browse-wrap</th></tr></thead><tbody><tr><td>Acción</td><td>Afirmativa y expresa (checkbox)</td><td>Tácita, derivada del simple uso del sitio</td></tr><tr><td>Consentimiento</td><td>Alto y fácilmente demostrable</td><td>Bajo, cuestionable y «dado por hecho»</td></tr><tr><td>Usuario</td><td>Activo</td><td>Pasivo</td></tr><tr><td>Valor</td><td>Preferido por la jurisprudencia</td><td>Validez precaria</td></tr></tbody></table></div>
+<p>Fuente: 2026, pág. 6.</p>
+</section>
+<section class="sec"><h2 id="el-consumidor">El consumidor</h2>
+<p>Los contratos a distancia están en los arts. 1105 a 1116 del CCCN. El entorno digital agudiza la desigualdad. Una parte concentra el control técnico e impone condiciones sin margen de negociación (2026, pág. 4).</p>
+<div class="tabla"><table><thead><tr><th>Riesgo</th><th>Qué es</th></tr></thead><tbody><tr><td>Cláusulas abusivas</td><td>Términos insertados unilateralmente que favorecen desproporcionadamente a la empresa</td></tr><tr><td>Vulneración de voluntad</td><td>Imposibilidad técnica y legal del usuario para comprender la complejidad del acuerdo</td></tr><tr><td>Riesgos de datos</td><td>Exposición a robo de identidad y transferencia transfronteriza de información personal</td></tr><tr><td>Fricción de jurisdicción</td><td>Dificultad para determinar el tribunal aplicable y el lugar exacto de cumplimiento</td></tr></tbody></table></div>
+<p><strong>Deber de información (art. 1107 CCC).</strong> Es un deber específico para el proveedor. Existe por el desequilibrio de posiciones entre oferente y consumidor, protege al consumidor en la etapa precontractual y se vincula con los contratos de adhesión (2025, pág. 17).</p>
+<p><strong>Hipervulnerabilidad.</strong> La cátedra llama así a la suma de intangibilidad y asimetría técnica (2026, pág. 11). Sus casos son spam y publicidad precontractual, consentimiento automatizado vía apps, prestaciones digitales puras (nube, SaaS, streaming), bienes mixtos e IoT, chatbots, proveedores de conectividad, cobranzas extrajudiciales automatizadas y exposición de datos personales.</p>
+<h3 id="boton-de-arrepentimiento-art-1110">Botón de arrepentimiento (art. 1110)</h3>
+<p>También llamado derecho de revocación (2026, pág. 12).</p>
+<div class="tabla"><table><thead><tr><th>Aspecto</th><th>Qué dice</th></tr></thead><tbody><tr><td>Naturaleza</td><td>Facultad legal irrenunciable. Se ejerce sin justificar causa</td></tr><tr><td>Plazo</td><td>10 días corridos, desde la celebración del contrato o la entrega del bien</td></tr><tr><td>Efectos</td><td>Restitución recíproca. Gratuito para el consumidor, con gastos de devolución a cargo del vendedor</td></tr><tr><td>Excepciones</td><td>Bienes personalizados o a medida. Software, audios o descargas inmediatas e irreversibles. Suministro de prensa</td></tr></tbody></table></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Es el Ctrl+Z del consumidor, y la propia diapositiva lo llama «Undo». Pero no se puede deshacer lo que ya consumiste en el momento, como un programa que bajaste, ni lo que se hizo solo para vos.</p>
+</div>
+<h3 id="jurisprudencia-el-proveedor-responde-por-su-algoritmo">Jurisprudencia: el proveedor responde por su algoritmo</h3>
+<div class="tabla"><table><thead><tr><th>Caso</th><th>Conflicto</th><th>Fallo</th></tr></thead><tbody><tr><td>United Airlines (Travel Sale)</td><td>Pasajes vendidos a precios irrisorios por error algorítmico durante un Travel Sale</td><td>En contextos masivos de promociones agresivas, el error no es reconocible para el usuario. La oferta es estrictamente vinculante</td></tr><tr><td>Frávega</td><td>Venta de una notebook a un tercio de su valor por una falla en la carga automatizada</td><td>Quien monetiza una plataforma asume el riesgo de su propio sistema. El proveedor no puede trasladar el costo al eslabón débil, el consumidor</td></tr></tbody></table></div>
+<p>Fuente: 2026, pág. 13.</p>
+</section>
+<section class="sec"><h2 id="smart-contracts">Smart contracts</h2>
+<p>Código autoejecutable en blockchain que automatiza un acuerdo sin intermediarios. Cumplida la condición, se libera automáticamente la prestación. El esquema es condición (IF), red blockchain y ejecución (THEN) (2026, pág. 8).</p>
+<div class="ojo"><p class="ojo-t">«Code is law» choca con el Derecho</p><p>La cadena de bloques ignora los vicios de la voluntad y los errores algorítmicos. Una vez desplegado en la red, el sistema no permite, por defecto, la revocación ni la rescisión (2026, pág. 8).</p>
+</div>
+<p><strong>Pilares de validez en Argentina</strong> (2026, pág. 9):</p>
+<div class="tabla"><table><thead><tr><th>Pilar</th><th>Qué aporta</th></tr></thead><tbody><tr><td>Autonomía de la voluntad (art. 958)</td><td>Libertad de las partes para pactar reglas de software como manifestación válida de voluntad</td></tr><tr><td>Contratación electrónica (art. 1106)</td><td>El código criptográfico satisface el requisito normativo de «soporte escrito»</td></tr><tr><td>Inmutabilidad (Ley 25.506)</td><td>Eficacia jurídica mediante infraestructura de firmas electrónicas o digitales y criptografía</td></tr><tr><td>Andamiaje normativo</td><td>Integración con los principios de buena fe contractual y los usos de tráfico digital</td></tr></tbody></table></div>
+<p><strong>Retos jurídicos</strong> (2026, pág. 10):</p>
+<ul>
+<li><strong>Interpretación, rigidez contra flexibilidad.</strong> La literalidad absoluta del código colisiona con el CCCN, que busca la verdadera intención de las partes.</li>
+<li><strong>Inalterabilidad, inmutabilidad contra retracto.</strong> Blockchain hace técnicamente inviable ejecutar rescisiones, adendas o el derecho de retracto común en consumo.</li>
+<li><strong>Jurisdicción, descentralización contra competencia.</strong> En redes transfronterizas sin sede física es muy complejo fijar la legislación aplicable y el tribunal competente.</li>
+</ul>
+<p>Las consignas de este eje, incluido un caso de clase para practicar, están en <a href="ejercicios.html">Ejercicios y TP</a>.</p>
+</section><section class="sec quiz" id="quiz" data-quiz="contratos" data-materia="informatica-juridica">
+<h2>Quiz del eje 3</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="H01vcx-Hz3" data-tema="Qué es un contrato" data-enlace="contratos.html#que-es-un-contrato" data-tipo="mc"><div class="q-enun" id="qe-contratos-1"><span class="q-n">1</span><div><p>Según el art. 957 del CCC, ¿sobre qué relaciones actúa un contrato?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-contratos-1"><li><button type="button" class="op" data-ok="1">Relaciones jurídicas patrimoniales</button></li><li><button type="button" class="op" data-ok="0">Relaciones familiares</button></li><li><button type="button" class="op" data-ok="0">Cualquier relación social</button></li><li><button type="button" class="op" data-ok="0">Relaciones entre Estados</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las partes manifiestan su consentimiento para crear, regular, modificar, transferir o extinguir relaciones jurídicas <strong>patrimoniales</strong>.</p>
+</div></li><li class="q" data-q="l7exVunZPf" data-tema="Tipos de contrato" data-enlace="contratos.html#tipos-de-contrato" data-tipo="mc"><div class="q-enun" id="qe-contratos-2"><span class="q-n">2</span><div><p>¿Qué caracteriza a un contrato aleatorio?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-contratos-2"><li><button type="button" class="op" data-ok="0">Las prestaciones son ciertas desde que se celebra</button></li><li><button type="button" class="op" data-ok="0">No está regulado en la ley</button></li><li><button type="button" class="op" data-ok="0">Se cumple al instante</button></li><li><button type="button" class="op" data-ok="1">La prestación depende de un acontecimiento futuro e incierto</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación da como ejemplo los contratos relacionados con la siembra. Lo contrario es el <strong>conmutativo</strong>.</p>
+</div></li><li class="q" data-q="0QvtSptAA0" data-tema="Tipos de contrato" data-enlace="contratos.html#tipos-de-contrato" data-tipo="mc"><div class="q-enun" id="qe-contratos-3"><span class="q-n">3</span><div><p>¿Cuándo un contrato formal es además solemne?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-contratos-3"><li><button type="button" class="op" data-ok="0">Cuando lo firman más de dos partes</button></li><li><button type="button" class="op" data-ok="1">Cuando requiere además ciertos ritos para cobrar vigencia</button></li><li><button type="button" class="op" data-ok="0">Cuando es gratuito</button></li><li><button type="button" class="op" data-ok="0">Cuando se celebra por medios electrónicos</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación da como ejemplo el matrimonio.</p>
+</div></li><li class="q" data-q="DfGnzzvA28" data-tema="Causa (arts. 1012 a 1014 CCC)" data-enlace="contratos.html#causa-arts-1012-a-1014-ccc" data-tipo="mc"><div class="q-enun" id="qe-contratos-4"><span class="q-n">4</span><div><p>En la compra de una casa, según el ejemplo de la cátedra, ¿cuál es la causa motivo?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-contratos-4"><li><button type="button" class="op" data-ok="0">El contrato</button></li><li><button type="button" class="op" data-ok="0">Recibir el precio</button></li><li><button type="button" class="op" data-ok="1">Que el sujeto compra un inmueble para vivienda</button></li><li><button type="button" class="op" data-ok="0">Recibir la casa</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El contrato es la causa <strong>fuente</strong> y recibir el precio o la casa, la causa <strong>fin</strong>.</p>
+</div></li><li class="q" data-q="8g-zR0DbNV" data-tema="El acto voluntario (art. 260 CCCN)" data-enlace="contratos.html#el-acto-voluntario-art-260-cccn" data-tipo="mc"><div class="q-enun" id="qe-contratos-5"><span class="q-n">5</span><div><p>¿Qué elemento del acto voluntario se pone en riesgo con arquitecturas de la elección restrictivas?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-contratos-5"><li><button type="button" class="op" data-ok="0">Exteriorización</button></li><li><button type="button" class="op" data-ok="1">Libertad</button></li><li><button type="button" class="op" data-ok="0">Discernimiento</button></li><li><button type="button" class="op" data-ok="0">Objeto</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La libertad es la ausencia de coacción, y esas arquitecturas limitan las opciones del usuario.</p>
+</div></li><li class="q" data-q="AQ4HAYDQw6" data-tema="Equivalencia funcional" data-enlace="contratos.html#equivalencia-funcional" data-tipo="mc"><div class="q-enun" id="qe-contratos-6"><span class="q-n">6</span><div><p>¿Qué establece la equivalencia funcional según UNCITRAL?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-contratos-6"><li><button type="button" class="op" data-ok="1">Un documento no pierde validez legal por el solo hecho de existir en formato electrónico</button></li><li><button type="button" class="op" data-ok="0">Todo documento electrónico vale más que el papel</button></li><li><button type="button" class="op" data-ok="0">Solo la firma digital es válida</button></li><li><button type="button" class="op" data-ok="0">El papel y lo digital necesitan el mismo soporte</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se apoya en <strong>accesibilidad</strong>, <strong>integridad</strong> y <strong>autoría</strong>.</p>
+</div></li><li class="q" data-q="aGKQAhHYLj" data-tema="Click-wrap y browse-wrap" data-enlace="contratos.html#click-wrap-y-browse-wrap" data-tipo="mc"><div class="q-enun" id="qe-contratos-7"><span class="q-n">7</span><div><p>¿Qué caracteriza al browse-wrap?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-contratos-7"><li><button type="button" class="op" data-ok="0">Consentimiento expreso con checkbox</button></li><li><button type="button" class="op" data-ok="0">Preferido por la jurisprudencia</button></li><li><button type="button" class="op" data-ok="0">Usuario activo</button></li><li><button type="button" class="op" data-ok="1">Consentimiento tácito, derivado del simple uso del sitio</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación le asigna una <strong>validez precaria</strong>. El click-wrap es el preferido.</p>
+</div></li><li class="q" data-q="aNPCSWIhzM" data-tema="B2C y B2B" data-enlace="contratos.html#b2c-y-b2b" data-tipo="mc"><div class="q-enun" id="qe-contratos-8"><span class="q-n">8</span><div><p>En un contrato B2C, ¿cómo se identifica cada parte según la presentación?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-contratos-8"><li><button type="button" class="op" data-ok="0">Ambas con firma digital</button></li><li><button type="button" class="op" data-ok="0">Ambas con firma ológrafa</button></li><li><button type="button" class="op" data-ok="1">Empresa con firma digital y consumidor con firma electrónica</button></li><li><button type="button" class="op" data-ok="0">Empresa con firma electrónica y consumidor con firma digital</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La empresa usa firma digital de aplicación y el consumidor, firma electrónica con una app de enrollment. En <strong>B2B</strong>, ambas usan firma digital.</p>
+</div></li><li class="q" data-q="gU3_mVuNBI" data-tema="Botón de arrepentimiento (art. 1110)" data-enlace="contratos.html#boton-de-arrepentimiento-art-1110" data-tipo="mc"><div class="q-enun" id="qe-contratos-9"><span class="q-n">9</span><div><p>¿Qué plazo da el derecho de revocación del art. 1110?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-contratos-9"><li><button type="button" class="op" data-ok="0">5 días hábiles</button></li><li><button type="button" class="op" data-ok="1">10 días corridos</button></li><li><button type="button" class="op" data-ok="0">30 días corridos</button></li><li><button type="button" class="op" data-ok="0">10 días hábiles</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se cuentan desde la celebración del contrato o la entrega del bien.</p>
+</div></li><li class="q" data-q="aneZPiIugg" data-tema="Smart contracts" data-enlace="contratos.html#smart-contracts" data-tipo="mc"><div class="q-enun" id="qe-contratos-10"><span class="q-n">10</span><div><p>¿Por qué «Code is Law» choca con el Derecho según la cátedra?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-contratos-10"><li><button type="button" class="op" data-ok="1">Porque blockchain ignora los vicios de la voluntad y los errores algorítmicos</button></li><li><button type="button" class="op" data-ok="0">Porque el código no puede expresar condiciones</button></li><li><button type="button" class="op" data-ok="0">Porque los smart contracts necesitan un escribano</button></li><li><button type="button" class="op" data-ok="0">Porque solo se pueden usar entre Estados</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Además, una vez desplegado, el sistema no permite por defecto la revocación ni la rescisión.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material de cursado 2025 y 2026 del Drive de UTN. El Drive no trae ningún parcial ni final, así que no dice qué se toma ni cómo viene el examen. Manda lo que indique tu comisión. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-solo>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Emergencia: Inglés I</title>
+<meta name="description" content="Lo necesario para rendir Inglés I.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="ingles-i" data-pagina="emergencia">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Inglés I</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html" aria-current="page">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=ingles-i">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=ingles-i">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#parte-1-a-escucha">Parte 1-A: escucha</a></li><li class="n2"><a href="#parte-1-b-lectura-vocabulario-y-verbos">Parte 1-B: lectura, vocabulario y verbos</a></li><li class="n2"><a href="#parte-2-escribir-un-parrafo">Parte 2: escribir un párrafo</a></li><li class="n2"><a href="#oral">Oral</a></li><li class="n2"><a href="#examenes">Exámenes</a></li><li class="n3"><a href="#ex-final">Final del plan nuevo</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Protocolo de emergencia</h1>
+<p class="bajada">Lo justo de Inglés I para el final del plan nuevo, parte por parte, con la forma del examen de ejemplo encima.</p>
+
+<p class="em-salto"><a href="#examenes">Ir a los exámenes</a></p>
+
+<div class="ojo"><p class="ojo-t">Todo sale de un solo examen</p><p>Lo de 2023 en adelante es plan nuevo, y en el Drive hay un solo examen así, el ejemplo del Plan 2023, del 13/11/2023. Con un solo ejemplo no se puede saber qué se repite. Tomalo como modelo de la forma, y confirmá con tu comisión si cambió.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué piden</th></tr></thead><tbody><tr><td>Final, Parte 1-A (15 puntos)</td><td>Dos escuchas. Marcás con <code>T</code> y completás notas y preguntas con no más de dos palabras</td></tr><tr><td>Final, Parte 1-B (45 puntos)</td><td>Un artículo y dos transcripciones sobre la carrera de diseñador de videojuegos. Ubicás 11 subtítulos, buscás 10 expresiones intercambiables, completás 12 verbos y 4 preguntas, y tomás notas</td></tr><tr><td>Final, Parte 2 (40 puntos)</td><td>Un párrafo expositivo de 160 a 200 palabras con un título dado</td></tr><tr><td>Final, oral</td><td>Una entrevista simulada de trabajo o beca, de 10 a 15 minutos, sobre un aviso que leés antes</td></tr></tbody></table></div>
+<p>Las consignas y los textos están en inglés.</p>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Los finales de lectura de otras ingenierías (Civil, Química y Eléctrica, sin fecha o de 2019) pedían contestar y traducir en castellano. Eso no está en el examen de ejemplo y este resumen no se apoya en ellos. Si querés practicar lectura, siguen en el Drive: Civil (<a href="https://drive.google.com/file/d/1FobNdgsU2-bEUDrd5F_oOAj8zg5hdalM/view">texto</a>, <a href="https://drive.google.com/file/d/1UYv0YXn7MgmeACwgot_I44oyyfNCJKDh/view">clave</a>), Química (<a href="https://drive.google.com/file/d/168i2XakdVgTj9VysmXqn9bju_mUjDk3J/view">texto</a>, <a href="https://drive.google.com/file/d/1XLjd3TjSvchT9Z2afQTzoFOzCpvoaiaB/view">clave</a>) y Eléctrica (<a href="https://drive.google.com/file/d/1KoZxl7nW1Nsrwl_3Agff39n4DE_pOTv-/view">texto</a>, <a href="https://drive.google.com/file/d/1r641KQQfP_SwawxZ2rc-aFjKXYJtLlwG/view">clave</a>).</p>
+</div>
+
+<section class="sec"><h2 id="parte-1-a-escucha">Parte 1-A: escucha</h2>
+<ul>
+<li><strong>Question 1.</strong> Una conversación entre un estudiante y su tutor. Marcás con <code>T</code> los <strong>dos</strong> problemas de los trabajos grupales y los <strong>dos</strong> problemas con los profesores.</li>
+<li><strong>Question 2.</strong> Una mujer les cuenta a unos estudiantes su primer trabajo. Completás cuatro notas, marcás con <code>T</code> <strong>tres</strong> desventajas y contestás tres preguntas. En las notas y en las preguntas escribís <mark>no más de dos palabras</mark> por respuesta.</li>
+</ul>
+<div class="idea"><p>Antes de que arranque la grabación, leé las opciones y las notas. Así sabés qué dato esperar. En las notas fijate qué clase de palabra entra en cada renglón, porque la hoja te da el resto de la frase.</p>
+</div>
+<p>El Drive no tiene el audio ni la clave. La <a href="ej-fin-2023-11-13-1a.html">hoja</a> sirve para ver la forma, no para practicar de punta a punta.</p>
+</section>
+<section class="sec"><h2 id="parte-1-b-lectura-vocabulario-y-verbos">Parte 1-B: lectura, vocabulario y verbos</h2>
+<p>Son 45 puntos, repartidos en cinco consignas. Los textos del ejemplo tratan de la carrera de diseñador de videojuegos y de la historia de los videojuegos. Hacé la <a href="ej-fin-2023-11-13-1b.html">Parte 1-B</a> con la clave cerrada, y abrila al final.</p>
+<div class="tabla"><table><thead><tr><th>Consigna</th><th>Qué pide</th><th>Puntos</th></tr></thead><tbody><tr><td>1</td><td>Ubicar 11 subtítulos en el artículo</td><td>11</td></tr><tr><td>2</td><td>Encontrar 10 expresiones intercambiables</td><td>10</td></tr><tr><td>3</td><td>Completar un texto con verbos de una caja</td><td>8</td></tr><tr><td>4</td><td>Completar 4 preguntas</td><td>7</td></tr><tr><td>5</td><td>Completar notas de otro texto</td><td>9</td></tr></tbody></table></div>
+<p>Los puntos salen de la clave, porque la hoja del alumno solo trae el total.</p>
+<h3 id="subtitulos">Subtítulos</h3>
+<p>El artículo tiene 11 secciones, de la A a la K, con el subtítulo en blanco. Abajo te dan los 11 subtítulos en desorden y anotás la letra de cada uno.</p>
+<p>El artículo te da una pista. Tiene dos títulos a la vista, uno para los pros de la carrera y otro para los contras. Cada subtítulo cae en uno de esos dos bloques.</p>
+<div class="idea"><p>Mirá un subtítulo que sí está en la hoja, «What does a video game designer do?». Abajo viene una lista de tareas del diseñador. Un subtítulo anuncia la idea central de la sección. Para cada sección preguntate qué idea anuncia, y recién después buscala en la lista.</p>
+</div>
+<p>Empezá por las secciones que tengas claras y tachá esos subtítulos. Quedan menos opciones para las difíciles.</p>
+<h3 id="expresiones-intercambiables">Expresiones intercambiables</h3>
+<p>Te dan 10 expresiones y buscás en las secciones C, D y E la que puede reemplazar a cada una. La hoja te ayuda con tres datos:</p>
+<ul>
+<li>Las expresiones siguen el mismo orden que el texto.</li>
+<li>Hay cuatro en la sección C, cuatro en la D y dos en la E.</li>
+<li>Tienen que ser <mark>intercambiables</mark>. La expresión del texto tiene que entrar en el lugar de la otra sin romper la oración.</li>
+</ul>
+<p>La prueba es poner una en el lugar de la otra y leer la oración completa. Tiene que seguir diciendo lo mismo y tiene que seguir bien armada.</p>
+<h3 id="verbos-en-la-forma-correcta">Verbos en la forma correcta</h3>
+<p>Completás la transcripción de un video con estos verbos:</p>
+<p><code>become</code>, <code>call</code>, <code>change</code>, <code>put</code>, <code>make</code>, <code>have</code>, <code>allow</code>, <code>refer</code>, <code>release</code>, <code>sell</code>, <code>spread</code>, <code>work</code>.</p>
+<p>Hay 12 huecos y la consigna pide <mark>una sola palabra por hueco</mark>. Los huecos 2 y 8 traen dos rayas en la hoja. Cada raya es una palabra.</p>
+<p>El Drive no tiene un apunte de gramática de la cátedra. Lo que sigue son las formas que aparecen en la misma transcripción, en frases que <strong>no</strong> son huecos. Los nombres son los de uso común.</p>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Cómo se ve</th><th>Ejemplo del texto</th></tr></thead><tbody><tr><td>Presente</td><td><code>is</code>, <code>are</code></td><td><code>These days video games are everywhere</code></td></tr><tr><td>Pasado simple</td><td>Verbo en pasado</td><td><code>Then, in 1981, a company called Nintendo started making waves</code></td></tr><tr><td>Pasado continuo</td><td><code>was</code> o <code>were</code> más verbo con <code>-ing</code></td><td><code>By 1978, competition between Atari and another game company called Midway was heating up</code></td></tr><tr><td>Pasado perfecto</td><td><code>had</code> más participio</td><td><code>Midway had licensed an arcade game</code></td></tr><tr><td>Pasiva en presente</td><td><code>is</code> o <code>are</code> más participio</td><td><code>Video games are used by scientists</code></td></tr><tr><td>Pasiva en pasado</td><td><code>was</code> o <code>were</code> más participio</td><td><code>It was released in 1987</code></td></tr></tbody></table></div>
+<p>Para decidir, leé la oración entera y buscá dos cosas:</p>
+<ol>
+<li><strong>La marca de tiempo.</strong> <code>These days</code> y <code>in 1981</code> te ubican en momentos distintos.</li>
+<li><strong>Quién hace la acción.</strong> En <code>Video games are used by scientists</code>, el sujeto recibe la acción. Por eso es pasiva.</li>
+</ol>
+<p>La otra duda común es presente perfecto o pasado simple. La presentación <a href="https://drive.google.com/file/d/1FLFlCThqjXjyq2LeisdzrC_d8lbJ8Rw3/view">Describing Graphs</a> (sin firma de la cátedra), página 12, trae este cuadro:</p>
+<div class="tabla"><table><thead><tr><td></td><th>Presente perfecto</th><th>Pasado simple</th></tr></thead><tbody><tr><td>Se usa para</td><td>Algo que empezó antes y sigue, o que tiene efecto ahora</td><td>Algo terminado</td></tr><tr><td>Marcas de tiempo</td><td><code>this week</code>, <code>today</code>, <code>this year</code></td><td><code>yesterday</code>, <code>last week</code>, <code>in 2000</code></td></tr><tr><td>Ejemplo</td><td><code>I have lived in Paris for five years</code></td><td><code>My son was sick on Monday</code></td></tr></tbody></table></div>
+<h3 id="preguntas-a-partir-de-respuestas">Preguntas a partir de respuestas</h3>
+<p>Te dan una respuesta y completás la pregunta, con una palabra por hueco. Son cuatro preguntas sobre la última parte de la transcripción de la consigna 3.</p>
+<p>Mirá qué dato trae la respuesta y pensá qué pregunta lo pide. Después buscá ese dato en el texto y fijate en qué tiempo verbal está contado.</p>
+<p>Estas preguntas salen del material y no son de esta consigna. Fijate el orden de las palabras:</p>
+<div class="tabla"><table><thead><tr><th>Pregunta</th><th>Qué tiene</th></tr></thead><tbody><tr><td><code>What does a video game designer do?</code></td><td>Presente. <code>does</code>, sujeto, verbo sin <code>-s</code></td></tr><tr><td><code>How did people make friends in the past?</code></td><td>Pasado. <code>did</code>, sujeto, verbo sin pasado</td></tr><tr><td><code>What kind of people do the police sometimes have to protect?</code></td><td>Presente en plural. <code>do</code>, sujeto, verbo</td></tr><tr><td><code>What are the pros of being a video game designer?</code></td><td>Con <code>be</code> no hace falta otro auxiliar</td></tr></tbody></table></div>
+<p>Salen de la Parte 1-B, página 1, de la Parte 1-A y de una consigna guardada en Writings Corregidos.</p>
+<h3 id="completar-notas">Completar notas</h3>
+<p>Leés la transcripción de un video corto sobre cómo conseguir trabajo como desarrollador. Después completás notas en tres bloques:</p>
+<ul>
+<li>El trabajo que hacen los desarrolladores.</li>
+<li>Las habilidades que pide el puesto, en cuatro renglones.</li>
+<li>Cuatro consejos para conseguir trabajo, en cuatro renglones.</li>
+</ul>
+<p>La clave contesta con frases cortas tomadas del texto, en inglés. Cada renglón vale 1 punto.</p>
+<p>Fuente: 2023-11-13 - Part 1-B KEY.pdf, página 8.</p>
+<div class="idea"><p>El texto avisa cuántos consejos vienen. Cuando leas «Here are four tips», ya sabés que hay cuatro cosas para buscar y dónde empiezan.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parte-2-escribir-un-parrafo">Parte 2: escribir un párrafo</h2>
+<p>Título dado: «Three reasons for pursuing / not pursuing a career as a game designer and / or developer». Contexto: un seminario universitario para estudiantes de ingeniería sobre carreras.</p>
+<p>La consigna pide <strong>todo esto</strong>:</p>
+<ol>
+<li>Una <strong>oración introductoria</strong> con la idea general o controladora de todo el párrafo.</li>
+<li><strong>Al menos tres oraciones de desarrollo</strong>. Dicen cuáles son las razones y las explican o dan ejemplos.</li>
+<li>Una <strong>oración final</strong> de cierre.</li>
+</ol>
+<p>Además recomienda:</p>
+<ul>
+<li>No dejar de dar <strong>tu opinión</strong>.</li>
+<li>Usar <strong>conectores</strong> que muestren la relación entre las ideas.</li>
+<li>Ser claro y directo.</li>
+<li>Usar una variedad de lenguaje adecuada al contexto y al tema.</li>
+</ul>
+<details class="pregunta"><summary><span>¿Cuántas oraciones de desarrollo pide la Parte 2?</span><small>Examen de ejemplo del 13/11/2023, Parte 2</small></summary><div class="resp"><p>Al menos tres, que digan las razones y las expliquen o den ejemplos. Además van una oración introductoria y una final.</p>
+<p>Fuente: 2023-11-13 - Part 2.pdf, página 1.</p>
+</div></details>
+<div class="idea"><p>Pensalo como un sándwich. Arriba la idea general. En el medio, tres razones con su explicación. Abajo el cierre. Contá las palabras antes de entregar.</p>
+</div>
+<p>El Drive no tiene un modelo de esta parte.</p>
+<h3 id="conectores">Conectores</h3>
+<p>Estos aparecen en el material (Describing Graphs y Writings Corregidos).</p>
+<div class="tabla"><table><thead><tr><th>Para qué</th><th>Conectores</th></tr></thead><tbody><tr><td>Ordenar razones</td><td><code>Firstly</code>, <code>Secondly</code>, <code>Finally</code></td></tr><tr><td>Agregar una idea</td><td><code>Moreover</code>, <code>Furthermore</code>, <code>In addition</code></td></tr><tr><td>Mostrar una consecuencia</td><td><code>Therefore</code>, <code>Consequently</code>, <code>So</code></td></tr><tr><td>Marcar un contraste</td><td><code>However</code>, <code>Nevertheless</code>, <code>On the other hand</code>, <code>In contrast</code></td></tr><tr><td>Dar tu opinión</td><td><code>In my opinion</code>, <code>I think that</code></td></tr><tr><td>Cerrar</td><td><code>To sum up</code>, <code>Overall</code></td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Lo que anotó un alumno de sus correcciones</p><div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Estas notas están en Writings Corregidos. Son de un alumno, no de la cátedra, así que tomalas como pistas.</p>
+<ul>
+<li>Un texto expositivo va en un solo párrafo, con título.</li>
+<li>Gustó arrancar contestando directo lo que pide el título.</li>
+<li>Quedó mal encadenar tres oraciones con conector sobre una sola idea.</li>
+<li><code>Having said that</code> no le gustó a quien corregía.</li>
+</ul>
+<p class="bloque-fuente">Notas de un alumno</p></div>
+</div>
+<h3 id="describir-graficos">Describir gráficos</h3>
+<div class="ojo"><p class="ojo-t">No está en el examen de ejemplo</p><p>La hoja del 13/11/2023 no pide gráficos. Pero un alumno anotó que un gráfico de barras de hombres y mujeres entró en septiembre de 2023, que ya es plan nuevo. El Drive no tiene esa hoja. Sí tiene una presentación entera sobre el tema, de agosto de 2023 y sin firma de la cátedra. Estudialo y preguntá en tu comisión si sigue. Lo que sigue sale de esa presentación, <a href="https://drive.google.com/file/d/1FLFlCThqjXjyq2LeisdzrC_d8lbJ8Rw3/view">Describing Graphs</a>.</p>
+</div>
+<p>Según la presentación, un texto sobre un gráfico tiene esta forma:</p>
+<ol>
+<li><strong>Qué muestra.</strong> <code>This chart shows / illustrates / compares...</code></li>
+<li><strong>Un panorama de lo más importante.</strong> <code>Overall, smartphone ownership increased during the six-year period.</code></li>
+<li><strong>Los detalles.</strong> Elegí las tendencias importantes y agrupalas por parecidos y diferencias. <code>In particular, in 2020...</code></li>
+</ol>
+<div class="tabla"><table><thead><tr><th>Para decir</th><th>Palabras</th></tr></thead><tbody><tr><td>Subir (verbo)</td><td><code>increase</code>, <code>rise</code> (pasado <code>rose</code>), <code>go up</code>, <code>climb</code>, <code>jump</code>, <code>grow</code> (pasado <code>grew</code>)</td></tr><tr><td>Bajar (verbo)</td><td><code>decrease</code>, <code>fall</code> (pasado <code>fell</code>), <code>go down</code>, <code>drop</code>, <code>plummet</code>, <code>plunge</code></td></tr><tr><td>Quedarse igual</td><td><code>stay</code> o <code>remain</code> + <code>the same</code>, <code>constant</code>, <code>stable</code>, <code>unchanged</code>. También <code>level off</code></td></tr><tr><td>Llegar a un máximo</td><td><code>reach a peak</code>, <code>reach the highest level</code></td></tr><tr><td>Sustantivos</td><td><code>increase</code>, <code>decrease</code>, <code>rise</code>, <code>fall</code>, <code>growth</code></td></tr><tr><td>Cuánto (adjetivo)</td><td><code>steady</code>, <code>rapid</code>, <code>slight</code>, <code>sudden</code>, <code>large</code>, <code>small</code></td></tr><tr><td>Cuánto (adverbio)</td><td><code>slightly</code>, <code>sharply</code>, <code>dramatically</code>, <code>considerably</code>, <code>gradually</code>, <code>steadily</code></td></tr></tbody></table></div>
+<p>Para aproximar, <code>over</code> quiere decir más que y <code>nearly</code> quiere decir menos que. <code>Over half of our customers are in Europe</code>. <code>Nearly a third of our customers are in Asia</code>. También sirven <code>about</code> y <code>around</code>, y fracciones como <code>a third</code> o <code>a quarter</code>.</p>
+<div class="ojo"><p class="ojo-t">Describir o explicar</p><p>La presentación distingue describir (<code>The chart shows...</code>) de evaluar (<code>This may be due to...</code>). Pero unos consejos que un alumno guardó en Writings Corregidos dicen que en esta clase de consigna alcanza con contar qué pasó, no por qué. Quedate con describir, salvo que te pidan más.</p>
+</div>
+</section>
+<section class="sec"><h2 id="oral">Oral</h2>
+<p>El examen oral es una simulación con juego de roles. El documento de la cátedra lo describe así:</p>
+<ol>
+<li>Te dan un <strong>aviso</strong>. Ofrece un trabajo para un estudiante de ingeniería o un ingeniero, o una <strong>beca</strong> para un curso en el extranjero. Tenés <strong>entre 8 y 12 minutos</strong> para leerlo. El trabajo puede ser una pasantía, o un puesto para alguien con muchos años de experiencia.</li>
+<li>Te recuerdan que es una simulación. Podés atribuirte cualidades, intereses o formación que no tenés, <strong>siempre que seas consistente</strong> en tus respuestas y opiniones.</li>
+<li>Un docente hace de <strong>entrevistador</strong> durante <strong>10 a 15 minutos</strong>. Pregunta si cumplís los requisitos del aviso y te invita a explayarte y a opinar.</li>
+<li>Otro docente observa y evalúa con una <strong>rúbrica</strong>. Toda la actividad dura <strong>20 a 30 minutos</strong>. Después el tribunal decide la nota, sin vos presente.</li>
+</ol>
+<p>Lo que se evalúa, según el objetivo RA8 de la cátedra, es participar de manera eficiente en la entrevista y demostrar que sos el postulante justo para ese puesto o esa beca:</p>
+<ul>
+<li>Con vocabulario adecuado al propósito y a la situación.</li>
+<li>Con estructuras variadas, algunas complejas, y el registro apropiado.</li>
+<li>Dando la información que pide el entrevistador y explayándote cuando corresponde.</li>
+<li>Respondiendo a los giros de la conversación.</li>
+<li>Desarrollando temas de la profesión y apoyando tus ideas con argumentos de distintas fuentes.</li>
+<li>Reconociendo la validez de otras perspectivas.</li>
+</ul>
+<details class="pregunta"><summary><span>¿Se puede inventar información en el oral?</span><small>Oral, Plan 2023</small></summary><div class="resp"><p>Sí, es una simulación. La cátedra aclara que tenés que ser consistente en tus respuestas y opiniones.</p>
+<p>Fuente: Examen Oral.pdf, página 1, punto 2.</p>
+</div></details>
+<div class="idea"><p>Usá los minutos de lectura para marcar los requisitos del aviso. Para cada uno, pensá una experiencia y un ejemplo. Pueden ser inventados, pero tienen que cerrar entre sí durante toda la charla.</p>
+</div>
+<p>El Drive no trae un aviso de ejemplo ni la rúbrica.</p>
+</section>
+
+<section class="sec em-examenes"><h2 id="examenes">Exámenes</h2>
+<p class="em-leyenda">«Respuesta oficial» es lo que está en el Drive. «Propuesta sin verificar» es una respuesta armada con inteligencia artificial que ningún docente revisó.</p>
+<h3 id="ex-final">Final del plan nuevo</h3><ul class="em-lista"><li class="em-fila"><a href="ej-fin-2023-11-13-1a.html"><span class="em-nom">Final Plan 2023, Parte 1-A (escucha)</span><span class="ej-fecha">13/11/2023</span><span class="em-estado" data-estado="sin">Sin respuesta</span><span class="em-nota">Es una escucha y el Drive no trae el audio ni la clave, así que no hay de dónde sacar las respuestas.</span></a></li><li class="em-fila"><a href="ej-fin-2023-11-13-1b.html"><span class="em-nom">Final Plan 2023, Parte 1-B (lectura)</span><span class="ej-fecha">13/11/2023</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-fin-2023-11-13-2.html"><span class="em-nom">Final Plan 2023, Parte 2 (escritura)</span><span class="ej-fecha">13/11/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-oral.html"><span class="em-nom">Final oral, Plan 2023</span><span class="ej-fecha"></span><span class="em-estado" data-estado="sin">Sin respuesta</span><span class="em-nota">Es una entrevista oral en vivo sobre un aviso que se entrega ese día, y el Drive no trae un aviso de ejemplo ni la rúbrica.</span></a></li></ul></section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN, alrededor del examen de ejemplo del Plan 2023 (13/11/2023). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

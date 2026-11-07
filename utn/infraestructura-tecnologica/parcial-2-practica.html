@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2° parcial, práctica: Infraestructura Tecnológica</title>
+<meta name="description" content="Metacaracteres, variables, comillas, vi, procesos, find, grep y compañía.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="infraestructura-tecnologica" data-pagina="parcial-2-practica">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Infraestructura Tecnológica</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1-teoria.html">1° parcial, teoría</a></li><li class="em-fuera"><a href="parcial-1-practica.html">1° parcial, práctica</a></li><li class="em-fuera"><a href="parcial-2-teoria.html">2° parcial, teoría</a></li><li class="em-fuera"><a href="parcial-2-practica.html" aria-current="page">2° parcial, práctica</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=infraestructura-tecnologica">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=infraestructura-tecnologica">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#el-interprete-de-comandos">El intérprete de comandos</a></li><li class="n2"><a href="#metacaracteres">Metacaracteres</a></li><li class="n3"><a href="#comodines">Comodines</a></li><li class="n2"><a href="#redireccion">Redirección</a></li><li class="n3"><a href="#pipes-filtros-y-agrupamiento">Pipes, filtros y agrupamiento</a></li><li class="n2"><a href="#variables">Variables</a></li><li class="n2"><a href="#comillas">Comillas</a></li><li class="n2"><a href="#el-editor-vi">El editor vi</a></li><li class="n3"><a href="#los-tres-modos">Los tres modos</a></li><li class="n3"><a href="#salir-de-vi">Salir de vi</a></li><li class="n3"><a href="#moverse-y-editar">Moverse y editar</a></li><li class="n3"><a href="#sustituir-texto">Sustituir texto</a></li><li class="n3"><a href="#opciones-y-edicion-de-la-linea-de-comandos">Opciones y edición de la línea de comandos</a></li><li class="n2"><a href="#procesos">Procesos</a></li><li class="n3"><a href="#variables-entre-procesos">Variables entre procesos</a></li><li class="n3"><a href="#tres-formas-de-invocar-un-script">Tres formas de invocar un script</a></li><li class="n3"><a href="#prioridad">Prioridad</a></li><li class="n3"><a href="#primer-y-segundo-plano">Primer y segundo plano</a></li><li class="n2"><a href="#find-grep-y-compania">find, grep y compañía</a></li><li class="n3"><a href="#find">find</a></li><li class="n3"><a href="#grep">grep</a></li><li class="n3"><a href="#los-demas">Los demás</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>2° parcial, práctica</h1>
+<p class="bajada">Metacaracteres, redirección, variables, comillas, vi, procesos y los comandos find, grep, cut, sort, head y tail.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>De 2023 en adelante hay dos intentos del campus, del 02/11/2023 y del 07/11/2024. Tienen 14 y 15 preguntas, sobre 17 puntos. Los temas salen de las Prácticas 06 a 10. El archivo fechado 03/11/2023 es en realidad de 03/11/2022, según su encabezado, y no entra en la cuenta.</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>En cuántos de los 2</th><th>Dónde</th></tr></thead><tbody><tr><td>Unir metacaracteres con su función</td><td>2</td><td><a href="#metacaracteres">Metacaracteres</a></td></tr><tr><td>Comodines en <code>ls</code> y <code>echo</code></td><td>2</td><td><a href="#comodines">Comodines</a></td></tr><tr><td>Modos de vi</td><td>2</td><td><a href="#los-tres-modos">Modos</a></td></tr><tr><td>Salir de vi</td><td>2</td><td><a href="#salir-de-vi">Salir</a></td></tr><tr><td>Sustitución en vi</td><td>2</td><td><a href="#sustituir-texto">Sustitución</a></td></tr><tr><td><code>nice</code>, <code>renice</code></td><td>2</td><td><a href="#prioridad">Prioridad</a></td></tr><tr><td>Unir comandos con su función</td><td>1</td><td><a href="#find-grep-y-compania">Comandos</a></td></tr><tr><td><code>find</code></td><td>2</td><td><a href="#find">find</a></td></tr><tr><td>Variables, nombres y tipos</td><td>2</td><td><a href="#variables">Variables</a></td></tr><tr><td>Comillas</td><td>1</td><td><a href="#comillas">Comillas</a></td></tr><tr><td><code>readonly</code> y <code>unset</code></td><td>1</td><td><a href="#variables">Variables</a></td></tr><tr><td>Invocar un script</td><td>1</td><td><a href="#tres-formas-de-invocar-un-script">Scripts</a></td></tr><tr><td><code>jobs</code>, <code>bg</code>, <code>fg</code>, Ctrl+z</td><td>1</td><td><a href="#primer-y-segundo-plano">Tareas</a></td></tr><tr><td><code>tee</code></td><td>1</td><td><a href="#redireccion">Redirección</a></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="el-interprete-de-comandos">El intérprete de comandos</h2>
+<p>La definición del apunte es «El intérprete de comandos o shell es la principal interfaz entre el usuario y el sistema operativo». Interpreta los comandos del usuario para arrancar aplicaciones y usar las utilidades del sistema. Permite correr varios procesos en background, o segundo plano, a la vez que otros en foreground, o primer plano. Fuente: Práctica 06, Shell, página 2.</p>
+<ul>
+<li>Hay varios shells, como Korn (<code>ksh</code>), Bourne (<code>sh</code>) y C (<code>csh</code>). Algunos tienen un fin especial, como <code>rsh</code> para ejecutar comandos en un equipo remoto y <code>ssh</code> para una conexión segura.</li>
+<li>En Linux el más usado es Bourne-Again Shell, <code>bash</code>, que sustituye a <code>sh</code>.</li>
+<li>Para ver qué shell usás, <code>ps | grep $$</code>. Escribir <code>sh</code> o <code>bash</code> abre otro shell.</li>
+<li>Un shell no es solo un intérprete de comandos. Es sobre todo el intérprete de un lenguaje de programación potente.</li>
+</ul>
+<p>Fuente: Práctica 06, Shell, páginas 2 y 3.</p>
+</section>
+<section class="sec"><h2 id="metacaracteres">Metacaracteres</h2>
+<p>Antes de correr un comando, el shell expande estos caracteres. El comando recibe el resultado, no el asterisco. Fuente: Práctica 06, Shell, páginas 3 y 4.</p>
+<p>El apunte define los metacaracteres como caracteres que tienen para el shell un significado especial, y por eso no se usan en nombres de archivo. Los ejemplos son <code>&lt; &gt; | ; ! * ? [ ] $ &amp; \</code> y las comillas. Los wildcards o comodines son un subconjunto, los que se usan para comparar con patrones de nombres de archivo, como <code>*</code>, <code>?</code>, <code>!</code>, <code>[ ]</code> y <code>[ - ]</code>. Fuente: Práctica 06, página 3.</p>
+<div class="tabla"><table><thead><tr><th>Carácter</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>*</code></td><td>Cualquier cadena</td></tr><tr><td><code>?</code></td><td>Un carácter</td></tr><tr><td><code>[ ]</code></td><td>Un carácter de la lista o del rango</td></tr><tr><td><code>{ }</code></td><td>Arma varias cadenas</td></tr><tr><td><code>~</code></td><td>El directorio HOME</td></tr><tr><td><code>&gt;</code></td><td>Redirige la salida</td></tr><tr><td><code>&gt;&gt;</code></td><td>Redirige la salida, añadiendo</td></tr><tr><td><code>&lt;</code></td><td>Redirige la entrada</td></tr><tr><td><code>2&gt;</code></td><td>Redirige el error</td></tr><tr><td><code>;</code></td><td>Ejecuta en secuencia</td></tr><tr><td><code>&amp;</code></td><td>Ejecuta en segundo plano</td></tr><tr><td><code>\</code></td><td>Anula un carácter especial</td></tr></tbody></table></div>
+<p>El pipe, la barra vertical, conecta la salida de un comando con la entrada de otro. Fuente: Práctica 06, página 11.</p>
+<p>La tabla de la página 3 del apunte, que es la que usan las consignas de unir, trae además estas filas:</p>
+<div class="tabla"><table><thead><tr><th>Carácter</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>&lt;&lt;</code></td><td>Toma la entrada del teclado hasta que se escribe el carácter indicado</td></tr><tr><td><code>|</code></td><td>Interconexión, tubo o pipeline. La salida de la primera orden es la entrada de la segunda</td></tr><tr><td><code>var=valor</code></td><td>Asigna un valor a la variable <code>var</code></td></tr><tr><td><code>$cadena</code></td><td>El valor de la variable <code>cadena</code></td></tr><tr><td><code>#cadena</code></td><td>Línea de comentario</td></tr></tbody></table></div>
+<p>Fuente: Práctica 06, Shell, página 3.</p>
+<div class="tomado"><aside class="nota"><strong>Unir cada función con su metacarácter</strong><span>2° parcial práctica, 02/11/2023 y 07/11/2024</span></aside><p>Aparecen sustituir un carácter, sustituir cadenas, comentario, background, redirecciones, pipeline y anular un carácter especial. También asignar y visualizar una variable, que están en <a href="#variables">Variables</a>. Practicala en <a href="ejercicios.html">el examen de 2024</a>.</p>
+</div>
+<h3 id="comodines">Comodines</h3>
+<p>Los ejemplos del apunte usan <code>echo</code> para ver la expansión:</p>
+<pre class="codigo"><code><span class="hljs-built_in">echo</span> *               <span class="hljs-comment"># todos los nombres</span>
+<span class="hljs-built_in">echo</span> k*              <span class="hljs-comment"># los que empiezan con k</span>
+<span class="hljs-built_in">echo</span> *xt             <span class="hljs-comment"># los que terminan en xt</span>
+<span class="hljs-built_in">echo</span> .*              <span class="hljs-comment"># los ocultos</span>
+<span class="hljs-built_in">echo</span> ???             <span class="hljs-comment"># los de tres caracteres</span></code></pre>
+<p>Para los corchetes, el apunte crea los archivos <code>few myfile nest net new test1 test1.2 test1.3</code> y prueba esto:</p>
+<pre class="codigo"><code><span class="hljs-built_in">echo</span> ne[stw]         <span class="hljs-comment"># net new</span>
+<span class="hljs-built_in">echo</span> [fghjdn]e[tw]   <span class="hljs-comment"># few net new</span>
+<span class="hljs-built_in">echo</span> *[1-5]          <span class="hljs-comment"># test1 test1.2 test1.3</span>
+<span class="hljs-built_in">echo</span> [!tn]*          <span class="hljs-comment"># few myfile</span></code></pre>
+<p>Cada corchete vale un solo carácter. Con <code>!</code> adentro, se niega la lista. Las llaves arman cadenas, como <code>archivo{1,2,3}.txt</code> o <code>{2..10..2}</code>. Fuente: Práctica 06, páginas 4 a 7.</p>
+<p>Lo que el apunte remarca de la expansión:</p>
+<ul>
+<li><strong>La hace el shell:</strong> «Antes de que el shell ejecute cualquier comando expande la línea de órdenes». En <code>ls *</code>, <code>ls</code> recibe la lista de archivos ya expandida. En MS-DOS, en cambio, <code>dir *.*</code> recibe el <code>*.*</code> y lo expande el propio comando.</li>
+<li><strong><code>*</code>:</strong> se reemplaza por cualquier cadena, desde cero caracteres, pero no expande los nombres que empiezan con punto. Cuidado con <code>rm *</code>, que borra todos los archivos.</li>
+<li><strong><code>?</code>:</strong> vale un único carácter, y tampoco expande un punto al comienzo del nombre. Por eso los ocultos de tres caracteres se buscan con <code>.??</code>.</li>
+<li><strong>Sin coincidencias:</strong> si nada coincide, queda el texto tal cual. Con los archivos del apunte, <code>echo *.</code> muestra <code>*.</code>.</li>
+<li><strong>Demasiados archivos:</strong> si <code>*</code> se expande en una lista muy larga, el shell responde «Argument list too long». En ese caso se usa <code>ls</code> o <code>ls .</code> sin el asterisco.</li>
+<li><strong>Más corchetes:</strong> <code>echo ?[!y]*[2-5]</code> muestra los nombres con cualquier primer carácter, un segundo que no sea <code>y</code>, cualquier cosa en el medio y un último carácter del 2 al 5. Con los archivos del apunte da <code>test1.2 test1.3</code>.</li>
+<li><strong>Llaves:</strong> generan cadenas arbitrarias. Sirven para crear muchos archivos o directorios de una vez, como <code>mkdir dir_{a..d}</code>.</li>
+<li><strong>Tilde:</strong> <code>~</code> se expande como el directorio home. <code>echo ~</code> muestra <code>/home/grupo00</code>.</li>
+<li><strong>Aritmética:</strong> <code>$((expresión))</code> calcula. <code>echo $(((4+11)/3))</code> muestra 5.</li>
+</ul>
+<p>Fuente: Práctica 06, Shell, páginas 4 a 7.</p>
+<div class="tomado"><aside class="nota"><strong>Qué devuelven echo y ls con comodines y llaves</strong><span>2° parcial práctica, 02/11/2023 y 07/11/2024</span></aside><p>Te dan una lista de archivos y piden el resultado. También piden el largo de lo que lista <code>ls [fgj]e[tw]??</code>, y qué <code>ls</code> encuentra <code>r</code> o <code>s</code> sin distinguir mayúsculas. No se resuelven acá. Practicalas en <a href="ejercicios.html">los exámenes</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="redireccion">Redirección</h2>
+<p>Hay tres descriptores, 0 entrada, 1 salida y 2 error.</p>
+<pre class="codigo"><code>comando &gt; archivo        <span class="hljs-comment"># salida, pisa</span>
+comando &gt;&gt; archivo       <span class="hljs-comment"># salida, añade</span>
+comando &lt; archivo        <span class="hljs-comment"># entrada</span>
+comando 2&gt; errores       <span class="hljs-comment"># error</span>
+comando 2&gt; /dev/null     <span class="hljs-comment"># descarta el error</span>
+comando &gt; archivo 2&gt;&amp;1   <span class="hljs-comment"># salida y error juntos, el orden importa</span></code></pre>
+<p>Fuente: Práctica 06, páginas 8 a 10.</p>
+<p>El apunte explica que se abren tres archivos automáticamente para cada proceso, los file descriptors:</p>
+<div class="tabla"><table><thead><tr><th>Descriptor</th><th>Nombre</th><th>Qué es</th><th>Por defecto</th></tr></thead><tbody><tr><td>0</td><td>STDIN</td><td>Entrada estándar</td><td>El teclado</td></tr><tr><td>1</td><td>STDOUT</td><td>Salida estándar</td><td>La terminal o pantalla</td></tr><tr><td>2</td><td>STDERR</td><td>Salida estándar de errores</td><td>La terminal o pantalla</td></tr></tbody></table></div>
+<p>La salida estándar es la salida normal de datos. La de errores saca los mensajes de error, y también sirve como flujo aparte cuando no conviene mezclarlos con los datos. Redirigir es mandar ese flujo a otro dispositivo, programa o archivo. Al redirigir, todos los archivos involucrados se abren o se truncan antes de escribir nada. Fuente: Práctica 06, Shell, página 8.</p>
+<p>Los detalles de cada redirección:</p>
+<ul>
+<li><strong><code>&gt;</code>:</strong> manda la salida estándar a un archivo o dispositivo, y pisa lo que había.</li>
+<li><strong><code>&gt;&gt;</code>:</strong> agrega al final, sin espacio entre los dos signos.</li>
+<li><strong><code>&lt;</code>:</strong> toma la entrada estándar de un archivo en vez del teclado. El ejemplo del apunte es <code>mail -s Carta grupo00 &lt; carta.txt</code>.</li>
+<li><strong><code>2&gt;</code> y <code>2&gt;&gt;</code>:</strong> mandan los errores a un archivo, pisando o agregando. No va espacio entre el 2 y el signo.</li>
+<li><strong><code>/dev/null</code>:</strong> un archivo especial que descarta todo lo que recibe, el null device. El apunte dice que <code>/dev/zero</code> logra el mismo resultado.</li>
+<li><strong><code>2&gt;&amp;1</code>:</strong> manda los errores adonde está redirigida la salida estándar. Por eso primero va la salida. Con <code>cat filea fileb &gt; std.out 2&gt;&amp;1</code>, todo queda en <code>std.out</code>. Con <code>cat filea fileb 2&gt;&amp;1 &gt; std.out</code>, el error sale por pantalla, porque cuando se redirigió el error la salida todavía apuntaba a la pantalla.</li>
+<li><strong><code>1&gt;&amp;2</code>:</strong> lo inverso, menos común. Manda la salida estándar adonde apunte la de errores.</li>
+</ul>
+<p>Fuente: Práctica 06, Shell, páginas 8 a 11.</p>
+<p><code>tee</code> muestra en pantalla y a la vez guarda en un archivo. Un here document se abre con <code>&lt;&lt;FIN</code>. Fuente: Práctica 06, páginas 12 y 13.</p>
+<h3 id="pipes-filtros-y-agrupamiento">Pipes, filtros y agrupamiento</h3>
+<ul>
+<li><strong>Pipe <code>|</code>:</strong> comunica dos procesos por entrada y salida, sin crear archivos temporales. «La salida estándar de cada comando se convierte en la entrada estándar del siguiente comando». El que lee espera mientras el que escribe tenga abierta su salida, y cuando el escritor termina, el lector lo toma como fin de datos.</li>
+<li><strong>Filtro:</strong> un comando que toma datos, los transforma y los escribe en la salida estándar, así que puede ir en el medio de una cadena de pipes. <code>tail</code> y <code>head</code> son filtros, como en <code>ls -l | tail -5 | head -1</code>.</li>
+<li><strong><code>tee</code>:</strong> es un filtro que pone una copia del dato en un archivo y también en la salida estándar, para el comando siguiente. No modifica el dato. En <code>ls | tee ls.save | wc -l</code>, la lista queda en <code>ls.save</code> y <code>wc</code> la cuenta.</li>
+<li><strong><code>;</code>:</strong> separa varios comandos en una misma línea, como <code>date ; pwd</code>. No hay relación entre la salida del primero y el segundo.</li>
+<li><strong>Continuación de línea:</strong> la barra invertida al final sigue el comando en la línea de abajo. El shell muestra el introductor secundario, <code>&gt;</code>.</li>
+<li><strong>Here document:</strong> <code>&lt;&lt;FIN</code> redirige la entrada estándar desde la propia línea de órdenes, hasta un delimitador. En vez de <code>FIN</code> puede ir cualquier palabra. Por ejemplo, <code>cat &gt; file2 &lt;&lt;FIN</code> guarda las líneas que escribas hasta <code>FIN</code>.</li>
+</ul>
+<p>Fuente: Práctica 06, Shell, páginas 11 a 13.</p>
+<div class="ojo"><p class="ojo-t">Una frase del apunte sobre los filtros</p><p>La página 11 dice que un filtro «lee de la salida estándar». Por la definición del pipe de la misma página, lo que lee es la salida del comando anterior, que le llega por su entrada estándar.</p>
+</div>
+</section>
+<section class="sec"><h2 id="variables">Variables</h2>
+<p>Los nombres válidos del apunte son <code>_variable1</code>, <code>llave_a</code> y <code>var_1</code>. Los inválidos son <code>2_var</code>, <code>-variable</code>, <code>var1-var2</code> y <code>var_a!</code>. Se asigna sin espacios alrededor del <code>=</code>. Fuente: Práctica 07, Variables, página 2.</p>
+<p>El apunte define la variable como «una cadena de caracteres a la que asignamos un valor», que puede ser un número, un texto, un nombre de archivo o un dispositivo. Es un puntero a los datos reales. Las reglas del nombre:</p>
+<ul>
+<li>Solo puede tener letras (a-z o A-Z), números (0-9) o el subrayado (<code>_</code>).</li>
+<li>Caracteres como <code>!</code>, <code>*</code> o <code>-</code> no van, porque tienen un significado especial para el shell.</li>
+<li>Por convención, las del sistema van en MAYÚSCULAS y las del usuario en minúsculas.</li>
+<li>Distinguen mayúsculas y minúsculas, así que <code>HOME</code> y <code>home</code> son variables distintas.</li>
+</ul>
+<p>Fuente: Práctica 07, Variables, página 2.</p>
+<p>Cómo se usan, según el apunte:</p>
+<ul>
+<li><strong>Definir:</strong> <code>NOMBRE_VARIABLE=VALOR_VARIABLE</code>, como <code>saludo=&quot;hola mundo&quot;</code>. Estas se llaman escalares, porque guardan un solo valor a la vez.</li>
+<li><strong>Leer:</strong> se antepone <code>$</code>, como en <code>echo $nombre</code>.</li>
+<li><strong>Llaves:</strong> evitan el espacio después del nombre, y el <code>$</code> va afuera. <code>echo ${var}movilismo</code> muestra <code>automovilismo</code>. Sin llaves, <code>echo $varmovilismo</code> sale vacío, porque el shell busca una variable <code>varmovilismo</code> que no existe.</li>
+<li><strong>Antes del <code>$</code>:</strong> no hace falta espacio. Con <code>var1=movil</code>, <code>echo auto$var1</code> muestra <code>automovil</code>.</li>
+<li><strong><code>readonly</code>:</strong> después de marcarla, su valor no se puede cambiar, y el intento da «readonly variable».</li>
+<li><strong><code>unset</code>:</strong> borra la variable de la lista del shell, y después ya no se accede a su valor.</li>
+</ul>
+<p>Fuente: Práctica 07, Variables, páginas 3 a 5.</p>
+<details class="pregunta"><summary><span>Cuáles de estos nombres de variables son válidos</span><small>2° parcial práctica, 07/11/2024</small></summary><div class="resp"><p><code>var_1</code>, <code>_variable1</code> y <code>llave_a</code>. Los otros tres, <code>-variable</code>, <code>var1-var2</code> y <code>2_var</code>, figuran como inválidos en el apunte.</p>
+<p>Fuente: Práctica 07, Variables, página 2.</p>
+</div></details>
+<details class="pregunta"><summary><span>Cómo se visualiza una variable pegada a una cadena, con VAR como nombre y CADENA como texto</span><small>2° parcial práctica, 02/11/2023</small></summary><div class="resp"><p>Con llaves, <code>${VAR}CADENA</code>.</p>
+<p>Fuente: Práctica 07, Variables, página 3.</p>
+</div></details>
+<details class="pregunta"><summary><span>Es posible usar unset para eliminar variables marcadas con readonly</span><small>2° parcial práctica, 07/11/2024</small></summary><div class="resp"><p>No. El apunte dice que <code>unset</code> no funciona con variables <code>readonly</code>.</p>
+<p>Fuente: Práctica 07, Variables, páginas 4 y 5.</p>
+</div></details>
+<p>Hay tres tipos, según el apunte:</p>
+<ul>
+<li><strong>Local:</strong> presente en la instancia actual del shell. No está disponible para los programas que inicia el shell.</li>
+<li><strong>De entorno:</strong> disponible para los procesos hijos.</li>
+<li><strong>De shell:</strong> las que el propio shell define y usa.</li>
+</ul>
+<p>Fuente: Práctica 07, página 5.</p>
+<details class="pregunta"><summary><span>Qué comando visualiza las variables de entorno</span><small>2° parcial práctica, 02/11/2023</small></summary><div class="resp"><p><code>env</code>, que es externo y muestra solo las de entorno. <code>set</code> es interno y muestra también las demás.</p>
+<p>Fuente: Práctica 07, Variables, página 7.</p>
+</div></details>
+<p>Variables que conviene conocer son <code>HOME</code>, <code>PATH</code>, <code>PWD</code>, <code>USER</code>, <code>SHLVL</code>, <code>PS1</code> y <code>PS2</code>. Con <code>export</code> una variable pasa a los procesos hijos. Fuente: Práctica 07, páginas 5 a 7.</p>
+<p>La definición completa de cada tipo, del apunte:</p>
+<ul>
+<li><strong>Local:</strong> «está presente dentro de la instancia actual del shell. No está disponible para los programas que se inician por el shell. Se establecen en el símbolo del sistema».</li>
+<li><strong>De entorno:</strong> está disponible para cualquier proceso secundario del shell. Algunos programas la necesitan para funcionar, y un script define solo las que necesitan sus programas.</li>
+<li><strong>De shell:</strong> la establece el shell y la necesita para funcionar bien. Algunas son de entorno y otras locales.</li>
+</ul>
+<p>Fuente: Práctica 07, página 5.</p>
+<p>Qué guarda cada variable del shell:</p>
+<div class="tabla"><table><thead><tr><th>Variable</th><th>Qué tiene</th></tr></thead><tbody><tr><td><code>HOME</code></td><td>El directorio inicial del usuario. Es el argumento por defecto de <code>cd</code></td></tr><tr><td><code>LANG</code></td><td>La configuración regional. <code>LC_ALL</code> la anula</td></tr><tr><td><code>PATH</code></td><td>La ruta de búsqueda de comandos, directorios separados por dos puntos</td></tr><tr><td><code>PWD</code></td><td>El directorio de trabajo actual, definido por <code>cd</code></td></tr><tr><td><code>RANDOM</code></td><td>Un entero al azar entre 0 y 32.767 cada vez que se la nombra</td></tr><tr><td><code>SHLVL</code></td><td>Sube cada vez que se inicia otra instancia de bash. Sirve para saber si <code>exit</code> cierra la sesión</td></tr><tr><td><code>USER</code></td><td>El nombre de login de quien ejecuta el proceso</td></tr><tr><td><code>$$</code></td><td>El PID del proceso</td></tr><tr><td><code>PS1</code></td><td>El introductor principal, cuando el shell espera una orden</td></tr><tr><td><code>PS2</code></td><td>El introductor secundario, cuando el comando no está completo. Por defecto es <code>&gt;</code></td></tr></tbody></table></div>
+<p>Fuente: Práctica 07, Variables, páginas 5 y 6.</p>
+<p>El ejercicio de la página 7 muestra la diferencia. Con <code>usuario=GRUPOXX</code>, <code>set | grep usu</code> la encuentra y <code>env | grep usu</code> no. Después de <code>export usuario</code>, la encuentran los dos. Fuente: Práctica 07, página 7.</p>
+</section>
+<section class="sec"><h2 id="comillas">Comillas</h2>
+<div class="tabla"><table><thead><tr><th>Comillas</th><th>Efecto</th></tr></thead><tbody><tr><td>Simples</td><td>Todo pierde su significado especial</td></tr><tr><td>Dobles</td><td>Todo lo pierde, salvo <code>$</code>, la comilla invertida y <code>\</code></td></tr><tr><td>Invertidas</td><td>Lo de adentro se ejecuta como comando</td></tr></tbody></table></div>
+<p>También se puede sustituir un comando con <code>$(comando)</code>. Fuente: Práctica 07, Variables, páginas 7 a 10.</p>
+<p>El apunte dice que las comillas sirven «para sobreescribir la interpretación del shell de los caracteres especiales», y su tabla trae cuatro formas, no tres:</p>
+<ul>
+<li><strong>Simples:</strong> todos los caracteres especiales pierden su significado. Es como poner una barra invertida delante de cada carácter.</li>
+<li><strong>Dobles:</strong> la mayoría pierde su significado, salvo <code>$</code> para sustituir variables, la comilla invertida para sustituir comandos, y <code>\$</code>, <code>\`</code>, <code>\&quot;</code> y <code>\\</code> para escribir esos caracteres literales.</li>
+<li><strong>Barra invertida:</strong> el carácter que sigue inmediatamente pierde su significado especial.</li>
+<li><strong>Invertidas:</strong> lo de adentro se trata como un comando y se ejecuta. Es la sustitución de comandos, como <code>fecha=`date`</code>.</li>
+</ul>
+<p>Si un texto lleva una comilla simple, no se encierra todo entre simples. Se le pone la barra delante, como en <code>echo It\&#39;s Shell Programming</code>. El ejemplo del apunte usa una variable <code>nombre</code> con un valor. Entre comillas simples, <code>$nombre</code> y el <code>date</code> entre invertidas salen tal cual. Entre dobles, se reemplazan por el valor de la variable y por la fecha. Fuente: Práctica 07, Variables, páginas 7 a 10.</p>
+<details class="pregunta"><summary><span>Unir cada frase con el tipo de comillas</span><small>2° parcial práctica, 07/11/2024</small></summary><div class="resp"><p>Todos los caracteres especiales pierden su significado entre comillas simples. El <code>$</code> no pierde su significado entre dobles. Lo que está entre invertidas se ejecuta como comando.</p>
+<p>Fuente: Práctica 07, Variables, páginas 8 a 10.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="el-editor-vi">El editor vi</h2>
+<h3 id="los-tres-modos">Los tres modos</h3>
+<p>vi arranca en modo comando. Son tres:</p>
+<ul>
+<li><strong>Comando:</strong> es el inicial. Las teclas son órdenes.</li>
+<li><strong>Texto o inserción:</strong> se entra con <code>i</code>, <code>I</code>, <code>a</code>, <code>A</code>, <code>o</code>, <code>O</code> o <code>R</code>.</li>
+<li><strong>Última línea o ex:</strong> se entra con <code>:</code>.</li>
+</ul>
+<p>Fuente: Práctica 08, vi, páginas 6 y 7.</p>
+<p>Las definiciones del apunte, completas:</p>
+<ul>
+<li><strong>Modo texto o modo inserción:</strong> «las teclas ingresan caracteres en el texto».</li>
+<li><strong>Modo comando:</strong> «las teclas ejecutan acciones que permiten desplazar el cursor, recorrer el archivo, ejecutar comandos de manejo del texto y salir del editor. Es el modo inicial de vi».</li>
+<li><strong>Modo última línea o ex:</strong> «las teclas se usan para escribir comandos en la última línea al final de la pantalla». Se pasa desde el modo comando con dos puntos.</li>
+</ul>
+<p>Para volver del modo texto al modo comando se aprieta Escape. Las teclas que pasan al modo texto:</p>
+<div class="tabla"><table><thead><tr><th>Tecla</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>i</code></td><td>Inserta antes del cursor</td></tr><tr><td><code>I</code></td><td>Inserta al principio de la línea</td></tr><tr><td><code>a</code></td><td>Inserta después del cursor</td></tr><tr><td><code>A</code></td><td>Inserta al final de la línea</td></tr><tr><td><code>o</code></td><td>Abre una línea debajo de la actual</td></tr><tr><td><code>O</code></td><td>Abre una línea encima de la actual</td></tr><tr><td><code>R</code></td><td>Sobreescribe el texto</td></tr></tbody></table></div>
+<p>Fuente: Práctica 08, vi, páginas 6 y 7.</p>
+<p>Cómo se arranca, según el apunte:</p>
+<ul>
+<li><code>vi</code> edita un archivo nuevo.</li>
+<li><code>vi archivo</code> edita ese archivo. Si es de solo lectura, lo abre así. Si no existe, lo crea al salir guardando.</li>
+<li><code>vi archivo1 archivo2 …</code> edita varios, uno después del otro.</li>
+<li><code>vi -R archivo</code> lo abre en modo solo lectura.</li>
+<li><code>vi -r archivo</code> lo abre recuperando modificaciones no guardadas.</li>
+</ul>
+<p>En Linux suele instalarse <code>vim</code> en lugar de <code>vi</code>, así que al escribir <code>vi</code> puede estar corriendo <code>vim</code>. Es muy parecido, con mejoras. La más importante es deshacer de a uno los últimos cambios, y además resalta la sintaxis de muchos lenguajes. El apunte critica de vi que tiene varios modos, y si pasás de uno a otro sin darte cuenta podés dañar el archivo. Fuente: Práctica 08, vi, páginas 3 y 4.</p>
+<details class="pregunta"><summary><span>En cuál de los modos no puedo copiar ni mover texto</span><small>2° parcial práctica, 02/11/2023 y 07/11/2024</small></summary><div class="resp"><p>El apunte no lo dice con esa frase, pero sale de cómo lo ordena. Copiar y mover aparecen en modo comando y en modo última línea. En el modo texto o inserción, las teclas solo ingresan caracteres.</p>
+<p>Fuente: Práctica 08, vi, páginas 6, 10, 11 y 12.</p>
+</div></details>
+<h3 id="salir-de-vi">Salir de vi</h3>
+<details class="pregunta"><summary><span>Con cuáles opciones salgo guardando, y con cuál salgo sin guardar habiendo cambios</span><small>2° parcial práctica, 02/11/2023 y 07/11/2024</small></summary><div class="resp"><p>Salen guardando <code>:wq</code>, <code>:x</code> y Shift+zz. Sale sin guardar <code>:q!</code>. <code>:q</code> solo sirve si no hubo cambios.</p>
+<p>Fuente: Práctica 08, vi, página 6.</p>
+</div></details>
+<h3 id="moverse-y-editar">Moverse y editar</h3>
+<div class="tabla"><table><thead><tr><th>Tecla</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>h</code> <code>j</code> <code>k</code> <code>l</code></td><td>Izquierda, abajo, arriba, derecha</td></tr><tr><td><code>0</code> <code>$</code></td><td>Principio y fin de línea</td></tr><tr><td><code>w</code> <code>b</code></td><td>Palabra siguiente y anterior</td></tr><tr><td><code>1G</code> <code>G</code> <code>18G</code></td><td>Primera línea, última, línea 18</td></tr><tr><td><code>x</code></td><td>Borra un carácter</td></tr><tr><td><code>dd</code> <code>dw</code> <code>D</code></td><td>Borra línea, palabra, hasta el fin</td></tr><tr><td><code>yy</code> <code>yw</code></td><td>Copia línea, palabra</td></tr><tr><td><code>p</code> <code>P</code></td><td>Pega después, pega antes</td></tr><tr><td><code>u</code> <code>U</code></td><td>Deshace</td></tr><tr><td><code>/str</code> <code>?str</code></td><td>Busca adelante y atrás</td></tr></tbody></table></div>
+<p>Fuente: Práctica 08, vi, páginas 7 a 11.</p>
+<p>Las otras teclas del modo comando que trae el apunte:</p>
+<div class="tabla"><table><thead><tr><th>Tecla</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>H</code> <code>M</code> <code>L</code></td><td>Arriba, medio y abajo de la pantalla</td></tr><tr><td><code>-</code> <code>+</code></td><td>Primer carácter de la línea anterior y de la siguiente</td></tr><tr><td>Ctrl+f, Ctrl+b</td><td>Una pantalla adelante y atrás</td></tr><tr><td>Ctrl+d, Ctrl+u</td><td>Media pantalla adelante y atrás</td></tr><tr><td><code>d$</code> <code>d0</code></td><td>Borra hasta el fin y hasta el principio de la línea</td></tr><tr><td><code>s</code></td><td>Reemplaza caracteres</td></tr><tr><td><code>cw</code></td><td>Reemplaza palabras</td></tr><tr><td><code>C</code> o <code>c$</code></td><td>Reemplaza hasta el fin de la línea</td></tr><tr><td><code>c0</code></td><td>Reemplaza desde el comienzo de la línea</td></tr><tr><td><code>r</code></td><td>Reemplaza el carácter del cursor</td></tr><tr><td><code>n</code> <code>N</code></td><td>Repite la última búsqueda, en el mismo sentido o en el otro</td></tr><tr><td><code>fc</code> <code>Fc</code></td><td>Busca el carácter <code>c</code> siguiente o anterior en la línea</td></tr><tr><td><code>&lt;n&gt;dd</code> <code>&lt;n&gt;yy</code></td><td>Borra o copia <code>n</code> líneas</td></tr><tr><td><code>y$</code></td><td>Copia hasta el fin de la línea</td></tr><tr><td><code>&quot;ayy</code> <code>&quot;ap</code></td><td>Copia una línea en el buffer <code>a</code> y la pega desde ahí</td></tr><tr><td><code>J</code></td><td>Une la línea actual con la siguiente</td></tr><tr><td><code>.</code></td><td>Repite el último comando</td></tr><tr><td>Ctrl+g</td><td>Muestra el número de línea actual</td></tr></tbody></table></div>
+<p>Los comandos de cambio admiten un multiplicador delante. <code>3cw</code> abre un área de reemplazo para tres palabras. El editor marca con <code>$</code> dónde termina el área, escribís encima y salís con Escape. <code>dd</code> borra la línea y la deja guardada, así que después se puede pegar con <code>p</code>. Fuente: Práctica 08, vi, páginas 8 a 10.</p>
+<h3 id="sustituir-texto">Sustituir texto</h3>
+<p>Se hace en modo última línea, con esta forma:</p>
+<div class="tabla"><table><thead><tr><th>Comando</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>:#l1,#l2 s/a/b</code></td><td>Primera ocurrencia de cada línea</td></tr><tr><td><code>:#l1,#l2 s/a/b/c</code></td><td>Lo mismo, con confirmación</td></tr><tr><td><code>:#l1,#l2 s/a/b/g</code></td><td>Todas las ocurrencias</td></tr><tr><td><code>:#l1,#l2 s/a/b/gc</code></td><td>Todas, con confirmación</td></tr><tr><td><code>:1,$ s/a/b/g</code></td><td>Todo el archivo</td></tr></tbody></table></div>
+<p>Fuente: Práctica 08, vi, páginas 11 y 12.</p>
+<p>Más comandos del modo última línea, de la misma tabla:</p>
+<div class="tabla"><table><thead><tr><th>Comando</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>:g/&lt;s1&gt;/s//&lt;s2&gt;/g</code></td><td>Busca todas las ocurrencias de <code>&lt;s1&gt;</code> en el archivo y las reemplaza por <code>&lt;s2&gt;</code>. La primera <code>g</code> busca la cadena en cada línea, la <code>s</code> sustituye, las dos barras juntas reusan la cadena buscada, y la <code>g</code> final cambia todas las ocurrencias de cada línea</td></tr><tr><td><code>:.,5 s/&lt;s1&gt;/&amp;&lt;s3&gt;/g</code></td><td>Cambia <code>&lt;s1&gt;</code> por <code>&lt;s1&gt;</code> seguido de <code>&lt;s3&gt;</code>, desde la línea actual hasta la 5</td></tr><tr><td><code>:#linea1, #linea2 co #linea3</code></td><td>Copia de la línea 1 a la 2 en la línea 3</td></tr><tr><td><code>:#linea1, #linea2 mo #linea3</code></td><td>Mueve de la línea 1 a la 2 a la línea 3</td></tr><tr><td><code>:#linea1, #linea2 de</code></td><td>Borra de la línea 1 a la 2</td></tr><tr><td><code>:#linea1, #linea2 w &lt;archivo&gt;</code></td><td>Guarda de la línea 1 a la 2 en otro archivo</td></tr></tbody></table></div>
+<p>Fuente: Práctica 08, vi, páginas 11 y 12.</p>
+<h3 id="opciones-y-edicion-de-la-linea-de-comandos">Opciones y edición de la línea de comandos</h3>
+<p>Las opciones cambian cómo se comporta vi, y van en modo última línea:</p>
+<div class="tabla"><table><thead><tr><th>Opción</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>:set all</code></td><td>Muestra todas las configuraciones</td></tr><tr><td><code>:set</code></td><td>Muestra las que son distintas de las de por defecto</td></tr><tr><td><code>:set ai</code> y <code>:set noai</code></td><td>Activa y desactiva el auto-indentado</td></tr><tr><td><code>:set nu</code> y <code>:set nonu</code></td><td>Muestra y oculta los números de línea</td></tr><tr><td><code>:set list</code> y <code>:set nolist</code></td><td>Muestra y oculta los caracteres no imprimibles</td></tr><tr><td><code>:set showmode</code> y <code>:set noshowmode</code></td><td>Muestra y oculta el modo actual en el modo inserción</td></tr><tr><td><code>:set ts=#</code></td><td>El TAB vale <code>#</code> caracteres</td></tr><tr><td><code>:set ic</code> y <code>:set noic</code></td><td>Ignora y vuelve a tener en cuenta mayúsculas y minúsculas</td></tr><tr><td><code>:set wrapmargin=#</code></td><td>Salto de línea automático a los <code>#</code> caracteres. Con 0 se desactiva</td></tr></tbody></table></div>
+<p>Fuente: Práctica 08, vi, página 13.</p>
+<p>La línea de comandos del shell también se puede editar con las teclas de vi. Se activa con <code>set -o vi</code> y se desactiva con <code>set +o vi</code>. Con eso activado, Escape y <code>k</code> recuperan los comandos anteriores, y cada <code>k</code> sigue hacia atrás en <code>.bash_history</code>, donde se guardan. Fuente: Práctica 08, vi, página 12.</p>
+<div class="tomado"><aside class="nota"><strong>Cuál comando sustituye solo la primera ocurrencia, o todas</strong><span>2° parcial práctica, 02/11/2023 y 07/11/2024</span></aside><p>Son preguntas de «una o más de una», así que fijate también en las variantes con confirmación de la tabla. Practicalas en <a href="ejercicios.html">los exámenes</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="procesos">Procesos</h2>
+<p>Un proceso es un programa en ejecución. Cada uno tiene un PID único y el PPID de su padre. Un padre puede tener varios hijos, y un hijo tiene un solo padre. Si el padre muere, <code>init</code> lo adopta. <code>init</code> es el PID 1. Fuente: Práctica 09, Procesos, páginas 2 y 3.</p>
+<details class="pregunta"><summary><span>Cuál o cuáles enunciados son correctos para un proceso</span><small>2° parcial práctica, 07/11/2024</small></summary><div class="resp"><p>Cada proceso tiene un PID único y un proceso padre. Un proceso puede tener varios hijos, y <code>echo</code>, que es interno, no crea un proceso hijo.</p>
+<p>Fuente: Práctica 09, Procesos, página 2.</p>
+</div></details>
+<p>Lo que agrega el apunte:</p>
+<ul>
+<li><strong>Proceso y programa:</strong> en un sistema multitarea no se habla de programa para su ejecución, sino de proceso. Un programa es algo totalmente muerto. Un proceso detenido es más bien como si estuviera dormido, porque conserva información de estado.</li>
+<li><strong>Varios procesos de un programa:</strong> si varios usuarios usan el mismo editor, la parte de código es de solo lectura y se comparte en memoria. Lo mismo pasa con las librerías dinámicas compartidas.</li>
+<li><strong>PID:</strong> en un mismo momento es imposible que haya dos procesos con el mismo PID. La variable <code>$$</code> muestra el PID, y los scripts la usan para distinguir entre varias instancias que corren a la vez.</li>
+<li><strong>El arranque:</strong> primero se carga el kernel, de una forma especial. Según el sistema puede haber un proceso con PID 0, el planificador o swapper. Después viene <code>init</code>, con PID 1, que lee el archivo <code>inittab</code> y arranca los procesos que tienen que estar siempre activos, los demonios. Algunos se reinician solos si mueren.</li>
+</ul>
+<p>Fuente: Práctica 09, Procesos, páginas 2 y 3.</p>
+<h3 id="variables-entre-procesos">Variables entre procesos</h3>
+<p>Un cambio en un hijo no afecta al padre. Lo exportado baja a los hijos, nunca sube. El apunte lo muestra con <code>x=4</code> y <code>x=400</code>. Fuente: Práctica 09, páginas 3 y 4.</p>
+<div class="tomado"><aside class="nota"><strong>Qué valor de la variable muestra una secuencia con bash, unset y exit</strong><span>2° parcial práctica, 07/11/2024</span></aside><p>Te dan una secuencia de comandos que abre un sub-shell. Hay que seguirla paso a paso. No se resuelve acá.</p>
+</div>
+<h3 id="tres-formas-de-invocar-un-script">Tres formas de invocar un script</h3>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Permiso de ejecución</th><th>Dónde corre</th></tr></thead><tbody><tr><td><code>bash script.sh</code></td><td>No hace falta</td><td>Sub-shell</td></tr><tr><td><code>./script.sh</code></td><td>Hace falta, con <code>chmod</code></td><td>Sub-shell</td></tr><tr><td><code>. ./script.sh</code></td><td>No hace falta</td><td>Shell actual</td></tr></tbody></table></div>
+<p><code>$?</code> da el código de retorno del último comando. Fuente: Práctica 09, Procesos, páginas 5 a 7.</p>
+<p>El apunte define el shell script como «un simple archivo de texto con permisos de ejecución que contiene comandos del sistema operativo». Al ejecutarlo, el shell lo lee línea por línea y procesa los comandos en orden. Cualquier comando del sistema puede ir adentro. Fuente: Práctica 09, página 4.</p>
+<p>Lo que muestra el ejemplo de las tres formas, con <code>x=4</code> en el shell y un script que hace <code>echo El valor de x es $x</code>:</p>
+<ul>
+<li>Con <code>bash script1.sh</code>, alcanza con permiso de lectura. Corre en un sub-shell, y muestra «El valor de x es» sin valor, porque <code>x</code> no se exportó.</li>
+<li>Con <code>./script1.sh</code>, después de <code>chmod 744</code>, también corre en un sub-shell y tampoco ve la <code>x</code>.</li>
+<li>Con <code>. ./script1.sh</code>, el comando punto lee y ejecuta el archivo en el entorno del shell actual, y muestra «El valor de x es 4». Devuelve el estado del último comando del archivo. Si el archivo no está en el PATH, hay que darle el camino.</li>
+</ul>
+<p>Fuente: Práctica 09, Procesos, páginas 5 a 7.</p>
+<p>Sobre los códigos de retorno, el apunte dice esto:</p>
+<ul>
+<li>Un comando siempre le devuelve un valor a su proceso padre.</li>
+<li>Por convención, 0 es ejecución correcta y cualquier otro valor es error.</li>
+<li>Los comandos de una tubería devuelven un único valor.</li>
+<li>En el ejemplo, después de <code>date</code> el <code>$?</code> es 0, y después de un comando inexistente, <code>dated</code>, es 127.</li>
+</ul>
+<p>Fuente: Práctica 09, páginas 7 y 8.</p>
+<h3 id="prioridad">Prioridad</h3>
+<details class="pregunta"><summary><span>Qué comando cambia la prioridad de un proceso que se está ejecutando, y cuál lanza uno nuevo con otra</span><small>2° parcial práctica, 02/11/2023 y 07/11/2024</small></summary><div class="resp"><p><code>renice</code> cambia a un proceso existente, por su PID. <code>nice</code> lanza uno nuevo con otra prioridad.</p>
+<p>Fuente: Práctica 09, Procesos, páginas 9 y 10.</p>
+</div></details>
+<p>Va de -20 a 19. <code>nice -10</code> baja la prioridad, y <code>nice --10</code> la sube si sos superusuario. Fuente: Práctica 09, páginas 9 y 10.</p>
+<p>Los detalles del apunte:</p>
+<ul>
+<li>El multiproceso funciona dándole la CPU a cada proceso en porciones de tiempo, de forma cíclica. Con <code>nice</code> le avisás al sistema que el proceso que vas a lanzar no es urgente, y recibe menos tiempo de CPU.</li>
+<li>El valor por defecto es 0. Cuanto más alto el valor nice, más baja la prioridad.</li>
+<li><code>nice -10</code> y <code>nice -n 10</code> suben el valor nice en 10. Para bajarlo, o sea subir la prioridad, hacen falta permisos de superusuario, con <code>nice --10</code> o <code>nice -n -10</code>.</li>
+<li>Con poca carga casi no se nota la diferencia. Con la CPU sobrecargada, los de menor prioridad se atrasan.</li>
+<li>Lanzar muchos procesos pesados a la vez puede ser peor que hacerlos en secuencia. El sistema gasta en gestionarlos, se queda sin RAM y empieza a hacer swap a disco.</li>
+<li><code>renice -n valor PID</code> cambia la prioridad de un proceso que ya corre. También puede cambiar todos los de un usuario, por su UID, o los de un grupo, por su GID. El valor va de 0 a 19, y si es mayor le asigna 19.</li>
+<li>Un usuario normal solo puede bajar la prioridad, nunca subirla, aunque antes la haya bajado él.</li>
+</ul>
+<p>Fuente: Práctica 09, Procesos, páginas 9 y 10.</p>
+<h3 id="primer-y-segundo-plano">Primer y segundo plano</h3>
+<div class="tabla"><table><thead><tr><th>Comando</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>&amp;</code></td><td>Lanza en segundo plano</td></tr><tr><td>Ctrl+z</td><td>Suspende la tarea en primer plano</td></tr><tr><td><code>jobs</code></td><td>Lista las suspendidas o en segundo plano</td></tr><tr><td><code>bg</code></td><td>Sigue en segundo plano una suspendida</td></tr><tr><td><code>fg</code></td><td>Sigue en primer plano una suspendida</td></tr><tr><td><code>kill %3</code></td><td>Termina la tarea 3</td></tr><tr><td><code>nohup</code></td><td>Sigue corriendo al cerrar la sesión, con salida en <code>nohup.out</code></td></tr></tbody></table></div>
+<p><code>ps</code>, <code>ps -f</code>, <code>ps -e</code> y <code>ps -l</code> listan procesos. Fuente: Práctica 09, Procesos, páginas 8, 9, 11, 12 y 13.</p>
+<p>Las definiciones del apunte:</p>
+<ul>
+<li><strong>Foreground o primer plano:</strong> es el modo por defecto. Toma la entrada del teclado y manda la salida a la pantalla. Hasta que termina no devuelve el control a la línea de comandos, así que no se puede ejecutar otro comando.</li>
+<li><strong>Background o segundo plano:</strong> corre sin estar conectado al teclado. Si necesita el teclado, queda esperando. Libera la línea de comandos, y se usa para comandos que tardan mucho. Un proceso solo puede ir en background si no requiere ingresar datos por teclado y si se lo lanza con <code>&amp;</code> como último carácter, como <code>sleep 120 &amp;</code>.</li>
+<li><strong>Terminar un proceso:</strong> en primer plano se corta con Ctrl+c, o con <code>kill</code>. En segundo plano la única forma es <code>kill #PID</code>, que le manda una señal al proceso. Root puede terminar cualquier proceso, y los demás usuarios solo los propios. Si una terminal no responde, se abre otra sesión y se la termina con <code>kill</code>.</li>
+<li><strong><code>nohup</code>:</strong> el proceso lanzado en background sigue aunque cierres la sesión. Si no redirigís su salida, va a <code>nohup.out</code>, y si lanzás varios desde el mismo directorio ese archivo se pisa. Al cerrar la sesión, el proceso queda con <code>init</code> como padre. Solo tiene sentido en background, como en <code>nohup ls -R / &gt; salida.out &amp;</code>.</li>
+<li><strong>Ctrl+z:</strong> detiene el proceso en primer plano, sin terminarlo, para poder rearrancarlo después.</li>
+<li><strong><code>bg</code>, <code>fg</code> y <code>kill</code>:</strong> se usan con el número de job, como <code>fg %1</code> o <code>kill %1</code>.</li>
+</ul>
+<p><code>ps</code> solo lista los procesos del usuario de la sesión. Con <code>-f</code> muestra, entre otras columnas, PPID, el padre, C, el uso de CPU, STIME, cuándo arrancó, TTY, la terminal, TIME, el tiempo de CPU consumido, y CMD, el comando. Con <code>-e</code> lista todos los procesos del sistema y con <code>-l</code> las prioridades. Fuente: Práctica 09, Procesos, páginas 8 a 13.</p>
+</section>
+<section class="sec"><h2 id="find-grep-y-compania">find, grep y compañía</h2>
+<h3 id="find">find</h3>
+<p>La forma es <code>find camino expresión</code>. Fuente: Práctica 10, Comandos, página 3.</p>
+<ul>
+<li><code>-type f</code> archivos, <code>-type d</code> directorios.</li>
+<li><code>-name &#39;patrón&#39;</code>, <code>-user</code>, <code>-perm</code>, <code>-mtime</code>.</li>
+<li><code>-size</code> en bloques de 512 bytes, con <code>+n</code> más grande y <code>-n</code> más chico.</li>
+<li><code>-o</code> es un «o» entre condiciones.</li>
+<li><code>-exec comando {} \;</code> ejecuta sobre cada resultado.</li>
+<li><code>-ok comando {} \;</code> hace lo mismo, pero pide confirmación.</li>
+</ul>
+<p>Fuente: Práctica 10, Comandos, páginas 3 a 5.</p>
+<p>La definición del apunte es «El comando find busca recursivamente en el árbol de directorios para un camino determinado, archivos que cumplen con determinadas condiciones escritas en expresiones utilizando determinados términos. La salida de este comando depende de los términos especificados en los parámetros». Lo que agrega:</p>
+<ul>
+<li><strong><code>{}</code>:</strong> <code>find</code> lo reemplaza por el nombre de cada archivo encontrado.</li>
+<li><strong><code>\;</code>:</strong> todo lo encontrado se toma como argumento del comando hasta el <code>;</code>, que se escribe con la barra de escape. Es obligatorio para <code>-exec</code> y para <code>-ok</code>.</li>
+<li><strong>Cuándo usar <code>-ok</code>:</strong> es buena práctica si no son muchos archivos, y es mucho más seguro si no sabés qué devuelve la búsqueda y el comando borra, como <code>rm</code>.</li>
+<li><strong><code>-size n</code>:</strong> sin signo busca exactamente n bloques, y <code>-size 0</code> los vacíos.</li>
+<li><strong><code>-mtime +x</code> y <code>-mtime -x</code>:</strong> modificados hace más de x días, o hace menos de x días.</li>
+<li><strong><code>-perm</code> y <code>-user</code>:</strong> permisos en octal, como 644, y archivos de un dueño dado.</li>
+<li><strong>El «o»:</strong> las condiciones se agrupan entre paréntesis escapados. <code>find . \( -name &#39;sp*&#39; -o -name &#39;sy*&#39; \) -exec ls -l {} \;</code> lista los que empiezan con sp o con sy.</li>
+<li><strong>Errores aparte:</strong> <code>find / -name &#39;security&#39; 2&gt; errfile</code> busca desde la raíz y manda los mensajes de error a un archivo.</li>
+</ul>
+<p>Fuente: Práctica 10, Comandos, páginas 3 a 6.</p>
+<details class="pregunta"><summary><span>El comando find busca recursivamente solo archivos y no directorios</span><small>2° parcial práctica, 07/11/2024</small></summary><div class="resp"><p>Falso. El apunte dice que «la búsqueda es recursiva y de la misma manera lista directorios como archivos».</p>
+<p>Fuente: Práctica 10, Comandos, página 3.</p>
+</div></details>
+<h3 id="grep">grep</h3>
+<p>Busca en uno o más archivos las líneas que cumplen un patrón. El patrón va entre comillas simples.</p>
+<div class="tabla"><table><thead><tr><th>Opción o patrón</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>-v</code></td><td>Las que no coinciden</td></tr><tr><td><code>-c</code></td><td>Cuenta</td></tr><tr><td><code>-l</code></td><td>Nombres de archivo</td></tr><tr><td><code>-i</code></td><td>Sin distinguir mayúsculas</td></tr><tr><td><code>-w</code></td><td>Palabra entera</td></tr><tr><td><code>-n</code></td><td>Con número de línea</td></tr><tr><td><code>^a</code> y <code>z$</code></td><td>Empieza con a, termina en z</td></tr></tbody></table></div>
+<p>Fuente: Práctica 10, Comandos, páginas 6 a 9.</p>
+<p>La definición del apunte es «El comando grep busca en uno o más archivos especificados o en la entrada estándar las líneas que cumplen con un patrón determinado y las lista por la salida estándar». La forma es <code>grep [opciones] patrón [archivo1 archivo2 ...]</code>. Con más de un archivo, muestra el nombre de cada uno delante de la línea, como <code>mkdir.txt:SYNOPSIS</code>. Los metacaracteres válidos para el patrón:</p>
+<div class="tabla"><table><thead><tr><th>Patrón</th><th>Qué coincide</th></tr></thead><tbody><tr><td><code>.</code></td><td>Cualquier carácter simple</td></tr><tr><td><code>*</code></td><td>Cero o más ocurrencias del carácter que lo precede</td></tr><tr><td><code>[a-f]</code></td><td>Cualquier carácter entre la a y la f</td></tr><tr><td><code>^a</code></td><td>Una línea que empieza con a</td></tr><tr><td><code>z$</code></td><td>Una línea que termina con z</td></tr></tbody></table></div>
+<p>Los ejemplos del apunte usan el poema de las pulgas, en el archivo <code>fleas</code>. <code>grep &#39;[Ff]leas&#39; fleas</code> encuentra las dos mayúsculas y minúsculas, y <code>grep -c &#39;.&#39; fleas</code> da 10, porque de las 12 líneas del archivo hay dos vacías. Con <code>-w &#39;on&#39;</code>, no aparece la línea de «upon», porque <code>-w</code> busca la palabra completa. Fuente: Práctica 10, Comandos, páginas 6 a 9.</p>
+<h3 id="los-demas">Los demás</h3>
+<ul>
+<li><strong><code>cut</code>:</strong> corta columnas o campos, con <code>-c</code>, <code>-f</code> y <code>-d</code>. Por ejemplo, <code>cut -f1,3 -d:</code>. Páginas 9 y 10.</li>
+<li><strong><code>sort</code>:</strong> ordena las líneas, con <code>-d</code>, <code>-r</code>, <code>-n</code>, <code>-t</code> y <code>-k</code>. Páginas 10 y 11.</li>
+<li><strong><code>head</code> y <code>tail</code>:</strong> primeras y últimas líneas, 10 por defecto. <code>tail -n +2</code> arranca desde la línea 2. Páginas 11 y 12.</li>
+<li><strong><code>kill</code>:</strong> finaliza procesos. Práctica 09, página 11.</li>
+</ul>
+<p>Fuente: Práctica 10, Comandos.</p>
+<p>Las definiciones del apunte, que son las que aparecen en las consignas de unir:</p>
+<ul>
+<li><strong><code>cut</code>:</strong> «corta columnas de una tabla o campos de cada línea de un archivo, y escribe estas columnas o campos en la salida estándar». Requiere por lo menos <code>-c</code>, con posiciones de caracteres, o <code>-f</code>, con campos. <code>-d</code> define el delimitador. En un rango, <code>-</code> al principio quiere decir desde la primera columna y al final hasta el fin de la línea, como en <code>cut -c-14,29-</code>.</li>
+<li><strong><code>sort</code>:</strong> «ordena las líneas en el archivo especificado y escribe el resultado en la salida estándar. Si no se especifica nombre de archivo, se ordena la entrada estándar». <code>-d</code> ordena como diccionario, solo con letras, dígitos y espacios, <code>-r</code> invierte, <code>-n</code> ordena por valor numérico, <code>-t</code> da el delimitador y <code>-k</code> la columna. Con el archivo <code>animales</code>, <code>sort -t. -n -k 2 animales</code> ordena por el número que va después del punto.</li>
+<li><strong><code>head</code>:</strong> muestra las primeras líneas de uno o varios archivos, 10 por defecto. La forma es <code>head [-numero_de_líneas] archivo1 archivo2 …</code>, como <code>head -2 animales</code>.</li>
+<li><strong><code>tail</code>:</strong> muestra las últimas líneas de un archivo, 10 por defecto. Un valor negativo cuenta desde el final hacia atrás, como <code>tail -n -2</code>, y uno positivo arranca en esa línea y sigue hasta el final, como <code>tail -n +2</code>.</li>
+</ul>
+<p>Fuente: Práctica 10, Comandos, páginas 9 a 12.</p>
+<div class="ojo"><p class="ojo-t">El delimitador de cut</p><p>El apunte dice que «El delimitador por defecto es un espacio en blanco». En el <code>cut</code> de GNU/Linux el delimitador por defecto es el tabulador. Si te lo preguntan, consultá cuál toma la cátedra. Fuente: Práctica 10, página 9.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Unir cada función con su comando</strong><span>2° parcial práctica, 02/11/2023</span></aside><p>Son <code>head</code>, <code>find</code>, <code>grep</code>, <code>cut</code>, <code>kill</code>, <code>tail</code> y <code>sort</code>. Con la lista de arriba te alcanza.</p>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-2-practica" data-materia="infraestructura-tecnologica">
+<h2>Practicá el 2° parcial de práctica</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="hNJ6YHqv42" data-tema="Metacaracteres" data-enlace="parcial-2-practica.html#metacaracteres" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-1"><span class="q-n">1</span><div><p>¿Qué metacarácter sustituye un solo carácter?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 2023 y 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-1"><li><button type="button" class="op" data-ok="0">*</button></li><li><button type="button" class="op" data-ok="1">?</button></li><li><button type="button" class="op" data-ok="0">~</button></li><li><button type="button" class="op" data-ok="0">;</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El ? representa un carácter, y el * una cadena.</p>
+</div></li><li class="q" data-q="866c1WjLVL" data-tema="Redirección" data-enlace="parcial-2-practica.html#redireccion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-2"><span class="q-n">2</span><div><p>¿Qué descriptor corresponde a la salida de error?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-2"><li><button type="button" class="op" data-ok="0">0</button></li><li><button type="button" class="op" data-ok="0">1</button></li><li><button type="button" class="op" data-ok="1">2</button></li><li><button type="button" class="op" data-ok="0">3</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>0 es la entrada, 1 la salida y 2 el error.</p>
+</div></li><li class="q" data-q="YIpqdmQlfY" data-tema="Redirección" data-enlace="parcial-2-practica.html#redireccion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-3"><span class="q-n">3</span><div><p>¿Qué comando muestra en pantalla y a la vez guarda en un archivo?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-3"><li><button type="button" class="op" data-ok="0">cat</button></li><li><button type="button" class="op" data-ok="1">tee</button></li><li><button type="button" class="op" data-ok="0">cut</button></li><li><button type="button" class="op" data-ok="0">head</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Eso hace tee.</p>
+</div></li><li class="q" data-q="Id3y5tH452" data-tema="Variables" data-enlace="parcial-2-practica.html#variables" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-4"><span class="q-n">4</span><div><p>¿Se puede usar unset sobre una variable readonly?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-4"><li><button type="button" class="op" data-ok="0">Sí, siempre</button></li><li><button type="button" class="op" data-ok="0">Sí, si la exportaste</button></li><li><button type="button" class="op" data-ok="1">No</button></li><li><button type="button" class="op" data-ok="0">Solo como root</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte aclara que no funciona con readonly.</p>
+</div></li><li class="q" data-q="WWjUl0X105" data-tema="Variables" data-enlace="parcial-2-practica.html#variables" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-5"><span class="q-n">5</span><div><p>¿Qué tipo de variable está en la instancia actual del shell y no llega a los programas que inicia?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 2023, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-5"><li><button type="button" class="op" data-ok="1">Local</button></li><li><button type="button" class="op" data-ok="0">De entorno</button></li><li><button type="button" class="op" data-ok="0">Exportada</button></li><li><button type="button" class="op" data-ok="0">De sistema</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La local queda en la instancia actual del shell.</p>
+</div></li><li class="q" data-q="Cw9jHiIevS" data-tema="Comillas" data-enlace="parcial-2-practica.html#comillas" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-6"><span class="q-n">6</span><div><p>¿Con qué comillas lo de adentro se ejecuta como comando?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-6"><li><button type="button" class="op" data-ok="0">Simples</button></li><li><button type="button" class="op" data-ok="0">Dobles</button></li><li><button type="button" class="op" data-ok="1">Invertidas</button></li><li><button type="button" class="op" data-ok="0">Ninguna</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las invertidas sustituyen el comando por su salida.</p>
+</div></li><li class="q" data-q="VU7bZ_FWyj" data-tema="Salir de vi" data-enlace="parcial-2-practica.html#salir-de-vi" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-7"><span class="q-n">7</span><div><p>¿Con cuál salís sin guardar, habiendo hecho cambios?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 2023 y 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-7"><li><button type="button" class="op" data-ok="0">:wq</button></li><li><button type="button" class="op" data-ok="0">:x</button></li><li><button type="button" class="op" data-ok="1">:q!</button></li><li><button type="button" class="op" data-ok="0">Shift+zz</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>:q! sale descartando los cambios.</p>
+</div></li><li class="q" data-q="weSdZpkcWE" data-tema="Sustituir texto" data-enlace="parcial-2-practica.html#sustituir-texto" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-8"><span class="q-n">8</span><div><p>¿Qué agrega la g al final de una sustitución en vi?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 2023 y 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-8"><li><button type="button" class="op" data-ok="0">Pide confirmación</button></li><li><button type="button" class="op" data-ok="1">Reemplaza todas las ocurrencias de cada línea</button></li><li><button type="button" class="op" data-ok="0">Graba el archivo</button></li><li><button type="button" class="op" data-ok="0">Busca hacia atrás</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Sin g solo cambia la primera de cada línea, y la c pide confirmación.</p>
+</div></li><li class="q" data-q="pV2x4uYPVx" data-tema="Procesos" data-enlace="parcial-2-practica.html#procesos" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-9"><span class="q-n">9</span><div><p>¿Cuál de estos enunciados sobre procesos es correcto?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-9"><li><button type="button" class="op" data-ok="0">Un proceso solo puede tener un hijo</button></li><li><button type="button" class="op" data-ok="0">Un hijo puede tener varios padres</button></li><li><button type="button" class="op" data-ok="1">Cada proceso tiene un PID único</button></li><li><button type="button" class="op" data-ok="0">Un comando interno crea un hijo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Un padre puede tener varios hijos, y un comando interno como echo no crea uno.</p>
+</div></li><li class="q" data-q="zvZ_WTWeDQ" data-tema="Tres formas de invocar un script" data-enlace="parcial-2-practica.html#tres-formas-de-invocar-un-script" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-10"><span class="q-n">10</span><div><p>¿Cómo corrés un script sin permiso de ejecución, en un proceso nuevo?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 2023, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-10"><li><button type="button" class="op" data-ok="1">bash script.sh</button></li><li><button type="button" class="op" data-ok="0">./script.sh</button></li><li><button type="button" class="op" data-ok="0">. ./script.sh</button></li><li><button type="button" class="op" data-ok="0">chmod script.sh</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>bash script.sh no pide x y corre en un sub-shell. La forma con punto corre en el shell actual.</p>
+</div></li><li class="q" data-q="umELeWAUQU" data-tema="Prioridad" data-enlace="parcial-2-practica.html#prioridad" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-11"><span class="q-n">11</span><div><p>¿Qué comando cambia la prioridad de un proceso que ya corre?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 2023 y 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-11"><li><button type="button" class="op" data-ok="0">nice</button></li><li><button type="button" class="op" data-ok="1">renice</button></li><li><button type="button" class="op" data-ok="0">ps</button></li><li><button type="button" class="op" data-ok="0">nohup</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>renice actúa sobre un proceso existente, y nice lanza uno nuevo.</p>
+</div></li><li class="q" data-q="sXu0zB5UzS" data-tema="find" data-enlace="parcial-2-practica.html#find" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-12"><span class="q-n">12</span><div><p>En find, ¿qué cambia entre -exec y -ok?</p>
+<p class="q-origen">Se tomó: 2° parcial práctica, 2023, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-12"><li><button type="button" class="op" data-ok="1">-ok pide confirmación</button></li><li><button type="button" class="op" data-ok="0">-exec pide confirmación</button></li><li><button type="button" class="op" data-ok="0">-ok no admite comandos</button></li><li><button type="button" class="op" data-ok="0">No cambia nada</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>-ok hace lo mismo que -exec, pidiendo confirmación.</p>
+</div></li><li class="q" data-q="DL79ZQaQDW" data-tema="grep" data-enlace="parcial-2-practica.html#grep" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-practica-13"><span class="q-n">13</span><div><p>¿Qué opción de grep muestra las líneas que no coinciden?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-practica-13"><li><button type="button" class="op" data-ok="0">-c</button></li><li><button type="button" class="op" data-ok="0">-l</button></li><li><button type="button" class="op" data-ok="1">-v</button></li><li><button type="button" class="op" data-ok="0">-n</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>-v invierte la búsqueda.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

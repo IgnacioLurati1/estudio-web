@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sistemas de Representación en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Sistemas de Representación, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/w.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/expr.js" defer></script>
+<script src="../_/w.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="sistemas-de-representacion" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Sistemas de Representación</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Sistemas de Representación</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial-1">1° parcial</a></li><li><a href="#pdf-evaluatorio-tp13">Perspectivas y cortes</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (6 enunciados del 1° parcial, de 2021 y 2022, y láminas de trabajos prácticos de un alumno de 2022). No hay nada de 2023 en adelante ni apunte de la cátedra. Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Sistemas de Representación</p><h1>Para entender</h1>
+<p class="bajada">Qué hay en el Drive, qué se tomó y qué vas a tener que buscar en otro lado.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p>
+<div class="ojo"><p class="ojo-t">Todo el material es del plan viejo y no hay apunte</p><p>No hay nada de 2023 en adelante. Hay 6 enunciados del 1° parcial, de 2021 y 2022, y las láminas de 13 trabajos prácticos de un solo alumno, de 2022. No hay programa, apunte de la cátedra, 2° parcial ni final. Sin exámenes nuevos no se puede saber si esto se sigue tomando igual. Si cursás hoy, preguntale primero a tu comisión.</p>
+</div>
+
+<section class="sec"><h2 id="inicio-que-es-la-materia">Qué es la materia</h2>
+<p>Los exámenes evaluatorios de 2022 ponen este objetivo: «Emplear las distintas herramientas de AutoCAD para la representación de elementos útiles donde está presente la geometría».</p>
+<p>Por lo que muestran los enunciados y las láminas, la materia tiene dos partes. Una es dibujar figuras planas exactas en AutoCAD. La otra es representar una pieza de tres dimensiones en una hoja de dos.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Imaginá que tenés que mandarle una pieza a alguien por PDF para que la fabrique sin verla. La hoja tiene que decirle la forma desde cada lado, cuánto mide cada cosa y a qué escala está. Todo lo que sigue sirve para eso.</p>
+</div>
+<p>En el Drive está en la carpeta de electivas. Los rótulos de las láminas dicen «2° año I.S.I». Las láminas de 2022 van de marzo a noviembre.</p>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido-segun-el-material">El recorrido según el material</h2>
+<p>No hay programa, así que el orden sale de la numeración de los trabajos prácticos de 2022. Son de una sola comisión.</p>
+<div class="tabla"><table><thead><tr><th>TP</th><th>Título o contenido de la lámina</th><th>Dónde lo ves acá</th></tr></thead><tbody><tr><td>1</td><td>Rótulo en A4 y en A3</td><td><a href="#parcial-1-hoja-recuadro-y-rotulo">Hoja, recuadro y rótulo</a></td></tr><tr><td>2</td><td>Logo armado con círculos y sombreado</td><td><a href="#parcial-1-geometria-plana">Geometría plana</a></td></tr><tr><td>3</td><td>Polígonos, en tres mosaicos</td><td><a href="#parcial-1-geometria-plana">Geometría plana</a></td></tr><tr><td>4</td><td>Sólidos, cuatro en una hoja</td><td>Sin sección propia: la lámina no dice cómo se armaron</td></tr><tr><td>5</td><td>Acotaciones normalizadas</td><td><a href="#parcial-1-acotacion">Acotación</a></td></tr><tr><td>6a y 6b</td><td>Empalmes y tangencias</td><td><a href="#parcial-1-empalmes-y-tangencias">Empalmes</a></td></tr><tr><td>7</td><td>Escalas y acotaciones</td><td><a href="#parcial-1-escalas">Escalas</a></td></tr><tr><td>8a y 8b</td><td>Vistas de proyección</td><td><a href="#parcial-1-vistas-de-una-pieza">Vistas</a></td></tr><tr><td>9</td><td>Plano frontal, plano horizontal y tipos de aristas</td><td><a href="#parcial-1-monge-y-las-aristas">Monge</a></td></tr><tr><td>10 y 11</td><td>Vistas acotadas con isométrica, y una caballera</td><td><a href="#evaluatorio-tp13-perspectiva-isometrica">Perspectivas</a></td></tr><tr><td>12 y 13</td><td>Vistas, isométrica y corte</td><td><a href="#evaluatorio-tp13-cortes">Cortes</a></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="inicio-como-se-conecta">Cómo se conecta</h2>
+<p>Cada tema usa el anterior. La hoja con rótulo es el marco de todo. La geometría plana te da las curvas. Acotar y escalar dice cuánto mide lo que dibujaste. Las vistas llevan eso a una pieza real. La perspectiva junta las vistas en un solo dibujo. El corte muestra lo que las vistas no dejan ver.</p>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p>Se revisaron los 6 enunciados de la carpeta del 1° parcial. Cambian mucho de una comisión a otra.</p>
+<ul>
+<li><strong>Geometría plana</strong>, en 4 de los 6. Dos son evaluatorios de diseño libre. Los otros dos traen figuras con sus medidas.</li>
+<li><strong>Vistas de una pieza</strong>, en 3 de los 6. Te dan la perspectiva isométrica y pedís las vistas.</li>
+<li><strong>En computadora.</strong> Los evaluatorios piden AutoCAD y subir PDF y DWG. Las hojas de 2021 piden presentar en PDF.</li>
+</ul>
+<p>Los evaluatorios escriben qué se corrige. Está en <a href="#parcial-1-capas-lineas-auxiliares-y-espesores">Capas, líneas auxiliares y espesores</a>.</p>
+<p>No hay preguntas teóricas en ninguno de los 6. Tampoco hay enunciado de un 2° parcial ni de un final. Lo único que apunta a una instancia posterior es una lámina de noviembre llamada «TP13 Evaluatorio», y por eso tiene <a href="#pdf-evaluatorio-tp13">su página</a>.</p>
+</section>
+<section class="sec"><h2 id="inicio-lo-que-falta-y-donde-buscarlo">Lo que falta y dónde buscarlo</h2>
+<ul>
+<li><strong>Reglas por escrito.</strong> Acá no hay definiciones de la cátedra. Lo que aparece como regla sale de mirar las hojas, y cada vez se aclara de cuál.</li>
+<li><strong>Comandos de AutoCAD.</strong> Los enunciados nombran para qué se usan, sin el comando exacto.</li>
+<li><strong>Clases grabadas.</strong> El archivo <a href="https://drive.google.com/file/d/1QiZUIC4SQPGFuiptdSqIdiST_TzhttxH/view">LEER del Drive</a> enlaza <a href="https://www.youtube.com/playlist?list=PLuqlxb8DFzrAGBzM2qbjZKsxS4WQOyqi3">una lista de clases</a>, <a href="https://www.youtube.com/playlist?list=PL28j2b3AXPEQC19y7IjiQ_EPxh0x4hGQ_">otra lista de clases</a> y una página web de material de una de las cátedras. Esas clases no entraron en este resumen, porque acá solo se leyó lo que está en el Drive.</li>
+</ul>
+<div class="idea"><p>Usá este resumen para saber qué te van a pedir y en qué formato. Para aprender los comandos, abrí AutoCAD con las clases grabadas y practicá con los <a href="ejercicios.html">enunciados</a>.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-1" data-pagina="parcial-1" aria-label="1° parcial"><p class="pdf-de">Sistemas de Representación</p><h1>1° parcial</h1>
+<p class="bajada">Geometría plana en AutoCAD y vistas de una pieza, según los 6 enunciados que hay en el Drive, de 2021 y 2022.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p><p class="aviso-viejo">Lo marcado «Plan viejo» es de 2022 o antes, del plan anterior. Puede no coincidir con lo que se toma hoy.</p>
+<div class="ojo"><p class="ojo-t">De dónde sale cada cosa</p><p>No hay apunte de la cátedra. Lo que va en un bloque de examen sale de una hoja de la cátedra. Lo que dice «lámina de TP» sale de los trabajos de un alumno de 2022, sin consigna ni corrección a la vista. Tomalo como pista y confirmalo con tu comisión.</p>
+</div>
+
+<section class="sec"><h2 id="parcial-1-como-viene-el-examen">Cómo viene el examen</h2>
+<p>Son 6 enunciados y no hay dos comisiones iguales.</p>
+<div class="tabla"><table><thead><tr><th>Enunciado</th><th>Qué pide</th></tr></thead><tbody><tr><td><a href="ej-p1-2021-hoja-1.html">2021, primera hoja</a> y <a href="ej-p1-2021-hoja-2.html">segunda hoja</a></td><td>Dada la perspectiva isométrica, determinar tres vistas</td></tr><tr><td><a href="ej-p1-2022-07-04.html">04/07/2022, comisión 6</a></td><td>Tres ejercicios: dos figuras planas con medidas y tres vistas de una pieza</td></tr><tr><td><a href="ej-p1-2022-07-08.html">08/07/2022, comisión 03</a></td><td>Evaluatorio: proponer canteros y senderos para jardines</td></tr><tr><td><a href="ej-p1-2022-08-26.html">26/08/2022</a></td><td>Evaluatorio: proponer una pileta, su borde y la vereda</td></tr><tr><td><a href="ej-p1-2022-10-28.html">28/10/2022</a></td><td>Una hoja con tres piezas planas acotadas, sin consigna escrita</td></tr></tbody></table></div>
+<p>La geometría plana está en 4 de los 6 y las vistas en 3 de los 6. El del 04/07/2022 trae las dos.</p>
+<div class="ojo"><p class="ojo-t">Averiguá cuál te toca</p><p>El mismo «1° parcial» fue una copia con medidas en una comisión y un diseño libre en otra. Preguntá en la tuya qué formato usan antes de elegir qué practicar.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-hoja-recuadro-y-rotulo">Hoja, recuadro y rótulo</h2>
+<div class="tomado"><aside class="nota"><strong>Se pide en los dos evaluatorios</strong><span>Examen evaluatorio I, 08/07/2022 y 26/08/2022 <em class="viejo">Plan viejo</em></span></aside><p>La propuesta tiene que entrar en una <mark>hoja formato A4 con recuadro y rótulo</mark>. El parcial del 04/07/2022 también pide «formato A4».</p>
+</div>
+<p>Las hojas de la cátedra de 2021 y de octubre de 2022 traen un recuadro y un rótulo abajo, a lo ancho. En la lámina del TP 1 está armado así, en A4 vertical y en A3 apaisado.</p>
+<div class="tabla"><table><thead><tr><th>Casillero</th><th>Qué lleva en la lámina de TP</th></tr></thead><tbody><tr><td>Institución</td><td>U. T. N. arriba, F. R. Ro. abajo</td></tr><tr><td>Materia</td><td>Sistemas de Representación</td></tr><tr><td>Curso</td><td>2° año I.S.I arriba. Comisión y fecha abajo</td></tr><tr><td>Autor</td><td>Nombre y apellido</td></tr><tr><td>Número</td><td>Número de la lámina, en el último casillero</td></tr></tbody></table></div>
+<p>Las hojas de 2021 suman un casillero con el título («Vistas») y una leyenda al costado con las unidades.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-capas-lineas-auxiliares-y-espesores">Capas, líneas auxiliares y espesores</h2>
+<div class="tomado"><aside class="nota"><strong>Las mismas exigencias en los dos evaluatorios</strong><span>Examen evaluatorio I, 08/07/2022 y 26/08/2022 <em class="viejo">Plan viejo</em></span></aside><p>Se deberán crear las siguientes <mark>capas: Dibujo, Líneas auxiliares de generación, sombreados y textos</mark>.</p>
+<p>«Es obligatorio <mark>conservar todas las líneas auxiliares empleadas</mark>.»</p>
+<p>Se evalúa:</p>
+<ul>
+<li>Empleo adecuado de las herramientas gráficas.</li>
+<li><mark>Espesores de líneas para diferenciar líneas principales de las auxiliares.</mark></li>
+<li>Propuesta geométrica.</li>
+<li>Presentación.</li>
+</ul>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Si borrás las auxiliares, la figura puede quedar igual de linda, pero nadie puede ver cómo la construiste. Acá esas líneas son parte de lo que entregás. El espesor es lo que evita que todo se vea como una maraña.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Espesores también en el dibujo de vistas</strong><span>1° parcial, 2021 <em class="viejo">Plan viejo</em></span></aside><p>Las hojas de 2021 piden «presentar en PDF con los <mark>espesores correspondientes</mark>».</p>
+</div>
+<p>Ningún enunciado da los valores de los espesores. En las hojas de la cátedra el contorno va grueso, y las cotas y las aristas ocultas van finas.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-como-se-entrega">Cómo se entrega</h2>
+<div class="tomado"><aside class="nota"><strong>Tiempo y formato</strong><span>Examen evaluatorio I, 08/07/2022 y 26/08/2022 <em class="viejo">Plan viejo</em></span></aside><ul>
+<li><mark>Subir archivos en PDF y DWG.</mark></li>
+<li>Tiempo: «de 1030 a 1115 hs» en el del 08/07/2022, y «de 1 a 1:30 hs» en el del 26/08/2022.</li>
+<li>Las medidas son arbitrarias, para poder insertar la propuesta en la hoja.</li>
+<li>«Los modelos de las imágenes no deben reproducirse ya que son referenciales.»</li>
+</ul>
+</div>
+<div class="tomado"><aside class="nota"><strong>Unidades</strong><span>1° parcial, 2021 <em class="viejo">Plan viejo</em></span></aside><p>La leyenda de esas hojas dice «medidas expresadas en unidades de dibujo. Imprimir en mm». Piden también «separación entre vistas 10 mm».</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-geometria-plana">Geometría plana</h2>
+<div class="tomado"><aside class="nota"><strong>Los comandos que nombran los evaluatorios</strong><span>Examen evaluatorio I, 08/07/2022 y 26/08/2022 <em class="viejo">Plan viejo</em></span></aside><p>«Usar comandos para la construcción de <mark>polígonos, círculos, y otras curvas</mark> de la geometría plana. También serán útiles herramientas para <mark>empalmar líneas, recortar, trazar de tangentes</mark>, etc.»</p>
+</div>
+<p>Las láminas de TP practican esto en este orden. Primero un logo con círculos y sombreado. Después mosaicos de polígonos repetidos. Después empalmes y tangencias, en dos hojas.</p>
+<h3 id="parcial-1-poligonos-inscriptos">Polígonos inscriptos</h3>
+<div class="tomado"><aside class="nota"><strong>Figura que parte de un polígono regular</strong><span>1° parcial, 04/07/2022 <em class="viejo">Plan viejo</em></span></aside><p>El ejercicio 1 dice que la figura «se desarrolla a partir de la inscripción de un polígono regular como es un triángulo equilátero inscripto en el círculo». El 2 parte de «la ubicación de los ejes a 90°», marcados en rojo en la hoja.</p>
+</div>
+<p>Fijate en lo que enseñan esas consignas. Antes de la figura, se ubica lo que la ordena, como un polígono o un par de ejes. La figura se arma sobre eso.</p>
+<h3 id="parcial-1-empalmes-y-tangencias">Empalmes y tangencias</h3>
+<p>En la lámina del TP 6a, cada empalme es un arco que une dos líneas o dos círculos sin dejar un quiebre. La lámina marca el radio, el centro del arco (0&#39;) y, en la mayoría de los casos, los puntos de tangencia (T1, T2).</p>
+<div class="ojo"><p class="ojo-t">Esto no está escrito en ningún apunte</p><p>Las tres reglas de abajo no están escritas en el material. Se comprobaron midiendo los casos de la lámina del TP 6a. Son geometría, pero confirmá con tu comisión cómo quieren que se construyan.</p>
+</div>
+<p><strong>Entre dos rectas.</strong> El centro está a la distancia R de las dos. El punto de tangencia es el pie de la perpendicular desde el centro a cada recta.</p>
+<figure class="w w-grafico" data-w="grafico" data-cfg="{&quot;x&quot;:[-4,9],&quot;y&quot;:[-1,9],&quot;igual&quot;:true,&quot;param&quot;:[{&quot;id&quot;:&quot;R&quot;,&quot;etq&quot;:&quot;Radio del empalme&quot;,&quot;min&quot;:0.5,&quot;max&quot;:3,&quot;paso&quot;:0.1,&quot;valor&quot;:2},{&quot;id&quot;:&quot;ang&quot;,&quot;etq&quot;:&quot;Ángulo entre las rectas, en grados&quot;,&quot;min&quot;:45,&quot;max&quot;:150,&quot;paso&quot;:5,&quot;valor&quot;:60}],&quot;curvas&quot;:[{&quot;xt&quot;:&quot;t&quot;,&quot;yt&quot;:&quot;0&quot;,&quot;t&quot;:[0,9],&quot;etq&quot;:&quot;recta 1&quot;},{&quot;xt&quot;:&quot;t*cos(ang*pi/180)&quot;,&quot;yt&quot;:&quot;t*sin(ang*pi/180)&quot;,&quot;t&quot;:[0,9],&quot;etq&quot;:&quot;recta 2&quot;},{&quot;xt&quot;:&quot;R/tan(ang*pi/360)+R*cos(t)&quot;,&quot;yt&quot;:&quot;R+R*sin(t)&quot;,&quot;t&quot;:[0,&quot;2*pi&quot;],&quot;etq&quot;:&quot;círculo de radio R&quot;}],&quot;puntos&quot;:[{&quot;x&quot;:&quot;R/tan(ang*pi/360)&quot;,&quot;y&quot;:&quot;R&quot;,&quot;etq&quot;:&quot;0&#39;&quot;},{&quot;x&quot;:&quot;R/tan(ang*pi/360)&quot;,&quot;y&quot;:0,&quot;etq&quot;:&quot;T2&quot;},{&quot;x&quot;:&quot;R/tan(ang*pi/360)*cos(ang*pi/180)&quot;,&quot;y&quot;:&quot;R/tan(ang*pi/360)*sin(ang*pi/180)&quot;,&quot;etq&quot;:&quot;T1&quot;}]}"><figcaption><span class="w-t">Empalme entre dos rectas</span><span class="w-f">Fuente: Armado para este resumen, con la construcción de la lámina del TP 6a</span></figcaption><div class="w-lienzo"></div><div class="w-desc">Dos rectas que se cortan y un círculo de radio R tangente a las dos. Movés el radio y el ángulo. El centro siempre queda a la distancia R de cada recta y los puntos de tangencia T1 y T2 son los pies de las perpendiculares desde el centro. Cuanto más cerrado el ángulo o más grande el radio, más lejos del vértice queda el empalme.</div></figure>
+<p><strong>Arco por fuera de dos círculos.</strong> Si el arco de radio R toca por fuera un círculo de radio r, su centro está a R + r del centro de ese círculo.</p>
+<figure class="w w-grafico" data-w="grafico" data-cfg="{&quot;x&quot;:[-3,8],&quot;y&quot;:[-3,8],&quot;igual&quot;:true,&quot;param&quot;:[{&quot;id&quot;:&quot;R&quot;,&quot;etq&quot;:&quot;Radio del arco&quot;,&quot;min&quot;:1,&quot;max&quot;:4,&quot;paso&quot;:0.1,&quot;valor&quot;:2}],&quot;curvas&quot;:[{&quot;xt&quot;:&quot;2*cos(t)&quot;,&quot;yt&quot;:&quot;2*sin(t)&quot;,&quot;t&quot;:[0,&quot;2*pi&quot;],&quot;etq&quot;:&quot;círculo 1, radio 2&quot;},{&quot;xt&quot;:&quot;5+1.5*cos(t)&quot;,&quot;yt&quot;:&quot;1.5*sin(t)&quot;,&quot;t&quot;:[0,&quot;2*pi&quot;],&quot;etq&quot;:&quot;círculo 2, radio 1,5&quot;},{&quot;xt&quot;:&quot;((R+2)^2-(R+1.5)^2+25)/10+R*cos(t)&quot;,&quot;yt&quot;:&quot;sqrt((R+2)^2-(((R+2)^2-(R+1.5)^2+25)/10)^2)+R*sin(t)&quot;,&quot;t&quot;:[0,&quot;2*pi&quot;],&quot;etq&quot;:&quot;arco de radio R&quot;}],&quot;puntos&quot;:[{&quot;x&quot;:0,&quot;y&quot;:0,&quot;etq&quot;:&quot;0&quot;},{&quot;x&quot;:5,&quot;y&quot;:0,&quot;etq&quot;:&quot;0&#39;&quot;},{&quot;x&quot;:&quot;((R+2)^2-(R+1.5)^2+25)/10&quot;,&quot;y&quot;:&quot;sqrt((R+2)^2-(((R+2)^2-(R+1.5)^2+25)/10)^2)&quot;,&quot;etq&quot;:&quot;centro&quot;}]}"><figcaption><span class="w-t">Arco tangente por fuera a dos círculos</span><span class="w-f">Fuente: Armado para este resumen, con la construcción de la lámina del TP 6a</span></figcaption><div class="w-lienzo"></div><div class="w-desc">Dos círculos fijos y un tercero de radio R que toca a los dos por fuera. Su centro queda a R más 2 del primer centro y a R más 1,5 del segundo. Se encuentra cruzando dos arcos con esos radios. Los puntos de tangencia caen sobre la recta que une los centros.</div></figure>
+<p><strong>Arco que envuelve a dos círculos.</strong> Si el arco de radio R contiene adentro un círculo de radio r y lo toca, su centro está a R − r del centro de ese círculo.</p>
+<figure class="w w-grafico" data-w="grafico" data-cfg="{&quot;x&quot;:[-4,9],&quot;y&quot;:[-11,4],&quot;igual&quot;:true,&quot;param&quot;:[{&quot;id&quot;:&quot;R&quot;,&quot;etq&quot;:&quot;Radio del arco&quot;,&quot;min&quot;:4.5,&quot;max&quot;:8,&quot;paso&quot;:0.1,&quot;valor&quot;:6}],&quot;curvas&quot;:[{&quot;xt&quot;:&quot;2*cos(t)&quot;,&quot;yt&quot;:&quot;2*sin(t)&quot;,&quot;t&quot;:[0,&quot;2*pi&quot;],&quot;etq&quot;:&quot;círculo 1, radio 2&quot;},{&quot;xt&quot;:&quot;5+1.5*cos(t)&quot;,&quot;yt&quot;:&quot;1.5*sin(t)&quot;,&quot;t&quot;:[0,&quot;2*pi&quot;],&quot;etq&quot;:&quot;círculo 2, radio 1,5&quot;},{&quot;xt&quot;:&quot;((R-2)^2-(R-1.5)^2+25)/10+R*cos(t)&quot;,&quot;yt&quot;:&quot;-sqrt((R-2)^2-(((R-2)^2-(R-1.5)^2+25)/10)^2)+R*sin(t)&quot;,&quot;t&quot;:[0,&quot;2*pi&quot;],&quot;etq&quot;:&quot;arco de radio R&quot;}],&quot;puntos&quot;:[{&quot;x&quot;:0,&quot;y&quot;:0,&quot;etq&quot;:&quot;0&quot;},{&quot;x&quot;:5,&quot;y&quot;:0,&quot;etq&quot;:&quot;0&#39;&quot;},{&quot;x&quot;:&quot;((R-2)^2-(R-1.5)^2+25)/10&quot;,&quot;y&quot;:&quot;-sqrt((R-2)^2-(((R-2)^2-(R-1.5)^2+25)/10)^2)&quot;,&quot;etq&quot;:&quot;centro&quot;}]}"><figcaption><span class="w-t">Arco que envuelve a dos círculos</span><span class="w-f">Fuente: Armado para este resumen, con la construcción de la lámina del TP 6a</span></figcaption><div class="w-lienzo"></div><div class="w-desc">Los mismos dos círculos, ahora adentro de un arco grande de radio R que toca a los dos. Su centro queda a R menos 2 del primer centro y a R menos 1,5 del segundo. Cuanto más grande el radio, más lejos queda el centro y más plano se ve el arco.</div></figure>
+<p>En la lámina también hay una curva en S entre dos círculos. Ahí se mezclan los dos casos. El arco envuelve a un círculo y toca al otro por fuera.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensalo con dos monedas sobre la mesa. Si la moneda grande se apoya por fuera en la chica, los centros quedan a la suma de los radios. Si la chica está adentro de un aro grande, apoyada contra el borde, quedan a la resta.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Figuras armadas con estos arcos</strong><span>1° parcial, 04/07/2022 y 28/10/2022 <em class="viejo">Plan viejo</em></span></aside><p>El ejercicio 2 del 04/07/2022 y las piezas del 28/10/2022 son contornos de arcos tangentes con sus radios acotados. Practicalos desde los <a href="ejercicios.html">enunciados</a>. No hay resolución oficial en el Drive.</p>
+</div>
+<h3 id="parcial-1-ovalo">Óvalo</h3>
+<div class="tomado"><aside class="nota"><strong>Un óvalo con sus ejes</strong><span>1° parcial, 28/10/2022 <em class="viejo">Plan viejo</em></span></aside><p>La tercera pieza de esa hoja trae un óvalo, con esta leyenda: «Ovalo: eje mayor: 58 mm, eje menor: 44 mm». Se ven sus líneas de construcción.</p>
+</div>
+<p>En esa hoja el óvalo está girado y sus ejes se acotan aparte, en la leyenda de abajo. Entre las líneas finas que quedaron se ven dos circunferencias que se cortan y rectas que salen de sus puntos de corte. Coincide con lo que piden los evaluatorios, que obligan a conservar las líneas auxiliares.</p>
+<p>El Drive no explica cómo se construye paso a paso. Buscalo en las clases grabadas enlazadas en <a href="#inicio-lo-que-falta-y-donde-buscarlo">Para entender</a>.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-acotacion">Acotación</h2>
+<p>El Drive no dice qué norma se usa. El nombre de un TP es «Acotaciones normalizadas». Las hojas de la cátedra y las láminas muestran estas formas.</p>
+<div class="tabla"><table><thead><tr><th>Qué</th><th>Cómo aparece</th><th>Dónde</th></tr></thead><tbody><tr><td>Radio</td><td>La letra R delante del número, con una línea desde el arco</td><td>Hoja del 28/10/2022 y láminas 5, 6 y 7</td></tr><tr><td>Diámetro</td><td>El símbolo <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∅</mi></mrow><annotation encoding="application/x-tex">&#92;varnothing</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6633em;vertical-align:-0.0817em;"></span><span class="mord amsrm">∅</span></span></span></span> delante del número</td><td>Hoja del 04/07/2022 y lámina 11</td></tr><tr><td>Medida lineal</td><td>Línea de cota con flecha en las dos puntas y el número sobre ella</td><td>Hojas de 2021 y lámina 5</td></tr><tr><td>Cotas verticales</td><td>El número girado, para leerlo desde la derecha</td><td>Hoja de 2021 y lámina 5</td></tr><tr><td>Cotas en cadena y total</td><td>Parciales seguidas y, por fuera, la medida total</td><td>Lámina 5</td></tr><tr><td>Diámetro sin símbolo</td><td>El número sobre una línea fina que cruza el círculo en diagonal por el centro, con flecha donde toca el borde</td><td>Hoja del 28/10/2022, círculos de 45 y 30</td></tr><tr><td>Cotas desde un mismo borde</td><td>Varias cotas que arrancan de la misma línea de referencia, una debajo de otra, de la más corta a la más larga</td><td>Hoja del 28/10/2022: 66, 108 y 131</td></tr><tr><td>Ángulo</td><td>El valor en grados sobre un arco de cota entre las dos líneas</td><td>Hoja del 28/10/2022 (60°) y lámina 6a (45° y 120°)</td></tr></tbody></table></div>
+<div class="idea"><p>Si te preguntás si falta una cota, tratá de redibujar la pieza usando solo los números de la hoja. Donde te trabes, falta una.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Unidades</p><p>Las hojas de 2021 hablan de «unidades de dibujo», con la orden de imprimir en mm. La hoja del 28/10/2022 dice «medidas expresadas en mm». Leé la leyenda de tu hoja.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-escalas">Escalas</h2>
+<p>La lámina del TP 7 dibuja la misma pieza a tres escalas: 1:1, 2:1 y 1:2.</p>
+<div class="tabla"><table><thead><tr><th>Escala</th><th>Tamaño del dibujo en la lámina</th><th>Números de las cotas</th></tr></thead><tbody><tr><td>1:1</td><td>El de referencia</td><td>30, 20, R30, R20</td></tr><tr><td>2:1</td><td>El doble</td><td>Los mismos</td></tr><tr><td>1:2</td><td>La mitad</td><td>Los mismos</td></tr></tbody></table></div>
+<p>Se comprobó midiendo la lámina. <mark>El dibujo cambia de tamaño y las cotas siguen diciendo la medida real.</mark> No hay escalas en ninguno de los 6 enunciados, así que este tema sale solo del TP.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Una foto de tu casa no cambia lo que mide tu casa. Acá es igual. La escala cambia el dibujo y los números cuentan la pieza de verdad. En 2:1 el primer número es el dibujo. Son dos en el papel por cada uno de la pieza.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-vistas-de-una-pieza">Vistas de una pieza</h2>
+<div class="tomado"><aside class="nota"><strong>Dada la perspectiva, determinar las vistas</strong><span>3 de 6 enunciados: 1° parcial, dos hojas de 2021 y 04/07/2022 <em class="viejo">Plan viejo</em></span></aside><p>Hojas de 2021: «Dada la perspectiva isométrica, determinar la <mark>vista anterior, superior y lateral derecha</mark> en el sistema I.S.O. (E). Separación entre vistas 10 mm».</p>
+<p>04/07/2022: «Determinar las tres vistas principales de la siguiente pieza (<mark>Vista Principal, Vista Superior y Vista Lateral Izquierda</mark>) en perspectiva Isométrica por el método Monge. Cada modulo representa 10 unidades de dibujo. Con la flecha se indica la vista principal de la Pieza».</p>
+</div>
+<p>Las dos consignas cambian qué lateral piden y cómo le dicen al sistema. Leé bien la tuya. La hoja de 2021 dice «anterior» y la del 04/07/2022 dice «principal».</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Una vista es lo que ves si mirás la pieza derecho desde un lado, con un ojo, sin perspectiva. La principal es desde donde te indican, por ejemplo con la flecha. La superior es mirándola desde arriba. La lateral, de costado. Sale un dibujo plano por cada mirada.</p>
+</div>
+<h3 id="parcial-1-como-se-ubican-en-la-hoja">Cómo se ubican en la hoja</h3>
+<p>En las láminas de TP 8, 10 y 11 las vistas se ordenan siempre igual. La principal arriba a la izquierda, la superior abajo de ella y la lateral a su derecha. En la lámina 10 esa lateral se llama «Vista lateral izq.». En una lámina del TP 12 la superior va arriba de la anterior.</p>
+<div class="ojo"><p class="ojo-t">Falta la definición de la cátedra</p><p>Esas láminas no dicen en qué sistema están. El Drive tampoco explica qué significa «I.S.O. (E)». Preguntá en tu comisión o miralo en las clases grabadas. No des por hecho dónde va la lateral derecha que piden las hojas de 2021.</p>
+</div>
+<h3 id="parcial-1-que-lineas-lleva-cada-vista">Qué líneas lleva cada vista</h3>
+<p>Esto se ve en las hojas de la cátedra y en las láminas.</p>
+<ul>
+<li><strong>Contorno y aristas visibles:</strong> línea continua y gruesa.</li>
+<li><strong>Aristas ocultas:</strong> a trazos. La perspectiva de las hojas de 2021 también las marca a trazos.</li>
+<li><strong>Ejes de agujeros y piezas redondas:</strong> línea de trazos largos, que cruza el círculo. Se ve en las láminas 8, 11 y 12. En la hoja de la cátedra del 28/10/2022 el eje alterna un trazo largo y uno corto, y pasa por el centro de cada arco y de cada círculo.</li>
+<li><strong>Medidas:</strong> línea fina y números.</li>
+</ul>
+<h3 id="parcial-1-monge-y-las-aristas">Monge y las aristas</h3>
+<p>La consigna del 04/07/2022 nombra el método Monge y no lo explica. La lámina del TP 9 trabaja con dos planos, «plano frontal» y «plano horizontal», separados por una línea. También clasifica las aristas en siete tipos: frontal, vertical, horizontal, perfil, paralela a LT, de punta y oblicua.</p>
+<figure class="w w-grafico3d" data-w="grafico3d" data-cfg="{&quot;x&quot;:[0,4],&quot;y&quot;:[0,4],&quot;z&quot;:[0,4],&quot;param&quot;:[{&quot;id&quot;:&quot;lado&quot;,&quot;etq&quot;:&quot;Posición a lo largo de LT&quot;,&quot;min&quot;:0.5,&quot;max&quot;:3.5,&quot;paso&quot;:0.1,&quot;valor&quot;:2},{&quot;id&quot;:&quot;lejos&quot;,&quot;etq&quot;:&quot;Distancia al plano frontal&quot;,&quot;min&quot;:0.5,&quot;max&quot;:3.5,&quot;paso&quot;:0.1,&quot;valor&quot;:2.5},{&quot;id&quot;:&quot;alto&quot;,&quot;etq&quot;:&quot;Altura sobre el plano horizontal&quot;,&quot;min&quot;:0.5,&quot;max&quot;:3.5,&quot;paso&quot;:0.1,&quot;valor&quot;:2}],&quot;planos&quot;:[{&quot;a&quot;:0,&quot;b&quot;:1,&quot;c&quot;:0,&quot;d&quot;:0,&quot;etq&quot;:&quot;Plano frontal&quot;},{&quot;a&quot;:0,&quot;b&quot;:0,&quot;c&quot;:1,&quot;d&quot;:0,&quot;etq&quot;:&quot;Plano horizontal&quot;}],&quot;curvas&quot;:[{&quot;xt&quot;:&quot;t&quot;,&quot;yt&quot;:&quot;0&quot;,&quot;zt&quot;:&quot;0&quot;,&quot;t&quot;:[0,4],&quot;etq&quot;:&quot;LT&quot;},{&quot;xt&quot;:&quot;lado&quot;,&quot;yt&quot;:&quot;t*lejos&quot;,&quot;zt&quot;:&quot;alto&quot;,&quot;t&quot;:[0,1],&quot;etq&quot;:&quot;hacia el frontal&quot;},{&quot;xt&quot;:&quot;lado&quot;,&quot;yt&quot;:&quot;lejos&quot;,&quot;zt&quot;:&quot;t*alto&quot;,&quot;t&quot;:[0,1],&quot;etq&quot;:&quot;hacia el horizontal&quot;}],&quot;puntos&quot;:[{&quot;x&quot;:&quot;lado&quot;,&quot;y&quot;:&quot;lejos&quot;,&quot;z&quot;:&quot;alto&quot;,&quot;etq&quot;:&quot;P&quot;},{&quot;x&quot;:&quot;lado&quot;,&quot;y&quot;:0,&quot;z&quot;:&quot;alto&quot;,&quot;etq&quot;:&quot;en el frontal&quot;},{&quot;x&quot;:&quot;lado&quot;,&quot;y&quot;:&quot;lejos&quot;,&quot;z&quot;:0,&quot;etq&quot;:&quot;en el horizontal&quot;}]}"><figcaption><span class="w-t">Los dos planos y la proyección de un punto</span><span class="w-f">Fuente: Armado para este resumen, con los nombres de la lámina del TP 9</span></figcaption><div class="w-lienzo"></div><div class="w-desc">Un plano frontal parado y un plano horizontal acostado, que se cortan en una línea llamada LT. Un punto P se proyecta en perpendicular sobre cada plano. Al moverlo, cambia la altura de su proyección en el frontal y la distancia de su proyección en el horizontal. Los dos dibujos juntos fijan dónde está el punto.</div></figure>
+<p>La lámina no define los tipos de aristas. Numera cinco sobre una pieza, y eso permite ver cómo aparecen.</p>
+<div class="tabla"><table><thead><tr><th>Tipo en la lámina</th><th>Cómo se ve en esa lámina</th></tr></thead><tbody><tr><td>Frontal</td><td>Inclinada en el plano frontal</td></tr><tr><td>Vertical</td><td>Vertical en el plano frontal</td></tr><tr><td>Horizontal</td><td>Inclinada en el plano horizontal</td></tr><tr><td>Perfil</td><td>Cortita y vertical en el plano horizontal</td></tr><tr><td>Paralela a LT</td><td>Horizontal en los dos planos</td></tr><tr><td>De punta</td><td>No está marcada en la lámina</td></tr><tr><td>Oblicua</td><td>No está marcada en la lámina</td></tr></tbody></table></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Una imagen armada para este resumen, que la lámina no trae. Agarrá un lápiz con la pared de enfrente como plano frontal y la mesa como plano horizontal. Si queda paralelo a la pared e inclinado, es frontal. Paralelo a la mesa y apuntando para un costado en diagonal, horizontal. Parado, vertical. Apuntándole a la pared con la punta, de punta. Paralelo a la línea donde se juntan pared y mesa, paralelo a LT. Si no es paralelo a nada, oblicuo. Perfil va desde tu lado hacia la pared, inclinado, sin correrse a los costados.</p>
+</div>
+<p>En ninguno de los 6 enunciados se pide clasificar aristas. Sale solo del TP 9, de 2022.</p>
+</section></section>
+<section class="pdf-parte" id="pdf-evaluatorio-tp13" data-pagina="evaluatorio-tp13" aria-label="Perspectivas y cortes"><p class="pdf-de">Sistemas de Representación</p><h1>Perspectivas y cortes</h1>
+<p class="bajada">Perspectiva isométrica, perspectiva caballera y cortes, a partir de láminas de un alumno de 2022. No hay consigna de la cátedra.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p>
+
+
+<section class="sec"><h2 id="evaluatorio-tp13-que-se-sabe-de-este-tema">Qué se sabe de este tema</h2>
+<div class="ojo"><p class="ojo-t">Solo hay una pista</p><p>En el Drive hay una lámina llamada «TP13 Evaluatorio», con fecha de noviembre de 2022, hecha por un alumno. No hay consigna, ni criterios, ni nota. Tampoco hay enunciado de otro parcial. Se incluye porque estos temas aparecen en los últimos trabajos del año y en esa lámina. No se sabe si se sigue evaluando así. Preguntá en tu comisión.</p>
+</div>
+<p>Esta página sale de las láminas de los TP 10 a 13, de una sola comisión. Cuando hay una hoja de la cátedra que confirma algo, se aclara.</p>
+</section>
+<section class="sec"><h2 id="evaluatorio-tp13-perspectiva-isometrica">Perspectiva isométrica</h2>
+<p>Un solo dibujo muestra tres caras de la pieza a la vez. Las hojas de 2021 te la dan como dato para sacar las vistas, y las láminas de TP 10 a 13 la traen junto a las vistas.</p>
+<p>Midiendo la <a href="ej-p1-2021-hoja-1.html">hoja de la cátedra de 2021</a> se ve esto.</p>
+<ul>
+<li>Las aristas horizontales de la pieza quedan a 30° de la horizontal del papel, para un lado y para el otro.</li>
+<li>Las verticales quedan verticales.</li>
+<li>La arista acotada 60 mide en la hoja 6 veces la acotada 10. Las tres direcciones están a la misma escala.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Es una medición, no una regla escrita</p><p>Esos 30° y esa escala salen de medir una sola hoja. Ninguna hoja los dice. Confirmá con tu comisión cómo te piden armar la isométrica.</p>
+</div>
+<figure class="w w-grafico" data-w="grafico" data-cfg="{&quot;x&quot;:[-3,3],&quot;y&quot;:[-0.5,3],&quot;igual&quot;:true,&quot;vectores&quot;:[{&quot;de&quot;:[0,0],&quot;a&quot;:[&quot;2*cos(pi/6)&quot;,&quot;2*sin(pi/6)&quot;],&quot;etq&quot;:&quot;ancho&quot;},{&quot;de&quot;:[0,0],&quot;a&quot;:[&quot;-2*cos(pi/6)&quot;,&quot;2*sin(pi/6)&quot;],&quot;etq&quot;:&quot;profundidad&quot;},{&quot;de&quot;:[0,0],&quot;a&quot;:[0,2],&quot;etq&quot;:&quot;alto&quot;}]}"><figcaption><span class="w-t">Los ejes de la isométrica</span><span class="w-f">Fuente: Armado para este resumen, con lo medido en una hoja de la cátedra de 2021</span></figcaption><div class="w-lienzo"></div><div class="w-desc">Tres ejes que salen de un punto. Uno es vertical y los otros dos están inclinados 30 grados respecto de la horizontal, uno para cada lado. Las tres aristas de un cubo siguen estas tres direcciones.</div></figure>
+<p>Una circunferencia se ve como una elipse en la isométrica. Lo muestran los agujeros de las láminas 11 a 13.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Imaginá una caja apoyada en la mesa, con una esquina apuntando hacia vos. Ves tres caras: la tapa y dos costados. Por eso la tapa redonda de un tarro, mirada así, se ve como un óvalo acostado.</p>
+</div>
+</section>
+<section class="sec"><h2 id="evaluatorio-tp13-perspectiva-caballera">Perspectiva caballera</h2>
+<p>La lámina B del TP 10 dibuja una pieza en «perspectiva caballera». La cara de adelante queda con sus ángulos rectos y la profundidad va inclinada, con un ángulo acotado de 45°.</p>
+<figure class="w w-grafico" data-w="grafico" data-cfg="{&quot;x&quot;:[-0.5,3],&quot;y&quot;:[-0.5,3],&quot;igual&quot;:true,&quot;vectores&quot;:[{&quot;de&quot;:[0,0],&quot;a&quot;:[2,0],&quot;etq&quot;:&quot;ancho&quot;},{&quot;de&quot;:[0,0],&quot;a&quot;:[0,2],&quot;etq&quot;:&quot;alto&quot;},{&quot;de&quot;:[0,0],&quot;a&quot;:[&quot;1.5*cos(pi/4)&quot;,&quot;1.5*sin(pi/4)&quot;],&quot;etq&quot;:&quot;profundidad&quot;}]}"><figcaption><span class="w-t">Los ejes de la caballera</span><span class="w-f">Fuente: Armado para este resumen, con el ángulo de la lámina B del TP 10</span></figcaption><div class="w-lienzo"></div><div class="w-desc">Tres ejes que salen de un punto. Uno horizontal y uno vertical forman la cara de adelante. El tercero sale inclinado 45 grados y representa la profundidad.</div></figure>
+<div class="ojo"><p class="ojo-t">Falta un dato</p><p>La lámina no dice si la profundidad se reduce. Tampoco hay enunciado que pida caballera. Averiguá en tu comisión si la toman y con qué coeficiente.</p>
+</div>
+</section>
+<section class="sec"><h2 id="evaluatorio-tp13-cortes">Cortes</h2>
+<p>Las láminas de los TP 12 y 13 agregan un dibujo que muestra el interior de la pieza. Sirve cuando una pieza tiene huecos y las vistas se llenan de líneas a trazos.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Es como cortar un flan y mirar la cara del corte. Lo que era macizo se ve lleno. Lo que era hueco se ve vacío, y ahí ya no necesitás adivinar con líneas a trazos.</p>
+</div>
+<p>Así se ve en esas láminas.</p>
+<ul>
+<li><strong>La marca del corte.</strong> En la vista superior hay una letra A con una flecha, y una línea que entra hasta el centro de la pieza y dobla en ángulo recto.</li>
+<li><strong>El dibujo «Corte» o «Corte A».</strong> Va debajo de la vista superior, con la misma silueta de la vista de adelante.</li>
+<li><strong>Medio corte.</strong> En esas láminas una mitad muestra el interior y la otra sigue mostrando el exterior. Una línea en el eje separa las dos mitades.</li>
+<li><strong>El rayado.</strong> Las zonas de material cortado llevan líneas paralelas inclinadas. Los huecos quedan sin rayar. La lámina de la torre, en el TP 13, es la excepción. No trae rayado.</li>
+<li><strong>Isometría con corte.</strong> Se dibuja la isométrica con una parte sacada. Las caras cortadas aparecen rayadas, salvo en la torre.</li>
+</ul>
+<div class="idea"><p>Pensá el rayado como una pregunta en cada zona: acá, ¿había material? Si sí, se raya. Si era aire, queda en blanco.</p>
+</div>
+<p>Ninguna hoja de la cátedra del Drive trata cortes. Por eso el tipo de rayado, su ángulo y su separación quedan sin confirmar.</p>
+</section>
+<section class="sec"><h2 id="evaluatorio-tp13-la-lamina-completa">La lámina completa</h2>
+<p>La lámina «TP13 Evaluatorio» y las de los TP 12 y 13 reúnen estos dibujos en una sola hoja A4 vertical.</p>
+<div class="tabla"><table><thead><tr><th>Dibujo</th><th>Qué muestra</th></tr></thead><tbody><tr><td>Vista principal o anterior</td><td>La pieza de frente, con ocultas a trazos</td></tr><tr><td>Vista superior</td><td>Desde arriba, con la marca del corte</td></tr><tr><td>Corte A</td><td>La pieza abierta, con el rayado</td></tr><tr><td>Isometría</td><td>La pieza entera en perspectiva</td></tr><tr><td>Isometría con corte</td><td>La pieza abierta en perspectiva</td></tr></tbody></table></div>
+<p>Las piezas de esas láminas son redondas, como un disco con cuatro agujeros, una copa o una torre de ajedrez. Por eso la vista superior es casi toda círculos. Algunas láminas de TP 12 tienen menos dibujos. Hay una con solo principal, superior e isometría.</p>
+<p>Esas hojas no traen cotas. La acotación aparece en los TP 10 y 11, junto a las vistas.</p>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (6 enunciados del 1° parcial, de 2021 y 2022, y láminas de trabajos prácticos de un alumno de 2022). No hay nada de 2023 en adelante ni apunte de la cátedra. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

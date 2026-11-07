@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final, 06/09/2024: Ingeniería y Calidad de Software</title>
+<meta name="description" content="Ejercicio de examen: Final, 06/09/2024.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="ingenieria-y-calidad-de-software" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Ingeniería y Calidad de Software</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="regularizacion.html">Regularización</a></li><li class="em-fuera"><a href="aprobacion-directa.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=ingenieria-y-calidad-de-software">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=ingenieria-y-calidad-de-software">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Final, 06/09/2024</h1>
+<p class="bajada">Final, 06/09/2024</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="fin-2024-09-06" data-titulo="Final, 06/09/2024" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="fin-2024-09-06" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1ElXoe5VLiWbBG_45joB1kFShXBTFzybo/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><p>Consignas de Evaluación 16 de 18 puntos</p>
+<p>En el marco del proyecto “APP para gestión de conexiones WiFi”,</p>
+<p>personal de la software factory externo al equipo de proyecto , realiza un</p>
+<p>control respecto a si el contenido de los casos de prueba, cumplen con</p>
+<p>las directrices de las técnicas para elaborar casos de prueba que están</p>
+<p>habilitadas para ser usadas en la software factory.//</p>
+<p>CMMi --&gt; Relacione la actividad descripta con el área de proceso y práctica específica que corresponda (solo una), o indique NINGUNA si no encuadra con ninguna de las opciones. JK00ORMv</p>
+<p>REQM / SP 1.1 Obtener una comprensión de los requerimientos CM / SP 2.2 Controlar los elementos de configuración PPQA / SP 1.2 Evaluar objetivamente la verificación RD / SP 1.1 Obtener las necesidades MA / SP 1.3 Especificar los procedimientos de recogida y de almacenamiento de datos CM / SP 3.2 Realizar auditorías de configuración MA / SP 2.2 Analizar los datos de la medición PPQA / SP 2.1 Comunicar y asegurar la resolución de las no conformidades PPQA / SP 2.2 Establecer registros VER / SP 2.2 Llevar a cabo las revisiones entre pares VAL / SP 2.1 Realizar la validación VER / SP 3.1 Realizar la verificación PMC / SP 1.2 Monitorizar los compromisos PMC / SP 1.5 Monitorizar la involucración de las partes interesadas RD / SP 3.5 Validar los requerimientos</p>
+<p>Ninguna de las otras opciones</p>
+<p>En que momento de la tarea se tiene certeza que el costo estimado para ella es el real</p>
+<p>En la planificación del proyecto Al comienzo de la tarea Avanzado del esfuerzo de la tarea Avanzado del esfuerzo de la tarea Avanzado del esfuerzo de la tareaOpción 5 Al terminar la tarea Al finalizar el proyecto</p>
+<p>Cuales de los siguientes aspectos se pueden mejorar con una correcta priorización de requerimientos</p>
+<p>Recursos limitados Altas expectativas del cliente</p>
+<p>Determine el esfuerzo del proyecto de programación solicitado por un proveedor</p>
+<p>Se presenta el siguiente escenario La Tarea Cod A tiene una duración de 6 días trabajando un recurso a tiempo completo. La tarea Cod B es realizada por otro recurso a tiempo parcial, trabaja la mitad del tiempo. La tarea Cod B dura 10 días. La tarea C dura 20 días y la realizan dos recursos trabajando a tiempo completo, pero la mitad del tiempo 1 recurso y la otra mitad otro recurso. La jornada laboral es de 8 horas.</p>
+<p>235 240 248 258 278 288 280</p>
+<p>¿Cuál es la fecha de fin de una tarea que comienza el 05/09/24 tiene una duración de 10 días laborales y que responde a los datos mencionados debajo?</p>
+<p>No se trabaja fines de semana. El día y es no laboral para la organización</p>
+<p>ninguna de las mencionadas</p>
+<p>En el proceso establecido hasta el mes pasado, cuando un usuario</p>
+<p>solicitaba nuevos requerimientos se requería la aprobación del gerente</p>
+<p>correspondiente (dentro de la organización cliente), antes de que la</p>
+<p>software factory comenzara a trabajar el nuevo requerimiento. Como casi</p>
+<p>en un 70% de las ocasiones las aprobaciones de los gerentes eran</p>
+<p>negativas, para no desperdiciar más tiempo se ha decidido que a partir</p>
+<p>de este mes, solo los gerentes de negocio formarán parte de las</p>
+<p>reuniones donde se soliciten/releven nuevos requerimientos. Ningún</p>
+<p>usuario operativo participará de estas reuniones ni será consultado</p>
+<p>BP --&gt; Dada la práctica descripta en el enunciado precedente, indicar si considera que podrían surgir o no, problemas de calidad en la Software Factory, optando por unos o varias de las afirmaciones siguientes, o indique NINGUNA si no encuadra con ninguna de las opciones. Si bien pueden elegirse más de una opción, no pueden combinarse al mismo tiempo las que consideran que SÍ hay problemas de calidad, con las que NO. DB0047Mv</p>
+<p>Sí podría generar problemas de calidad, fundamentalmente porque es indispensable que los usuarios operativos participen de la prueba de sistema</p>
+<p>Sí podría generar problemas de calidad, porque es inadmisible hacer revisiones entre pares de todos los artefactos.</p>
+<p>Sí podría generar problemas de calidad, porque se requiere la aprobación de alguien del cliente con poder de decisión en la jerarquía de la empresa para cumplir con REQM</p>
+<p>Sí podría generar problemas de calidad, porque faltan la revisiones de pares con usuarios operativos.</p>
+<p>Sí podría generar problemas de calidad, porque faltan las revisiones entre pares de aspectos no-funcionales</p>
+<p>No genera problemas de calidad, porque en definitiva es el gerente el único que sabe lo que se necesita</p>
+<p>NINGUNA de las otras opciones</p>
+<p>No genera problemas de calidad, porque se cumplen los objetivos de REQM</p>
+<p>Sí podría generar problemas de calidad, fundamentalmente porque falta la evaluación del analista de la SW Factory</p>
+<p>No genera problemas de calidad, porque se cumplen los objetivos de Verificación y Validación,</p>
+<p>Sí podría generar problemas de calidad, fundamentalmente porque es indispensable que los usuarios operativos participen de las pruebas de aceptación</p>
+<p>Sí podría generar problemas de calidad, fundamentalmente porque se requiere también la visión de los usuarios operativos para el surgimiento y relevamiento</p>
+<p>de los nuevos requerimientos.</p>
+<p>Sí podría generar problemas de calidad, fundamentalmente porque falta la evaluación del programador</p>
+<p>Cuales de los siguientes roles están involucrados en la actividad de</p>
+<p>Gestión de Cambios a los requisitos</p>
+<p>Cliente Jefe de Proyecto Arquitecto Responsable de Aseguramiento de la Calidad del Software Analista Equipo de Control de Configuración</p>
+<p>Cuales de los siguientes factores pueden ayudar a Priorizar los requisitos</p>
+<p>Coste de la implementación Valor para el cliente Tiempo necesario para implementar el producto Facilidad de implementación tecnológica Facilidad de implementación organizacional o de negocio Objetivos del negocio Restricciones legales</p>
+<p>En el marco del proyecto “Gestión de Exámenes y Certificaciones -</p>
+<p>modalidad virtual”, dos programadores elegidos para participar de la</p>
+<p>reunión, chequean el código fuente de la última clase que acaba de ser</p>
+<p>desarrollada por otro programador, planteando las observaciones</p>
+<p>pertinentes. //</p>
+<p>CMMi --&gt; Relacione la actividad descripta con el área de proceso y práctica específica que corresponda (solo una), o indique NINGUNA si no encuadra con ninguna de las opciones. GF0052Mv</p>
+<p>VER / SP 3.1 Realizar la verificación VAL / SP 2.1 Realizar la validación CM / SP 2.2 Controlar los elementos de configuración VAL / SP 1.3 Establecer los procedimientos y los criterios de validación VER / SP 2.3 Analizar los datos de la revisión entre pares VER / SP 1.2 Establecer el entorno de verificación PPQA / SP 1.2 Evaluar objetivamente los productos de trabajo y los servicios PMC / SP 1.5 Monitorizar la involucración de las partes interesadas PMC / SP 2.1 Analizar problemas PPQA / SP 2.1 Comunicar y asegurar la resolución de las no conformidades RD / SP 3.4 Analizar los requerimientos para alcanzar el equilibrio VAL / SP 1.2 Establecer el entorno de validación VER / SP 2.1 Preparar las revisiones entre pares VAL / SP 2.2 Analizar los resultados de la validación</p>
+<p>NINGUNA de las otras opciones</p>
+<p>REQM / SP 1.5 Identificar las inconsistencias entre el trabajo del proyecto y los requerimientos PPQA / SP 2.2 Establecer registros VER / SP 1.3 Establecer los procedimientos y los criterios de verificación VER / SP 3.2 Analizar los resultados de la verificación REQM / SP 1.3 Gestionar los cambios de los requerimientos PMC / SP 1.2 Monitorizar los compromisos</p>
+<p>PMC / SP 2.3 Gestionar las acciones correctivas CM / SP 2.1 Seguir las peticiones de cambio</p>
+<p>Indique verdadero o falso *</p>
+<p>Verdadero Falso Puntuación Muchos usuarios tienen pocas expectativas respecto al software y pueden soportar que se produzcan fallas.</p>
+<p>Una compañía de software puede decidir lanzar al mercado un programa antes de estar plenamente probado y depurado.</p>
+<p>El objetivo final de los procesos de verificación y validación es establecer confianza de que el sistema de software realiza las funciones correctamente</p>
+<p>Algunas pruebas funcionales pueden realizarse sin conocimiento de como funciona el programa</p>
+<p>Para probar si un requerimiento se cumple alcanza con armar un caso de prueba</p>
+<p>Sección sin título 0 de 0 puntos</p>
+</section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p><strong>1. Personal externo controla los casos de prueba contra las directrices de la Software Factory.</strong> <strong>Ninguna de las otras opciones.</strong> Comparar un producto de trabajo contra un estándar, desde afuera del proyecto, es PPQA SP 1.2, «Evaluar objetivamente los productos de trabajo y los servicios». En la lista aparece como «PPQA / SP 1.2 Evaluar objetivamente la verificación», un nombre que no existe. Las demás no corresponden. VER SP 2.2 y 3.1 comparan contra requerimientos, no contra un estándar.</p>
+<p><strong>2. Cuándo se sabe que el costo estimado es el real.</strong> <strong>Al terminar la tarea.</strong> Mientras la tarea sigue, el esfuerzo que falta es una estimación. Recién al terminar se conoce el esfuerzo consumido completo.</p>
+<p><strong>3. Qué mejora una buena priorización.</strong> <strong>Recursos limitados</strong> y <strong>Altas expectativas del cliente</strong>. Priorizar separa lo crítico de lo que se puede aplazar, así que los recursos escasos van a lo que más vale. También ordena lo que el cliente recibe primero según su valor, y eso maneja expectativas altas.</p>
+<p><strong>4. Esfuerzo del proyecto.</strong> <strong>248</strong> horas.</p>
+<div class="tabla"><table><thead><tr><th>Tarea</th><th>Cuenta</th><th>Horas</th></tr></thead><tbody><tr><td>A</td><td>6 días × 1 recurso × 8 h</td><td>48</td></tr><tr><td>B</td><td>10 días × medio tiempo × 8 h</td><td>40</td></tr><tr><td>C</td><td>20 días × 1 recurso por vez × 8 h</td><td>160</td></tr><tr><td>Total</td><td></td><td>248</td></tr></tbody></table></div>
+<p>En C trabajan dos personas, pero cada una la mitad del tiempo, así que en cada momento hay un solo recurso a tiempo completo.</p>
+<p><strong>5. Fecha de fin.</strong> El texto del examen no dice qué día es no laboral, así que no se puede elegir. El 05/09/24 es jueves. Contando ese día como el primero y salteando sábados y domingos, el décimo día laboral es el <strong>miércoles 18/09/24</strong>. Si el día no laboral cae entre el 05/09 y el 18/09, el fin pasa al <strong>jueves 19/09/24</strong>.</p>
+<p><strong>6. BP, solo los gerentes de negocio en las reuniones de requerimientos.</strong> <strong>Sí podría generar problemas de calidad, fundamentalmente porque se requiere también la visión de los usuarios operativos para el surgimiento y relevamiento de los nuevos requerimientos.</strong></p>
+<p>RD SP 1.1 obtiene las necesidades de las partes interesadas, y los usuarios operativos son los que usan el sistema todos los días. Sin ellos, los requerimientos salen incompletos y el producto no sirve para su uso previsto. Las demás opciones de «Sí» hablan de prueba de sistema, aceptación o revisiones entre pares, que no es lo que cambió la práctica.</p>
+<p><strong>7. Roles en la gestión de cambios a los requisitos.</strong> <strong>Cliente</strong>, <strong>Jefe de Proyecto</strong>, <strong>Arquitecto</strong>, <strong>Analista</strong> y <strong>Equipo de Control de Configuración</strong>. El cliente solicita y acepta el cambio, el analista y el arquitecto evalúan su impacto en requisitos y diseño, el jefe de proyecto lo evalúa en plazos y recursos, y el equipo de control de configuración, el comité de cambios, controla y registra la modificación. El responsable de aseguramiento de calidad no gestiona los cambios, controla después que se haya seguido el procedimiento.</p>
+<p><strong>8. Factores para priorizar requisitos.</strong> Todos. <strong>Coste de la implementación</strong>, <strong>Valor para el cliente</strong>, <strong>Tiempo necesario para implementar el producto</strong>, <strong>Facilidad de implementación tecnológica</strong>, <strong>Facilidad de implementación organizacional o de negocio</strong>, <strong>Objetivos del negocio</strong> y <strong>Restricciones legales</strong>. La guía nombra valor, coste y riesgo. Los demás son formas de ese valor, de ese coste o de ese riesgo, y una restricción legal puede volver obligatorio un requisito.</p>
+<p><strong>9. Dos programadores revisan en reunión el código de otro.</strong> <strong>VER / SP 2.2 Llevar a cabo las revisiones entre pares.</strong> Compañeros elegidos chequean el producto de trabajo de otro y plantean observaciones, que es la revisión entre pares misma. Prepararla sería la SP 2.1, y analizar sus datos, la SP 2.3.</p>
+<p><strong>10. Verdadero o falso.</strong></p>
+<div class="tabla"><table><thead><tr><th>Afirmación</th><th>Respuesta</th><th>Por qué</th></tr></thead><tbody><tr><td>Muchos usuarios tienen pocas expectativas y pueden soportar fallas</td><td>Verdadero</td><td>Las expectativas del usuario pueden ser bajas para ciertas clases de software</td></tr><tr><td>Una compañía puede lanzar un programa antes de estar plenamente probado</td><td>Verdadero</td><td>Es el entorno de marketing, salir pronto puede pesar más que encontrar defectos</td></tr><tr><td>El objetivo final de VyV es establecer confianza de que el sistema realiza las funciones correctamente</td><td>Falso</td><td>Establecen la confianza de que el software es adecuado a su propósito, y eso no significa que esté libre de defectos</td></tr><tr><td>Algunas pruebas funcionales pueden realizarse sin conocimiento de cómo funciona el programa</td><td>Verdadero</td><td>Son las de caja negra</td></tr><tr><td>Para probar si un requerimiento se cumple alcanza con un caso de prueba</td><td>Falso</td><td>Hay que probar entradas válidas e inválidas y cada escenario, y las pruebas exhaustivas son imposibles</td></tr></tbody></table></div>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la página Final, secciones Estimación y Cronograma, Áreas para relacionar y Requerimientos RD y REQM de Aprobación directa, y Verificación y validación de Regularización.</p><p class="bloque-fuente">Quedó en duda: En la 1 va Ninguna porque la práctica que nombra no existe con ese nombre. Falta qué día no es laboral, así que la fecha de fin queda en 18/09/24 o en 19/09/24 si hay un feriado. El verdadero o falso sobre el objetivo de VyV va Falso y es discutible. En los roles no entra SQA, y en los factores de priorización van todos, las dos con duda.</p><div class="em-votos" data-m="ingenieria-y-calidad-de-software" data-e="fin-2024-09-06" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="CMMI" data-enlace="regularizacion.html#cmmi" data-donde="Regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">CMMI</span><span class="ex-t-teoria"><a href="regularizacion.html#cmmi">CMMI</a>, en Regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Cronograma" data-enlace="final.html#cronograma" data-donde="Final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Cronograma</span><span class="ex-t-teoria"><a href="final.html#cronograma">Cronograma</a>, en Final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="REQM" data-enlace="aprobacion-directa.html#requerimientos-rd-y-reqm" data-donde="Aprobación directa"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">REQM</span><span class="ex-t-teoria"><a href="aprobacion-directa.html#requerimientos-rd-y-reqm">Requerimientos RD y REQM</a>, en Aprobación directa</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="VyV" data-enlace="regularizacion.html#para-que-sirven" data-donde="Regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">VyV</span><span class="ex-t-teoria"><a href="regularizacion.html#para-que-sirven">Para qué sirven</a>, en Regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2025-02-15.html">Anterior: Final, 15/02/2025</a><a href="ej-fin-2023-12-15.html">Siguiente: Final, 15/12/2023</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta octubre de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

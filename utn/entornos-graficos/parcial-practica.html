@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Parcial de práctica: Entornos Gráficos</title>
+<meta name="description" content="HTML, CSS, formularios, PHP, MySQL, sesiones y cookies.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="entornos-graficos" data-pagina="parcial-practica">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Entornos Gráficos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-practica.html" aria-current="page">Parcial de práctica</a></li><li class="em-fuera"><a href="parcial-teoria.html">Parcial de teoría</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=entornos-graficos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=entornos-graficos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene">Cómo viene</a></li><li class="n2"><a href="#html-de-base">HTML de base</a></li><li class="n3"><a href="#estructura-del-documento">Estructura del documento</a></li><li class="n3"><a href="#lo-que-mas-se-usa">Lo que más se usa</a></li><li class="n3"><a href="#etiquetas-semanticas">Etiquetas semánticas</a></li><li class="n2"><a href="#formularios">Formularios</a></li><li class="n3"><a href="#controles">Controles</a></li><li class="n3"><a href="#get-y-post">GET y POST</a></li><li class="n3"><a href="#validar-en-el-navegador">Validar en el navegador</a></li><li class="n2"><a href="#css">CSS</a></li><li class="n3"><a href="#tres-formas-de-aplicar-estilos">Tres formas de aplicar estilos</a></li><li class="n3"><a href="#anatomia-de-una-regla">Anatomía de una regla</a></li><li class="n3"><a href="#selectores">Selectores</a></li><li class="n3"><a href="#pseudo-clases-de-enlaces">Pseudo-clases de enlaces</a></li><li class="n3"><a href="#cascada-herencia-y-especificidad">Cascada, herencia y especificidad</a></li><li class="n3"><a href="#modelo-de-caja">Modelo de caja</a></li><li class="n3"><a href="#ubicar-elementos">Ubicar elementos</a></li><li class="n3"><a href="#bootstrap">Bootstrap</a></li><li class="n2"><a href="#php">PHP</a></li><li class="n3"><a href="#tipos">Tipos</a></li><li class="n3"><a href="#funciones-y-parametros">Funciones y parámetros</a></li><li class="n3"><a href="#isset-control-y-foreach">isset, control y foreach</a></li><li class="n3"><a href="#cadenas-y-fechas">Cadenas y fechas</a></li><li class="n3"><a href="#archivos">Archivos</a></li><li class="n3"><a href="#arrays">Arrays</a></li><li class="n3"><a href="#recibir-un-formulario">Recibir un formulario</a></li><li class="n3"><a href="#fecha-y-hora">Fecha y hora</a></li><li class="n2"><a href="#base-de-datos-con-mysqli">Base de datos con mysqli</a></li><li class="n3"><a href="#conectarse">Conectarse</a></li><li class="n3"><a href="#funciones">Funciones</a></li><li class="n3"><a href="#alta-con-control-de-repetido">Alta con control de repetido</a></li><li class="n3"><a href="#listar">Listar</a></li><li class="n3"><a href="#baja-y-modificacion">Baja y modificación</a></li><li class="n2"><a href="#sesiones">Sesiones</a></li><li class="n2"><a href="#cookies">Cookies</a></li><li class="n2"><a href="#mail">Mail</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Parcial de práctica</h1>
+<p class="bajada">Todo lo que hace falta para escribir la página, el formulario, el PHP y la base de datos en la máquina.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene">Cómo viene</h2>
+<p>Las dos hojas de 2024 tienen la misma forma. Cambian los puntajes y algunos pedidos.</p>
+<div class="tabla"><table><thead><tr><th>Punto</th><th>26/06/2024</th><th>18/09/2024</th></tr></thead><tbody><tr><td>Página con estilos y enlaces</td><td>2 puntos</td><td>2 puntos</td></tr><tr><td>Formulario validado en el navegador</td><td>1 punto</td><td>1 punto</td></tr><tr><td>PHP con base de datos y sesión</td><td>5 puntos, con validación, control de repetidos y cookie</td><td>4 puntos</td></tr><tr><td>Replicar una salida con HTML y CSS</td><td>Sin puntaje en la hoja</td><td>3 puntos</td></tr></tbody></table></div>
+<p>La hoja del 18/09/2024 pide entregar los archivos por correo. Las dos hojas de 2024 dicen que la tabla de la base se imagine ya creada.</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Página con hoja de estilo externa, interna y al menos dos estilos en línea, con enlaces de un color y otro en hover</strong> <span>Parcial de práctica, 18/09/2024</span></li></ul></div>
+<div class="ojo"><p class="ojo-t">El ejemplo de parcial no tiene fecha</p><p>En el Drive hay un «Ejemplo de parcial», Tema 1, sin fecha. Por el formato y la entrega se parece a los de 2024, pero no está confirmado. Suma preguntas cortas de teoría, que están en <a href="parcial-teoria.html">parcial de teoría</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="html-de-base">HTML de base</h2>
+<h3 id="estructura-del-documento">Estructura del documento</h3>
+<p>Un documento tiene la declaración de tipo, una cabecera <code>head</code> y un cuerpo <code>body</code> (Conceptos y Teoría de HTML, páginas 31 y 56).</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">HTML</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Título de la página<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<p>Un elemento tiene apertura, contenido y cierre. Los atributos van en la apertura con espacio, <code>=</code> y comillas. Los elementos vacíos, como <code>img</code>, no tienen cierre. El anidado tiene que ser correcto (páginas 25 a 30).</p>
+<pre class="codigo"><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Mi gato es <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>muy<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> gruñon.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<h3 id="lo-que-mas-se-usa">Lo que más se usa</h3>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Para qué</th><th>Página del apunte</th></tr></thead><tbody><tr><td><code>h1</code> a <code>h6</code>, <code>p</code>, <code>hr</code></td><td>Títulos, párrafos, línea</td><td>41 y 46</td></tr><tr><td><code>ul</code>, <code>ol</code>, <code>li</code>, <code>dl</code>, <code>dt</code>, <code>dd</code></td><td>Listas</td><td>43</td></tr><tr><td><code>a href</code></td><td>Enlace. Con <code>target=&quot;_blank&quot;</code> abre aparte</td><td>48 a 54</td></tr><tr><td><code>table</code>, <code>tr</code>, <code>td</code>, <code>th</code>, <code>caption</code></td><td>Tabla</td><td>57 en adelante</td></tr><tr><td><code>colspan</code>, <code>rowspan</code></td><td>Celda que ocupa varias columnas o filas</td><td>57 en adelante</td></tr></tbody></table></div>
+<p>Un enlace puede ser externo, local, a un ancla dentro de la página o <code>mailto</code> (páginas 48 a 54).</p>
+<p><code>div</code> agrupa en bloque y <code>span</code> agrupa en línea. <code>id</code> es único en el documento y <code>class</code> se comparte (Material Complementario de HTML, página 22).</p>
+<h3 id="etiquetas-semanticas">Etiquetas semánticas</h3>
+<p>HTML5 suma <code>header</code>, <code>nav</code>, <code>section</code>, <code>article</code>, <code>aside</code> y <code>footer</code> (Conceptos fundamentales de HTML, páginas 18 a 20). El mismo apunte de la cátedra dice que las tablas no van para armar el diseño (Material Complementario, página 25).</p>
+</section>
+<section class="sec"><h2 id="formularios">Formularios</h2>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Formulario con nombre, email, producto, mes en select, cantidad numérica y checkbox de términos</strong> <span>Parciales de práctica, 26/06/2024 y 18/09/2024</span></li></ul></div>
+<p>El formulario aparece en <mark>4 de 4 prácticas de 2023 y 2024</mark>.</p>
+<h3 id="controles">Controles</h3>
+<p><code>action</code> dice qué script procesa los datos y <code>method</code> dice cómo viajan (Introducción teórica de PHP, página 31). Este es el ejemplo del Material Complementario de HTML, página 35.</p>
+<pre class="codigo"><code><span class="hljs-tag">&lt;<span class="hljs-name">FORM</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;http://algunsitio.com/prog/nuevo&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">P</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LABEL</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;nombre&quot;</span>&gt;</span>Nombre: <span class="hljs-tag">&lt;/<span class="hljs-name">LABEL</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;nombre&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">BR</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sexo&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Varón&quot;</span>&gt;</span> Varón<span class="hljs-tag">&lt;<span class="hljs-name">BR</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sexo&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Mujer&quot;</span>&gt;</span> Mujer<span class="hljs-tag">&lt;<span class="hljs-name">BR</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Enviar&quot;</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;reset&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">P</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">FORM</span>&gt;</span></code></pre>
+<p>Un menú desplegable se arma con <code>select</code> y <code>option</code>. La <a href="ejercicios.html">solución de cookies de la Práctica 7</a> lo usa.</p>
+<h3 id="get-y-post">GET y POST</h3>
+<div class="tabla"><table><thead><tr><td></td><th>GET</th><th>POST</th></tr></thead><tbody><tr><td>Dónde viajan los datos</td><td>En la URL, tras un <code>?</code></td><td>En el cuerpo del envío</td></tr><tr><td>Se ven</td><td>Sí</td><td>No</td></tr><tr><td>Cuándo usarlo</td><td>Si no cambia nada, idempotente</td><td>Si modifica una base de datos</td></tr><tr><td>Límite</td><td>Cantidad de caracteres limitada</td><td>El apunte dice que no tiene límite</td></tr></tbody></table></div>
+<p>Salen del Material Complementario, página 38, y de la Introducción teórica de PHP, página 33. El Material Complementario agrega que GET restringe los datos a caracteres ASCII. Solo POST, con <code>enctype=&quot;multipart/form-data&quot;</code>, cubre el conjunto de caracteres completo (página 38).</p>
+<h3 id="validar-en-el-navegador">Validar en el navegador</h3>
+<p>HTML5 hace casi todo sin programar (Conceptos fundamentales de HTML, páginas 23 a 41).</p>
+<div class="tabla"><table><thead><tr><th>Atributo o tipo</th><th>Qué controla</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td><code>required</code></td><td>Que no quede vacío</td><td><code>&lt;input type=&quot;text&quot; id=&quot;usuario&quot; required&gt;</code></td></tr><tr><td><code>type=&quot;email&quot;</code></td><td>Sintaxis de mail</td><td><code>&lt;input type=&quot;email&quot; id=&quot;emailusuario&quot; required&gt;</code></td></tr><tr><td><code>type=&quot;number&quot;</code> con <code>min</code> y <code>max</code></td><td>Número en un rango</td><td><code>&lt;input type=&quot;number&quot; id=&quot;valor&quot; name=&quot;valor&quot; min=&quot;1&quot; max=&quot;10&quot;&gt;</code></td></tr><tr><td><code>pattern</code></td><td>Formato con expresión regular</td><td><code>pattern=&quot;[A-Za-z]{3}[0-9]{3}&quot;</code></td></tr></tbody></table></div>
+<p><code>required</code> es un atributo sin valor. El apunte aclara que antes esto se hacía únicamente con Javascript (página 23).</p>
+<p><code>pattern</code> usa una expresión regular. Entre corchetes van los caracteres permitidos y entre llaves cuántos (páginas 25 a 29).</p>
+<div class="tabla"><table><thead><tr><th>Patrón del apunte</th><th>Qué acepta</th></tr></thead><tbody><tr><td><code>[01]{8}</code></td><td>Un binario de ocho dígitos</td></tr><tr><td><code>[0-9]{5}</code></td><td>Exactamente cinco dígitos. El guion marca un rango</td></tr><tr><td><code>[0-9]{1,5}</code></td><td>Entre uno y cinco dígitos</td></tr><tr><td><code>[A-Za-z]{3}[0-9]{3}</code></td><td>Tres letras y tres números</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">pattern sin required</p><p>Si el campo no lleva <code>required</code> y queda vacío, el navegador no revisa el patrón (Conceptos fundamentales de HTML, página 26).</p>
+</div>
+<p>El mismo apunte suma otros atributos y tipos de HTML5 (páginas 20 a 45).</p>
+<div class="tabla"><table><thead><tr><th>Atributo o tipo</th><th>Para qué</th></tr></thead><tbody><tr><td><code>autofocus</code></td><td>El control que toma el foco al cargar. Va en uno solo por página</td></tr><tr><td><code>placeholder</code></td><td>Un ejemplo del dato dentro del control, que se borra al escribir</td></tr><tr><td><code>type=&quot;range&quot;</code> con <code>min</code> y <code>max</code></td><td>Una barra para elegir un valor</td></tr><tr><td><code>type=&quot;date&quot;</code>, <code>datetime-local</code>, <code>month</code>, <code>time</code> y <code>week</code></td><td>Fechas y horas</td></tr><tr><td><code>type=&quot;color&quot;</code> y <code>type=&quot;url&quot;</code></td><td>Un color y una dirección web</td></tr><tr><td><code>list</code> con <code>datalist</code></td><td>Sugerencias mientras se escribe. Cada <code>option</code> lleva <code>label</code> y <code>value</code></td></tr><tr><td><code>novalidate</code> en <code>form</code></td><td>Desactiva todas las validaciones del navegador, para probar el servidor</td></tr></tbody></table></div>
+<p>El apunte lo deja claro en la página 45. El programa del servidor tiene que validar otra vez los datos que manda el navegador. <code>novalidate</code> sirve para probar qué hace el PHP cuando llegan datos sin validar, y después se borra (páginas 45 a 47).</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Script externo que valide que los campos no estén vacíos</strong> <span>Ejemplo de parcial, Tema 1, sin fecha</span></li></ul></div>
+<div class="ojo"><p class="ojo-t">Script de validación</p><p>Los apuntes definen qué es un script y dan los eventos, pero no traen un ejemplo armado de validación con JavaScript. Practicá con <a href="parcial-teoria.html#scripts">scripts</a> como punto de partida y consultá a la cátedra qué piden. Las piezas sueltas están en Conceptos fundamentales de HTML. <code>document.getElementById(&#39;ingles&#39;).value</code> lee lo que tiene un control, y <code>addEventListener(&#39;click&#39;, guardar, false)</code> asocia una función a un botón (páginas 48 y 49).</p>
+</div>
+</section>
+<section class="sec"><h2 id="css">CSS</h2>
+<p>CSS separa el contenido de la presentación. Si el estilo está en una hoja aparte, cambiarlo en un lugar lo cambia en todas las páginas (Material de CSS, páginas 2 y 6).</p>
+<h3 id="tres-formas-de-aplicar-estilos">Tres formas de aplicar estilos</h3>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Dónde va</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Externa</td><td>En un archivo <code>.css</code>, enlazado desde <code>head</code></td><td><code>&lt;LINK rel=&quot;stylesheet&quot; href=&quot;bach.css&quot; type=&quot;text/css&quot;&gt;</code></td></tr><tr><td>Interna</td><td>En <code>&lt;style&gt;</code> dentro de <code>head</code></td><td><code>&lt;style&gt; h1 {color: red;} &lt;/style&gt;</code></td></tr><tr><td>En línea</td><td>En el atributo <code>style</code> de la marca</td><td><code>&lt;h1 style=&quot;color:#FFFFFF&quot;&gt;</code></td></tr></tbody></table></div>
+<p>Las tres se piden juntas en el parcial de 18/09/2024, y dos de ellas en el ejemplo de parcial.</p>
+<h3 id="anatomia-de-una-regla">Anatomía de una regla</h3>
+<pre class="codigo"><code><span class="hljs-selector-tag">h1</span> {<span class="hljs-attribute">color</span>: red;}</code></pre>
+<p>Una regla tiene un selector y una declaración. La declaración es una propiedad con un valor. El selector es el enlace entre el documento y el estilo (Material de CSS, página 4). Varias declaraciones entre llaves forman un bloque (Contenido adicional de CSS, página 5).</p>
+<p>Se agrupan selectores con coma: <code>h1, h2, h3 { color: red; }</code>. Los comentarios van con <code>/* */</code> (Material de CSS, páginas 9 y 12).</p>
+<p>Otras reglas de sintaxis del mismo apunte.</p>
+<ul>
+<li>Las declaraciones se separan con punto y coma, y la última también lo lleva (páginas 9 y 16).</li>
+<li>Si una propiedad lleva varios valores, van separados por espacios. Si admite valores alternativos, van separados por comas, como <code>font-family: Georgia, &quot;Times New Roman&quot;, Times, serif;</code> (página 9).</li>
+<li>Un valor de más de una palabra va entre comillas, como <code>p {font-family: &quot;sans serif&quot;;}</code> (página 10).</li>
+<li>Un error habitual es escribir los caracteres <code>&lt;</code> y <code>&gt;</code> en la hoja de estilo (página 10).</li>
+<li>No se aconseja repetir selectores, porque dispersa la información (página 11).</li>
+<li>Las reglas-arroba empiezan con <code>@</code>. <code>@charset</code>, <code>@import</code> y <code>@namespace</code> van al principio de la hoja. <code>@font-face</code> y <code>@media</code> pueden ir en cualquier lugar (página 8).</li>
+<li>El <code>meta charset</code> va justo después de abrir <code>head</code>, para que el navegador conozca la codificación antes de procesar nada (página 3).</li>
+</ul>
+<p>En cuanto a unidades, el punto, <code>pt</code>, es absoluto y no varía según el entorno. El <code>em</code> es relativo al tamaño de la fuente del elemento, así que <code>margin: 3em</code> es tres veces ese tamaño (página 16).</p>
+<h3 id="selectores">Selectores</h3>
+<p>Salen de Contenido adicional de CSS, páginas 6 a 11.</p>
+<div class="tabla"><table><thead><tr><th>Selector</th><th>Sintaxis</th><th>Qué toma</th></tr></thead><tbody><tr><td>Elemento</td><td><code>h1</code></td><td>Todos los <code>h1</code></td></tr><tr><td>Universal</td><td><code>*</code></td><td>Todo</td></tr><tr><td>Clase</td><td><code>.nombre</code></td><td>Los que tengan esa clase, que puede repetirse</td></tr><tr><td>Clase en un elemento</td><td><code>h2.cosito</code></td><td>Solo los <code>h2</code> con esa clase</td></tr><tr><td>Id</td><td><code>#nombre</code></td><td>Un único elemento</td></tr><tr><td>Descendiente</td><td><code>h1 em</code></td><td><code>em</code> en cualquier nivel dentro de <code>h1</code></td></tr><tr><td>Hijo</td><td><code>h1 &gt; strong</code></td><td><code>strong</code> directo de <code>h1</code></td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Selector de atributo</p><p>La hoja de ejemplo pide <code>a[href]</code>, y la Práctica 2 también lo usa. Los apuntes de CSS no lo explican. La Práctica 2 remite a la especificación CSS2 como lectura. Buscalo ahí o preguntá en clase.</p>
+</div>
+<h3 id="pseudo-clases-de-enlaces">Pseudo-clases de enlaces</h3>
+<p>Una pseudo-clase es una palabra precedida por dos puntos. Se pueden combinar, como <code>a:link:hover</code> (Contenido adicional de CSS, páginas 11 a 17). La Práctica de CSS, página 4, usa estas cuatro.</p>
+<pre class="codigo"><code><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span> {<span class="hljs-attribute">color</span>:gray }
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span>{<span class="hljs-attribute">color</span>:blue }
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> {<span class="hljs-attribute">color</span>:fuchsia }
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:active</span> {<span class="hljs-attribute">color</span>:red }</code></pre>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Enlaces de color azul con hover de otro color</strong> <span>Parciales de práctica, 26/06/2024 y 18/09/2024</span></li></ul></div>
+<h3 id="cascada-herencia-y-especificidad">Cascada, herencia y especificidad</h3>
+<p><strong>Cascada.</strong> El formato final de un elemento depende de la combinación de todas las propiedades que lo afectan, también las de los elementos que lo incluyen. Si una propiedad se repite con el mismo peso, gana la última (Material de CSS, páginas 10 y 11).</p>
+<p><strong>Herencia.</strong> Un <code>p</code> hereda de <code>body</code> (Material de CSS, páginas 14 a 16). Si <code>body</code> tiene color negro y <code>h1</code> tiene su propio color rojo, la regla de <code>h1</code> reemplaza el valor heredado. Conviene fijar juntos el color del texto y el del fondo (página 15).</p>
+<p><strong>Especificidad.</strong> Es cómo decide el navegador qué valor se aplica (Contenido adicional de CSS, páginas 20 y 21).</p>
+<div class="tabla"><table><thead><tr><th>Qué es</th><th>Peso</th></tr></thead><tbody><tr><td><code>!important</code></td><td>1,0,0,0,0</td></tr><tr><td>Estilo en línea</td><td>0,1,0,0,0</td></tr><tr><td><code>#id</code></td><td>0,0,1,0,0</td></tr><tr><td><code>.class</code> y pseudo-clase</td><td>0,0,0,1,0</td></tr><tr><td>Etiqueta y pseudo-elemento</td><td>0,0,0,0,1</td></tr></tbody></table></div>
+<p>En el ejemplo del apunte, <code>h1</code> vale 1, <code>#content h1</code> vale 101 y un estilo en línea vale 1000. El apunte dice que <code>!important</code> es mala práctica (página 22).</p>
+<h3 id="modelo-de-caja">Modelo de caja</h3>
+<p>Cada elemento es una caja con contenido, <code>padding</code>, <code>border</code> y <code>margin</code> (Contenido adicional de CSS, páginas 26 a 30). El orden de los valores es importante.</p>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Significado</th></tr></thead><tbody><tr><td><code>margin:25px 50px 75px 100px</code></td><td>Arriba, derecha, abajo, izquierda</td></tr><tr><td>Tres valores</td><td>Arriba, los costados, abajo</td></tr><tr><td>Dos valores</td><td>Arriba y abajo, los costados</td></tr><tr><td>Un valor</td><td>Los cuatro lados</td></tr><tr><td><code>margin:auto</code></td><td>Centra en horizontal</td></tr></tbody></table></div>
+<h3 id="ubicar-elementos">Ubicar elementos</h3>
+<p>Replicar una salida se pide en las dos hojas de 2024 y en el final de 2023. Estas son las herramientas de Contenido adicional de CSS.</p>
+<div class="tabla"><table><thead><tr><th>Propiedad</th><th>Valores</th><th>Página</th></tr></thead><tbody><tr><td><code>display</code></td><td><code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>none</code></td><td>45</td></tr><tr><td><code>display:flex</code></td><td>Con <code>flex-direction</code> y <code>flex-wrap</code></td><td>46 y 47</td></tr><tr><td><code>display:grid</code></td><td>Grilla</td><td>53 en adelante</td></tr><tr><td><code>position</code></td><td><code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code></td><td>41</td></tr><tr><td><code>z-index</code></td><td>Qué tapa a qué</td><td>42</td></tr></tbody></table></div>
+<p><code>absolute</code> se ubica respecto del ancestro posicionado. La Práctica de CSS, páginas 5 a 7, también usa <code>float:right</code> y <code>clear:both</code>.</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Escribir el HTML y CSS completo para replicar una salida con noticias</strong> <span>Parciales de práctica, 26/06/2024 y 18/09/2024</span></li></ul></div>
+<h3 id="bootstrap">Bootstrap</h3>
+<p>Bootstrap arma filas de hasta 12 columnas. Una fila es <code>row</code>, va dentro de un <code>container</code> y sus columnas son <code>col-xl-*</code>. Las columnas de una fila suman 12. Con <code>xl</code>, colapsan debajo de 1200 píxeles (Introducción de Bootstrap, páginas 8 y 13).</p>
+<p>No figura en ningún examen de 2023 o 2024 que esté en el Drive.</p>
+</section>
+<section class="sec"><h2 id="php">PHP</h2>
+<h3 id="tipos">Tipos</h3>
+<p><code>boolean</code>, <code>integer</code>, <code>float</code>, <code>string</code>, <code>array</code>, <code>object</code>, <code>resource</code> y <code>NULL</code>. <code>gettype</code> dice el tipo, e <code>is_int</code> pregunta si es entero (Introducción teórica de PHP, páginas 2 y 15).</p>
+<p>Son cuatro escalares, dos compuestos y dos especiales. <code>resource</code> guarda una referencia a un recurso externo, como un archivo o una imagen (página 2).</p>
+<p>Una constante guarda un valor que no cambia durante el script. Se define con <code>define</code> o, desde PHP 5.3.0, con <code>const</code> (páginas 3 y 4).</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-title function_ invoke__">define</span> (<span class="hljs-string">&quot;saluda&quot;</span>, <span class="hljs-string">&quot;Buenas tardes.&quot;</span>);
+<span class="hljs-keyword">echo</span> saluda;
+<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">CONSTANT</span> = <span class="hljs-string">&#x27;Hola Mundo&#x27;</span>;
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>Hay operadores unarios, como <code>!</code> y <code>++</code>, binarios, como <code>+</code>, y uno ternario, <code>?:</code>. El ejemplo del apunte es <code>$a == 1 ? $a++ :$a*3;</code> (página 5).</p>
+<h3 id="funciones-y-parametros">Funciones y parámetros</h3>
+<p>Una función agrupa código para ejecutarlo varias veces, o con distintos parámetros. <code>return</code> devuelve el valor al lugar desde donde se la llamó (Introducción teórica de PHP, página 6).</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">prueba</span>(<span class="hljs-params"><span class="hljs-variable">$arg1</span>, <span class="hljs-variable">$arg2</span></span>) </span>{
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Argumento 1 vale: <span class="hljs-subst">$arg1</span>&lt;br&gt;&quot;</span>;
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Argumento 2 vale: <span class="hljs-subst">$arg2</span>&lt;br&gt;&quot;</span>;
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$arg1</span> &lt; <span class="hljs-variable">$arg2</span>){
+<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+<span class="hljs-keyword">else</span> {
+<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+}
+<span class="hljs-variable">$valor_devuelto</span> = <span class="hljs-title function_ invoke__">prueba</span>(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>);
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>Es el ejemplo de las páginas 6 y 7. La sintaxis general, con los parámetros que hagan falta, es <code>function foo ($arg_1, $arg_2, ..., $arg_n)</code> (página 9).</p>
+<p>El parámetro va por valor si no se indica otra cosa. Un <code>&amp;</code> lo pasa por referencia, y entonces el cambio afecta a la variable original (páginas 10 a 12).</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">porreferencia</span>(<span class="hljs-params">&amp;<span class="hljs-variable">$cadena</span></span>)
+</span>{
+<span class="hljs-variable">$cadena</span> = <span class="hljs-string">&#x27;Si cambia&#x27;</span>;
+}
+<span class="hljs-variable">$str</span> = <span class="hljs-string">&#x27;Esto es una cadena&#x27;</span>;
+<span class="hljs-title function_ invoke__">porreferencia</span> (<span class="hljs-variable">$str</span>);
+<span class="hljs-keyword">echo</span> <span class="hljs-variable">$str</span>; <span class="hljs-comment">// Imprime &#x27;Si cambia&#x27;</span>
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>Un parámetro con valor por defecto se escribe con <code>=</code>, y el valor es una constante. Los que tienen valor por defecto van a la derecha de los que no tienen (páginas 13 y 14).</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Función PHP con 3 parámetros</strong> <span>Final 21/02/2024, contado por un alumno</span></li></ul></div>
+<h3 id="isset-control-y-foreach">isset, control y foreach</h3>
+<p><code>isset</code> dice si una variable está definida. Devuelve <code>FALSE</code> si está definida como <code>NULL</code>. Con varios parámetros da <code>TRUE</code> solo si lo están todos. <code>unset</code> quita la variable (página 16).</p>
+<p><code>foreach</code> recorre un array (páginas 22 a 25).</p>
+<pre class="codigo"><code><span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$amigos</span> <span class="hljs-keyword">as</span> <span class="hljs-variable">$numero</span>=&gt;<span class="hljs-variable">$nombre</span>) {</code></pre>
+<p><code>include</code> da un Warning si falla, y <code>require</code> da un Error Fatal (página 28).</p>
+<p>Las demás estructuras de control del apunte (páginas 17 a 27).</p>
+<div class="tabla"><table><thead><tr><th>Estructura</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>if</code>, <code>else</code> y <code>elseif</code></td><td>Ejecución condicional. <code>elseif</code> corre solo si su propia condición es verdadera</td></tr><tr><td><code>while (expr) sentencia</code></td><td>Repite mientras la condición se cumpla</td></tr><tr><td><code>do..while</code></td><td>Igual, pero comprueba la condición al final de cada vuelta</td></tr><tr><td><code>for (expr1; expr2; expr3)</code></td><td>Bucle con inicio, condición y paso</td></tr><tr><td><code>switch</code></td><td>Compara la misma variable con muchos valores</td></tr><tr><td><code>break</code></td><td>Sale del bucle o del <code>switch</code></td></tr><tr><td><code>continue</code></td><td>Salta el resto de la vuelta y sigue con la siguiente</td></tr></tbody></table></div>
+<p><code>foreach</code> funciona solo con arrays y da error con otro tipo o con variables sin inicializar (página 22). <code>print</code> muestra una cadena, siempre devuelve 1 y no necesita paréntesis (página 29). <code>$_SERVER[&#39;PHP_SELF&#39;]</code> da la ruta del script que se está ejecutando (página 32).</p>
+<h3 id="cadenas-y-fechas">Cadenas y fechas</h3>
+<div class="tabla"><table><thead><tr><th>Función</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>strlen($cadena)</code></td><td>La longitud</td></tr><tr><td><code>strpos($cadena, $caracter)</code></td><td>La posición de la primera aparición, o <code>FALSE</code> si no está</td></tr><tr><td><code>substr($cadena, $comienzo, $longitud)</code></td><td>Una parte. Con <code>$comienzo</code> negativo cuenta desde el final</td></tr><tr><td><code>getdate()</code></td><td>Un array asociativo con <code>seconds</code>, <code>minutes</code>, <code>hours</code>, <code>mday</code>, <code>wday</code>, <code>mon</code> y <code>year</code></td></tr></tbody></table></div>
+<p>Fuente: Introducción teórica de PHP, páginas 39 a 45. Con <code>strpos</code> se compara con <code>===</code>, porque la posición 0 con <code>==</code> se confunde con <code>FALSE</code> (página 42).</p>
+<pre class="codigo"><code><span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">substr</span>(<span class="hljs-string">&#x27;abcdef&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// bcd</span>
+<span class="hljs-variable">$rest</span> = <span class="hljs-title function_ invoke__">substr</span>(<span class="hljs-string">&quot;abcdef&quot;</span>, -<span class="hljs-number">2</span>); <span class="hljs-comment">// devuelve &quot;ef&quot;</span></code></pre>
+<h3 id="archivos">Archivos</h3>
+<div class="tabla"><table><thead><tr><th>Función</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>fopen($archivo, $modo)</code></td><td>Abre y devuelve un identificador</td></tr><tr><td><code>fgets($id, $max)</code></td><td>Lee una línea</td></tr><tr><td><code>fwrite($id, $cadena)</code></td><td>Escribe</td></tr><tr><td><code>feof($id)</code></td><td>Dice si se llegó al final</td></tr><tr><td><code>fclose($id)</code></td><td>Cierra</td></tr></tbody></table></div>
+<p>Los modos son <code>r</code>, solo lectura; <code>r+</code>, lectura y escritura; <code>w</code>, solo escritura; <code>w+</code>, lectura y escritura que borra lo anterior y crea el archivo si no existe; <code>a</code>, escritura al final, que lo crea si no existe; y <code>a+</code>, lectura y escritura al final (Introducción teórica de PHP, páginas 34 y 35).</p>
+<h3 id="arrays">Arrays</h3>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Cómo se accede</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td>Indexada</td><td>Por posición, desde 0</td><td><code>$invierno[0]</code></td></tr><tr><td>Asociativa</td><td>Por clave</td><td><code>$ficha[nombre]</code></td></tr><tr><td>Multidimensional</td><td>Array de arrays</td><td><code>$agenda[1][telefono]</code></td></tr></tbody></table></div>
+<p>Están en las páginas 36 a 38 del mismo apunte. Para agregar al final se escribe <code>$a[] = 4;</code> (Práctica básica de PHP, página 6).</p>
+<h3 id="recibir-un-formulario">Recibir un formulario</h3>
+<p>Los valores llegan en <code>$_POST</code> o <code>$_GET</code>, según el <code>method</code>. <code>$_REQUEST</code> contiene <code>$_GET</code>, <code>$_POST</code> y <code>$_COOKIE</code> (Introducción teórica de PHP, página 32; Teoría de Sesiones, página 12).</p>
+<pre class="codigo"><code><span class="hljs-variable">$vNomApel</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Nom&#x27;</span>];
+<span class="hljs-variable">$vLegajo</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Legajo&#x27;</span>];</code></pre>
+<p>Son líneas de <a href="https://drive.google.com/file/d/1anLtOnpR6VxDzPSEb3GaNl3OpqoHGsQl/view">Confección de bases de datos</a>, página 4.</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Validar en el servidor el formato de los datos y que no estén vacíos</strong> <span>Parcial de práctica, 26/06/2024</span></li></ul></div>
+<div class="ojo"><p class="ojo-t">Validar en el servidor</p><p>Los apuntes dan piezas sueltas: <code>isset</code>, <code>is_int</code> y <code>strlen</code> (Práctica básica de PHP, páginas 1 y 7). No traen un ejemplo completo de validación del lado del servidor. Probá armarlo con esas piezas y consultá qué exige tu comisión.</p>
+</div>
+<h3 id="fecha-y-hora">Fecha y hora</h3>
+<pre class="codigo"><code><span class="hljs-variable">$fecha</span>=<span class="hljs-title function_ invoke__">date</span>(<span class="hljs-string">&quot;d-m-Y&quot;</span>);
+<span class="hljs-variable">$hora</span>= <span class="hljs-title function_ invoke__">date</span>(<span class="hljs-string">&quot;H:i:s&quot;</span>);</code></pre>
+<p>Vienen de Teoría adicional de PHP, página 13. En la base, un <code>DATETIME</code> guarda <code>AAAA-MM-DD HH:MM:SS</code> (Teoría de manejo de bases de datos, páginas 6 a 9).</p>
+</section>
+<section class="sec"><h2 id="base-de-datos-con-mysqli">Base de datos con mysqli</h2>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Guardar los datos del formulario y la fecha y hora en una tabla, que se imagina ya creada</strong> <span>Parciales de práctica, 26/06/2024 y 18/09/2024</span></li></ul></div>
+<p>La base aparece en <mark>3 de 4 prácticas de 2023 y 2024</mark>. El modelo completo está en <a href="https://drive.google.com/file/d/1anLtOnpR6VxDzPSEb3GaNl3OpqoHGsQl/view">Confección de bases de datos</a>, de 2019.</p>
+<p>Una base de datos relacional almacena mucha información y la ofrece rápido, combinando y ordenando los datos. Se organiza en tablas, con filas o registros. Para acceder hace falta un gestor, como MySQL. SQL, Structured Query Language, es el estándar para insertar, actualizar, eliminar y recuperar datos (Teoría de manejo de bases de datos, páginas 2 a 5).</p>
+<div class="tabla"><table><thead><tr><th>Tipo de MySQL</th><th>Qué guarda</th></tr></thead><tbody><tr><td><code>TINYINT</code>, <code>SMALLINT</code>, <code>MEDIUMINT</code>, <code>INT</code>, <code>BIGINT</code></td><td>Enteros, con distinto rango</td></tr><tr><td><code>FLOAT</code>, <code>DOUBLE</code></td><td>Punto flotante</td></tr><tr><td><code>DATE</code></td><td>Fecha, <code>AAAA-MM-DD</code></td></tr><tr><td><code>DATETIME</code></td><td>Fecha y hora, <code>AAAA-MM-DD HH:MM:SS</code></td></tr><tr><td><code>CHAR</code>, <code>VARCHAR</code></td><td>Texto de largo fijo o variable</td></tr><tr><td><code>BLOB</code>, <code>TEXT</code> y sus variantes <code>MEDIUM</code> y <code>LONG</code></td><td>Textos largos</td></tr></tbody></table></div>
+<p>Fuente: páginas 6 a 9. Salvo en las fechas, hay que indicar el tamaño del campo. En los números se indica si tienen signo. <code>UNSIGNED</code> tiene el doble de rango positivo que <code>SIGNED</code> (página 9).</p>
+<h3 id="conectarse">Conectarse</h3>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-variable">$link</span> = <span class="hljs-title function_ invoke__">mysqli_connect</span>(<span class="hljs-string">&quot;localhost&quot;</span>, <span class="hljs-string">&quot;root&quot;</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-string">&quot;Problemas de conexión a la base de datos&quot;</span>);
+<span class="hljs-title function_ invoke__">mysqli_select_db</span>(<span class="hljs-variable">$link</span>, <span class="hljs-string">&quot;docentes&quot;</span>);
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>Es <code>conexion.inc</code> del apunte, página 1. Cada página lo incluye con <code>include</code>.</p>
+<p>La sintaxis general es <code>$nombreConexion = mysqli_connect($hostname, $nombreUsuario, $contraseña);</code>. El servidor sale de la cuenta de hosting, y el usuario es el de la base, que puede ser <code>root</code> si no se creó otro (Teoría de manejo de bases de datos, páginas 10 y 11).</p>
+<div class="ojo"><p class="ojo-t">mysql o mysqli</p><p>El material mezcla las dos familias. <code>mysql_connect</code> es para versiones anteriores a PHP 5 y las soluciones viejas la usan. Además el orden de los parámetros cambia. <code>mysqli_select_db($link, &quot;base&quot;)</code> y <code>mysqli_query($link, $consulta)</code> llevan la conexión primero. <code>mysql_select_db(&quot;base&quot;, $link)</code> la lleva al final (Teoría de manejo de bases de datos, páginas 10 a 14).</p>
+</div>
+<h3 id="funciones">Funciones</h3>
+<p>Salen de Teoría de manejo de bases de datos, páginas 10 a 33.</p>
+<div class="tabla"><table><thead><tr><th>Función</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>mysqli_connect</code></td><td>Devuelve la conexión o <code>FALSE</code></td></tr><tr><td><code>mysqli_select_db</code></td><td>Elige la base</td></tr><tr><td><code>mysqli_query</code></td><td>Ejecuta. En <code>INSERT</code>, <code>UPDATE</code> y <code>DELETE</code> da <code>TRUE</code> o <code>FALSE</code>. En <code>SELECT</code> da un resultado</td></tr><tr><td><code>mysqli_fetch_array</code></td><td>Una fila, con índices asociativos y numéricos</td></tr><tr><td><code>mysqli_fetch_assoc</code></td><td>Una fila, asociativa, o <code>NULL</code> si no hay más</td></tr><tr><td><code>mysqli_num_rows</code></td><td>Cantidad de filas</td></tr><tr><td><code>mysqli_free_result</code></td><td>Libera el resultado</td></tr><tr><td><code>mysqli_close</code></td><td>Cierra la conexión</td></tr><tr><td><code>or die(mysqli_error($link))</code></td><td>Corta y muestra el error</td></tr></tbody></table></div>
+<p><code>LIMIT</code> acota las filas, con inicio y cantidad: <code>select * from libros limit 0,4;</code> (páginas 31 a 33).</p>
+<p><code>limit 5,4</code> trae 4 registros desde el 5. Con un solo argumento, como <code>limit 8</code>, trae los primeros 8 (página 33).</p>
+<p>Para ir a una fila concreta del resultado está <code>mysqli_data_seek($result, numeroDeFila)</code>, que cuenta desde 0. Después <code>mysqli_fetch_array($result)</code> trae esa fila, y cada columna se lee por nombre, como <code>$extraido[&#39;ciudad&#39;]</code>, o por número, como <code>$extraido[0]</code> (páginas 21 a 24). Los nombres de campo de <code>mysqli_fetch_assoc</code> distinguen mayúsculas y minúsculas (página 25).</p>
+<h3 id="alta-con-control-de-repetido">Alta con control de repetido</h3>
+<p>Este es <code>Alta.php</code>, de Confección de bases de datos, páginas 4 y 5, sin el HTML de alrededor. Primero cuenta si ya existe y después inserta.</p>
+<pre class="codigo"><code><span class="hljs-keyword">include</span>(<span class="hljs-string">&quot;conexion.inc&quot;</span>);
+<span class="hljs-variable">$vNomApel</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Nom&#x27;</span>];
+<span class="hljs-variable">$vLegajo</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Legajo&#x27;</span>];
+<span class="hljs-variable">$vDNI</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;DNI&#x27;</span>];
+<span class="hljs-variable">$vEmail</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;eMail&#x27;</span>];
+<span class="hljs-variable">$vSql</span> = <span class="hljs-string">&quot;SELECT Count(dni) as canti FROM doc_utn WHERE dni=&#x27;<span class="hljs-subst">$vDNI</span>&#x27;&quot;</span>;
+<span class="hljs-variable">$vResultado</span> = <span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>, <span class="hljs-variable">$vSql</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-title function_ invoke__">mysqli_error</span>(<span class="hljs-variable">$link</span>));
+<span class="hljs-variable">$vCantUsuarios</span> = <span class="hljs-title function_ invoke__">mysqli_fetch_assoc</span>(<span class="hljs-variable">$vResultado</span>);
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$vCantUsuarios</span> [<span class="hljs-string">&#x27;canti&#x27;</span>]!=<span class="hljs-number">0</span>){
+<span class="hljs-keyword">echo</span> (<span class="hljs-string">&quot;El Usuario ya Existe&lt;br&gt;&quot;</span>);
+}
+<span class="hljs-keyword">else</span> {
+<span class="hljs-variable">$vSql</span> = <span class="hljs-string">&quot;INSERT INTO doc_utn (legajo, apel_nom, dni, email)
+values (&#x27;<span class="hljs-subst">$vLegajo</span>&#x27;,&#x27;<span class="hljs-subst">$vNomApel</span>&#x27;, &#x27;<span class="hljs-subst">$vDNI</span>&#x27;, &#x27;<span class="hljs-subst">$vEmail</span>&#x27;)&quot;</span>;
+<span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>, <span class="hljs-variable">$vSql</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-title function_ invoke__">mysqli_error</span>(<span class="hljs-variable">$link</span>));
+<span class="hljs-title function_ invoke__">mysqli_free_result</span>(<span class="hljs-variable">$vResultado</span>);
+}
+<span class="hljs-title function_ invoke__">mysqli_close</span>(<span class="hljs-variable">$link</span>);</code></pre>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Avisar un error si ya existe un registro con los mismos datos</strong> <span>Parcial de práctica, 26/06/2024; final 15/03/2023, contado por un alumno</span></li></ul></div>
+<h3 id="listar">Listar</h3>
+<pre class="codigo"><code><span class="hljs-keyword">while</span> (<span class="hljs-variable">$fila</span> = <span class="hljs-title function_ invoke__">mysqli_fetch_array</span>(<span class="hljs-variable">$vResultado</span>))</code></pre>
+<p>Con ese ciclo se arma una fila de tabla por registro (Confección de bases de datos, páginas 11 a 13). El mismo apunte trae <code>Listado_pag.php</code> con paginación, páginas 13 a 16.</p>
+<h3 id="baja-y-modificacion">Baja y modificación</h3>
+<p>El mismo apunte completa el ABM. <code>Baja.php</code> primero busca el registro y, si existe, lo borra (Confección de bases de datos, páginas 6 y 7). Va sin el HTML ni los enlaces de vuelta al menú.</p>
+<pre class="codigo"><code><span class="hljs-keyword">include</span> (<span class="hljs-string">&quot;conexion.inc&quot;</span>);
+<span class="hljs-variable">$vDNI</span> = <span class="hljs-variable">$_POST</span> [<span class="hljs-string">&#x27;DNI&#x27;</span>];
+<span class="hljs-variable">$vSql</span> = <span class="hljs-string">&quot;SELECT * FROM doc_utn WHERE dni=&#x27;<span class="hljs-subst">$vDNI</span>&#x27; &quot;</span>;
+<span class="hljs-variable">$vResultado</span> = <span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>, <span class="hljs-variable">$vSql</span>);
+<span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">mysqli_num_rows</span>(<span class="hljs-variable">$vResultado</span>) == <span class="hljs-number">0</span>)
+{
+<span class="hljs-keyword">echo</span> (<span class="hljs-string">&quot;Usuario Inexistente...!!! &lt;br&gt;&quot;</span>);
+}
+<span class="hljs-keyword">else</span>{
+<span class="hljs-variable">$vSql</span>= <span class="hljs-string">&quot;DELETE FROM doc_utn WHERE dni = &#x27;<span class="hljs-subst">$vDNI</span>&#x27; &quot;</span>;
+<span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>, <span class="hljs-variable">$vSql</span>);
+<span class="hljs-keyword">echo</span>(<span class="hljs-string">&quot;El Usuario fue Borrado&lt;br&gt;&quot;</span>);
+}
+<span class="hljs-title function_ invoke__">mysqli_free_result</span>(<span class="hljs-variable">$vResultado</span>);
+<span class="hljs-title function_ invoke__">mysqli_close</span>(<span class="hljs-variable">$link</span>);</code></pre>
+<p><code>Modi.php</code> recibe los datos del formulario de modificación y actualiza (páginas 10 y 11).</p>
+<pre class="codigo"><code><span class="hljs-variable">$vSql</span> = <span class="hljs-string">&quot;UPDATE doc_utn set legajo=&#x27;<span class="hljs-subst">$vClave</span>&#x27;, apel_nom=&#x27;<span class="hljs-subst">$vUsuario</span>&#x27;, email=&#x27;<span class="hljs-subst">$vEmail</span>&#x27; where dni=&#x27;<span class="hljs-subst">$vDNI</span>&#x27;&quot;</span>;
+<span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>,<span class="hljs-variable">$vSql</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-title function_ invoke__">mysqli_error</span>(<span class="hljs-variable">$link</span>));</code></pre>
+</section>
+<section class="sec"><h2 id="sesiones">Sesiones</h2>
+<p>Una sesión es un conjunto de variables guardadas en el servidor, una por cada visitante (Teoría de Sesiones, página 2). Se usa para mantener datos durante toda la visita.</p>
+<p>Aparece en <mark>3 de 4 prácticas de 2023 y 2024</mark>.</p>
+<p><code>session_start()</code> inicia o continúa la sesión. Hay que llamarla antes de escribir cualquier texto en la página (Teoría adicional de PHP, páginas 17 y 18). <code>$_SESSION</code> es un array asociativo.</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span> <span class="hljs-title function_ invoke__">session_start</span>();
+<span class="hljs-keyword">if</span> (!<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&quot;contador&quot;</span>])){
+<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&quot;contador&quot;</span>] = <span class="hljs-number">1</span>;
+}<span class="hljs-keyword">else</span>{
+<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&quot;contador&quot;</span>]++;
+}
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>El ejemplo cuenta las páginas visitadas (Teoría adicional, página 19). <code>session_destroy</code> termina la sesión (páginas 23 y 24).</p>
+<p>Al llamar a <code>session_start()</code>, PHP recibe el identificador de sesión que viene en la cookie o en la URL, y si no hay ninguno lo crea (página 17). <code>session_destroy()</code> borra la información de la sesión actual, pero no las variables globales asociadas ni la cookie de sesión. Para desconectar del todo al usuario también hay que destruir el id y borrar esa cookie (páginas 23 y 24).</p>
+<div class="ojo"><p class="ojo-t">ob_start</p><p>Si no se quiere que <code>session_start()</code> sea la primera línea, <code>ob_start</code> guarda la salida en un búfer y <code>ob_end_flush</code> la envía después. Así se elige cuándo mandar el resultado al navegador (Teoría de Sesiones, páginas 15 y 16).</p>
+</div>
+<p>Para guardar contraseñas el apunte usa <code>md5</code>, una función hash de un solo sentido. Se guarda la contraseña encriptada y, al ingresar, se compara el <code>md5</code> de lo tecleado con lo guardado. El apunte aclara que no es 100 % seguro, porque la contraseña viaja del cliente al servidor antes de encriptarse (Teoría de Sesiones, páginas 13 a 15).</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Guardar en la sesión lo enviado en el formulario, sin perder envíos anteriores, agrupado en un array por fecha y hora</strong> <span>Parciales de práctica, 26/06/2024 y 18/09/2024</span></li></ul></div>
+</section>
+<section class="sec"><h2 id="cookies">Cookies</h2>
+<p>Una cookie es una pequeña información de texto guardada en el navegador del visitante (Teoría de Cookies, página 3).</p>
+<pre class="codigo"><code><span class="hljs-title function_ invoke__">setcookie</span>(<span class="hljs-string">&quot;persona&quot;</span>,<span class="hljs-variable">$nombre</span>,<span class="hljs-title function_ invoke__">time</span>()+<span class="hljs-number">86400</span>*<span class="hljs-number">365</span>);</code></pre>
+<p>Dura un año, con 86400 segundos por día (página 7). Se lee con <code>$_COOKIE[&quot;persona&quot;]</code>.</p>
+<p>Solo el nombre es obligatorio. Los otros parámetros son valor, caducidad, ruta, dominio, seguro y solo http (página 11). Qué es cada uno está en <a href="parcial-teoria.html#cookies">la teoría de cookies</a>.</p>
+<pre class="codigo"><code><span class="hljs-title function_ invoke__">setcookie</span>(<span class="hljs-string">&quot;migalleta&quot;</span>, <span class="hljs-string">&quot;mivalor&quot;</span>);
+<span class="hljs-title function_ invoke__">setcookie</span>(<span class="hljs-string">&quot;cookie2&quot;</span>, <span class="hljs-string">&quot;mivalor2&quot;</span>, <span class="hljs-title function_ invoke__">time</span>() + <span class="hljs-number">3600</span>);
+<span class="hljs-variable">$_COOKIE</span>[<span class="hljs-string">&quot;migalleta&quot;</span>];</code></pre>
+<p>Son los ejemplos de la página 12. <code>$_COOKIE</code> es un array asociativo con todas las cookies disponibles para el dominio y el directorio de la página.</p>
+<div class="ojo"><p class="ojo-t">Antes de cualquier texto</p><p><code>setcookie</code> y <code>session_start</code> van antes de escribir texto en la página. Con una cookie, si no, PHP puede dar «headers already sent» (Teoría de Cookies, página 12).</p>
+</div>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Crear una cookie con la fecha y hora del último registro</strong> <span>Parcial de práctica, 26/06/2024</span></li></ul></div>
+<p>La <a href="ejercicios.html">solución de la Práctica 7</a> muestra una cookie que recuerda el estilo elegido.</p>
+</section>
+<section class="sec"><h2 id="mail">Mail</h2>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Entre los exámenes leídos, la función <code>mail</code> se pregunta solo en la teoría de 2016. Sigue en el apunte de Teoría adicional de PHP. Confirmá en tu comisión si entra.</p>
+</div>
+<pre class="codigo"><code><span class="hljs-keyword">bool</span> <span class="hljs-title function_ invoke__">mail</span>(<span class="hljs-keyword">string</span> <span class="hljs-variable">$to</span>, <span class="hljs-keyword">string</span> <span class="hljs-variable">$subject</span>, <span class="hljs-keyword">string</span> <span class="hljs-variable">$message</span> [, <span class="hljs-keyword">string</span> <span class="hljs-variable">$additional_headers</span> [, <span class="hljs-keyword">string</span> <span class="hljs-variable">$additional_parameters</span> ]])</code></pre>
+<p>Destinatario, asunto y cuerpo son obligatorios. Las cabeceras adicionales sirven para <code>From</code>, <code>Reply-To</code>, <code>Cc</code>, <code>Bcc</code> y para mandar HTML con <code>Content-type</code> (Teoría adicional de PHP, páginas 2 a 11).</p>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-practica" data-materia="entornos-graficos">
+<h2>Quiz del parcial de práctica</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="CPC3QQ98vq" data-tema="Validar en el navegador" data-enlace="parcial-practica.html#validar-en-el-navegador" data-tipo="mc"><div class="q-enun" id="qe-parcial-practica-1"><span class="q-n">1</span><div><p>¿Qué hace el atributo required en un control de formulario?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-practica-1"><li><button type="button" class="op" data-ok="0">Envía el formulario por POST</button></li><li><button type="button" class="op" data-ok="1">Hace que el navegador no deje enviar el control vacío</button></li><li><button type="button" class="op" data-ok="0">Valida los datos en el servidor</button></li><li><button type="button" class="op" data-ok="0">Muestra un texto de ayuda dentro del control</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Con <strong>required</strong> el navegador verifica que el contenido esté cargado antes de enviarlo.</p>
+</div></li><li class="q" data-q="Ik_zMBZts8" data-tema="GET y POST" data-enlace="parcial-practica.html#get-y-post" data-tipo="mc"><div class="q-enun" id="qe-parcial-practica-2"><span class="q-n">2</span><div><p>¿Qué método conviene si el formulario modifica una base de datos?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-practica-2"><li><button type="button" class="op" data-ok="1">POST</button></li><li><button type="button" class="op" data-ok="0">GET</button></li><li><button type="button" class="op" data-ok="0">Cualquiera, no hay diferencia</button></li><li><button type="button" class="op" data-ok="0">Ninguno, se usa una cookie</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte indica <strong>POST</strong> si modifica una base de datos. GET agrega los datos a la URL y es para operaciones idempotentes.</p>
+</div></li><li class="q" data-q="6jzmARjIDB" data-tema="Cascada, herencia y especificidad" data-enlace="parcial-practica.html#cascada-herencia-y-especificidad" data-tipo="mc"><div class="q-enun" id="qe-parcial-practica-3"><span class="q-n">3</span><div><p>Según la jerarquía del apunte, ¿cuál de estos tiene más peso?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-practica-3"><li><button type="button" class="op" data-ok="0">Un selector de clase</button></li><li><button type="button" class="op" data-ok="0">Una etiqueta</button></li><li><button type="button" class="op" data-ok="0">Un selector de id</button></li><li><button type="button" class="op" data-ok="1">Un estilo en línea</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El estilo en línea pesa <strong>0,1,0,0,0</strong>, más que id, clase y etiqueta. Solo lo supera !important.</p>
+</div></li><li class="q" data-q="a3PmPkK_Fa" data-tema="Selectores" data-enlace="parcial-practica.html#selectores" data-tipo="mc"><div class="q-enun" id="qe-parcial-practica-4"><span class="q-n">4</span><div><p>¿Qué selector toma un único elemento del documento?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-practica-4"><li><button type="button" class="op" data-ok="0">Clase, con punto</button></li><li><button type="button" class="op" data-ok="0">Universal, con asterisco</button></li><li><button type="button" class="op" data-ok="1">Id, con numeral</button></li><li><button type="button" class="op" data-ok="0">Elemento, con el nombre</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El selector de <strong>id</strong> va con # y corresponde a un único elemento.</p>
+</div></li><li class="q" data-q="IV277ykwUr" data-tema="Modelo de caja" data-enlace="parcial-practica.html#modelo-de-caja" data-tipo="mc"><div class="q-enun" id="qe-parcial-practica-5"><span class="q-n">5</span><div><p>En margin:25px 50px 75px 100px, ¿qué lado recibe 50px?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-practica-5"><li><button type="button" class="op" data-ok="0">Arriba</button></li><li><button type="button" class="op" data-ok="1">Derecha</button></li><li><button type="button" class="op" data-ok="0">Abajo</button></li><li><button type="button" class="op" data-ok="0">Izquierda</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El orden es <strong>arriba, derecha, abajo, izquierda</strong>.</p>
+</div></li><li class="q" data-q="6WOFQchPW1" data-tema="Funciones y parámetros" data-enlace="parcial-practica.html#funciones-y-parametros" data-tipo="mc"><div class="q-enun" id="qe-parcial-practica-6"><span class="q-n">6</span><div><p>¿Cómo se pasa un parámetro por referencia en PHP?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-practica-6"><li><button type="button" class="op" data-ok="1">Con un &amp; antes del parámetro en la declaración</button></li><li><button type="button" class="op" data-ok="0">Con un $$ antes del nombre</button></li><li><button type="button" class="op" data-ok="0">Con la palabra ref</button></li><li><button type="button" class="op" data-ok="0">Se pasa así por defecto</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se coloca un <strong>&amp;</strong> antes del parámetro. Por defecto, el paso es por valor.</p>
+</div></li><li class="q" data-q="42VUrLTs73" data-tema="isset, control y foreach" data-enlace="parcial-practica.html#isset-control-y-foreach" data-tipo="mc"><div class="q-enun" id="qe-parcial-practica-7"><span class="q-n">7</span><div><p>¿Qué devuelve isset si la variable está definida como NULL?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-practica-7"><li><button type="button" class="op" data-ok="0">TRUE</button></li><li><button type="button" class="op" data-ok="0">NULL</button></li><li><button type="button" class="op" data-ok="1">FALSE</button></li><li><button type="button" class="op" data-ok="0">Da un Error Fatal</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Devuelve <strong>FALSE</strong> si la variable está definida como NULL.</p>
+</div></li><li class="q" data-q="Xto1322Xxn" data-tema="Conectarse" data-enlace="parcial-practica.html#conectarse" data-tipo="mc"><div class="q-enun" id="qe-parcial-practica-8"><span class="q-n">8</span><div><p>¿Cuál es el orden de parámetros de mysqli_query?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-practica-8"><li><button type="button" class="op" data-ok="0">Consulta y conexión</button></li><li><button type="button" class="op" data-ok="0">Solo la consulta</button></li><li><button type="button" class="op" data-ok="0">Base, consulta y conexión</button></li><li><button type="button" class="op" data-ok="1">Conexión y consulta</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>En mysqli la <strong>conexión va primero</strong>. En la versión vieja mysql_query iba al final.</p>
+</div></li><li class="q" data-q="WSoPGePuA3" data-tema="Funciones" data-enlace="parcial-practica.html#funciones" data-tipo="mc"><div class="q-enun" id="qe-parcial-practica-9"><span class="q-n">9</span><div><p>¿Qué devuelve mysqli_fetch_assoc cuando no hay más filas?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-practica-9"><li><button type="button" class="op" data-ok="1">NULL</button></li><li><button type="button" class="op" data-ok="0">Cero</button></li><li><button type="button" class="op" data-ok="0">Un array vacío</button></li><li><button type="button" class="op" data-ok="0">Un error</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Retorna un array asociativo de la fila, o <strong>NULL</strong> si no hubiera más filas.</p>
+</div></li><li class="q" data-q="fb9xuC_KZB" data-tema="Sesiones" data-enlace="parcial-practica.html#sesiones" data-tipo="mc"><div class="q-enun" id="qe-parcial-practica-10"><span class="q-n">10</span><div><p>¿Cuándo hay que llamar a session_start?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-practica-10"><li><button type="button" class="op" data-ok="0">Al final de la página</button></li><li><button type="button" class="op" data-ok="0">Después del primer echo</button></li><li><button type="button" class="op" data-ok="1">Antes de escribir cualquier texto en la página</button></li><li><button type="button" class="op" data-ok="0">Solo en la primera página del sitio</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La sesión se inicializa <strong>antes de escribir cualquier texto</strong>, y session_start también continúa una sesión abierta en otras páginas.</p>
+</div></li><li class="q" data-q="qMdIBGd96a" data-tema="Cookies" data-enlace="parcial-practica.html#cookies" data-tipo="mc"><div class="q-enun" id="qe-parcial-practica-11"><span class="q-n">11</span><div><p>¿Qué error puede dar PHP si se envía una cookie después de escribir texto?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-practica-11"><li><button type="button" class="op" data-ok="0">Undefined index</button></li><li><button type="button" class="op" data-ok="1">headers already sent</button></li><li><button type="button" class="op" data-ok="0">Fatal error: cookie</button></li><li><button type="button" class="op" data-ok="0">Parse error</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La cookie va antes de enviar las cabeceras. Si no, puede aparecer <strong>headers already sent</strong>.</p>
+</div></li><li class="q" data-q="zWYgO9HDTX" data-tema="Alta con control de repetido" data-enlace="parcial-practica.html#alta-con-control-de-repetido" data-tipo="abierta"><div class="q-enun" id="qe-parcial-practica-12"><span class="q-n">12</span><div><p>Explicá con tus palabras qué hace primero Alta.php del apunte antes de insertar, y por qué.</p>
+</div></div><details class="q-abierta"><summary>Ver qué dice el material</summary><div><p>Hace un SELECT con <strong>Count</strong> sobre el dni. Si el contador no es cero, avisa que el usuario ya existe y no inserta.</p>
+</div><p class="q-auto">¿Cómo te fue? <button type="button" class="b-auto" aria-pressed="false" data-ok="1">La sabía</button> <button type="button" class="b-auto" aria-pressed="false" data-ok="0">Me faltó</button></p></details></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2024). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

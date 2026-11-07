@@ -1,0 +1,95 @@
+/* The PDF page of a subject: the whole summary on clean sheets. It is always the day notebook, without the grid, so
+   what is on screen is what goes on paper. Figures that cannot go as a drawing go as words (pdf.js decides). */
+body.pdf { background: #e9edf4; }
+.pdf-barra {
+  position: sticky; top: 0; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1.2rem;
+  padding: .6rem clamp(.8rem, 2.5vw, 1.6rem); font-family: var(--sans); background: var(--lapiz); border-bottom: 1.5px solid var(--linea);
+}
+/* On a phone the bar takes two or three lines and the index links would land under it: it stays at the top, like the
+   bar of the study pages. */
+@media (max-width: 58rem) { .pdf-barra { position: static; } }
+.pdf-volver { font-weight: 650; color: var(--titulo); text-decoration: none; }
+.pdf-volver::before { content: '← '; }
+.pdf-accion { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .9rem; }
+.pdf-ayuda, .pdf-estado { margin: 0; font: 400 .92rem/1.35 var(--sans); color: var(--tinta-suave); }
+.pdf-estado { font-family: var(--mano); }
+
+.pdf-hoja { --margen: 0rem; max-width: 52rem; margin: clamp(.8rem, 3vw, 2rem) auto 2.5rem; }
+.pdf .nota { position: static; float: none; transform: none; width: auto; margin: 0 0 .55rem; }
+.pdf-portada { display: flex; flex-direction: column; min-height: min(80vh, 46rem); }
+.pdf-marca { align-self: flex-start; margin: 0 0 2.2rem; padding-bottom: .35rem; font: 800 1.15rem/1 var(--sans); letter-spacing: -.02em; color: var(--titulo); border-bottom: 1.5px solid var(--linea); }
+.pdf-portada h1 { margin: 0 0 .5rem; font-size: clamp(2.6rem, 7vw, 4.4rem); }
+.pdf-carrera { margin: 0 0 2.6rem; font: 500 1.15rem/1.3 var(--sans); color: var(--tinta-suave); }
+.pdf-rotulo { margin: 0 0 .5rem; font: 700 .78rem/1.2 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--tinta-suave); }
+.pdf-indice ol { margin: 0 0 2rem; padding-left: 1.5rem; font: 600 1.08rem/1.35 var(--sans); }
+.pdf-indice li { margin-bottom: .3rem; }
+.pdf-indice a { color: var(--tinta); text-decoration: none; }
+.pdf-origen { max-width: 40rem; margin-top: auto; padding-top: .9rem; border-top: 1px solid var(--borde); font: 400 .95rem/1.5 var(--sans); color: var(--tinta-suave); }
+.pdf-origen p:last-child { margin-bottom: 0; }
+.pdf-parte { margin-top: 3rem; padding-top: 2.2rem; border-top: 2px dashed var(--borde); }
+.pdf-de { margin: 0 0 .5rem; font: 600 .8rem/1.2 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--tinta-suave); }
+
+/* Figures. Controls do nothing on paper, so they are not on screen either. */
+.pdf .w-ctl, .pdf .w-pie .w-botones, .pdf .w-ayuda, .pdf .w-lect, .pdf .w-nota { display: none !important; }
+.pdf .w-plano, .pdf .w-escena { cursor: default; }
+.pdf .w-escena { height: auto; }
+.w-foto { display: block; width: 100%; height: auto; }
+.pdf figure.w-palabras .w-lienzo { display: none; }
+.pdf figure.w-palabras .w-desc { position: static; width: auto; height: auto; clip-path: none; }
+.w-en-la-web { margin: 0 0 .4rem; font: 600 .9rem/1.35 var(--sans); color: var(--tinta-suave); }
+.w-valor-papel { display: none; }
+/* Only while pdf.js measures the formulas: the letter size of paper (utn.css, print) and each formula at its own width. */
+.pdf-midiendo body { font-size: 10.5pt; }
+.pdf-midiendo-ancho .pdf-hoja .katex-display { width: max-content; }
+.pdf .sol > summary, .pdf .pregunta > summary { cursor: default; }
+
+@page {
+  size: A4;
+  margin: 16mm 15mm 18mm;
+  @bottom-center { content: counter(page); font: 400 9pt 'Bricolage Grotesque', 'Segoe UI', sans-serif; color: #515a75; }
+}
+@page :first {
+  @bottom-center { content: none; }
+}
+@media print {
+  html { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  body.pdf { background: #fff; color: #1d2438; }
+  .pdf-barra, .pdf .saltar { display: none !important; }
+  .pdf-hoja { max-width: none; margin: 0; padding: 0; background: none; box-shadow: none; }
+  .pdf-portada { min-height: 238mm; }
+  .pdf-portada h1 { font-size: 34pt; }
+  .pdf-parte { break-before: page; margin: 0; padding: 0; border: 0; }
+  /* No action buttons on paper. A simulator's options (buttons that stay pressed) do stay: they say what the drawing
+     shows, and in some simulators they are the drawing itself, like the fields of a frame. */
+  .pdf-hoja button:not([aria-pressed]) { display: none !important; }
+
+  /* Drawn figures go as they are; the 3D ones, as their picture. */
+  .pdf figure.w-papel .w-lienzo { display: block; }
+  .pdf figure.w-papel .w-desc { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .pdf figure.w { padding: .4rem 0 .4rem .7rem; }
+  /* The 3D pictures a bit smaller, so two fit on one sheet. */
+  .pdf figure.w .wg { max-width: 15cm; }
+  .pdf .w-escena:has(.w-foto), .pdf .w-foto { max-width: 12.5cm; }
+  .pdf .w-escena { border: 0; }
+  .pdf figure.w-papel input[type='text'], .pdf figure.w-papel textarea { display: none !important; }
+  .pdf .w-valor-papel {
+    display: block; flex: 1 1 auto; min-width: 0; min-height: 1.9rem; padding: .3rem .5rem; font: 400 .95rem/1.35 var(--mono);
+    color: var(--tinta); white-space: pre-wrap; overflow-wrap: anywhere; border: 1px solid var(--borde-control); border-radius: 4px;
+  }
+  .pdf .w-grilla .w-valor-papel { padding-inline: .15rem; text-align: center; }
+
+  /* Nothing cut between pages when it can be helped. */
+  .pdf h1, .pdf h2, .pdf h3, .pdf h4, .pdf-de, .teorema-t, .ejemplo-t, .ojo-t, .criollo-t, .alumnos-t, .ej-t { break-after: avoid; }
+  .pdf figure, .pdf .tomado, .pdf .ojo, .pdf .idea, .pdf .criollo, .pdf .alumnos, .pdf .teorema, .pdf .ejemplo, .pdf .pregunta,
+  .pdf .nivel, .pdf .aviso-viejo, .pdf pre.codigo, .pdf .katex-display, .pdf tr, .pdf img, .pdf .w-salidas { break-inside: avoid; }
+  .pdf p, .pdf li { orphans: 3; widows: 3; }
+  .pdf .katex-display, .pdf .tabla, .pdf figure { overflow: visible; }
+  /* A formula wider than the column goes smaller (pdf.js) and, if it still does not fit, breaks after an equal sign or
+     an operator. Something wider than the page would make the browser shrink every page. */
+  .pdf .katex-display > .katex { font-size: calc(1.05em * var(--achicar, 1)); white-space: normal; }
+  /* On paper there is no sideways scroll: long code lines and wide table cells wrap instead of being cut. */
+  .pdf pre.codigo, .pdf pre.codigo code { white-space: pre-wrap; overflow-wrap: anywhere; }
+  .pdf th, .pdf td { overflow-wrap: anywhere; }
+  .pdf thead { display: table-header-group; }
+  .pdf footer .aviso-final { margin-top: 1.5rem; padding: .8rem 0 0; font-size: 9pt; border-top: 1px solid #cfd9ea; break-inside: avoid; }
+}

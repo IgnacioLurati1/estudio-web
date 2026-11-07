@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aprobación directa en PC, 13/10/2025, tema Promoción: Tecnologías de Desarrollo de Software IDE</title>
+<meta name="description" content="Ejercicio de examen: Aprobación directa en PC, 13/10/2025, tema Promoción.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="tecnologias-de-desarrollo-de-software-ide" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Tecnologías de Desarrollo de Software IDE</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="aprobacion-directa.html">Aprobación directa</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=tecnologias-de-desarrollo-de-software-ide">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=tecnologias-de-desarrollo-de-software-ide">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Aprobación directa en PC, 13/10/2025, tema Promoción</h1>
+<p class="bajada">Aprobación directa, 13/10/2025</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="ad-2025-10-13-promocion" data-titulo="Aprobación directa en PC, 13/10/2025, tema Promoción" data-min="120" data-otro="ejercicios.html#ad" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="ad-2025-10-13-promocion" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1sxNIELy9_ETcHC07qB9NF8WIOgnE3gBb/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/ad-2025-10-13-promocion-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/ad-2025-10-13-promocion-e1.webp" width="895" height="1423" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>1. Estructura y entidad</h4>
+<p>Una carpeta <code>PerezJuan</code> con una solución y tres proyectos. Cambiá <code>Perez</code> por tu apellido en los proyectos y los namespaces.</p>
+<div class="tabla"><table><thead><tr><th>Proyecto</th><th>Tipo</th><th>Qué tiene</th></tr></thead><tbody><tr><td><code>Perez.Dominio</code></td><td>Biblioteca de clases</td><td>La entidad <code>Promocion</code>, la interfaz del repositorio y las validaciones</td></tr><tr><td><code>Perez.Api</code></td><td>ASP.NET Core Web API</td><td>El contexto de EF, el repositorio y los endpoints</td></tr><tr><td><code>Perez.Presentacion</code></td><td>Aplicación de Windows Forms</td><td>El listado y el alta</td></tr></tbody></table></div>
+<p><code>Perez.Api</code> y <code>Perez.Presentacion</code> llevan una referencia a <code>Perez.Dominio</code> y comparten la entidad, sin DTO. Las notas de la cátedra del 30/10/2024 dicen que «a los fines del examen era válido compartir la entidad». En las propiedades de la solución, elegí como proyectos de inicio la API y la presentación, así arrancan las dos.</p>
+<p>Los paquetes NuGet son <code>Microsoft.EntityFrameworkCore.SqlServer</code> y <code>Swashbuckle.AspNetCore</code> en <code>Perez.Api</code>, y <code>Microsoft.AspNet.WebApi.Client</code>, que trae <code>Newtonsoft.Json</code>, en <code>Perez.Presentacion</code>, como en los laboratorios de las unidades 4 y 6.</p>
+<p><code>Id</code> es la clave primaria por convención, así que no hace falta <code>[Key]</code>, y SQL Server lo genera solo. <code>[Column]</code> fija el tipo <code>decimal</code> de la columna del descuento, que EF pide para no avisar que puede perder decimales.</p>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.ComponentModel.DataAnnotations.Schema;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Perez.Dominio</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Promocion</span>
+    {
+        <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Id { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+        <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Nombre { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; } = <span class="hljs-string">&quot;&quot;</span>;
+        <span class="hljs-keyword">public</span> DateTime FechaInicio { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+        <span class="hljs-keyword">public</span> DateTime FechaFin { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+        [<span class="hljs-meta">Column(TypeName = <span class="hljs-string">&quot;decimal(5, 2)&quot;</span>)</span>]
+        <span class="hljs-keyword">public</span> <span class="hljs-built_in">decimal</span> Descuento { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+        <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Estado { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; } = <span class="hljs-string">&quot;&quot;</span>;
+    }
+}</code></pre>
+<h4>Acceso a datos con el patrón repositorio</h4>
+<p>La interfaz va en el dominio, con métodos asíncronos.</p>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Perez.Dominio</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title">IPromocionRepositorio</span>
+    {
+        Task&lt;List&lt;Promocion&gt;&gt; ObtenerPorEstadoAsync(<span class="hljs-built_in">string</span> estado);
+        Task&lt;Promocion?&gt; ObtenerPorIdAsync(<span class="hljs-built_in">int</span> id);
+        <span class="hljs-function">Task <span class="hljs-title">AgregarAsync</span>(<span class="hljs-params">Promocion promocion</span>)</span>;
+        <span class="hljs-function">Task <span class="hljs-title">ActualizarAsync</span>(<span class="hljs-params">Promocion promocion</span>)</span>;
+    }
+}</code></pre>
+<p>El contexto hereda de <code>DbContext</code>, tiene un <code>DbSet</code> por tabla y crea la base con <code>EnsureCreated</code>, como en el laboratorio de la Unidad 4. Va en una carpeta <code>Datos</code> de <code>Perez.Api</code>, junto con el repositorio, que es el único que usa el contexto.</p>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> Microsoft.EntityFrameworkCore;
+<span class="hljs-keyword">using</span> Perez.Dominio;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Perez.Api.Datos</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PromocionContext</span> : <span class="hljs-title">DbContext</span>
+    {
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">PromocionContext</span>(<span class="hljs-params">DbContextOptions&lt;PromocionContext&gt; options</span>) : <span class="hljs-title">base</span>(<span class="hljs-params">options</span>)</span>
+        {
+            <span class="hljs-keyword">this</span>.Database.EnsureCreated();
+        }
+
+        <span class="hljs-keyword">public</span> DbSet&lt;Promocion&gt; Promociones { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    }
+}</code></pre>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> System.Linq;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> Microsoft.EntityFrameworkCore;
+<span class="hljs-keyword">using</span> Perez.Dominio;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Perez.Api.Datos</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PromocionRepositorio</span> : <span class="hljs-title">IPromocionRepositorio</span>
+    {
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> PromocionContext _context;
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">PromocionRepositorio</span>(<span class="hljs-params">PromocionContext context</span>)</span>
+        {
+            _context = context;
+        }
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;List&lt;Promocion&gt;&gt; ObtenerPorEstadoAsync(<span class="hljs-built_in">string</span> estado)
+        {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> _context.Promociones.Where(r =&gt; r.Estado == estado).ToListAsync();
+        }
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task&lt;Promocion?&gt; ObtenerPorIdAsync(<span class="hljs-built_in">int</span> id)
+        {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> _context.Promociones.FindAsync(id);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">AgregarAsync</span>(<span class="hljs-params">Promocion promocion</span>)</span>
+        {
+            _context.Promociones.Add(promocion);
+            <span class="hljs-keyword">await</span> _context.SaveChangesAsync();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">ActualizarAsync</span>(<span class="hljs-params">Promocion promocion</span>)</span>
+        {
+            _context.Promociones.Update(promocion);
+            <span class="hljs-keyword">await</span> _context.SaveChangesAsync();
+        }
+    }
+}</code></pre>
+<p>En el <code>appsettings.json</code> de la plantilla, sumá la cadena de conexión con el nombre de la base que pide el enunciado.</p>
+<pre class="codigo"><code><span class="hljs-attr">&quot;ConnectionStrings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;dbPromocion&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Server=(localdb)\\MSSQLLocalDB;Database=dbPromocion;Trusted_Connection=True;TrustServerCertificate=True&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre>
+<h4>2. API de servicios</h4>
+<p>Los endpoints son asíncronos, como pide el enunciado, con la API mínima del laboratorio 1 de la Unidad 6. El repositorio llega por parámetro, porque está registrado en <code>Program.cs</code>.</p>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> Microsoft.EntityFrameworkCore;
+<span class="hljs-keyword">using</span> Perez.Api.Datos;
+<span class="hljs-keyword">using</span> Perez.Dominio;
+
+<span class="hljs-keyword">var</span> builder = WebApplication.CreateBuilder(<span class="hljs-keyword">args</span>);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext&lt;PromocionContext&gt;(options =&gt;
+    options.UseSqlServer(builder.Configuration.GetConnectionString(<span class="hljs-string">&quot;dbPromocion&quot;</span>)));
+builder.Services.AddScoped&lt;IPromocionRepositorio, PromocionRepositorio&gt;();
+
+<span class="hljs-keyword">var</span> app = builder.Build();
+
+<span class="hljs-keyword">if</span> (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.MapGet(<span class="hljs-string">&quot;/promociones&quot;</span>, <span class="hljs-keyword">async</span> (<span class="hljs-built_in">string</span> estado, IPromocionRepositorio repositorio) =&gt;
+    Results.Ok(<span class="hljs-keyword">await</span> repositorio.ObtenerPorEstadoAsync(estado)));
+
+app.MapGet(<span class="hljs-string">&quot;/promociones/{id}&quot;</span>, <span class="hljs-keyword">async</span> (<span class="hljs-built_in">int</span> id, IPromocionRepositorio repositorio) =&gt;
+    <span class="hljs-keyword">await</span> repositorio.ObtenerPorIdAsync(id) <span class="hljs-keyword">is</span> Promocion promocion
+        ? Results.Ok(promocion)
+        : Results.NotFound());
+
+app.MapPost(<span class="hljs-string">&quot;/promociones&quot;</span>, <span class="hljs-keyword">async</span> (Promocion promocion, IPromocionRepositorio repositorio) =&gt;
+{
+    List&lt;<span class="hljs-built_in">string</span>&gt; errores = ValidadorPromocion.Validar(promocion);
+    <span class="hljs-keyword">if</span> (errores.Count &gt; <span class="hljs-number">0</span>)
+    {
+        <span class="hljs-keyword">return</span> Results.BadRequest(errores);
+    }
+    promocion.Id = <span class="hljs-number">0</span>;
+    promocion.Estado = <span class="hljs-string">&quot;Activa&quot;</span>;
+    <span class="hljs-keyword">await</span> repositorio.AgregarAsync(promocion);
+    <span class="hljs-keyword">return</span> Results.Created(<span class="hljs-string">$&quot;/promociones/<span class="hljs-subst">{promocion.Id}</span>&quot;</span>, promocion);
+});
+
+app.MapPut(<span class="hljs-string">&quot;/promociones/{id}/expirar&quot;</span>, <span class="hljs-keyword">async</span> (<span class="hljs-built_in">int</span> id, IPromocionRepositorio repositorio) =&gt;
+{
+    Promocion? promocion = <span class="hljs-keyword">await</span> repositorio.ObtenerPorIdAsync(id);
+    <span class="hljs-keyword">if</span> (promocion <span class="hljs-keyword">is</span> <span class="hljs-literal">null</span>)
+    {
+        <span class="hljs-keyword">return</span> Results.NotFound();
+    }
+    <span class="hljs-keyword">if</span> (promocion.Estado != <span class="hljs-string">&quot;Activa&quot;</span>)
+    {
+        <span class="hljs-keyword">return</span> Results.BadRequest(<span class="hljs-keyword">new</span> List&lt;<span class="hljs-built_in">string</span>&gt; { <span class="hljs-string">&quot;Solo se puede expirar una promoción en estado Activa.&quot;</span> });
+    }
+    promocion.Estado = <span class="hljs-string">&quot;Expirada&quot;</span>;
+    <span class="hljs-keyword">await</span> repositorio.ActualizarAsync(promocion);
+    <span class="hljs-keyword">return</span> Results.NoContent();
+});
+
+app.Run();</code></pre>
+<div class="tabla"><table><thead><tr><th>Verbo y ruta</th><th>Qué hace</th><th>Respuesta</th></tr></thead><tbody><tr><td><code>GET /promociones?estado=Activa</code></td><td>Lista según el estado</td><td>200</td></tr><tr><td><code>GET /promociones/{id}</code></td><td>Trae una</td><td>200, o 404 si no existe</td></tr><tr><td><code>POST /promociones</code></td><td>Alta, siempre en «Activa»</td><td>201, o 400 con la lista de errores</td></tr><tr><td><code>PUT /promociones/{id}/expirar</code></td><td>Pasa a «Expirada»</td><td>204, 404 si no existe, 400 si no estaba en «Activa»</td></tr></tbody></table></div>
+<p>El alta pisa el <code>Estado</code> con «Activa», así que aunque alguien lo mande con otro valor, entra como pide el enunciado. Con la API corriendo, Swagger muestra los cuatro endpoints y se prueban desde el navegador.</p>
+<h4>3. Validaciones</h4>
+<p>Van en la API, porque según las notas de la cátedra «nuestra API de servicios nunca puede confiarse de que la presentación va a realizar estas validaciones». Un método junta todos los errores, así la pantalla los muestra juntos.</p>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> System.Collections.Generic;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Perez.Dominio</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ValidadorPromocion</span>
+    {
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;<span class="hljs-built_in">string</span>&gt; <span class="hljs-title">Validar</span>(<span class="hljs-params">Promocion promocion</span>)</span>
+        {
+            List&lt;<span class="hljs-built_in">string</span>&gt; errores = <span class="hljs-keyword">new</span> List&lt;<span class="hljs-built_in">string</span>&gt;();
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">string</span>.IsNullOrWhiteSpace(promocion.Nombre))
+            {
+                errores.Add(<span class="hljs-string">&quot;El nombre es obligatorio.&quot;</span>);
+            }
+            <span class="hljs-keyword">if</span> (promocion.Descuento &lt; <span class="hljs-number">1</span> || promocion.Descuento &gt; <span class="hljs-number">100</span>)
+            {
+                errores.Add(<span class="hljs-string">&quot;El descuento tiene que estar entre 1 y 100.&quot;</span>);
+            }
+            <span class="hljs-keyword">if</span> (promocion.FechaInicio &gt;= promocion.FechaFin)
+            {
+                errores.Add(<span class="hljs-string">&quot;La fecha de inicio tiene que ser anterior a la fecha de fin.&quot;</span>);
+            }
+            <span class="hljs-keyword">return</span> errores;
+        }
+    }
+}</code></pre>
+<p>«Comprendido entre 1 y 100» se toma con los dos extremos incluidos. «Inferior a la FechaFin» es estricto, así que la misma fecha en las dos no vale.</p>
+<h4>4. Presentación</h4>
+<p>Una clase <code>Conexion</code> con un único <code>HttpClient</code>, con el patrón Singleton como en el laboratorio 3 de la Unidad 6. El puerto <code>7011</code> es el del laboratorio. Cambialo por el de <code>applicationUrl</code> en <code>Properties/launchSettings.json</code> de tu API.</p>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Net.Http;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Perez.Presentacion</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Conexion</span>
+    {
+        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Conexion? _instancia;
+        <span class="hljs-keyword">public</span> HttpClient Cliente { <span class="hljs-keyword">get</span>; }
+
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Conexion</span>()</span>
+        {
+            Cliente = <span class="hljs-keyword">new</span> HttpClient();
+            Cliente.BaseAddress = <span class="hljs-keyword">new</span> Uri(<span class="hljs-string">&quot;https://localhost:7011/&quot;</span>);
+        }
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Conexion Instancia
+        {
+            <span class="hljs-keyword">get</span>
+            {
+                <span class="hljs-keyword">if</span> (_instancia == <span class="hljs-literal">null</span>)
+                {
+                    _instancia = <span class="hljs-keyword">new</span> Conexion();
+                }
+                <span class="hljs-keyword">return</span> _instancia;
+            }
+        }
+    }
+}</code></pre>
+<p>Otra clase consume los servicios. Los métodos son asíncronos porque esperan a la API.</p>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> System.Net.Http;
+<span class="hljs-keyword">using</span> System.Text;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> Newtonsoft.Json;
+<span class="hljs-keyword">using</span> Perez.Dominio;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Perez.Presentacion</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PromocionApi</span>
+    {
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task&lt;List&lt;Promocion&gt;&gt; GetPorEstadoAsync(<span class="hljs-built_in">string</span> estado)
+        {
+            <span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> Conexion.Instancia.Cliente.GetStringAsync(<span class="hljs-string">$&quot;promociones?estado=<span class="hljs-subst">{estado}</span>&quot;</span>);
+            <span class="hljs-keyword">return</span> JsonConvert.DeserializeObject&lt;List&lt;Promocion&gt;&gt;(response) ?? <span class="hljs-keyword">new</span> List&lt;Promocion&gt;();
+        }
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task&lt;List&lt;<span class="hljs-built_in">string</span>&gt;&gt; AgregarAsync(Promocion promocion)
+        {
+            <span class="hljs-keyword">var</span> json = JsonConvert.SerializeObject(promocion);
+            <span class="hljs-keyword">var</span> contenido = <span class="hljs-keyword">new</span> StringContent(json, Encoding.UTF8, <span class="hljs-string">&quot;application/json&quot;</span>);
+            <span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> Conexion.Instancia.Cliente.PostAsync(<span class="hljs-string">&quot;promociones&quot;</span>, contenido);
+            <span class="hljs-keyword">if</span> (response.IsSuccessStatusCode)
+            {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> List&lt;<span class="hljs-built_in">string</span>&gt;();
+            }
+            <span class="hljs-keyword">var</span> texto = <span class="hljs-keyword">await</span> response.Content.ReadAsStringAsync();
+            <span class="hljs-keyword">return</span> JsonConvert.DeserializeObject&lt;List&lt;<span class="hljs-built_in">string</span>&gt;&gt;(texto) ?? <span class="hljs-keyword">new</span> List&lt;<span class="hljs-built_in">string</span>&gt;();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task&lt;<span class="hljs-built_in">bool</span>&gt; <span class="hljs-title">ExpirarAsync</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> id</span>)</span>
+        {
+            <span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> Conexion.Instancia.Cliente.PutAsync(<span class="hljs-string">$&quot;promociones/<span class="hljs-subst">{id}</span>/expirar&quot;</span>, <span class="hljs-literal">null</span>);
+            <span class="hljs-keyword">return</span> response.IsSuccessStatusCode;
+        }
+    }
+}</code></pre>
+<p><strong>El listado.</strong> Un formulario <code>FormPromociones</code> con estos controles, puestos con el diseñador.</p>
+<div class="tabla"><table><thead><tr><th>Control</th><th>Nombre</th><th>Para qué</th></tr></thead><tbody><tr><td><code>ComboBox</code></td><td><code>cmbEstado</code></td><td>Elegir «Activa» o «Expirada»</td></tr><tr><td><code>Button</code></td><td><code>btnBuscar</code></td><td>Aplicar el filtro</td></tr><tr><td><code>DataGridView</code></td><td><code>dgvPromociones</code></td><td>El listado. Con <code>SelectionMode</code> en <code>FullRowSelect</code> y <code>ReadOnly</code> en <code>True</code></td></tr><tr><td><code>Button</code></td><td><code>btnAgregar</code></td><td>Abrir el alta</td></tr><tr><td><code>Button</code></td><td><code>btnExpirar</code></td><td>Pasar a «Expirada» la fila elegida</td></tr></tbody></table></div>
+<p>Los manejadores de eventos son <code>async</code>, que es el único caso donde vale <code>async void</code>.</p>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Net.Http;
+<span class="hljs-keyword">using</span> System.Threading.Tasks;
+<span class="hljs-keyword">using</span> System.Windows.Forms;
+<span class="hljs-keyword">using</span> Perez.Dominio;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Perez.Presentacion</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">partial</span> <span class="hljs-keyword">class</span> <span class="hljs-title">FormPromociones</span> : <span class="hljs-title">Form</span>
+    {
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FormPromociones</span>()</span>
+        {
+            InitializeComponent();
+            cmbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbEstado.Items.Add(<span class="hljs-string">&quot;Activa&quot;</span>);
+            cmbEstado.Items.Add(<span class="hljs-string">&quot;Expirada&quot;</span>);
+            cmbEstado.SelectedIndex = <span class="hljs-number">0</span>;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> <span class="hljs-title">FormPromociones_Load</span>(<span class="hljs-params"><span class="hljs-built_in">object</span>? sender, EventArgs e</span>)</span>
+        {
+            <span class="hljs-keyword">await</span> CargarAsync();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> <span class="hljs-title">btnBuscar_Click</span>(<span class="hljs-params"><span class="hljs-built_in">object</span>? sender, EventArgs e</span>)</span>
+        {
+            <span class="hljs-keyword">await</span> CargarAsync();
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> Task <span class="hljs-title">CargarAsync</span>()</span>
+        {
+            <span class="hljs-keyword">try</span>
+            {
+                dgvPromociones.DataSource = <span class="hljs-keyword">await</span> PromocionApi.GetPorEstadoAsync(cmbEstado.Text);
+            }
+            <span class="hljs-keyword">catch</span> (HttpRequestException)
+            {
+                MessageBox.Show(<span class="hljs-string">&quot;No se pudo conectar con la API. Fijate que esté corriendo.&quot;</span>);
+            }
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> <span class="hljs-title">btnAgregar_Click</span>(<span class="hljs-params"><span class="hljs-built_in">object</span>? sender, EventArgs e</span>)</span>
+        {
+            FormAltaPromocion alta = <span class="hljs-keyword">new</span> FormAltaPromocion();
+            <span class="hljs-keyword">if</span> (alta.ShowDialog() == DialogResult.OK)
+            {
+                <span class="hljs-keyword">await</span> CargarAsync();
+            }
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> <span class="hljs-title">btnExpirar_Click</span>(<span class="hljs-params"><span class="hljs-built_in">object</span>? sender, EventArgs e</span>)</span>
+        {
+            <span class="hljs-keyword">if</span> (dgvPromociones.CurrentRow?.DataBoundItem <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> Promocion promocion)
+            {
+                MessageBox.Show(<span class="hljs-string">&quot;Elegí una promoción del listado.&quot;</span>);
+                <span class="hljs-keyword">return</span>;
+            }
+            <span class="hljs-keyword">if</span> (promocion.Estado != <span class="hljs-string">&quot;Activa&quot;</span>)
+            {
+                MessageBox.Show(<span class="hljs-string">&quot;Solo se puede expirar una promoción en estado Activa.&quot;</span>);
+                <span class="hljs-keyword">return</span>;
+            }
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">await</span> PromocionApi.ExpirarAsync(promocion.Id))
+            {
+                <span class="hljs-keyword">await</span> CargarAsync();
+            }
+            <span class="hljs-keyword">else</span>
+            {
+                MessageBox.Show(<span class="hljs-string">&quot;No se pudo expirar la promoción.&quot;</span>);
+            }
+        }
+    }
+}</code></pre>
+<p><strong>El alta.</strong> Un formulario <code>FormAltaPromocion</code> sin ningún control para el estado, porque lo pone el servicio.</p>
+<div class="tabla"><table><thead><tr><th>Control</th><th>Nombre</th><th>Para qué</th></tr></thead><tbody><tr><td><code>TextBox</code></td><td><code>txtNombre</code></td><td>El nombre de la promoción</td></tr><tr><td><code>DateTimePicker</code></td><td><code>dtpFechaInicio</code></td><td>La fecha de inicio, con <code>Format</code> en <code>Short</code></td></tr><tr><td><code>DateTimePicker</code></td><td><code>dtpFechaFin</code></td><td>La fecha de fin, con <code>Format</code> en <code>Short</code></td></tr><tr><td><code>NumericUpDown</code></td><td><code>nudDescuento</code></td><td>El porcentaje, de 1 a 100</td></tr><tr><td><code>Button</code></td><td><code>btnGuardar</code></td><td>Mandar el alta</td></tr></tbody></table></div>
+<p>Al guardar bien, <code>DialogResult = DialogResult.OK</code> cierra el formulario, y como el listado lo abrió con <code>ShowDialog</code>, recarga la grilla.</p>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> System.Net.Http;
+<span class="hljs-keyword">using</span> System.Windows.Forms;
+<span class="hljs-keyword">using</span> Perez.Dominio;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">Perez.Presentacion</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">partial</span> <span class="hljs-keyword">class</span> <span class="hljs-title">FormAltaPromocion</span> : <span class="hljs-title">Form</span>
+    {
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">FormAltaPromocion</span>()</span>
+        {
+            InitializeComponent();
+            nudDescuento.Minimum = <span class="hljs-number">1</span>;
+            nudDescuento.Maximum = <span class="hljs-number">100</span>;
+            dtpFechaInicio.Value = DateTime.Today;
+            dtpFechaFin.Value = DateTime.Today.AddDays(<span class="hljs-number">7</span>);
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">void</span> <span class="hljs-title">btnGuardar_Click</span>(<span class="hljs-params"><span class="hljs-built_in">object</span>? sender, EventArgs e</span>)</span>
+        {
+            Promocion promocion = <span class="hljs-keyword">new</span> Promocion
+            {
+                Nombre = txtNombre.Text.Trim(),
+                FechaInicio = dtpFechaInicio.Value.Date,
+                FechaFin = dtpFechaFin.Value.Date,
+                Descuento = nudDescuento.Value
+            };
+            <span class="hljs-keyword">try</span>
+            {
+                List&lt;<span class="hljs-built_in">string</span>&gt; errores = <span class="hljs-keyword">await</span> PromocionApi.AgregarAsync(promocion);
+                <span class="hljs-keyword">if</span> (errores.Count == <span class="hljs-number">0</span>)
+                {
+                    DialogResult = DialogResult.OK;
+                }
+                <span class="hljs-keyword">else</span>
+                {
+                    MessageBox.Show(<span class="hljs-built_in">string</span>.Join(Environment.NewLine, errores), <span class="hljs-string">&quot;No se pudo guardar&quot;</span>);
+                }
+            }
+            <span class="hljs-keyword">catch</span> (HttpRequestException)
+            {
+                MessageBox.Show(<span class="hljs-string">&quot;No se pudo conectar con la API. Fijate que esté corriendo.&quot;</span>);
+            }
+        }
+    }
+}</code></pre>
+<p>En <code>Program.cs</code> de <code>Perez.Presentacion</code>, el formulario que arranca es <code>FormPromociones</code>, con <code>Application.Run(new FormPromociones())</code>.</p>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con Aprobación directa, secciones Las capas, «Lineamientos de la cátedra para el examen», Entity Framework en la aplicación, La API REST, Programación asíncrona, Swagger y La pantalla que consume la API, más DbContext y DbSet del 2° parcial.</p><p class="bloque-fuente">Quedó en duda: El material no desarrolla el patrón repositorio. Esta forma, con la interfaz en el dominio y su implementación con EF en la API, es una de varias, y en tu comisión pueden haber visto otra en el TPI. La API va con API mínima, como el laboratorio 1 de la Unidad 6, porque es el que usa <code>async</code>. Con un controlador también vale. Las validaciones también se pueden poner con <code>[Required]</code> y <code>[Range]</code> en la entidad, pero la regla de fechas igual necesita código. La cadena de conexión usa LocalDB y la de tu laboratorio puede ser otra. Swagger viene con la plantilla Web API de .NET 8; en .NET 9 hay que sumar <code>Swashbuckle.AspNetCore</code>, como dice el laboratorio. La lógica de la API y de las validaciones se probó con una versión simulada de EF y de ASP.NET, y la pantalla se compiló con Windows Forms. Falta correrlo entero en Visual Studio con SQL Server. «Comprendido entre 1 y 100» se tomó con los extremos incluidos.</p><div class="em-votos" data-m="tecnologias-de-desarrollo-de-software-ide" data-e="ad-2025-10-13-promocion" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Entity Framework" data-enlace="parcial-2.html#entity-framework" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Entity Framework</span><span class="ex-t-teoria"><a href="parcial-2.html#entity-framework">Entity Framework</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="API REST" data-enlace="aprobacion-directa.html#la-api-rest" data-donde="Aprobación directa"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">API REST</span><span class="ex-t-teoria"><a href="aprobacion-directa.html#la-api-rest">La API REST</a>, en Aprobación directa</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Validaciones" data-enlace="parcial-2.html#dbcontext-y-dbset" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Validaciones</span><span class="ex-t-teoria"><a href="parcial-2.html#dbcontext-y-dbset">DbContext y DbSet</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Pantalla de listado y alta"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">Pantalla de listado y alta</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-ad-2025-10-13-alquiler.html">Anterior: Aprobación directa en PC, 13/10/2025, tema Alquiler</a><a href="ej-p2-2016-10-15-tema-a.html">Siguiente: 2° parcial escrito, 15/10/2016, tema A</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). En el Drive no hay ningún final. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>
