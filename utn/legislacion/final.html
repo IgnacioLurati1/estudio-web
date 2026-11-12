@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final: Legislación</title>
+<meta name="description" content="Cómo es el final oral, actividad pericial y qué se preguntó en cada mesa.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="legislacion" data-pagina="final">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Legislación</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html" aria-current="page">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=legislacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=legislacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-es-el-final">Cómo es el final</a></li><li class="n2"><a href="#que-se-pregunto">Qué se preguntó</a></li><li class="n2"><a href="#actividad-pericial">Actividad pericial</a></li><li class="n3"><a href="#donde-entra-en-el-juicio">Dónde entra en el juicio</a></li><li class="n3"><a href="#tipos-de-peritos">Tipos de peritos</a></li><li class="n3"><a href="#como-llega-a-ser-perito-de-oficio">Cómo llega a ser perito de oficio</a></li><li class="n3"><a href="#los-tres-momentos-de-la-actividad-pericial">Los tres momentos de la actividad pericial</a></li><li class="n3"><a href="#aceptacion-del-cargo">Aceptación del cargo</a></li><li class="n3"><a href="#fijar-la-pericia-y-los-gastos">Fijar la pericia y los gastos</a></li><li class="n3"><a href="#el-dictamen">El dictamen</a></li><li class="n3"><a href="#honorarios">Honorarios</a></li><li class="n3"><a href="#los-codigos">Los códigos</a></li><li class="n3"><a href="#que-cambia-en-el-penal">Qué cambia en el penal</a></li><li class="n2"><a href="#como-armar-una-respuesta">Cómo armar una respuesta</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Final</h1>
+<p class="bajada">El final es oral y recorre todo el programa. Esta página dice cómo se toma, qué se preguntó en cada mesa y trae la unidad 7, actividad pericial, que no está en los parciales.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Lo marcado «Plan viejo» es de 2022 o antes, del plan anterior. Puede no coincidir con lo que se toma hoy.</p>
+
+
+<section class="sec"><h2 id="como-es-el-final">Cómo es el final</h2>
+<p>Lo que sabemos sale de relatos de alumnos. El único final de 2023 en adelante es el del 08/08/2025. Los dos de 2020 llevan su marca de plan viejo, pero tienen la misma forma.</p>
+<ul>
+<li>Es oral.</li>
+<li>Los tres finales van pasando por las unidades, con preguntas cortas.</li>
+<li>En el Final 04/12/2020, si te equivocabas en algo que no era grave, la cátedra te ayudaba a ubicarte.</li>
+</ul>
+<div class="idea"><p>Una pregunta de final puede pedir la definición y algo más. En el Final 08/08/2025 pidieron qué es una sociedad y un ejemplo con dos socios.</p>
+</div>
+</section>
+<section class="sec"><h2 id="que-se-pregunto">Qué se preguntó</h2>
+<p>Hay tres finales con preguntas legibles, uno de 2025 y dos de 2020.</p>
+<div class="tomado"><aside class="nota"><strong>Final oral completo</strong><span>Final 08/08/2025</span></aside><p>Siete preguntas. Qué es la ley y quién la dicta a nivel nacional y provincial. Composición y atribuciones del Poder Legislativo. Qué es una sociedad y un ejemplo con dos socios, uno ilimitado y otro limitado. Qué es un dibujo industrial y sus requisitos. Responsabilidad objetiva, dentro del factor de atribución. Cuándo un contrato es eventual y en qué se diferencia del plazo fijo. Cuándo se hace contratación directa.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Final oral completo</strong><span>Final 04/12/2020 <em class="viejo">Plan viejo</em></span></aside><p>Unidad 1, definición de derecho, derecho objetivo y subjetivo y jerarquía de normas. Unidad 3, leasing y sociedad. Unidad 4, qué se requiere para patentar y cuánto dura. Unidad 5, caso de cambio de normas de trabajo y cálculo de indemnización con y sin preaviso. Unidad 8, caso de obra para decidir si corresponde licitación pública o privada, y qué indicios señalan que no puede ser pública. No hubo preguntas de las unidades 6 y 7.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Final oral completo</strong><span>Final 20/11/2020 <em class="viejo">Plan viejo</em></span></aside><p>Unidad 1, fuentes formales y si la jurisprudencia obliga. Unidad 2, principio de división de poderes. Unidad 3, si una sociedad puede entenderse como contrato. Unidad 4, modelo de utilidad y modelo o diseño industrial. Unidad 5, si el empleador puede modificar la forma del contrato, qué pasa si no cumple y cómo se calcula la indemnización. Unidad 6, cuándo hay responsabilidad civil y sus presupuestos. No hubo preguntas de las unidades 7 y 8.</p>
+</div>
+<p>Dónde estudiar cada tema.</p>
+<div class="tabla"><table><thead><tr><th>Unidad</th><th>Dónde</th></tr></thead><tbody><tr><td>1, 2 y 3</td><td><a href="parcial-1.html">1° parcial</a></td></tr><tr><td>4, 5 y 6</td><td><a href="parcial-2.html">2° parcial</a></td></tr><tr><td>8</td><td><a href="parcial-2.html#obra-publica-y-licitacion">2° parcial, obra pública</a></td></tr><tr><td>7</td><td>Más abajo</td></tr></tbody></table></div>
+<p>En estos tres finales la unidad 8 apareció en dos y la 7 en ninguno. Tampoco está en los parciales de 2023 en adelante. Igual está en los apuntes de la cátedra de 2025, así que puede entrar.</p>
+</section>
+<section class="sec"><h2 id="actividad-pericial">Actividad pericial</h2>
+<p>Un <strong>perito</strong> es una persona con conocimientos técnicos o científicos especiales que interviene en un juicio para dar su opinión fundada sobre un tema que excede lo que sabe el juez.</p>
+<p>La <strong>pericia</strong> es el medio de prueba con el que personas ajenas a las partes, con conocimientos en una ciencia, arte o profesión, verifican hechos y dan su opinión para convencer al juez. En el esquema de la cátedra, es «prueba suministrada por un tercero por encargo judicial, fundada en conocimientos científicos, artísticos o técnicos».</p>
+<h3 id="donde-entra-en-el-juicio">Dónde entra en el juicio</h3>
+<p>Las etapas del proceso, según el material de la cátedra.</p>
+<ol>
+<li>Demanda.</li>
+<li>Contestación.</li>
+<li>Pruebas.</li>
+<li>Alegatos.</li>
+<li>Llamamiento de autos.</li>
+<li>Sentencia.</li>
+</ol>
+<p>Los medios de prueba son la confesional, la testimonial, el reconocimiento, la documental, los indicios y la <strong>pericial</strong>. Otra fuente agrupa las etapas en cuatro, afirmación, negación, confirmación y alegación.</p>
+<h3 id="tipos-de-peritos">Tipos de peritos</h3>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Quién es</th><th>Quién lo designa o contrata</th></tr></thead><tbody><tr><td><strong>Perito oficial</strong></td><td>Profesional que trabaja en relación de dependencia del Poder Judicial. Se entra por concurso de antecedentes y oposición.</td><td>Ya es del Poder Judicial</td></tr><tr><td><strong>Perito de oficio</strong></td><td>Profesional independiente, inscripto en las listas oficiales, que actúa de manera eventual en un juicio determinado.</td><td>El juez, por sorteo de la lista</td></tr><tr><td><strong>Perito de parte</strong></td><td>Lo designa una de las partes para controlar la prueba. Supervisa el desempeño del perito oficial, presenta su propio informe técnico y puede impugnar el del perito de oficio.</td><td>La parte</td></tr></tbody></table></div>
+<p>Aun siendo perito de parte, tiene que ser independiente e imparcial al formar su opinión. Fuente: Prueba pericial, páginas 4 y 5.</p>
+<h3 id="como-llega-a-ser-perito-de-oficio">Cómo llega a ser perito de oficio</h3>
+<p>Las listas las abre cada año el Poder Judicial de Santa Fe. Hay que inscribirse en octubre para el año siguiente. Requisitos que da la cátedra.</p>
+<ol>
+<li>DNI.</li>
+<li>Título profesional.</li>
+<li>Matrícula profesional.</li>
+<li>Pago de las cuotas del Colegio.</li>
+<li>Formulario con firma certificada.</li>
+<li>Certificado de buena conducta (provincial) o de reincidencia (federal).</li>
+<li>Fianza.</li>
+</ol>
+<p>El perito se designa por <strong>sorteo</strong> de la lista oficial. El juez manda un oficio a la Cámara o a la Corte Suprema.</p>
+<p>Según el Código Procesal Civil y Comercial de Santa Fe, puede ser un tribunal colegiado de tres especialistas o uno solo. Lo decide el juez según el valor del asunto, y el perito único es lo más frecuente (Prueba pericial, página 8).</p>
+<h3 id="los-tres-momentos-de-la-actividad-pericial">Los tres momentos de la actividad pericial</h3>
+<p>Según el esquema de la cátedra.</p>
+<ol>
+<li><strong>Aceptación del cargo.</strong> Se presenta un escrito.</li>
+<li><strong>Verificación o examen.</strong> Se hace ajustado a los puntos de pericia.</li>
+<li><strong>Dictamen pericial.</strong> Es el informe técnico fundado.</li>
+</ol>
+<h3 id="aceptacion-del-cargo">Aceptación del cargo</h3>
+<ul>
+<li>La notificación llega por cédula al domicilio que el perito tiene registrado.</li>
+<li>Tiene <strong>tres días hábiles</strong> desde la notificación para aceptar ante el secretario del juzgado, con juramento o afirmación de desempeñar el cargo fiel y legalmente.</li>
+<li>Si no acepta sin causa fundada, se lo elimina de la lista, no se lo incluye en la del año siguiente y puede tener una multa.</li>
+<li>Se puede excusar por las mismas razones por las que un testigo se niega a declarar. Se lo puede recusar por las mismas causas que a un juez.</li>
+<li>En el proceso civil, aceptar es una obligación una vez que te anotaste en la lista oficial. En el penal, es una carga pública.</li>
+</ul>
+<p>En el Drive hay un modelo de escrito de <strong>aceptación de cargo</strong>, otro para <strong>fijar lugar, día y hora de la pericia</strong> (con pedido de documentación y adelanto de gastos) y otro de <strong>dictamen</strong>. Sirven para ver cómo se escribe cada uno.</p>
+<h3 id="fijar-la-pericia-y-los-gastos">Fijar la pericia y los gastos</h3>
+<p>El perito fija lugar, día y hora y pide que se notifique a las partes. La pericia no se hace si no consta la notificación de ambas. Puede pedir documentación y un adelanto para gastos extraordinarios. Las partes pueden ir por sí o con un delegado técnico.</p>
+<h3 id="el-dictamen">El dictamen</h3>
+<ul>
+<li>Es un escrito dirigido al juez, con copia para las partes, dentro del plazo fijado.</li>
+<li>Se presenta con su identificación, el carácter de perito, los autos (carátula) y el objeto.</li>
+<li>Después va, según el modelo de la cátedra. Quiénes estuvieron en el acto, los elementos tenidos en cuenta, los <strong>puntos periciales</strong> de cada parte, la actividad realizada y las conclusiones concretas para cada punto.</li>
+<li>Termina pidiendo que se tenga por cumplida la obligación y que se regulen los honorarios.</li>
+<li>Las partes pueden impugnarlo o pedir aclaraciones. El juez puede citar a una audiencia.</li>
+<li><strong>El juez no está obligado a seguirlo</strong> y lo valora según su criterio (art. 199). No puede ignorar una prueba decisiva sin fundar, porque su sentencia podría ser arbitraria.</li>
+</ul>
+<h3 id="honorarios">Honorarios</h3>
+<p>Los peritos no oficiales tienen derecho a que se les regulen honorarios. Según la Ley Orgánica del Poder Judicial de Santa Fe (art. 361), se rigen por los aranceles de los abogados (ley 6767). <strong>No pueden superar el 50%</strong> de los que se regulen al abogado de la parte vencedora, con una salvedad si el trabajo recae sobre objetos ajenos al litigio. Fuente: Prueba pericial, páginas 7 y 13.</p>
+<h3 id="los-codigos">Los códigos</h3>
+<p>Dos códigos regulan la pericia del ingeniero. El <strong>Código Procesal Civil y Comercial</strong> (de Santa Fe, arts. 186 a 199) y el <strong>Código Procesal Penal</strong> (arts. 182 a 193 en el apunte).</p>
+<h3 id="que-cambia-en-el-penal">Qué cambia en el penal</h3>
+<ul>
+<li>La pericia la puede ordenar el fiscal o el tribunal. Las partes la pueden pedir.</li>
+<li>El perito tiene que tener título habilitante si la profesión está reglamentada.</li>
+<li>Las partes pueden proponer otro perito para que dictamine con el designado, y nombrar un <strong>asesor técnico</strong>, que presencia y observa pero no emite dictamen.</li>
+<li>El dictamen va fundado, por escrito, firmado y fechado. Si los peritos opinan distinto, pueden dictaminar por separado.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Perito de parte y asesor técnico no son lo mismo</p><p>En el civil se habla de perito de parte. En el penal, el apunte llama asesor técnico a quien asiste a la parte y observa, y no dictamina. Los tipos que da el apunte son oficial, de oficio y de parte.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Recopilaciones de finales de 2012 a 2019, de cátedras anteriores, preguntan historia del derecho del trabajo, teoría trialista y contratos informáticos. No aparecen en ningún examen de 2023 en adelante. Hay un apunte de contratos informáticos en la carpeta de la unidad 3, pero no lo desarrollamos acá.</p>
+</div>
+</section>
+<section class="sec"><h2 id="como-armar-una-respuesta">Cómo armar una respuesta</h2>
+<p>Lo que se ve en el Final 08/08/2025.</p>
+<ol>
+<li><strong>Definí primero.</strong> Tres de las siete preguntas empiezan con «qué es».</li>
+<li><strong>Si piden un ejemplo, llevalo pensado.</strong> Una de las siete pedía uno.</li>
+</ol>
+</section><section class="sec quiz" id="quiz" data-quiz="final" data-materia="legislacion">
+<h2>Quiz del final</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="giSh3G41eX" data-tema="Actividad pericial" data-enlace="final.html#actividad-pericial" data-tipo="mc"><div class="q-enun" id="qe-final-1"><span class="q-n">1</span><div><p>¿Quién es el perito oficial?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-1"><li><button type="button" class="op" data-ok="1">Un profesional que trabaja en relación de dependencia del Poder Judicial</button></li><li><button type="button" class="op" data-ok="0">Un profesional sorteado de la lista de cada año</button></li><li><button type="button" class="op" data-ok="0">Un profesional contratado por una de las partes</button></li><li><button type="button" class="op" data-ok="0">Cualquier ingeniero matriculado</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Al perito oficial se llega por concurso de antecedentes y oposición. El de <strong>oficio</strong> sale del sorteo de la lista y el <strong>de parte</strong> lo contrata una parte.</p>
+</div></li><li class="q" data-q="jWgDGvwQ53" data-tema="Actividad pericial" data-enlace="final.html#actividad-pericial" data-tipo="mc"><div class="q-enun" id="qe-final-2"><span class="q-n">2</span><div><p>¿Cómo se designa un perito de oficio?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-2"><li><button type="button" class="op" data-ok="0">Lo elige libremente una de las partes</button></li><li><button type="button" class="op" data-ok="1">Por sorteo de la lista oficial, a pedido del juez</button></li><li><button type="button" class="op" data-ok="0">Lo propone el Colegio de Ingenieros</button></li><li><button type="button" class="op" data-ok="0">Lo elige el secretario del juzgado</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El juez manda un oficio a la Cámara o a la Corte para el <strong>sorteo</strong>. Las partes pueden ponerse de acuerdo, pero lo habitual es el sorteo.</p>
+</div></li><li class="q" data-q="0pNkijF7V7" data-tema="Actividad pericial" data-enlace="final.html#actividad-pericial" data-tipo="mc"><div class="q-enun" id="qe-final-3"><span class="q-n">3</span><div><p>¿Qué función tiene el perito de parte?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-3"><li><button type="button" class="op" data-ok="0">Reemplaza al juez</button></li><li><button type="button" class="op" data-ok="0">Cobra del Poder Judicial como empleado</button></li><li><button type="button" class="op" data-ok="1">Supervisa al perito oficial, presenta su propio informe e impugna el del perito de oficio</button></li><li><button type="button" class="op" data-ok="0">Declara como testigo de lo que vio</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Aun así, debe ser <strong>independiente e imparcial</strong> al formar su opinión.</p>
+</div></li><li class="q" data-q="rJw8XeCgqX" data-tema="Actividad pericial" data-enlace="final.html#actividad-pericial" data-tipo="mc"><div class="q-enun" id="qe-final-4"><span class="q-n">4</span><div><p>Una vez notificado como perito de oficio, ¿en cuánto tiempo tiene que aceptar el cargo según el apunte de la cátedra?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-4"><li><button type="button" class="op" data-ok="0">24 horas</button></li><li><button type="button" class="op" data-ok="0">Un mes</button></li><li><button type="button" class="op" data-ok="0">No hay plazo</button></li><li><button type="button" class="op" data-ok="1">3 días hábiles</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Si no acepta ni se excusa con causa fundada, lo eliminan de la lista, no entra en la del año siguiente y puede tener multa.</p>
+</div></li><li class="q" data-q="d1xWCYvEJb" data-tema="Actividad pericial" data-enlace="final.html#actividad-pericial" data-tipo="mc"><div class="q-enun" id="qe-final-5"><span class="q-n">5</span><div><p>¿Qué tope tienen los honorarios de un perito en un juicio según la Ley Orgánica del Poder Judicial de Santa Fe?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-5"><li><button type="button" class="op" data-ok="1">No pueden superar el 50% de los que se regulen al abogado de la parte vencedora</button></li><li><button type="button" class="op" data-ok="0">Son siempre el 100% de lo que cobra el abogado</button></li><li><button type="button" class="op" data-ok="0">Son un porcentaje fijo del valor de la demanda</button></li><li><button type="button" class="op" data-ok="0">No hay ningún tope</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El art. 361 remite a los aranceles de abogados y procuradores (ley 6767) con ese tope.</p>
+</div></li><li class="q" data-q="cUI-kXoyOQ" data-tema="Actividad pericial" data-enlace="final.html#actividad-pericial" data-tipo="mc"><div class="q-enun" id="qe-final-6"><span class="q-n">6</span><div><p>¿Está obligado el juez a seguir el dictamen pericial?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-6"><li><button type="button" class="op" data-ok="0">Sí, siempre</button></li><li><button type="button" class="op" data-ok="0">Solo si lo pide una de las partes</button></li><li><button type="button" class="op" data-ok="1">No. Lo valora según su criterio, pero no puede ignorar una prueba decisiva sin fundar</button></li><li><button type="button" class="op" data-ok="0">Solo si el perito es oficial</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es el art. 199 del Código Procesal Civil y Comercial de Santa Fe. Una sentencia que descarta sin fundar una prueba decisiva puede ser arbitraria.</p>
+</div></li><li class="q" data-q="tfQk5HBd3g" data-tema="Actividad pericial" data-enlace="final.html#actividad-pericial" data-tipo="mc"><div class="q-enun" id="qe-final-7"><span class="q-n">7</span><div><p>¿Qué dos códigos regulan la actividad pericial del ingeniero?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-7"><li><button type="button" class="op" data-ok="0">El Código Civil y Comercial y el Código de Minería</button></li><li><button type="button" class="op" data-ok="0">El Estatuto del Colegio y el Código de Ética</button></li><li><button type="button" class="op" data-ok="0">La Ley de Contrato de Trabajo y la ley 13.064</button></li><li><button type="button" class="op" data-ok="1">El Código Procesal Civil y Comercial y el Código Procesal Penal</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Son el Código Procesal Civil y Comercial de Santa Fe (arts. 186 a 199) y el Código Procesal Penal (arts. 182 a 193).</p>
+</div></li><li class="q" data-q="1t1qVEjhhw" data-tema="Actividad pericial" data-enlace="final.html#actividad-pericial" data-tipo="mc"><div class="q-enun" id="qe-final-8"><span class="q-n">8</span><div><p>En las etapas del proceso judicial de la cátedra, ¿qué viene justo después de la etapa de pruebas?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-8"><li><button type="button" class="op" data-ok="1">Los alegatos</button></li><li><button type="button" class="op" data-ok="0">La contestación</button></li><li><button type="button" class="op" data-ok="0">La demanda</button></li><li><button type="button" class="op" data-ok="0">La sentencia</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El orden es demanda, contestación, pruebas, <strong>alegatos</strong>, llamamiento de autos y sentencia.</p>
+</div></li><li class="q" data-q="JRYIc_lkrf" data-tema="Actividad pericial" data-enlace="final.html#actividad-pericial" data-tipo="mc"><div class="q-enun" id="qe-final-9"><span class="q-n">9</span><div><p>¿Qué contiene el dictamen pericial según el modelo de la cátedra?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-9"><li><button type="button" class="op" data-ok="0">Solo la opinión personal del perito</button></li><li><button type="button" class="op" data-ok="0">Solo los datos del juicio</button></li><li><button type="button" class="op" data-ok="1">Los puntos periciales, la actividad realizada y las conclusiones para cada punto</button></li><li><button type="button" class="op" data-ok="0">Una copia del expediente</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Va dirigido al juez, con los elementos tenidos en cuenta, y termina pidiendo que se tenga por cumplida la obligación y que se regulen los honorarios.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta noviembre de 2025). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hoja de repaso: Redes de Datos</title>
+<meta name="description" content="Todo en una hoja para imprimir.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="redes-de-datos" data-pagina="machete">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Redes de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html" aria-current="page">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=redes-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=redes-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#capas">Capas</a></li><li class="n2"><a href="#fisica">Física</a></li><li class="n2"><a href="#enlace">Enlace</a></li><li class="n2"><a href="#ethernet">Ethernet</a></li><li class="n2"><a href="#wifi">WiFi</a></li><li class="n2"><a href="#bluetooth-y-rfid">Bluetooth y RFID</a></li><li class="n2"><a href="#red">Red</a></li><li class="n2"><a href="#ipv4">IPv4</a></li><li class="n2"><a href="#qos">QoS</a></li><li class="n2"><a href="#transporte">Transporte</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja machete" data-reportable>
+<h1>Hoja de repaso</h1>
+<p class="bajada">Lo que más se toma, en dos carillas.</p>
+
+
+<section class="sec"><h2 id="capas">Capas</h2>
+<div class="tabla"><table><thead><tr><th>Capa</th><th>Unidad</th><th>Dirección</th><th>Aparato</th></tr></thead><tbody><tr><td>Física</td><td>Bit</td><td>Ninguna</td><td>Hub, repetidor</td></tr><tr><td>Enlace</td><td>Trama</td><td>MAC, 6 bytes</td><td>Switch, Access Point</td></tr><tr><td>Red</td><td>Paquete</td><td>IP, 32 o 128 bits</td><td>Router</td></tr><tr><td>Transporte</td><td>Segmento</td><td>Puerto, 16 bits</td><td>Hosts</td></tr></tbody></table></div>
+<p><strong>Servicio:</strong> entre capas vecinas. <strong>Protocolo:</strong> entre capas iguales de dos máquinas.</p>
+</section>
+<section class="sec"><h2 id="fisica">Física</h2>
+<ul>
+<li>Nyquist <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>&#61;</mo><mn>2</mn><mi>B</mi><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mi>V</mi></mrow><annotation encoding="application/x-tex">C &#61; 2B&#92;log&#95;2 V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.9386em;vertical-align:-0.2441em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.0502em;">B</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.2222em;">V</span></span></span></span>. Shannon <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>&#61;</mo><mi>B</mi><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>S</mi><mi mathvariant="normal">/</mi><mi>N</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C &#61; B&#92;log&#95;2(1+S/N)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0502em;">B</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.0139em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0576em;">S</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mclose">)</span></span></span></span>.</li>
+<li>UTP: cat 3 1 MHz, cat 5 100 MHz, cat 6 250 MHz, cat 7 600 MHz, cat 8 40 GHz.</li>
+<li>Fibra: multimodo 60 μm, monomodo 8 a 10 μm. LED corto, láser largo. Los fotodiodos limitan.</li>
+<li>GEO 35.800 km, retardo 540 ms. MEO 20.200 km, GPS. LEO Iridium 750 km, Globalstar 1440 km, Starlink 500 km.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="enlace">Enlace</h2>
+<ul>
+<li>Servicios: orientado (satélite), sin conexión (Ethernet), sin conexión con confirmación (WiFi).</li>
+<li>Inicio de trama: contar bytes, byte-stuffing (PPP), bit-stuffing (HDLC), violar la codificación (FDDI, Fast Ethernet), flag más campo de largo (Ethernet clásica, WiFi).</li>
+<li>Contador de secuencia = doble de la ventana.</li>
+<li>ALOHA puro <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>&#61;</mo><mi>G</mi><msup><mi>e</mi><mrow><mo>−</mo><mn>2</mn><mi>G</mi></mrow></msup></mrow><annotation encoding="application/x-tex">S&#61;Ge^{-2G}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0576em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8413em;"></span><span class="mord mathnormal">G</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span><span class="mord mathnormal mtight">G</span></span></span></span></span></span></span></span></span></span></span></span>, 18%. Ranurado <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>&#61;</mo><mi>G</mi><msup><mi>e</mi><mrow><mo>−</mo><mi>G</mi></mrow></msup></mrow><annotation encoding="application/x-tex">S&#61;Ge^{-G}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0576em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8413em;"></span><span class="mord mathnormal">G</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight">G</span></span></span></span></span></span></span></span></span></span></span></span>, 36%.</li>
+<li>CSMA/CD: slot <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mi>T</mi></mrow><annotation encoding="application/x-tex">2T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord">2</span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span></span></span></span>. Espera exponencial, 16 colisiones da error.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="ethernet">Ethernet</h2>
+<ul>
+<li>Trama: preámbulo 8, MAC 6+6, tipo 2, datos hasta 1500, CRC 4. Mínimo 64 bytes, 51,2 μs.</li>
+<li>Hub: capa física, repite. Switch: capa 2, <em>backward learning</em>.</li>
+<li>Spanning Tree: raíz de menor MAC, anula redundancias.</li>
+<li>VLAN 802.1Q: id de 12 bits.</li>
+<li>Fast: 0,01 μs. Giga: 1 ns. Los switches negocian velocidad y dúplex.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="wifi">WiFi</h2>
+<ul>
+<li>CSMA/CA con sensado físico y virtual (NAV). RTS y CTS opcionales.</li>
+<li>Interferencias: <mark>bajar velocidad, acortar trama, fragmentar</mark>.</li>
+<li>Ahorro: Beacon Frame y APSD.</li>
+<li>QoS: 802.11e y TXOP.</li>
+<li>Mesh: un SSID, ruteo dinámico, se redirige si cae un nodo.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="bluetooth-y-rfid">Bluetooth y RFID</h2>
+<ul>
+<li>Piconet: 10 m, 7 activos, 255 inactivos. Maestro en slots impares. Trama 625 μs, multitrama 3 o 5 slots.</li>
+<li>RFID: 902 a 928 MHz. Lector 27 a 128 kbps, etiqueta 5 a 640 kbps. Backscatter. Slotted-Aloha, Query, RN16, EPC.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="red">Red</h2>
+<div class="tabla"><table><thead><tr><td></td><th>Datagrama</th><th>Circuito virtual</th></tr></thead><tbody><tr><td>Establecimiento</td><td>No</td><td>Sí</td></tr><tr><td>Paquete lleva</td><td>Direcciones</td><td>Número de circuito</td></tr><tr><td>Si falla</td><td>Cambia ruta</td><td>Termina</td></tr></tbody></table></div>
+<ul>
+<li>Sink tree: menor costo desde un router. RPF: copia solo si llegó por el árbol.</li>
+<li>RIP: vector distancia, cuenta a infinito. OSPF: estado de enlaces, adentro del SA. BGP: vector de paso, entre SA.</li>
+<li>Congestión, 5 etapas: planificar, rutas según tráfico, admisión, atenuar fuentes, descartar.</li>
+<li>Hop-by-hop backpressure: la técnica más rápida, recarga routers.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="ipv4">IPv4</h2>
+<ul>
+<li>IHL 5 = 20 bytes, 15 = 60 bytes. TTL 8 bits.</li>
+<li>Privadas: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16.</li>
+<li>Red = dirección AND máscara. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>N</mi></msup><mo>≥</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">2^N &#92;ge C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.9773em;vertical-align:-0.136em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.109em;">N</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>M</mi></msup><mo>−</mo><mn>2</mn><mo>&#61;</mo><mi>H</mi></mrow><annotation encoding="application/x-tex">2^M - 2 &#61; H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.9247em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.109em;">M</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0813em;">H</span></span></span></span>, salto = 256 menos el último decimal.</li>
+<li>ARP busca MAC. ICMP avisa. DHCP da IP. Traceroute usa tiempo excedido.</li>
+<li>Fragmentación de IP: no transparente. Hoy, Path MTU Discovery.</li>
+<li>IPv6: 128 bits, encabezado de 40 bytes, sin checksum.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="qos">QoS</h2>
+<p>Velocidad, retardo, jitter y pérdida. Jitter con buffer. Pérdida con retransmisión o corrección.</p>
+</section>
+<section class="sec"><h2 id="transporte">Transporte</h2>
+<div class="tabla"><table><thead><tr><td></td><th>TCP</th><th>UDP</th></tr></thead><tbody><tr><td>Servicio</td><td>Orientado</td><td>Sin conexión</td></tr><tr><td>Encabezado</td><td>20 bytes y opciones</td><td>8 bytes</td></tr><tr><td>Checksum</td><td>Obligatorio</td><td>Opcional</td></tr><tr><td>Retransmite</td><td>Sí</td><td>No</td></tr></tbody></table></div>
+<ul>
+<li>ARQ reenvía sin confirmación. No es ARP.</li>
+<li>AIMD: ley óptima. Tasa justa: subir a uno implica bajar a otro.</li>
+<li>Slow start duplica. Tahoe recomienza. Reno agrega <em>fast recovery</em>.</li>
+<li>Primitivas del servidor: SOCKET, BIND, LISTEN, ACCEPT.</li>
+<li>Multiplexación inversa: SCTP.</li>
+</ul>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

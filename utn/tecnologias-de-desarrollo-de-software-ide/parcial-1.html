@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>1° parcial: Tecnologías de Desarrollo de Software IDE</title>
+<meta name="description" content="CLR, MSIL, tipos, Visual Studio, sintaxis de C#, objetos, colecciones y LINQ.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="tecnologias-de-desarrollo-de-software-ide" data-pagina="parcial-1">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Tecnologías de Desarrollo de Software IDE</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html" aria-current="page">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="aprobacion-directa.html">Aprobación directa</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=tecnologias-de-desarrollo-de-software-ide">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=tecnologias-de-desarrollo-de-software-ide">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#la-plataforma-net">La plataforma .NET</a></li><li class="n3"><a href="#las-caracteristicas-de-net-core">Las características de .NET Core</a></li><li class="n3"><a href="#common-language-runtime-clr">Common Language Runtime (CLR)</a></li><li class="n3"><a href="#compilacion-de-c-a-codigo-nativo">Compilación: de C# a código nativo</a></li><li class="n3"><a href="#codigo-en-lenguaje-intermedio-msil">Código en lenguaje intermedio (MSIL)</a></li><li class="n3"><a href="#ensamblados-manifiesto-y-metadatos">Ensamblados, manifiesto y metadatos</a></li><li class="n3"><a href="#cli-cts-y-cls">CLI, CTS y CLS</a></li><li class="n3"><a href="#tipos-por-valor-y-por-referencia">Tipos por valor y por referencia</a></li><li class="n3"><a href="#base-class-library-bcl">Base Class Library (BCL)</a></li><li class="n3"><a href="#namespaces">Namespaces</a></li><li class="n2"><a href="#visual-studio-soluciones-y-proyectos">Visual Studio: soluciones y proyectos</a></li><li class="n3"><a href="#el-explorador-de-soluciones">El Explorador de Soluciones</a></li><li class="n3"><a href="#referencias-entre-proyectos">Referencias entre proyectos</a></li><li class="n3"><a href="#herramientas-del-ide">Herramientas del IDE</a></li><li class="n2"><a href="#sintaxis-de-c">Sintaxis de C#</a></li><li class="n3"><a href="#variables">Variables</a></li><li class="n3"><a href="#estructuras-y-arreglos">Estructuras y arreglos</a></li><li class="n3"><a href="#decision-e-iteracion">Decisión e iteración</a></li><li class="n3"><a href="#operadores-logicos-y-cortocircuito">Operadores lógicos y cortocircuito</a></li><li class="n3"><a href="#enumeraciones">Enumeraciones</a></li><li class="n3"><a href="#excepciones">Excepciones</a></li><li class="n3"><a href="#modificadores-de-acceso">Modificadores de acceso</a></li><li class="n2"><a href="#objetos-en-c">Objetos en C#</a></li><li class="n3"><a href="#clase-y-objeto">Clase y objeto</a></li><li class="n3"><a href="#abstraccion-y-encapsulamiento">Abstracción y encapsulamiento</a></li><li class="n3"><a href="#propiedades">Propiedades</a></li><li class="n3"><a href="#metodos">Métodos</a></li><li class="n3"><a href="#constructores-y-destructores">Constructores y destructores</a></li><li class="n3"><a href="#herencia">Herencia</a></li><li class="n3"><a href="#clases-y-metodos-abstractos">Clases y métodos abstractos</a></li><li class="n3"><a href="#metodos-virtuales-override-y-new">Métodos virtuales, override y new</a></li><li class="n3"><a href="#interfaces">Interfaces</a></li><li class="n3"><a href="#polimorfismo-y-sobrecarga">Polimorfismo y sobrecarga</a></li><li class="n3"><a href="#metodos-estaticos">Métodos estáticos</a></li><li class="n3"><a href="#clases-parciales">Clases parciales</a></li><li class="n2"><a href="#colecciones-y-genericos">Colecciones y genéricos</a></li><li class="n2"><a href="#linq">LINQ</a></li><li class="n2"><a href="#delegados-y-eventos">Delegados y eventos</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>1° parcial</h1>
+<p class="bajada">Plataforma .NET, Visual Studio, sintaxis de C#, objetos, colecciones y LINQ. Se tomó con preguntas en 2024 y con código en la PC en 2025 y 2026.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>Leí 3 fechas de 2023 en adelante, con 5 temas en total. El 01/06/2024 fue en aula virtual. El 09/06/2025 y el 08/06/2026 fueron prácticas en PC.</p>
+<div class="tomado"><aside class="nota"><strong>La forma de la práctica en PC</strong><span>1° parcial 09/06/2025 (temas Auto, Moto, Celular) y 08/06/2026 (tema Médico)</span></aside><p>Los 4 temas leídos piden lo mismo y cambian los nombres.</p>
+<ol>
+<li>Una solución .NET con dos proyectos. <mark><code>ApellidoNombre.Dominio</code>, del tipo Biblioteca de Clases, y <code>ApellidoNombre.Consola</code>, del tipo Aplicación de Consola.</mark></li>
+<li>Una clase base abstracta que ya viene escrita y copiás.</li>
+<li>Una clase derivada con una propiedad nueva, un constructor que <mark>llama al constructor de la clase superior</mark> y una <mark>sobreescritura de <code>ToString</code> que invoca al método de la clase superior</mark>.</li>
+<li>Una clase con métodos estáticos de búsqueda. Uno <mark>con LINQ</mark> y otro equivalente <mark>iterando sobre la lista</mark>.</li>
+<li>En el <code>Main</code>, una lista del tipo base, tres objetos de la clase derivada, las dos búsquedas y mostrar el resultado con <code>ToString</code>.</li>
+</ol>
+<p>El tema Médico de 2026 suma un <code>enum</code> y un método más, que filtra con LINQ y devuelve una lista.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Las reglas de la entrega</strong><span>1° parcial 09/06/2025 y 08/06/2026</span></aside><p>Los enunciados dicen esto, con estas palabras.</p>
+<ul>
+<li>Criterios de evaluación: «correcto funcionamiento (compilación/ejecución sin errores), uso de convenciones, formateo, estándares y buenas prácticas».</li>
+<li>«Los nombres de la/los solución/proyectos/namespaces deben tener de prefijo su ApellidoNombre». El ejemplo que da es <code>PerezJuan.X</code>.</li>
+<li>«El entregable debe estar zipeado y nombrado como ApellidoNombre.zip».</li>
+</ul>
+</div>
+<div class="tomado"><aside class="nota"><strong>Los temas de las preguntas</strong><span>1° parcial 01/06/2024</span></aside><p>De las 20 preguntas, 3 se desarrollan: un lenguaje nuevo para .NET, la clase parcial y 4 controles WinForm con un ejemplo de uso. Las otras 17 tocan compilador y MSIL, <code>using</code>, interfaz y clase abstracta, CLR, <code>System.Object</code>, excepciones, agregar un <code>Button</code> por código, formularios, tipos anónimos, pilares de objetos, soluciones, ClickOnce, namespaces y tipos por valor. Una pide predecir qué imprime un <code>if</code> con operadores lógicos.</p>
+</div>
+<p>Los enunciados completos están en <a href="ejercicios.html">Ejercicios</a>. Los temas de escritorio de esa fecha se estudian en la <a href="parcial-2.html#windows-forms">página del 2° parcial</a>.</p>
+</section>
+<section class="sec"><h2 id="la-plataforma-net">La plataforma .NET</h2>
+<p>.NET es la base sobre la que corre todo lo que escribís. La cátedra la define así.</p>
+<blockquote>
+<p>«La plataforma .NET es un conjunto de tecnologías diseñado por Microsoft que permiten el desarrollo y ejecución de software, de forma independiente del lenguaje de programación, modelo de objetos, sistema operativo, infraestructura de hardware y dispositivos donde se ejecuta.» (Unidad 1, Capítulo 1, Teoría, pág. 4)</p>
+</blockquote>
+<p>Tiene dos componentes principales.</p>
+<ul>
+<li><strong>CLR</strong>, el motor de ejecución.</li>
+<li><strong>BCL</strong>, la librería de clases.</li>
+</ul>
+<p>Se liberó oficialmente en 2002. Hay tres nombres que conviene ubicar.</p>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Qué es</th></tr></thead><tbody><tr><td>.NET Framework</td><td>La versión original. La primera estable es de inicios de 2002</td></tr><tr><td>.NET Core</td><td>Implementación «de uso general, modular, multiplataforma (admite Windows, macOS y Linux) y de código abierto». Primera versión estable a inicios de 2014</td></tr><tr><td>.NET 5 y posteriores</td><td>Unifica .NET Core y .NET Framework en una sola plataforma</td></tr></tbody></table></div>
+<p>Fuente: Unidad 1, Capítulo 1, Teoría, págs. 5, 8 y 9.</p>
+<p>La presentación da su objetivo y sus beneficios (Presentación de la Unidad 1, Capítulo 1, diapositivas 3 y 4). El objetivo es «ofrecer un modelo de programación potente, flexible y simple (en comparación con lo que hasta ese momento se conocía como COM)». Los beneficios son estos.</p>
+<ul>
+<li>Interoperabilidad con código existente.</li>
+<li>Soporte para múltiples lenguajes de programación.</li>
+<li>Soporte para múltiples sistemas operativos.</li>
+<li>«Runtime» común compartido por todos los lenguajes y sistemas operativos.</li>
+<li>Integración entre todos los lenguajes.</li>
+<li>Extensa librería de clases compartida.</li>
+<li>Modelo de «deployment» simplificado.</li>
+<li>Amplio soporte para uso desde línea de comando.</li>
+</ul>
+<h3 id="las-caracteristicas-de-net-core">Las características de .NET Core</h3>
+<p>El apunte las enumera así (Unidad 1, Capítulo 1, Teoría, págs. 8 y 9).</p>
+<div class="tabla"><table><thead><tr><th>Característica</th><th>Qué significa</th></tr></thead><tbody><tr><td>Multiplataforma</td><td>Corre en Windows, Linux y macOS</td></tr><tr><td>Código abierto</td><td>Está en GitHub, con licencias MIT y Apache 2. Es un proyecto de .NET Foundation</td></tr><tr><td>Coherente en todas las arquitecturas</td><td>El código se ejecuta con el mismo comportamiento en x64, x86 y ARM</td></tr><tr><td>Compatible</td><td>Con .NET Framework, Xamarin y Mono, mediante .NET Standard</td></tr><tr><td>Modular</td><td>Se publica por NuGet en paquetes chicos. Incluís solo los que necesitás</td></tr><tr><td>Desarrollo flexible</td><td>Implementación basada en el framework o autocontenida (abajo)</td></tr><tr><td>Implementación flexible</td><td>Se incluye en la aplicación o se instala en paralelo, por usuario o por equipo. Se puede usar con Docker</td></tr><tr><td>Herramientas de línea de comandos</td><td>Para el desarrollo local y la integración continua</td></tr></tbody></table></div>
+<p>En la implementación <strong>basada en el framework</strong> se instalan solo tu aplicación y sus dependencias de terceros. La máquina necesita tener una versión de .NET Core instalada. En la <strong>autocontenida</strong>, la versión de .NET Core con la que compilaste viaja junto con la aplicación y puede correr en paralelo con otras versiones (pág. 9).</p>
+<h3 id="common-language-runtime-clr">Common Language Runtime (CLR)</h3>
+<blockquote>
+<p>«El Common Language Runtime (CLR) maneja el código en tiempo de ejecución y provee una serie de servicios esenciales tales como la integración de lenguajes, seguridad, manejo de tipos seguros, manejo de hilos (thread) y manejo de memoria.» (Unidad 1, Capítulo 1, Teoría, pág. 10)</p>
+</blockquote>
+<p>Es el código que administra a tu código. El apunte lo llama «el verdadero núcleo del framework de .NET». Es el entorno de ejecución donde se cargan las aplicaciones escritas en los distintos lenguajes, y permite integrar proyectos en C#, Visual Basic, C++ o F# (pág. 10). «El CLR es el encargado de gestionar lo que se denomina código administrado», y para eso tiene componentes que dan servicios automáticos al código que se ejecuta (pág. 14).</p>
+<p>El CLR también compila. Pasa el CIL a código máquina nativo con una compilación JIT, en tiempo de ejecución y a medida que el programa invoca métodos. El código obtenido queda en la memoria caché y se vuelve a compilar solo si cambia el código fuente (pág. 10).</p>
+<p>Sus componentes, con sus nombres:</p>
+<div class="tabla"><table><thead><tr><th>Componente</th><th>Qué hace</th></tr></thead><tbody><tr><td>Class Loader</td><td>Carga en memoria las clases</td></tr><tr><td>MSIL to Native Compilers</td><td>Pasa código intermedio a código de máquina</td></tr><tr><td>Code Manager</td><td>Coordina los subsistemas del CLR</td></tr><tr><td>Garbage Collector</td><td>Elimina de memoria objetos no utilizados, solo</td></tr><tr><td>Security Engine</td><td>Administra la seguridad del código</td></tr><tr><td>Debug Engine</td><td>Sigue la ejecución, aun con lenguajes distintos</td></tr><tr><td>Type Checker</td><td>Controla que las variables usen el área de memoria asignada</td></tr><tr><td>Exception Manager</td><td>Maneja los errores durante la ejecución</td></tr><tr><td>Thread Support</td><td>Permite ejecutar código en paralelo</td></tr><tr><td>COM Marshaler</td><td>Coordina la comunicación con componentes COM</td></tr><tr><td>BCL Support</td><td>Da soporte a funcionalidades comunes</td></tr></tbody></table></div>
+<p>Fuente: Unidad 1, Capítulo 1, Teoría, pág. 15.</p>
+<details class="pregunta"><summary><span>¿Qué es válido afirmar del CLR?</span><small>2° parcial 14/09/2026 y 1° parcial 01/06/2024</small></summary><div class="resp"><p>«Motor de ejecución (runtime) de .NET», con servicios automáticos como administración de memoria, seguridad del código, manejo de excepciones, versionado y múltiples lenguajes. Entre sus componentes están el Garbage Collector, el Exception Manager y el Thread Support. Fuente: Presentación de la Unidad 1, Capítulo 1, diapositivas 8 y 9.</p>
+</div></details>
+<h3 id="compilacion-de-c-a-codigo-nativo">Compilación: de C# a código nativo</h3>
+<p>Compilar en .NET son dos pasos. El primero pasa en tu máquina. El segundo, cuando corre el programa.</p>
+<ol>
+<li><strong>Elegir un compilador.</strong> Cada lenguaje .NET tiene el suyo. El de C# es <code>csc.exe</code>.</li>
+<li><strong>Compilar a MSIL.</strong> Convierte el código fuente en CIL (o MSIL) y genera los metadatos.</li>
+<li><strong>Compilar MSIL a código nativo.</strong> En tiempo de ejecución, un compilador JIT (Just-In-Time) convierte el CIL en código nativo. Antes se comprueba la seguridad de tipos.</li>
+<li><strong>Ejecutar.</strong> El CLR da la infraestructura y sus servicios.</li>
+</ol>
+<p>Fuente: Unidad 1, Capítulo 1, Teoría, pág. 11.</p>
+<p>El paso 1 se hace a mano solo si compilás por línea de comandos. Con un IDE, ese paso y el siguiente los hace el entorno solo (Teoría, pág. 11, nota 9).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El MSIL es como un idioma neutro. Todos los lenguajes .NET se traducen a ese idioma. Después el JIT lo traduce al idioma de la máquina donde está corriendo, a medida que el programa invoca métodos. Por eso el mismo MSIL corre en cualquier arquitectura compatible.</p>
+</div>
+<details class="pregunta"><summary><span>¿Qué tipo de código genera en primera instancia el compilador de C#?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>Cada compilador transforma el código fuente «a un código en un Lenguaje Intermedio (IL) común a todos, conocido como CIL (Common Intermediate Language), que es entendido por el CLR». Fuente: Unidad 1, Capítulo 1, Teoría, pág. 11.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Qué es necesario para construir un compilador .NET?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«Para generarlo, el compilador se basa en la especificación CLS (Common Language Specification) que determina las reglas necesarias para crear el código CIL compatible con el CLR.» Fuente: Unidad 1, Capítulo 1, Teoría, pág. 11.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Se puede desarrollar un lenguaje nuevo soportado por .NET? ¿Qué características debe tener?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>«Cada lenguaje de programación tiene su propio compilador e intérprete de su sintaxis propia, que debe cumplir las normas del CLS, CLI y CTS, aunque todos, luego al compilar, generan código MSIL.» «Cualquier lenguaje que sea acorde a la Common Language Specification (CLS) puede ejecutarse sobre la CLR.» El CLS engloba «las pautas que deben cumplir estos para poder ser soportados por la plataforma» y permite «a otras compañías producir lenguajes compatibles con .NET». La presentación agrega que «todo lenguaje de programación de .NET debe implementar los tipos definidos por el CTS». Fuente: Unidad 1, Capítulo 1, Teoría, págs. 26 y 27, y Presentación de la Unidad 1, Capítulo 1, diapositiva 11.</p>
+</div></details>
+<p>El apunte lista estos lenguajes desarrollados para .NET: «C#, Visual Basic .NET, Delphi (Object Pascal), C++, F#, J#, Perl, Python, Fortran, Prolog, Cobol y PowerBuilder» (Teoría, pág. 16). La publicación de la norma CLI facilitó el desarrollo de lenguajes. Por eso se puede hacer cualquier tipo de aplicación de la plataforma con cualquiera de ellos (pág. 16).</p>
+<div class="ojo"><p class="ojo-t">Pascal no vale como ejemplo</p><p>En el parcial del 01/06/2024 se pedía nombrar 4 lenguajes basados en especificaciones .NET. La corrección dijo: «Pascal no es soportado en .Net. Existe una versión de Pascal llamado PascalABC.NET que sí se podría mencionar». El apunte, en cambio, lista «Delphi (Object Pascal)» entre los lenguajes de la plataforma (Unidad 1, Capítulo 1, Teoría, pág. 16). Su resumen y el del Capítulo 2 nombran también «implementaciones de Python, Pascal, Eiffel, Cobol, Smalltalk y ADA» de terceros (Capítulo 1, pág. 27, y Capítulo 2, pág. 29). Para no arriesgar, usá C#, Visual Basic .NET, C++ o F#, que están en la misma lista.</p>
+</div>
+<h3 id="codigo-en-lenguaje-intermedio-msil">Código en lenguaje intermedio (MSIL)</h3>
+<p>«El código en Lenguaje Intermedio de Microsoft (MSIL o CIL) es un conjunto de instrucciones independiente de la CPU y sistema operativo, que se puede convertir de forma eficaz en código nativo» (Teoría, pág. 12).</p>
+<ul>
+<li>Trae instrucciones para cargar, almacenar, inicializar y llamar a métodos de objetos. También para operaciones lógicas y aritméticas, flujo de control, acceso directo a memoria y control de excepciones (pág. 12).</li>
+<li>Antes de ejecutarse se convierte a código de la CPU con el JIT. El CLR tiene uno o varios compiladores JIT por cada arquitectura compatible (pág. 12).</li>
+<li>Junto con el MSIL, el compilador genera los <strong>metadatos</strong>. Describen los tipos del código, sus definiciones, las firmas de sus miembros y los miembros referenciados (págs. 12 y 13).</li>
+<li>El IL y los metadatos van en un archivo Ejecutable Portable (PE). Gracias a los metadatos, el código es autodescriptivo y no hacen falta bibliotecas de tipos ni IDL (pág. 13).</li>
+<li>«El MSIL es independiente del lenguaje en el que se desarrolla» (Presentación de la Unidad 1, Capítulo 1, diapositiva 12).</li>
+</ul>
+<h3 id="ensamblados-manifiesto-y-metadatos">Ensamblados, manifiesto y metadatos</h3>
+<p>Un <strong>ensamblado</strong> (assembly) es la unidad básica de un desarrollo .NET. Contiene código IL, una colección de tipos, recursos y un manifiesto. El <strong>manifiesto</strong> es un conjunto de metadatos que describe su contenido. Se guarda como <code>.exe</code> o <code>.dll</code> (Unidad 1, Capítulo 1, Teoría, págs. 13 y 14).</p>
+<p>Los metadatos describen dependencias y versión. Por eso pueden convivir varias versiones de un mismo ensamblado sin conflicto. Para mirar adentro de un ensamblado está <code>ildasm.exe</code>.</p>
+<p>El .NET Framework usa el ensamblado como unidad fundamental para la seguridad, la identificación de tipos, el alcance de referencias, el versionado y el despliegue (Teoría, pág. 14). La presentación lo resume así. Son archivos <code>*.dll</code> o <code>*.exe</code>, «unidad mínima de despliegue al CLR», con un número de versión único, que contienen IL y metadata que los describe (Presentación de la Unidad 1, Capítulo 1, diapositiva 13).</p>
+<h3 id="cli-cts-y-cls">CLI, CTS y CLS</h3>
+<p>Estas tres siglas se confunden. Se ordenan de mayor a menor.</p>
+<div class="tabla"><table><thead><tr><th>Sigla</th><th>Qué es</th><th>Fuente</th></tr></thead><tbody><tr><td>CLI</td><td>Especificación estandarizada que describe un entorno virtual de ejecución. Está formada por CTS, metadatos y CLS</td><td>Teoría, pág. 16</td></tr><tr><td>CTS</td><td>Especifica «cómo se declaran, utilizan y administran los tipos en el motor de ejecución»</td><td>Teoría, pág. 16</td></tr><tr><td>CLS</td><td>Conjunto de características básicas del lenguaje que establece los requisitos de compatibilidad. Sus reglas definen un subconjunto del CTS</td><td>Teoría, pág. 19</td></tr></tbody></table></div>
+<p>La característica principal del CLI es que las aplicaciones escritas en distintos lenguajes de alto nivel «puedan luego ejecutarse en múltiples plataformas tanto de hardware como de software sin necesidad de reescribir o re-compilar su código fuente» (Teoría, pág. 16).</p>
+<p>El CTS cumple estas funciones, entre otras (Teoría, págs. 16 y 17).</p>
+<ul>
+<li>Da un marco de trabajo para la integración entre lenguajes, la seguridad de tipos y un alto rendimiento.</li>
+<li>Da un modelo orientado a objetos que admite la implementación completa de muchos lenguajes.</li>
+<li>Define reglas que deben seguir los lenguajes, para que objetos escritos en lenguajes distintos puedan interactuar.</li>
+<li>Da una biblioteca con los tipos de datos primitivos, como <code>Boolean</code>, <code>Byte</code>, <code>Char</code>, <code>Int32</code> y <code>UInt64</code>.</li>
+</ul>
+<p>El CLS existe porque, para interactuar con objetos de cualquier lenguaje, un objeto debe exponer solo las características comunes a todos los lenguajes con los que interopera. Todas las reglas del CTS valen también para el CLS, salvo que el CLS defina reglas más estrictas (Teoría, pág. 19).</p>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>La Teoría de la Unidad 1, Capítulo 1, en la pág. 16 dice que el CTS es el estándar «ECMA 355». En la pág. 4 la misma hoja da el estándar de la plataforma como «ECMA-335, ISO/IEC 23271», y también lo hace en el temario de la pág. 3. Tomá ECMA-335: es el número que se repite y el que lleva la norma ISO.</p>
+</div>
+<h3 id="tipos-por-valor-y-por-referencia">Tipos por valor y por referencia</h3>
+<p>«Todos los tipos derivan del tipo base System.Object» (Teoría, pág. 17). Hay dos categorías.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Por valor</th><th>Por referencia</th></tr></thead><tbody><tr><td>Qué guarda la variable</td><td>«Contienen directamente sus datos»</td><td>«Guardan una referencia a la dirección en memoria del valor»</td></tr><tr><td>Dónde</td><td>En la pila (stack), o en línea en una estructura</td><td>«En un sistema de cola (Heap)», dice el apunte</td></tr><tr><td>Al copiar</td><td>Cada variable tiene su copia</td><td>Dos variables pueden apuntar al mismo objeto</td></tr><tr><td>Ejemplos en el material</td><td>Integrados, definidos por el usuario, enumeraciones, estructuras</td><td>Clases, matrices, interfaces, punteros, delegados, tipos de valor con boxing</td></tr></tbody></table></div>
+<p>Fuente: Unidad 1, Capítulo 1, Teoría, pág. 17. Estructuras y enumeraciones: Presentación de la Unidad 2, Capítulo 1, diapositivas 10 y 11.</p>
+<p>El apunte arma las subcategorías así (Teoría, pág. 17).</p>
+<ul>
+<li><strong>Por valor</strong>: integrados (implementados por el motor en tiempo de ejecución), definidos por el usuario o enumeraciones.</li>
+<li><strong>Por referencia</strong>: autodescriptivos, punteros o de interfaz. Los autodescriptivos se dividen en matrices y clases. Los de clase pueden ser definidos por el usuario, tipos de valor a los que se aplicó boxing, y delegados.</li>
+</ul>
+<div class="ejemplo"><p class="ejemplo-t">La diferencia en código</p><pre class="codigo"><code><span class="hljs-built_in">int</span> val1 = <span class="hljs-number">0</span>;
+<span class="hljs-built_in">int</span> val2 = val1;
+val2 = <span class="hljs-number">123</span>;
+Class1 ref1 = <span class="hljs-keyword">new</span> Class1();
+Class1 ref2 = ref1;
+ref2.Value = <span class="hljs-number">123</span>;
+Console.WriteLine(<span class="hljs-string">&quot;Values: {0}, {1}&quot;</span>, val1, val2);
+Console.WriteLine(<span class="hljs-string">&quot;Refs: {0}, {1}&quot;</span>, ref1.Value, ref2.Value);</code></pre>
+<p>El apunte da esta salida.</p>
+<pre class="codigo"><code>Values: 0, 123
+Refs: 123, 123</code></pre>
+<p class="bloque-fuente">Unidad 1, Capítulo 1, Teoría, pág. 18</p></div>
+<div class="tomado"><aside class="nota"><strong>Tipos por valor</strong><span>1° parcial 01/06/2024 y 2° parcial 14/09/2026</span></aside><p>Salió con el mismo texto en las dos fechas, «¿Cuál/es de las siguientes es/son Tipos por Valor?», con selección múltiple. Trae opciones como <code>Decimal</code>, <code>int</code>, <code>String</code>, <code>Delegate</code>, <code>Exception</code> y «Todos los tipos derivados de System.Object». Estudiá la tabla de arriba y buscá en el apunte a qué categoría va cada una.</p>
+</div>
+<details class="pregunta"><summary><span>¿Cuál es el tipo del cual heredan todos los tipos de dato de .NET?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>«Todos los tipos derivan del tipo base System.Object.» Fuente: Unidad 1, Capítulo 1, Teoría, pág. 17.</p>
+</div></details>
+<h3 id="base-class-library-bcl">Base Class Library (BCL)</h3>
+<p>Es el «conjunto de tipos básicos (clases, interfaces, etc.) que vienen predefinidos en .NET». Están organizados en jerarquías lógicas de nombres, los namespaces. Son independientes del lenguaje (Presentación de la Unidad 1, Capítulo 1, diapositiva 10). La misma diapositiva agrega que es «Extensible y totalmente Orientada a Objetos».</p>
+<p>El apunte la describe como un conjunto de soluciones predefinidas y unificadas para las necesidades de la programación, organizado en una jerarquía de clases (Teoría, pág. 20). Trae interfaces, clases abstractas y clases concretas. Las concretas se usan tal cual o se extienden por herencia. Para usar una interfaz, creás una clase que la implemente o derivás de una clase del Framework que ya la implementa (pág. 21).</p>
+<p>Agrupa tecnologías clave, cada una en sus namespaces (Teoría, págs. 21 y 22).</p>
+<div class="tabla"><table><thead><tr><th>Tecnología</th><th>Para qué</th></tr></thead><tbody><tr><td>ASP.NET</td><td>Páginas web con el modelo Web Forms</td></tr><tr><td>ASP.NET MVC</td><td>Desarrollo web con el patrón Model-View-Controller</td></tr><tr><td>AJAX</td><td>Interacción asíncrona entre el navegador y el servidor web</td></tr><tr><td>ADO.NET</td><td>Acceso a datos relacionales, XML y de aplicaciones</td></tr><tr><td>LINQ</td><td>Sintaxis de consulta para colecciones, DataSets y XML</td></tr><tr><td>Entity Framework</td><td>Modelo de objetos para distintos orígenes de datos, con su persistencia</td></tr><tr><td>WinForm</td><td>Aplicaciones cliente de escritorio con formularios Windows</td></tr><tr><td>WPF</td><td>Mejora visual de las aplicaciones con XAML</td></tr><tr><td>WCF</td><td>Servicios para aplicaciones distribuidas, base para soluciones SOA</td></tr><tr><td>XML</td><td>Funciones del estándar XML, para la interoperabilidad entre sistemas</td></tr></tbody></table></div>
+<h3 id="namespaces">Namespaces</h3>
+<details class="pregunta"><summary><span>¿Qué es un Namespace?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>«Un namespace se utiliza para declarar un ámbito que permite organizar el código y proporciona una forma de crear tipos globalmente únicos.» Fuente: Unidad 1, Capítulo 1, Teoría, pág. 23.</p>
+</div></details>
+<p>Puede contener otro namespace, clases, interfaces, structs, enums y delegados. Su acceso es público y no se puede modificar. El principal es <code>System</code>, donde están <code>Int32</code>, <code>Boolean</code> y <code>String</code>, entre otros (Teoría, págs. 23 y 24).</p>
+<ul>
+<li>Aunque declares un namespace, el compilador agrega uno predeterminado sin nombre, el <strong>espacio de nombres global</strong>. Está en todos los archivos, y lo que está en él se puede usar desde cualquier namespace declarado (pág. 23).</li>
+<li>Igual, se recomienda poner siempre el código dentro de un namespace, con la convención <code>CompanyName.TechnologyName</code> (pág. 23).</li>
+<li>Un mismo namespace se puede definir en dos o más declaraciones. El apunte lo muestra con dos clases, cada una en su bloque <code>namespace MyCompany.ProjectName</code> (pág. 24, y Unidad 2, Capítulo 1, Teoría, pág. 15).</li>
+</ul>
+<div class="ejemplo"><p class="ejemplo-t">Referencia completa y referencia corta</p><pre class="codigo"><code><span class="hljs-keyword">namespace</span> <span class="hljs-title">Banco</span>
+{
+    <span class="hljs-keyword">namespace</span> <span class="hljs-title">Gestion</span>
+    {
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CtaCte</span> { }
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CajaAhorro</span> { }
+    }
+}
+<span class="hljs-comment">//Referencia «full»</span>
+Banco.Gestion.CtaCte;
+Banco.Gestion.CajaAhorro;
+<span class="hljs-comment">//Referencia «corta»</span>
+<span class="hljs-keyword">using</span> Banco.Gestion;
+CtaCte cc = <span class="hljs-keyword">new</span> CtaCte();
+CajaAhorro ca = <span class="hljs-keyword">new</span> CajaAhorro();</code></pre>
+<p>La diapositiva define el namespace como un «grupo de clases que tienen el mismo prefijo».</p>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 2, diapositiva 29</p></div>
+<p>La palabra <code>using</code> tiene dos usos. Como <strong>directiva</strong>, importa tipos de otro namespace o crea un alias. Como <strong>instrucción</strong>, define un ámbito y el objeto se destruye al final (Unidad 2, Capítulo 1, Teoría, págs. 15 y 16).</p>
+<div class="tomado"><aside class="nota"><strong>Un error de compilación con using</strong><span>1° parcial 01/06/2024</span></aside><p>Se dio el mensaje de error «La directiva using a un namespace puede solo ser aplicado a los Namespaces; &#39;System.String&#39; es un tipo y no un namespace» y se pidió el motivo. Releé el mensaje con la definición de arriba.</p>
+</div>
+</section>
+<section class="sec"><h2 id="visual-studio-soluciones-y-proyectos">Visual Studio: soluciones y proyectos</h2>
+<p>Un IDE (Integrated Development Environment) «es una aplicación que proporciona un conjunto de herramientas y servicios integrados, que facilitan y optimizan el desarrollo de software». Suele traer un editor de código fuente, un compilador, un depurador y un diseñador de interfaz gráfica (Unidad 1, Capítulo 2, Teoría, pág. 4). El apunte da como ejemplos Visual Studio .Net, Sharp Develop y Mono Develop, para .NET, y Eclipse o Net Beans, para Java.</p>
+<p>La presentación da las características de Visual Studio (Presentación de la Unidad 1, Capítulo 2, diapositiva 4).</p>
+<ul>
+<li>Un solo IDE, con soporte para varios lenguajes .NET (VB.NET, C#) y para otros como JavaScript, TypeScript, Node.js y Python.</li>
+<li>Desarrollo de múltiples tipos de proyectos.</li>
+<li>Interfaz personalizable.</li>
+<li>Utilidades como acceso a datos SQL Server, depurador, Intellisense, emuladores para móviles e integración con Azure.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Qué es</th><th>Fuente</th></tr></thead><tbody><tr><td>Solución</td><td>«Incluye uno o más proyectos, archivos y metadatos». Se define en <code>.sln</code> y <code>.suo</code></td><td>Unidad 1, Capítulo 2, Teoría, pág. 10</td></tr><tr><td><code>.sln</code></td><td>Se comparte con el equipo</td><td>pág. 10</td></tr><tr><td><code>.suo</code></td><td>Es del usuario. No va a un repositorio como Git</td><td>pág. 10</td></tr><tr><td>Proyecto</td><td>«Contenedores de ítems» que facilitan su administración, compilación y almacenaje. Da un <code>.exe</code>, un <code>.dll</code> o un módulo</td><td>Presentación del Capítulo 2, diapositiva 7. Teoría, pág. 10</td></tr><tr><td>Plantilla</td><td>Bibliotecas de Clases, Aplicaciones de Consola, de Escritorio, web y otras</td><td>Teoría, pág. 11</td></tr></tbody></table></div>
+<p>En una solución con varios proyectos, el 1° es el de inicio por defecto. Al compilar se usa el orden en que fueron creados (Presentación del Capítulo 2, diapositiva 8).</p>
+<p>Lo que guarda cada archivo de la solución (Unidad 1, Capítulo 2, Teoría, pág. 10):</p>
+<ul>
+<li><strong><code>.sln</code></strong>: los proyectos asociados a la solución, los elementos que no están asociados a un proyecto determinado y las configuraciones de compilación.</li>
+<li><strong><code>.suo</code></strong>: los metadatos que personalizan el IDE cuando la solución está activa, como los puntos de interrupción (breakpoints).</li>
+</ul>
+<p>La misma diapositiva 8 agrega que una solución permite abrir, cerrar y guardar sus proyectos al mismo tiempo, y que «la relación lógica entre solución y proyectos no refleja necesariamente una relación física». La diapositiva 7 dice de los proyectos que «el contenido de los ítems depende del tipo de proyecto y del lenguaje», y que el proyecto está contenido dentro de una solución.</p>
+<p>Hay dos clases de elementos (Teoría, pág. 11). Los <strong>elementos del proyecto</strong> son archivos, referencias a bibliotecas, conexiones de datos y carpetas. Los <strong>elementos de la solución</strong> están en la carpeta de la solución y no pertenecen a ningún proyecto.</p>
+<div class="ojo"><p class="ojo-t">Sitios web y aplicaciones web</p><p>Visual Studio crea dos tipos de proyecto web. Conviene elegir bien antes de crearlo, porque «no resulta práctico convertir un tipo en otro». Para ASP.NET MVC tenés que usar una aplicación web. Según el apunte, «los Sitios Web pueden contener páginas web desarrolladas en diferentes lenguajes y no contienen un archivo que representa al proyecto a diferencia de las Aplicaciones Web» (Unidad 1, Capítulo 2, Teoría, págs. 15 y 16).</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Qué puede contener una solución</strong><span>1° parcial 01/06/2024</span></aside><p>Se preguntó qué es posible contener en una misma solución. Las opciones hablan de proyectos de un mismo tipo o de varios, de un solo lenguaje o de varios por proyecto, y de la excepción de los Web Sites. Repasá la tabla de arriba, la diapositiva 7 y el recuadro de sitios web.</p>
+</div>
+<h3 id="el-explorador-de-soluciones">El Explorador de Soluciones</h3>
+<p>Es la interfaz para ver y administrar la solución, los proyectos y sus elementos. Desde ahí podés hacer esto, entre otras cosas (Unidad 1, Capítulo 2, Teoría, págs. 12 y 13).</p>
+<ul>
+<li>Agregar a la solución proyectos nuevos o existentes, o quitarlos.</li>
+<li>Configurar las propiedades de la solución y de sus proyectos.</li>
+<li>Definir el proyecto de inicio (Set as StartUp Project). Su nombre aparece en negrita.</li>
+<li>Agregar, eliminar o excluir elementos de un proyecto, como clases, formularios, controles de usuario o carpetas.</li>
+<li>Agregar o eliminar referencias a otros proyectos, a ensamblados externos o a un servicio web.</li>
+<li>Compilar la solución entera o un proyecto, y depurar un proyecto.</li>
+</ul>
+<h3 id="referencias-entre-proyectos">Referencias entre proyectos</h3>
+<p>«Antes de escribir código que trabaje con un componente externo, el proyecto debe contener en primer lugar una referencia a dicho componente» (Unidad 1, Capítulo 2, Teoría, pág. 13). Sirve para otro proyecto de la misma solución.</p>
+<p>Se puede hacer referencia a bibliotecas de clases o ensamblados de .NET Framework, a componentes COM, a otros ensamblados o bibliotecas de proyectos de la misma solución, a aplicaciones de la Tienda Windows y a Servicios Web XML (págs. 13 y 14). El cuadro de diálogo Agregar referencia tiene cinco opciones (pág. 14).</p>
+<div class="tabla"><table><thead><tr><th>Opción</th><th>Qué enumera</th></tr></thead><tbody><tr><td>.NET</td><td>Los componentes de .NET Framework disponibles</td></tr><tr><td>COM</td><td>Los componentes COM disponibles</td></tr><tr><td>Proyectos</td><td>Los componentes reutilizables creados en proyectos locales</td></tr><tr><td>Examinar</td><td>Permite buscar un componente en el sistema de archivos</td></tr><tr><td>Reciente</td><td>Los componentes agregados hace poco a proyectos de tu equipo</td></tr></tbody></table></div>
+<p>Las solapas que aparecen cambian según el tipo de proyecto abierto (pág. 14).</p>
+<div class="ejemplo"><p class="ejemplo-t">Cómo lo hace el laboratorio</p><p>El laboratorio crea una aplicación de consola y un proyecto <code>Clases</code> del tipo Class Library. Desde el proyecto de consola agrega la referencia a <code>Clases</code> en las referencias del proyecto, pestaña Projects. Después define el <code>using</code> de <code>Clases</code> en <code>program.cs</code>. Sin esos dos pasos, el proyecto de consola no conoce el otro ensamblado.</p>
+<p class="bloque-fuente">Unidad 2, Capítulo 2, Laboratorio POO, págs. 1 y 2</p></div>
+<div class="tomado"><aside class="nota"><strong>Solución con dos proyectos</strong><span>1° parcial 09/06/2025 y 08/06/2026</span></aside><p>Es el primer paso de la práctica en PC. Practicalo hasta hacerlo de memoria. Crear solución, crear los dos proyectos con su prefijo, y que uno vea al otro.</p>
+</div>
+<h3 id="herramientas-del-ide">Herramientas del IDE</h3>
+<p>Todas las páginas de esta sección son de la Teoría de la Unidad 1, Capítulo 2.</p>
+<p><strong>Depurador.</strong> La depuración «es el proceso de identificar y corregir errores». El depurador de Visual Studio te deja observar el comportamiento del programa en tiempo de ejecución y localizar errores de lógica. Con uno o más puntos de interrupción (breakpoints) frenás la ejecución para examinar el código, evaluar y modificar variables, ver registros y la memoria que ocupa la aplicación. Con <strong>Editar y continuar</strong> cambiás el código durante la depuración y seguís ejecutando (pág. 18). La diferencia entre iniciar con depuración (F5) y sin depuración (Ctrl+F5) el apunte la deja en un enlace a un blog, sin explicarla.</p>
+<p><strong>Refactorización.</strong> «Es una técnica de la ingeniería de software para reestructurar código fuente, alterando su estructura interna sin cambiar su comportamiento externo» (pág. 19). Está en el menú contextual del editor de código, con las opciones Rename, Extract Method, Encapsulate Field, Extract Interface, Promote Local Variable to Parameter, Remove Parameters y Reorder Parameters.</p>
+<p><strong>Fragmentos de código (snippets).</strong> Insertan un fragmento en la posición del cursor o envuelven el código seleccionado. Se invocan con Ctrl+K y después X (insertar), o Ctrl+K y después S (envolver con). El tabulador inserta el fragmento elegido y Esc cierra la herramienta sin insertar nada (págs. 19 y 20).</p>
+<p><strong>NuGet.</strong> Es «un complemento de Visual Studio (aparecido a partir de la versión 2010) para gestionar librerías de terceros de una manera automatizada». Baja el paquete con todos sus prerrequisitos, lo instala e inserta las referencias en los archivos de configuración <code>web.config</code> y <code>app.config</code> (pág. 22). Con NuGet se agregan los paquetes de Entity Framework y Swagger de la <a href="aprobacion-directa.html#entity-framework-en-la-aplicacion">aprobación directa</a>.</p>
+<p>Los atajos más usados, según el apunte (pág. 20):</p>
+<div class="tabla"><table><thead><tr><th>Atajo</th><th>Comando</th></tr></thead><tbody><tr><td>F5</td><td>Start Debugging</td></tr><tr><td>Ctrl+F5</td><td>Start without Debugging</td></tr><tr><td>Ctrl+Shift+B</td><td>Build Solution</td></tr><tr><td>F7</td><td>View Code</td></tr><tr><td>F12</td><td>Go to definition</td></tr><tr><td>F9</td><td>Toggle Breakpoint</td></tr><tr><td>F10</td><td>Step Over</td></tr><tr><td>F11</td><td>Step Into</td></tr><tr><td>Ctrl+Shift+F9</td><td>Delete all Breakpoints</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">IDE y CLR no son lo mismo</p><p>El material ubica Intellisense, la refactorización y los snippets en Visual Studio (Presentación de la Unidad 1, Capítulo 2, diapositiva 4, y Teoría de ese capítulo, págs. 19 y 20). El CLR es el motor de ejecución. La depuración aparece en los dos lados. El IDE trae el depurador, y el CLR tiene el componente Debug Engine (Unidad 1, Capítulo 1, Teoría, pág. 15).</p>
+</div>
+</section>
+<section class="sec"><h2 id="sintaxis-de-c">Sintaxis de C#</h2>
+<p>Lo que define el lenguaje, según la cátedra (Presentación de la Unidad 2, Capítulo 1, diapositiva 3).</p>
+<ul>
+<li>Creado para .NET y totalmente orientado a objetos.</li>
+<li>Sintaxis basada en C (como Java), con algo de influencia de VB (por ejemplo, las propiedades) y de los lenguajes funcionales (por ejemplo, las expresiones lambda).</li>
+<li>Distingue mayúsculas de minúsculas. <code>system.console.writeline</code> es incorrecto.</li>
+<li>Los atributos se acceden con un punto, y todo es tratado como objeto.</li>
+<li>Manejo de memoria automático.</li>
+</ul>
+<p>Todo lenguaje .NET compila a MSIL. Por eso «no hay diferencias de performance entre C# u otro lenguaje .NET» (diapositiva 4). La línea termina con <code>;</code>, aunque ocupe más de un renglón. Los comentarios van con <code>//</code> para una línea y con <code>/* */</code> para varias (diapositivas 14 y 15).</p>
+<h3 id="variables">Variables</h3>
+<p>Toda variable debe ser inicializada explícitamente antes de usarse. Una variable local sin inicializar da error (diapositiva 7). Una variable declarada dentro de un bloque vive solo en ese bloque (diapositiva 12).</p>
+<p>La declaración pone el tipo antes del identificador, como <code>int x;</code> o <code>Cliente cli;</code> (diapositiva 6). Para inicializar con el valor por defecto se usa el literal <code>default</code>. Para un <code>int</code>, el default es 0. También sirve <code>int variable = new int()</code> o directamente <code>int variable = new()</code> (diapositiva 7).</p>
+<div class="ojo"><p class="ojo-t">De qué variable habla el error</p><p>El ejemplo de la diapositiva 7 es una <strong>variable local</strong> (<code>int tempBalance; //variable local</code>). Fijate si el código que te dan usa variables locales o campos de la clase antes de aplicar la regla.</p>
+</div>
+<h3 id="estructuras-y-arreglos">Estructuras y arreglos</h3>
+<p>Las <strong>estructuras</strong> son tipos por valor. Son un compuesto de otros tipos que facilita el manejo de datos. Se pueden convertir en tipos por referencia cambiando la palabra <code>struct</code> por <code>class</code>. Sirven para representar un rango de valores fijos, como grados, ciclos o cuartos (diapositiva 10).</p>
+<p>Los <strong>arreglos</strong> se definen con corchetes (diapositiva 22).</p>
+<pre class="codigo"><code><span class="hljs-built_in">string</span>[] telefonos;                    <span class="hljs-comment">//Definicion de un Arreglo de strings</span>
+telefonos = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">3</span>];             <span class="hljs-comment">//De 3 elementos</span>
+telefonos[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;1245&quot;</span>;                 <span class="hljs-comment">//Seteo del 1er elemento del arreglo</span>
+telefonos = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>[] {<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>}; <span class="hljs-comment">//Definicion y asignacion de una vez</span></code></pre>
+<h3 id="decision-e-iteracion">Decisión e iteración</h3>
+<p>Tenés <code>if</code> / <code>else if</code> / <code>else</code> y <code>switch</code> con <code>case</code>, <code>break</code> y <code>default</code>. Para repetir están <code>for</code>, <code>foreach</code>, <code>while</code> y <code>do while</code>. La variable de un <code>foreach</code> es de solo lectura (diapositivas 16 a 28).</p>
+<h3 id="operadores-logicos-y-cortocircuito">Operadores lógicos y cortocircuito</h3>
+<div class="tabla"><table><thead><tr><th>Operador</th><th>Significa</th></tr></thead><tbody><tr><td><code>&amp;&amp;</code></td><td>Y lógico</td></tr><tr><td><code>||</code></td><td>O lógico</td></tr><tr><td><code>!</code></td><td>Negación</td></tr><tr><td><code>==</code> y <code>!=</code></td><td>Igual y distinto</td></tr></tbody></table></div>
+<p>«En C# todas las evaluaciones se hacen por cortocircuito.»</p>
+<ul>
+<li>En <code>if (Hacer1() || Hacer2())</code>, si <code>Hacer1()</code> es True, no se evalúa <code>Hacer2()</code>.</li>
+<li>En <code>if (Hacer1() &amp;&amp; Hacer2())</code>, si <code>Hacer1()</code> es False, no se evalúa <code>Hacer2()</code>.</li>
+</ul>
+<p>Fuente: Presentación de la Unidad 2, Capítulo 1, diapositiva 17.</p>
+<div class="tomado"><aside class="nota"><strong>Predecir qué imprime</strong><span>1° parcial 01/06/2024 y 2° parcial 14/09/2026</span></aside><p>Se tomó en las dos instancias. En 2024, un <code>if</code> con <code>!</code>, <code>&amp;&amp;</code> y <code>||</code> sobre variables <code>bool</code>. En 2026, dos <code>if</code> con métodos que además cambian variables estáticas. En el segundo caso, <mark>si te olvidás del cortocircuito, contás mal cuántas veces corrió cada método</mark>.</p>
+</div>
+<h3 id="enumeraciones">Enumeraciones</h3>
+<p>Una enumeración es «un tipo por valor que permite definir un conjunto de constantes con nombre». Se declara con <code>enum</code> (Unidad 2, Capítulo 1, Teoría, pág. 16).</p>
+<ul>
+<li>El primer enumerador vale 0 y cada uno suma 1, salvo que uses inicializadores.</li>
+<li>El tipo subyacente es <code>int</code> por defecto. Puede ser cualquier entero excepto <code>char</code>.</li>
+<li>Para pasar a entero hace falta una conversión explícita: <code>int x = (int)Days.Sun;</code>.</li>
+<li>Suele definirse directo dentro de un namespace.</li>
+</ul>
+<p>Fuente: Unidad 2, Capítulo 1, Teoría, págs. 16 y 17.</p>
+<pre class="codigo"><code><span class="hljs-built_in">enum</span> Days {Sat, Sun, Mon, Tue, Wed, Thu, Fri};          <span class="hljs-comment">// Sat vale 0, Sun 1...</span>
+<span class="hljs-built_in">enum</span> Days {Sat = <span class="hljs-number">1</span>, Sun, Mon, Tue, Wed, Thu, Fri};      <span class="hljs-comment">// con inicializador</span>
+<span class="hljs-built_in">enum</span> Months: <span class="hljs-built_in">byte</span> {Jan = <span class="hljs-number">1</span>, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
+<span class="hljs-built_in">int</span> x = (<span class="hljs-built_in">int</span>)Days.Sun;</code></pre>
+<p>Son los ejemplos del apunte (Teoría, págs. 16 y 17). Lo que completa el tema:</p>
+<ul>
+<li>Los tipos admitidos son <code>byte</code>, <code>sbyte</code>, <code>short</code>, <code>ushort</code>, <code>int</code>, <code>uint</code>, <code>long</code> o <code>ulong</code>. Para usar otro que no sea <code>int</code> se escriben dos puntos después del nombre, como en <code>Months: byte</code> (pág. 17).</li>
+<li>Se define en un namespace para que todas sus clases la usen con la misma facilidad, pero también puede anidarse dentro de una <code>class</code> o un <code>struct</code>. El nombre de un enumerador no puede tener espacios (pág. 16).</li>
+<li>Todas las enumeraciones son instancias de <code>System.Enum</code>. No se pueden derivar clases nuevas de esa clase, pero sus métodos sirven para comparar, convertir a cadena y convertir desde una cadena (pág. 19).</li>
+<li>Con el atributo <code>[Flags]</code>, los valores se combinan con un OR bit a bit, y <code>Console.WriteLine</code> muestra los nombres combinados (págs. 17 y 18).</li>
+</ul>
+<p>Buenas prácticas del apunte (págs. 19 y 20):</p>
+<ul>
+<li>Si no hay un miembro que valga 0, considerá crear una constante <code>Ninguna</code>. El CLR inicializa la enumeración en cero, y sin esa constante arranca con un valor no válido.</li>
+<li>Si hay un caso por defecto obvio, usá la constante que vale cero para representarlo.</li>
+<li>No definas constantes reservadas para uso futuro.</li>
+<li>Si un método o una propiedad recibe un valor de la enumeración, validalo. Se puede convertir a la enumeración un número que no está definido en ella.</li>
+</ul>
+<p>Frente a un tipo numérico, la enumeración deja claro en el código qué valores son válidos, e IntelliSense muestra los valores definidos (pág. 20). La presentación agrega que se la puede pensar como una colección de constantes, y que da una lista de opciones elegibles y autodescriptivas «en reemplazo del uso de banderas» (Presentación de la Unidad 2, Capítulo 1, diapositiva 11).</p>
+<div class="tomado"><aside class="nota"><strong>Un enum en la práctica</strong><span>1° parcial 08/06/2026</span></aside><p>El tema Médico pide agregar un tipo enumerado y una propiedad de ese tipo.</p>
+</div>
+<h3 id="excepciones">Excepciones</h3>
+<p>El apunte arranca por los errores. Algunos se detectan al compilar, como los de sintaxis o semántica. Otros pasan inadvertidos porque son de lógica o necesitan ciertas condiciones para aparecer, como una entrada de datos incorrecta, una división por cero o una falla en la conexión a una fuente de datos (Unidad 2, Capítulo 1, Teoría, pág. 5).</p>
+<p>«Una excepción es una alteración del flujo normal de ejecución de una aplicación» (Unidad 2, Capítulo 1, Teoría, pág. 5). Ante una situación no esperada, el .NET Framework lanza una excepción para informar el error, y hay que capturarla y gestionarla (págs. 5 y 6). Las predefinidas derivan de <code>System.Exception</code> y cubren casos como los aritméticos, de formato, de índice fuera del límite de un arreglo o de división por cero (pág. 6). La BCL también tiene <code>System.SystemException</code> y <code>System.ApplicationException</code> (pág. 23).</p>
+<p>El motor en tiempo de ejecución controla las excepciones así (pág. 6).</p>
+<ul>
+<li>Independientemente del lenguaje que las genera o controla.</li>
+<li>Sin exigir una sintaxis concreta, aunque cada lenguaje puede definir la propia.</li>
+<li>Permitiendo que se inicien traspasando los límites de los procesos e, incluso, de los equipos.</li>
+</ul>
+<p>Frente a otros métodos de notificación, como devolver códigos de error, las excepciones tienen estas ventajas (pág. 6).</p>
+<ul>
+<li>Ningún error pasa desapercibido.</li>
+<li>Los valores no válidos no se siguen propagando por el sistema.</li>
+<li>No es necesario comprobar los códigos devueltos.</li>
+<li>Es muy sencillo agregar código de control de excepciones para aumentar la confiabilidad del programa.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Bloque</th><th>Para qué</th></tr></thead><tbody><tr><td><code>try</code></td><td>Va el código que puede lanzar la excepción</td></tr><tr><td><code>catch</code></td><td>Va el código que la maneja, con un tipo de excepción</td></tr><tr><td><code>finally</code></td><td>«Se ejecutan siempre, independientemente de si se produce una excepción o no». Se usa para liberar recursos</td></tr><tr><td><code>throw</code></td><td>Produce una excepción a mano</td></tr></tbody></table></div>
+<p>Fuente: Unidad 2, Capítulo 1, Teoría, págs. 7, 11 y 12.</p>
+<div class="ojo"><p class="ojo-t">El orden de los catch importa</p><p>Primero los <code>catch</code> de excepciones específicas y después el general, «pues de lo contrario el compilador puede emitir un error» (Unidad 2, Capítulo 1, Teoría, pág. 9).</p>
+</div>
+<p>Qué pasa cuando se lanza una (Unidad 2, Capítulo 1, Teoría, págs. 9 a 11):</p>
+<ul>
+<li>La excepción asciende por la pila, y cada bloque <code>catch</code> tiene la oportunidad de controlarla. El que la toma se elige haciendo coincidir el tipo de la excepción con el del <code>catch</code>. Si no hay uno específico, la toma el <code>catch</code> general, si existe.</li>
+<li>Un <code>catch</code> sin tipo detecta cualquier excepción. El apunte recomienda detectar un tipo específico en lugar de usar esa forma básica.</li>
+<li>Si ningún <code>catch</code> la detecta, la detecta el CLR. Según cómo esté configurado, aparece un cuadro de depuración o el programa se deja de ejecutar y muestra la información de la excepción.</li>
+<li>Con <code>throw</code> también se vuelve a producir una excepción ya detectada. Es muy recomendable agregarle información, para tener más datos al depurar.</li>
+</ul>
+<details class="pregunta"><summary><span>¿Qué bloque usa .NET para la administración estructurada de excepciones?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>«Estas excepciones se controlan mediante código situado fuera del flujo normal de control mediante bloques de control que en el lenguaje C# utiliza las palabras reservadas try-catch-finally.» Fuente: Unidad 2, Capítulo 1, Teoría, pág. 23.</p>
+</div></details>
+<p>Si creás tu propia excepción, derivá de <code>Exception</code>, terminá el nombre con la palabra de excepción e implementá los tres constructores comunes (Teoría, págs. 13 y 14).</p>
+<div class="ejemplo"><p class="ejemplo-t">Una excepción propia</p><pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeListNotFoundException</span>: <span class="hljs-title">Exception</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EmployeeListNotFoundException</span>()</span>
+    { }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EmployeeListNotFoundException</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> message</span>)
+    : <span class="hljs-title">base</span>(<span class="hljs-params">message</span>)</span>
+    { }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EmployeeListNotFoundException</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> message, Exception inner</span>)
+    : <span class="hljs-title">base</span>(<span class="hljs-params">message, inner</span>)</span>
+    { }
+}</code></pre>
+<p>Sirve para que los usuarios puedan distinguir por código ciertas condiciones de error de otras (pág. 13).</p>
+<p class="bloque-fuente">Unidad 2, Capítulo 1, Teoría, pág. 14</p></div>
+<h3 id="modificadores-de-acceso">Modificadores de acceso</h3>
+<div class="tabla"><table><thead><tr><th>Modificador</th><th>Acceso</th></tr></thead><tbody><tr><td><code>public</code></td><td>No restringido</td></tr><tr><td><code>protected</code></td><td>La clase contenedora o los tipos derivados</td></tr><tr><td><code>internal</code></td><td>El ensamblado actual</td></tr><tr><td><code>protected internal</code></td><td>El ensamblado actual o los tipos derivados</td></tr><tr><td><code>private</code></td><td>El tipo contenedor</td></tr></tbody></table></div>
+<p>Fuente: Unidad 2, Capítulo 1, Teoría, pág. 14.</p>
+</section>
+<section class="sec"><h2 id="objetos-en-c">Objetos en C#</h2>
+<p>Este bloque es el corazón de la práctica en PC. La cátedra cuenta los <strong>pilares</strong> así: herencia, polimorfismo, encapsulamiento y abstracción (Presentación de la Unidad 2, Capítulo 2, diapositiva 7).</p>
+<p>Todas las diapositivas citadas en esta sección son de esa presentación.</p>
+<p>La programación orientada a objetos «es una manera de construir Software basada en el paradigma de orientación a objetos». Propone resolver problemas de la realidad identificando objetos y relaciones de colaboración entre ellos. El objeto y el mensaje son sus elementos fundamentales (diapositiva 3).</p>
+<h3 id="clase-y-objeto">Clase y objeto</h3>
+<p>La clase es «la definición de las características de un determinado tipo de objeto» (diapositiva 24). Implica clasificar en base a comportamiento y atributos comunes. Es una construcción estática que describe el comportamiento común y los atributos (estado), e incluye datos y funciones (métodos) (diapositiva 4).</p>
+<p>Un objeto es una instancia de una clase y posee tres cosas (diapositiva 6).</p>
+<ul>
+<li><strong>Identidad</strong>: la relación única entre el objeto del modelo y el ente de la realidad que representa. Se implementa con un id único en el modelo.</li>
+<li><strong>Comportamiento</strong>: resuelve un conjunto particular de problemas.</li>
+<li><strong>Estado</strong>: almacena información, fija o variable.</li>
+</ul>
+<p>Los miembros de una clase son los que declara y los que hereda de su clase base directa. Se dividen en constantes, campos (las variables de la clase), métodos, propiedades, eventos (las notificaciones que puede generar), indizadores (indizan las instancias como si fueran matrices), operadores, constructores de instancia, destructores, constructores estáticos (inicializan la propia clase) y tipos (Unidad 2, Capítulo 1, Teoría, pág. 22).</p>
+<h3 id="abstraccion-y-encapsulamiento">Abstracción y encapsulamiento</h3>
+<p>La abstracción es «ignorancia selectiva». Decide qué es importante y se enfoca en eso. Ignora lo que no es importante y «utiliza la encapsulación para reforzar la abstracción» (diapositiva 8). El encapsulamiento separa lo accesible desde afuera (métodos públicos) de lo accesible desde adentro (métodos privados). Se usa por control y por cambios (diapositivas 10 y 11).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en un auto. Para acelerar usás el pedal, y no te importa cómo funciona el motor. Ese es el ejemplo de la cátedra con <code>Acelera()</code>, <code>Frena()</code> y <code>velocidad</code>. Si cambian el motor, vos seguís usando el mismo pedal.</p>
+</div>
+<h3 id="propiedades">Propiedades</h3>
+<p>Una propiedad es una característica o atributo de un objeto.</p>
+<pre class="codigo"><code><span class="hljs-keyword">class</span> <span class="hljs-title">CtaCte</span>
+{
+    <span class="hljs-built_in">int</span> _balance;
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Balance
+    {
+        <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> _balance; }
+        <span class="hljs-keyword">set</span> { _balance = <span class="hljs-keyword">value</span>; }
+    }
+}</code></pre>
+<p>Fuente: diapositiva 26. Se usa como <code>co.Balance = 100;</code> para asignar y <code>co.Balance</code> para obtener.</p>
+<h3 id="metodos">Métodos</h3>
+<p>Los métodos son las «acciones que un objeto puede llevar a cabo». Todo método es una función. <code>public void HacerDeposito(int importe)</code> no devuelve valor, y <code>public int ObtenerInventario(int codArticulo)</code> devuelve un entero (diapositiva 27).</p>
+<h3 id="constructores-y-destructores">Constructores y destructores</h3>
+<p>Son dos métodos de las clases que existen por defecto. El <strong>constructor</strong> inicializa valores. El <strong>destructor</strong> libera recursos al finalizar la vida de una instancia creada en memoria. En .NET hay constructores y destructores por defecto (diapositiva 5).</p>
+<p>Los constructores son funciones de la clase que se llaman al crear una instancia. Una clase puede tener el constructor por default, sin parámetros, y otros con parámetros, como <code>public CtaCte(){...}</code> y <code>public CtaCte(int i){...}</code> (diapositiva 25).</p>
+<div class="ejemplo"><p class="ejemplo-t">Invocar al constructor base</p><pre class="codigo"><code><span class="hljs-keyword">class</span> <span class="hljs-title">MyBaseClass</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyBaseClass</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> i</span>)</span> { }
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-title">MyBaseClass</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> s</span>)</span> { }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title">MyDerivedClass</span>: <span class="hljs-title">MyBaseClass</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyDerivedClass</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> i</span>) : <span class="hljs-title">base</span>(<span class="hljs-params">i</span>)</span> { }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyDerivedClass</span>(): <span class="hljs-title">base</span>(<span class="hljs-params"><span class="hljs-string">&quot;Test&quot;</span></span>)</span> { }
+}</code></pre>
+<p>«El constructor default siempre invoca al constructor de la clase base.»</p>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 2, diapositiva 32</p></div>
+<div class="tomado"><aside class="nota"><strong>Constructor que llama al de la clase superior</strong><span>1° parcial 09/06/2025 y 08/06/2026</span></aside><p>Los 4 temas lo piden. El orden de los argumentos está en el enunciado, así que leelo con cuidado. En el tema Celular y en el tema Médico lo dice con palabras. En Auto y Moto se ve en el <code>new</code> del punto 4.</p>
+</div>
+<h3 id="herencia">Herencia</h3>
+<p>Es una relación «un tipo de» entre clases, de la generalización a la especialización. C# la escribe con <code>:</code> (diapositivas 12 y 30). Dos palabras cambian la posibilidad de heredar, <code>sealed</code> y <code>abstract</code> (diapositiva 31).</p>
+<p>La clase hija hereda la implementación de la clase base (diapositiva 12). La herencia es «el mecanismo por el cual una clase (hija) hereda de otra (padre) para extender su funcionalidad» (diapositiva 30).</p>
+<div class="tabla"><table><thead><tr><th>Herencia</th><th>Qué es</th></tr></thead><tbody><tr><td>Simple</td><td>La clase hija deriva de una única clase padre</td></tr><tr><td>Múltiple</td><td>La clase hija deriva de varias clases padre. «No es soportada por todos los lenguajes» y «puede ser confusa»</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 15. Las interfaces, en cambio, sí pueden heredar de múltiples interfaces (diapositiva 36).</p>
+<p><code>protected</code> es público para las clases derivadas y privado para las externas. No puede usarse en estructuras (diapositiva 33).</p>
+<h3 id="clases-y-metodos-abstractos">Clases y métodos abstractos</h3>
+<p>Una clase abstracta da «una implementación parcial para que sea heredada por las clases derivadas» y <mark>no puede ser instanciada</mark>. Usa el calificador <code>abstract</code> (diapositivas 16 y 42).</p>
+<p>Los métodos abstractos van solo en clases abstractas, no tienen implementación, las derivadas los deben implementar y son virtuales (diapositivas 17 y 44). Además, pueden sobrescribir métodos de la clase base declarados como <code>virtual</code> o como <code>override</code> (diapositiva 44).</p>
+<div class="ejemplo"><p class="ejemplo-t">Interfaz, clase abstracta y clases concretas</p><pre class="codigo"><code><span class="hljs-keyword">interface</span> <span class="hljs-title">ITransporte</span>
+{
+    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">Name</span>()</span>;
+}
+<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Transporte</span> : <span class="hljs-title">ITransporte</span>
+{
+    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">Name</span>()</span>
+    {...}
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title">Taxi</span>: <span class="hljs-title">Transporte</span>
+{...}
+<span class="hljs-keyword">class</span> <span class="hljs-title">Colectivo</span>: <span class="hljs-title">Transporte</span>
+{...}</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 2, diapositiva 43</p></div>
+<h3 id="metodos-virtuales-override-y-new">Métodos virtuales, override y new</h3>
+<p>Un método virtual «es un método que la clase base permite que sea sobrescrito en una clase derivada». En cambio, «un método no-virtual es la UNICA implementación posible para este método» (diapositiva 18).</p>
+<div class="ejemplo"><p class="ejemplo-t">Qué cambia entre virtual, new y override</p><pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">A</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">F</span>()</span> { Console.WriteLine(<span class="hljs-string">&quot;A.F&quot;</span>); }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">G</span>()</span> { Console.WriteLine(<span class="hljs-string">&quot;A.G&quot;</span>); }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">B</span> : <span class="hljs-title">A</span>
+{
+    <span class="hljs-keyword">new</span> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">F</span>()</span> { Console.WriteLine(<span class="hljs-string">&quot;B.F&quot;</span>); }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">G</span>()</span> { Console.WriteLine(<span class="hljs-string">&quot;B.G&quot;</span>); }
+}</code></pre>
+<p>El laboratorio hace <code>B b = new B(); A a = b;</code>, llama a <code>F</code> y a <code>G</code> por las dos variables, y te pide analizar la salida. Después pide quitar <code>new</code>: aparece un warning que avisa que, si es intencional, se declare como <code>new</code>. Y pide quitar <code>override</code>: aparece otro warning, y al ejecutar la aplicación llama a <code>A.G()</code>.</p>
+<p class="bloque-fuente">Unidad 2, Capítulo 2, Laboratorio POO, págs. 2 y 3</p></div>
+<p>Corré ese laboratorio. Es el mejor modo de entender qué método se ejecuta. El <code>ToString</code> que piden los parciales es una sobreescritura, así que este es el tema que lo explica.</p>
+<h3 id="interfaces">Interfaces</h3>
+<p>Una interfaz define un «contrato» (diapositiva 19).</p>
+<ul>
+<li>Se declara con <code>interface</code> y, por estándar, lleva el prefijo «I» (diapositivas 34 y 35).</li>
+<li>Sus métodos son implícitamente públicos, sin implementación y sin modificadores de acceso (diapositiva 35).</li>
+<li>Una clase puede implementar cero, una o más. Una interfaz puede heredar de varias (diapositiva 36).</li>
+<li>No se pueden crear instancias de ella (diapositiva 19).</li>
+<li>Contiene solo métodos sin implementación y no hereda atributos. Quien la implementa debe implementar todos sus métodos (diapositivas 19 y 36).</li>
+<li>Se implementa de forma implícita o explícita. La explícita resuelve conflictos de nombre y solo se accede a través de la interfaz (diapositivas 37 a 41).</li>
+</ul>
+<div class="tabla"><table><thead><tr><td></td><th>Implementación implícita</th><th>Implementación explícita</th></tr></thead><tbody><tr><td>Cómo se escribe</td><td>El método igual al de la interfaz, con el mismo tipo de retorno, nombre y parámetros</td><td>Con el nombre completo, como <code>void IMyInterface.MyMethod1() {}</code></td></tr><tr><td>Modificadores</td><td>Puede ser virtual o no virtual</td><td>No puede ser <code>virtual</code> ni llevar modificador de acceso</td></tr><tr><td>Cómo se invoca</td><td>Directo desde la clase o estructura, o con un cast a la interfaz</td><td>Solo con un cast a la interfaz. No es parte pública de la clase</td></tr><tr><td>Para qué</td><td>El caso común</td><td>Sacar la implementación de la cara pública de la clase y resolver conflictos de nombre</td></tr></tbody></table></div>
+<p>Fuente: diapositivas 37 a 41.</p>
+<div class="ejemplo"><p class="ejemplo-t">Implementación explícita</p><pre class="codigo"><code><span class="hljs-keyword">interface</span> <span class="hljs-title">IMyInterface1</span> { <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MyMethod</span>()</span>; }
+<span class="hljs-keyword">interface</span> <span class="hljs-title">IMyInterface2</span> { <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MyMethod</span>()</span>; }
+<span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span>: <span class="hljs-title">IMyInterface1</span>, <span class="hljs-title">IMyInterface2</span>
+{
+    <span class="hljs-keyword">void</span> IMyInterface1.MyMethod() {}
+    <span class="hljs-keyword">void</span> IMyInterface2.MyMethod() {}
+}</code></pre>
+<p>Con una implementación explícita, <code>mc.MyMethod1();</code> sobre un <code>MyClass</code> da «&#39;mc.MyMethod1&#39; does not exist in the current context». Hay que hacer <code>IMyInterface mi = new MyClass(); mi.MyMethod1();</code> (diapositiva 40).</p>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 2, diapositivas 40 y 41</p></div>
+<details class="pregunta"><summary><span>¿Qué tienen en común una interface y una clase abstracta?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>De las clases abstractas, «no pueden ser instanciadas». De las interfaces, «no se pueden crear instancias». Fuente: Presentación de la Unidad 2, Capítulo 2, diapositivas 16 y 19.</p>
+</div></details>
+<h3 id="polimorfismo-y-sobrecarga">Polimorfismo y sobrecarga</h3>
+<p>«Dos o más objetos son polimórficos con respecto a un conjunto de mensajes, si todos ellos pueden responder a esos mensajes, aún cuando cada uno lo haga de un modo diferente» (diapositiva 21). La definición reside en la clase base y la implementación, en la derivada (diapositiva 22).</p>
+<p>La <strong>sobrecarga</strong> son «varios métodos con el mismo nombre pero diferentes parámetros» (diapositiva 28). Es definir más de un método por cada mensaje, y «los tipos de los argumentos ayudan a decidir a qué mensaje se invoca». Tareas parecidas quedan en métodos con el mismo nombre, y no tenés que recordar nombres distintos para comportamientos iguales (diapositiva 23). El ejemplo de la diapositiva 28 es <code>HacerDeposito(int importe)</code> y <code>HacerDeposito(int importe, bool acreditar)</code>.</p>
+<div class="tomado"><aside class="nota"><strong>Una lista del tipo base con objetos derivados</strong><span>1° parcial 09/06/2025 y 08/06/2026</span></aside><p>El <code>Main</code> guarda objetos de la clase derivada en una lista del tipo base. Después <code>ToString</code> muestra los datos de cada objeto. Ahí se ve el polimorfismo.</p>
+</div>
+<h3 id="metodos-estaticos">Métodos estáticos</h3>
+<p>«Miembros que no requieren de una instancia para ser invocados» (diapositiva 45).</p>
+<details class="pregunta"><summary><span>¿Qué es un método estático, o de clase?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«Miembros que no requieren de una instancia para ser invocados.» Fuente: Presentación de la Unidad 2, Capítulo 2, diapositiva 45.</p>
+</div></details>
+<h3 id="clases-parciales">Clases parciales</h3>
+<p>«Partial Class permite separar la implementación de una clase en varios archivos fuente» (Presentación de la Unidad 3, diapositiva 32).</p>
+<div class="ojo"><p class="ojo-t">Qué ejemplo dar</p><p>En el parcial del 01/06/2024 se pidió explicarla con un ejemplo. La corrección comentó: «El ejemplo natural de clase parcial es un formulario winform donde se separa parte del código de diseño del código de la clase». Fijate en <a href="parcial-2.html#initializecomponent"><code>InitializeComponent</code></a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="colecciones-y-genericos">Colecciones y genéricos</h2>
+<p>Todas las diapositivas de esta sección y la siguiente son de la Presentación de la Unidad 2, Capítulo 3.</p>
+<p>Una colección guarda items sin decir cuántos de entrada. Están en <code>System.Collections</code> (diapositiva 3).</p>
+<div class="tabla"><table><thead><tr><th>Clase</th><th>Qué es</th></tr></thead><tbody><tr><td><code>ArrayList</code></td><td>Colección lineal de objetos, de propósito general</td></tr><tr><td><code>Hashtable</code></td><td>Diccionario de pares key/value</td></tr><tr><td><code>Queue</code></td><td>FIFO</td></tr><tr><td><code>Stack</code></td><td>LIFO</td></tr><tr><td><code>SortedList</code></td><td>Diccionario ordenado por key</td></tr><tr><td><code>BitArray</code></td><td>Colección de boolean</td></tr></tbody></table></div>
+<p>Dos cosas más de la diapositiva 3. Los elementos de una colección no tienen que ser del mismo tipo. Y la posición de un objeto puede cambiar cuando cambia la colección. Con un <code>ArrayList</code> agregás con <code>Add</code>, recuperás por índice con un cast, como <code>(Auto) vehiculos[0]</code>, y recorrés con <code>foreach</code>. Con un diccionario como <code>Hashtable</code> agregás clave y valor, recuperás por clave y recorrés la colección <code>Keys</code> (diapositivas 5 y 6).</p>
+<p>El problema es que al consultar «nos vemos obligados a hacer un cast desde Object» (diapositiva 3). <strong>Generics</strong> lo evita: <code>List&lt;T&gt;</code> deja fijar el tipo. Un tipo equivocado da error de compilación y no hace falta el cast (diapositiva 7). Los generics permiten personalizar un método, clase, estructura o interfaz para el tipo de datos preciso sobre el que actúa. Dan código independiente de la clase, y la BCL los usa en las colecciones genéricas y los tipos nullables (diapositivas 7 y 8).</p>
+<div class="ejemplo"><p class="ejemplo-t">Sin y con generics</p><pre class="codigo"><code><span class="hljs-comment">// Sin Generics</span>
+Collection emps = <span class="hljs-keyword">new</span> Collection();
+emps.Add(<span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;Ap1&quot;</span>));
+<span class="hljs-keyword">foreach</span>(<span class="hljs-built_in">object</span> emp <span class="hljs-keyword">in</span> emps)
+{
+    Employee employee = (Employee)emp;
+    Console.WriteLine(employee.Nombre);
+}
+<span class="hljs-comment">// Con Generics</span>
+Collection&lt;Employee&gt; emps = <span class="hljs-keyword">new</span> Collection&lt;Employee&gt;();
+emps.Add(<span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;Ap1&quot;</span>));
+<span class="hljs-keyword">foreach</span>(Employee employee <span class="hljs-keyword">in</span> emps)
+{
+    Console.WriteLine(employee.Nombre);
+}</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 3, diapositiva 8</p></div>
+</section>
+<section class="sec"><h2 id="linq">LINQ</h2>
+<p>LINQ integra consultas a C#, desde .NET Framework 3.5 (diapositiva 10). Sus ventajas son una sola sintaxis, detección de errores al compilar, IntelliSense y resultados que se pueden enlazar (diapositiva 13).</p>
+<p>La presentación explica para qué nació (diapositivas 9 y 11). Sin LINQ, cada tipo de información se consulta distinto. Una lista con <code>foreach</code> y condiciones, una base con SQL y un XML con XPath o XQuery. La idea es elegir una sola forma de consultar, que el compilador pueda chequear las consultas y los resultados, y que sea extensible a cualquier tipo de datos.</p>
+<p>Se escribe de dos formas, que dan lo mismo. Este es el ejemplo de la diapositiva 14.</p>
+<pre class="codigo"><code><span class="hljs-keyword">var</span> contacts =
+    <span class="hljs-keyword">from</span> c <span class="hljs-keyword">in</span> customers
+    <span class="hljs-keyword">where</span> c.City == <span class="hljs-string">&quot;Hove&quot;</span>
+    <span class="hljs-keyword">select</span> <span class="hljs-keyword">new</span> { c.Name, c.Phone };
+
+<span class="hljs-keyword">var</span> contacts =
+    customers
+    .Where(c =&gt; c.City == <span class="hljs-string">&quot;Hove&quot;</span>)
+    .Select(c =&gt; <span class="hljs-keyword">new</span> { c.Name, c.Phone });</code></pre>
+<p>Para que eso funcione, C# usa seis piezas.</p>
+<div class="tabla"><table><thead><tr><th>Pieza</th><th>Qué hace</th><th>Diapositiva</th></tr></thead><tbody><tr><td>Inferencia de tipo local</td><td><code>var i = 666;</code>. «El tipo se define en el lado derecho»</td><td>15</td></tr><tr><td>Inicializador de objetos</td><td><code>new Point { X = 0, Y = 1 }</code></td><td>16</td></tr><tr><td>Tipos anónimos</td><td><code>new { Name = &quot;Jenny&quot;, Age = 31 }</code></td><td>17</td></tr><tr><td>Expresiones lambda</td><td><code>c =&gt; c.City == &quot;Hove&quot;</code></td><td>18</td></tr><tr><td>Métodos de extensión</td><td>Método <code>static</code> con <code>this</code> en el primer parámetro</td><td>19</td></tr><tr><td>Query expressions</td><td>Empieza con <code>from</code>, termina con <code>select</code> o <code>group by</code></td><td>21</td></tr></tbody></table></div>
+<p>Algunas piezas, con lo que muestran las diapositivas:</p>
+<ul>
+<li><strong>Inicializador de objetos.</strong> <code>new Point { X = 0, Y = 1 }</code> equivale a crear el <code>Point</code> y asignar <code>a.X = 0;</code> y <code>a.Y = 1;</code> después. Es «asignación a campos o propiedades» (diapositiva 16).</li>
+<li><strong>Tipos anónimos.</strong> <code>var o = new { Name = &quot;Jenny&quot;, Age = 31 };</code> equivale a una clase sin nombre con los campos públicos <code>string Name</code> e <code>int Age</code> (diapositiva 17).</li>
+<li><strong>Métodos de extensión.</strong> Van en una clase <code>static</code>, con <code>this</code> antes del primer parámetro. Se habilitan con el <code>using</code> de su namespace, y desde ahí aparecen en IntelliSense, como <code>names.Concatenate(&quot;, &quot;)</code> sobre un arreglo de strings (diapositiva 19).</li>
+<li><strong>Query expressions.</strong> Empiezan con <code>from</code>. En el medio van cero o más <code>from</code>, <code>join</code>, <code>let</code>, <code>where</code> u <code>orderby</code>. Terminan con <code>select</code> o <code>group by</code>, y el <code>into</code> es opcional (diapositiva 21). Las mismas consultas se pueden expresar con métodos como <code>Where</code>, <code>Join</code>, <code>OrderBy</code>, <code>Select</code> y <code>GroupBy</code> (diapositiva 20).</li>
+</ul>
+<p>La diapositiva 22 agrupa los operadores así:</p>
+<div class="tabla"><table><thead><tr><th>Grupo</th><th>Operadores</th></tr></thead><tbody><tr><td>Project</td><td><code>Select</code></td></tr><tr><td>Filter</td><td><code>Where</code>, <code>Distinct</code></td></tr><tr><td>Test</td><td><code>Any</code>, <code>All</code></td></tr><tr><td>Join</td><td><code>Join ... On ... Equals</code></td></tr><tr><td>Group</td><td><code>Group By ... Into</code>, <code>Group Join ... On ... Equals ... Into</code></td></tr><tr><td>Aggregate</td><td><code>Count</code>, <code>Sum</code>, <code>Min</code>, <code>Max</code>, <code>Avg</code></td></tr><tr><td>Partition</td><td><code>Skip [While]</code>, <code>Take [While]</code></td></tr><tr><td>Set</td><td><code>Union</code>, <code>Intersect</code>, <code>Except</code></td></tr><tr><td>Order</td><td><code>Order By ... [Ascending | Descending]</code></td></tr></tbody></table></div>
+<div class="ejemplo"><p class="ejemplo-t">Una consulta con orden y partición</p><pre class="codigo"><code><span class="hljs-keyword">var</span> misClientes = <span class="hljs-keyword">from</span> c <span class="hljs-keyword">in</span> Clientes
+                  <span class="hljs-keyword">where</span> c.Provincia == <span class="hljs-string">&quot;Santa Fe&quot;</span>
+                  <span class="hljs-keyword">select</span> c;
+
+<span class="hljs-keyword">var</span> mejoresClientes = (<span class="hljs-keyword">from</span> c <span class="hljs-keyword">in</span> db.Clientes
+                       <span class="hljs-keyword">where</span> c.CodigoPostal.StartsWith(<span class="hljs-string">&quot;S&quot;</span>)
+                       <span class="hljs-keyword">orderby</span> c.Ventas <span class="hljs-keyword">descending</span>
+                       <span class="hljs-keyword">select</span> c).Skip(<span class="hljs-number">10</span>).Take(<span class="hljs-number">10</span>);</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 3, diapositiva 12</p></div>
+<div class="tomado"><aside class="nota"><strong>Buscar y filtrar con LINQ</strong><span>1° parcial 09/06/2025 y 08/06/2026</span></aside><p>Los 4 temas piden una búsqueda con LINQ que retorna un objeto y su versión iterando la lista. El tema Médico suma un filtro que retorna una lista nueva.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Algo que las diapositivas no muestran</p><p>Los ejemplos de la presentación devuelven colecciones. No hay uno que traiga un solo objeto, que es lo que pide la búsqueda de los parciales. Practicá eso con la documentación de Microsoft antes de rendir. También practicá el <a href="https://drive.google.com/file/d/1z6up4jexOU4kpffilXOm-InSypqFWgGF/view">laboratorio de LINQ to Objects</a>.</p>
+</div>
+<details class="pregunta"><summary><span>¿Se puede usar LINQ sin Entity Framework?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>La presentación muestra LINQ integrado a C# sobre colecciones comunes, y el laboratorio se llama «LINQ to Objects»: trabaja con un <code>Array</code>, un <code>List&lt;int&gt;</code>, un <code>ArrayList</code> y un <code>List&lt;Empleado&gt;</code>, sin base de datos. Fuente: Unidad 2, Capítulo 3, Laboratorio 1, pág. 1.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="delegados-y-eventos">Delegados y eventos</h2>
+<div class="ojo"><p class="ojo-t">Tema con poco material</p><p>La presentación de la Unidad 2, Capítulo 3 los nombra en el índice («Eventos, Handlers de Eventos, Delegados», diapositiva 2), pero no trae una diapositiva que los desarrolle. Lo poco que hay es esto. Un delegado es un tipo por referencia (Unidad 1, Capítulo 1, Teoría, pág. 17) y los eventos se notifican desde la clase (Unidad 2, Capítulo 1, Teoría, pág. 22). Su uso en pantallas está en <a href="parcial-2.html#manejo-de-eventos">Manejo de eventos</a>.</p>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-1" data-materia="tecnologias-de-desarrollo-de-software-ide">
+<h2>Quiz del 1° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="IOqnkacdpp" data-tema="Compilación: de C# a código nativo" data-enlace="parcial-1.html#compilacion-de-c-a-codigo-nativo" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-1"><span class="q-n">1</span><div><p>¿Qué genera en primera instancia el compilador de C#?</p>
+<p class="q-origen">Se tomó: 1° parcial 01/06/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-1"><li><button type="button" class="op" data-ok="0">Código nativo de la máquina</button></li><li><button type="button" class="op" data-ok="1">Código intermedio, CIL o MSIL</button></li><li><button type="button" class="op" data-ok="0">Un archivo de configuración XML</button></li><li><button type="button" class="op" data-ok="0">Código fuente en otro lenguaje .NET</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El compilador pasa el código fuente a un lenguaje intermedio. El JIT lo convierte a nativo recién en tiempo de ejecución.</p>
+</div></li><li class="q" data-q="Yrprrz66wT" data-tema="Tipos por valor y por referencia" data-enlace="parcial-1.html#tipos-por-valor-y-por-referencia" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-2"><span class="q-n">2</span><div><p>¿De qué tipo derivan todos los tipos de .NET?</p>
+<p class="q-origen">Se tomó: 1° parcial 01/06/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-2"><li><button type="button" class="op" data-ok="0">System.Int32</button></li><li><button type="button" class="op" data-ok="0">System.Exception</button></li><li><button type="button" class="op" data-ok="0">System.ValueType</button></li><li><button type="button" class="op" data-ok="1">System.Object</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte lo dice con esas palabras: todos los tipos derivan del tipo base System.Object.</p>
+</div></li><li class="q" data-q="1LhgxQmrZo" data-tema="Namespaces" data-enlace="parcial-1.html#namespaces" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-3"><span class="q-n">3</span><div><p>¿Para qué se usa un namespace?</p>
+<p class="q-origen">Se tomó: 1° parcial 01/06/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-3"><li><button type="button" class="op" data-ok="1">Para declarar un ámbito que organiza el código y crea tipos globalmente únicos</button></li><li><button type="button" class="op" data-ok="0">Para liberar la memoria de los objetos sin uso</button></li><li><button type="button" class="op" data-ok="0">Para ejecutar código en paralelo</button></li><li><button type="button" class="op" data-ok="0">Para compilar el código a MSIL</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Esa es la definición del apunte. Liberar memoria es tarea del Garbage Collector.</p>
+</div></li><li class="q" data-q="9gLhCNn99Y" data-tema="Objetos en C#" data-enlace="parcial-1.html#objetos-en-c" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-4"><span class="q-n">4</span><div><p>¿Cuáles son los pilares de la orientación a objetos, según la cátedra?</p>
+<p class="q-origen">Se tomó: 1° parcial 01/06/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-4"><li><button type="button" class="op" data-ok="0">Clase, objeto, método y propiedad</button></li><li><button type="button" class="op" data-ok="0">Compilación, ejecución, memoria e hilos</button></li><li><button type="button" class="op" data-ok="1">Herencia, polimorfismo, encapsulamiento y abstracción</button></li><li><button type="button" class="op" data-ok="0">Interfaz, delegado, evento y excepción</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación los enumera así. Los otros grupos mezclan conceptos que no son pilares.</p>
+</div></li><li class="q" data-q="HtamI5lmCO" data-tema="Excepciones" data-enlace="parcial-1.html#excepciones" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-5"><span class="q-n">5</span><div><p>¿Con qué palabras reservadas se controlan las excepciones en C#?</p>
+<p class="q-origen">Se tomó: 1° parcial 01/06/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-5"><li><button type="button" class="op" data-ok="0">if, else y switch</button></li><li><button type="button" class="op" data-ok="1">try, catch y finally</button></li><li><button type="button" class="op" data-ok="0">using, new y base</button></li><li><button type="button" class="op" data-ok="0">get, set y value</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte nombra try-catch-finally como los bloques de control de excepciones.</p>
+</div></li><li class="q" data-q="Hi6fVeHwJB" data-tema="Interfaces" data-enlace="parcial-1.html#interfaces" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-6"><span class="q-n">6</span><div><p>¿Qué tienen en común una interfaz y una clase abstracta?</p>
+<p class="q-origen">Se tomó: 1° parcial 01/06/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-6"><li><button type="button" class="op" data-ok="0">Las dos tienen toda su implementación escrita</button></li><li><button type="button" class="op" data-ok="0">Las dos llevan el prefijo I por estándar</button></li><li><button type="button" class="op" data-ok="0">Una clase puede heredar de varias de cada una</button></li><li><button type="button" class="op" data-ok="1">De ninguna de las dos se pueden crear instancias</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>De las clases abstractas dice que no pueden ser instanciadas. De las interfaces, que no se pueden crear instancias.</p>
+</div></li><li class="q" data-q="N9GValxJZ8" data-tema="Tipos por valor y por referencia" data-enlace="parcial-1.html#tipos-por-valor-y-por-referencia" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-7"><span class="q-n">7</span><div><p>En el ejemplo del apunte, <code>Class1 ref2 = ref1;</code> y después <code>ref2.Value = 123;</code>. ¿Qué pasa con <code>ref1.Value</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-7"><li><button type="button" class="op" data-ok="1">También vale 123, porque las dos variables apuntan al mismo objeto</button></li><li><button type="button" class="op" data-ok="0">Queda con su valor anterior, porque cada una tiene su copia</button></li><li><button type="button" class="op" data-ok="0">Da error de compilación</button></li><li><button type="button" class="op" data-ok="0">Queda en null</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte muestra la salida «Refs: 123, 123». En los tipos por referencia, dos variables pueden apuntar al mismo objeto.</p>
+</div></li><li class="q" data-q="JwY45JUX40" data-tema="Operadores lógicos y cortocircuito" data-enlace="parcial-1.html#operadores-logicos-y-cortocircuito" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-8"><span class="q-n">8</span><div><p>En <code>if (Hacer1() || Hacer2())</code>, si <code>Hacer1()</code> devuelve True, ¿qué pasa con <code>Hacer2()</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-8"><li><button type="button" class="op" data-ok="0">Se ejecuta antes que Hacer1()</button></li><li><button type="button" class="op" data-ok="0">Se ejecuta después, siempre</button></li><li><button type="button" class="op" data-ok="1">No se evalúa</button></li><li><button type="button" class="op" data-ok="0">Da error de compilación</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>En C# todas las evaluaciones se hacen por cortocircuito.</p>
+</div></li><li class="q" data-q="-sJYAthBSN" data-tema="Métodos virtuales, override y new" data-enlace="parcial-1.html#metodos-virtuales-override-y-new" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-9"><span class="q-n">9</span><div><p>En el laboratorio de objetos, ¿qué pasa si le quitás <code>override</code> al método <code>G</code> de la clase <code>B</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-9"><li><button type="button" class="op" data-ok="0">No compila</button></li><li><button type="button" class="op" data-ok="1">Aparece un warning, y al ejecutar la aplicación llama a A.G()</button></li><li><button type="button" class="op" data-ok="0">Sigue llamando a B.G() sin ningún aviso</button></li><li><button type="button" class="op" data-ok="0">Se borra el método G de la clase A</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El laboratorio pide hacer esa prueba y describe ese resultado.</p>
+</div></li><li class="q" data-q="ZcIpCR0hXV" data-tema="Excepciones" data-enlace="parcial-1.html#excepciones" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-10"><span class="q-n">10</span><div><p>¿En qué orden conviene escribir los bloques <code>catch</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-10"><li><button type="button" class="op" data-ok="0">Primero el general y después los específicos</button></li><li><button type="button" class="op" data-ok="0">En orden alfabético</button></li><li><button type="button" class="op" data-ok="0">El orden no importa</button></li><li><button type="button" class="op" data-ok="1">Primero los específicos y después el general</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte avisa que, de lo contrario, el compilador puede emitir un error.</p>
+</div></li><li class="q" data-q="-I7B_lSFxr" data-tema="Enumeraciones" data-enlace="parcial-1.html#enumeraciones" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-11"><span class="q-n">11</span><div><p>En un <code>enum</code> sin inicializadores, ¿cuánto vale el primer enumerador?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-11"><li><button type="button" class="op" data-ok="1">0</button></li><li><button type="button" class="op" data-ok="0">1</button></li><li><button type="button" class="op" data-ok="0">null</button></li><li><button type="button" class="op" data-ok="0">Depende del tipo subyacente</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El primero vale 0 y cada uno suma 1, salvo que uses inicializadores.</p>
+</div></li><li class="q" data-q="mVfQCGCF34" data-tema="Clases parciales" data-enlace="parcial-1.html#clases-parciales" data-tipo="abierta"><div class="q-enun" id="qe-parcial-1-12"><span class="q-n">12</span><div><p>¿Qué permite una clase parcial, y qué ejemplo da la cátedra?</p>
+<p class="q-origen">Se tomó: 1° parcial 01/06/2024, adaptada</p></div></div><details class="q-abierta"><summary>Ver qué dice el material</summary><div><p>Permite separar la implementación de una clase en varios archivos fuente. La corrección de ese parcial comentó que el ejemplo natural es un formulario winform, donde se separa el código de diseño del código de la clase.</p>
+</div><p class="q-auto">¿Cómo te fue? <button type="button" class="b-auto" aria-pressed="false" data-ok="1">La sabía</button> <button type="button" class="b-auto" aria-pressed="false" data-ok="0">Me faltó</button></p></details></li><li class="q" data-q="yzJsI0Aex_" data-tema="Compilación: de C# a código nativo" data-enlace="parcial-1.html#compilacion-de-c-a-codigo-nativo" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-13"><span class="q-n">13</span><div><p>¿En qué especificación se basa un compilador para generar CIL compatible con el CLR?</p>
+<p class="q-origen">Se tomó: 2° parcial 14/09/2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-13"><li><button type="button" class="op" data-ok="0">BCL</button></li><li><button type="button" class="op" data-ok="0">JIT</button></li><li><button type="button" class="op" data-ok="1">CLS</button></li><li><button type="button" class="op" data-ok="0">GDI+</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte dice que el compilador se basa en la especificación CLS, que determina las reglas para crear CIL compatible.</p>
+</div></li><li class="q" data-q="leyvfjjmAO" data-tema="LINQ" data-enlace="parcial-1.html#linq" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-14"><span class="q-n">14</span><div><p>En <code>var i = 666;</code>, ¿dónde se define el tipo de la variable?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-14"><li><button type="button" class="op" data-ok="0">En tiempo de ejecución, según el uso</button></li><li><button type="button" class="op" data-ok="1">En el lado derecho</button></li><li><button type="button" class="op" data-ok="0">En un archivo de configuración</button></li><li><button type="button" class="op" data-ok="0">No tiene tipo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación lo llama inferencia de tipo local: «El tipo se define en el lado derecho».</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). En el Drive no hay ningún final. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

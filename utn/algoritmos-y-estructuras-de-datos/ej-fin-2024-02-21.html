@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final y globalizador, 21/02/2024 (Imprenta): Algoritmos y Estructuras de Datos</title>
+<meta name="description" content="Ejercicio de examen: Final y globalizador, 21/02/2024 (Imprenta).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="algoritmos-y-estructuras-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Algoritmos y Estructuras de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">3° parcial y final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=algoritmos-y-estructuras-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=algoritmos-y-estructuras-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Final y globalizador, 21/02/2024 (Imprenta)</h1>
+<p class="bajada">3° parcial y final, 21/02/2024</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="fin-2024-02-21" data-titulo="Final y globalizador, 21/02/2024 (Imprenta)" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="fin-2024-02-21" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1_l0FhzDdYL1oOo-EWaDk1R50g9xVlP4d/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/fin-2024-02-21-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/fin-2024-02-21-e1.webp" width="1075" height="1515" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p>La hoja pide el diagrama de Chapin. Va un diagrama por módulo, con su declaración de variables arriba, y primero el del programa principal. Si un diagrama no entra en la pantalla, tocalo para verlo completo. Después de los diagramas está el mismo algoritmo en Python, para que lo puedas probar. Las sentencias de archivos van con las palabras reservadas de Python (<code>open</code>, <code>pickle.load</code>, <code>pickle.dump</code>, <code>seek</code>, <code>tell</code>). Los textos se completan con <code>ljust</code> para que los registros midan lo mismo. El tamaño de un registro sale de <code>tell()</code> después de leer el primero.</p>
+<h4>Menú iterativo</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 726 677" width="726" height="677" style="width:726px;min-width:726px;max-width:none;height:677px" role="img" aria-label="Diagrama de Chapin del programa principal, con la declaración de variables y los registros. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="414.4" height="26"/><rect x="14" y="143" width="414.4" height="26"/><rect x="14" y="169" width="414.4" height="26"/><rect x="14" y="195" width="414.4" height="26"/><rect x="14" y="221" width="414.4" height="26"/><rect x="14" y="247" width="414.4" height="26"/><rect x="14" y="273" width="414.4" height="26"/><rect x="14" y="299" width="414.4" height="312"/><rect x="38" y="325" width="390.4" height="26"/><rect x="38" y="351" width="390.4" height="26"/><rect x="38" y="377" width="390.4" height="26"/><rect x="38" y="403" width="390.4" height="26"/><rect x="38" y="429" width="390.4" height="26"/><rect x="38" y="455" width="390.4" height="26"/><rect x="38" y="481" width="390.4" height="52"/><rect x="62" y="507" width="366.4" height="26"/><rect x="38" y="533" width="390.4" height="78"/><rect x="38" y="585" width="95.4" height="26"/><rect x="133.4" y="585" width="112.7" height="26"/><rect x="246.2" y="585" width="86.8" height="26"/><rect x="333" y="585" width="95.4" height="26"/><rect x="14" y="611" width="414.4" height="26"/><rect x="14" y="637" width="414.4" height="26"/></g><path class="d-linea" d="M38 559H428.4M38 585H428.4M133.4 559V611M246.2 559V611M333 559V611"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">afTrabajos = "TRABAJOS.dat"</text><text x="22" y="160.5">afPrecios = "PRECIOS.dat"</text><text x="22" y="186.5">alTrabajos = open(afTrabajos, "r+b")</text><text x="22" y="212.5">alPrecios = open(afPrecios, "rb")</text><text x="22" y="238.5">pickle.load(alPrecios)</text><text x="22" y="264.5">tamPre = alPrecios.tell()</text><text x="22" y="290.5">opcion = 0</text><text x="22" y="316.5">Mientras opcion != 5:</text><text x="46" y="342.5">Mostrar("1) Ingreso de un trabajo nuevo")</text><text x="46" y="368.5">Mostrar("2) Actualización de trabajo terminado")</text><text x="46" y="394.5">Mostrar("3) Retiro y pago del trabajo")</text><text x="46" y="420.5">Mostrar("4) Informe de los montos del día")</text><text x="46" y="446.5">Mostrar("5) Salir")</text><text x="46" y="472.5">Leer(opcion)</text><text x="46" y="498.5">Mientras opcion &lt; 1 or opcion &gt; 5:</text><text x="70" y="524.5">Leer(opcion)</text><text x="46" y="550.5">Según opcion:</text><text x="85.7" y="576.5" text-anchor="middle">1</text><text x="46" y="602.5">INGRESO()</text><text x="189.8" y="576.5" text-anchor="middle">2</text><text x="141.4" y="602.5">TERMINADO()</text><text x="289.6" y="576.5" text-anchor="middle">3</text><text x="254.2" y="602.5">RETIRO()</text><text x="380.7" y="576.5" text-anchor="middle">4</text><text x="341" y="602.5">INFORME()</text><text x="22" y="628.5">alTrabajos.close()</text><text x="22" y="654.5">alPrecios.close()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># afTrabajos, afPrecios: str</text><text x="14" y="71"># alTrabajos, alPrecios: archivo</text><text x="14" y="88"># tamPre: int</text><text x="14" y="105"># opcion: int</text><text x="464.4" y="29">class Trabajo:</text><text x="494.4" y="46">def __init__(self):</text><text x="524.4" y="63">self.codTrab = 0</text><text x="524.4" y="80">self.tipo = 0</text><text x="524.4" y="97">self.fecha = date.today()</text><text x="524.4" y="114">self.cantidad = 0</text><text x="524.4" y="131">self.montoCobrado = 0.0</text><text x="524.4" y="148">self.terminado = False</text><text x="524.4" y="165">self.pagado = "N"</text><text x="464.4" y="190">class Precio:</text><text x="494.4" y="207">def __init__(self):</text><text x="524.4" y="224">self.descripcion = ""</text><text x="524.4" y="241">self.precio = 0.0</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">Programa principal</text></svg></figure>
+
+<h4>1) Ingreso de un trabajo nuevo</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 598 558" width="598" height="558" style="width:598px;min-width:598px;max-width:none;height:558px" role="img" aria-label="Diagrama de Chapin del módulo BUSCA_TRABAJO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="521.4" height="26"/><rect x="14" y="126" width="521.4" height="392"/><rect x="14" y="170" width="485.4" height="26"/><rect x="14" y="196" width="485.4" height="26"/><rect x="14" y="222" width="485.4" height="26"/><rect x="14" y="248" width="485.4" height="26"/><rect x="14" y="274" width="485.4" height="26"/><rect x="14" y="300" width="485.4" height="218"/><rect x="38" y="326" width="461.4" height="26"/><rect x="38" y="352" width="461.4" height="26"/><rect x="38" y="378" width="461.4" height="26"/><rect x="38" y="404" width="461.4" height="114"/><rect x="38" y="448" width="172" height="26"/><rect x="210" y="448" width="289.4" height="70"/><rect x="210" y="492" width="133" height="26"/><rect x="343" y="492" width="156.4" height="26"/><rect x="14" y="518" width="521.4" height="26"/></g><path class="d-linea" d="M14 126L499.4 170L535.4 126M14 170H535.4M499.4 170V518M38 404L210 448L499.4 404M38 448H499.4M210 448V518M210 448L343 492L499.4 448M210 492H499.4M343 492V518"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">pos = -1</text><text x="381.9" y="142" text-anchor="middle">os.path.getsize(afTrabajos) &gt; 0</text><text x="22" y="187.5">alTrabajos.seek(0, 0)</text><text x="22" y="213.5">pickle.load(alTrabajos)</text><text x="22" y="239.5">tamReg = alTrabajos.tell()</text><text x="22" y="265.5">inicio = 0</text><text x="22" y="291.5">fin = os.path.getsize(afTrabajos) // tamReg - 1</text><text x="22" y="317.5">Mientras inicio &lt;= fin and pos == -1:</text><text x="46" y="343.5">medio = (inicio + fin) // 2</text><text x="46" y="369.5">alTrabajos.seek(medio * tamReg, 0)</text><text x="46" y="395.5">reg = pickle.load(alTrabajos)</text><text x="240.7" y="420" text-anchor="middle">reg.codTrab == cod</text><text x="46" y="465.5">pos = medio * tamReg</text><text x="349.1" y="464" text-anchor="middle">cod &lt; reg.codTrab</text><text x="218" y="509.5">fin = medio - 1</text><text x="351" y="509.5">inicio = medio + 1</text><text x="22" y="535.5">return pos</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="21" y="163">v</text><text x="528.4" y="163" text-anchor="end">f</text><text x="45" y="441">v</text><text x="492.4" y="441" text-anchor="end">f</text><text x="217" y="485">v</text><text x="492.4" y="485" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Dicotómica: TRABAJOS.dat está ordenado por Cod_Trab. Devuelve el byte o -1</text><text x="14" y="71"># cod, tamReg, inicio, fin, medio, pos: int</text><text x="14" y="88"># reg: Trabajo</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">BUSCA_TRABAJO(cod)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 175" width="294" height="175" style="width:294px;min-width:294px;max-width:none;height:175px" role="img" aria-label="Diagrama de Chapin del módulo COBRO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="83" width="265.6" height="26"/><rect x="14" y="109" width="265.6" height="26"/><rect x="14" y="135" width="265.6" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="100.5">alPrecios.seek(tipo * tamPre, 0)</text><text x="22" y="126.5">pre = pickle.load(alPrecios)</text><text x="22" y="152.5">return cantidad * pre.precio</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># cantidad, tipo: int</text><text x="14" y="71"># pre: Precio</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">COBRO(cantidad, tipo)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 263 175" width="263" height="175" style="width:263px;min-width:263px;max-width:none;height:175px" role="img" aria-label="Diagrama de Chapin del módulo GRABAR, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="83" width="234.4" height="26"/><rect x="14" y="109" width="234.4" height="26"/><rect x="14" y="135" width="234.4" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="100.5">alTrabajos.seek(pos, 0)</text><text x="22" y="126.5">pickle.dump(reg, alTrabajos)</text><text x="22" y="152.5">alTrabajos.flush()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># reg: Trabajo</text><text x="14" y="71"># pos: int</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">GRABAR(reg, pos)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 701 690" width="701" height="690" style="width:701px;min-width:701px;max-width:none;height:690px" role="img" aria-label="Diagrama de Chapin del módulo INGRESO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="672.2" height="26"/><rect x="14" y="126" width="672.2" height="550"/><rect x="38" y="152" width="648.2" height="498"/><rect x="38" y="196" width="374.8" height="26"/><rect x="412.8" y="196" width="273.4" height="26"/><rect x="412.8" y="222" width="273.4" height="26"/><rect x="412.8" y="248" width="273.4" height="26"/><rect x="412.8" y="274" width="273.4" height="68"/><rect x="436.8" y="316" width="249.4" height="26"/><rect x="412.8" y="342" width="273.4" height="26"/><rect x="412.8" y="368" width="273.4" height="52"/><rect x="436.8" y="394" width="249.4" height="26"/><rect x="412.8" y="420" width="273.4" height="26"/><rect x="412.8" y="446" width="273.4" height="26"/><rect x="412.8" y="472" width="273.4" height="26"/><rect x="412.8" y="498" width="273.4" height="42"/><rect x="412.8" y="540" width="273.4" height="42"/><rect x="412.8" y="582" width="273.4" height="26"/><rect x="412.8" y="608" width="273.4" height="42"/><rect x="38" y="650" width="648.2" height="26"/></g><path class="d-linea" d="M38 152L412.8 196L686.2 152M38 196H686.2M412.8 196V650"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">Leer(cod)</text><text x="22" y="143.5">Mientras cod != 0:</text><text x="386.3" y="168" text-anchor="middle">BUSCA_TRABAJO(cod) != -1</text><text x="46" y="213.5">Mostrar("Código inválido, ingrese nuevamente")</text><text x="420.8" y="213.5">reg = Trabajo()</text><text x="420.8" y="239.5">reg.codTrab = cod</text><text x="420.8" y="265.5">Leer(reg.tipo)</text><text x="420.8" y="291.5">Mientras reg.tipo &lt; 0 or</text><text x="420.8" y="307.5">    reg.tipo &gt; 5:</text><text x="444.8" y="333.5">Leer(reg.tipo)</text><text x="420.8" y="359.5">Leer(reg.cantidad)</text><text x="420.8" y="385.5">Mientras reg.cantidad &lt;= 0:</text><text x="444.8" y="411.5">Leer(reg.cantidad)</text><text x="420.8" y="437.5">reg.fecha = date.today()</text><text x="420.8" y="463.5">reg.terminado = False</text><text x="420.8" y="489.5">reg.pagado = "N"</text><text x="420.8" y="515.5">reg.montoCobrado =</text><text x="420.8" y="531.5">    COBRO(reg.cantidad, reg.tipo)</text><text x="420.8" y="557.5">GRABAR(reg,</text><text x="420.8" y="573.5">    os.path.getsize(afTrabajos))</text><text x="420.8" y="599.5">ORDENA()</text><text x="420.8" y="625.5">Mostrar("Monto a cobrar:",</text><text x="420.8" y="641.5">    reg.montoCobrado)</text><text x="46" y="667.5">Leer(cod)</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="189">v</text><text x="679.2" y="189" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># cod: int</text><text x="14" y="71"># reg: Trabajo</text><text x="14" y="88"># Fin de datos: código 0</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">INGRESO()</text></svg></figure>
+
+<h4>2) Actualización de trabajo terminado</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 822 496" width="822" height="496" style="width:822px;min-width:822px;max-width:none;height:496px" role="img" aria-label="Diagrama de Chapin del módulo TERMINADO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="793.8" height="26"/><rect x="14" y="126" width="793.8" height="26"/><rect x="14" y="152" width="793.8" height="330"/><rect x="14" y="196" width="265.6" height="26"/><rect x="279.6" y="196" width="528.2" height="26"/><rect x="279.6" y="222" width="528.2" height="26"/><rect x="279.6" y="248" width="528.2" height="234"/><rect x="279.6" y="292" width="320.2" height="26"/><rect x="599.8" y="292" width="208" height="26"/><rect x="599.8" y="318" width="208" height="68"/><rect x="623.8" y="360" width="184" height="26"/><rect x="599.8" y="386" width="208" height="96"/><rect x="599.8" y="430" width="172" height="26"/><rect x="599.8" y="456" width="172" height="26"/></g><path class="d-linea" d="M14 152L279.6 196L807.8 152M14 196H807.8M279.6 196V482M279.6 248L599.8 292L807.8 248M279.6 292H807.8M599.8 292V482M599.8 386L771.8 430L807.8 386M599.8 430H807.8M771.8 430V482"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">Leer(cod)</text><text x="22" y="143.5">pos = BUSCA_TRABAJO(cod)</text><text x="348.2" y="168" text-anchor="middle">pos == -1</text><text x="22" y="213.5">Mostrar("No existe ese trabajo")</text><text x="287.6" y="213.5">alTrabajos.seek(pos, 0)</text><text x="287.6" y="239.5">reg = pickle.load(alTrabajos)</text><text x="570.5" y="264" text-anchor="middle">reg.terminado</text><text x="287.6" y="309.5">Mostrar("El trabajo ya está terminado")</text><text x="607.8" y="309.5">Leer(resp)</text><text x="607.8" y="335.5">Mientras resp != "S" and</text><text x="607.8" y="351.5">    resp != "N":</text><text x="631.8" y="377.5">Leer(resp)</text><text x="736.3" y="402" text-anchor="middle">resp == "S"</text><text x="607.8" y="447.5">reg.terminado = True</text><text x="607.8" y="473.5">GRABAR(reg, pos)</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="21" y="189">v</text><text x="800.8" y="189" text-anchor="end">f</text><text x="286.6" y="285">v</text><text x="800.8" y="285" text-anchor="end">f</text><text x="606.8" y="423">v</text><text x="800.8" y="423" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># cod, pos: int</text><text x="14" y="71"># resp: str</text><text x="14" y="88"># reg: Trabajo</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">TERMINADO()</text></svg></figure>
+
+<h4>3) Retiro y pago del trabajo</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 973 367" width="973" height="367" style="width:973px;min-width:973px;max-width:none;height:367px" role="img" aria-label="Diagrama de Chapin del módulo RETIRO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="83" width="945" height="26"/><rect x="14" y="109" width="945" height="26"/><rect x="14" y="135" width="945" height="218"/><rect x="14" y="179" width="265.6" height="26"/><rect x="279.6" y="179" width="679.4" height="26"/><rect x="279.6" y="205" width="679.4" height="26"/><rect x="279.6" y="231" width="679.4" height="122"/><rect x="279.6" y="275" width="296.8" height="26"/><rect x="279.6" y="301" width="296.8" height="26"/><rect x="279.6" y="327" width="296.8" height="26"/><rect x="576.4" y="275" width="382.6" height="26"/></g><path class="d-linea" d="M14 135L279.6 179L959 135M14 179H959M279.6 179V353M279.6 231L576.4 275L959 231M279.6 275H959M576.4 275V353"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="100.5">Leer(cod)</text><text x="22" y="126.5">pos = BUSCA_TRABAJO(cod)</text><text x="387.8" y="151" text-anchor="middle">pos == -1</text><text x="22" y="196.5">Mostrar("No existe ese trabajo")</text><text x="287.6" y="196.5">alTrabajos.seek(pos, 0)</text><text x="287.6" y="222.5">reg = pickle.load(alTrabajos)</text><text x="598.8" y="247" text-anchor="middle">reg.terminado</text><text x="287.6" y="292.5">reg.pagado = "S"</text><text x="287.6" y="318.5">GRABAR(reg, pos)</text><text x="287.6" y="344.5">Mostrar("Cobrar:", reg.montoCobrado)</text><text x="584.4" y="292.5">Mostrar("El trabajo todavía no está terminado")</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="21" y="172">v</text><text x="952" y="172" text-anchor="end">f</text><text x="286.6" y="268">v</text><text x="952" y="268" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># cod, pos: int</text><text x="14" y="71"># reg: Trabajo</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">RETIRO()</text></svg></figure>
+
+<h4>4) Informe de los montos del día, descendente</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 946" width="510" height="946" style="width:510px;min-width:510px;max-width:none;height:946px" role="img" aria-label="Diagrama de Chapin del módulo INFORME, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="168" width="481.6" height="26"/><rect x="14" y="194" width="481.6" height="26"/><rect x="14" y="220" width="481.6" height="52"/><rect x="38" y="246" width="457.6" height="26"/><rect x="14" y="272" width="481.6" height="26"/><rect x="14" y="298" width="481.6" height="26"/><rect x="14" y="324" width="481.6" height="26"/><rect x="14" y="350" width="481.6" height="26"/><rect x="14" y="376" width="481.6" height="26"/><rect x="14" y="402" width="481.6" height="26"/><rect x="14" y="428" width="481.6" height="122"/><rect x="38" y="454" width="457.6" height="26"/><rect x="38" y="480" width="457.6" height="70"/><rect x="38" y="524" width="421.6" height="26"/><rect x="14" y="550" width="481.6" height="252"/><rect x="38" y="576" width="457.6" height="226"/><rect x="62" y="602" width="433.6" height="200"/><rect x="62" y="646" width="397.6" height="26"/><rect x="62" y="672" width="397.6" height="26"/><rect x="62" y="698" width="397.6" height="26"/><rect x="62" y="724" width="397.6" height="26"/><rect x="62" y="750" width="397.6" height="26"/><rect x="62" y="776" width="397.6" height="26"/><rect x="14" y="802" width="481.6" height="26"/><rect x="14" y="828" width="481.6" height="104"/><rect x="38" y="854" width="457.6" height="26"/><rect x="38" y="880" width="457.6" height="26"/><rect x="38" y="906" width="457.6" height="26"/></g><path class="d-linea" d="M38 480L459.6 524L495.6 480M38 524H495.6M459.6 524V550M62 602L459.6 646L495.6 602M62 646H495.6M459.6 646V802"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="185.5">total = [0.0]*6</text><text x="22" y="211.5">tipo = [0]*6</text><text x="22" y="237.5">for i in range(6):</text><text x="46" y="263.5">tipo[i] = i</text><text x="22" y="289.5">Leer(d)</text><text x="22" y="315.5">Leer(m)</text><text x="22" y="341.5">Leer(a)</text><text x="22" y="367.5">f = date(a, m, d)</text><text x="22" y="393.5">tam = os.path.getsize(afTrabajos)</text><text x="22" y="419.5">alTrabajos.seek(0, 0)</text><text x="22" y="445.5">Mientras alTrabajos.tell() &lt; tam:</text><text x="46" y="471.5">reg = pickle.load(alTrabajos)</text><text x="358.8" y="496" text-anchor="middle">reg.fecha == f</text><text x="46" y="541.5">total[reg.tipo] = total[reg.tipo] + reg.montoCobrado</text><text x="22" y="567.5">for i in range(5):</text><text x="46" y="593.5">for k in range(i + 1, 6):</text><text x="365.1" y="618" text-anchor="middle">total[i] &lt; total[k]</text><text x="70" y="663.5">auxM = total[i]</text><text x="70" y="689.5">total[i] = total[k]</text><text x="70" y="715.5">total[k] = auxM</text><text x="70" y="741.5">auxT = tipo[i]</text><text x="70" y="767.5">tipo[i] = tipo[k]</text><text x="70" y="793.5">tipo[k] = auxT</text><text x="22" y="819.5">Mostrar("Tipo / Descripción / Total cobrado")</text><text x="22" y="845.5">for i in range(6):</text><text x="46" y="871.5">alPrecios.seek(tipo[i] * tamPre, 0)</text><text x="46" y="897.5">pre = pickle.load(alPrecios)</text><text x="46" y="923.5">Mostrar(tipo[i], pre.descripcion, total[i])</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="517">v</text><text x="488.6" y="517" text-anchor="end">f</text><text x="69" y="639">v</text><text x="488.6" y="639" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># total: arreglo [0..5] de float</text><text x="14" y="71"># tipo: arreglo [0..5] de int</text><text x="14" y="88"># tam, d, m, a, i, k, auxT: int</text><text x="14" y="105"># f: date</text><text x="14" y="122"># auxM: float</text><text x="14" y="139"># reg: Trabajo</text><text x="14" y="156"># pre: Precio</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">INFORME()</text></svg></figure>
+
+<h4>El mismo algoritmo en Python</h4>
+<p>Es el programa que se probó, con las mismas sentencias y en el mismo orden que las cajas. Cada <code>Leer</code> del diagrama es un <code>input</code>, convertido a <code>int</code> o <code>float</code> según la declaración, y cada <code>Mostrar</code> es un <code>print</code>.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> pickle
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> date
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Trabajo</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.codTrab = <span class="hljs-number">0</span>
+        <span class="hljs-variable language_">self</span>.tipo = <span class="hljs-number">0</span>
+        <span class="hljs-variable language_">self</span>.fecha = date.today()
+        <span class="hljs-variable language_">self</span>.cantidad = <span class="hljs-number">0</span>
+        <span class="hljs-variable language_">self</span>.montoCobrado = <span class="hljs-number">0.0</span>
+        <span class="hljs-variable language_">self</span>.terminado = <span class="hljs-literal">False</span>
+        <span class="hljs-variable language_">self</span>.pagado = <span class="hljs-string">&quot;N&quot;</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Precio</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.descripcion = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.precio = <span class="hljs-number">0.0</span>
+
+<span class="hljs-comment"># afTrabajos, afPrecios: str</span>
+<span class="hljs-comment"># alTrabajos, alPrecios: archivo</span>
+<span class="hljs-comment"># tamPre: int</span>
+afTrabajos = <span class="hljs-string">&quot;TRABAJOS.dat&quot;</span>
+afPrecios = <span class="hljs-string">&quot;PRECIOS.dat&quot;</span>
+alTrabajos = <span class="hljs-built_in">open</span>(afTrabajos, <span class="hljs-string">&quot;r+b&quot;</span>)
+alPrecios = <span class="hljs-built_in">open</span>(afPrecios, <span class="hljs-string">&quot;rb&quot;</span>)
+pickle.load(alPrecios)
+tamPre = alPrecios.tell()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">BUSCA_TRABAJO</span>(<span class="hljs-params">cod</span>):
+    <span class="hljs-comment"># Dicotómica: TRABAJOS.dat está ordenado por Cod_Trab. Devuelve el byte o -1</span>
+    <span class="hljs-comment"># cod, tamReg, inicio, fin, medio, pos: int</span>
+    <span class="hljs-comment"># reg: Trabajo</span>
+    pos = -<span class="hljs-number">1</span>
+    <span class="hljs-keyword">if</span> os.path.getsize(afTrabajos) &gt; <span class="hljs-number">0</span>:
+        alTrabajos.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+        pickle.load(alTrabajos)
+        tamReg = alTrabajos.tell()
+        inicio = <span class="hljs-number">0</span>
+        fin = os.path.getsize(afTrabajos) // tamReg - <span class="hljs-number">1</span>
+        <span class="hljs-keyword">while</span> inicio &lt;= fin <span class="hljs-keyword">and</span> pos == -<span class="hljs-number">1</span>:
+            medio = (inicio + fin) // <span class="hljs-number">2</span>
+            alTrabajos.seek(medio * tamReg, <span class="hljs-number">0</span>)
+            reg = pickle.load(alTrabajos)
+            <span class="hljs-keyword">if</span> reg.codTrab == cod:
+                pos = medio * tamReg
+            <span class="hljs-keyword">elif</span> cod &lt; reg.codTrab:
+                fin = medio - <span class="hljs-number">1</span>
+            <span class="hljs-keyword">else</span>:
+                inicio = medio + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> pos
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">COBRO</span>(<span class="hljs-params">cantidad, tipo</span>):
+    <span class="hljs-comment"># cantidad, tipo: int</span>
+    <span class="hljs-comment"># pre: Precio</span>
+    alPrecios.seek(tipo * tamPre, <span class="hljs-number">0</span>)
+    pre = pickle.load(alPrecios)
+    <span class="hljs-keyword">return</span> cantidad * pre.precio
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">GRABAR</span>(<span class="hljs-params">reg, pos</span>):
+    <span class="hljs-comment"># reg: Trabajo</span>
+    <span class="hljs-comment"># pos: int</span>
+    alTrabajos.seek(pos, <span class="hljs-number">0</span>)
+    pickle.dump(reg, alTrabajos)
+    alTrabajos.flush()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">INGRESO</span>():
+    <span class="hljs-comment"># cod: int</span>
+    <span class="hljs-comment"># reg: Trabajo</span>
+    <span class="hljs-comment"># Fin de datos: código 0</span>
+    cod = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Cod_Trab (0 para terminar): &quot;</span>))
+    <span class="hljs-keyword">while</span> cod != <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">if</span> BUSCA_TRABAJO(cod) != -<span class="hljs-number">1</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Código inválido, ingrese nuevamente&quot;</span>)
+        <span class="hljs-keyword">else</span>:
+            reg = Trabajo()
+            reg.codTrab = cod
+            reg.tipo = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Tipo (0 a 5): &quot;</span>))
+            <span class="hljs-keyword">while</span> reg.tipo &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> reg.tipo &gt; <span class="hljs-number">5</span>:
+                reg.tipo = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Tipo inválido: &quot;</span>))
+            reg.cantidad = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Cantidad: &quot;</span>))
+            <span class="hljs-keyword">while</span> reg.cantidad &lt;= <span class="hljs-number">0</span>:
+                reg.cantidad = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Tiene que ser mayor que 0: &quot;</span>))
+            reg.fecha = date.today()
+            reg.terminado = <span class="hljs-literal">False</span>
+            reg.pagado = <span class="hljs-string">&quot;N&quot;</span>
+            reg.montoCobrado = COBRO(reg.cantidad, reg.tipo)
+            GRABAR(reg, os.path.getsize(afTrabajos))
+            ORDENA()
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Monto a cobrar:&quot;</span>, reg.montoCobrado)
+        cod = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Cod_Trab (0 para terminar): &quot;</span>))
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">TERMINADO</span>():
+    <span class="hljs-comment"># cod, pos: int</span>
+    <span class="hljs-comment"># resp: str</span>
+    <span class="hljs-comment"># reg: Trabajo</span>
+    cod = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Cod_Trab: &quot;</span>))
+    pos = BUSCA_TRABAJO(cod)
+    <span class="hljs-keyword">if</span> pos == -<span class="hljs-number">1</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;No existe ese trabajo&quot;</span>)
+    <span class="hljs-keyword">else</span>:
+        alTrabajos.seek(pos, <span class="hljs-number">0</span>)
+        reg = pickle.load(alTrabajos)
+        <span class="hljs-keyword">if</span> reg.terminado:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;El trabajo ya está terminado&quot;</span>)
+        <span class="hljs-keyword">else</span>:
+            resp = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;¿Confirma que está terminado? (S/N): &quot;</span>)
+            <span class="hljs-keyword">while</span> resp != <span class="hljs-string">&quot;S&quot;</span> <span class="hljs-keyword">and</span> resp != <span class="hljs-string">&quot;N&quot;</span>:
+                resp = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Responda S o N: &quot;</span>)
+            <span class="hljs-keyword">if</span> resp == <span class="hljs-string">&quot;S&quot;</span>:
+                reg.terminado = <span class="hljs-literal">True</span>
+                GRABAR(reg, pos)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">RETIRO</span>():
+    <span class="hljs-comment"># cod, pos: int</span>
+    <span class="hljs-comment"># reg: Trabajo</span>
+    cod = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Cod_Trab: &quot;</span>))
+    pos = BUSCA_TRABAJO(cod)
+    <span class="hljs-keyword">if</span> pos == -<span class="hljs-number">1</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;No existe ese trabajo&quot;</span>)
+    <span class="hljs-keyword">else</span>:
+        alTrabajos.seek(pos, <span class="hljs-number">0</span>)
+        reg = pickle.load(alTrabajos)
+        <span class="hljs-keyword">if</span> reg.terminado:
+            reg.pagado = <span class="hljs-string">&quot;S&quot;</span>
+            GRABAR(reg, pos)
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Cobrar:&quot;</span>, reg.montoCobrado)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;El trabajo todavía no está terminado&quot;</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">INFORME</span>():
+    <span class="hljs-comment"># total: arreglo [0..5] de float</span>
+    <span class="hljs-comment"># tipo: arreglo [0..5] de int</span>
+    <span class="hljs-comment"># tam, d, m, a, i, k, auxT: int</span>
+    <span class="hljs-comment"># f: date</span>
+    <span class="hljs-comment"># auxM: float</span>
+    <span class="hljs-comment"># reg: Trabajo</span>
+    <span class="hljs-comment"># pre: Precio</span>
+    total = [<span class="hljs-number">0.0</span>]*<span class="hljs-number">6</span>
+    tipo = [<span class="hljs-number">0</span>]*<span class="hljs-number">6</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">6</span>):
+        tipo[i] = i
+    d = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Día: &quot;</span>))
+    m = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Mes: &quot;</span>))
+    a = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Año: &quot;</span>))
+    f = date(a, m, d)
+    tam = os.path.getsize(afTrabajos)
+    alTrabajos.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alTrabajos.tell() &lt; tam:
+        reg = pickle.load(alTrabajos)
+        <span class="hljs-keyword">if</span> reg.fecha == f:
+            total[reg.tipo] = total[reg.tipo] + reg.montoCobrado
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):
+        <span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i + <span class="hljs-number">1</span>, <span class="hljs-number">6</span>):
+            <span class="hljs-keyword">if</span> total[i] &lt; total[k]:
+                auxM = total[i]
+                total[i] = total[k]
+                total[k] = auxM
+                auxT = tipo[i]
+                tipo[i] = tipo[k]
+                tipo[k] = auxT
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Tipo / Descripción / Total cobrado&quot;</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">6</span>):
+        alPrecios.seek(tipo[i] * tamPre, <span class="hljs-number">0</span>)
+        pre = pickle.load(alPrecios)
+        <span class="hljs-built_in">print</span>(tipo[i], pre.descripcion, total[i])
+
+<span class="hljs-comment"># Programa principal</span>
+<span class="hljs-comment"># opcion: int</span>
+opcion = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> opcion != <span class="hljs-number">5</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;1) Ingreso de un trabajo nuevo&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;2) Actualización de trabajo terminado&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;3) Retiro y pago del trabajo&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;4) Informe de los montos del día&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;5) Salir&quot;</span>)
+    opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción: &quot;</span>))
+    <span class="hljs-keyword">while</span> opcion &lt; <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> opcion &gt; <span class="hljs-number">5</span>:
+        opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción inválida: &quot;</span>))
+    <span class="hljs-keyword">match</span> opcion:
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+            INGRESO()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+            TERMINADO()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+            RETIRO()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+            INFORME()
+alTrabajos.close()
+alPrecios.close()</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la hoja del examen y la página del 3° parcial y final (registros como clase, recorrer, búsquedas, actualizar un registro y alta). Las operaciones de archivos siguen las diapositivas de merge y corte de control. El Chapin sigue la forma de las diapositivas del examen de Historia Clínica de 2019. El tipo como posición relativa en PRECIOS.dat es el que da la hoja.</p><p class="bloque-fuente">Quedó en duda: El informe suma el monto de los trabajos cuya fecha es la ingresada, que es la fecha de ingreso. La hoja dice «cobrado en dicha fecha» y el cobro pasa en el retiro. Si se quiere solo lo cobrado, hay que sumar los que tienen Pagado en S. La fecha sigue siendo la de ingreso, porque el registro no guarda otra. <code>ORDENA</code> se invoca y no se programa. La búsqueda es dicotómica porque el archivo está ordenado por Cod_Trab. El fin de datos del ingreso es el código 0. El retiro no controla si el trabajo ya se pagó, porque la hoja no lo pide. En Python, pickle graba un entero menor que 256 en menos bytes que uno más grande. Por eso un trabajo con código o cantidad menor que 256 mide distinto que otro con valores más grandes. Entonces el registro deja de coincidir con la posición que calcula el programa. El material pide registros del mismo tamaño y solo muestra cómo lograrlo con textos (<code>ljust</code>). Las pruebas se hicieron con datos que no cambian el tamaño. Las diapositivas de la materia no muestran en Chapin la lectura de datos ni la selección múltiple. Acá van como <code>Leer</code> y como <code>Según</code>, con una columna por caso.</p><div class="em-votos" data-m="algoritmos-y-estructuras-de-datos" data-e="fin-2024-02-21" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Archivos" data-enlace="final.html#secuencial-y-de-acceso-directo" data-donde="3° parcial y final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Archivos</span><span class="ex-t-teoria"><a href="final.html#secuencial-y-de-acceso-directo">Secuencial y de acceso directo</a>, en 3° parcial y final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Posición relativa" data-enlace="final.html#como-viene-el-examen" data-donde="3° parcial y final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Posición relativa</span><span class="ex-t-teoria"><a href="final.html#como-viene-el-examen">Cómo viene el examen</a>, en 3° parcial y final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Ordenamiento" data-enlace="parcial-2.html#ordenamiento" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Ordenamiento</span><span class="ex-t-teoria"><a href="parcial-2.html#ordenamiento">Ordenamiento</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2024-10-24.html">Anterior: 3° parcial, octubre de 2024 (Normativas)</a><a href="ej-fin-2024-02-15.html">Siguiente: Final, 15/02/2024 (Bullying)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta mayo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

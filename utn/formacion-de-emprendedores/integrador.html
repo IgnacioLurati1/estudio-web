@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TPI: Formación de Emprendedores</title>
+<meta name="description" content="Qué pide cada punto del trabajo y toda la teoría: cadena de valor, Porter, FODA, misión y visión, comercialización, costos y presupuesto.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="formacion-de-emprendedores" data-pagina="integrador">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Formación de Emprendedores</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="integrador.html" aria-current="page">TPI</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=formacion-de-emprendedores">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=formacion-de-emprendedores">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#que-hay-que-entregar">Qué hay que entregar</a></li><li class="n3"><a href="#como-se-presenta">Cómo se presenta</a></li><li class="n2"><a href="#que-proyecto-sirve">Qué proyecto sirve</a></li><li class="n2"><a href="#el-emprendedor-y-la-oportunidad">El emprendedor y la oportunidad</a></li><li class="n3"><a href="#que-es-un-emprendedor">Qué es un emprendedor</a></li><li class="n3"><a href="#el-proceso-emprendedor">El proceso emprendedor</a></li><li class="n3"><a href="#que-es-una-oportunidad">Qué es una oportunidad</a></li><li class="n3"><a href="#el-dominio-personal">El dominio personal</a></li><li class="n3"><a href="#se-nace-o-se-hace">¿Se nace o se hace?</a></li><li class="n2"><a href="#la-idea-y-la-busqueda-de-informacion">La idea y la búsqueda de información</a></li><li class="n3"><a href="#de-dato-a-inteligencia">De dato a inteligencia</a></li><li class="n3"><a href="#vigilancia-e-inteligencia-estrategica">Vigilancia e inteligencia estratégica</a></li><li class="n2"><a href="#cadena-de-valor-externa">Cadena de valor externa</a></li><li class="n3"><a href="#de-donde-viene-el-concepto">De dónde viene el concepto</a></li><li class="n3"><a href="#que-la-hace-externa">Qué la hace externa</a></li><li class="n3"><a href="#para-que-sirve">Para qué sirve</a></li><li class="n3"><a href="#enfoque-estrategico-en-cinco-pasos">Enfoque estratégico en cinco pasos</a></li><li class="n3"><a href="#eslabones-beneficios-y-riesgos">Eslabones, beneficios y riesgos</a></li><li class="n3"><a href="#de-la-compra-suelta-a-la-alianza">De la compra suelta a la alianza</a></li><li class="n3"><a href="#integracion-vertical-y-horizontal">Integración vertical y horizontal</a></li><li class="n3"><a href="#la-cadena-interna-solo-para-conocerla">La cadena interna, solo para conocerla</a></li><li class="n2"><a href="#diamante-de-porter">Diamante de Porter</a></li><li class="n2"><a href="#foda">FODA</a></li><li class="n3"><a href="#que-es">Qué es</a></li><li class="n3"><a href="#preguntas-para-encontrar-cada-cosa">Preguntas para encontrar cada cosa</a></li><li class="n3"><a href="#lista-plana-y-matriz-cruzada">Lista plana y matriz cruzada</a></li><li class="n3"><a href="#de-diagnostico-a-accion">De diagnóstico a acción</a></li><li class="n3"><a href="#ponderacion-numerica-fuera-del-tpi">Ponderación numérica, fuera del TPI</a></li><li class="n2"><a href="#valores-objetivos-mision-y-vision">Valores, objetivos, misión y visión</a></li><li class="n3"><a href="#mision">Misión</a></li><li class="n3"><a href="#vision">Visión</a></li><li class="n3"><a href="#objetivos-y-valores">Objetivos y valores</a></li><li class="n3"><a href="#estrategia">Estrategia</a></li><li class="n2"><a href="#estrategias-comerciales">Estrategias comerciales</a></li><li class="n3"><a href="#formatos-comerciales">Formatos comerciales</a></li><li class="n2"><a href="#costos">Costos</a></li><li class="n3"><a href="#clasificaciones">Clasificaciones</a></li><li class="n3"><a href="#las-formulas">Las fórmulas</a></li><li class="n2"><a href="#presupuesto">Presupuesto</a></li><li class="n3"><a href="#que-lleva">Qué lleva</a></li><li class="n3"><a href="#los-ejemplos-de-la-catedra">Los ejemplos de la cátedra</a></li><li class="n3"><a href="#partes-del-plan-de-negocios">Partes del plan de negocios</a></li><li class="n2"><a href="#modelo-canvas">Modelo Canvas</a></li><li class="n2"><a href="#organizarse-y-liderar">Organizarse y liderar</a></li><li class="n3"><a href="#primero-lo-primero">Primero lo primero</a></li><li class="n3"><a href="#el-mito-del-emprendedor">El mito del emprendedor</a></li><li class="n3"><a href="#gung-ho">Gung Ho</a></li><li class="n2"><a href="#gestion-de-la-tecnologia-e-innovacion">Gestión de la tecnología e innovación</a></li><li class="n3"><a href="#la-curva-en-s">La curva en S</a></li><li class="n3"><a href="#tipos-de-tecnologia">Tipos de tecnología</a></li><li class="n3"><a href="#plan-de-actuacion-y-diagnostico">Plan de actuación y diagnóstico</a></li><li class="n3"><a href="#transferencia-y-difusion">Transferencia y difusión</a></li><li class="n3"><a href="#innovacion-y-proteccion">Innovación y protección</a></li><li class="n3"><a href="#el-contexto-de-las-pymes">El contexto de las PyMEs</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Trabajo Práctico Integrador</h1>
+<p class="bajada">Qué pide cada punto del TPI y toda la teoría para hacerlo, herramienta por herramienta.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="nivel nivel-rapido">Materia del pasado. Ya no está en el plan de estudios.</p>
+
+
+<section class="sec"><h2 id="que-hay-que-entregar">Qué hay que entregar</h2>
+<div class="tomado"><aside class="nota"><strong>Los diez requisitos mínimos</strong><span>Instructivo de cursado 2026, pág. 2</span></aside><ol>
+<li>Presentación de la idea, justificada con búsqueda de información del negocio, usando distintas herramientas de búsqueda y análisis de la información.</li>
+<li>Cadena de valor externa.</li>
+<li>Diamante de Porter.</li>
+<li>FODA + acciones estratégicas para cada pilar + valoración.</li>
+<li>Valores.</li>
+<li>Objetivos a corto, mediano y largo plazo.</li>
+<li>Misión y visión.</li>
+<li>Estrategias comerciales.</li>
+<li>Presupuesto anual, discriminando mensualmente las erogaciones e ingresos.</li>
+<li>Conclusión final del trabajo.</li>
+</ol>
+<p><mark>Cada herramienta debe tener una conclusión al final sobre la utilidad que tuvo en el desarrollo del punto.</mark> El grupo es de 2 alumnos como máximo.</p>
+</div>
+<p>La materia se aprueba con este trabajo. Para quedar regular alcanza con tener aprobadas la idea y la cadena de valor, además del 70 % de asistencia. El detalle está en <a href="index.html#como-se-aprueba">Para entender</a>.</p>
+<h3 id="como-se-presenta">Cómo se presenta</h3>
+<div class="tomado"><aside class="nota"><strong>Formato del trabajo</strong><span>Material de cursado 2026, Clase 10, Un presupuesto para una idea de negocios, diap. 5</span></aside><ul>
+<li>Cada tema es como un capítulo y empieza en hoja nueva.</li>
+<li>Títulos y subtítulos bien distinguibles.</li>
+<li><mark>Cada capítulo lleva introducción y conclusión.</mark></li>
+<li>Márgenes «Normal», letra Arial 12, «justificado a la derecha» (así lo escribe la diapositiva).</li>
+<li>Carátula con el <a href="https://drive.google.com/file/d/1Esc2AIF9CL0Ln-myUZbksXUSW5rEQLs2/view">modelo de la cátedra</a>: título, especialidad, alumnos, legajos, teléfono, mail, año y cuatrimestre.</li>
+</ul>
+</div>
+<p>La misma clase pide cuatro condiciones para que el trabajo sirva (diap. 3):</p>
+<div class="tabla"><table><thead><tr><th>Condición</th><th>Qué significa</th></tr></thead><tbody><tr><td>Calidad de la información</td><td>Clara, concisa, veraz y comprobable</td></tr><tr><td>Actualidad</td><td>Datos actualizados. Un desfase, aun pequeño, lo vuelve poco útil en proyectos de alta tecnología</td></tr><tr><td>Totalidad</td><td>Abarca todas las áreas de la actividad</td></tr><tr><td>Unidad de criterio</td><td>Se entiende desde inversores y bancos hasta técnicos</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Si tu proyecto es muy técnico</p><p>La diapositiva 3 pide un esfuerzo especial para acercar la terminología a un lenguaje que entiendan todos. Si hacés software, no escribas para otro programador.</p>
+</div>
+</section>
+<section class="sec"><h2 id="que-proyecto-sirve">Qué proyecto sirve</h2>
+<div class="tomado"><aside class="nota"><strong>El proyecto tiene que ser productivo</strong><span>Comunicado oficial, elección de proyecto para el TPI, Clase 1, cursado 2026</span></aside><p><mark>Tiene que generar un bien o un servicio con un proceso estructurado.</mark> Quedan afuera las ideas superficiales o de poco desarrollo. El comunicado da tres ejemplos: reventa simple, servicios sin diferenciación e ideas sin validación real.</p>
+<p>Debe tener estas características:</p>
+<ul>
+<li>Incorporar tecnología (digital, industrial o de procesos).</li>
+<li>Usar mano de obra, con un equipo definido.</li>
+<li>Requerir materias primas o insumos.</li>
+<li>Implicar inversión, sin restricciones presupuestarias.</li>
+<li>Tener potencial de escalabilidad.</li>
+<li>Considerar exportación o expansión a otros mercados.</li>
+<li>Permitir el análisis estratégico completo (cadena de valor, FODA, Porter).</li>
+</ul>
+</div>
+<p>Los tipos que sugiere el comunicado son alimentos con valor agregado, productos industriales, agroindustria o economía circular, y soluciones tecnológicas (AgTech, FinTech, HealthTech). También producción sustentable, indumentaria escalable, plataformas digitales con base en servicios productivos, logística, producción cultural y proyectos de triple impacto.</p>
+<p>La clase de presupuesto agrega las premisas del proyecto (diap. 2). Tiene un líder o gerente. Ese líder trabaja en él al menos 8 horas por día y vive de lo que gana con el negocio. Tiene que ser realizable, no teórico.</p>
+</section>
+<section class="sec"><h2 id="el-emprendedor-y-la-oportunidad">El emprendedor y la oportunidad</h2>
+<p>Es la teoría de las primeras clases. El TPI no la pide como punto aparte, pero explica cómo elegir la idea.</p>
+<h3 id="que-es-un-emprendedor">Qué es un emprendedor</h3>
+<p>La cátedra da tres definiciones (Clase 2, Actitud y aptitud 2025, diap. 3):</p>
+<ul>
+<li>«Aquella persona que identifica una oportunidad y organiza los recursos necesarios para ponerla en marcha; dispuesta a correr riesgos, empecinada en la búsqueda constante de nuevas ideas, nuevas formas de hacer y desarrollar las cosas.»</li>
+<li>«Un individuo que es capaz de llevar a cabo un proyecto. Sabe interpretar las características reales del entorno y ver en ellas la oportunidad para la realización de un negocio. Afronta desafíos y no le teme al fracaso.»</li>
+<li>«Toda persona capaz de concebir un proyecto propio y ponerlo en marcha más allá de los recursos que tenga disponibles. Es quien hace que las cosas pasen.»</li>
+</ul>
+<p>Lo que tienen en común (diap. 4) es concebir proyectos a partir de oportunidades, interpretar el entorno real, no temer al fracaso, arrancar más allá de los recursos y saber lo que se hace.</p>
+<p>Emprender «no es una ciencia, no es un arte, no es un tema de personalidad». Es una actitud, un comportamiento, y puede modificarse mediante la educación (diap. 6).</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Qué dice la cátedra</th><th>Diap.</th></tr></thead><tbody><tr><td>Características</td><td>Perseverancia, determinación, visión, compromiso, iniciativa, autoexigencia, pasión, coraje</td><td>7</td></tr><tr><td>El fracaso</td><td>Suele ser más frecuente que el éxito. Desde ahí se perciben nuevas oportunidades. Puede fracasar la empresa, nunca el emprendedor</td><td>8</td></tr><tr><td>Emprendedor habitual</td><td>Busca oportunidades con pasión, las persigue con disciplina, va solo por las mejores, se enfoca en ejecutar e involucra a todos</td><td>9</td></tr><tr><td>Motivaciones</td><td>Logro, poder y afiliación</td><td>12</td></tr><tr><td>Objetivos</td><td>Realistas, medibles, orientados a la acción, específicos y temporales</td><td>12</td></tr></tbody></table></div>
+<h3 id="el-proceso-emprendedor">El proceso emprendedor</h3>
+<p>Estas son las etapas de la diapositiva 11, en el orden en que se recorren:</p>
+<ol>
+<li>Decisión de ser emprendedor.</li>
+<li>Selección de la oportunidad.</li>
+<li>Análisis preliminar del emprendimiento, con cadena de valor, diamante y FODA.</li>
+<li>Misión, visión, objetivos, políticas e índices de valoración.</li>
+<li>Preparación del plan de negocios.</li>
+<li>Primeros años de operación y crecimiento.</li>
+<li>Éxito personal, éxito de la empresa y desarrollo.</li>
+</ol>
+<h3 id="que-es-una-oportunidad">Qué es una oportunidad</h3>
+<p>«Un estado futuro deseado y posible, distinto al actual» (diap. 14). Depende de la persona, del equipo, del entorno, del acceso a los recursos y del momento oportuno. <mark>Una oportunidad es atractiva, durable, acotada en el tiempo y anclada en un producto o servicio que crea o agrega valor al cliente.</mark></p>
+<p>Las ideas pueden venir de varios lados (diap. 13): el trabajo, la investigación, un hobby, una búsqueda deliberada, la universidad, un cliente, un competidor, un proveedor, un encuentro social o la compra de un negocio existente.</p>
+<p>Los factores críticos de éxito que lista la misma diapositiva son equipo, estrategia, tecnología, proveedores, producción, ventajas legales, competidores, barreras de entrada y de salida, y distribución del riesgo.</p>
+<h3 id="el-dominio-personal">El dominio personal</h3>
+<p>Son tres pasos de desarrollo personal (diap. 15 a 19):</p>
+<ul>
+<li><strong>Autoconocimiento.</strong> Saber por qué actuamos como actuamos. Según Seagal, todos nacemos con un desbalance natural entre capacidades mentales, emocionales y físicas.</li>
+<li><strong>Visión personal.</strong> El futuro que deseamos para nuestra vida. Exige ver con más claridad la realidad actual.</li>
+<li><strong>Tensión creativa.</strong> La brecha entre la visión y la realidad genera energía. Se resuelve de dos modos, llevando la realidad hacia la visión o la visión hacia la realidad.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Tensión creativa no es tensión emocional</p><p>La emocional es angustia, desaliento o preocupación. Cuando aparece, se abandonan los sueños y queda la sensación de fracaso. La creativa te hace ver el fracaso como una prueba para aprender (diap. 18).</p>
+</div>
+<p>Quien logra ese dominio capitaliza tres fuerzas (diap. 19). <strong>Poder</strong> es la capacidad de acción. <strong>Seducción</strong> es generar en otros el juicio de que somos una posibilidad para ellos. <strong>Emocionalidad</strong> es reflexionar y actuar según los estados emocionales propios y ajenos.</p>
+<h3 id="se-nace-o-se-hace">¿Se nace o se hace?</h3>
+<p>La cátedra responde con Andy Freire (diap. 20). El <strong>talento</strong> es innato. Las <strong>metahabilidades</strong> son en parte modificables con tiempo y experiencia. Los <strong>hábitos técnicos</strong> son altamente modificables, como armar un plan de negocios o un equipo. La clave es impulsar tus fortalezas, reconocer tus debilidades y rodearte de talento complementario.</p>
+</section>
+<section class="sec"><h2 id="la-idea-y-la-busqueda-de-informacion">La idea y la búsqueda de información</h2>
+<div class="tomado"><aside class="nota"><strong>Idea justificada con cifras, datos y hechos</strong><span>Pasos TPI 2026, diap. 5. Instructivo de cursado 2026, pág. 2</span></aside><p><mark>La idea no se presenta sola. Se justifica con información del negocio, buscada y analizada con distintas herramientas.</mark></p>
+</div>
+<p>La clase de planeamiento da los pasos concretos (Clase 8, Planeamiento 2023, diap. 6):</p>
+<ul>
+<li>Tener el mayor conocimiento posible del tema.</li>
+<li>Conversar con dueños, gerentes, vendedores y empleados, y saber escuchar.</li>
+<li>Hacer experiencia de campo. Visitar empresas y plantas, posibles clientes y proveedores, ferias, exposiciones y congresos.</li>
+<li>Ver si hay cámaras o revistas del sector.</li>
+<li>Hacer vigilancia tecnológica.</li>
+</ul>
+<h3 id="de-dato-a-inteligencia">De dato a inteligencia</h3>
+<p>Es una cuestión de niveles (diap. 35):</p>
+<div class="tabla"><table><thead><tr><th>Nivel</th><th>Qué es</th></tr></thead><tbody><tr><td>Dato</td><td>Elemento aislado del conocimiento</td></tr><tr><td>Información</td><td>Conjunto de elementos del conocimiento</td></tr><tr><td>Análisis</td><td>Información filtrada y evaluada</td></tr><tr><td>Inteligencia</td><td>Información analizada y orientada a la toma de decisiones</td></tr></tbody></table></div>
+<p>El método tiene tres pasos (diap. 37). <strong>Ver</strong> es observar, vigilar y recoger información. <strong>Apreciar</strong> es analizar, comprobar, sintetizar, evaluar y descartar. <strong>Resolver</strong> es tomar decisiones, comunicar y utilizar.</p>
+<p>«No es una cuestión de saber todos de todo.» El objetivo es dar buena información a la persona idónea en el momento adecuado. Por eso la empresa decide primero en qué áreas y temas quiere estar informada, cuáles son las fuentes y qué tratamiento le da a lo que junta. Lo importante es obtener resultados, no acumular (diap. 43).</p>
+<h3 id="vigilancia-e-inteligencia-estrategica">Vigilancia e inteligencia estratégica</h3>
+<p>El problema de partida es el exceso de información en internet. La respuesta es sistematizar y organizar la búsqueda (Clase 5, Vigilancia tecnológica, pág. 5).</p>
+<p>«Se define a la vigilancia e inteligencia como un proceso ético y sistemático de recolección y análisis de información acerca del exterior y del interior de la propia organización» (pág. 10). Esa información se selecciona, analiza, difunde y comunica. El fin es <mark>convertirla en conocimiento para tomar decisiones con menor riesgo y anticiparse a los cambios</mark>.</p>
+<p>La <strong>inteligencia estratégica</strong> (pág. 9) es un sistema organizacional para gestionar la innovación desde el planeamiento estratégico. Se basa en información del pasado, presente y futuro. Usa tres disciplinas: la vigilancia tecnológica (VT), la inteligencia competitiva (IC) y la prospectiva.</p>
+<p>Los tipos de vigilancia salen de los aportes de Porter (pág. 12):</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Qué mira</th></tr></thead><tbody><tr><td>Tecnológica</td><td>Tecnologías disponibles o recién aparecidas, capaces de intervenir en nuevos productos o procesos</td></tr><tr><td>Competitiva</td><td>Competidores actuales y potenciales</td></tr><tr><td>Comercial</td><td>Clientes y proveedores: necesidades, solvencia, productos nuevos</td></tr><tr><td>De entorno</td><td>Hechos exteriores que condicionan el futuro: lo social, la política, el medio ambiente, las reglamentaciones</td></tr></tbody></table></div>
+<p><img src="img/fig-ciclo-vigilancia.webp" alt="Ciclo de vigilancia tecnológica: planificación, búsqueda y recolección, análisis y validación, difusión y protección, toma de decisión, evaluación y seguimiento de resultados, y vuelta a empezar"></p>
+<p><em>Fuente: Clase 5, Vigilancia tecnológica, pág. 14.</em></p>
+<p>La Guía Nacional explica las fases (pág. 66 y 67). En la <strong>planificación</strong> definís qué tipo de estudio hacés, qué fuentes vas a monitorear y con qué herramientas. La <strong>búsqueda</strong> se apoya en buscadores y en bases de publicaciones científicas y de patentes. La vigilancia no termina con el análisis. Se cumple cuando la información llega a quienes deciden. La <strong>decisión</strong> la toman personas con conocimiento. Para una PyME, muchas herramientas son gratuitas.</p>
+<div class="ejemplo"><p class="ejemplo-t">Cómo se arma una vigilancia: exoesqueletos</p><p>Una empresa de productos médicos quería saber sobre exoesqueletos portables de miembro inferior.</p>
+<ul>
+<li><strong>Qué se buscó:</strong> patentes, publicaciones científicas, grupos de investigación, proyectos, empresas y ferias.</li>
+<li><strong>Con qué palabras clave:</strong> en dos idiomas, como «exoesqueleto», «órtesis activa», «exoskeleton» y «lower limb».</li>
+<li><strong>Período:</strong> 2006 a 2016.</li>
+<li><strong>Qué encontró:</strong> 1156 patentes y 419 publicaciones. La mayoría de las solicitudes eran de China, muchas de universidades.</li>
+<li><strong>Qué permitió:</strong> conocer otros nichos para migrar el producto, los grupos de investigación, las empresas de punta y hacia dónde va la tecnología.</li>
+</ul>
+<p class="bloque-fuente">Clase 7, VTeIE 2025. Clase 5, Vigilancia tecnológica, págs. 21 a 31</p></div>
+</section>
+<section class="sec"><h2 id="cadena-de-valor-externa">Cadena de valor externa</h2>
+<div class="tomado"><aside class="nota"><strong>Solo la externa, con todos los actores y sus contactos</strong><span>Material de cursado 2026, Clase 4, Cadena de valor, diap. 4 y 28</span></aside><p><mark>En este curso solo se analiza la cadena de valor externa.</mark> Con la idea, es lo que te da la regularidad.</p>
+<p>Para el TPI hay que mapear todos los eslabones e identificar a todos los actores externos, no solo los obvios:</p>
+<ul>
+<li><strong>Proveedores</strong> directos, y los proveedores de tus proveedores (Tier 1, 2 y 3).</li>
+<li><strong>Logísticos:</strong> almacenamiento, transporte, distribuidores.</li>
+<li><strong>Canales de venta:</strong> minoristas, mayoristas, marketplaces, venta directa.</li>
+<li><strong>Tecnológicos y de servicios:</strong> desarrollo externo, agencias de marketing, consultoras.</li>
+<li><strong>Clientes finales:</strong> quién usa el producto, y si agrega valor después.</li>
+</ul>
+<p><mark>Todos los actores deben tener sus contactos completos: dirección, mail, teléfono.</mark></p>
+</div>
+<h3 id="de-donde-viene-el-concepto">De dónde viene el concepto</h3>
+<p>Porter (1985, <em>Ventaja Competitiva</em>) propuso que una empresa hace una serie de actividades para diseñar, producir, comercializar, entregar y apoyar su producto (diap. 2). Según él, el negocio de una empresa es el que resulta de su cadena de valor. Las diferencias entre las cadenas de los competidores son una fuente clave de ventaja competitiva (diap. 3).</p>
+<p>Una cadena de valor descompone las actividades en etapas para ver cómo cada una agrega valor. Va desde la adquisición de materias primas hasta la entrega al cliente (diap. 4).</p>
+<h3 id="que-la-hace-externa">Qué la hace externa</h3>
+<p>Ninguna empresa trabaja aislada. El valor que recibe el cliente final resulta de la colaboración de muchos actores (diap. 6). La definición de la cátedra:</p>
+<p>«Es una red interconectada de actividades que se extiende más allá de los límites de la empresa, integrando las cadenas de valor de sus socios externos (productores, proveedores, distribuidores, clientes) para crear y entregar valor al cliente de la manera más eficiente y efectiva» (diap. 8).</p>
+<p>El esquema básico de esa diapositiva es este:</p>
+<pre class="codigo"><code>Proveedores primarios &gt; Proveedores &gt; EMPRENDIMIENTO &gt; Canal de comercialización &gt; Cliente</code></pre>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La interna mira adentro de tu empresa. La externa mira todo el camino, de la materia prima hasta las manos del que usa el producto. Si vendés pan, tu cadena externa arranca en el molino y termina en la persona que lo come, pasando por quien lo reparte.</p>
+</div>
+<h3 id="para-que-sirve">Para qué sirve</h3>
+<p>El objetivo es identificar dónde la empresa puede ser más eficiente y eficaz (diap. 5). Eso se logra de dos formas, aumentando el valor percibido por el cliente o reduciendo costos. Además, permite comprender el comportamiento de los costos, las fuentes de diferenciación y la productividad y competitividad.</p>
+<p>Las oportunidades que suele mostrar (diap. 20) son reducir costos, mejorar calidad con un proveedor, co-crear con un socio tecnológico, ganar en sostenibilidad y comparar tu cadena con la de la competencia.</p>
+<h3 id="enfoque-estrategico-en-cinco-pasos">Enfoque estratégico en cinco pasos</h3>
+<p>Están en la diapositiva 7.</p>
+<ol>
+<li><strong>Analizar las actividades de la empresa</strong>, con su importancia y su costo.</li>
+<li><strong>Identificar los factores críticos de éxito</strong>: calidad, eficiencia, innovación, plazos de entrega.</li>
+<li><strong>Identificar oportunidades de mejora</strong>, como nuevos proveedores o el desarrollo de proveedores.</li>
+<li><strong>Desarrollar una estrategia</strong> para cambiar la cadena y mejorar la competitividad.</li>
+<li><strong>Implementarla</strong>: proveedores internacionales, integrarse hacia atrás o adelante, nuevos mercados.</li>
+</ol>
+<h3 id="eslabones-beneficios-y-riesgos">Eslabones, beneficios y riesgos</h3>
+<p>Los eslabones son fuente de ventaja competitiva (diap. 10). Los <strong>horizontales</strong> son interacciones entre actividades de la cadena. Los <strong>verticales</strong> son interacciones con el sistema de valor. La ventaja se consigue por <strong>optimización</strong> (mejorar una actividad que influye en otra) o por <strong>coordinación</strong> (coordinar actividades para que sean más eficientes).</p>
+<div class="tabla"><table><thead><tr><th>Beneficios de gestionarla bien</th><th>Riesgos y desafíos</th></tr></thead><tbody><tr><td>Menos costos y tiempos de ciclo</td><td>Pérdida de control sobre procesos críticos</td></tr><tr><td>Más flexibilidad ante disrupciones</td><td>Reputación: los errores de un socio te afectan</td></tr><tr><td>Acceso a innovación externa</td><td>Más complejidad de coordinación</td></tr><tr><td>Mejor calidad final</td><td>Fuga de información confidencial</td></tr><tr><td>Ventaja competitiva difícil de imitar</td><td></td></tr></tbody></table></div>
+<p>Fuente: diap. 11.</p>
+<p>Un canal mal gestionado puede arruinar un producto excelente (diap. 9).</p>
+<div class="ejemplo"><p class="ejemplo-t">Dos casos de la cátedra</p><ul>
+<li><strong>Apple</strong> diseña, pero no fabrica. Sus socios son Foxconn (ensamblaje), TSMC (chips) y Samsung (pantallas). Sus canales son tiendas propias, operadoras y comercios.</li>
+<li><strong>Zara</strong> integró su cadena con proveedores locales en España y Portugal, y comunica en tiempo real tiendas, diseño y producción. Lleva tendencias a las tiendas en 2 semanas.</li>
+<li><strong>General Motors en Alvear</strong> recibe los asientos de Johnson Controls justo a tiempo. Es un ejemplo de alineamiento estratégico.</li>
+</ul>
+<p class="bloque-fuente">Clase 4, Cadena de valor, diap. 12 a 15</p></div>
+<h3 id="de-la-compra-suelta-a-la-alianza">De la compra suelta a la alianza</h3>
+<p>Sin alineamiento hay estructuras estancas y proveedores no alineados frente a requerimientos cambiantes de los clientes. La salida es una alianza de largo plazo (diap. 14 y 15). Varias PyMEs pueden armar una red (diap. 16) para comprar o contratar servicios con más fuerza de negociación. También pueden aliarse para conquistar un mercado o hacer publicidad que solas no podrían.</p>
+<p>Primeros pasos para implementarlo (diap. 17): mapear la cadena, evaluar quién agrega valor y quién es cuello de botella, fortalecer la comunicación e invertir en tecnología. Ahí entran <strong>SRM</strong>, software para gestionar el ciclo de vida de los proveedores, y <strong>SCM</strong>, sistemas para planificar y controlar el flujo de materiales, información y finanzas.</p>
+<p>El capítulo de <a href="https://drive.google.com/file/d/1y67tkiG5Hc6rOQz09GaRhgN-48yYvwmv/view">socios estratégicos</a> agrega una condición (pág. 27). Los socios deben compartir equitativamente riesgos, costos y logros. Si no, ninguna alianza resiste mucho tiempo.</p>
+<h3 id="integracion-vertical-y-horizontal">Integración vertical y horizontal</h3>
+<p>Fuente: diap. 18 y 19.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Horizontal</th><th>Vertical</th></tr></thead><tbody><tr><td>Qué es</td><td>Aumentar cuota al mismo nivel de la cadena, adquiriendo o fusionándose con competidores</td><td>Tomar control de más partes de la cadena, en distintas etapas</td></tr><tr><td>Busca</td><td>Participación de mercado, menos competencia, economías de escala</td><td>Control, eficiencia, menos dependencia externa</td></tr><tr><td>Tipos</td><td>Ver el aviso de abajo</td><td>Hacia atrás (a proveedores), hacia adelante (a clientes), completa (ambas)</td></tr><tr><td>Ejemplos</td><td>Microsoft y LinkedIn. Disney y 21st Century Fox</td><td>Ford y sus acerías (atrás). Apple y sus tiendas (adelante). Tesla (total)</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>La diapositiva 19 de Cadena de valor imprime que la integración horizontal «puede ser hacia adelante o hacia atrás», con empresas más cerca del cliente o de la materia prima. Eso choca con su propia definición, que dice «en la misma etapa de la cadena de valor». Por eso no lo puse en la tabla. Adelante y atrás quedan solo en la vertical.</p>
+</div>
+<h3 id="la-cadena-interna-solo-para-conocerla">La cadena interna, solo para conocerla</h3>
+<p>La interna divide las actividades de la empresa en primarias y de apoyo (Clase 4, Cadena de valor, diap. 2 y 22):</p>
+<ul>
+<li><strong>Primarias:</strong> logística interna, operaciones, logística externa, marketing y ventas, servicio postventa.</li>
+<li><strong>De apoyo:</strong> infraestructura, recursos humanos, desarrollo tecnológico, adquisiciones.</li>
+</ul>
+<p>La cátedra entiende por valor «aquello que el cliente está dispuesto a pagar».</p>
+<div class="ojo"><p class="ojo-t">No la pongas en el TPI, aunque una clase la muestre</p><p>La diapositiva 21 dice «no los vamos a aplicar en el TPI». El tamaño de empresa desde el que se usa cambia según el archivo: más de 30 trabajadores (Cadena de valor, diap. 23), 20 a 30 (Presupuesto, diap. 4) o 10 o más (Planeamiento 2023, diap. 17). Lo que coincide es que no es para un emprendimiento que arranca.</p>
+</div>
+</section>
+<section class="sec"><h2 id="diamante-de-porter">Diamante de Porter</h2>
+<div class="tomado"><aside class="nota"><strong>Entorno, competencia y factor tecnología</strong><span>Pasos TPI 2026, diap. 5</span></aside><p><mark>Se estudia el entorno y la competencia, y el factor tecnología. Se compara tu cadena de valor con la de tus competidores.</mark> La clase de presupuesto lo llama benchmarking y pide mirar líderes de mercado y alguna posibilidad de innovación (Clase 10, diap. 4).</p>
+</div>
+<p>La cátedra lo llama «diamante de la productividad-competitividad del emprendedor» (Clase 8, Planeamiento 2023, diap. 15). Son las cinco fuerzas de Porter, con la tecnología agregada. La pregunta de fondo es qué tan atractiva es la industria en la que querés entrar.</p>
+<p>Cuanto más intensas son las fuerzas, más difícil es competir y menos rentable es la industria (Clase 4, Herramientas, diap. 6). Esto es lo que hay que analizar en cada una (diap. 7):</p>
+<div class="tabla"><table><thead><tr><th>Fuerza</th><th>Qué analizar</th></tr></thead><tbody><tr><td>Poder de negociación de los <strong>clientes</strong></td><td>Tamaño y concentración, volumen de compra, sensibilidad al precio, dependencia de canales</td></tr><tr><td>Poder de negociación de los <strong>proveedores</strong></td><td>Cantidad disponible, diferenciación de los insumos, costo de cambiar, importancia del insumo</td></tr><tr><td>Amenaza de <strong>nuevos entrantes</strong></td><td>Economías de escala, diferenciación, costos de cambio para el cliente, barreras legales o de capital</td></tr><tr><td>Amenaza de <strong>sustitutos</strong></td><td>Alternativas disponibles, diferenciación percibida, relación precio y desempeño, propensión a sustituir</td></tr><tr><td><strong>Rivalidad</strong> entre competidores</td><td>Cantidad y tamaño, crecimiento del mercado, diferenciación, barreras de salida</td></tr></tbody></table></div>
+<p>El diagrama de la cátedra suma estos elementos alrededor del centro (diap. 15 de Planeamiento 2023):</p>
+<ul>
+<li>La <strong>tecnología</strong>, y las amenazas de productos, servicios o tecnologías sustitutos.</li>
+<li>El grado de rivalidad y el reparto del mercado.</li>
+<li>El análisis de la cadena de valor y de las ventajas competitivas.</li>
+<li>La asociatividad del sector: cadenas de producción o clusters.</li>
+<li>Los parámetros que rigen la competencia, y conocer el negocio para identificar nichos.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Si lo buscás en internet</p><p>«Diamante de Porter» también puede traerte otro esquema con otro contenido. Para el TPI usá el de la cátedra, el de arriba.</p>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Imaginá que vas a poner un puesto en una feria. Mirás cuántos puestos parecidos hay, si los clientes pueden irse al de al lado por dos pesos y si tu único proveedor te puede subir el precio. También si alguien nuevo puede instalarse mañana y si hay otra cosa que reemplace lo tuyo. Eso es este análisis.</p>
+</div>
+</section>
+<section class="sec"><h2 id="foda">FODA</h2>
+<div class="tomado"><aside class="nota"><strong>Lo que pide el TPI</strong><span>Material de cursado 2026, Clase 6, Análisis FODA 2025, diap. 26 y 27</span></aside><p><mark>Entre 8 y 10 ítems en cada pilar, ordenados por importancia y ponderados, y con los escenarios estratégicos planteados.</mark></p>
+<p>Los pasos:</p>
+<ol>
+<li>Establecer claramente el objetivo del FODA.</li>
+<li>Análisis externo: amenazas y oportunidades.</li>
+<li>Análisis interno: debilidades y fortalezas.</li>
+<li>Matriz FODA plana.</li>
+<li>Valorar los ítems, y establecer estrategias, misión y visión.</li>
+<li>Plantear los escenarios.</li>
+</ol>
+</div>
+<div class="ojo"><p class="ojo-t">Cuántos ítems: los archivos no coinciden</p><p>La clase de FODA pide 8 a 10 por pilar (diap. 26), y su plantilla trae 6 renglones (diap. 28). La de Herramientas dice «mínimo 3» (diap. 13). Seguí la clase de FODA, que es la específica para el TPI, y si te queda duda preguntá.</p>
+</div>
+<h3 id="que-es">Qué es</h3>
+<p>«Es una herramienta que ayuda al proceso de planeación estratégica, y que se utiliza para comprender el escenario en el que se encuentra una empresa y proyectar su futuro» (diap. 2). <mark>Se arma con la información de la cadena de valor externa y el diamante</mark> (Pasos TPI 2026, diap. 5).</p>
+<div class="tabla"><table><thead><tr><td></td><th>Positivo</th><th>Negativo</th></tr></thead><tbody><tr><td><strong>Interno</strong> (depende de vos)</td><td><strong>Fortalezas</strong></td><td><strong>Debilidades</strong></td></tr><tr><td><strong>Externo</strong> (no lo controlás)</td><td><strong>Oportunidades</strong></td><td><strong>Amenazas</strong></td></tr></tbody></table></div>
+<p>Cada pilar tiene ejemplos en las diapositivas 10 a 13:</p>
+<div class="tabla"><table><thead><tr><th>Pilar</th><th>Qué son</th><th>Ejemplos</th></tr></thead><tbody><tr><td>Fortalezas</td><td>Recursos, capacidades y ventajas internas que te hacen destacar</td><td>Talento especializado, patentes o know-how, reputación, procesos optimizados</td></tr><tr><td>Oportunidades</td><td>Factores externos que, aprovechados, impulsan el crecimiento</td><td>Nichos emergentes, tecnologías nuevas, alianzas, incentivos fiscales</td></tr><tr><td>Debilidades</td><td>Aspectos internos que limitan el rendimiento</td><td>Capital insuficiente, cuellos de botella, baja visibilidad, problemas de flujo de caja</td></tr><tr><td>Amenazas</td><td>Factores externos que ponen en peligro la estabilidad</td><td>Competencia intensa, cambios regulatorios, crisis, ciberataques</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Lo que más se confunde</p><p>La pregunta es si depende de vos, no si es bueno o malo. «Baja la demanda» es externo, así que es amenaza. «Vendo poco porque no tengo marca» es interno, así que es debilidad.</p>
+</div>
+<h3 id="preguntas-para-encontrar-cada-cosa">Preguntas para encontrar cada cosa</h3>
+<p>Salen de las diapositivas 16 a 19.</p>
+<ul>
+<li><strong>Internas:</strong> ¿Qué te diferencia de los competidores? ¿En qué sos más eficiente? ¿Qué recursos únicos tenés? ¿Qué procesos fallan? ¿Dónde tenés menos experiencia?</li>
+<li><strong>Externas:</strong> ¿Qué tendencias te favorecen? ¿Qué necesidad no atiende la competencia? ¿Qué movimientos recientes de la competencia te afectan? ¿Dependés de pocos proveedores o canales?</li>
+</ul>
+<h3 id="lista-plana-y-matriz-cruzada">Lista plana y matriz cruzada</h3>
+<p>La <strong>matriz plana</strong> es la lista de los cuatro pilares, F1, F2, F3 y así (diap. 5). La <strong>matriz desarrollada</strong> los cruza y de ahí salen las estrategias (diap. 6 y 21):</p>
+<div class="tabla"><table><thead><tr><td></td><th>Fortalezas</th><th>Debilidades</th></tr></thead><tbody><tr><td><strong>Oportunidades</strong></td><td><strong>FO (Maxi-Maxi):</strong> usar las fortalezas para aprovechar las oportunidades</td><td><strong>DO (Mini-Maxi):</strong> minimizar las debilidades para aprovechar las oportunidades</td></tr><tr><td><strong>Amenazas</strong></td><td><strong>FA (Maxi-Mini):</strong> usar las fortalezas para reducir el impacto de las amenazas</td><td><strong>DA (Mini-Mini):</strong> reducir las debilidades y evitar las amenazas</td></tr></tbody></table></div>
+<p>El <strong>FODA dinámico</strong> repite el análisis en el pasado, el presente y el futuro, y da una visión de escenarios (diap. 7).</p>
+<h3 id="de-diagnostico-a-accion">De diagnóstico a acción</h3>
+<p>«Por sí solo no ofrece soluciones» (diap. 22). El valor aparece cuando convertís el diagnóstico en acciones concretas. Por eso cada ítem del TPI lleva su acción.</p>
+<div class="tomado"><aside class="nota"><strong>Plantilla de cada pilar</strong><span>Material de cursado 2026, Clase 6, Análisis FODA 2025, diap. 29 a 35</span></aside><p>Una tabla por pilar, con tres columnas: <mark>aspecto relevado, acción estratégica sugerida y ponderación</mark>.</p>
+<ul>
+<li>En <strong>debilidades</strong> la ponderación es leve, mediana, grave o muy grave.</li>
+<li>En <strong>fortalezas</strong> y <strong>oportunidades</strong> es leve, mediana, buena o muy buena.</li>
+</ul>
+</div>
+<p>La plantilla de <strong>amenazas</strong> (diap. 35) repite leve, mediana, buena y muy buena. Parece copiada de las anteriores, porque una amenaza «buena» no cierra. Consultá qué escala usar.</p>
+<p>La cátedra sugiere armarlo con un equipo de distintos perfiles. Si trabajás solo o con pocos, asesorate con un mentor o un experto externo, y respondé con honestidad (diap. 15).</p>
+<h3 id="ponderacion-numerica-fuera-del-tpi">Ponderación numérica, fuera del TPI</h3>
+<p>La diapositiva 36 la titula «no entra en el TPI». Está por si te la cruzás. A cada ítem se le da un puntaje que se multiplica por un peso, y los pesos del pilar suman 1. Con eso salen dos balanzas: la <strong>endógena</strong> (fortalezas menos debilidades) y la <strong>exógena</strong> (oportunidades menos amenazas). Ubicadas en un gráfico, indican una actitud: agresiva, competitiva, conservadora o defensiva (diap. 37).</p>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>En la diapositiva 36 (Clase 6, Análisis FODA 2025), la hoja imprime T = 8 para oportunidades. Sus seis renglones (2,4 + 1,4 + 1 + 0,8 + 0,8 + 0,8) suman 7,2. El valor correcto de su propio ejemplo es 7,2, y la balanza exógena da 3,5 en vez de 4. Los otros tres totales cierran (7,7, 3,85 y 3,7).</p>
+</div>
+</section>
+<section class="sec"><h2 id="valores-objetivos-mision-y-vision">Valores, objetivos, misión y visión</h2>
+<div class="tomado"><aside class="nota"><strong>Los tres puntos del medio</strong><span>Instructivo de cursado 2026, pág. 2. Pasos TPI 2026, diap. 6</span></aside><p><mark>Valores, objetivos a corto, mediano y largo plazo, y misión y visión.</mark> El orden del instructivo es ese. Los objetivos tienen que ser medibles.</p>
+</div>
+<p>Forman parte de la cultura organizativa. Desarrollan la dinámica laboral y orientan principios y metas comunes (Clase 9, Misión y visión, pág. 3).</p>
+<h3 id="mision">Misión</h3>
+<p>«La misión de una empresa es su razón de ser; es el propósito o motivo por el cual existe y, por tanto, da sentido y guía sus actividades» (pág. 4).</p>
+<p>Toda misión contesta tres preguntas (pág. 7):</p>
+<ul>
+<li><mark><strong>¿Qué?</strong> La necesidad que satisface o el problema que resuelve.</mark></li>
+<li><mark><strong>¿Quién?</strong> Los clientes a los que se pretende llegar.</mark></li>
+<li><mark><strong>¿Cómo?</strong> La forma en que se satisface esa necesidad.</mark></li>
+</ul>
+<p>Tiene que ser clara y sencilla, motivadora, decir a qué se dedica la empresa, ser congruente, diferenciarla de sus competidores y ser fácil de recordar (pág. 6).</p>
+<div class="ejemplo"><p class="ejemplo-t">Una misión de la cátedra</p><p>«Producimos alimentos saludables para familias que quieren comer mejor sin renunciar al sabor.» Contiene el qué (alimentos saludables), el quién (familias) y el cómo (sin renunciar al sabor).</p>
+<p class="bloque-fuente">Clase 4, Herramientas, diap. 3</p></div>
+<h3 id="vision">Visión</h3>
+<p>«Una declaración que ayuda al emprendedor a seguir el rumbo al que se dirige a largo plazo» (pág. 9).</p>
+<p>Tiene que ser clara y sencilla, entendible por el equipo, positiva e inspiradora, un desafío, realista, y estar alineada con la misión y los valores (pág. 10). La otra clase agrega que debe tener <mark>alcance geográfico</mark> y tener que ver con los valores (Clase 8, Planeamiento 2023, diap. 29).</p>
+<p>Preguntas que ayudan (pág. 11): ¿Qué quiero lograr? ¿Dónde quiero estar en el futuro? ¿Para quién lo haré? ¿Ampliaré mi zona de actuación? ¿Qué recursos debo tener?</p>
+<div class="ejemplo"><p class="ejemplo-t">Una visión de la cátedra</p><p>«Ser la marca de referencia en alimentación saludable del Litoral argentino para 2030.» Es futura, tiene alcance geográfico y tiene plazo.</p>
+<p class="bloque-fuente">Clase 4, Herramientas, diap. 3</p></div>
+<div class="ojo"><p class="ojo-t">Misión o visión</p><p>La misión es lo que hacés hoy. La visión es lo que querés ser. Si tu misión tiene una fecha o un «ser líderes», seguramente es visión.</p>
+</div>
+<h3 id="objetivos-y-valores">Objetivos y valores</h3>
+<p>Los <strong>objetivos</strong> son «resultados específicos, medibles y con plazo que traducen la visión en acciones» (Clase 4, Herramientas, diap. 3). El ejemplo de la cátedra: «Llegar a 500 clientes recurrentes en el primer año con ticket promedio de $8.000.» La misma clase los pide SMART (diap. 13). Otra clase los describe como realistas, medibles, orientados a la acción, específicos y temporales (Clase 2, Actitud y aptitud 2025, diap. 12).</p>
+<p>Sobre los <strong>valores</strong> no hay una clase propia. Lo más concreto está en <em>Gung Ho</em> (Clase 6, pág. 107). «Las metas son para el futuro. Los valores son el presente. Las metas se fijan. Los valores se viven.» Solo se hacen realidad si actuás según ellos y exigís que los demás también.</p>
+<h3 id="estrategia">Estrategia</h3>
+<p>«No existe ninguna definición universalmente aceptada» (Clase 8, Planeamiento 2023, diap. 27). La cátedra da varias, como «conjunto lógico de decisiones para tomar un determinado curso de acción para lograr objetivos». El diseño de estrategias integra visión, misión, valores, políticas y objetivos (diap. 34).</p>
+<p>También sirve mirar la empresa como sistema (diap. 7 y 8). Tiene objetivos, una configuración, una actuación y un control que analiza desviaciones. Sus subsistemas son el real (aprovisionamientos, producción, marketing), el financiero y el directivo.</p>
+<p>El <strong>entorno</strong> es todo lo que está más allá de los límites de la empresa (diap. 9 a 11). El <strong>genérico</strong> son los factores económicos, de intervención de gobiernos, socioculturales y tecnológicos. El <strong>específico</strong> es tu sistema de valor y tu sistema productivo competitivo, que se estudian con la cadena y el diamante.</p>
+<div class="ojo"><p class="ojo-t">El factor humano</p><p>Según la diapositiva 18 de esa clase, atraviesa todos los sistemas de la empresa. Las empresas siempre deben diagramarse a partir de él.</p>
+</div>
+</section>
+<section class="sec"><h2 id="estrategias-comerciales">Estrategias comerciales</h2>
+<div class="tomado"><aside class="nota"><strong>Comercialización, publicidad y estrategia general</strong><span>Pasos TPI 2026, diap. 6</span></aside><p><mark>Hay que trazar estrategias de comercialización y de publicidad, y una estrategia general del negocio con objetivos medibles a corto y mediano plazo.</mark></p>
+</div>
+<p>La cátedra da cuatro tipos para emprendimientos en fases iniciales (Clase 10, Comercialización, diap. 2 a 6):</p>
+<div class="tabla"><table><thead><tr><th>Estrategia</th><th>En qué consiste</th></tr></thead><tbody><tr><td><strong>Digital</strong></td><td>Página web de distintos tipos, posicionamiento en buscadores y uso de redes</td></tr><tr><td><strong>Uno por uno</strong></td><td>Venta cara a cara con atención personalizada. Material impreso (tarjetas, carpeta, folletos) y detalle de los clientes archivado. Acá la diapositiva nombra a los «clientes ángeles»</td></tr><tr><td><strong>Guerra de guerrillas</strong></td><td><mark>Estar donde el enemigo no está o es débil.</mark> Benchmarking comercial, análisis geográfico, de productos (diseño, packaging) y de servicios. Comercio especializado</td></tr><tr><td><strong>Comunicacional por medios</strong></td><td>Uso inteligente de medios masivos para consolidar marca y ser conocido. Contratar profesionales de psicología comunicacional</td></tr></tbody></table></div>
+<p>La clase de presupuesto da dos premisas (diap. 15):</p>
+<ol>
+<li>«No vendo para vender una vez, vendo para ganar clientes y venderles siempre.»</li>
+<li>«La estrategia de ventas inicial del emprendedor es hacer clientes uno por uno con atención personalizada. Si tengo en ésta éxito puedo pensar en una venta masiva.»</li>
+</ol>
+<p>Para pensarlo hay factores internos y externos (diap. 14). Los internos son quién vende, cómo se le paga, si se lleva los clientes si se va, y qué plazos, descuentos y postventa podés dar. Los externos son qué mercado y zona, y qué presencia tienen ahí los competidores.</p>
+<h3 id="formatos-comerciales">Formatos comerciales</h3>
+<p>Si tu proyecto vende por minoristas, sirve ubicar el formato (Clase 10, Formatos comerciales). Un formato agrupa establecimientos con características parecidas de ubicación, superficie, surtido y atención. Hay comercio físico y sin presencia física (electrónico, catálogo, vending, teléfono).</p>
+<div class="tabla"><table><thead><tr><th>Formato de alimentación</th><th>Rasgos</th></tr></thead><tbody><tr><td>Hipermercado</td><td>Más de 2.500 m², área suburbana, mucho estacionamiento</td></tr><tr><td>Supermercado</td><td>400 a 2.500 m², 70 % de ventas en alimentación</td></tr><tr><td>Supermercado descuento</td><td>300 a 900 m², surtido corto, marcas blancas y precios bajos</td></tr><tr><td>Tienda de conveniencia</td><td>Hasta 400 m², más de 15 horas abierta, precios 15 a 20 % más altos</td></tr><tr><td>Especialista</td><td>Una sola categoría de alimentación</td></tr><tr><td>Tienda independiente</td><td>No pertenece a una cadena, menos de diez tiendas</td></tr></tbody></table></div>
+<p>Fuera de la alimentación están el comercio independiente, el bazar, los grandes almacenes (más de 2.500 m² con al menos cinco secciones), las medianas superficies, los centros comerciales, los big box (descuento, category killers, outlet, warehouse clubs) y las áreas duty free.</p>
+</section>
+<section class="sec"><h2 id="costos">Costos</h2>
+<p>Te hacen falta para armar el presupuesto. Para que haya rentabilidad, <mark>los ingresos tienen que ser mayores a los egresos</mark> (Clase 10, Costos, diap. 2).</p>
+<p>«Es el sacrificio, o esfuerzo económico que se debe realizar para lograr un objetivo» (diap. 3).</p>
+<div class="ojo"><p class="ojo-t">Costo, desembolso y amortización son cosas distintas</p><p>El <strong>costo</strong> es un concepto económico. Influye en el resultado. El <strong>desembolso</strong> es financiero. Es movimiento de dinero. La <strong>amortización</strong> se relaciona con la vida útil, el desgaste y la obsolescencia. Una inversión en equipos entra a los costos a través de sus amortizaciones (diap. 3).</p>
+</div>
+<div class="ejemplo"><p class="ejemplo-t">Amortización de una máquina</p><p>Valor de compra de una máquina: $ 30.000 (inversión). Vida útil estimada: 5 años.</p>
+<p>Amortización anual: 30.000 ÷ 5 años = $ 6.000 por año.</p>
+<p>Amortización mensual: 6.000 ÷ 12 meses = $ 500 por mes.</p>
+<p class="bloque-fuente">Clase 10, Costos, diap. 5</p></div>
+<h3 id="clasificaciones">Clasificaciones</h3>
+<div class="tabla"><table><thead><tr><th>Según</th><th>Tipo</th><th>Qué es</th><th>Ejemplos</th></tr></thead><tbody><tr><td>Función</td><td>Producción</td><td>Obtener bienes mediante un proceso de transformación</td><td>Materia prima, sueldos de producción</td></tr><tr><td>Función</td><td>Comercialización</td><td>Posibilitar la venta</td><td>Comisiones, fletes, personal comercial</td></tr><tr><td>Función</td><td>Administración</td><td>Gestionar el negocio</td><td>Personal administrativo</td></tr><tr><td>Función</td><td>Financiación</td><td>Obtener fondos</td><td>Intereses de préstamos</td></tr><tr><td>Variabilidad</td><td>Fijos</td><td>Constantes, sea cual sea el nivel de actividad</td><td>Alquileres, amortizaciones, seguros</td></tr><tr><td>Variabilidad</td><td>Variables</td><td>Varían en proporción a la producción</td><td>Materias primas, envases, comisiones</td></tr><tr><td>Asignación</td><td>Directos</td><td>Se asignan directo a una unidad. Por lo general se asimilan a los variables</td><td></td></tr><tr><td>Asignación</td><td>Indirectos</td><td>Se reparten con algún criterio. En la mayoría de los casos son fijos</td><td></td></tr></tbody></table></div>
+<p>Fuente: diap. 6 a 10.</p>
+<h3 id="las-formulas">Las fórmulas</h3>
+<p>Están en las diapositivas 11 a 13.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Costo Variable Total</mtext><mo>&#61;</mo><mtext>Costo Variable Unitario</mtext><mo>×</mo><mtext>Cantidad</mtext></mrow><annotation encoding="application/x-tex">&#92;text{Costo Variable Total} &#61; &#92;text{Costo Variable Unitario} &#92;times &#92;text{Cantidad}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Costo Variable Total</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">Costo Variable Unitario</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Cantidad</span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Costo Fijo Unitario</mtext><mo>&#61;</mo><mfrac><mtext>Costo Fijo Total</mtext><mtext>Cantidad</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{Costo Fijo Unitario} &#61; &#92;frac{&#92;text{Costo Fijo Total}}{&#92;text{Cantidad}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Costo Fijo Unitario</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Cantidad</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Costo Fijo Total</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Costo Total unitario</mtext><mo>&#61;</mo><mtext>Costo Variable unitario</mtext><mo>+</mo><mtext>Costo Fijo unitario</mtext></mrow><annotation encoding="application/x-tex">&#92;text{Costo Total unitario} &#61; &#92;text{Costo Variable unitario} + &#92;text{Costo Fijo unitario}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Costo Total unitario</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">Costo Variable unitario</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Costo Fijo unitario</span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Costo Total</mtext><mo>&#61;</mo><mtext>Costo Variable Total</mtext><mo>+</mo><mtext>Costo Fijo Total</mtext></mrow><annotation encoding="application/x-tex">&#92;text{Costo Total} &#61; &#92;text{Costo Variable Total} + &#92;text{Costo Fijo Total}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Costo Total</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">Costo Variable Total</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">Costo Fijo Total</span></span></span></span></span></span></p>
+<p>El costo fijo total es la suma de todos los costos fijos de la empresa.</p>
+</section>
+<section class="sec"><h2 id="presupuesto">Presupuesto</h2>
+<div class="tomado"><aside class="nota"><strong>Anual, mes por mes</strong><span>Instructivo de cursado 2026, pág. 2</span></aside><p><mark>Presupuesto anual, discriminando mensualmente las erogaciones e ingresos.</mark> Tiene que servir para tomar decisiones (Pasos TPI 2026, diap. 6).</p>
+</div>
+<p>«Plan escrito en términos numéricos monetarios» (Clase 10, Un presupuesto para una idea de negocios 2024, diap. 7). Sirve para planear, coordinar y controlar. Es una primera aproximación numérica a los problemas económico-productivo-comerciales de la empresa (diap. 3).</p>
+<div class="ojo"><p class="ojo-t">12 o 24 meses</p><p>La clase dice que puede hacerse para 12 o 24 meses (diap. 17). El instructivo pide «anual». El mínimo es un año, abierto mes por mes.</p>
+</div>
+<h3 id="que-lleva">Qué lleva</h3>
+<p>Fuente: diap. 8.</p>
+<div class="tabla"><table><thead><tr><th>Parte</th><th>Qué incluye</th></tr></thead><tbody><tr><td>Inversión en bienes de producción</td><td>Inicial y diferida, repartida según un cronograma</td></tr><tr><td>Gastos por servicios</td><td>Electricidad, teléfono, seguros, internet, facturas, alquileres, contador</td></tr><tr><td>Materias primas</td><td>Consumo estimado del año</td></tr><tr><td>Packing</td><td>Papeles, cartones, impresiones</td></tr><tr><td>Logística</td><td>Nafta, patente, mantenimiento, fletes, alquiler de vehículos</td></tr><tr><td>Marketing</td><td>Publicidad, páginas web, papelería</td></tr><tr><td>Sueldos de empleados</td><td>Si hubiera</td></tr><tr><td>Retiros</td><td>Los retiros proyectados del año</td></tr><tr><td>Impuestos, tasas y habilitaciones</td><td></td></tr><tr><td>Ventas</td><td>Las proyectadas del año</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Tres reglas de la cátedra</strong><span>Material de cursado 2026, Clase 10, Un presupuesto para una idea de negocios, diap. 8, 17 y 6</span></aside><ul>
+<li><mark>Los socios no cobran sueldo. Hacen retiros de dinero.</mark> Se proyectan retiros mínimos, y esos retiros implican ventas mínimas a realizar.</li>
+<li><mark>No se tiene en cuenta la inflación.</mark> Sí se tiene en cuenta cómo varían los costos de materia prima y fabricación a medida que aumentás las ventas.</li>
+<li><mark>El cuello de botella es la capacidad de ventas y cobranzas</mark>, más que la capacidad física de producir.</li>
+</ul>
+</div>
+<p>«Si no logro alcanzar estas metas debo pensar en abandonar el proyecto» (diap. 17). Por eso el presupuesto decide: ¿es posible vender esa cantidad? (diap. 11).</p>
+<p>La plata inicial puede venir de recursos propios o de terceros (diap. 9 y 10): ahorros, préstamos de amigos o familiares, bancos o fondos especiales del gobierno.</p>
+<h3 id="los-ejemplos-de-la-catedra">Los ejemplos de la cátedra</h3>
+<p>Hay dos planillas en la Clase 10.</p>
+<ul>
+<li><a href="https://drive.google.com/file/d/1wOhMxd5jbRY_gLQjDsfnHaJyuC0dhTDm/view">Presupuesto Ejemplo Ing Sistemas</a> es el modelo vacío para un negocio de sistemas, flujo de caja de 12 meses en dólares oficiales. Tiene costos fijos operativos (nube, certificado SSL, página web, licencias, internet, posicionamiento, electricidad, teléfono, alquileres). También otros variables e indirectos (monotributo, marketing y ventas, contador). Cierra con retiros mínimos, total de costos, ventas mínimas necesarias y cantidad de licencias.</li>
+<li><a href="https://drive.google.com/file/d/1W0mnjED90N8fJF23NGoOLuTEi8vaeXrh/view">Presupuesto Ejemplo</a> es un caso cargado de un taller que fabrica parrillas y planchetas, con presupuesto y ventas de dos años. Muestra costos variables, costos fijos, costo laboral, flujo de caja y retiros mínimos.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Lo que la planilla trae y las clases no explican</p><p>La hoja de referencia del segundo archivo tiene VAN, TIR y período de recupero, con la celda de TIR en error. Ninguna clase del Drive los explica. Si tu comisión los pide, preguntá cómo los quiere.</p>
+</div>
+<h3 id="partes-del-plan-de-negocios">Partes del plan de negocios</h3>
+<p>La clase de presupuesto ordena el trabajo como un plan (diap. 4): introducción (quién soy, cuál es la idea, de dónde salió), cadena de valor del negocio y de la empresa, productividad y competitividad, FODA, estudio de mercado, misión, visión, objetivos, políticas, estrategia y presupuesto proyectado.</p>
+<p>El programa lo define por sus usos: planificar, ejecutar y controlar. También menciona el modelo de negocio, el plan económico y financiero, y el «timing», el momento más conveniente para introducir un producto (programa 2020, unidad 4).</p>
+</section>
+<section class="sec"><h2 id="modelo-canvas">Modelo Canvas</h2>
+<p>El Business Model Canvas (Osterwalder, 2004) describe, diseña y evalúa un modelo de negocio en una sola página (Clase 4, Herramientas, diap. 8). Hay una <a href="https://drive.google.com/file/d/1NJ0nLSdKG0wG3NH30r8a19GhlOeG0TsS/view">plantilla en la Clase 1</a>.</p>
+<div class="tabla"><table><thead><tr><th>Bloque</th><th>Pregunta</th><th>Qué va</th></tr></thead><tbody><tr><td>Socios clave</td><td>¿Quién te puede ayudar?</td><td>Aliados y proveedores clave</td></tr><tr><td>Actividades clave</td><td>¿Qué hacés para dar valor?</td><td>Las tareas más importantes</td></tr><tr><td>Recursos clave</td><td>¿Qué necesitás para operar?</td><td>Físicos, intelectuales, humanos o financieros</td></tr><tr><td><strong>Propuesta de valor</strong></td><td>¿Qué hacés diferente?</td><td>El corazón del Canvas</td></tr><tr><td>Relación con clientes</td><td>¿Cómo interactuás?</td><td>Asistencia personal, self-service, comunidad</td></tr><tr><td>Canales</td><td>¿Cómo llegás?</td><td>Tienda física, web, distribuidores</td></tr><tr><td>Segmento de clientes</td><td>¿A quién ayudás?</td><td>Sin cliente, no hay negocio</td></tr><tr><td>Estructura de costos</td><td>¿Cuánto te cuesta operar?</td><td>Los costos más importantes</td></tr><tr><td>Fuentes de ingresos</td><td>¿Cómo y cuánto cobrás?</td><td>Venta directa, suscripción, licencia, publicidad</td></tr></tbody></table></div>
+<p>Fuente: diap. 9.</p>
+<div class="ojo"><p class="ojo-t">¿Va en el TPI o no?</p><p>La diapositiva 11 de Herramientas dice «en el TPI vas a usar todas», Canvas incluido, y la 13 lo pide. Pero el Canvas no está entre los diez requisitos del instructivo ni en las etapas del TPI 2026. Preguntale a la cátedra. Sumarlo no le hace daño al trabajo, y te ordena la idea.</p>
+</div>
+</section>
+<section class="sec"><h2 id="organizarse-y-liderar">Organizarse y liderar</h2>
+<p>Son las clases sobre cómo se gestiona uno mismo y a un equipo. El TPI no las pide como punto aparte.</p>
+<h3 id="primero-lo-primero">Primero lo primero</h3>
+<p>Adaptado de Covey (Clase 3, Primero lo primero, diap. 2). La idea central es que el desafío no consiste en administrar el tiempo, sino en administrarnos a nosotros mismos (diap. 6).</p>
+<p>Hay cuatro generaciones de la administración del tiempo (diap. 5 y 6): notas y listas; agendas; prioridades según valores, con planificación diaria; y la cuarta, centrada en el equilibrio.</p>
+<p><strong>Urgente</strong> significa que necesita atención inmediata y nos presiona. <strong>Importante</strong> tiene que ver con los resultados (diap. 8).</p>
+<div class="tabla"><table><thead><tr><td></td><th>Urgente</th><th>No urgente</th></tr></thead><tbody><tr><td><strong>Importante</strong></td><td><strong>Cuadrante 1. Actuar, hacer.</strong> Crisis, proyectos con vencimiento, problemas apremiantes. Dedicación: 20 a 25 %</td><td><strong>Cuadrante 2. Planificar, decidir.</strong> Planificación, prevención, estrategias, objetivos, capacitación. Dedicación: 65 a 80 %</td></tr><tr><td><strong>No importante</strong></td><td><strong>Cuadrante 3. Delegar.</strong> Interrupciones, algunas llamadas y reuniones, asuntos impuestos por otros. Dedicación: menos del 15 %</td><td><strong>Cuadrante 4. Posponer, eliminar.</strong> Trivialidades, WhatsApp, pérdidas de tiempo. Dedicación: menos del 1 %</td></tr></tbody></table></div>
+<p>Fuente: diap. 7.</p>
+<p><mark>El cuadrante 2 es el corazón de la administración personal efectiva</mark> (diap. 8). Al principio, ese tiempo solo se saca de los cuadrantes 3 y 4. Hay que aprender a decir «no» a cosas que parecen urgentes (diap. 9).</p>
+<p>Se organiza con cuatro actividades (diap. 14): identificar roles, elegir dos o tres metas por rol, programarlas en la semana y adaptarse día a día.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Lo del cuadrante 1 te grita. Lo del cuadrante 2 nunca te grita, y por eso se posterga hasta que explota y se vuelve cuadrante 1. Estudiar con tiempo es cuadrante 2. Estudiar la noche anterior es cuadrante 1.</p>
+</div>
+<p><strong>Delegación</strong> (diap. 16 y 17). En la delegación en <strong>recaderos</strong> decís cómo hacer cada cosa y el responsable sos vos. En la delegación en <strong>responsables</strong> te centrás en los resultados, no en los métodos. La otra persona elige cómo. Requiere acordar cinco cosas: resultados deseados, directrices, recursos, rendición de cuentas y consecuencias.</p>
+<h3 id="el-mito-del-emprendedor">El mito del emprendedor</h3>
+<p>Gerber plantea que quien abre un negocio actúa como tres personas en una (págs. 29 a 35 del PDF):</p>
+<ul>
+<li>El <strong>emprendedor</strong> vive en el futuro y crea.</li>
+<li>El <strong>directivo</strong> pone orden y construye para que dure.</li>
+<li>El <strong>técnico</strong> es el hacedor y vive en el presente.</li>
+</ul>
+<p>El supuesto fatal es creer que si comprendés el trabajo técnico de un negocio, comprendés el negocio (pág. 24). Vale también para quien programa bien y por eso cree que sabe llevar una empresa de software.</p>
+<h3 id="gung-ho">Gung Ho</h3>
+<p>Son tres ideas para motivar un equipo, de Blanchard y Bowles (Clase 6, resumen del libro, págs. 107 a 110).</p>
+<div class="tabla"><table><thead><tr><th>Idea</th><th>Qué dice</th><th>Sus puntos</th></tr></thead><tbody><tr><td><strong>El espíritu de la ardilla</strong></td><td>Trabajo que vale la pena</td><td>Saber que contribuimos a mejorar el mundo. Una meta compartida. Valores como guía de planes, decisiones y actuaciones</td></tr><tr><td><strong>El estilo del castor</strong></td><td>Ejercer el control sobre el cumplimiento de la meta</td><td>Territorio claramente demarcado. Se respetan y escuchan pensamientos y necesidades. Capaces pero conscientes del desafío</td></tr><tr><td><strong>El don del ganso</strong></td><td>Darse ánimo mutuamente para seguir adelante</td><td>Congratulaciones de verdad. Si no hay puntuación no hay juego. Felicitar por el progreso</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="gestion-de-la-tecnologia-e-innovacion">Gestión de la tecnología e innovación</h2>
+<p>Está en el programa y en las clases 5 y 7. Los requisitos del TPI no la piden como punto, pero alimenta el factor tecnología del diamante, y el comunicado exige que el proyecto incorpore tecnología.</p>
+<h3 id="la-curva-en-s">La curva en S</h3>
+<p>«Todas las tecnologías presentan una curva de desarrollo en forma de S», en la que mejora la productividad con el tiempo y las inversiones (Clase 5, Gestión de la tecnología, pág. 3).</p>
+<p><img src="img/fig-curva-s.webp" alt="Curva en S: rendimiento según inversiones, pasando por emergencia, crecimiento, madurez, saturación y obsolescencia, con el umbral mínimo de utilización y el nivel de máximo rendimiento"></p>
+<p><em>Fuente: Clase 5, Gestión de la tecnología, pág. 3.</em></p>
+<p>Las fases (pág. 2):</p>
+<ol>
+<li><strong>Emergente.</strong> Parece prometedora.</li>
+<li><strong>Crecimiento.</strong> Va madurando y se hace más útil.</li>
+<li><strong>Madurez.</strong> Alcanzó el rendimiento adecuado para incorporarse a todo tipo de proyectos.</li>
+<li><strong>Saturación.</strong> No se puede mejorar más su rendimiento.</li>
+<li><strong>Obsolescencia.</strong> Otra tecnología la convierte en perdedora.</li>
+</ol>
+<h3 id="tipos-de-tecnologia">Tipos de tecnología</h3>
+<p>Fuente: pág. 3.</p>
+<div class="tabla"><table><thead><tr><th>Punto de vista</th><th>Tipo</th><th>Qué es</th></tr></thead><tbody><tr><td>Estratégico</td><td><strong>Clave</strong></td><td>La empresa la domina y le da una posición de dominación frente a sus competidores</td></tr><tr><td>Estratégico</td><td><strong>Básica</strong></td><td>Consolidada y necesaria, pero sin ventaja porque también la conocen los competidores</td></tr><tr><td>Estratégico</td><td><strong>Emergente</strong></td><td>Inmadura. La empresa apuesta a que se vuelva clave. El riesgo es elevado</td></tr><tr><td>De un proyecto</td><td><strong>Imprescindible</strong></td><td>Sin ella no se puede realizar</td></tr><tr><td>De un proyecto</td><td><strong>Conveniente</strong></td><td>El proyecto saldría mejor con ella</td></tr><tr><td>De un proyecto</td><td><strong>Auxiliar</strong></td><td>Papel secundario. Ahorra tiempo y costo, y afecta poco las prestaciones</td></tr></tbody></table></div>
+<h3 id="plan-de-actuacion-y-diagnostico">Plan de actuación y diagnóstico</h3>
+<p>El <strong>Plan de Actuación Tecnológico (PAT)</strong> determina qué hacer con el recurso tecnológico a corto, medio o largo plazo (pág. 4). Tiene <strong>estrategias generales</strong>, a medio o largo plazo, y <strong>estrategias particulares</strong>, sobre las tecnologías actuales y las necesidades de los clientes. Para tecnologías de la información no se aceptan periodos de menos de un año ni de más de cinco (pág. 7).</p>
+<p>Se accede a una tecnología de tres formas (pág. 7): acceso interno, mercado tecnológico controlado (centros de I+D o proveedores con acuerdos) y mercado abierto no controlado.</p>
+<p>El <strong>diagnóstico tecnológico</strong> es la base del PAT. Valora la evolución en la empresa, la situación frente a los competidores y la adecuación a los objetivos. «Un diagnóstico en sí mismo es completamente inútil si se queda sólo en ello» (pág. 8). Sus procedimientos incluyen análisis de mercado, benchmarking, prospectiva, análisis de patentes y auditorías (pág. 9).</p>
+<h3 id="transferencia-y-difusion">Transferencia y difusión</h3>
+<p>La <strong>transferencia de tecnología</strong> es pasar de la tecnología fuente a la objetivo. Termina cuando la nueva se usa de forma rutinaria o se certifica el fracaso (pág. 10). Sus problemas caen en tres tipos de <strong>barreras</strong>: tecnológicas, organizativas y personales.</p>
+<p>La <strong>difusión</strong> es cómo se expande su uso (pág. 13). <strong>Macrodifusión</strong> es en una sociedad. <strong>Microdifusión</strong> es en una organización. Puede ser de <strong>semilla única</strong> (un grupo chico, y se sigue en círculos concéntricos) o de <strong>semilla múltiple</strong> (varios grupos a la vez, con difusión informal).</p>
+<h3 id="innovacion-y-proteccion">Innovación y protección</h3>
+<p>La cita clásica es de Schumpeter (<em>La gestión de la innovación y la tecnología en las organizaciones</em>, pág. 55). Innovar es introducir en el mercado un producto o proceso con elementos diferenciadores, abrir un mercado nuevo o descubrir una nueva fuente de suministro. El Manual de Oslo distingue la innovación de <strong>producto</strong> de la de <strong>proceso</strong>, cuyo objetivo principal es reducir costos (pág. 56).</p>
+<p>El mismo libro explica el <strong>diseño dominante</strong> (pág. 164). El mercado reconoce un conjunto de características que ya no discute. Las mejoras de producto se detienen y toman importancia las de proceso. El número de empresas cae.</p>
+<div class="tabla"><table><thead><tr><th>Protección</th><th>Qué es</th><th>Pág.</th></tr></thead><tbody><tr><td><strong>Patente</strong></td><td>Título de propiedad en exclusiva que concede el Estado por un tiempo. Pide novedad, actividad inventiva y aplicación industrial</td><td>283 y 284</td></tr><tr><td><strong>Modelo de utilidad</strong></td><td>Protege una invención de menor rango inventivo. Importa su forma y la ventaja técnica que da</td><td>289</td></tr><tr><td><strong>Diseño industrial</strong></td><td>Protege la apariencia, para satisfacer exigencias estéticas</td><td>290</td></tr><tr><td><strong>Marca</strong></td><td>Signos distintivos que identifican a la empresa o sus productos</td><td>291</td></tr><tr><td><strong>Secreto industrial</strong></td><td>Otra forma de proteger una invención, sin registrarla</td><td>288</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Plazos y leyes de otro país</p><p>Ese libro es de España. Los plazos legales que da no valen como norma argentina, y en el Drive no hay un apunte sobre la Ley de Patentes ni el PCT que nombra el programa.</p>
+</div>
+<h3 id="el-contexto-de-las-pymes">El contexto de las PyMEs</h3>
+<p>El texto de Kosacoff y López (Clase 5, <em>La innovación tecnológica</em>) marca los obstáculos de las PyMEs argentinas frente a las empresas grandes. Les cuesta procesar información, están más expuestas a fallas de mercado y acceden menos a recursos humanos calificados. Propone modalidades asociativas, entre PyMEs o con firmas mayores, y fortalecer las cadenas de valor agregado.</p>
+<p>También cuenta la clase de planeamiento (Clase 8, Planeamiento 2023, diap. 3) que pasamos de la era industrial a la del conocimiento, donde el factor estratégico es el capital intelectual: de la manufactura a la «mentefactura». Una organización tiene tres clases de conocimiento (diap. 43): <strong>tácito</strong>, personal y aprendido con la experiencia; <strong>explícito</strong>, expresado en documentos, código o reglas; y <strong>cultural</strong>, las creencias que comparte.</p>
+</section><section class="sec quiz" id="quiz" data-quiz="integrador" data-materia="formacion-de-emprendedores">
+<h2>Quiz del TPI</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="fP7fyemGnO" data-tema="Qué hay que entregar" data-enlace="integrador.html#que-hay-que-entregar" data-tipo="mc"><div class="q-enun" id="qe-integrador-1"><span class="q-n">1</span><div><p>Según el instructivo 2026, ¿qué tiene que llevar cada herramienta del TPI al final?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-1"><li><button type="button" class="op" data-ok="0">Una bibliografía aparte</button></li><li><button type="button" class="op" data-ok="1">Una conclusión sobre la utilidad que tuvo</button></li><li><button type="button" class="op" data-ok="0">La firma del docente</button></li><li><button type="button" class="op" data-ok="0">Un resumen en inglés</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El instructivo pide que cada herramienta tenga <strong>una conclusión</strong> sobre la utilidad que tuvo en el desarrollo del punto.</p>
+</div></li><li class="q" data-q="N8WPGt3IJG" data-tema="Qué hay que entregar" data-enlace="index.html#como-se-aprueba" data-tipo="mc"><div class="q-enun" id="qe-integrador-2"><span class="q-n">2</span><div><p>¿Qué pide el instructivo 2026 para quedar regular, además del 70 % de asistencia?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-2"><li><button type="button" class="op" data-ok="0">El trabajo completo aprobado</button></li><li><button type="button" class="op" data-ok="0">La defensa del trabajo</button></li><li><button type="button" class="op" data-ok="1">Tener aprobada la idea de emprendimiento junto con la cadena de valor</button></li><li><button type="button" class="op" data-ok="0">Un examen parcial</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La regularidad pide la <strong>idea y la cadena de valor</strong> aprobadas. El trabajo completo antes de que termine el cuatrimestre es lo que da la aprobación directa.</p>
+</div></li><li class="q" data-q="ev-cGjsjH2" data-tema="Qué proyecto sirve" data-enlace="integrador.html#que-proyecto-sirve" data-tipo="mc"><div class="q-enun" id="qe-integrador-3"><span class="q-n">3</span><div><p>¿Cuál de estas ideas queda afuera según el comunicado de elección de proyecto?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-3"><li><button type="button" class="op" data-ok="1">Una reventa simple</button></li><li><button type="button" class="op" data-ok="0">Un alimento regional exportable</button></li><li><button type="button" class="op" data-ok="0">Una solución FinTech</button></li><li><button type="button" class="op" data-ok="0">Un proyecto de economía circular</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El proyecto debe ser <strong>productivo</strong>. El comunicado nombra como ejemplos a evitar la reventa simple, los servicios sin diferenciación y las ideas sin validación real.</p>
+</div></li><li class="q" data-q="lBsCtyK5T9" data-tema="Cadena de valor externa" data-enlace="integrador.html#cadena-de-valor-externa" data-tipo="mc"><div class="q-enun" id="qe-integrador-4"><span class="q-n">4</span><div><p>¿Qué cadena de valor se aplica en el TPI?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-4"><li><button type="button" class="op" data-ok="0">Solo la interna</button></li><li><button type="button" class="op" data-ok="0">La interna y la externa</button></li><li><button type="button" class="op" data-ok="0">Ninguna, va solo el FODA</button></li><li><button type="button" class="op" data-ok="1">Solo la externa</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La cátedra es explícita: en este curso solo se analiza la <strong>cadena de valor externa</strong>. Los conceptos de la interna no se aplican en el TPI.</p>
+</div></li><li class="q" data-q="pUCnZo0xaH" data-tema="Cadena de valor externa" data-enlace="integrador.html#integracion-vertical-y-horizontal" data-tipo="mc"><div class="q-enun" id="qe-integrador-5"><span class="q-n">5</span><div><p>Una empresa compra a su proveedor de materia prima para tener más control de la cadena. ¿Qué tipo de integración es?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-5"><li><button type="button" class="op" data-ok="0">Horizontal</button></li><li><button type="button" class="op" data-ok="1">Vertical hacia atrás</button></li><li><button type="button" class="op" data-ok="0">Vertical hacia adelante</button></li><li><button type="button" class="op" data-ok="0">Red de compras</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La integración <strong>vertical hacia atrás</strong> amplía las operaciones más cerca de los proveedores o las materias primas. El ejemplo de la cátedra es Ford con sus acerías.</p>
+</div></li><li class="q" data-q="M9xhmN-kwl" data-tema="Diamante de Porter" data-enlace="integrador.html#diamante-de-porter" data-tipo="mc"><div class="q-enun" id="qe-integrador-6"><span class="q-n">6</span><div><p>Según la cátedra, ¿qué pasa cuanto más intensas son las fuerzas de Porter en una industria?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-6"><li><button type="button" class="op" data-ok="1">Es más difícil competir y la industria es menos rentable</button></li><li><button type="button" class="op" data-ok="0">Es más fácil entrar</button></li><li><button type="button" class="op" data-ok="0">Bajan los costos fijos</button></li><li><button type="button" class="op" data-ok="0">La industria es más rentable</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Cuanto más intensas son las fuerzas, <strong>más difícil es competir y menos rentable es la industria</strong>. Analizarlas ayuda a decidir dónde y cómo posicionarte.</p>
+</div></li><li class="q" data-q="xdIlcThXTm" data-tema="Diamante de Porter" data-enlace="integrador.html#diamante-de-porter" data-tipo="mc"><div class="q-enun" id="qe-integrador-7"><span class="q-n">7</span><div><p>¿Qué se analiza al mirar la amenaza de nuevos entrantes?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-7"><li><button type="button" class="op" data-ok="0">El costo de cambiar de proveedor</button></li><li><button type="button" class="op" data-ok="0">La sensibilidad al precio de los clientes</button></li><li><button type="button" class="op" data-ok="1">Las economías de escala y las barreras legales o de capital</button></li><li><button type="button" class="op" data-ok="0">Las barreras de salida del sector</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Para los <strong>nuevos entrantes</strong> se miran economías de escala, diferenciación, costos de cambio para el cliente y barreras legales o de capital.</p>
+</div></li><li class="q" data-q="FUpcNWzE_B" data-tema="FODA" data-enlace="integrador.html#foda" data-tipo="mc"><div class="q-enun" id="qe-integrador-8"><span class="q-n">8</span><div><p>¿Qué par de elementos del FODA es interno?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-8"><li><button type="button" class="op" data-ok="0">Oportunidades y amenazas</button></li><li><button type="button" class="op" data-ok="0">Fortalezas y oportunidades</button></li><li><button type="button" class="op" data-ok="0">Debilidades y amenazas</button></li><li><button type="button" class="op" data-ok="1">Fortalezas y debilidades</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><strong>Fortalezas y debilidades</strong> dependen del ambiente interno. Oportunidades y amenazas dependen del externo.</p>
+</div></li><li class="q" data-q="aGA-rZlOxz" data-tema="FODA" data-enlace="integrador.html#lista-plana-y-matriz-cruzada" data-tipo="mc"><div class="q-enun" id="qe-integrador-9"><span class="q-n">9</span><div><p>¿Qué busca una estrategia DO (Mini-Maxi)?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-9"><li><button type="button" class="op" data-ok="1">Minimizar las debilidades para aprovechar las oportunidades</button></li><li><button type="button" class="op" data-ok="0">Usar las fortalezas para reducir las amenazas</button></li><li><button type="button" class="op" data-ok="0">Reducir las debilidades y evitar las amenazas</button></li><li><button type="button" class="op" data-ok="0">Usar las fortalezas para aprovechar las oportunidades</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><strong>DO</strong> cruza debilidades con oportunidades: minimizar las primeras para aprovechar las segundas.</p>
+</div></li><li class="q" data-q="X0eKKkREkL" data-tema="FODA" data-enlace="integrador.html#foda" data-tipo="mc"><div class="q-enun" id="qe-integrador-10"><span class="q-n">10</span><div><p>¿Cuántos ítems por pilar pide la clase de FODA para el TPI?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-10"><li><button type="button" class="op" data-ok="0">Exactamente 3</button></li><li><button type="button" class="op" data-ok="1">Entre 8 y 10</button></li><li><button type="button" class="op" data-ok="0">Exactamente 6</button></li><li><button type="button" class="op" data-ok="0">Más de 20</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La clase de FODA pide <strong>entre 8 y 10</strong>, ordenados por importancia y ponderados. Otros archivos dan otros números, y por eso conviene seguir la clase específica.</p>
+</div></li><li class="q" data-q="zcbwpX-6mv" data-tema="Valores, objetivos, misión y visión" data-enlace="integrador.html#valores-objetivos-mision-y-vision" data-tipo="mc"><div class="q-enun" id="qe-integrador-11"><span class="q-n">11</span><div><p>¿Qué tres preguntas básicas debe contestar toda misión?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-11"><li><button type="button" class="op" data-ok="0">¿Cuándo?, ¿dónde?, ¿cuánto?</button></li><li><button type="button" class="op" data-ok="0">¿Por qué?, ¿para cuándo?, ¿con quién?</button></li><li><button type="button" class="op" data-ok="1">¿Qué?, ¿quién?, ¿cómo?</button></li><li><button type="button" class="op" data-ok="0">¿Cuánto cuesta?, ¿quién paga?, ¿cuándo?</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><strong>Qué</strong> necesidad satisface, a <strong>quién</strong> se pretende llegar y <strong>cómo</strong> se satisface esa necesidad.</p>
+</div></li><li class="q" data-q="ddZ9AQgAwo" data-tema="Estrategias comerciales" data-enlace="integrador.html#estrategias-comerciales" data-tipo="mc"><div class="q-enun" id="qe-integrador-12"><span class="q-n">12</span><div><p>Según la cátedra, ¿cuál es la estrategia de ventas inicial del emprendedor?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-12"><li><button type="button" class="op" data-ok="0">Publicidad masiva desde el primer día</button></li><li><button type="button" class="op" data-ok="0">Bajar precios por debajo del costo</button></li><li><button type="button" class="op" data-ok="0">Vender solo por marketplaces</button></li><li><button type="button" class="op" data-ok="1">Hacer clientes uno por uno con atención personalizada</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La premisa es hacer clientes <strong>uno por uno</strong> con atención personalizada. Si eso funciona, se puede pensar en una venta masiva.</p>
+</div></li><li class="q" data-q="iQFN7dmf-X" data-tema="Costos" data-enlace="integrador.html#clasificaciones" data-tipo="mc"><div class="q-enun" id="qe-integrador-13"><span class="q-n">13</span><div><p>¿Cuál de estos es un costo fijo, según los ejemplos de la clase?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-13"><li><button type="button" class="op" data-ok="1">Alquileres</button></li><li><button type="button" class="op" data-ok="0">Materias primas directas</button></li><li><button type="button" class="op" data-ok="0">Comisiones sobre ventas</button></li><li><button type="button" class="op" data-ok="0">Envases y embalajes</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los costos <strong>fijos</strong> permanecen constantes sea cual sea el nivel de actividad. Los otros tres son ejemplos de variables.</p>
+</div></li><li class="q" data-q="HH4KGTViWh" data-tema="Presupuesto" data-enlace="integrador.html#presupuesto" data-tipo="mc"><div class="q-enun" id="qe-integrador-14"><span class="q-n">14</span><div><p>En el presupuesto de la cátedra, ¿cómo se llevan los ingresos de los socios emprendedores?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-14"><li><button type="button" class="op" data-ok="0">Como sueldos con cargas sociales</button></li><li><button type="button" class="op" data-ok="1">Como retiros de dinero</button></li><li><button type="button" class="op" data-ok="0">No figuran</button></li><li><button type="button" class="op" data-ok="0">Como comisiones sobre ventas</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los emprendedores socios no cobran sueldos, hacen <strong>retiros de dinero</strong>. Esos retiros mínimos proyectados implican ventas mínimas a realizar.</p>
+</div></li><li class="q" data-q="Jr9VfLQwab" data-tema="Presupuesto" data-enlace="integrador.html#presupuesto" data-tipo="mc"><div class="q-enun" id="qe-integrador-15"><span class="q-n">15</span><div><p>¿Qué se tiene en cuenta en el presupuesto proyectado de la materia?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-15"><li><button type="button" class="op" data-ok="0">La inflación mes a mes</button></li><li><button type="button" class="op" data-ok="0">Solo la inversión inicial</button></li><li><button type="button" class="op" data-ok="1">La variación de los costos de materia prima y fabricación al aumentar las ventas</button></li><li><button type="button" class="op" data-ok="0">Solo el sueldo de los socios</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La clase dice que <strong>no</strong> se tiene en cuenta la inflación. Sí se considera cómo varían los costos a medida que aumentan las proyecciones de ventas.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material de cursado 2026 del Drive de UTN. En el Drive no hay exámenes: la materia se aprueba con el TPI. No reemplaza lo que indique tu comisión: si las condiciones cambiaron, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

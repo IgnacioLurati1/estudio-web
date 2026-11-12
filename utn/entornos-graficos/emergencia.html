@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-solo>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Emergencia: Entornos Gráficos</title>
+<meta name="description" content="Lo necesario para rendir Entornos Gráficos.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="entornos-graficos" data-pagina="emergencia">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Entornos Gráficos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html" aria-current="page">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-practica.html">Parcial de práctica</a></li><li class="em-fuera"><a href="parcial-teoria.html">Parcial de teoría</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=entornos-graficos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=entornos-graficos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#parcial-de-practica">Parcial de práctica</a></li><li class="n2"><a href="#parcial-de-teoria">Parcial de teoría</a></li><li class="n2"><a href="#final">Final</a></li><li class="n2"><a href="#que-cae">Qué cae más</a></li><li class="n2"><a href="#examenes">Exámenes</a></li><li class="n3"><a href="#ex-pp">Parcial de práctica</a></li><li class="n3"><a href="#ex-final">Final</a></li><li class="n3"><a href="#ex-prac">Prácticas de la cátedra</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Protocolo de emergencia</h1>
+<p class="bajada">Lo justo de Entornos Gráficos para cada instancia, con el examen encima.</p>
+
+<p class="em-salto"><a href="#examenes">Ir a los exámenes</a></p>
+
+<div class="ojo"><p class="ojo-t">Pocas hojas recientes</p><p>De 2023 en adelante hay 5 hojas fechadas de 4 fechas distintas. Las dos del final con práctica contada, de 2023 y 2024, las escribieron alumnos de memoria. No hay programa vigente ni calendario de la materia en el Drive, así que confirmá con tu comisión.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué piden</th></tr></thead><tbody><tr><td>Parcial de práctica, 26/06/2024 y 18/09/2024</td><td>Cuatro puntos en la máquina. Página con estilos y enlaces, formulario validado, PHP que guarda en la base y en la sesión, y replicar una salida con HTML y CSS. El de junio suma validación en el servidor, control de repetidos y una cookie</td></tr><tr><td>Ejemplo de parcial, Tema 1 (sin fecha)</td><td>Replicar un CV con HTML y CSS, sumarle estilos y un script de validación, y preguntas cortas de HTML y CSS</td></tr><tr><td>Parcial de teoría</td><td>No hay hoja de 2023 en adelante. Sirven la teoría de los finales y las preguntas cortas del ejemplo</td></tr><tr><td>Final, 15/03/2023</td><td>Teoría con 5 consignas de 2 puntos y mínimo de 60 %. Práctica contada por un alumno, con maqueta, CSS extra, formulario validado, control de repetidos, guardar y listar</td></tr><tr><td>Final, 21/02/2024 (contado por un alumno)</td><td>4 consignas de teoría recordadas. Práctica de 7 puntos con formulario, hoja externa, validar vacíos y tipos, cookies y sesiones, función PHP con 3 parámetros</td></tr></tbody></table></div>
+
+<section class="sec"><h2 id="parcial-de-practica">Parcial de práctica</h2>
+<p>Las dos hojas de 2024 tienen la misma forma. Cambian los puntajes y algunos pedidos.</p>
+<div class="tabla"><table><thead><tr><th>Punto</th><th>26/06/2024</th><th>18/09/2024</th></tr></thead><tbody><tr><td>Página con estilos y enlaces</td><td>2 puntos</td><td>2 puntos</td></tr><tr><td>Formulario validado en el navegador</td><td>1 punto</td><td>1 punto</td></tr><tr><td>PHP con base de datos y sesión</td><td>5 puntos, con validación, control de repetidos y cookie</td><td>4 puntos</td></tr><tr><td>Replicar una salida con HTML y CSS</td><td>Sin puntaje en la hoja</td><td>3 puntos</td></tr></tbody></table></div>
+<p>La hoja del 18/09/2024 pide entregar los archivos por correo. Las dos hojas de 2024 dicen que la tabla de la base se imagine ya creada.</p>
+<h3 id="pagina-con-estilos">Página con estilos</h3>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Dónde va</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Externa</td><td>En un archivo <code>.css</code>, enlazado desde <code>head</code></td><td><code>&lt;LINK rel=&quot;stylesheet&quot; href=&quot;bach.css&quot; type=&quot;text/css&quot;&gt;</code></td></tr><tr><td>Interna</td><td>En <code>&lt;style&gt;</code> dentro de <code>head</code></td><td><code>&lt;style&gt; h1 {color: red;} &lt;/style&gt;</code></td></tr><tr><td>En línea</td><td>En el atributo <code>style</code> de la marca</td><td><code>&lt;h1 style=&quot;color:#FFFFFF&quot;&gt;</code></td></tr></tbody></table></div>
+<p>Las tres se piden juntas en el parcial de 18/09/2024, y dos de ellas en el ejemplo de parcial.</p>
+<p>Una regla tiene un selector y una declaración. La declaración es una propiedad con un valor (Material de CSS, página 4). Se agrupan selectores con coma: <code>h1, h2, h3 { color: red; }</code> (páginas 9 y 12).</p>
+<p>Los enlaces de un color y otro en hover se piden en las dos hojas de 2024. La Práctica de CSS, página 4, usa estas cuatro pseudo-clases, en este orden.</p>
+<pre class="codigo"><code><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span> {<span class="hljs-attribute">color</span>:gray }
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span>{<span class="hljs-attribute">color</span>:blue }
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> {<span class="hljs-attribute">color</span>:fuchsia }
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:active</span> {<span class="hljs-attribute">color</span>:red }</code></pre>
+<div class="tabla"><table><thead><tr><th>Selector</th><th>Sintaxis</th><th>Qué toma</th></tr></thead><tbody><tr><td>Elemento</td><td><code>h1</code></td><td>Todos los <code>h1</code></td></tr><tr><td>Universal</td><td><code>*</code></td><td>Todo</td></tr><tr><td>Clase</td><td><code>.nombre</code></td><td>Los que tengan esa clase, que puede repetirse</td></tr><tr><td>Clase en un elemento</td><td><code>h2.cosito</code></td><td>Solo los <code>h2</code> con esa clase</td></tr><tr><td>Id</td><td><code>#nombre</code></td><td>Un único elemento</td></tr><tr><td>Descendiente</td><td><code>h1 em</code></td><td><code>em</code> en cualquier nivel dentro de <code>h1</code></td></tr><tr><td>Hijo</td><td><code>h1 &gt; strong</code></td><td><code>strong</code> directo de <code>h1</code></td></tr></tbody></table></div>
+<p>Salen de Contenido adicional de CSS, páginas 6 a 11.</p>
+<p><strong>Especificidad.</strong> Si una propiedad se repite con el mismo peso, gana la última (Material de CSS, páginas 10 y 11). Si no, gana el peso mayor (Contenido adicional de CSS, páginas 20 y 21).</p>
+<div class="tabla"><table><thead><tr><th>Qué es</th><th>Peso</th></tr></thead><tbody><tr><td><code>!important</code></td><td>1,0,0,0,0</td></tr><tr><td>Estilo en línea</td><td>0,1,0,0,0</td></tr><tr><td><code>#id</code></td><td>0,0,1,0,0</td></tr><tr><td><code>.class</code> y pseudo-clase</td><td>0,0,0,1,0</td></tr><tr><td>Etiqueta y pseudo-elemento</td><td>0,0,0,0,1</td></tr></tbody></table></div>
+<h3 id="formulario">Formulario</h3>
+<p>Aparece en las 4 prácticas de 2023 y 2024. <code>action</code> dice qué script procesa los datos y <code>method</code> dice cómo viajan (Introducción teórica de PHP, página 31). Este es el ejemplo del Material Complementario de HTML, página 35.</p>
+<pre class="codigo"><code><span class="hljs-tag">&lt;<span class="hljs-name">FORM</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;http://algunsitio.com/prog/nuevo&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">P</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LABEL</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;nombre&quot;</span>&gt;</span>Nombre: <span class="hljs-tag">&lt;/<span class="hljs-name">LABEL</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;nombre&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">BR</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sexo&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Varón&quot;</span>&gt;</span> Varón<span class="hljs-tag">&lt;<span class="hljs-name">BR</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sexo&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Mujer&quot;</span>&gt;</span> Mujer<span class="hljs-tag">&lt;<span class="hljs-name">BR</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Enviar&quot;</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;reset&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">P</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">FORM</span>&gt;</span></code></pre>
+<p>Un menú desplegable se arma con <code>select</code> y <code>option</code>, como en la solución de cookies de la Práctica 7. GET manda los datos en la URL y POST en el cuerpo del envío. POST se usa si modifica una base de datos (Material Complementario, página 38, e Introducción teórica de PHP, página 33).</p>
+<p>HTML5 valida casi todo sin programar (Conceptos fundamentales de HTML, páginas 23 a 41).</p>
+<div class="tabla"><table><thead><tr><th>Atributo o tipo</th><th>Qué controla</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td><code>required</code></td><td>Que no quede vacío</td><td><code>&lt;input type=&quot;text&quot; id=&quot;usuario&quot; required&gt;</code></td></tr><tr><td><code>type=&quot;email&quot;</code></td><td>Sintaxis de mail</td><td><code>&lt;input type=&quot;email&quot; id=&quot;emailusuario&quot; required&gt;</code></td></tr><tr><td><code>type=&quot;number&quot;</code> con <code>min</code> y <code>max</code></td><td>Número en un rango</td><td><code>&lt;input type=&quot;number&quot; id=&quot;valor&quot; name=&quot;valor&quot; min=&quot;1&quot; max=&quot;10&quot;&gt;</code></td></tr><tr><td><code>pattern</code></td><td>Formato con expresión regular</td><td><code>pattern=&quot;[A-Za-z]{3}[0-9]{3}&quot;</code></td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Script de validación</p><p>El ejemplo de parcial pide un script externo que valide que los campos no estén vacíos. Los apuntes definen qué es un script y dan los eventos, pero no traen un ejemplo armado de validación con JavaScript. Consultá a la cátedra qué piden.</p>
+</div>
+<h3 id="replicar-una-salida">Replicar una salida</h3>
+<p>Se pide en las dos hojas de 2024 y en el final de 2023. Cada elemento es una caja con contenido, <code>padding</code>, <code>border</code> y <code>margin</code> (Contenido adicional de CSS, páginas 26 a 30).</p>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Significado</th></tr></thead><tbody><tr><td><code>margin:25px 50px 75px 100px</code></td><td>Arriba, derecha, abajo, izquierda</td></tr><tr><td>Tres valores</td><td>Arriba, los costados, abajo</td></tr><tr><td>Dos valores</td><td>Arriba y abajo, los costados</td></tr><tr><td>Un valor</td><td>Los cuatro lados</td></tr><tr><td><code>margin:auto</code></td><td>Centra en horizontal</td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><th>Propiedad</th><th>Valores</th><th>Página</th></tr></thead><tbody><tr><td><code>display</code></td><td><code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>none</code></td><td>45</td></tr><tr><td><code>display:flex</code></td><td>Con <code>flex-direction</code> y <code>flex-wrap</code></td><td>46 y 47</td></tr><tr><td><code>display:grid</code></td><td>Grilla</td><td>53 en adelante</td></tr><tr><td><code>position</code></td><td><code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code></td><td>41</td></tr><tr><td><code>z-index</code></td><td>Qué tapa a qué</td><td>42</td></tr></tbody></table></div>
+<p><code>absolute</code> se ubica respecto del ancestro posicionado. La Práctica de CSS, páginas 5 a 7, también usa <code>float:right</code> y <code>clear:both</code>. <code>div</code> agrupa en bloque y <code>span</code> agrupa en línea (Material Complementario de HTML, página 22).</p>
+<h3 id="php-que-recibe-y-valida">PHP que recibe y valida</h3>
+<p>Los valores llegan en <code>$_POST</code> o <code>$_GET</code>, según el <code>method</code> (Introducción teórica de PHP, página 32).</p>
+<pre class="codigo"><code><span class="hljs-variable">$vNomApel</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Nom&#x27;</span>];
+<span class="hljs-variable">$vLegajo</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Legajo&#x27;</span>];</code></pre>
+<p><code>isset</code> dice si una variable está definida. Devuelve <code>FALSE</code> si está definida como <code>NULL</code>. Con varios parámetros da <code>TRUE</code> solo si lo están todos (página 16).</p>
+<div class="ojo"><p class="ojo-t">Validar en el servidor</p><p>Lo pide el parcial del 26/06/2024. Los apuntes dan piezas sueltas: <code>isset</code>, <code>is_int</code> y <code>strlen</code> (Práctica básica de PHP, páginas 1 y 7). No traen un ejemplo completo de validación del lado del servidor. Probá armarlo con esas piezas y consultá qué exige tu comisión.</p>
+</div>
+<pre class="codigo"><code><span class="hljs-variable">$fecha</span>=<span class="hljs-title function_ invoke__">date</span>(<span class="hljs-string">&quot;d-m-Y&quot;</span>);
+<span class="hljs-variable">$hora</span>= <span class="hljs-title function_ invoke__">date</span>(<span class="hljs-string">&quot;H:i:s&quot;</span>);</code></pre>
+<p>Vienen de Teoría adicional de PHP, página 13. En la base, un <code>DATETIME</code> guarda <code>AAAA-MM-DD HH:MM:SS</code> (Teoría de manejo de bases de datos, páginas 6 a 9).</p>
+<h3 id="base-de-datos-con-mysqli">Base de datos con mysqli</h3>
+<p>Las hojas de 2024 piden guardar los datos del formulario y la fecha y hora en una tabla que se imagina ya creada.</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-variable">$link</span> = <span class="hljs-title function_ invoke__">mysqli_connect</span>(<span class="hljs-string">&quot;localhost&quot;</span>, <span class="hljs-string">&quot;root&quot;</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-string">&quot;Problemas de conexión a la base de datos&quot;</span>);
+<span class="hljs-title function_ invoke__">mysqli_select_db</span>(<span class="hljs-variable">$link</span>, <span class="hljs-string">&quot;docentes&quot;</span>);
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>Es <code>conexion.inc</code> de Confección de bases de datos, página 1. Cada página lo incluye con <code>include</code>.</p>
+<div class="tabla"><table><thead><tr><th>Función</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>mysqli_connect</code></td><td>Devuelve la conexión o <code>FALSE</code></td></tr><tr><td><code>mysqli_select_db</code></td><td>Elige la base</td></tr><tr><td><code>mysqli_query</code></td><td>Ejecuta. En <code>INSERT</code>, <code>UPDATE</code> y <code>DELETE</code> da <code>TRUE</code> o <code>FALSE</code>. En <code>SELECT</code> da un resultado</td></tr><tr><td><code>mysqli_fetch_array</code></td><td>Una fila, con índices asociativos y numéricos</td></tr><tr><td><code>mysqli_fetch_assoc</code></td><td>Una fila, asociativa, o <code>NULL</code> si no hay más</td></tr><tr><td><code>mysqli_num_rows</code></td><td>Cantidad de filas</td></tr><tr><td><code>mysqli_free_result</code></td><td>Libera el resultado</td></tr><tr><td><code>mysqli_close</code></td><td>Cierra la conexión</td></tr><tr><td><code>or die(mysqli_error($link))</code></td><td>Corta y muestra el error</td></tr></tbody></table></div>
+<p>Salen de Teoría de manejo de bases de datos, páginas 10 a 33.</p>
+<div class="ojo"><p class="ojo-t">mysql o mysqli</p><p>El material mezcla las dos familias. <code>mysql_connect</code> es para versiones anteriores a PHP 5 y las soluciones viejas la usan. Además el orden de los parámetros cambia. <code>mysqli_select_db($link, &quot;base&quot;)</code> y <code>mysqli_query($link, $consulta)</code> llevan la conexión primero. <code>mysql_select_db(&quot;base&quot;, $link)</code> la lleva al final (Teoría de manejo de bases de datos, páginas 10 a 14).</p>
+</div>
+<p>Avisar si ya existe un registro con los mismos datos se pide en el parcial del 26/06/2024 y en el final de 2023. Este es <code>Alta.php</code>, de Confección de bases de datos, páginas 4 y 5, sin el HTML de alrededor. Primero cuenta si ya existe y después inserta.</p>
+<pre class="codigo"><code><span class="hljs-keyword">include</span>(<span class="hljs-string">&quot;conexion.inc&quot;</span>);
+<span class="hljs-variable">$vNomApel</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Nom&#x27;</span>];
+<span class="hljs-variable">$vLegajo</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Legajo&#x27;</span>];
+<span class="hljs-variable">$vDNI</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;DNI&#x27;</span>];
+<span class="hljs-variable">$vEmail</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;eMail&#x27;</span>];
+<span class="hljs-variable">$vSql</span> = <span class="hljs-string">&quot;SELECT Count(dni) as canti FROM doc_utn WHERE dni=&#x27;<span class="hljs-subst">$vDNI</span>&#x27;&quot;</span>;
+<span class="hljs-variable">$vResultado</span> = <span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>, <span class="hljs-variable">$vSql</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-title function_ invoke__">mysqli_error</span>(<span class="hljs-variable">$link</span>));
+<span class="hljs-variable">$vCantUsuarios</span> = <span class="hljs-title function_ invoke__">mysqli_fetch_assoc</span>(<span class="hljs-variable">$vResultado</span>);
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$vCantUsuarios</span> [<span class="hljs-string">&#x27;canti&#x27;</span>]!=<span class="hljs-number">0</span>){
+<span class="hljs-keyword">echo</span> (<span class="hljs-string">&quot;El Usuario ya Existe&lt;br&gt;&quot;</span>);
+}
+<span class="hljs-keyword">else</span> {
+<span class="hljs-variable">$vSql</span> = <span class="hljs-string">&quot;INSERT INTO doc_utn (legajo, apel_nom, dni, email)
+values (&#x27;<span class="hljs-subst">$vLegajo</span>&#x27;,&#x27;<span class="hljs-subst">$vNomApel</span>&#x27;, &#x27;<span class="hljs-subst">$vDNI</span>&#x27;, &#x27;<span class="hljs-subst">$vEmail</span>&#x27;)&quot;</span>;
+<span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>, <span class="hljs-variable">$vSql</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-title function_ invoke__">mysqli_error</span>(<span class="hljs-variable">$link</span>));
+<span class="hljs-title function_ invoke__">mysqli_free_result</span>(<span class="hljs-variable">$vResultado</span>);
+}
+<span class="hljs-title function_ invoke__">mysqli_close</span>(<span class="hljs-variable">$link</span>);</code></pre>
+<p>Para listar, una fila de tabla por registro con este ciclo (Confección de bases de datos, páginas 11 a 13).</p>
+<pre class="codigo"><code><span class="hljs-keyword">while</span> (<span class="hljs-variable">$fila</span> = <span class="hljs-title function_ invoke__">mysqli_fetch_array</span>(<span class="hljs-variable">$vResultado</span>))</code></pre>
+<h3 id="sesion">Sesión</h3>
+<p>Una sesión es un conjunto de variables guardadas en el servidor, una por cada visitante (Teoría de Sesiones, página 2). <code>session_start()</code> inicia o continúa la sesión. Hay que llamarla antes de escribir cualquier texto en la página (Teoría adicional de PHP, páginas 17 y 18). <code>$_SESSION</code> es un array asociativo.</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span> <span class="hljs-title function_ invoke__">session_start</span>();
+<span class="hljs-keyword">if</span> (!<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&quot;contador&quot;</span>])){
+<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&quot;contador&quot;</span>] = <span class="hljs-number">1</span>;
+}<span class="hljs-keyword">else</span>{
+<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&quot;contador&quot;</span>]++;
+}
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>Las dos hojas de 2024 piden guardar en la sesión cada envío del formulario sin perder los anteriores, agrupados en un array por fecha y hora. Para agregar al final de un array se escribe <code>$a[] = 4;</code> (Práctica básica de PHP, página 6). Una asociativa se accede por clave, como <code>$ficha[nombre]</code>, y una multidimensional es un array de arrays, como <code>$agenda[1][telefono]</code> (Introducción teórica de PHP, páginas 36 a 38).</p>
+<h3 id="cookie">Cookie</h3>
+<p>Una cookie es una pequeña información de texto guardada en el navegador del visitante (Teoría de Cookies, página 3).</p>
+<pre class="codigo"><code><span class="hljs-title function_ invoke__">setcookie</span>(<span class="hljs-string">&quot;persona&quot;</span>,<span class="hljs-variable">$nombre</span>,<span class="hljs-title function_ invoke__">time</span>()+<span class="hljs-number">86400</span>*<span class="hljs-number">365</span>);</code></pre>
+<p>Dura un año, con 86400 segundos por día (página 7). Se lee con <code>$_COOKIE[&quot;persona&quot;]</code>. Solo el nombre es obligatorio. Los otros parámetros son valor, caducidad, ruta, dominio, seguro y solo http (página 11).</p>
+<div class="ojo"><p class="ojo-t">Antes de cualquier texto</p><p><code>setcookie</code> y <code>session_start</code> van antes de escribir texto en la página. Con una cookie, si no, PHP puede dar «headers already sent» (Teoría de Cookies, página 12).</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-de-teoria">Parcial de teoría</h2>
+<p>No hay hoja de 2023 en adelante. Estas son las preguntas cortas del ejemplo de parcial y de la lista frecuente, con la respuesta del apunte.</p>
+<details class="pregunta"><summary><span>¿Cómo se componen los URIs?</span><small>Ejemplo de parcial, Tema 1, sin fecha</small></summary><div class="resp"><p>Normalmente de tres partes:</p>
+<ol>
+<li>El esquema de nombres del mecanismo para acceder al recurso.</li>
+<li>El nombre de la máquina que aloja el recurso.</li>
+<li>El nombre del recurso, dado como una ruta.</li>
+</ol>
+<p>Fuente: apunte Conceptos y Teoría de HTML, página 6.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Cuál es la diferencia entre desaprobado y obsoleto en etiquetas HTML?</span><small>Ejemplo de parcial, Tema 1, sin fecha</small></summary><div class="resp"><p>Un elemento desaprobado es aquel que ha quedado anticuado por la presencia de estructuras nuevas, y puede declararse obsoleto en el futuro. Los agentes de usuario deberían seguir dándole soporte por compatibilidad. Un elemento obsoleto es aquel para el cual no hay garantía de soporte, porque dejó de estar definido en la especificación.</p>
+<p>Fuente: apunte Material Complementario de HTML, página 15.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Cómo se llaman las partes de una regla CSS?</span><small>Ejemplo de parcial, Tema 1, sin fecha</small></summary><div class="resp"><p>La regla tiene un selector y una declaración. La declaración tiene propiedad y valor.</p>
+<p>Fuente: apunte Material de CSS, página 4.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Qué es la cascada en CSS?</span><small>Preguntas frecuentes, sin fecha</small></summary><div class="resp"><p>El formato final de cualquier elemento depende de la combinación de todas las propiedades que afectan al elemento. A un elemento también le afectan las propiedades de los que lo incluyen.</p>
+<p>Fuente: apunte Material de CSS, páginas 10 y 11.</p>
+</div></details>
+<p>CSS separa el contenido de la presentación. Si el estilo está en una hoja aparte, cambiarlo en un lugar lo cambia en todas las páginas (Material de CSS, páginas 2 y 6). El selector de id va con <code>#</code> y corresponde a un único elemento (Contenido adicional de CSS, página 8).</p>
+<div class="ojo"><p class="ojo-t">Selector de atributo</p><p>La hoja de ejemplo pide <code>a[href]</code>, y la Práctica 2 también lo usa. Los apuntes de CSS no lo explican. La Práctica 2 remite a la especificación CSS2 como lectura. Buscalo ahí o preguntá en clase.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Temas sin apunte</p><p>«Cliente servidor» y «web semántica» están en la lista de preguntas frecuentes. No hay un apunte de la cátedra que los conteste en lo descargado.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final">Final</h2>
+<p>En las dos mesas hubo teoría y práctica. La hoja de teoría de 2023 exige un mínimo de 60 %, que son 6 de los 10 puntos.</p>
+<h3 id="teoria-del-15-03-2023">Teoría del 15/03/2023</h3>
+<details class="pregunta"><summary><span>¿Cuál es la diferencia entre buscabilidad y visibilidad?</span><small>Final 15/03/2023</small></summary><div class="resp"><p>Las dos son partes de la ubicuidad, que es estar en la Web y poder ser encontrado y visto. La buscabilidad es poder encontrar el sitio. La visibilidad es poder verlo, y depende del desempeño computacional del sitio, de la calidad del enlace a Internet y del diseño.</p>
+<p>Fuente: apunte Ubicuidad y Usabilidad en la Web, páginas 3 a 5.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Qué son las cookies? ¿Con qué función se crean y qué parámetros tiene?</span><small>Final 15/03/2023</small></summary><div class="resp"><p>Son pequeñas informaciones de texto que se pueden almacenar en el navegador del visitante. Se crean con <code>setcookie</code>. El único parámetro obligatorio es el nombre. Los otros son valor, caducidad, ruta, dominio, seguro y solo http. Un ejemplo es <code>setcookie(&quot;persona&quot;,$nombre,time()+86400*365);</code>.</p>
+<p>Fuente: apunte Teoría de Cookies, páginas 3, 7 y 11.</p>
+</div></details>
+<p>Solo guardan textos, de hasta 1 K, y tienen fecha de caducidad (página 4). Volver a definir una cookie existente borra la anterior (página 8).</p>
+<details class="pregunta"><summary><span>¿Qué es un sistema de navegación, y cuáles son sus características y elementos?</span><small>Final 15/03/2023</small></summary><div class="resp"><p>Es el conjunto de elementos presente en cada una de las pantallas que permite a un usuario moverse por el sitio. Tiene que ser consistente, uniforme y visible. Sus elementos son menú general, pie de página, ruta de acceso, fecha de publicación, botón al inicio, mapa del sitio, contacto, buscador, ayuda e imprimir.</p>
+<p>Fuente: apunte Resumen de la Guía, página 3, y Adicional guía para desarrollo web, página 60.</p>
+</div></details>
+<ul>
+<li><strong>Consistente.</strong> Similar en ubicación y disposición en todas las páginas.</li>
+<li><strong>Uniforme.</strong> Usa términos similares.</li>
+<li><strong>Visible.</strong> Se distingue y sirve de guía permanente.</li>
+</ul>
+<details class="pregunta"><summary><span>¿Cuáles son las cuatro etapas sucesivas e incrementales del diseño visual?</span><small>Final 15/03/2023</small></summary><div class="resp"><ol>
+<li>Estructura de las páginas: dibujos solo lineales.</li>
+<li>Bocetos: dibujos digitales con imágenes y colores.</li>
+<li>Borradores: prototipo con páginas clickeables.</li>
+<li>Maqueta web: todo el sitio en HTML, con imágenes y contenidos reales.</li>
+</ol>
+<p>Fuente: apunte Resumen de la Guía, página 3.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿En qué consiste el árbol de contenidos y qué tipos hay?</span><small>Final 15/03/2023</small></summary><div class="resp"><p>Muestra cuántas secciones tendrá el sitio y cuántos niveles habrá dentro de cada una. Hay dos tipos. El organizacional agrupa los contenidos de la manera como se organiza la institución, no por su estructura de funcionamiento sino por su lógica de actividad. El funcional los agrupa de acuerdo a las tareas que se puedan realizar dentro del sitio.</p>
+<p>Fuente: apunte Teoría del desarrollo web, páginas 15 y 16.</p>
+</div></details>
+<h3 id="teoria-del-21-02-2024">Teoría del 21/02/2024</h3>
+<p>Contada por un alumno, que aclara que una consigna no la recuerda.</p>
+<details class="pregunta"><summary><span>Enunciá las pautas de accesibilidad</span><small>Final 21/02/2024, contado por un alumno</small></summary><div class="resp"><p>Las 12 pautas de WCAG 2.0 se agrupan en 4 principios.</p>
+<ol>
+<li>Perceptibilidad: alternativas textuales, alternativas para multimedia, contenido adaptable y hacer más fácil ver y oír.</li>
+<li>Operabilidad: disponible por teclado, tiempo suficiente, no causar ataques y ayudar a navegar.</li>
+<li>Comprensibilidad: legible, predecible y ayudar a evitar y corregir errores.</li>
+<li>Robustez: compatibilidad con agentes de usuario actuales y futuros.</li>
+</ol>
+<p>Fuente: apunte Resumen pautas accesibilidad, páginas 1 y 2.</p>
+</div></details>
+<div class="ojo"><p class="ojo-t">14 o 12 pautas</p><p>El material mezcla versiones. Las diapositivas de lectura obligatoria y el texto de TAW hablan de 14 pautas, que son WCAG 1.0. La introducción y el resumen hablan de 12 pautas, que son WCAG 2.0. Aclaralo al responder.</p>
+</div>
+<p>La WAI, Iniciativa de Accesibilidad Web, es una actividad del W3C. Las WCAG, Pautas de Accesibilidad al Contenido en la Web, son su documento más importante (Resumen pautas accesibilidad, página 1). WCAG 2.0 tiene 4 principios, 12 directrices y 61 criterios de cumplimiento (Introducción de Accesibilidad, página 26).</p>
+<div class="tabla"><table><thead><tr><th>Prioridad</th><th>El desarrollador</th><th>Si no cumple</th></tr></thead><tbody><tr><td>1</td><td>Tiene que cumplir</td><td>Ciertos grupos no podrían acceder</td></tr><tr><td>2</td><td>Debería cumplir</td><td>Sería muy difícil acceder para ciertos grupos</td></tr><tr><td>3</td><td>Debería cumplir</td><td>Algunos usuarios tendrían ciertas dificultades</td></tr></tbody></table></div>
+<p>El nivel A satisface la prioridad 1, el doble A las prioridades 1 y 2, y el triple A las tres (diapositivas de lectura obligatoria, páginas 4 y 5).</p>
+<details class="pregunta"><summary><span>¿Cuál es la diferencia entre estructura y diseño?</span><small>Final 21/02/2024, contado por un alumno</small></summary><div class="resp"><p>La estructura es la forma que tendrá el sitio en términos generales, con sus secciones, funcionalidades y sistemas de navegación. No incluye elementos gráficos. El diseño es la solución gráfica, con colores, logotipos, viñetas y otros elementos que identifican visualmente al sitio.</p>
+<p>Fuente: apunte Teoría del desarrollo web, página 14.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Qué es la arquitectura de la información y cuáles son sus principales elementos?</span><small>Final 21/02/2024, contado por un alumno</small></summary><div class="resp"><p>Es el conjunto de métodos y herramientas que permiten organizar los contenidos, para ser encontrados y utilizados por los usuarios, de manera simple y directa. Sus elementos son:</p>
+<ol>
+<li>Objetivos.</li>
+<li>Audiencia.</li>
+<li>Contenidos.</li>
+<li>Estructura.</li>
+<li>Diseño visual.</li>
+</ol>
+<p>Fuente: apunte Resumen de la Guía, páginas 1 a 3.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Qué es la interfaz y cuáles son sus elementos principales?</span><small>Final 21/02/2024, contado por un alumno</small></summary><div class="resp"><p>Es el conjunto de elementos de la pantalla que permiten al usuario realizar acciones sobre el sitio web que está visitando. Hay elementos de identificación, de navegación, de contenidos y de acción.</p>
+<p>Fuente: apunte Adicional guía para desarrollo web, página 54.</p>
+</div></details>
+<h3 id="practica">Práctica</h3>
+<p>Es la misma cadena del parcial de práctica, con todo lo de arriba. El final de 2023 suma listar los registros en una tabla. El de 2024 pide una función PHP con 3 parámetros y tuvo unos 40 minutos de práctica y 30 de teoría.</p>
+<p><strong>Funciones y parámetros.</strong> El parámetro va por valor si no se indica otra cosa. Un <code>&amp;</code> lo pasa por referencia, y entonces el cambio afecta a la variable original. Un parámetro con valor por defecto se escribe con <code>=</code>, y el valor es una constante. Los que tienen valor por defecto van a la derecha de los que no tienen (Introducción teórica de PHP, páginas 10 a 14).</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">porreferencia</span>(<span class="hljs-params">&amp;<span class="hljs-variable">$cadena</span></span>)
+</span>{
+<span class="hljs-variable">$cadena</span> = <span class="hljs-string">&#x27;Si cambia&#x27;</span>;
+}
+<span class="hljs-variable">$str</span> = <span class="hljs-string">&#x27;Esto es una cadena&#x27;</span>;
+<span class="hljs-title function_ invoke__">porreferencia</span> (<span class="hljs-variable">$str</span>);
+<span class="hljs-keyword">echo</span> <span class="hljs-variable">$str</span>; <span class="hljs-comment">// Imprime &#x27;Si cambia&#x27;</span>
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>Los parciales de 2017 dejaban usar códigos de referencia. Es una hoja vieja y no hay nada que lo confirme para hoy, así que preguntá en tu comisión.</p>
+</section>
+<section class="sec cae"><h2 id="que-cae">Qué cae más</h2>
+<p class="cae-baja">El sitio no tiene todos los exámenes que se tomaron, así que esto es una pista y no una promesa. Tocá un tema para ver en qué exámenes salió.</p>
+<h3 id="cae-pp">Parcial de práctica</h3>
+<p class="cae-de">Sale de 3 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">HTML</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 3 de 3</span></summary><ul class="cae-ex"><li><a href="ej-pp-2024-09-18.html">Parcial de práctica, 18/09/2024</a></li><li><a href="ej-pp-2024-06-26.html">Parcial de práctica, 26/06/2024</a></li><li><a href="ej-pp-ejemplo.html">Ejemplo de parcial, Tema 1 (sin fecha)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">CSS</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 3 de 3</span></summary><ul class="cae-ex"><li><a href="ej-pp-2024-09-18.html">Parcial de práctica, 18/09/2024</a></li><li><a href="ej-pp-2024-06-26.html">Parcial de práctica, 26/06/2024</a></li><li><a href="ej-pp-ejemplo.html">Ejemplo de parcial, Tema 1 (sin fecha)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Formulario</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 3 de 3</span></summary><ul class="cae-ex"><li><a href="ej-pp-2024-09-18.html">Parcial de práctica, 18/09/2024</a></li><li><a href="ej-pp-2024-06-26.html">Parcial de práctica, 26/06/2024</a></li><li><a href="ej-pp-ejemplo.html">Ejemplo de parcial, Tema 1 (sin fecha)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Sesiones</span><span class="cae-barra" aria-hidden="true"><span style="width:67%"></span></span><span class="cae-num">en 2 de 3</span></summary><ul class="cae-ex"><li><a href="ej-pp-2024-09-18.html">Parcial de práctica, 18/09/2024</a></li><li><a href="ej-pp-2024-06-26.html">Parcial de práctica, 26/06/2024</a></li></ul></details></li></ul></section>
+<section class="sec em-examenes"><h2 id="examenes">Exámenes</h2>
+<p class="em-leyenda">«Respuesta oficial» es lo que está en el Drive. «Propuesta sin verificar» es una respuesta armada con inteligencia artificial que ningún docente revisó.</p>
+<h3 id="ex-pp">Parcial de práctica</h3><ul class="em-lista"><li class="em-fila"><a href="ej-pp-2024-09-18.html"><span class="em-nom">Parcial de práctica, 18/09/2024</span><span class="ej-fecha">18/09/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-pp-2024-06-26.html"><span class="em-nom">Parcial de práctica, 26/06/2024</span><span class="ej-fecha">26/06/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-pp-ejemplo.html"><span class="em-nom">Ejemplo de parcial, Tema 1 (sin fecha)</span><span class="ej-fecha"></span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul>
+<h3 id="ex-final">Final</h3><ul class="em-lista"><li class="em-fila"><a href="ej-fin-2024-02-21.html"><span class="em-nom">Final, 21/02/2024 (contado por un alumno)</span><span class="ej-fecha">21/02/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-03-15-teoria.html"><span class="em-nom">Final, 15/03/2023, teoría</span><span class="ej-fecha">15/03/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-03-15-practica.html"><span class="em-nom">Final, 15/03/2023, práctica (contada por un alumno)</span><span class="ej-fecha">15/03/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul>
+<h3 id="ex-prac">Prácticas de la cátedra</h3><ul class="em-lista"><li class="em-fila"><a href="ej-prac-7-cookies.html"><span class="em-nom">Práctica 7, ejercicio 1: la página que recuerda el estilo elegido</span><span class="ej-fecha"></span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-prac-7-buscador.html"><span class="em-nom">Práctica 7, ejercicio 8: buscador de canciones</span><span class="ej-fecha"></span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li></ul></section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2024). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-solo>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Emergencia: Paradigmas de Programación</title>
+<meta name="description" content="Lo necesario para rendir Paradigmas de Programación.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="paradigmas-de-programacion" data-pagina="emergencia">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Paradigmas de Programación</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html" aria-current="page">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">Parcial de regularización</a></li><li class="em-fuera"><a href="ad.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=paradigmas-de-programacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=paradigmas-de-programacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#parcial-de-regularizacion">Parcial de regularización</a></li><li class="n2"><a href="#aprobacion-directa">Aprobación directa</a></li><li class="n2"><a href="#final">Final</a></li><li class="n2"><a href="#que-cae">Qué cae más</a></li><li class="n2"><a href="#examenes">Exámenes</a></li><li class="n3"><a href="#ex-reg">Parcial de regularización</a></li><li class="n3"><a href="#ex-ad">Aprobación directa</a></li><li class="n3"><a href="#ex-final">Final</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Protocolo de emergencia</h1>
+<p class="bajada">Lo justo de Paradigmas para cada instancia, con el examen encima.</p>
+
+<p class="em-salto"><a href="#examenes">Ir a los exámenes</a></p>
+
+
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué piden</th></tr></thead><tbody><tr><td>Parcial de regularización</td><td>Un cuestionario del campus. Tres hojas de lógico y funcional, con 8 preguntas cada una, 6 de verdadero o falso y 2 de opción múltiple. Una de objetos, con 10 preguntas de relacionar conceptos y de verdadero o falso</td></tr><tr><td>Aprobación directa</td><td>La narrativa de un negocio, el diagrama de clases y dos métodos en Smalltalk. Uno registra una operación y el otro emite un listado o informe. 6 exámenes, de 2023 a 2025</td></tr><tr><td>Final</td><td>El mismo examen que aprobación directa. 11 finales, de 2023 a 2026, y 9 listan por rango de fechas</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Qué resoluciones son oficiales</p><p>Solo la corrección automática de los 4 cuestionarios del campus. Lo que marcó el alumno en esas capturas no cuenta. De los exámenes de desarrollo no hay ninguna oficial, y por eso cada uno trae una propuesta sin verificar. El material que se usa acá (glosario, «Estructuras útiles en Smalltalk» y tres ejercicios resueltos de Material Util) no dice quién lo escribió, así que no lo presentamos como palabra de la cátedra.</p>
+</div>
+
+<section class="sec"><h2 id="parcial-de-regularizacion">Parcial de regularización</h2>
+<div class="tomado"><aside class="nota"><strong>Lógico y funcional</strong><span>Parcial N°2 2024 y las dos versiones del 15/06/2023</span></aside><p>Las tres hojas traen 8 preguntas: 6 de verdadero o falso y 2 de opción múltiple. <mark>Tipos de datos genéricos</mark> sale en las 3. Inmutabilidad, evaluación perezosa, funciones puras, fundamentos del paradigma lógico y base de conocimiento salen en 2 de 3.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Objetos</strong><span>Parcial 22/09/2023 y Banco de preguntas 2022</span></aside><p><mark>Unir definiciones con conceptos</mark> y <mark>arrastrar variables y métodos a un diagrama de clases</mark>. También hay verdadero o falso sobre variables de clase, self, super y abstracción, y qué da una expresión de Smalltalk.</p>
+</div>
+<p>El Banco de preguntas 2022 es del plan viejo. Lo usamos porque repite preguntas del cuestionario del 22/09/2023.</p>
+<h3 id="definiciones-para-relacionar">Definiciones para relacionar</h3>
+<p>El campus muestra la respuesta correcta al revisar un cuestionario. Estas definiciones salen de ahí, de preguntas de relacionar.</p>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Definición</th></tr></thead><tbody><tr><td>Clase</td><td>Define atributos y comportamientos que tendrán los objetos creados a partir de ella</td></tr><tr><td>Objeto</td><td>Una entidad que tiene un conjunto de responsabilidades y que encapsula un estado interno</td></tr><tr><td>Mensaje</td><td>Se envía a los objetos para que interactúen y colaboren</td></tr><tr><td>Método</td><td>Implementa un comportamiento en la clase</td></tr><tr><td>Polimorfismo</td><td>La habilidad de dos o más objetos de responder a un mensaje con el mismo nombre, cada uno a su manera</td></tr><tr><td>Encapsulamiento</td><td>Esconder los detalles de la implementación que no contribuyen a las características esenciales</td></tr><tr><td>Redefinición</td><td>Una subclase define un método que ya está definido en alguna de sus clases padre</td></tr><tr><td>Ensamble</td><td>Involucra dos objetos distintos, donde uno es parte del otro</td></tr><tr><td>Herencia</td><td>Relaciona clases y es una manera de estructurar la descripción de un solo objeto</td></tr><tr><td>Programa</td><td>Colección de objetos cooperantes</td></tr></tbody></table></div>
+<p>Fuente: Banco de preguntas 2022, páginas 10, 12, 15 y 16, y Parcial para regularizar 22/09/2023, pregunta 10.</p>
+<h3 id="lo-que-marca-el-campus-en-verdadero-o-falso-y-opcion-multiple">Lo que marca el campus en verdadero o falso y opción múltiple</h3>
+<div class="tabla"><table><thead><tr><th>Consigna</th><th>El campus marca</th><th>Dónde</th></tr></thead><tbody><tr><td>Mensaje y método tienen el mismo significado</td><td>Falso</td><td>22/09/2023, pregunta 4</td></tr><tr><td>Las cualidades de un objeto son estado, comportamiento e identidad</td><td>Verdadero</td><td>Banco 2022, página 10</td></tr><tr><td>El binding dinámico permite implementar el polimorfismo, ya que en tiempo de ejecución se enlaza el mensaje con el método, acorde al receptor</td><td>Verdadero</td><td>Banco 2022, página 6</td></tr><tr><td>La abstracción expresa las características esenciales de un objeto, las cuales distinguen a los objetos de una clase de los de otra</td><td>Verdadero. La versión que dice «NO expresa» es falsa</td><td>22/09/2023, preguntas 6 y 9</td></tr><tr><td>Desde un método de instancia se puede acceder a las variables de clase y de instancia de la misma clase y de las superclases</td><td>Verdadero</td><td>22/09/2023, pregunta 5</td></tr><tr><td>Una variable de clase es</td><td>Una variable común a todas las instancias</td><td>Banco 2022, página 5</td></tr><tr><td>Una subclase puede heredar variables de clase y de instancia de su superclase</td><td>Verdadero</td><td>Banco 2022, página 5</td></tr><tr><td>Un método de clase tiene como objeto receptor a</td><td>La clase a la que pertenece el método</td><td>22/09/2023, pregunta 1</td></tr><tr><td>Las variables self y super son una misma variable con distinto nombre y se utilizan indistintamente</td><td>Falso</td><td>Banco 2022, página 12</td></tr><tr><td>Una clase abstracta</td><td>No tiene instancias</td><td>Banco 2022, página 9</td></tr><tr><td>Una relación de ensamble es una relación entre objetos del tipo</td><td>Las dos opciones que da la consigna son correctas, «todo-parte» y «es parte de»</td><td>Banco 2022, página 16</td></tr><tr><td>El método do: [bloque] enviado a una variable de la clase bag</td><td>Ejecuta el bloque para todos los elementos del bag</td><td>22/09/2023, pregunta 7</td></tr></tbody></table></div>
+<p>Fuente: respuestas del campus de cada cuestionario.</p>
+<div class="ojo"><p class="ojo-t">Acá el material no coincide</p><p>El Banco de 2022 (página 18) marca como falso que «el valor de una variable de clase puede ser modificado por cualquier instancia de la clase». El glosario dice que los métodos de instancia pueden referirse directamente a las variables de clase. No encontramos nada que lo aclare. Si te lo toman, preguntá en la cursada.</p>
+</div>
+<h3 id="variables-metodos-self-y-super">Variables, métodos, self y super</h3>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Quién la ve</th><th>Qué pasa al cambiarla</th></tr></thead><tbody><tr><td>Variable de instancia</td><td>Privada de cada instancia. Solo la tocan los métodos de instancia de la clase y sus subclases</td><td>Cada objeto tiene su valor</td></tr><tr><td>Variable de clase</td><td>Compartida por la clase y sus subclases</td><td>Si cambia, cambia para toda la jerarquía</td></tr><tr><td>Variable de instancia de la clase</td><td>Información privada de la clase. Solo la tocan métodos de clase. Cada subclase tiene su copia</td><td>No cambia en las otras clases</td></tr><tr><td>Variable temporal</td><td>Solo dentro del método o bloque donde se define</td><td>Se pierde al terminar</td></tr></tbody></table></div>
+<p>Fuente: Glosario, términos «Variable de clase», «Variable de instancia», «Variable de instancia de la clase» y «Variable Temporal».</p>
+<ul>
+<li>Un método de instancia se manda a una instancia particular.</li>
+<li>Un método de clase se manda a la clase, no a la instancia.</li>
+</ul>
+<p>Fuente: Glosario, «Método de Clase» y «Método de Instancia».</p>
+<p><code>self</code> y <code>super</code> hacen referencia al receptor del mensaje. La diferencia es dónde empieza la búsqueda del método. Con <code>self</code> empieza en la clase del receptor. Con <code>super</code> empieza en la superclase, y sirve para llegar a un método redefinido. Fuente: Glosario, «Self» y «Super».</p>
+<h3 id="tipos-de-mensaje">Tipos de mensaje</h3>
+<ul>
+<li>Unario: sin argumentos. Ejemplo: <code>size</code>.</li>
+<li>Binario: un selector sin caracteres alfanuméricos y un argumento. Se usa para aritmética, comparaciones y operaciones lógicas. Ejemplo: <code>X + Y</code>.</li>
+<li>De palabra clave: uno o más argumentos, con dos puntos. Ejemplo: <code>&#39;hola&#39; at: 2 put: $H</code>.</li>
+</ul>
+<p>Fuente: Glosario, «Mensaje unario», «Mensaje Binario» y «Mensaje de palabra clave».</p>
+<div class="tomado"><aside class="nota"><strong>Qué da una expresión de Smalltalk</strong><span>Parcial 22/09/2023, pregunta 2, y Banco 2022, página 7</span></aside><p>Dos cuestionarios lo preguntan: <code>16 min: 4 / 3 rounded</code> (22/09/2023) y <code>(5 + 6)* 3 factorial min: 0</code> (Banco 2022). Para contestar hace falta el orden en que se evalúan los tres tipos de mensaje. El material que pudimos leer no lo explica, y no lo inventamos. Preguntalo en la cursada. La respuesta del campus para la primera está en la <a href="ej-reg-2023-09-22.html#resolucion">resolución del 22/09/2023</a>.</p>
+</div>
+<h3 id="paradigma-logico">Paradigma lógico</h3>
+<div class="ojo"><p class="ojo-t">De dónde sale esto</p><p>No hay apunte de lógico y funcional. Todo lo de estas dos tablas es la corrección automática del campus en tres hojas, y no agregamos nada propio. No alcanza para programar en estos paradigmas. Si tu comisión los dio con otro material, guiate por ese.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Consigna</th><th>El campus marca</th><th>Dónde</th></tr></thead><tbody><tr><td>Los predicados son relaciones sin una «dirección» predefinida, y sus argumentos actúan como entrada y como salida</td><td>Verdadero</td><td>2024, pregunta 1</td></tr><tr><td>El paradigma lógico tiene sus fundamentos en la lógica proposicional</td><td>Verdadero</td><td>2024, pregunta 5. 15/06/2023, versión 2, pregunta 3</td></tr><tr><td>¿Qué es la unificación?</td><td>El mecanismo mediante el cual las variables lógicas toman valor</td><td>2024, pregunta 6</td></tr><tr><td>Un programa lógico contiene una base de conocimiento sobre la que se hacen consultas</td><td>Verdadero</td><td>2024, pregunta 8</td></tr><tr><td>¿Cómo está formada la base de conocimiento?</td><td>Por hechos y reglas</td><td>15/06/2023, versión 2, pregunta 4</td></tr><tr><td>¿Qué son las reglas?</td><td>Cláusulas que definen nuevas relaciones basadas en relaciones ya existentes</td><td>15/06/2023, versión 1, pregunta 1</td></tr><tr><td>Los lenguajes del paradigma lógico son declarativos</td><td>Verdadero</td><td>15/06/2023, versión 1, pregunta 5</td></tr><tr><td>Los lenguajes del paradigma lógico son imperativos</td><td>Falso</td><td>15/06/2023, versión 2, pregunta 5</td></tr><tr><td>Un programa lógico realiza las consultas sobre una base de datos relacional</td><td>Falso</td><td>15/06/2023, versión 1, pregunta 6</td></tr><tr><td>Un programa lógico está formado por expresiones que describen la solución</td><td>Verdadero</td><td>15/06/2023, versión 1, pregunta 7</td></tr><tr><td>Un programa lógico es un algoritmo que indica los pasos para llegar a un resultado</td><td>Falso</td><td>15/06/2023, versión 2, pregunta 6</td></tr></tbody></table></div>
+<h3 id="paradigma-funcional">Paradigma funcional</h3>
+<div class="tabla"><table><thead><tr><th>Consigna</th><th>El campus marca</th><th>Dónde</th></tr></thead><tbody><tr><td>Un programa funcional se centra en el uso de funciones matemáticas puras</td><td>Verdadero</td><td>15/06/2023, versiones 1 y 2</td></tr><tr><td>¿Qué significa la inmutabilidad de los datos?</td><td>Los datos son inalterables y no se pueden modificar una vez creados</td><td>2024, pregunta 3. 15/06/2023, versión 1, pregunta 4</td></tr><tr><td>La inmutabilidad es una característica de los programas funcionales</td><td>Verdadero</td><td>2024, pregunta 4</td></tr><tr><td>En la evaluación perezosa o diferida, las expresiones no se evalúan enseguida y se posterga hasta que su valor sea necesario</td><td>Verdadero</td><td>2024, pregunta 2. 15/06/2023, versión 1, pregunta 2</td></tr><tr><td>En los lenguajes funcionales no está permitido el uso de tipos de datos genéricos</td><td><mark>Falso</mark></td><td>2024, pregunta 7. 15/06/2023, versiones 1 y 2</td></tr><tr><td>¿Qué significa componer y combinar funciones?</td><td>Utilizar funciones existentes para crear nuevas funciones más complejas</td><td>15/06/2023, versión 2, pregunta 1</td></tr><tr><td>La inferencia de tipos permite deducir los tipos sin que se especifiquen explícitamente</td><td>Verdadero</td><td>15/06/2023, versión 2, pregunta 7</td></tr></tbody></table></div>
+<p>Fuente de las dos tablas: Examenes/Parciales/1° Parcial, archivos «Parcial N°2 - 2024», «1 - Paradigma Logico y Funcional 2023-06-15» (versión 1) y «2 - Paradigma Logico y Funcional 2023-06-15» (versión 2).</p>
+</section>
+<section class="sec"><h2 id="aprobacion-directa">Aprobación directa</h2>
+<div class="tomado"><aside class="nota"><strong>Estructura repetida</strong><span>6 de 6 exámenes de aprobación directa, 2023 a 2025</span></aside><p>Los seis piden <mark>1) el Diagrama de Clases</mark> y <mark>2) métodos en Smalltalk</mark>. Los cinco de 2024 y 2025 piden dos métodos. Uno registra una operación y el otro emite un listado o informe. Esos cinco aclaran «No codificar el menú de opciones» y «Se evaluará la óptima utilización de los recursos del paradigma y del lenguaje». El del Vivero pide otra cosa: un menú principal, la carga inicial de descuentos y el alta de un pedido.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Leé las notas del final de la hoja</p><p>Cada enunciado dice qué ya está cargado, y eso decide qué programás. Cambia de un examen a otro.</p>
+<ul>
+<li>Vivero: los plantines y los árboles.</li>
+<li>Antigüedades: los datos de los objetos.</li>
+<li>Biblioteca: «No considerar que los materiales se encuentran cargados en el sistema».</li>
+<li>Veterinaria: los veterinarios y los tratamientos.</li>
+<li>Mascotas y Verdulería: todos los productos y parte de los clientes.</li>
+</ul>
+</div>
+<div class="ojo"><p class="ojo-t">Erratas en la hoja de la Biblioteca</p><p>Dice «relaciones de enseñanza» donde otros 15 exámenes de 2023 a 2026 dicen «ensamble». También trae una frase rota: «El sistema no se encuentra en el sistema debe estar disponible para los socios». Si te pasa en un examen, preguntá en el momento.</p>
+</div>
+<h3 id="de-la-narrativa-a-las-clases">De la narrativa a las clases</h3>
+<p>Los ejemplos salen de los tres ejercicios resueltos de Material Util, que no son exámenes. No dicen quién los escribió, pero coinciden entre sí y con los cuestionarios del campus.</p>
+<ol>
+<li><strong>Sustantivos con datos propios son clases.</strong> Todo lo que tiene «se conoce» o «se registra» es candidato a clase. Además hay una clase principal, como <code>Distribuidora</code>, que guarda las colecciones. Fuente: Ejercicio resuelto 1, páginas 3 y 4.</li>
+<li><strong>«Tres tipos de X» es herencia.</strong> Cuando algo se clasifica en tipos con datos o cálculos distintos, aparece una superclase con lo común y una subclase por tipo, como <code>Producto</code> con <code>Granel</code> y <code>Paquete</code>. Cada subclase implementa su propio <code>costoTotal</code>, y eso es polimorfismo. Fuente: Ejercicio resuelto 1, páginas 3 y 4, Ejercicio resuelto 2, página 9, y Ejercicio resuelto 3, página 9.</li>
+<li><strong>«Igual para todos» y «distinto para cada uno».</strong> Se ve en la tabla de abajo.</li>
+<li><strong>Lo que tiene una lista es ensamble.</strong> Si una operación incluye varias cosas, su clase guarda una colección. Sin cantidad, <code>Alquiler</code> guarda directamente <code>herramientas</code> (Ejercicio resuelto 3, páginas 3 y 4). Con cantidad por cada cosa, <code>Pedido</code> guarda <code>items</code>, y <code>ItemPedido</code> tiene <code>producto</code> y <code>cantidad</code> (Ejercicio resuelto 1, página 4).</li>
+</ol>
+<div class="tabla"><table><thead><tr><th>El enunciado dice</th><th>Va como</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Un valor igual para todos los de ese tipo</td><td>Variable de clase, con mayúscula</td><td><code>Incremento</code> en <code>Minorista</code>, <code>Seguro</code> en <code>HerramientaPesada</code>, <code>CostoEntrega</code> en <code>CursoOnline</code></td></tr><tr><td>Un valor distinto para cada objeto</td><td>Variable de instancia</td><td><code>credito</code> en <code>Mayorista</code>, <code>costoMateriales</code> en <code>CursoPresencial</code></td></tr><tr><td>Un número asignado automáticamente e incremental</td><td>Variable de clase en la clase que numera, y un método de clase que la incrementa</td><td><code>UltimoCodigo</code> en <code>Cliente</code> y en <code>Alquiler</code>, <code>UltimoId</code> en <code>Curso</code></td></tr></tbody></table></div>
+<p>Fuente: Ejercicio resuelto 1, páginas 3 y 4. Ejercicio resuelto 2, páginas 4 y 5. Ejercicio resuelto 3, página 3. Glosario, «Variable de clase» y «Variable de instancia».</p>
+<p>Los porcentajes aparecen en una consigna del campus con esta forma, que da el mismo enunciado: <code>precio + (precio * (Incremento / 100))</code>. Fuente: Banco de preguntas 2022, página 13.</p>
+<h3 id="que-lleva-el-diagrama">Qué lleva el diagrama</h3>
+<p>Las consignas piden clases, subclases, variables de instancia, variables de clase, métodos de instancia, métodos de clase, y relaciones de ensamble y de herencia.</p>
+<p>Cada clase se dibuja como una caja de cuatro celdas. Los diagramas de los cuestionarios del campus rotulan las celdas así.</p>
+<div class="tabla"><table><thead><tr><td></td><td></td></tr></thead><tbody><tr><td>vc: variables de clase</td><td>vi: variables de instancia</td></tr><tr><td>mc: métodos de clase</td><td>mi: métodos de instancia</td></tr></tbody></table></div>
+<p>Fuente: Banco de preguntas 2022, páginas 9 y 13.</p>
+<p>Este es el diagrama de un negocio que vende artículos a sus clientes, con cada variable y cada método en la celda que marca el campus como «Respuesta correcta». Fuente: Banco de preguntas 2022, página 13.</p>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 627 164" width="627" height="164" style="width:627px;min-width:627px;max-width:none;height:164px" role="img" aria-label="Tres cajas de cuatro celdas con la respuesta del campus. Negocio tiene articulos y clientes en vi y menuPrincipal en mi. Articulo tiene Incremento en vc, descripcion, codigo y precio en vi, asignaIncremento en mc y calculaTotal en mi. Cliente tiene nombre y email en vi."><g fill="none" stroke="currentColor" stroke-width="1.3"><rect x="20.0" y="10.0" width="155.2" height="119.0"/><path d="M20.0 36.0H175.2M20.0 90.0H175.2M65.0 36.0V129.0"/><rect x="221.2" y="10.0" width="235.0" height="134.0"/><path d="M221.2 36.0H456.2M221.2 105.0H456.2M353.2 36.0V144.0"/><rect x="502.2" y="10.0" width="104.5" height="119.0"/><path d="M502.2 36.0H606.7M502.2 90.0H606.7M547.2 36.0V129.0"/><path stroke-dasharray="6 4" d=""/></g><g fill="currentColor" stroke="none" font-family="ui-monospace, Consolas, Menlo, monospace" font-size="12" text-anchor="middle"><text x="97.6" y="28.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Negocio</text><text x="28.0" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="73.0" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="73.0" y="66.0" text-anchor="start">articulos</text><text x="73.0" y="81.0" text-anchor="start">clientes</text><text x="28.0" y="104.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="73.0" y="104.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="73.0" y="120.0" text-anchor="start">menuPrincipal</text><text x="338.7" y="28.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Articulo</text><text x="229.2" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="229.2" y="66.0" text-anchor="start">Incremento</text><text x="361.2" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="361.2" y="66.0" text-anchor="start">descripcion</text><text x="361.2" y="81.0" text-anchor="start">codigo</text><text x="361.2" y="96.0" text-anchor="start">precio</text><text x="229.2" y="119.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="229.2" y="135.0" text-anchor="start">asignaIncremento</text><text x="361.2" y="119.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="361.2" y="135.0" text-anchor="start">calculaTotal</text><text x="554.5" y="28.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Cliente</text><text x="510.2" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="555.2" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="555.2" y="66.0" text-anchor="start">nombre</text><text x="555.2" y="81.0" text-anchor="start">email</text><text x="510.2" y="104.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="555.2" y="104.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text></g></svg></figure>
+
+<p>Para las líneas, mirá el <a href="https://drive.google.com/file/d/1EoX790kZZO4gNeRFoZS3TEfakBKcIoVj/view">diagrama del Ejercicio resuelto 1</a>, página 2. La herencia es una flecha punteada de la subclase a la superclase. El ensamble es una línea con su cantidad, como <code>1..N</code> o <code>1..1</code>.</p>
+<div class="ojo"><p class="ojo-t">Lo que no encontramos</p><p>Ningún enunciado de 2023 en adelante dice cómo hay que dibujar el diagrama. Lo de arriba sale de los cuestionarios y de un ejercicio sin autor. En los cuestionarios algunas variables llevan la marca <code>(ooo)</code>, como <code>medicos(ooo)</code>, y el material no explica qué significa.</p>
+</div>
+<p>Los métodos se arman con las mismas piezas que el final, que están en la sección siguiente.</p>
+</section>
+<section class="sec"><h2 id="final">Final</h2>
+<div class="tomado"><aside class="nota"><strong>Estructura repetida</strong><span>11 de 11 finales, 2023 a 2026</span></aside><p>Los once piden <mark>diagrama de clases</mark> y <mark>métodos en Smalltalk</mark> para registrar una operación y emitir un listado. <mark>9 de 11 listan por rango de fechas</mark>. Los otros dos son Fábrica, por una fecha, y Reciclaje, por un reciclador. 7 de 11 aclaran que no se programa el menú.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Lo que más se repite en el listado</strong><span>17 enunciados, 2023 a 2026</span></aside><p><mark>11 de 17 piden un rango de fechas</mark> y 10 de 17 ordenan por fecha. 4 de 17 piden un orden descendente. Tecnobook pide además el importe total de todas las compras listadas.</p>
+</div>
+<p>Antes de escribir, mirá en el enunciado si pide menú, qué ya está cargado y qué se da de alta, si hay cantidad por cada cosa, stock o validaciones, y cómo se filtra y ordena el listado.</p>
+<h3 id="si-te-piden-menu">Si te piden menú</h3>
+<div class="tomado"><aside class="nota"><strong>El menú</strong><span>17 enunciados, 2023 a 2026</span></aside><p><mark>2 de 17 lo piden</mark>: el Vivero (13/02/2023) y Montaña (25/09/2023). 12 de 17 aclaran que no se programa. Carpintería, El Hornero y Milla Fiel no dicen nada. Desde 2024, los 9 aclaran que no.</p>
+</div>
+<pre class="codigo"><code>menu
+<span class="hljs-comment">&quot;Menu de opciones iterativo&quot;</span>
+|op|
+[op ~= <span class="hljs-number">0</span>] whileTrue: [
+    <span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;MENU
+        1- Opcion 1
+        2- Opcion 2
+        3- Opcion 3
+        0- Salir&#x27;</span>.
+    op := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la opción que desea ejecutar&#x27;</span>) asNumber.
+    op = <span class="hljs-number">1</span> ifTrue: [<span class="hljs-keyword">self</span> metodo1].
+    op = <span class="hljs-number">2</span> ifTrue: [<span class="hljs-keyword">self</span> metodo2].
+    op = <span class="hljs-number">3</span> ifTrue: [<span class="hljs-keyword">self</span> metodo3]]</code></pre>
+<pre class="codigo"><code>|w|
+w := <span class="hljs-type">Lugar</span> new.
+w inicializa.
+w menu</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, página 1, «Menú genérico» y «Workspace genérico». En el original faltan los puntos finales entre las líneas del ciclo. Es un molde genérico y no dice quién lo escribió.</p>
+<h3 id="las-piezas-del-programa">Las piezas del programa</h3>
+<p>Salen de los tres ejercicios resueltos y de «Estructuras útiles en Smalltalk», de Material Util. No son exámenes y no dicen quién los escribió. Coinciden en la forma, y eso es lo que usamos.</p>
+<div class="ojo"><p class="ojo-t">No los copies sin mirar</p><p>Traen errores de tipeo. <code>#Mayorisa</code> por <code>#Mayorista</code> e <code>ItemProducto</code> por <code>ItemPedido</code> en el 1. <code>cursosEncontrados = cursos select:</code> con <code>=</code> en vez de <code>:=</code> en el 2. Tampoco son lo que pide un examen de 2023 en adelante. Sirven para ver la forma.</p>
+</div>
+<ul>
+<li>Hay una clase principal que guarda las colecciones (<code>clientes</code>, <code>productos</code>, <code>pedidos</code>) y los métodos del programa. Fuente: Ejercicio resuelto 1, página 4.</li>
+<li>Cada clase tiene su <code>cargaDatos</code> y los métodos que devuelven sus datos.</li>
+</ul>
+<p><strong>Buscar o crear.</strong> Fuente: Ejercicio resuelto 2, página 7.</p>
+<pre class="codigo"><code><span class="hljs-symbol">#buscarOCrearAlumno</span>
+|dni alu |
+dni := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese DNI del alumno&#x27;</span>) asNumber.
+alu := alumnos detect: [:unAlumno | unAlumno dni = dni ] ifNone: [<span class="hljs-keyword">nil</span>].
+alu isNil ifTrue: [ alu := <span class="hljs-keyword">self</span> nuevoAlumno ].
+^ alu
+
+<span class="hljs-symbol">#nuevoAlumno</span>
+|alu|
+alu := <span class="hljs-type">Alumno</span> new.
+alu cargaDatos.
+alumnos add: alu.
+^ alu</code></pre>
+<p><strong>Elegir la subclase.</strong> La variable arranca en <code>nil</code> y el ciclo se repite hasta que el tipo sea válido. Fuente: Ejercicio resuelto 1, páginas 5 y 6.</p>
+<pre class="codigo"><code><span class="hljs-symbol">#nuevoCliente</span>
+| tipo cli |
+[ cli isNil ] whileTrue: [
+    tipo := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el tipo de cliente (1) Mayorista, (2) Minorista&#x27;</span>.
+    tipo = <span class="hljs-string">&#x27;1&#x27;</span> ifTrue: [ cli := <span class="hljs-type">Mayorista</span> new].
+    tipo = <span class="hljs-string">&#x27;2&#x27;</span> ifTrue: [ cli := <span class="hljs-type">Minorista</span> new].
+].
+cli cargaDatos.
+^ cli</code></pre>
+<p><strong>La subclase carga lo suyo.</strong> Llama al <code>cargaDatos</code> de la superclase y después carga lo suyo. Fuente: Ejercicio resuelto 1 (Distribuidora), página 7, clase Mayorista. El «cretido» es del original.</p>
+<pre class="codigo"><code><span class="hljs-symbol">#cargaDatos</span>
+<span class="hljs-keyword">super</span> cargaDatos.
+credito := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese cretido al mayorista&#x27;</span>) asNumber.</code></pre>
+<p><strong>Cargar varios en un ciclo.</strong> <code>herr ocupar</code> cambia el estado de la herramienta. Es un método suyo que pone <code>disponible := &#39;ND&#39;</code>. Fuente: Ejercicio resuelto 3, páginas 5 y 9.</p>
+<pre class="codigo"><code>cont := <span class="hljs-keyword">true</span>.
+[ cont ] whileTrue: [
+    <span class="hljs-keyword">self</span> mostrarHerramientasDisponibles.
+    cod := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el codigo de la herramienta&#x27;</span>) asNumber.
+    herr := herramientas detect: [:unaHerramienta | unaHerramienta codigo = cod] ifNone: [ <span class="hljs-keyword">nil</span> ].
+    herr notNil ifTrue: [
+        herr ocupar.
+        alq agregarHerramienta: herr.
+    ].
+    cont := <span class="hljs-type">MessageBox</span> confirm: <span class="hljs-string">&#x27;¿Desea continuar agregando herramientas?&#x27;</span>.
+].
+alquileres add: alq.</code></pre>
+<p><strong>Numerar solo y crear la colección interna.</strong> Fuente: Ejercicio resuelto 3, página 7, recortado.</p>
+<pre class="codigo"><code><span class="hljs-symbol">#Alquiler</span>
+
+<span class="hljs-type">M</span>étodos de clase
+
+<span class="hljs-symbol">#incrementaUltimoCodigo</span>
+<span class="hljs-type">UltimoCodigo</span> := <span class="hljs-type">UltimoCodigo</span> + <span class="hljs-number">1</span>
+
+<span class="hljs-type">M</span>étodos de instancia
+
+<span class="hljs-symbol">#inicializa</span>
+herramientas := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#cargaDatos</span>
+codigo := <span class="hljs-type">UltimoCodigo</span>.
+<span class="hljs-type">Alquiler</span> incrementaUltimoCodigo.
+fecha := <span class="hljs-type">Date</span> today.</code></pre>
+<p><strong>Sumar un total, y cada subclase con su cálculo.</strong> Cada herramienta responde <code>costoTotal</code> a su manera, y <code>Alquiler</code> no pregunta de qué tipo es. El mismo recurso sirve para el tipo que piden los listados. Cada subclase tiene un método <code>tipo</code> que devuelve su texto. Fuente: Ejercicio resuelto 3, páginas 8 y 9, y Ejercicio resuelto 2, páginas 9 y 10.</p>
+<pre class="codigo"><code><span class="hljs-symbol">#costoTotal</span>
+|tot|
+tot := <span class="hljs-number">0.</span>
+herramientas do: [:unaHerramienta | tot := tot + unaHerramienta costoTotal ].
+^ tot * cantidadDias</code></pre>
+<p><strong>Fecha.</strong> <code>Date today</code> da la fecha del día. Son dos formas distintas, no dos pasos. Fuente: Estructuras útiles en Smalltalk, «Carga fecha genérico».</p>
+<pre class="codigo"><code>fecha := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha&#x27;</span>).
+fecha := <span class="hljs-type">Date</span> today.</code></pre>
+<p><strong>Listado filtrado y ordenado.</strong> Fuente: Estructuras útiles en Smalltalk, «Listado filtrado y ordenado genérico». En el original falta el <code>:</code> después de <code>asSortedCollection</code> y dos puntos finales. El método <code>muestraInfo</code> escribe con <code>Transcript show: nombre; tab; show: edad; cr</code>.</p>
+<pre class="codigo"><code>listadofiltrado := (listado asSortedCollection: [:a :b | a oParam &lt; b oParam])
+    select: [:i | i metodoFiltro = <span class="hljs-keyword">true</span>].
+listadofiltrado isEmpty
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No se han encontrado&#x27;</span>]
+    ifFalse: [
+        <span class="hljs-type">Transcript</span> clear; show: <span class="hljs-string">&#x27;Nombre&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Edad&#x27;</span>; cr.
+        listadofiltrado do: [:i | i muestraInfo]]</code></pre>
+<div class="tabla"><table><thead><tr><th>Mensaje</th><th>Para qué se usa en el material</th></tr></thead><tbody><tr><td><code>detect:ifNone:</code></td><td>Buscar un objeto, con un bloque por si no está</td></tr><tr><td><code>select:</code></td><td>Quedarse con los que cumplen la condición</td></tr><tr><td><code>asSortedCollection:</code></td><td>Ordenar con un bloque de dos parámetros</td></tr><tr><td><code>do:</code></td><td>Ejecutar el bloque con cada elemento</td></tr><tr><td><code>isEmpty</code></td><td>Saber si no hay elementos</td></tr><tr><td><code>add:</code></td><td>Agregar a la colección</td></tr></tbody></table></div>
+<p>En el Ejercicio resuelto 3 se pide un listado «ordenado de forma creciente» y el bloque compara con <code>&lt;</code>. Fuente: Ejercicio resuelto 3, páginas 1 y 6.</p>
+<p><strong>Método filtro.</strong> Devuelve un booleano con <code>^</code>. Fuente: Estructuras útiles en Smalltalk, «Método filtro genérico». En el original falta un <code>:</code> después de <code>ifFalse</code>.</p>
+<pre class="codigo"><code>valor1 &lt; valor2 ifTrue: [^<span class="hljs-keyword">true</span>] ifFalse: [^<span class="hljs-keyword">false</span>]</code></pre>
+<p><strong>Escribir en el Transcript.</strong> Los números y las fechas se pasan a texto con <code>printString</code>, y los textos se pegan con la coma. Fuente: Ejercicio resuelto 1, página 9.</p>
+<pre class="codigo"><code><span class="hljs-type">Transcript</span>
+    show: <span class="hljs-string">&#x27;Fecha: &#x27;</span>, fecha printString; cr; cr;
+    show: <span class="hljs-string">&#x27;Cliente: &#x27;</span>, cliente razonSocial; cr.</code></pre>
+<h3 id="lo-que-el-material-no-trae">Lo que el material no trae</h3>
+<div class="ojo"><p class="ojo-t">Temas que se toman y no pudimos explicar</p><p>Estos temas aparecen en los exámenes de 2023 en adelante. No hay un ejemplo en el material que pudimos validar, y no los inventamos.</p>
+<ul>
+<li>Filtrar por rango de fechas: lo piden 11 de 17. El material trae <code>select:</code>, el método filtro y comparaciones sueltas, pero no dos fechas juntas.</li>
+<li>Ordenar de forma descendente: lo piden Vivero, El Hornero, Mascotas e Instrumentos.</li>
+<li>Descontar y validar stock: lo piden Instrumentos y Verdulería.</li>
+</ul>
+<p>Preguntalo en la cursada y mirá <a href="https://drive.google.com/file/d/1Z4WVKv3KQHqT6bVayroNybHj2SfItj6b/view">Colecciones.doc</a>, que no pudimos leer. Las propuestas de cada examen lo resuelven de una forma posible y lo anotan en lo que quedó en duda.</p>
+</div>
+</section>
+<section class="sec cae"><h2 id="que-cae">Qué cae más</h2>
+<p class="cae-baja">El sitio no tiene todos los exámenes que se tomaron, así que esto es una pista y no una promesa. Tocá un tema para ver en qué exámenes salió.</p>
+<h3 id="cae-reg">Parcial de regularización</h3>
+<p class="cae-de">Sale de 4 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">Paradigma lógico</span><span class="cae-barra" aria-hidden="true"><span style="width:75%"></span></span><span class="cae-num">en 3 de 4</span></summary><ul class="cae-ex"><li><a href="ej-reg-2024.html">Parcial de regularización, 2024 (Parcial N°2, lógico y funcional)</a></li><li><a href="ej-reg-2023-06-15-v1.html">Parcial de regularización, 15/06/2023, versión 1 (lógico y funcional)</a></li><li><a href="ej-reg-2023-06-15-v2.html">Parcial de regularización, 15/06/2023, versión 2 (lógico y funcional)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Paradigma funcional</span><span class="cae-barra" aria-hidden="true"><span style="width:75%"></span></span><span class="cae-num">en 3 de 4</span></summary><ul class="cae-ex"><li><a href="ej-reg-2024.html">Parcial de regularización, 2024 (Parcial N°2, lógico y funcional)</a></li><li><a href="ej-reg-2023-06-15-v1.html">Parcial de regularización, 15/06/2023, versión 1 (lógico y funcional)</a></li><li><a href="ej-reg-2023-06-15-v2.html">Parcial de regularización, 15/06/2023, versión 2 (lógico y funcional)</a></li></ul></details></li></ul>
+<h3 id="cae-ad">Aprobación directa</h3>
+<p class="cae-de">Sale de 6 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">Diagrama de clases</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 6 de 6</span></summary><ul class="cae-ex"><li><a href="ej-ad-2025-11-05.html">Aprobación directa, 05/11/2025 (Verdulería)</a></li><li><a href="ej-ad-2025-11-03.html">Aprobación directa, 03/11/2025 (Tienda de mascotas)</a></li><li><a href="ej-ad-2024-11-07-veterinaria.html">Aprobación directa, 07/11/2024 (Hospital veterinario)</a></li><li><a href="ej-ad-2024-11-07-biblioteca.html">Aprobación directa, 07/11/2024 (Biblioteca)</a></li><li><a href="ej-ad-2024-06-24.html">Aprobación directa, 24/06/2024 (Tienda de antigüedades)</a></li><li><a href="ej-ad-2023-02-13.html">Aprobación directa, 13/02/2023 (Vivero)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Smalltalk</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 6 de 6</span></summary><ul class="cae-ex"><li><a href="ej-ad-2025-11-05.html">Aprobación directa, 05/11/2025 (Verdulería)</a></li><li><a href="ej-ad-2025-11-03.html">Aprobación directa, 03/11/2025 (Tienda de mascotas)</a></li><li><a href="ej-ad-2024-11-07-veterinaria.html">Aprobación directa, 07/11/2024 (Hospital veterinario)</a></li><li><a href="ej-ad-2024-11-07-biblioteca.html">Aprobación directa, 07/11/2024 (Biblioteca)</a></li><li><a href="ej-ad-2024-06-24.html">Aprobación directa, 24/06/2024 (Tienda de antigüedades)</a></li><li><a href="ej-ad-2023-02-13.html">Aprobación directa, 13/02/2023 (Vivero)</a></li></ul></details></li></ul>
+<h3 id="cae-final">Final</h3>
+<p class="cae-de">Sale de 11 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">Diagrama de clases</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 11 de 11</span></summary><ul class="cae-ex"><li><a href="ej-fin-2026-08-31.html">Evaluación, 31/08/2026 (Editorial Tecnobook)</a></li><li><a href="ej-fin-2026-05-18.html">Final, 18/05/2026 (Instrumentos musicales)</a></li><li><a href="ej-fin-2026-04-27.html">Final, 27/04/2026 (Cursos online)</a></li><li><a href="ej-fin-2025-04-28.html">Final, 28/04/2025 (Taller de obras de arte)</a></li><li><a href="ej-fin-2023-12-11.html">Final, 11/12/2023 (Milla Fiel)</a></li><li><a href="ej-fin-2023-11-13.html">Final, 13/11/2023 (Reciclaje)</a></li><li><a href="ej-fin-2023-09-25.html">Final, 25/09/2023 (Equipos de montaña)</a></li><li><a href="ej-fin-2023-08-28.html">Final, 28/08/2023 (Inmobiliaria El Hornero)</a></li><li><a href="ej-fin-2023-05-29.html">Final, 29/05/2023 (Parque nacional)</a></li><li><a href="ej-fin-2023-04-03.html">Final, 03/04/2023 (Carpintería)</a></li><li><a href="ej-fin-2023-02-27.html">Final, 27/02/2023 (Fábrica de electrodomésticos)</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Smalltalk</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 11 de 11</span></summary><ul class="cae-ex"><li><a href="ej-fin-2026-08-31.html">Evaluación, 31/08/2026 (Editorial Tecnobook)</a></li><li><a href="ej-fin-2026-05-18.html">Final, 18/05/2026 (Instrumentos musicales)</a></li><li><a href="ej-fin-2026-04-27.html">Final, 27/04/2026 (Cursos online)</a></li><li><a href="ej-fin-2025-04-28.html">Final, 28/04/2025 (Taller de obras de arte)</a></li><li><a href="ej-fin-2023-12-11.html">Final, 11/12/2023 (Milla Fiel)</a></li><li><a href="ej-fin-2023-11-13.html">Final, 13/11/2023 (Reciclaje)</a></li><li><a href="ej-fin-2023-09-25.html">Final, 25/09/2023 (Equipos de montaña)</a></li><li><a href="ej-fin-2023-08-28.html">Final, 28/08/2023 (Inmobiliaria El Hornero)</a></li><li><a href="ej-fin-2023-05-29.html">Final, 29/05/2023 (Parque nacional)</a></li><li><a href="ej-fin-2023-04-03.html">Final, 03/04/2023 (Carpintería)</a></li><li><a href="ej-fin-2023-02-27.html">Final, 27/02/2023 (Fábrica de electrodomésticos)</a></li></ul></details></li></ul></section>
+<section class="sec em-examenes"><h2 id="examenes">Exámenes</h2>
+<p class="em-leyenda">«Respuesta oficial» es lo que está en el Drive. «Propuesta sin verificar» es una respuesta armada con inteligencia artificial que ningún docente revisó.</p>
+<h3 id="ex-reg">Parcial de regularización</h3><ul class="em-lista"><li class="em-fila"><a href="ej-reg-2024.html"><span class="em-nom">Parcial de regularización, 2024 (Parcial N°2, lógico y funcional)</span><span class="ej-fecha">2024</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-reg-2023-09-22.html"><span class="em-nom">Parcial de regularización, 22/09/2023 (objetos)</span><span class="ej-fecha">22/09/2023</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-reg-2023-06-15-v1.html"><span class="em-nom">Parcial de regularización, 15/06/2023, versión 1 (lógico y funcional)</span><span class="ej-fecha">15/06/2023</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-reg-2023-06-15-v2.html"><span class="em-nom">Parcial de regularización, 15/06/2023, versión 2 (lógico y funcional)</span><span class="ej-fecha">15/06/2023</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li></ul>
+<h3 id="ex-ad">Aprobación directa</h3><ul class="em-lista"><li class="em-fila"><a href="ej-ad-2025-11-05.html"><span class="em-nom">Aprobación directa, 05/11/2025 (Verdulería)</span><span class="ej-fecha">05/11/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-ad-2025-11-03.html"><span class="em-nom">Aprobación directa, 03/11/2025 (Tienda de mascotas)</span><span class="ej-fecha">03/11/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-ad-2024-11-07-veterinaria.html"><span class="em-nom">Aprobación directa, 07/11/2024 (Hospital veterinario)</span><span class="ej-fecha">07/11/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-ad-2024-11-07-biblioteca.html"><span class="em-nom">Aprobación directa, 07/11/2024 (Biblioteca)</span><span class="ej-fecha">07/11/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-ad-2024-06-24.html"><span class="em-nom">Aprobación directa, 24/06/2024 (Tienda de antigüedades)</span><span class="ej-fecha">24/06/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-ad-2023-02-13.html"><span class="em-nom">Aprobación directa, 13/02/2023 (Vivero)</span><span class="ej-fecha">13/02/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul>
+<h3 id="ex-final">Final</h3><ul class="em-lista"><li class="em-fila"><a href="ej-fin-2026-08-31.html"><span class="em-nom">Evaluación, 31/08/2026 (Editorial Tecnobook)</span><span class="ej-fecha">31/08/2026</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2026-05-18.html"><span class="em-nom">Final, 18/05/2026 (Instrumentos musicales)</span><span class="ej-fecha">18/05/2026</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2026-04-27.html"><span class="em-nom">Final, 27/04/2026 (Cursos online)</span><span class="ej-fecha">27/04/2026</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2025-04-28.html"><span class="em-nom">Final, 28/04/2025 (Taller de obras de arte)</span><span class="ej-fecha">28/04/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-12-11.html"><span class="em-nom">Final, 11/12/2023 (Milla Fiel)</span><span class="ej-fecha">11/12/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-11-13.html"><span class="em-nom">Final, 13/11/2023 (Reciclaje)</span><span class="ej-fecha">13/11/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-09-25.html"><span class="em-nom">Final, 25/09/2023 (Equipos de montaña)</span><span class="ej-fecha">25/09/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-08-28.html"><span class="em-nom">Final, 28/08/2023 (Inmobiliaria El Hornero)</span><span class="ej-fecha">28/08/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-05-29.html"><span class="em-nom">Final, 29/05/2023 (Parque nacional)</span><span class="ej-fecha">29/05/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-04-03.html"><span class="em-nom">Final, 03/04/2023 (Carpintería)</span><span class="ej-fecha">03/04/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-fin-2023-02-27.html"><span class="em-nom">Final, 27/02/2023 (Fábrica de electrodomésticos)</span><span class="ej-fecha">27/02/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul></section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

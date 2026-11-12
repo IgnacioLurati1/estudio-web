@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final y globalizador, 12/02/2025 (Evaluación de alumnos): Algoritmos y Estructuras de Datos</title>
+<meta name="description" content="Ejercicio de examen: Final y globalizador, 12/02/2025 (Evaluación de alumnos).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="algoritmos-y-estructuras-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Algoritmos y Estructuras de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">3° parcial y final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=algoritmos-y-estructuras-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=algoritmos-y-estructuras-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Final y globalizador, 12/02/2025 (Evaluación de alumnos)</h1>
+<p class="bajada">3° parcial y final, 12/02/2025</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="fin-2025-02-12" data-titulo="Final y globalizador, 12/02/2025 (Evaluación de alumnos)" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="fin-2025-02-12" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1RzQEneiWG0ekUbUsRhXxbFUtvLop4s6o/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/fin-2025-02-12-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/fin-2025-02-12-e1.webp" width="557" height="921" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p>La hoja pide el diagrama de Chapin. Va un diagrama por módulo, con su declaración de variables arriba, y primero el del programa principal. Si un diagrama no entra en la pantalla, tocalo para verlo completo. Después de los diagramas está el mismo algoritmo en Python, para que lo puedas probar. Las sentencias de archivos van con las palabras reservadas de Python (<code>open</code>, <code>pickle.load</code>, <code>pickle.dump</code>, <code>seek</code>, <code>tell</code>). Los textos se completan con <code>ljust</code> para que los registros midan lo mismo. El tamaño de un registro sale de <code>tell()</code> después de leer el primero.</p>
+<h4>Menú iterativo</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 864 703" width="864" height="703" style="width:864px;min-width:864px;max-width:none;height:703px" role="img" aria-label="Diagrama de Chapin del programa principal, con la declaración de variables y los registros. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="454.6" height="26"/><rect x="14" y="143" width="454.6" height="26"/><rect x="14" y="169" width="454.6" height="26"/><rect x="14" y="195" width="454.6" height="26"/><rect x="14" y="221" width="454.6" height="26"/><rect x="14" y="247" width="454.6" height="26"/><rect x="14" y="273" width="454.6" height="26"/><rect x="14" y="299" width="454.6" height="26"/><rect x="14" y="325" width="454.6" height="312"/><rect x="38" y="351" width="430.6" height="26"/><rect x="38" y="377" width="430.6" height="26"/><rect x="38" y="403" width="430.6" height="26"/><rect x="38" y="429" width="430.6" height="26"/><rect x="38" y="455" width="430.6" height="26"/><rect x="38" y="481" width="430.6" height="26"/><rect x="38" y="507" width="430.6" height="52"/><rect x="62" y="533" width="406.6" height="26"/><rect x="38" y="559" width="430.6" height="78"/><rect x="38" y="611" width="125.2" height="26"/><rect x="163.2" y="611" width="101.8" height="26"/><rect x="265" y="611" width="125.2" height="26"/><rect x="390.2" y="611" width="78.4" height="26"/><rect x="14" y="637" width="454.6" height="26"/><rect x="14" y="663" width="454.6" height="26"/></g><path class="d-linea" d="M38 585H468.6M38 611H468.6M163.2 585V637M265 585V637M390.2 585V637"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">afAlumnos = "ALUMNOS.DAT"</text><text x="22" y="160.5">afProfesores = "PROFESORES.DAT"</text><text x="22" y="186.5">afBackup = "ALUMNOS_BKP.DAT"</text><text x="22" y="212.5">alAlumnos = open(afAlumnos, "r+b")</text><text x="22" y="238.5">alProfesores = open(afProfesores, "rb")</text><text x="22" y="264.5">pickle.load(alProfesores)</text><text x="22" y="290.5">tamProf = alProfesores.tell()</text><text x="22" y="316.5">opcion = 0</text><text x="22" y="342.5">Mientras opcion != 5:</text><text x="46" y="368.5">Mostrar("1- Nuevo alumno")</text><text x="46" y="394.5">Mostrar("2- Listado de alumnos regulares")</text><text x="46" y="420.5">Mostrar("3- Cantidad de alumnos con TP aprobados")</text><text x="46" y="446.5">Mostrar("4- Backup de alumnos")</text><text x="46" y="472.5">Mostrar("5- Fin del programa")</text><text x="46" y="498.5">Leer(opcion)</text><text x="46" y="524.5">Mientras opcion &lt; 1 or opcion &gt; 5:</text><text x="70" y="550.5">Leer(opcion)</text><text x="46" y="576.5">Según opcion:</text><text x="100.6" y="602.5" text-anchor="middle">1</text><text x="46" y="628.5">NUEVO_ALUMNO()</text><text x="214.1" y="602.5" text-anchor="middle">2</text><text x="171.2" y="628.5">REGULARES()</text><text x="327.6" y="602.5" text-anchor="middle">3</text><text x="273" y="628.5">TP_APROBADOS()</text><text x="429.4" y="602.5" text-anchor="middle">4</text><text x="398.2" y="628.5">BACKUP()</text><text x="22" y="654.5">alAlumnos.close()</text><text x="22" y="680.5">alProfesores.close()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># afAlumnos, afProfesores, afBackup: str</text><text x="14" y="71"># alAlumnos, alProfesores, alBackup: archivo</text><text x="14" y="88"># tamProf: int</text><text x="14" y="105"># opcion: int</text><text x="504.6" y="29">class Alumno:</text><text x="534.6" y="46">def __init__(self):</text><text x="564.6" y="63">self.dniA = ""</text><text x="564.6" y="80">self.nombreA = ""</text><text x="564.6" y="97">self.apellidoA = ""</text><text x="564.6" y="114">self.dniP = ""</text><text x="564.6" y="131">self.notas = [[0]*3 for n in range(3)]</text><text x="504.6" y="156">class Profesor:</text><text x="534.6" y="173">def __init__(self):</text><text x="564.6" y="190">self.dniP = ""</text><text x="564.6" y="207">self.nombre = ""</text><text x="564.6" y="224">self.apellido = ""</text><text x="564.6" y="241">self.mail = ""</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">Programa principal</text></svg></figure>
+
+<h4>1- Nuevo alumno</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 395 374" width="395" height="374" style="width:395px;min-width:395px;max-width:none;height:374px" role="img" aria-label="Diagrama de Chapin del módulo BUSCA_ALUMNO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="134" width="367" height="26"/><rect x="14" y="160" width="367" height="26"/><rect x="14" y="186" width="367" height="26"/><rect x="14" y="212" width="367" height="122"/><rect x="38" y="238" width="343" height="26"/><rect x="38" y="264" width="343" height="70"/><rect x="38" y="308" width="307" height="26"/><rect x="14" y="334" width="367" height="26"/></g><path class="d-linea" d="M38 264L345 308L381 264M38 308H381M345 308V334"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="151.5">tam = os.path.getsize(afAlumnos)</text><text x="22" y="177.5">esta = False</text><text x="22" y="203.5">alAlumnos.seek(0, 0)</text><text x="22" y="229.5">Mientras alAlumnos.tell() &lt; tam and not esta:</text><text x="46" y="255.5">reg = pickle.load(alAlumnos)</text><text x="274.2" y="280" text-anchor="middle">reg.dniA == dni</text><text x="46" y="325.5">esta = True</text><text x="22" y="351.5">return esta</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="301">v</text><text x="374" y="301" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Secuencial: ALUMNOS.DAT no tiene orden</text><text x="14" y="71"># dni: str</text><text x="14" y="88"># tam: int</text><text x="14" y="105"># esta: bool</text><text x="14" y="122"># reg: Alumno</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">BUSCA_ALUMNO(dni)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 444 453" width="444" height="453" style="width:444px;min-width:444px;max-width:none;height:453px" role="img" aria-label="Diagrama de Chapin del módulo BUSCA_PROFESOR, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="415.2" height="26"/><rect x="14" y="143" width="415.2" height="26"/><rect x="14" y="169" width="415.2" height="26"/><rect x="14" y="195" width="415.2" height="218"/><rect x="38" y="221" width="391.2" height="26"/><rect x="38" y="247" width="391.2" height="26"/><rect x="38" y="273" width="391.2" height="26"/><rect x="38" y="299" width="391.2" height="114"/><rect x="38" y="343" width="101.8" height="26"/><rect x="139.8" y="343" width="289.4" height="70"/><rect x="139.8" y="387" width="133" height="26"/><rect x="272.8" y="387" width="156.4" height="26"/><rect x="14" y="413" width="415.2" height="26"/></g><path class="d-linea" d="M38 299L139.8 343L429.2 299M38 343H429.2M139.8 343V413M139.8 343L272.8 387L429.2 343M139.8 387H429.2M272.8 387V413"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">inicio = 0</text><text x="22" y="160.5">fin = os.path.getsize(afProfesores) // tamProf - 1</text><text x="22" y="186.5">pos = -1</text><text x="22" y="212.5">Mientras inicio &lt;= fin and pos == -1:</text><text x="46" y="238.5">medio = (inicio + fin) // 2</text><text x="46" y="264.5">alProfesores.seek(medio * tamProf, 0)</text><text x="46" y="290.5">reg = pickle.load(alProfesores)</text><text x="188.8" y="315" text-anchor="middle">reg.dniP == dni</text><text x="46" y="360.5">pos = medio</text><text x="278.9" y="359" text-anchor="middle">dni &lt; reg.dniP</text><text x="147.8" y="404.5">fin = medio - 1</text><text x="280.8" y="404.5">inicio = medio + 1</text><text x="22" y="430.5">return pos</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="336">v</text><text x="422.2" y="336" text-anchor="end">f</text><text x="146.8" y="380">v</text><text x="422.2" y="380" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Dicotómica: PROFESORES.DAT está ordenado por dniP</text><text x="14" y="71"># dni: str</text><text x="14" y="88"># inicio, fin, medio, pos: int</text><text x="14" y="105"># reg: Profesor</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">BUSCA_PROFESOR(dni)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 317 236" width="317" height="236" style="width:317px;min-width:317px;max-width:none;height:236px" role="img" aria-label="Diagrama de Chapin del módulo LEER_PROFESOR, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="66" width="289" height="26"/><rect x="14" y="92" width="289" height="26"/><rect x="14" y="118" width="289" height="78"/><rect x="38" y="144" width="265" height="26"/><rect x="38" y="170" width="265" height="26"/><rect x="14" y="196" width="289" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="83.5">Leer(dni)</text><text x="22" y="109.5">dni = dni.ljust(8, " ")</text><text x="22" y="135.5">Mientras BUSCA_PROFESOR(dni) == -1:</text><text x="46" y="161.5">Leer(dni)</text><text x="46" y="187.5">dni = dni.ljust(8, " ")</text><text x="22" y="213.5">return dni</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># dni: str</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">LEER_PROFESOR()</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 106" width="286" height="106" style="width:286px;min-width:286px;max-width:none;height:106px" role="img" aria-label="Diagrama de Chapin del módulo validaNotas, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="66" width="257.8" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="83.5">return nota &gt;= 0 and nota &lt;= 10</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># nota: int</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">validaNotas(nota)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 506 676" width="506" height="676" style="width:506px;min-width:506px;max-width:none;height:676px" role="img" aria-label="Diagrama de Chapin del módulo NUEVO_ALUMNO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="477.4" height="26"/><rect x="14" y="126" width="477.4" height="26"/><rect x="14" y="152" width="477.4" height="26"/><rect x="14" y="178" width="477.4" height="78"/><rect x="38" y="204" width="453.4" height="26"/><rect x="38" y="230" width="453.4" height="26"/><rect x="14" y="256" width="477.4" height="26"/><rect x="14" y="282" width="477.4" height="26"/><rect x="14" y="308" width="477.4" height="26"/><rect x="14" y="334" width="477.4" height="26"/><rect x="14" y="360" width="477.4" height="26"/><rect x="14" y="386" width="477.4" height="26"/><rect x="14" y="412" width="477.4" height="172"/><rect x="38" y="438" width="453.4" height="146"/><rect x="62" y="464" width="429.4" height="42"/><rect x="62" y="506" width="429.4" height="26"/><rect x="62" y="532" width="429.4" height="52"/><rect x="86" y="558" width="405.4" height="26"/><rect x="14" y="584" width="477.4" height="26"/><rect x="14" y="610" width="477.4" height="26"/><rect x="14" y="636" width="477.4" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">reg = Alumno()</text><text x="22" y="143.5">Leer(dni)</text><text x="22" y="169.5">dni = dni.ljust(8, " ")</text><text x="22" y="195.5">Mientras BUSCA_ALUMNO(dni):</text><text x="46" y="221.5">Leer(dni)</text><text x="46" y="247.5">dni = dni.ljust(8, " ")</text><text x="22" y="273.5">reg.dniA = dni</text><text x="22" y="299.5">Leer(reg.apellidoA)</text><text x="22" y="325.5">reg.apellidoA = reg.apellidoA.ljust(200, " ")</text><text x="22" y="351.5">Leer(reg.nombreA)</text><text x="22" y="377.5">reg.nombreA = reg.nombreA.ljust(80, " ")</text><text x="22" y="403.5">reg.dniP = LEER_PROFESOR()</text><text x="22" y="429.5">for e in range(3):</text><text x="46" y="455.5">for t in range(3):</text><text x="70" y="481.5">Mostrar("Evaluación " + str(e) + ", tipo " + str(t) +</text><text x="70" y="497.5">    " (0 a 10): ")</text><text x="70" y="523.5">Leer(reg.notas[e][t])</text><text x="70" y="549.5">Mientras not validaNotas(reg.notas[e][t]):</text><text x="94" y="575.5">Leer(reg.notas[e][t])</text><text x="22" y="601.5">alAlumnos.seek(0, 2)</text><text x="22" y="627.5">pickle.dump(reg, alAlumnos)</text><text x="22" y="653.5">alAlumnos.flush()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># e, t: int</text><text x="14" y="71"># dni: str</text><text x="14" y="88"># reg: Alumno</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">NUEVO_ALUMNO()</text></svg></figure>
+
+<h4>2- Listado de alumnos regulares</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 647 303" width="647" height="303" style="width:647px;min-width:647px;max-width:none;height:303px" role="img" aria-label="Diagrama de Chapin del módulo REGULARES, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="83" width="618.1" height="26"/><rect x="14" y="109" width="618.1" height="26"/><rect x="14" y="135" width="618.1" height="154"/><rect x="38" y="161" width="594.1" height="26"/><rect x="38" y="187" width="594.1" height="102"/><rect x="38" y="263" width="558.1" height="26"/></g><path class="d-linea" d="M38 187L596.1 263L632.1 187M38 263H632.1M596.1 263V289"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="100.5">tam = os.path.getsize(afAlumnos)</text><text x="22" y="126.5">alAlumnos.seek(0, 0)</text><text x="22" y="152.5">Mientras alAlumnos.tell() &lt; tam:</text><text x="46" y="178.5">reg = pickle.load(alAlumnos)</text><text x="407.2" y="203" text-anchor="middle">reg.notas[2][0] &gt;= 6 and</text><text x="462.2" y="219" text-anchor="middle">(reg.notas[0][0] != 0 or</text><text x="517.1" y="235" text-anchor="middle">reg.notas[1][0] != 0)</text><text x="46" y="280.5">Mostrar(reg.dniA, reg.apellidoA, reg.nombreA)</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="256">v</text><text x="625.1" y="256" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># tam: int</text><text x="14" y="71"># reg: Alumno</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">REGULARES()</text></svg></figure>
+
+<h4>3- Cantidad de alumnos con TP aprobados</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 657 510" width="657" height="510" style="width:657px;min-width:657px;max-width:none;height:510px" role="img" aria-label="Diagrama de Chapin del módulo TP_APROBADOS, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="628.3" height="26"/><rect x="14" y="126" width="628.3" height="26"/><rect x="14" y="152" width="628.3" height="26"/><rect x="14" y="178" width="628.3" height="26"/><rect x="14" y="204" width="628.3" height="26"/><rect x="14" y="230" width="628.3" height="224"/><rect x="38" y="256" width="604.3" height="26"/><rect x="38" y="282" width="604.3" height="172"/><rect x="38" y="326" width="568.3" height="26"/><rect x="38" y="352" width="568.3" height="102"/><rect x="38" y="428" width="532.3" height="26"/><rect x="14" y="454" width="628.3" height="42"/></g><path class="d-linea" d="M38 282L606.3 326L642.3 282M38 326H642.3M606.3 326V454M38 352L570.3 428L606.3 352M38 428H606.3M570.3 428V454"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">dni = LEER_PROFESOR()</text><text x="22" y="143.5">cursaron = 0</text><text x="22" y="169.5">aprobaron = 0</text><text x="22" y="195.5">tam = os.path.getsize(afAlumnos)</text><text x="22" y="221.5">alAlumnos.seek(0, 0)</text><text x="22" y="247.5">Mientras alAlumnos.tell() &lt; tam:</text><text x="46" y="273.5">reg = pickle.load(alAlumnos)</text><text x="467.2" y="298" text-anchor="middle">reg.dniP == dni</text><text x="46" y="343.5">cursaron = cursaron + 1</text><text x="390.7" y="368" text-anchor="middle">reg.notas[0][2] &gt;= 6 and</text><text x="443" y="384" text-anchor="middle">reg.notas[1][2] &gt;= 6 and</text><text x="495.2" y="400" text-anchor="middle">reg.notas[2][2] &gt;= 6</text><text x="46" y="445.5">aprobaron = aprobaron + 1</text><text x="22" y="471.5">Mostrar("Cursaron:", cursaron, "- aprobaron los 3 TP:",</text><text x="22" y="487.5">    aprobaron)</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="319">v</text><text x="635.3" y="319" text-anchor="end">f</text><text x="45" y="421">v</text><text x="599.3" y="421" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># dni: str</text><text x="14" y="71"># tam, cursaron, aprobaron: int</text><text x="14" y="88"># reg: Alumno</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">TP_APROBADOS()</text></svg></figure>
+
+<h4>4- Backup de alumnos</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 419 399" width="419" height="399" style="width:419px;min-width:419px;max-width:none;height:399px" role="img" aria-label="Diagrama de Chapin del módulo BACKUP, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="83" width="390.4" height="26"/><rect x="14" y="109" width="390.4" height="26"/><rect x="14" y="135" width="390.4" height="26"/><rect x="14" y="161" width="390.4" height="78"/><rect x="38" y="187" width="366.4" height="26"/><rect x="38" y="213" width="366.4" height="26"/><rect x="14" y="239" width="390.4" height="26"/><rect x="14" y="265" width="390.4" height="26"/><rect x="14" y="291" width="390.4" height="26"/><rect x="14" y="317" width="390.4" height="42"/><rect x="14" y="359" width="390.4" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="100.5">alBackup = open(afBackup, "w+b")</text><text x="22" y="126.5">tam = os.path.getsize(afAlumnos)</text><text x="22" y="152.5">alAlumnos.seek(0, 0)</text><text x="22" y="178.5">Mientras alAlumnos.tell() &lt; tam:</text><text x="46" y="204.5">reg = pickle.load(alAlumnos)</text><text x="46" y="230.5">pickle.dump(reg, alBackup)</text><text x="22" y="256.5">alBackup.flush()</text><text x="22" y="282.5">alBackup.close()</text><text x="22" y="308.5">alAlumnos.close()</text><text x="22" y="334.5">alAlumnos = open(afAlumnos, "w+b")</text><text x="22" y="350.5">    # w+b lo vuelve a crear, vacío</text><text x="22" y="376.5">Mostrar("Copia hecha y ALUMNOS.DAT quedó vacío")</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># tam: int</text><text x="14" y="71"># reg: Alumno</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">BACKUP()</text></svg></figure>
+
+<h4>El mismo algoritmo en Python</h4>
+<p>Es el programa que se probó, con las mismas sentencias y en el mismo orden que las cajas. Cada <code>Leer</code> del diagrama es un <code>input</code>, convertido a <code>int</code> o <code>float</code> según la declaración, y cada <code>Mostrar</code> es un <code>print</code>.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> pickle
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Alumno</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.dniA = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.nombreA = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.apellidoA = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.dniP = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.notas = [[<span class="hljs-number">0</span>]*<span class="hljs-number">3</span> <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)]
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Profesor</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.dniP = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.nombre = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.apellido = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.mail = <span class="hljs-string">&quot;&quot;</span>
+
+<span class="hljs-comment"># afAlumnos, afProfesores, afBackup: str</span>
+<span class="hljs-comment"># alAlumnos, alProfesores, alBackup: archivo</span>
+<span class="hljs-comment"># tamProf: int</span>
+afAlumnos = <span class="hljs-string">&quot;ALUMNOS.DAT&quot;</span>
+afProfesores = <span class="hljs-string">&quot;PROFESORES.DAT&quot;</span>
+afBackup = <span class="hljs-string">&quot;ALUMNOS_BKP.DAT&quot;</span>
+alAlumnos = <span class="hljs-built_in">open</span>(afAlumnos, <span class="hljs-string">&quot;r+b&quot;</span>)
+alProfesores = <span class="hljs-built_in">open</span>(afProfesores, <span class="hljs-string">&quot;rb&quot;</span>)
+pickle.load(alProfesores)
+tamProf = alProfesores.tell()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">BUSCA_ALUMNO</span>(<span class="hljs-params">dni</span>):
+    <span class="hljs-comment"># Secuencial: ALUMNOS.DAT no tiene orden</span>
+    <span class="hljs-comment"># dni: str</span>
+    <span class="hljs-comment"># tam: int</span>
+    <span class="hljs-comment"># esta: bool</span>
+    <span class="hljs-comment"># reg: Alumno</span>
+    tam = os.path.getsize(afAlumnos)
+    esta = <span class="hljs-literal">False</span>
+    alAlumnos.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alAlumnos.tell() &lt; tam <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> esta:
+        reg = pickle.load(alAlumnos)
+        <span class="hljs-keyword">if</span> reg.dniA == dni:
+            esta = <span class="hljs-literal">True</span>
+    <span class="hljs-keyword">return</span> esta
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">BUSCA_PROFESOR</span>(<span class="hljs-params">dni</span>):
+    <span class="hljs-comment"># Dicotómica: PROFESORES.DAT está ordenado por dniP</span>
+    <span class="hljs-comment"># dni: str</span>
+    <span class="hljs-comment"># inicio, fin, medio, pos: int</span>
+    <span class="hljs-comment"># reg: Profesor</span>
+    inicio = <span class="hljs-number">0</span>
+    fin = os.path.getsize(afProfesores) // tamProf - <span class="hljs-number">1</span>
+    pos = -<span class="hljs-number">1</span>
+    <span class="hljs-keyword">while</span> inicio &lt;= fin <span class="hljs-keyword">and</span> pos == -<span class="hljs-number">1</span>:
+        medio = (inicio + fin) // <span class="hljs-number">2</span>
+        alProfesores.seek(medio * tamProf, <span class="hljs-number">0</span>)
+        reg = pickle.load(alProfesores)
+        <span class="hljs-keyword">if</span> reg.dniP == dni:
+            pos = medio
+        <span class="hljs-keyword">elif</span> dni &lt; reg.dniP:
+            fin = medio - <span class="hljs-number">1</span>
+        <span class="hljs-keyword">else</span>:
+            inicio = medio + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> pos
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">LEER_PROFESOR</span>():
+    <span class="hljs-comment"># dni: str</span>
+    dni = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;DNI del profesor: &quot;</span>).ljust(<span class="hljs-number">8</span>, <span class="hljs-string">&quot; &quot;</span>)
+    <span class="hljs-keyword">while</span> BUSCA_PROFESOR(dni) == -<span class="hljs-number">1</span>:
+        dni = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;No existe ese profesor, ingrese otro DNI: &quot;</span>).ljust(<span class="hljs-number">8</span>, <span class="hljs-string">&quot; &quot;</span>)
+    <span class="hljs-keyword">return</span> dni
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">validaNotas</span>(<span class="hljs-params">nota</span>):
+    <span class="hljs-comment"># nota: int</span>
+    <span class="hljs-keyword">return</span> nota &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> nota &lt;= <span class="hljs-number">10</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">NUEVO_ALUMNO</span>():
+    <span class="hljs-comment"># e, t: int</span>
+    <span class="hljs-comment"># dni: str</span>
+    <span class="hljs-comment"># reg: Alumno</span>
+    reg = Alumno()
+    dni = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;DNI del alumno: &quot;</span>).ljust(<span class="hljs-number">8</span>, <span class="hljs-string">&quot; &quot;</span>)
+    <span class="hljs-keyword">while</span> BUSCA_ALUMNO(dni):
+        dni = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Ese alumno ya existe, ingrese otro DNI: &quot;</span>).ljust(<span class="hljs-number">8</span>, <span class="hljs-string">&quot; &quot;</span>)
+    reg.dniA = dni
+    reg.apellidoA = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Apellido: &quot;</span>).ljust(<span class="hljs-number">200</span>, <span class="hljs-string">&quot; &quot;</span>)
+    reg.nombreA = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Nombre: &quot;</span>).ljust(<span class="hljs-number">80</span>, <span class="hljs-string">&quot; &quot;</span>)
+    reg.dniP = LEER_PROFESOR()
+    <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):
+        <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):
+            reg.notas[e][t] = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Evaluación &quot;</span> + <span class="hljs-built_in">str</span>(e) + <span class="hljs-string">&quot;, tipo &quot;</span> + <span class="hljs-built_in">str</span>(t) + <span class="hljs-string">&quot; (0 a 10): &quot;</span>))
+            <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> validaNotas(reg.notas[e][t]):
+                reg.notas[e][t] = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;La nota va de 0 a 10: &quot;</span>))
+    alAlumnos.seek(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>)
+    pickle.dump(reg, alAlumnos)
+    alAlumnos.flush()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">REGULARES</span>():
+    <span class="hljs-comment"># tam: int</span>
+    <span class="hljs-comment"># reg: Alumno</span>
+    tam = os.path.getsize(afAlumnos)
+    alAlumnos.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alAlumnos.tell() &lt; tam:
+        reg = pickle.load(alAlumnos)
+        <span class="hljs-keyword">if</span> reg.notas[<span class="hljs-number">2</span>][<span class="hljs-number">0</span>] &gt;= <span class="hljs-number">6</span> <span class="hljs-keyword">and</span> (reg.notas[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] != <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> reg.notas[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] != <span class="hljs-number">0</span>):
+            <span class="hljs-built_in">print</span>(reg.dniA, reg.apellidoA, reg.nombreA)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">TP_APROBADOS</span>():
+    <span class="hljs-comment"># dni: str</span>
+    <span class="hljs-comment"># tam, cursaron, aprobaron: int</span>
+    <span class="hljs-comment"># reg: Alumno</span>
+    dni = LEER_PROFESOR()
+    cursaron = <span class="hljs-number">0</span>
+    aprobaron = <span class="hljs-number">0</span>
+    tam = os.path.getsize(afAlumnos)
+    alAlumnos.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alAlumnos.tell() &lt; tam:
+        reg = pickle.load(alAlumnos)
+        <span class="hljs-keyword">if</span> reg.dniP == dni:
+            cursaron = cursaron + <span class="hljs-number">1</span>
+            <span class="hljs-keyword">if</span> reg.notas[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>] &gt;= <span class="hljs-number">6</span> <span class="hljs-keyword">and</span> reg.notas[<span class="hljs-number">1</span>][<span class="hljs-number">2</span>] &gt;= <span class="hljs-number">6</span> <span class="hljs-keyword">and</span> reg.notas[<span class="hljs-number">2</span>][<span class="hljs-number">2</span>] &gt;= <span class="hljs-number">6</span>:
+                aprobaron = aprobaron + <span class="hljs-number">1</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Cursaron:&quot;</span>, cursaron, <span class="hljs-string">&quot;- aprobaron los 3 TP:&quot;</span>, aprobaron)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">BACKUP</span>():
+    <span class="hljs-comment"># tam: int</span>
+    <span class="hljs-comment"># reg: Alumno</span>
+    <span class="hljs-keyword">global</span> alAlumnos
+    alBackup = <span class="hljs-built_in">open</span>(afBackup, <span class="hljs-string">&quot;w+b&quot;</span>)
+    tam = os.path.getsize(afAlumnos)
+    alAlumnos.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alAlumnos.tell() &lt; tam:
+        reg = pickle.load(alAlumnos)
+        pickle.dump(reg, alBackup)
+    alBackup.flush()
+    alBackup.close()
+    alAlumnos.close()
+    alAlumnos = <span class="hljs-built_in">open</span>(afAlumnos, <span class="hljs-string">&quot;w+b&quot;</span>)  <span class="hljs-comment"># w+b lo vuelve a crear, vacío</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Copia hecha y ALUMNOS.DAT quedó vacío&quot;</span>)
+
+<span class="hljs-comment"># Programa principal</span>
+<span class="hljs-comment"># opcion: int</span>
+opcion = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> opcion != <span class="hljs-number">5</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;1- Nuevo alumno&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;2- Listado de alumnos regulares&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;3- Cantidad de alumnos con TP aprobados&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;4- Backup de alumnos&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;5- Fin del programa&quot;</span>)
+    opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción: &quot;</span>))
+    <span class="hljs-keyword">while</span> opcion &lt; <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> opcion &gt; <span class="hljs-number">5</span>:
+        opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción inválida: &quot;</span>))
+    <span class="hljs-keyword">match</span> opcion:
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+            NUEVO_ALUMNO()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+            REGULARES()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+            TP_APROBADOS()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+            BACKUP()
+alAlumnos.close()
+alProfesores.close()</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la hoja del examen y la página del 3° parcial y final (registros como clase, recorrer, búsquedas, actualizar un registro y alta). Las operaciones de archivos siguen las diapositivas de merge y corte de control. El Chapin sigue la forma de las diapositivas del examen de Historia Clínica de 2019. El backup sigue la sección «Inicio de período».</p><p class="bloque-fuente">Quedó en duda: «Rendido al menos uno de los anteriores» se leyó como nota distinta de 0 en el parcial de la evaluación 0 o de la 1. El 0 es ausente. La copia se hace en ALUMNOS_BKP.DAT abierto con <code>w+b</code>, y después ALUMNOS.DAT se cierra y se vuelve a abrir con <code>w+b</code>, que lo deja vacío. La página nombra también <code>os.remove</code>, pero ningún apunte de la cátedra lo muestra. Los modos de <code>open</code> (<code>rb</code>, <code>r+b</code>, <code>w+b</code>) salen de la tabla de dos resúmenes de alumnos, que ningún apunte de la cátedra trae. Los textos se completan con los largos de la hoja (8, 80 y 200 caracteres). Si el DNI del profesor no existe, se vuelve a pedir. Cada alumno se graba una sola vez con sus 9 notas, así que su registro no cambia de tamaño después. Las diapositivas de la materia no muestran en Chapin la lectura de datos ni la selección múltiple. Acá van como <code>Leer</code> y como <code>Según</code>, con una columna por caso.</p><div class="em-votos" data-m="algoritmos-y-estructuras-de-datos" data-e="fin-2025-02-12" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Archivos" data-enlace="final.html#secuencial-y-de-acceso-directo" data-donde="3° parcial y final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Archivos</span><span class="ex-t-teoria"><a href="final.html#secuencial-y-de-acceso-directo">Secuencial y de acceso directo</a>, en 3° parcial y final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Matrices" data-enlace="parcial-2.html#arreglos-bidimensionales-matrices" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Matrices</span><span class="ex-t-teoria"><a href="parcial-2.html#arreglos-bidimensionales-matrices">Arreglos bidimensionales (matrices)</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Búsqueda" data-enlace="parcial-2.html#busqueda-secuencial" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Búsqueda</span><span class="ex-t-teoria"><a href="parcial-2.html#busqueda-secuencial">Búsqueda secuencial</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2025-03-12.html">Anterior: Final, marzo de 2025 (Estación de Servicio)</a><a href="ej-fin-2024-12-18.html">Siguiente: Final, 18/12/2024 (Playa de estacionamiento)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta mayo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

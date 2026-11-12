@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sastrería Saco Roto: Bases de Datos</title>
+<meta name="description" content="Ejercicio de examen: Sastrería Saco Roto.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+</head>
+<body data-materia="bases-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Bases de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=bases-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=bases-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#resolucion">Resolución</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Sastrería Saco Roto</h1>
+<p class="bajada">Final</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="saco-roto" data-titulo="Sastrería Saco Roto" data-min="180" data-otro="ejercicios.html#final" data-sol="oficial"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="saco-roto" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1Tyj3-I48ozx56h4liqo_FPMEvCwvmyg2/view" target="_blank" rel="noopener">Enunciado original en el Drive</a><a href="https://drive.google.com/file/d/18fkCOMnS6LiROy_Oqmt8ZaMCrxRn3nXX/view" target="_blank" rel="noopener">Script de la base</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><h4>Evaluación del Modelo de Datos y Algebra Relacional</h4>
+<h4>Modelo de Datos</h4>
+<ul>
+<li><strong>a)</strong> Esquematice el modelo E-R que se deriva de la narrativa.</li>
+<li><strong>b)</strong> Transforme el modelo E-R en un Modelo Relacional (pasaje a tablas), indicando los atributos de cada tabla. Especifique aquellos que pueden admitir valores nulos, indique las claves primarias y foráneas, en estas últimas indique, cuando se requiera, si admiten o no valores nulos.</li>
+</ul>
+<h4>Operaciones del Álgebra Relacional</h4>
+<ul>
+<li><strong>c)</strong> Desarrolle las operaciones en Álgebra relacional de los Requerimientos planteados. En cada requerimiento seleccione los datos relevantes a exponer.</li>
+</ul>
+<p>La sastrería se dedica a la confección de prendas a medida.</p>
+<p>Las personas<sup>1</sup> que desean encargar la confección de prendas de diferentes tipos<sup>2</sup> son atendidas por un encargado quien registra el pedido<sup>3</sup> de confección.</p>
+<p>El encargado de la sastrería registra todos los datos de las prendas<sup>4</sup> de cada tipo<sup>2</sup> encargadas por las personas<sup>1</sup>. Una vez registrada la prenda, el encargado asigna a la misma uno o varios sastres<sup>5</sup> en función de la complejidad de la prenda e indica las tareas que realizará cada sastre y la cantidad de horas estimadas. Cuando cada sastre completa sus tareas se registra la cantidad de horas reales que le llevó la confección de la prenda.</p>
+<p>El encargado además pacta con cada persona el/los material/es<sup>7</sup> con que se realizará cada prenda y deja registrado en el sistema, para cada prenda y material, qué cantidad estimada se requerirá. Cuando finaliza la confección de la prenda se registra la cantidad real de material que llevó el trabajo.</p>
+<p>Para el seguimiento de las tareas que se realizan para la confección de las prendas se deberá: registrar las medidas<sup>9</sup> que se toman, registrar las pruebas<sup>10</sup> que se realizan.</p>
+<p>Para el cálculo del costo de cada prenda se requerirá sumar el costo de los materiales<sup>8</sup> y el costo<sup>6</sup> de la mano de obra requerida.</p>
+<h4>Reglas</h4>
+<ol>
+<li>Las personas se identifican por número de persona que es único y se registra además su DNI, nombre, apellido, teléfono, dirección, fecha de nacimiento y su cuenta de correo.</li>
+<li>Los tipos de prendas están codificados y tienen una descripción y son cada uno un tipo de prenda que el Saco Roto puede confeccionar para sus clientes. Ej.: traje, saco cruzado, vestido de noche, chaleco, etc.</li>
+<li>Los Pedidos se identifican con un número de pedido único y secuencial, de ellos se registra fecha y hora de pedido. Puede ser que se presente un grupo familiar a encargar prendas, por lo que en el Pedido se registra una de ellas como responsable y será el Cliente a quien la sastrería cobrará el Pedido una vez confeccionadas las prendas</li>
+<li>De las prendas solicitadas de cada tipo por las personas se registra la fecha de entrega, la fecha de fin estimada de confección, la cantidad, el precio pactado y comentarios. Una vez aceptado el precio por el cliente se registra la prenda como confirmada y una vez confeccionada, la fecha de fin real.</li>
+<li>Los sastres se identifican por su CUIL y se conocen su nombre y apellido, teléfono, dirección y el CBU de su cuenta sueldo para hacer los depósitos del salario. Todos los sastres (salvo el jefe) reportan a un único jefe.</li>
+<li>A todos los sastres se les paga el mismo valor por hora trabajada y este valor varía en el tiempo. Para calcular el costo de la mano de obra se multiplica el valor de la mano de obra vigente a la fecha del pedido multiplicado por las horas estimadas.</li>
+<li>Los Materiales que se utilizan en una prenda están codificados, tienen una descripción y al unidad en que se miden. Ej.: 01-tela mecánica m2, 02-raso m2, 03-botón plateado c/u, 04-botón forrado c/u, etc.</li>
+<li>Los materiales con que se realizan las prendas tienen un valor por unidad que varía en el tiempo. El costo de los materiales para una prenda se calcula en función del valor del material a la fecha en que se solicitó el pedido multiplicado por la cantidad estimada.</li>
+<li>Las medidas que deben tomarse están codificadas y tienen una descripción (por ej.: 1-largo de manga, 2-hombros, cintura, cadera, etc.). Se registra entonces para cada prenda y cada medida la medición realizada.</li>
+<li>Las pruebas deben quedar registradas asociadas a cada prenda solicitada y para la fecha en que fueron realizadas. Se registrará para cada prueba los comentarios del sastre, los comentarios del cliente e información para los ajustes.</li>
+</ol>
+<h4>Requerimientos</h4>
+<ol>
+<li>Dado un Pedido y una Persona listar todas las prendas solicitadas y confirmadas indicando todas las pruebas realizadas.</li>
+<li>Indicar qué personas han solicitado los mismos tipos de prenda que ‘Perez, Juan’.</li>
+</ol>
+<p>Todas las operaciones que realice deben copiarse a un archivo que será entregado una vez completado el examen.</p>
+<p>El nombre del archivo deberá tener la forma: APELLIDO_NOMBRE.sql</p>
+<h4>DDL</h4>
+<ol>
+<li>(Esta consigna es eliminatoria). Desarrolle las sentencias DDL requeridas para completar la definición de las tablas PRENDAS y las tablas directamente relacionadas con ella.</li>
+</ol>
+<p>Copie el DDL que se obtiene con la herramienta al archivo a entregar.</p>
+<h4>DML</h4>
+<ol start="2">
+<li>Listado de prendas sin confeccionar: Listado de prendas que aún no se han terminado de confeccionar. Mostrar: Nombre y apellido de la persona, descripción de la prenda, fecha del pedido, fecha fin estimada de la prenda, fecha_entrega_requerida y cantidad de días de demora en función de la fecha requerida a hoy (función DATEDIFF).</li>
+<li>Estadística de tipos de prendas: Mostrar los tipos de prendas que nunca se han vendido. Indicando código del tipo de prenda y descripción.</li>
+<li>Última fecha de prueba: Realizar el procedimiento &quot;ult_prueba&quot; que dada una fecha muestre por cada persona y tipo de prenda, cuál fue la última prueba realizada.</li>
+</ol>
+<p>Mostrar número y nombres de las personas, tipo de prenda, descripción del tipo de prenda y fecha de última prueba. Si una persona tiene varias pruebas del mismo tipo de prenda el mismo día mostrar una sola vez. Ordenar por fecha en forma descendente y por apellido en forma ascendente.</p>
+<p>Probar el procedimiento con la fecha: 5/11/2013</p>
+<h4>TCL/DDL (las consignas referidas a DDL se consider</h4>
+<ol start="5">
+<li>La tabla MATERIALES tiene el atributo unidad de medida que el usuario registra manualmente sin la posibilidad de controlar la integridad del dato. Se requiere entonces mantener la tabla unidades_medida que contenga los distintos valores de las unidades de medida hasta ahora registrados para luego vincularla a la tabla materiales. Para ello se requiere.</li>
+</ol>
+<ul>
+<li><strong>a)</strong> Crear la tabla: UNIDADES_MEDIDA con los atributos cod_unidad (clave primaria) y desc_unidad. Nota: Se sugiere indicar el atributo cod_unidad como auto-incremental</li>
+<li><strong>b)</strong> Registrar en la tabla UNIDADES_MEDIDA creada las diferentes unidades de medida que existan en la tabla de MATERIALES.</li>
+<li><strong>c)</strong> Agregar el atributo cod_unidad a la tabla de MATERIALES</li>
+<li><strong>d)</strong> Actualizar el atributo cod_unidad de la tabla de MATERIALES con el correspondiente cod_unidad de la tabla UNIDADES_MEDIDA</li>
+<li><strong>e)</strong> Completar la definición de la tabla MATERIALES para lograr controlar la integridad referencial NOTAS:</li>
+</ul>
+<ol>
+<li>Para las consignas 4a), 4c) y 4e) copiar el DDL que se obtiene de la herramienta utilizada</li>
+<li>Todas aquellas operaciones que deban realizar actualizaciones de registros en las tablas de la base de datos deben ser realizadas como una transacción.</li>
+<li>En el punto e) revise las opciones de control de la integridad referencial en Borrado o Actualización.</li>
+</ol>
+</section>
+
+<section class="sec" id="resolucion-s"><h2 id="resolucion">Resolución</h2><details class="sol-grande"><summary>Ver la resolución: DER, pasaje a tablas y SQL</summary><p class="sol-ayuda">Son las hojas originales. Tocá una para verla en grande.</p><a class="sol-img" href="img/saco-roto-1.webp" aria-label="Abrir la hoja 1 de la resolución en grande"><img src="img/saco-roto-1.webp" width="1477" height="1037" loading="lazy" alt="Hoja 1 de la resolución, tal como está en el Drive"></a><a class="sol-img" href="img/saco-roto-2.webp" aria-label="Abrir la hoja 2 de la resolución en grande"><img src="img/saco-roto-2.webp" width="1071" height="1535" loading="lazy" alt="Hoja 2 de la resolución, tal como está en el Drive"></a><p class="sol-t">SQL</p><div class="sol-bloque"><pre class="codigo"><code><span class="hljs-comment">-- Resolución Propuesta</span>
+<span class="hljs-comment">-- Ejercicio 1 Tema 1</span>
+<span class="hljs-comment">-- Listado de prendas sin confeccionar</span>
+<span class="hljs-comment">-- inner join - is null - uso de función - order by</span>
+
+<span class="hljs-keyword">SELECT</span> p.nombre, p.apellido, tp.desc_tipo_prenda, ped.fecha_hora_pedido, ps.fecha_fin_est, ps.fecha_entrega_requerida,
+datediff(<span class="hljs-built_in">current_date</span>(),ps.fecha_entrega_requerida) dias_demora
+<span class="hljs-keyword">from</span> prendas pr
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> personas p <span class="hljs-keyword">on</span> pr.nro_persona <span class="hljs-operator">=</span> p.nro_persona
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> prendas ps <span class="hljs-keyword">on</span> pr.cod_tipo_prenda <span class="hljs-operator">=</span> ps.cod_tipo_prenda 
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> pedidos ped <span class="hljs-keyword">on</span> ps.nro_pedido <span class="hljs-operator">=</span> ped.nro_pedido
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> tipos_prendas tp <span class="hljs-keyword">on</span> ps.cod_tipo_prenda <span class="hljs-operator">=</span> tp.cod_tipo_prenda
+<span class="hljs-keyword">where</span> ps.fecha_fin_real <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> dias_demora <span class="hljs-keyword">desc</span>;
+
+<span class="hljs-comment">-- Ejercicio 2</span>
+<span class="hljs-comment">-- Estadística de tipos de prenda</span>
+<span class="hljs-comment">-- subconsulta</span>
+
+<span class="hljs-keyword">select</span> tp.cod_tipo_prenda,tp.desc_tipo_prenda 
+<span class="hljs-keyword">from</span> tipos_prendas tp
+<span class="hljs-keyword">where</span> tp.cod_tipo_prenda <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> pre.cod_tipo_prenda <span class="hljs-keyword">from</span> prendas pre);
+
+<span class="hljs-comment">-- Ejercicio 3 </span>
+<span class="hljs-comment">-- Ultima supervisión de pruebas</span>
+<span class="hljs-comment">-- Procedimiento - tabla temporal</span>
+
+USE `saco_roto`;
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">procedure</span> IF <span class="hljs-keyword">EXISTS</span> `ult_fecha_prueba`;
+
+DELIMITER $$
+USE `saco_roto`$$
+<span class="hljs-keyword">CREATE</span> DEFINER<span class="hljs-operator">=</span>`root`@`localhost` <span class="hljs-keyword">PROCEDURE</span> `ult_fecha_prueba`()
+<span class="hljs-keyword">BEGIN</span>
+<span class="hljs-keyword">drop</span> temporary <span class="hljs-keyword">table</span> if <span class="hljs-keyword">exists</span> maxi;
+<span class="hljs-keyword">create</span> temporary <span class="hljs-keyword">table</span> maxi
+<span class="hljs-keyword">SELECT</span> nro_persona, cod_tipo_prenda, <span class="hljs-built_in">max</span>(fecha_prueba) ult_fecha
+<span class="hljs-keyword">from</span> pruebas
+<span class="hljs-keyword">where</span> fecha_prueba <span class="hljs-operator">&lt;=</span> fecha_in
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>  <span class="hljs-number">1</span>,<span class="hljs-number">2</span>;
+
+<span class="hljs-keyword">select</span> p.apellido, p.nombre, pr.cod_tipo_prenda, desc_tipo_prenda,ult_fecha
+<span class="hljs-keyword">from</span> personas p 
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> maxi <span class="hljs-keyword">on</span> p.nro_persona <span class="hljs-operator">=</span> maxi.nro_persona
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> pruebas pr <span class="hljs-keyword">on</span> p.nro_persona <span class="hljs-operator">=</span> pr.nro_persona 
+                      <span class="hljs-keyword">and</span> pr.cod_tipo_prenda <span class="hljs-operator">=</span> maxi.cod_tipo_prenda 
+                      <span class="hljs-keyword">and</span> pr.fecha_prueba <span class="hljs-operator">=</span> ult_fecha
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> tipos_prendas tp <span class="hljs-keyword">on</span> pr.cod_tipo_prenda <span class="hljs-operator">=</span> tp.cod_tipo_prenda
+<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> ult_fecha <span class="hljs-keyword">desc</span>, apellido <span class="hljs-keyword">asc</span>;
+<span class="hljs-keyword">END</span>$$
+
+DELIMITER ;
+
+<span class="hljs-keyword">call</span> `ult_fecha_prueba`(&quot;2013-11-05&quot;);
+
+<span class="hljs-comment">-- Ejercicio 4 Tema 1</span>
+<span class="hljs-comment">-- Procedimiento: Agregar tabla en función de datos existentes</span>
+<span class="hljs-comment">-- DDL - TCL - INSERT SELECT distinct - update </span>
+<span class="hljs-comment">-- a)</span>
+<span class="hljs-keyword">CREATE TABLE</span> `saco_roto`.`unidades_medida` (
+  `cod_unidad` <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT NULL</span> AUTO_INCREMENT,
+  `desc_unidad` <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">45</span>) <span class="hljs-keyword">NULL</span>,
+  <span class="hljs-keyword">PRIMARY KEY</span> (`cod_unidad`));
+<span class="hljs-comment">-- b)</span>
+ <span class="hljs-keyword">start</span> transaction;
+	<span class="hljs-keyword">insert into</span> unidades_medida (desc_unidad)
+    <span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> mat.unidad
+    <span class="hljs-keyword">from</span> materiales mat;
+ <span class="hljs-keyword">commit</span>;
+ 
+ <span class="hljs-comment">-- c)</span>
+<span class="hljs-keyword">ALTER TABLE</span> `saco_roto`.`materiales` 
+<span class="hljs-keyword">ADD</span> <span class="hljs-keyword">COLUMN</span> `cod_unidad` <span class="hljs-type">INT</span> <span class="hljs-keyword">NULL</span> AFTER `unidad`;
+
+<span class="hljs-comment">-- d)</span>
+
+<span class="hljs-keyword">start</span> transaction;
+    <span class="hljs-keyword">update</span> materiales
+    <span class="hljs-keyword">SET</span> cod_unidad <span class="hljs-operator">=</span> (<span class="hljs-keyword">select</span> um.cod_unidad <span class="hljs-keyword">from</span> unidades_medida um <span class="hljs-keyword">where</span> um.desc_unidad <span class="hljs-operator">=</span> materiales.unidad);
+<span class="hljs-keyword">commit</span>;
+
+<span class="hljs-comment">-- e)</span>
+<span class="hljs-keyword">ALTER TABLE</span> `saco_roto`.`materiales` 
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">COLUMN</span> `unidad`,
+<span class="hljs-keyword">ADD</span> INDEX `unidad_medida_fk_idx` (`cod_unidad` <span class="hljs-keyword">ASC</span>);
+<span class="hljs-keyword">ALTER TABLE</span> `saco_roto`.`materiales` 
+<span class="hljs-keyword">ADD CONSTRAINT</span> `unidad_medida_fk`
+  <span class="hljs-keyword">FOREIGN KEY</span> (`cod_unidad`)
+  <span class="hljs-keyword">REFERENCES</span> `saco_roto`.`unidades_medida` (`cod_unidad`)
+  <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> RESTRICT
+  <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> CASCADE;</code></pre></div></details></section>
+
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="DER" data-enlace="parcial-1.html#de-la-narrativa-al-der" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">DER</span><span class="ex-t-teoria"><a href="parcial-1.html#de-la-narrativa-al-der">De la narrativa al DER</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Pasaje" data-enlace="parcial-1.html#pasaje-a-tablas" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Pasaje</span><span class="ex-t-teoria"><a href="parcial-1.html#pasaje-a-tablas">Pasaje a tablas</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Álgebra" data-enlace="parcial-1.html#algebra-relacional" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Álgebra</span><span class="ex-t-teoria"><a href="parcial-1.html#algebra-relacional">Álgebra relacional</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="SQL" data-enlace="parcial-2.html#sql-para-la-practica" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">SQL</span><span class="ex-t-teoria"><a href="parcial-2.html#sql-para-la-practica">SQL para la práctica</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-club-va.html">Anterior: Club Social y Deportivo VA</a><a href="ej-mct.html">Siguiente: Manolo Carpa Tigre</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta marzo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

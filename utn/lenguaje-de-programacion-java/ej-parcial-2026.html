@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Parcial 2026: Lenguaje de Programación Java</title>
+<meta name="description" content="Ejercicio de examen: Parcial 2026.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="lenguaje-de-programacion-java" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Lenguaje de Programación Java</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial.html">Parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=lenguaje-de-programacion-java">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=lenguaje-de-programacion-java">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Parcial 2026</h1>
+<p class="bajada">Parciales, 2026</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="parcial-2026" data-titulo="Parcial 2026" data-min="120" data-otro="ejercicios.html#parcial" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="parcial-2026" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1XVIeF7Q9zj2O8Txbw_LQCn_-HZxh6Fi0/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/parcial-2026-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/parcial-2026-e1.webp" width="966" height="1022" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a><a class="sol-img" href="img/parcial-2026-e2.webp" aria-label="Abrir la hoja 2 del enunciado en grande"><img src="img/parcial-2026-e2.webp" width="968" height="1328" loading="lazy" alt="Hoja 2 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>Ejercicio 1</h4>
+<p>Cada clase va en su archivo, con el mismo nombre (<code>Inmueble.java</code>, <code>ServicioPrestado.java</code> y así). El diagrama pide getters y setters en todas. Acá van solo los que usa el cálculo, y los demás los genera Eclipse con <em>Source › Generate Getters and Setters</em>.</p>
+<p>Las relaciones quedaron así.</p>
+<div class="tabla"><table><thead><tr><th>Relación del diagrama</th><th>Dónde quedó</th></tr></thead><tbody><tr><td><code>Inmueble</code> 1:1 a * <code>ServicioPrestado</code></td><td>Una <code>ArrayList&lt;ServicioPrestado&gt;</code> en <code>Inmueble</code>. Cada servicio guarda su inmueble para conocer los m2</td></tr><tr><td><code>ServicioPrestado</code> * a * <code>Equipamiento</code></td><td>Una <code>ArrayList&lt;Equipamiento&gt;</code> en <code>ServicioPrestado</code>, que puede quedar vacía</td></tr><tr><td><code>FinDeObra</code> * a * <code>Empleado</code></td><td>Una <code>ArrayList&lt;Empleado&gt;</code> en <code>FinDeObra</code></td></tr><tr><td><code>Limpieza</code> * a 1:1 <code>Empleado</code></td><td>Un atributo <code>Empleado</code> en <code>Limpieza</code></td></tr></tbody></table></div>
+<p>La regla de la hoja, con un valor y un costo por servicio.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>ganancia</mtext><mo>&#61;</mo><mo>∑</mo><mtext>valor</mtext><mo>−</mo><mo>∑</mo><mrow><mo fence="true">(</mo><mtext>costo de equipamiento</mtext><mo>+</mo><mtext>costo de mano de obra</mtext><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">&#92;text{ganancia} &#61; &#92;sum &#92;text{valor} - &#92;sum &#92;left( &#92;text{costo de equipamiento} + &#92;text{costo de mano de obra} &#92;right)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8623em;vertical-align:-0.1944em;"></span><span class="mord text"><span class="mord">ganancia</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.6em;vertical-align:-0.55em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord text"><span class="mord">valor</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.6em;vertical-align:-0.55em;"></span><span class="mop op-symbol large-op" style="position:relative;top:0em;">∑</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord text"><span class="mord">costo de equipamiento</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord">costo de mano de obra</span></span><span class="mclose delimcenter" style="top:0em;">)</span></span></span></span></span></span></p>
+<p><code>agregarServicio</code> suma el servicio a la lista y le avisa al servicio a qué inmueble pertenece.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> java.util.ArrayList;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Inmueble</span> {
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> String direccion;
+    <span class="hljs-keyword">private</span> Double m2;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">ArrayList</span>&lt;ServicioPrestado&gt; <span class="hljs-variable">servicios</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;ServicioPrestado&gt;();
+
+    <span class="hljs-type">public</span> <span class="hljs-title function_">Inmueble</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String direccion, Double m2)</span> {
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.direccion = direccion;
+        <span class="hljs-built_in">this</span>.m2 = m2;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title function_">agregarServicio</span><span class="hljs-params">(ServicioPrestado servicio)</span> {
+        servicios.add(servicio);
+        servicio.setInmueble(<span class="hljs-built_in">this</span>);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getGananciaTotal</span><span class="hljs-params">()</span> {
+        <span class="hljs-type">double</span> <span class="hljs-variable">sumatoriaValor</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-type">double</span> <span class="hljs-variable">sumatoriaCostos</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (ServicioPrestado s : servicios) {
+            sumatoriaValor += s.getValor();
+            sumatoriaCostos += s.getCosto();
+        }
+        <span class="hljs-keyword">return</span> sumatoriaValor - sumatoriaCostos;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">Double</span> <span class="hljs-title function_">getM2</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> m2;
+    }
+}</code></pre>
+<p><code>ServicioPrestado</code> es abstracta. Resuelve lo que es igual para todos los servicios, que es el costo de equipamiento y la suma de los dos costos, y deja abstractos <code>getValor()</code> y <code>getCostoManoDeObra()</code>, que cambian según el tipo. <code>horas</code> es <code>Duration</code>, como pide el diagrama, y <code>getHorasComoNumero()</code> la pasa a horas con decimales para poder multiplicar.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> java.time.Duration;
+<span class="hljs-keyword">import</span> java.time.LocalDate;
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ServicioPrestado</span> {
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> String nombre;
+    <span class="hljs-keyword">private</span> LocalDate fecha;
+    <span class="hljs-keyword">private</span> Duration horas;
+    <span class="hljs-keyword">private</span> Inmueble inmueble;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">ArrayList</span>&lt;Equipamiento&gt; <span class="hljs-variable">equipamientos</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;Equipamiento&gt;();
+
+    <span class="hljs-type">public</span> <span class="hljs-title function_">ServicioPrestado</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String nombre, LocalDate fecha, Duration horas)</span> {
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.nombre = nombre;
+        <span class="hljs-built_in">this</span>.fecha = fecha;
+        <span class="hljs-built_in">this</span>.horas = horas;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title function_">agregarEquipamiento</span><span class="hljs-params">(Equipamiento equipamiento)</span> {
+        equipamientos.add(equipamiento);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getHorasComoNumero</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> horas.toMinutes() / <span class="hljs-number">60.0</span>;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getCostoEquipamiento</span><span class="hljs-params">()</span> {
+        <span class="hljs-type">double</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (Equipamiento e : equipamientos) {
+            total += e.getCostoFijo();
+        }
+        <span class="hljs-keyword">return</span> total;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getCosto</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> getCostoEquipamiento() + getCostoManoDeObra();
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getValor</span><span class="hljs-params">()</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getCostoManoDeObra</span><span class="hljs-params">()</span>;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">Inmueble</span> <span class="hljs-title function_">getInmueble</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> inmueble;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title function_">setInmueble</span><span class="hljs-params">(Inmueble inmueble)</span> {
+        <span class="hljs-built_in">this</span>.inmueble = inmueble;
+    }
+}</code></pre>
+<p>Cada servicio redefine los dos métodos con su regla. <code>Inmueble</code> llama a <code>getValor()</code> y <code>getCosto()</code> sin saber de qué tipo es cada servicio, y se ejecuta el método de la clase del objeto. Ahí están la herencia, la redefinición y el polimorfismo que pide la hoja.</p>
+<p>En fin de obra, el pago por m2 es «a CADA empleado», por eso se multiplica también por la cantidad de empleados.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> java.time.Duration;
+<span class="hljs-keyword">import</span> java.time.LocalDate;
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">FinDeObra</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ServicioPrestado</span> {
+
+    <span class="hljs-keyword">private</span> Double valorM2;
+    <span class="hljs-keyword">private</span> Double pagoM2;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">ArrayList</span>&lt;Empleado&gt; <span class="hljs-variable">empleados</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;Empleado&gt;();
+
+    <span class="hljs-type">public</span> <span class="hljs-title function_">FinDeObra</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String nombre, LocalDate fecha, Duration horas, Double valorM2, Double pagoM2)</span> {
+        <span class="hljs-built_in">super</span>(id, nombre, fecha, horas);
+        <span class="hljs-built_in">this</span>.valorM2 = valorM2;
+        <span class="hljs-built_in">this</span>.pagoM2 = pagoM2;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title function_">agregarEmpleado</span><span class="hljs-params">(Empleado empleado)</span> {
+        empleados.add(empleado);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getValor</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> getInmueble().getM2() * valorM2;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getCostoManoDeObra</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> pagoM2 * getInmueble().getM2() * empleados.size();
+    }
+}</code></pre>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> java.time.Duration;
+<span class="hljs-keyword">import</span> java.time.LocalDate;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Limpieza</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ServicioPrestado</span> {
+
+    <span class="hljs-keyword">private</span> Double valorHora;
+    <span class="hljs-keyword">private</span> Empleado empleado;
+
+    <span class="hljs-type">public</span> <span class="hljs-title function_">Limpieza</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String nombre, LocalDate fecha, Duration horas, Double valorHora, Empleado empleado)</span> {
+        <span class="hljs-built_in">super</span>(id, nombre, fecha, horas);
+        <span class="hljs-built_in">this</span>.valorHora = valorHora;
+        <span class="hljs-built_in">this</span>.empleado = empleado;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getValor</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> getHorasComoNumero() * valorHora;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">getCostoManoDeObra</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> empleado.getSueldoHora() * getHorasComoNumero();
+    }
+}</code></pre>
+<pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Empleado</span> {
+
+    <span class="hljs-keyword">private</span> String cuil;
+    <span class="hljs-keyword">private</span> String nombre;
+    <span class="hljs-keyword">private</span> String apellido;
+    <span class="hljs-keyword">private</span> Double sueldoHora;
+
+    <span class="hljs-type">public</span> <span class="hljs-title function_">Empleado</span><span class="hljs-params">(String cuil, String nombre, String apellido, Double sueldoHora)</span> {
+        <span class="hljs-built_in">this</span>.cuil = cuil;
+        <span class="hljs-built_in">this</span>.nombre = nombre;
+        <span class="hljs-built_in">this</span>.apellido = apellido;
+        <span class="hljs-built_in">this</span>.sueldoHora = sueldoHora;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">Double</span> <span class="hljs-title function_">getSueldoHora</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> sueldoHora;
+    }
+}</code></pre>
+<pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Equipamiento</span> {
+
+    <span class="hljs-keyword">private</span> Double costoFijo;
+
+    <span class="hljs-type">public</span> <span class="hljs-title function_">Equipamiento</span><span class="hljs-params">(Double costoFijo)</span> {
+        <span class="hljs-built_in">this</span>.costoFijo = costoFijo;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">Double</span> <span class="hljs-title function_">getCostoFijo</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> costoFijo;
+    }
+}</code></pre>
+<h4>Ejercicio 2</h4>
+<p>Esta es la versión que filtra por fecha, la del punto extra. <code>MedicamentoUtilizado</code> une la atención con el medicamento y guarda la cantidad. Al registrar el uso en la atención, también se lo suma al medicamento, así cada uno conoce sus usos.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> java.time.LocalDate;
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Atencion</span> {
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> LocalDate fecha;
+    <span class="hljs-keyword">private</span> String detalle;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">ArrayList</span>&lt;MedicamentoUtilizado&gt; <span class="hljs-variable">medicamentos</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;MedicamentoUtilizado&gt;();
+
+    <span class="hljs-type">public</span> <span class="hljs-title function_">Atencion</span><span class="hljs-params">(<span class="hljs-type">int</span> id, LocalDate fecha, String detalle)</span> {
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.fecha = fecha;
+        <span class="hljs-built_in">this</span>.detalle = detalle;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title function_">usarMedicamento</span><span class="hljs-params">(Medicamento medicamento, <span class="hljs-type">int</span> cantidad)</span> {
+        <span class="hljs-type">MedicamentoUtilizado</span> <span class="hljs-variable">utilizado</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MedicamentoUtilizado</span>(<span class="hljs-built_in">this</span>, medicamento, cantidad);
+        medicamentos.add(utilizado);
+        medicamento.agregarUtilizado(utilizado);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">LocalDate</span> <span class="hljs-title function_">getFecha</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> fecha;
+    }
+}</code></pre>
+<pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MedicamentoUtilizado</span> {
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> cantidad;
+    <span class="hljs-keyword">private</span> Atencion atencion;
+    <span class="hljs-keyword">private</span> Medicamento medicamento;
+
+    <span class="hljs-type">public</span> <span class="hljs-title function_">MedicamentoUtilizado</span><span class="hljs-params">(Atencion atencion, Medicamento medicamento, <span class="hljs-type">int</span> cantidad)</span> {
+        <span class="hljs-built_in">this</span>.atencion = atencion;
+        <span class="hljs-built_in">this</span>.medicamento = medicamento;
+        <span class="hljs-built_in">this</span>.cantidad = cantidad;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getCantidad</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> cantidad;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">Atencion</span> <span class="hljs-title function_">getAtencion</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> atencion;
+    }
+}</code></pre>
+<p><code>getConsumo</code> suma las cantidades de las atenciones con fecha entre <code>desde</code> y <code>hasta</code>, las dos incluidas. <code>debeReponerStock</code> lo invoca con las fechas de hace 1 mes hasta hoy, como pide la hoja.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> java.time.LocalDate;
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Medicamento</span> {
+
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> id;
+    <span class="hljs-keyword">private</span> String nombre;
+    <span class="hljs-keyword">private</span> String detalle;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> stock;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> puntoDePedido;
+    <span class="hljs-keyword">private</span> String presentacion;
+    <span class="hljs-keyword">private</span> <span class="hljs-type">ArrayList</span>&lt;MedicamentoUtilizado&gt; <span class="hljs-variable">utilizados</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;MedicamentoUtilizado&gt;();
+
+    <span class="hljs-type">public</span> <span class="hljs-title function_">Medicamento</span><span class="hljs-params">(<span class="hljs-type">int</span> id, String nombre, String detalle, <span class="hljs-type">int</span> stock, <span class="hljs-type">int</span> puntoDePedido, String presentacion)</span> {
+        <span class="hljs-built_in">this</span>.id = id;
+        <span class="hljs-built_in">this</span>.nombre = nombre;
+        <span class="hljs-built_in">this</span>.detalle = detalle;
+        <span class="hljs-built_in">this</span>.stock = stock;
+        <span class="hljs-built_in">this</span>.puntoDePedido = puntoDePedido;
+        <span class="hljs-built_in">this</span>.presentacion = presentacion;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title function_">agregarUtilizado</span><span class="hljs-params">(MedicamentoUtilizado utilizado)</span> {
+        utilizados.add(utilizado);
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getConsumo</span><span class="hljs-params">(LocalDate desde, LocalDate hasta)</span> {
+        <span class="hljs-type">int</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (MedicamentoUtilizado u : utilizados) {
+            <span class="hljs-type">LocalDate</span> <span class="hljs-variable">fecha</span> <span class="hljs-operator">=</span> u.getAtencion().getFecha();
+            <span class="hljs-keyword">if</span> (!fecha.isBefore(desde) &amp;&amp; !fecha.isAfter(hasta)) {
+                total += u.getCantidad();
+            }
+        }
+        <span class="hljs-keyword">return</span> total;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">debeReponerStock</span><span class="hljs-params">()</span> {
+        <span class="hljs-type">LocalDate</span> <span class="hljs-variable">hoy</span> <span class="hljs-operator">=</span> LocalDate.now();
+        <span class="hljs-keyword">return</span> getConsumo(hoy.minusMonths(<span class="hljs-number">1</span>), hoy) &gt; puntoDePedido;
+    }
+}</code></pre>
+<p>Sin filtrar por fecha, la versión de 4 puntos, <code>getConsumo()</code> no recibe parámetros y suma todas las cantidades, sin el <code>if</code>.</p>
+<h4>Para probarlo</h4>
+<p>La hoja no pide un <code>main</code>. Este sirve para correrlo en Eclipse y ver que las cuentas den.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> java.time.Duration;
+<span class="hljs-keyword">import</span> java.time.LocalDate;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> {
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> {
+        <span class="hljs-type">Inmueble</span> <span class="hljs-variable">casa</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Inmueble</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;Córdoba 1234&quot;</span>, <span class="hljs-number">80.0</span>);
+        <span class="hljs-type">Empleado</span> <span class="hljs-variable">ana</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Empleado</span>(<span class="hljs-string">&quot;27-1&quot;</span>, <span class="hljs-string">&quot;Ana&quot;</span>, <span class="hljs-string">&quot;Paz&quot;</span>, <span class="hljs-number">2000.0</span>);
+        <span class="hljs-type">Empleado</span> <span class="hljs-variable">luis</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Empleado</span>(<span class="hljs-string">&quot;20-2&quot;</span>, <span class="hljs-string">&quot;Luis&quot;</span>, <span class="hljs-string">&quot;Gil&quot;</span>, <span class="hljs-number">2500.0</span>);
+
+        <span class="hljs-type">FinDeObra</span> <span class="hljs-variable">obra</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">FinDeObra</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;Fin de obra&quot;</span>, LocalDate.now(), Duration.ofHours(<span class="hljs-number">8</span>), <span class="hljs-number">1500.0</span>, <span class="hljs-number">300.0</span>);
+        obra.agregarEmpleado(ana);
+        obra.agregarEmpleado(luis);
+        obra.agregarEquipamiento(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Equipamiento</span>(<span class="hljs-number">5000.0</span>));
+        casa.agregarServicio(obra);
+
+        <span class="hljs-type">Limpieza</span> <span class="hljs-variable">limpieza</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Limpieza</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;Limpieza&quot;</span>, LocalDate.now(), Duration.ofMinutes(<span class="hljs-number">150</span>), <span class="hljs-number">4000.0</span>, ana);
+        casa.agregarServicio(limpieza);
+
+        System.out.println(<span class="hljs-string">&quot;Ganancia total: &quot;</span> + casa.getGananciaTotal());
+
+        <span class="hljs-type">Medicamento</span> <span class="hljs-variable">ibuprofeno</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Medicamento</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;Ibuprofeno&quot;</span>, <span class="hljs-string">&quot;400 mg&quot;</span>, <span class="hljs-number">50</span>, <span class="hljs-number">10</span>, <span class="hljs-string">&quot;Caja&quot;</span>);
+        <span class="hljs-type">Atencion</span> <span class="hljs-variable">hace10dias</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Atencion</span>(<span class="hljs-number">1</span>, LocalDate.now().minusDays(<span class="hljs-number">10</span>), <span class="hljs-string">&quot;Control&quot;</span>);
+        <span class="hljs-type">Atencion</span> <span class="hljs-variable">hace2meses</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Atencion</span>(<span class="hljs-number">2</span>, LocalDate.now().minusMonths(<span class="hljs-number">2</span>), <span class="hljs-string">&quot;Guardia&quot;</span>);
+        hace10dias.usarMedicamento(ibuprofeno, <span class="hljs-number">8</span>);
+        hace2meses.usarMedicamento(ibuprofeno, <span class="hljs-number">20</span>);
+
+        System.out.println(<span class="hljs-string">&quot;Consumo del último mes: &quot;</span> + ibuprofeno.getConsumo(LocalDate.now().minusMonths(<span class="hljs-number">1</span>), LocalDate.now()));
+        System.out.println(<span class="hljs-string">&quot;Debe reponer: &quot;</span> + ibuprofeno.debeReponerStock());
+        <span class="hljs-type">Atencion</span> <span class="hljs-variable">hoy</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Atencion</span>(<span class="hljs-number">3</span>, LocalDate.now(), <span class="hljs-string">&quot;Control&quot;</span>);
+        hoy.usarMedicamento(ibuprofeno, <span class="hljs-number">3</span>);
+        System.out.println(<span class="hljs-string">&quot;Con 3 más hoy, debe reponer: &quot;</span> + ibuprofeno.debeReponerStock());
+    }
+}</code></pre>
+<pre class="codigo"><code>Ganancia total: 72000.0
+Consumo del último mes: 8
+Debe reponer: false
+Con 3 más hoy, debe reponer: true</code></pre>
+<p>Con 80 m2, el fin de obra vale <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>80</mn><mo>⋅</mo><mn>1500</mn><mo>&#61;</mo><mn>120000</mn></mrow><annotation encoding="application/x-tex">80 &#92;cdot 1500 &#61; 120000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">80</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1500</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">120000</span></span></span></span> y cuesta <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5000</mn><mo>+</mo><mn>300</mn><mo>⋅</mo><mn>80</mn><mo>⋅</mo><mn>2</mn><mo>&#61;</mo><mn>53000</mn></mrow><annotation encoding="application/x-tex">5000 + 300 &#92;cdot 80 &#92;cdot 2 &#61; 53000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5000</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">300</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">80</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">53000</span></span></span></span>. La limpieza de dos horas y media vale <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2,5</mn><mo>⋅</mo><mn>4000</mn><mo>&#61;</mo><mn>10000</mn></mrow><annotation encoding="application/x-tex">2{,}5 &#92;cdot 4000 &#61; 10000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">2</span><span class="mord"><span class="mpunct">,</span></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">4000</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">10000</span></span></span></span> y cuesta <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2000</mn><mo>⋅</mo><mn>2,5</mn><mo>&#61;</mo><mn>5000</mn></mrow><annotation encoding="application/x-tex">2000 &#92;cdot 2{,}5 &#61; 5000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">2000</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">2</span><span class="mord"><span class="mpunct">,</span></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">5000</span></span></span></span>. La ganancia total es <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>67000</mn><mo>+</mo><mn>5000</mn><mo>&#61;</mo><mn>72000</mn></mrow><annotation encoding="application/x-tex">67000 + 5000 &#61; 72000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">67000</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">5000</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">72000</span></span></span></span>. En el ejercicio 2, la atención de hace dos meses queda afuera, y <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8</mn></mrow><annotation encoding="application/x-tex">8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">8</span></span></span></span> no pasa el punto de pedido de <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn></mrow><annotation encoding="application/x-tex">10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">10</span></span></span></span> hasta que se suman <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span> más.</p>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con Parcial, secciones «El ejercicio 1», «Leer el diagrama de clases», «Clases en el medio que guardan un dato», «Herencia, redefinición y polimorfismo», «El ejercicio 2» y «Errores de las hojas». La sintaxis de <code>extends</code>, <code>super</code>, <code>ArrayList</code> y el <code>for</code> que recorre una lista sale del trabajo final de alumnos de 2020, que muestra esa misma página.</p><p class="bloque-fuente">Quedó en duda: El Drive no trae resoluciones de estas hojas ni teoría de la cátedra, así que esta es una forma posible. En qué clase va cada relación «queda librado a su elección», y los métodos intermedios tienen nombres propuestos acá. Para <code>horas</code>, el texto de la hoja dice «utilizar tipo double» y la nota del diagrama dice «usar int». Acá va <code>Duration</code>, como el diagrama. Con <code>double</code>, el atributo reemplaza a <code>getHorasComoNumero()</code>. «Entre 2 fechas» se tomó con las dos incluidas, y «hace 1 mes» como <code>minusMonths(1)</code>. El diagrama dice <code>Limpieza</code> * a 1:1 <code>Empleado</code>, y se leyó como un empleado por limpieza.</p><div class="em-votos" data-m="lenguaje-de-programacion-java" data-e="parcial-2026" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Diagrama a código" data-enlace="parcial.html#leer-el-diagrama-de-clases" data-donde="Parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Diagrama a código</span><span class="ex-t-teoria"><a href="parcial.html#leer-el-diagrama-de-clases">Leer el diagrama de clases</a>, en Parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Herencia y polimorfismo" data-enlace="parcial.html#herencia-redefinicion-y-polimorfismo" data-donde="Parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Herencia y polimorfismo</span><span class="ex-t-teoria"><a href="parcial.html#herencia-redefinicion-y-polimorfismo">Herencia, redefinición y polimorfismo</a>, en Parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="LocalDate y Duration" data-enlace="parcial.html" data-donde="Parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">LocalDate y Duration</span><span class="ex-t-teoria"><a href="parcial.html">Parcial</a></span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Colecciones" data-enlace="parcial.html#el-ejercicio-2" data-donde="Parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">Colecciones</span><span class="ex-t-teoria"><a href="parcial.html#el-ejercicio-2">El ejercicio 2</a>, en Parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><span></span><a href="ej-recu-2025.html">Siguiente: Recuperatorio 2025</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026 y un trabajo final de alumnos de 2020). En el Drive no hay programa ni apunte de la cátedra. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

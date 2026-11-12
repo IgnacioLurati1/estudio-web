@@ -1,0 +1,435 @@
+/* Entry page: the study plan as a map drawn on the notebook, one column per year.
+   The only bold thing is the map lighting up. Pink keeps its meaning: watch out. */
+.carrera .barra { justify-content: space-between; }
+.c-acciones { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .5rem; }
+.c-hoja { max-width: 92rem; margin: 0 auto; padding: clamp(1.6rem, 4vw, 3.4rem) clamp(.9rem, 2.5vw, 1.8rem) 2.5rem; }
+.c-hoja h1 { font: 800 clamp(2.4rem, 6.5vw, 5rem)/.98 var(--sans); letter-spacing: -.025em; margin: 0 0 1.4rem; color: var(--titulo); text-wrap: balance; }
+.c-hoja .bajada { max-width: 60ch; margin: 0 0 1.6rem; font-size: 1.12rem; color: var(--tinta-suave); }
+
+.c-herr { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-bottom: 1rem; }
+.c-herr input { flex: 1 1 16rem; max-width: 24rem; font: 400 1rem var(--sans); padding: .55rem .8rem; border-radius: 6px; color: var(--tinta); background: var(--lapiz); border: 1.5px solid var(--borde-control); }
+.c-cuenta { margin: 0 0 0 .3rem; font: 600 .98rem/1.3 var(--mano); color: var(--tinta); }
+.c-cuenta[hidden] { display: none; }
+.c-ayuda { max-width: 62ch; margin: 0 0 1rem; font: 400 .95rem/1.5 var(--sans); color: var(--tinta-suave); }
+.marcando #cMarcar { background: var(--birome); color: var(--papel); border-color: var(--birome); }
+
+.c-plano { position: relative; margin-top: 1.8rem; }
+.c-lineas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: visible; }
+.c-lineas path { fill: none; stroke: var(--tinta); stroke-width: 1.75; }
+.c-lineas path.habilita { stroke-dasharray: 2 6; stroke-linecap: round; }
+.c-lineas circle { fill: var(--tinta); }
+
+.c-anios { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr)); gap: 2.2rem clamp(1.2rem, 3vw, 2.6rem); }
+.c-anio { position: relative; z-index: 1; min-width: 0; }
+.c-anio[hidden] { display: none; }
+.c-anio h2 { display: flex; align-items: baseline; gap: .4rem; margin: 0 0 .8rem; font: 700 1.05rem/1 var(--sans); color: var(--tinta-suave); }
+.c-num { font: 800 2.5rem/.9 var(--sans); letter-spacing: -.03em; color: var(--titulo); }
+.c-electivas { margin-top: 3rem; }
+.c-electivas h2 { font: 800 1.9rem/1 var(--sans); letter-spacing: -.02em; color: var(--titulo); }
+.c-electivas .c-lista { grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr)); }
+
+.c-lista { display: grid; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+.c-fila { position: relative; display: flex; flex-wrap: wrap; align-items: flex-start; gap: .5rem; padding: .6rem .7rem; background: var(--papel); border: 1.5px solid var(--borde); border-radius: 5px; transition: opacity .12s ease, background-color .12s ease, border-color .12s ease, filter .18s ease; }
+.c-fila[hidden] { display: none; }
+.c-cuerpo { flex: 1 1 8rem; min-width: 0; }
+.c-nom { display: block; font: 600 1rem/1.25 var(--sans); color: var(--tinta); text-decoration: none; overflow-wrap: anywhere; }
+a.c-nom::before { content: ''; position: absolute; inset: 0; border-radius: 4px; }
+a.c-nom:focus-visible { outline: none; }
+a.c-nom:focus-visible::before { outline: 2.5px solid var(--tinta); outline-offset: 2px; }
+.c-sin { color: var(--tinta-suave); }
+.c-marcas { display: flex; flex-wrap: wrap; gap: .1rem .6rem; }
+.c-marcas:empty { display: none; }
+.c-marca { display: inline-block; margin-top: .25rem; font: 600 .82rem/1.25 var(--mano); color: var(--tinta-suave); }
+.c-marca[hidden] { display: none; }
+.c-nivel[data-nivel='fuerte'] { color: var(--bien); }
+.c-nivel[data-nivel='debil'] { color: var(--mal); }
+.c-rapida { color: var(--mal); }
+.c-puede { color: var(--bien); }
+.c-pide { margin: .25rem 0 0; font: 400 .84rem/1.4 var(--sans); color: var(--tinta-suave); }
+
+.c-estado { display: none; position: relative; z-index: 2; }
+.marcando .c-estado { display: block; flex: 1 0 100%; }
+.c-estado select { width: 100%; font: 500 1rem var(--sans); padding: .3rem .35rem; border-radius: 6px; color: var(--tinta); background: var(--lapiz); border: 1.5px solid var(--borde-control); }
+/* Passed in green and regular in yellow, also in the colour-blind modes (they change --bien and --resaltador). */
+.c-fila[data-estado='a'] { border-color: var(--bien); background: color-mix(in srgb, var(--bien) 14%, var(--papel)); }
+.c-fila[data-estado='a'] .c-nom::after { content: ' (aprobada)'; font-weight: 400; font-size: .85rem; color: var(--tinta-suave); }
+.c-fila[data-estado='c'] { border-color: var(--resaltador-borde); background: color-mix(in srgb, var(--resaltador) 22%, var(--papel)); }
+.c-fila[data-estado='c'] .c-nom::after { content: ' (regular)'; font-weight: 400; font-size: .85rem; color: var(--tinta-suave); }
+.c-sysacad .b-texto { padding: 0; font: inherit; color: var(--tinta); text-decoration: underline; text-underline-offset: 3px; background: none; border: 0; cursor: pointer; }
+.c-sysacad[hidden], #cOcultar[hidden] { display: none; }
+.c-cuenta:focus { outline: none; }
+
+.c-ficha { display: none; }
+
+.c-leyenda { max-width: 62rem; margin-top: 3.4rem; padding-top: 1.4rem; border-top: 1.5px solid var(--borde); }
+.c-leyenda h2 { margin: 0 0 .4rem; font: 800 1.5rem/1.1 var(--sans); letter-spacing: -.015em; color: var(--titulo); }
+.c-leyenda > p { max-width: 60ch; margin: 0 0 1rem; font: 400 .98rem/1.5 var(--sans); color: var(--tinta-suave); }
+.c-leyenda dl { display: grid; gap: .45rem; margin: 0; }
+.c-leyenda dl > div { display: grid; grid-template-columns: 8rem 1fr; gap: .8rem; align-items: baseline; }
+.c-leyenda dt .c-marca { margin: 0; font-size: .95rem; }
+.c-leyenda dd { margin: 0; font: 400 .98rem/1.45 var(--sans); color: var(--tinta); }
+@media (max-width: 520px) {
+  .c-leyenda dl > div { grid-template-columns: 1fr; gap: 0; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .c-fila:has(a.c-nom):hover { border-color: var(--tinta); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .c-fila:has(a.c-nom:active) { transform: scale(.985); }
+}
+
+/* Wide screens: five columns, and the map responds to whatever is pointed at. */
+@media (min-width: 1100px) {
+  .c-anios { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 clamp(1.8rem, 3vw, 3rem); }
+  .c-anios .c-lista { gap: .6rem; }
+  .c-cabeza { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); align-items: end; }
+  .c-cabeza h1 { margin: 0; }
+  .c-cabeza .c-herr { margin-bottom: 0; }
+}
+
+/* A pointer is needed for the map to respond: without one each tile keeps its text. */
+@media (min-width: 1100px) and (hover: hover) {
+  .c-pide { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  /* Dims the text and not the whole tile, so the lines keep passing behind it. */
+  .c-cuerpo { transition: opacity .12s ease; }
+  .c-plano.viendo .c-fila:not(.es-actual, [data-rol]) .c-cuerpo { opacity: .32; }
+  .c-plano.viendo .c-fila:not(.es-actual, [data-rol]) { border-color: color-mix(in srgb, var(--borde) 45%, transparent); }
+  .c-fila.es-actual { background: var(--tinta); border-color: var(--tinta); }
+  .c-fila.es-actual .c-nom { color: var(--papel); }
+  .c-fila.es-actual .c-marca, .c-fila.es-actual .c-nom::after { color: inherit; }
+  html:has(.c-ficha) { scroll-padding-bottom: 6rem; }
+  .c-fila[data-rol] { border-color: var(--tinta); }
+  .c-fila[data-rol='Habilita'] { border-style: dashed; }
+  /* Sits on the border, so a tile never changes size while the pointer moves. */
+  .c-fila[data-rol]::after { content: attr(data-rol); position: absolute; top: -.72em; right: .55rem; padding: 0 .35rem; font: 600 .8rem/1.2 var(--mano); color: var(--tinta); background: var(--papel); }
+
+  .c-ficha { display: block; position: sticky; bottom: .9rem; z-index: 3; margin-top: 1.4rem; padding: .7rem 1rem; min-height: 3.1rem; background: var(--lapiz); border: 1.5px solid var(--borde-control); border-radius: 6px; }
+  .c-ficha p { margin: 0; font: 400 .95rem/1.4 var(--sans); color: var(--tinta); }
+  .c-ficha p + p { margin-top: .15rem; }
+  .c-ficha b { font-weight: 650; }
+  .c-ficha .c-ficha-ayuda { font: 600 1rem/1.5 var(--mano); color: var(--tinta-suave); }
+  .c-ficha-nom { font-weight: 700 !important; }
+}
+
+/* Links to the general pages, and those pages. */
+.c-secciones { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 1.5rem 0 0; font: 600 1rem/1.4 var(--sans); }
+.c-secciones a, .s-otras a { color: var(--tinta); text-underline-offset: .2em; }
+.s-hoja { max-width: 60rem; }
+.s-hoja h1 { font-size: clamp(2.2rem, 5.5vw, 3.8rem); }
+.s-hoja h2 { margin: 0 0 .6rem; font: 700 1.3rem/1.2 var(--sans); color: var(--titulo); }
+.s-hoja h3 { margin: 0 0 .5rem; font: 700 1.05rem/1.2 var(--sans); color: var(--titulo); }
+.s-hoja .s-grande { margin: 2.6rem 0 1rem; font: 800 1.9rem/1 var(--sans); letter-spacing: -.02em; }
+.s-bloque { margin: 0 0 1.9rem; }
+.s-bloque[hidden] { display: none; }
+.s-bloque p { max-width: 64ch; margin: 0 0 .7rem; font: 400 1.02rem/1.55 var(--serif); color: var(--tinta); }
+.s-tabla { overflow-x: auto; }
+.s-tabla table { width: 100%; border-collapse: collapse; font: 400 .98rem/1.35 var(--sans); }
+.s-tabla th { padding: .4rem .6rem .4rem 0; text-align: left; font-weight: 700; color: var(--tinta); border-bottom: 1.5px solid var(--linea); white-space: nowrap; }
+.s-tabla td { padding: .5rem .8rem .5rem 0; color: var(--tinta); border-bottom: 1px solid var(--borde); vertical-align: top; }
+.s-tabla tr[hidden] { display: none; }
+.s-tabla tr:target { background: var(--cuadro); }
+.s-tabla a { color: var(--tinta); }
+.s-tabla td:nth-child(n) { overflow-wrap: anywhere; }
+.s-nada { color: var(--tinta-suave); }
+.s-nota { display: block; margin-top: .15rem; font: 400 .85rem/1.35 var(--sans); color: var(--tinta-suave); }
+.s-fuente { max-width: 62ch; margin: 1.6rem 0 0; font: 400 .92rem/1.5 var(--sans); color: var(--tinta-suave); }
+.s-fuente a { color: inherit; }
+.s-otras { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; max-width: 60rem; margin: 0 auto 1.4rem; padding: 1.2rem clamp(.9rem, 2.5vw, 1.8rem) 0; font: 500 .95rem/1.4 var(--sans); border-top: 1.5px solid var(--borde); }
+.seccion .pie { max-width: 60rem; }
+.s-cierre { max-width: 34ch; margin: 3rem 0 1.5rem; font: 600 clamp(1.3rem, 3vw, 1.7rem)/1.35 var(--mano); color: var(--tinta); }
+.c-secciones a, .s-otras a { display: inline-block; padding-block: .2rem; }
+.carrera a, .carrera button, .carrera select { touch-action: manipulation; }
+.s-mail { padding: .15rem 0; font: inherit; color: var(--tinta); text-decoration: underline; text-underline-offset: .2em; background: none; border: 0; cursor: pointer; }
+.s-num { display: inline-block; padding: .15rem .3rem; margin-inline: -.3rem; text-underline-offset: .2em; }
+.s-tabla:focus-visible { outline: 2.5px solid var(--tinta); outline-offset: 2px; }
+.s-datos { max-width: 64ch; margin: 0; padding-left: 1.2rem; font: 400 1.02rem/1.55 var(--serif); }
+.s-datos li { margin-bottom: .4rem; }
+.s-datos b { font-family: var(--sans); font-weight: 650; }
+.c-acciones .em-falla { flex: 1 0 100%; text-align: right; }
+/* One search box for subjects and topics. The results float over the page, so nothing stacks below it. */
+.c-cabeza .c-herr, .c-herr:has(.c-buscador) { position: relative; }
+.c-buscador { flex: 1 1 16rem; max-width: 24rem; min-width: 0; }
+.c-buscador input { display: block; width: 100%; max-width: none; }
+.c-resultados { position: absolute; left: 0; right: 0; z-index: 30; width: auto; margin-top: .3rem; max-height: min(70vh, 34rem); overflow: auto; }
+.c-resultados a, .c-resultados strong, .c-resultados small { font-family: var(--sans); }
+.c-resultados small { display: block; }
+.res-grupo + .res-grupo { margin-top: .3rem; padding-top: .3rem; border-top: 1px solid var(--borde); }
+.res-materia { margin: 0; padding: .35rem .6rem .15rem; font: 700 .9rem/1.3 var(--sans); color: var(--tinta); }
+@media (max-width: 30rem) {
+  .c-acciones .em-largo { display: none; }
+  .c-acciones .em-corto { display: inline; }
+}
+.c-votos { color: var(--tinta); font-variant-numeric: lining-nums; }
+.c-fila.es-actual .c-votos { color: var(--papel); }
+
+/* The bank: a ruled list, the same as the exam lists. */
+.s-hoja.ba-ancho { max-width: 68rem; }
+.ba-filtros { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .7rem 1rem; margin: 0 0 .8rem; }
+.ba-campo { display: flex; flex-direction: column; gap: .2rem; flex: 1 1 14rem; min-width: 0; margin: 0 0 .8rem; font-family: var(--sans); }
+.ba-filtros .ba-campo { margin: 0; max-width: 24rem; }
+.ba-campo > label:not(.ba-casilla) { font: 600 .95rem/1.3 var(--sans); color: var(--tinta); }
+.ba-campo select, .ba-campo input[type='text'], .ba-campo input[type='file'], .ba-form-com select, .ba-form-com textarea, .ba-form-chico select, .ba-form-chico input { width: 100%; padding: .48rem .6rem; font: 400 1rem var(--sans); color: var(--tinta); background: var(--lapiz); border: 1.5px solid var(--borde-control); border-radius: 6px; }
+.ba-campo [aria-invalid='true'] { border-color: var(--mal); }
+.ba-ir { display: inline-block; text-decoration: none; }
+.b-pri.ba-bajar { display: inline-block; text-align: center; text-decoration: none; }
+.ba-cuenta { margin: 0 0 .4rem; font: 400 .9rem var(--sans); color: var(--tinta-suave); }
+.ba-cuenta:empty { display: none; }
+.ba-falla { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin: 0 0 1rem; padding: .6rem .8rem; font: 400 .98rem/1.45 var(--sans); border-left: 4px solid var(--rosa-borde); background: var(--ojo-fondo); }
+.ba-falla p { flex: 1 1 18rem; margin: 0; }
+.ba-lista { list-style: none; margin: 0 0 1.4rem; padding: 0; border-top: 1.5px solid var(--linea); }
+.ba-lista:empty { border-top: 0; margin: 0; }
+.ba-lista[aria-busy='true'] > :not(.ba-esq), .co-lista[aria-busy='true'] > :not(.ba-esq) { opacity: .6; }
+/* Skeleton of a summary, an advice or a comment: the same sheet with each part in grey (the .esq of utn.css). */
+.ba-esq-enlace { display: inline-block; padding-block: .25rem; font: 500 .94rem var(--sans); }
+.ba-esq .ba-prom > .esq { height: .72em; }
+.ba-esq .ba-etiquetas > .esq { height: auto; border-color: transparent; }
+.ba-esq .co-sirvio li { list-style: none; }
+.ba-casilla > .esq:first-child { flex: none; width: 1.15rem; height: 1.15rem; margin-top: .15rem; border-radius: 3px; }
+.ba-esq-marco { height: min(75vh, 48rem); }
+.ba-esq .esq-angosto { display: none; }
+@media (max-width: 46rem) { .ba-esq .esq-angosto { display: inline-block; } }
+.ba-item { display: grid; grid-template-columns: minmax(0, 1fr) 13rem; grid-template-rows: auto auto 1fr; gap: .3rem 1.4rem; padding: .85rem .1rem; border-bottom: 1px solid var(--borde); font-family: var(--sans); }
+.ba-texto { min-width: 0; }
+.s-hoja .ba-titulo { margin: 0 0 .15rem; font: 650 1.1rem/1.25 var(--sans); color: var(--titulo); overflow-wrap: anywhere; }
+.ba-meta { margin: 0 0 .1rem; font: 400 .92rem/1.45 var(--sans); color: var(--tinta-suave); overflow-wrap: anywhere; }
+.ba-acciones { grid-column: 2; grid-row: 1 / -1; display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; }
+.ba-bajar { min-width: 7rem; }
+.ba-comentarios { grid-column: 1; }
+.ba-aviso-bajar { max-width: 13rem; margin: 0; font: 400 .84rem/1.35 var(--sans); color: var(--tinta-suave); }
+.ba-ayuda { font: 400 .88rem/1.4 var(--sans); color: var(--tinta-suave); }
+.ba-origen { margin: 0 0 .8rem; padding: 0; border: 0; font-family: var(--sans); }
+.ba-origen legend { padding: 0; margin-bottom: .2rem; font: 600 .95rem/1.3 var(--sans); color: var(--tinta); }
+.ba-campo input[type='url'], .ba-form-chico input[type='url'] { width: 100%; padding: .48rem .6rem; font: 400 1rem var(--sans); color: var(--tinta); background: var(--lapiz); border: 1.5px solid var(--borde-control); border-radius: 6px; }
+.ba-lector { grid-column: 1; display: grid; gap: .4rem; justify-items: start; margin: .3rem 0 .4rem; }
+.ba-lector iframe { display: block; width: 100%; height: min(75vh, 48rem); background: #fff; border: 1.5px solid var(--borde-control); border-radius: 4px; }
+.ba-previa { display: grid; gap: .4rem; margin-top: .6rem; }
+.ba-previa[hidden] { display: none; }
+.ba-previa .ba-ayuda { margin: 0; }
+.ba-previa iframe { display: block; width: 100%; height: min(60vh, 34rem); background: #fff; border: 1.5px solid var(--borde-control); border-radius: 4px; }
+.ba-lector-botones { display: flex; flex-wrap: wrap; gap: .4rem; }
+/* Full screen (botonCompleta in banco.js): the box fills the screen and the page or the text takes all the room
+   left by the buttons. .ba-completa is the same over the window, where the browser has no full screen. */
+.ba-lector:fullscreen, .ba-previa:fullscreen, .ba-vista:fullscreen, .ba-completa { display: flex; flex-direction: column; align-items: stretch; gap: .5rem; margin: 0; padding: .75rem; background: var(--papel); overflow: auto; animation: none; }
+.ba-completa { position: fixed; inset: 0; z-index: 1000; }
+body:has(.ba-completa) { overflow: hidden; }
+.ba-lector:fullscreen iframe, .ba-previa:fullscreen iframe, .ba-completa iframe { flex: 1 1 auto; height: auto; min-height: 0; }
+.ba-vista:fullscreen .ba-vista-hoja, .ba-vista.ba-completa .ba-vista-hoja { flex: 1 0 auto; max-width: 52rem; margin: 0 auto; }
+.ba-vista:fullscreen .ba-vista-texto, .ba-vista.ba-completa .ba-vista-texto { font-size: 1.12rem; }
+.ba-vista:fullscreen > :not(.ba-vista-hoja), .ba-vista.ba-completa > :not(.ba-vista-hoja) { width: 100%; max-width: 52rem; margin: 0 auto; }
+.ba-previa:fullscreen .ba-ayuda, .ba-previa.ba-completa .ba-ayuda { flex: none; }
+.ba-mas summary { display: inline-block; padding-block: .25rem; font: 500 .94rem var(--sans); color: var(--tinta); text-decoration: underline; text-underline-offset: .2em; cursor: pointer; }
+.ba-form-chico, .ba-form-com { display: grid; gap: .3rem; max-width: 26rem; margin: .3rem 0 .5rem; font: 400 .94rem/1.35 var(--sans); }
+.ba-form-chico label, .ba-form-com label { font-weight: 600; }
+.ba-form-chico button, .ba-form-com button { justify-self: start; margin-top: .25rem; }
+.ba-form-com { max-width: 40rem; }
+.ba-form-com textarea { resize: vertical; }
+.ba-com-lista { list-style: none; margin: .3rem 0 .7rem; padding: 0; max-width: 46rem; }
+.ba-com-lista:empty { display: none; }
+.ba-com { padding: .5rem 0 .5rem .7rem; border-left: 3px solid var(--borde); margin-bottom: .45rem; }
+.ba-com[data-tipo='propuesta'] { border-left: 3px dashed var(--linea); }
+.ba-com-cab { margin: 0; font: 400 .88rem/1.35 var(--sans); color: var(--tinta-suave); }
+.ba-com-cab b { font-weight: 650; color: var(--tinta); }
+.ba-com-texto { margin: .15rem 0 .25rem; font: 400 1rem/1.45 var(--sans); color: var(--tinta); white-space: pre-wrap; overflow-wrap: anywhere; }
+.ba-com-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .7rem; }
+.ba-resuelta { font: 600 .88rem var(--mano); color: var(--bien); }
+.s-bloque.ba-subir { max-width: 44rem; margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1.5px solid var(--borde); scroll-margin-top: 4.5rem; }
+.ba-doble { display: flex; flex-wrap: wrap; gap: 0 1rem; }
+.ba-casilla { display: flex; align-items: flex-start; gap: .5rem; padding-block: .2rem; font: 400 1rem/1.4 var(--sans); color: var(--tinta); cursor: pointer; }
+.ba-casilla input { flex: none; width: 1.15rem; height: 1.15rem; margin: .15rem 0 0; accent-color: var(--birome); }
+.ba-error { margin: .15rem 0 0 !important; font: 400 .9rem/1.35 var(--sans) !important; color: var(--mal) !important; }
+.s-bloque .ba-salida { margin-top: .7rem; font: 600 1rem/1.4 var(--sans); }
+@media (max-width: 40rem) {
+  .ba-item { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .ba-acciones { grid-column: auto; grid-row: auto; }
+  .ba-filtros .ba-campo { max-width: none; flex-basis: 100%; }
+  .ba-ir { flex: 1 1 100%; text-align: center; }
+}
+
+/* Bank and advice, second pass: each summary is a sheet with its score big on the left. */
+.ba-cabeza { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: .8rem 2rem; margin: 0 0 1.6rem; }
+.ba-cabeza .bajada { margin: 0; }
+.ba-cabeza .ba-ir { flex: none; padding: .6rem 1.1rem; font-size: 1rem; }
+.ba-filtros { align-items: flex-end; gap: .8rem 1.6rem; margin-bottom: 1rem; }
+.ba-rotulo { font: 600 .95rem/1.3 var(--sans); color: var(--tinta); }
+.ba-chips-campo { flex: 2 1 22rem; max-width: none !important; }
+.ba-chips { display: flex; flex-wrap: wrap; gap: .35rem; }
+.ba-chip { padding: .42rem .85rem; font: 600 .92rem var(--sans); color: var(--tinta); background: transparent; border: 1.5px solid var(--borde-control); border-radius: 999px; cursor: pointer; transition: background-color .12s ease, color .12s ease, transform .1s ease; }
+.ba-chip[aria-pressed='true'] { color: var(--papel); background: var(--birome); border-color: var(--birome); }
+.ba-chip:active { transform: scale(.97); }
+@media (hover: hover) and (pointer: fine) { .ba-chip[aria-pressed='false']:hover { background: var(--cuadro); } }
+.ba-lista, .co-lista { display: grid; gap: .9rem; margin: 0 0 1.6rem; padding: 0; list-style: none; border-top: 0; }
+.ba-item, .co-item { position: relative; display: grid; grid-template-columns: 5rem minmax(0, 1fr) 12.5rem; gap: .2rem 1.3rem; padding: 1.15rem 1.3rem 1rem 1.1rem; background: var(--hoja); border: 1.5px solid var(--borde-hoja); border-radius: 4px; box-shadow: var(--sombra-hoja); font-family: var(--sans); }
+.co-item { grid-template-columns: 5rem minmax(0, 1fr); }
+.ba-item::after { content: ''; position: absolute; top: -1.5px; right: -1.5px; width: 1.5rem; height: 1.5rem; background: linear-gradient(225deg, var(--papel) 50%, var(--borde-control) 50%); border-bottom-left-radius: 4px; opacity: .8; }
+.ba-nota { grid-column: 1; grid-row: 1 / span 2; display: flex; flex-direction: column; align-items: flex-start; gap: .1rem; }
+.ba-prom { font: 800 2.7rem/1 var(--sans); letter-spacing: -.035em; color: var(--titulo); }
+.ba-votos { font: 400 .85rem var(--sans); color: var(--tinta-suave); }
+.ba-primero { margin-top: .5rem; font: 600 .86rem/1.75 var(--mano); color: var(--tinta); transform: rotate(-4deg); text-decoration: underline wavy var(--rosa-borde) 1.5px; text-underline-offset: .18em; }
+/* A summary's like, where an advice has its score: an outlined heart, filled and pink once it is yours. */
+.ba-gusto { grid-column: 1; grid-row: 1 / span 2; display: flex; flex-direction: column; align-items: flex-start; }
+.ba-gusta { display: inline-flex; flex-direction: column; align-items: center; gap: .2rem; min-width: 3.5rem; padding: .5rem .55rem .45rem; font: 800 1.45rem/1 var(--sans); letter-spacing: -.02em; color: var(--titulo); background: transparent; border: 1.5px solid var(--borde-control); border-radius: 12px; cursor: pointer; transition: transform .12s ease-out, background-color .14s ease, border-color .14s ease; }
+.ba-gusta svg { width: 1.45rem; height: 1.45rem; fill: none; stroke: var(--tinta-suave); stroke-width: 1.8; stroke-linejoin: round; transition: fill .14s ease, stroke .14s ease; }
+.ba-gusta[aria-pressed='true'] { background: color-mix(in srgb, var(--rosa) 30%, transparent); border-color: var(--rosa-borde); }
+.ba-gusta[aria-pressed='true'] svg { fill: var(--rosa-borde); stroke: var(--rosa-borde); }
+.ba-gusta:active { transform: scale(.97); }
+@media (hover: hover) and (pointer: fine) {
+  .ba-gusta[aria-pressed='false']:hover { background: var(--cuadro); }
+  .ba-gusta[aria-pressed='false']:hover svg { stroke: var(--rosa-borde); }
+}
+.ba-esq .ba-gusta { border-color: var(--borde); }
+.ba-esq .ba-gusta > .esq-redondo { --alto: 1.45rem; }
+.ba-texto, .co-cuerpo { grid-column: 2; min-width: 0; }
+.ba-etiquetas { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 .45rem; }
+.ba-etiquetas span { padding: .1rem .55rem; font: 600 .8rem/1.5 var(--sans); color: var(--tinta-suave); border: 1px solid var(--borde-control); border-radius: 999px; }
+.ba-etiquetas .ba-formato { color: var(--papel); background: var(--tinta); border-color: var(--tinta); }
+.ba-etiquetas .ba-reco { font-family: var(--mano); font-weight: 400; color: var(--tinta); border-style: dashed; }
+.s-hoja .ba-titulo { font-size: 1.22rem; }
+.ba-acciones { grid-column: 3; grid-row: 1 / span 2; }
+.ba-pie { grid-column: 2 / -1; display: flex; flex-wrap: wrap; align-items: flex-start; gap: .3rem 1.4rem; margin-top: .55rem; padding-top: .55rem; border-top: 1px dashed var(--borde); }
+.ba-pie > details[open] { flex-basis: 100%; }
+.ba-lector { grid-column: 2 / -1; }
+.ba-form-chico select { min-width: min(100%, 17rem); }
+.pr-denuncia select { min-width: min(100%, 17rem); }
+.co-texto { margin: 0 0 .5rem; font: 400 1.12rem/1.55 var(--serif); color: var(--tinta); white-space: pre-wrap; overflow-wrap: anywhere; }
+.co-sirvio { margin: .5rem 0 .3rem; padding: .5rem .8rem; border-left: 3px solid var(--linea); }
+.co-sirvio-t, .co-grupo-t { margin: 0 0 .2rem; font: 600 .9rem var(--sans); color: var(--tinta); }
+.co-sirvio ul { margin: 0; padding-left: 1.1rem; font: 400 .98rem/1.5 var(--sans); }
+.co-escribir { max-width: 46rem; margin-top: 2.2rem; padding-top: 1.2rem; border-top: 1.5px solid var(--borde); }
+.co-escribir h2 { margin: 0 0 .4rem; font: 750 1.5rem/1.2 var(--sans); color: var(--titulo); }
+.co-marcar { margin: 0 0 1rem; padding: 0; border: 0; font-family: var(--sans); }
+.co-marcar legend { padding: 0; font: 600 .95rem/1.3 var(--sans); color: var(--tinta); }
+.co-grupo { margin: .5rem 0 .6rem; }
+.ba-casilla:has(input:disabled) { opacity: .55; cursor: default; }
+.su-marco { display: grid; grid-template-columns: minmax(0, 40rem) minmax(15rem, 21rem); gap: 1.5rem 3rem; align-items: start; }
+.su-marco[hidden] { display: none; }
+.su-lado { padding: 1rem 1.2rem; font: 400 .98rem/1.5 var(--sans); background: var(--hoja); border-left: 3px solid var(--linea); box-shadow: var(--sombra-hoja); }
+.su-lado h2 { margin: 0 0 .3rem; font: 700 1.08rem/1.3 var(--sans); color: var(--titulo); }
+.su-lado h2 + ul { margin-top: 0; }
+.su-lado ul { margin: 0 0 1rem; padding-left: 1.1rem; }
+.su-volver { margin-top: 2rem; font-family: var(--sans); }
+@media (max-width: 52rem) {
+  .su-marco { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 46rem) {
+  .ba-item, .co-item { grid-template-columns: 3.6rem minmax(0, 1fr); padding: 1rem .9rem .9rem; gap: .2rem .9rem; }
+  .ba-prom { font-size: 2rem; }
+  .ba-gusta { min-width: 3.3rem; padding-inline: .4rem; font-size: 1.25rem; }
+  .ba-primero { font-size: .8rem; }
+  .ba-acciones { grid-column: 1 / -1; grid-row: auto; flex-direction: row; flex-wrap: wrap; align-items: center; margin-top: .4rem; }
+  .ba-aviso-bajar { max-width: none; flex: 1 1 12rem; }
+  .ba-pie, .ba-lector { grid-column: 1 / -1; }
+  .ba-cabeza .ba-ir { flex: 1 1 100%; text-align: center; }
+  /* With big letters the score column would leave the text one word wide: the sheet goes in one column, score first. */
+  [data-texto='150'] :is(.ba-item, .co-item), [data-texto='175'] :is(.ba-item, .co-item) { grid-template-columns: minmax(0, 1fr); }
+  [data-texto='150'] :is(.ba-item, .co-item) > *, [data-texto='175'] :is(.ba-item, .co-item) > * { grid-column: 1; grid-row: auto; }
+  [data-texto='150'] .ba-nota, [data-texto='175'] .ba-nota { flex-direction: row; align-items: baseline; gap: .5rem; }
+}
+
+#coTexto { display: block; width: min(100%, 46rem); padding: .48rem .6rem; font: 400 1rem/1.45 var(--sans); color: var(--tinta); background: var(--lapiz); border: 1.5px solid var(--borde-control); border-radius: 6px; resize: vertical; }
+
+/* Bank preview (banco.js, botonVista): the start of a Word or a PowerPoint as plain text, on a sheet of its own that
+   fades at the end when there is more. It fades in for 160 ms, and the skeleton before it has its own. */
+.ba-vista { grid-column: 2 / -1; display: grid; gap: .45rem; justify-items: start; margin: .5rem 0 .2rem; }
+.ba-vista:not([aria-busy]) { animation: ba-vista-entrar .16s ease-out; }
+.ba-vista-hoja { position: relative; width: 100%; max-width: 44rem; padding: .85rem 1.1rem; background: var(--lapiz); border: 1.5px solid var(--borde-control); border-radius: 4px; }
+.ba-vista-texto { margin: 0; font: 400 1rem/1.6 var(--serif); color: var(--tinta); white-space: pre-wrap; overflow-wrap: anywhere; }
+.ba-vista-hoja[data-cortado]::after { content: ''; position: absolute; inset: auto 0 0; height: 4.8em; background: linear-gradient(to bottom, transparent, var(--lapiz) 88%); border-radius: 0 0 3px 3px; pointer-events: none; }
+.ba-vista-vacia { margin: 0; font: 400 .95rem/1.45 var(--sans); color: var(--tinta-suave); }
+.ba-vista-nota { margin: 0; font: 400 .86rem/1.35 var(--sans); color: var(--tinta-suave); }
+.ba-vista .ba-vista-linea { display: block; height: .95em; margin: .65em 0; }
+@keyframes ba-vista-entrar { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .ba-vista:not([aria-busy]) { animation: none; } }
+@media (max-width: 46rem) {
+  .ba-vista { grid-column: 1 / -1; }
+  .ba-vista-hoja { padding: .75rem .85rem; }
+}
+
+/* Miniature sheet (banco.js, hojaDe): a page leaning beside the title with another one under it. On it, the photo of
+   the summary's first page (migration 015 of the service), full width from the top: a page longer than the sheet is
+   cut at the foot, a wider one leaves paper under it. The photo has its own size and goes over a cover with the title,
+   which is what shows while it arrives or when there is none, so nothing moves. The cover is laid out at a normal size
+   and scaled down whole, so no minimum font size of the browser breaks it; inside .ba-hoja-escala the sizes are those
+   of a page about 220 px wide. It never takes the pointer. */
+.ba-hoja { --escala: .39; position: relative; float: right; width: 6.2rem; height: 8.1rem; margin: .1rem -.1rem .3rem 1.1rem; transform: rotate(2.2deg); pointer-events: none; user-select: none; }
+.ba-hoja::before, .ba-hoja-cara { position: absolute; inset: 0; background: var(--lapiz); border: 1px solid var(--borde-hoja); border-radius: 2px; }
+.ba-hoja::before { content: ''; transform: rotate(-4.5deg) translate(-.2rem, .15rem); box-shadow: 0 1px 2px rgb(29 36 56 / 10%); }
+.ba-hoja-cara { overflow: hidden; box-shadow: 0 1px 2px rgb(29 36 56 / 12%), 0 6px 14px -8px rgb(29 36 56 / 40%); }
+.ba-hoja-pag { position: absolute; inset: .42rem .4rem 0; overflow: hidden; }
+.ba-esq .ba-hoja-pag { -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent); mask-image: linear-gradient(to bottom, #000 68%, transparent); }
+.ba-hoja-escala { width: calc(100% / var(--escala)); height: calc(100% / var(--escala)); transform: scale(var(--escala)); transform-origin: 0 0; }
+/* The cover: the instance on top, the title in the middle under a short line, the subject at the foot. */
+.ba-hoja[data-estado] .ba-hoja-pag { inset: .42rem .4rem; }
+.ba-hoja[data-estado] .ba-hoja-escala { display: flex; flex-direction: column; padding: 8px 6px 4px; }
+.ba-hoja-instancia, .ba-hoja-materia { margin: 0; font: 600 11px/1.3 var(--sans); color: var(--tinta-suave); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.ba-hoja-titulo { margin: auto 0; font: 700 19px/1.18 var(--serif); color: var(--titulo); overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 7; overflow: hidden; }
+.ba-hoja-titulo::before { content: ''; display: block; width: 46px; height: 3px; margin: 0 0 10px; background: var(--rosa-borde); }
+.ba-hoja-materia { white-space: normal; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.ba-hoja-pag > .esq { --alto: .2rem; margin-bottom: .32rem; border-radius: 1px; }
+.ba-hoja-blanco { display: block; height: .38rem; }
+/* The photo is of a white page: the sheet turns white under it, a bit dimmer at night. */
+.ba-hoja-foto { position: absolute; top: 0; left: 0; display: block; width: 100%; height: auto; opacity: 0; transition: opacity .2s ease-out; }
+.ba-hoja[data-estado='foto'] .ba-hoja-cara { background: #fff; }
+.ba-hoja[data-estado='foto'] .ba-hoja-pag { visibility: hidden; }
+.ba-hoja[data-estado='foto'] .ba-hoja-foto { opacity: 1; }
+[data-tema='noche'] .ba-hoja[data-estado='foto'] .ba-hoja-cara { filter: brightness(.86); }
+.ba-hoja[data-estado='foto'][data-foto='oscura'] .ba-hoja-cara { background: #161b20; filter: none; }
+@media (prefers-reduced-motion: reduce) { .ba-hoja-foto { transition: none; } }
+[data-tema='noche'] .ba-hoja-cara { box-shadow: 0 6px 14px -8px rgb(0 0 0 / 75%); }
+[data-contraste] .ba-hoja-cara, [data-contraste] .ba-hoja::before { border-color: var(--borde-control); box-shadow: none; }
+@media (forced-colors: active) { .ba-hoja-cara, .ba-hoja::before { border-color: CanvasText; } }
+@media print { .ba-hoja { display: none; } }
+@media (max-width: 46rem) {
+  .ba-hoja { --escala: .28; width: 4.3rem; height: 5.6rem; margin: .15rem 0 .45rem .8rem; }
+  .ba-hoja-pag { inset: .32rem .3rem 0; }
+  .ba-hoja[data-estado] .ba-hoja-pag { inset: .32rem .3rem; }
+  .ba-hoja-pag > .esq { --alto: .16rem; margin-bottom: .26rem; }
+}
+
+/* «¿Qué puedo cursar?» (carrera.js): what can be taken now glows in the colour of «Ya la podés cursar» and the rest
+   steps back. The glow breathes three times and stays lit; without motion it is lit and still from the start. Pointing
+   at a subject still wins. */
+.c-puedo-texto { max-width: 62ch; margin: 0 0 1rem; font: 600 1.02rem/1.45 var(--mano); color: var(--tinta); }
+.c-puedo-texto:empty { margin: 0; }
+.c-puedo-texto a { color: inherit; text-underline-offset: .2em; }
+#cPuedo[aria-pressed='true'] { color: var(--lapiz); background: var(--bien); border-color: var(--bien); }
+/* The rest steps back in grey ink and without colour, never with transparency, so its text keeps 4.5:1. */
+.c-plano.puedo:not(.viendo) .c-fila:not(.c-brilla) { border-color: color-mix(in srgb, var(--borde) 55%, transparent); filter: saturate(.3); }
+.c-plano.puedo:not(.viendo) .c-fila:not(.c-brilla) :is(.c-nom, .c-marca, .c-votos) { color: var(--tinta-suave); }
+.c-fila.c-brilla { border-color: var(--bien); box-shadow: 0 0 0 1.5px var(--bien), 0 0 18px -3px color-mix(in srgb, var(--bien) 60%, transparent); }
+.c-fila.c-brilla:not(.es-actual) { background: color-mix(in srgb, var(--bien) 12%, var(--papel)); }
+.c-fila.c-brilla::before { content: ''; position: absolute; inset: -5px; border-radius: 9px; box-shadow: 0 0 0 2px color-mix(in srgb, var(--bien) 55%, transparent), 0 0 24px 3px color-mix(in srgb, var(--bien) 45%, transparent); opacity: .75; pointer-events: none; animation: c-brillo 4.8s ease-in-out; }
+/* Three breaths in under 5 seconds (WCAG 2.2.2), ending where the light rests. */
+@keyframes c-brillo { 0%, 33.3%, 66.6% { opacity: 0; } 16.6%, 50%, 83.3% { opacity: 1; } 100% { opacity: .75; } }
+@media (prefers-reduced-motion: reduce) { .c-fila.c-brilla::before { animation: none; } }
+/* High contrast: a solid ring instead of a soft light. With forced colours, the system's own highlight. */
+[data-contraste] .c-fila.c-brilla { box-shadow: 0 0 0 3px var(--bien); }
+[data-contraste] .c-fila.c-brilla::before { display: none; }
+@media (forced-colors: active) { .c-fila.c-brilla { outline: 3px solid Highlight; outline-offset: 2px; } }
+@media print { .c-fila.c-brilla::before { display: none; } .c-plano.puedo .c-fila { filter: none !important; } #cPuedo, .c-puedo-texto { display: none; } }
+
+/* Sysacad Lindo, Privacidad and Agradecimientos have their own sheet, paginas.css. */
+
+/* Super CVG (banco.js, botonCvg): a quiet button under the main ones, with a dashed edge like a space to fill. Once
+   sent it turns solid, with a check. */
+.ba-cvg { display: grid; gap: .2rem; justify-items: start; margin-top: .3rem; }
+.ba-cvg > .esq-boton { min-height: 2rem; }
+.ba-cvg .es-estado { max-width: 12.5rem; margin: 0; font: 400 .84rem/1.35 var(--sans); }
+.ba-cvg-b { display: inline-flex; align-items: center; gap: .35rem; min-height: 2rem; padding: .24rem .65rem .24rem .5rem; font: 600 .84rem/1.2 var(--sans); color: var(--tinta-suave); background: transparent; border: 1.5px dashed var(--borde-control); border-radius: 6px; cursor: pointer; touch-action: manipulation; transition: transform .12s ease-out, background-color .14s ease, color .14s ease, border-color .14s ease; }
+.ba-cvg-b svg { flex: none; width: 1rem; height: 1rem; fill: none; stroke: currentcolor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.ba-cvg-b[aria-pressed='true'] { color: var(--bien); border-style: solid; border-color: currentcolor; }
+.ba-cvg-b:active { transform: scale(.97); }
+.ba-cvg-b[aria-disabled='true'] { cursor: progress; }
+.ba-cvg-b[aria-disabled='true']:active { transform: none; }
+@media (hover: hover) and (pointer: fine) {
+  .ba-cvg-b:not([aria-pressed='true'], [aria-disabled='true']):hover { color: var(--tinta); background: var(--cuadro); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ba-cvg-b { transition: none; }
+  .ba-cvg-b:active { transform: none; }
+}
+@media (max-width: 46rem) {
+  .ba-cvg { margin-top: 0; }
+  .ba-cvg .es-estado { max-width: none; }
+}

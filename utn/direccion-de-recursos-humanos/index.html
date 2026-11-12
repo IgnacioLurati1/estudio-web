@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Para entender: Dirección de Recursos Humanos</title>
+<meta name="description" content="De qué trata la materia, con qué material se armó este resumen y qué se evalúa.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/estrellas.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="direccion-de-recursos-humanos" data-pagina="inicio">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Dirección de Recursos Humanos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html" aria-current="page">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=direccion-de-recursos-humanos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=direccion-de-recursos-humanos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#rendir">Rendí un examen viejo</a></li><li class="n2"><a href="#la-idea-general">La idea general</a></li><li class="n2"><a href="#el-recorrido">El recorrido</a></li><li class="n2"><a href="#que-se-evalua-y-como">Qué se evalúa y cómo</a></li><li class="n2"><a href="#como-se-conecta">Cómo se conecta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Dirección de Recursos Humanos</h1>
+<p class="bajada">Cómo se dirige a las personas dentro de una empresa, y cómo la economía y la cultura de un país condicionan esa tarea.</p><p class="pdf-ir em-fuera"><a class="b-sec" href="pdf.html"><svg class="pdf-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M11 5h18l8 8v30H11z"/><path d="M29 5v8h8"/><path d="M24 19v15"/><path d="M18 28l6 6 6-6"/></svg>Descargar en PDF</a></p><div id="sinInternet" class="si em-fuera" hidden></div><div class="es-materia" data-estrellas-materia="direccion-de-recursos-humanos" hidden></div><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p>
+
+<div class="mapa">
+<a href="parcial-1.html"><strong>1° parcial</strong><span>Empresa, organizaciones, modelos económicos, globalización, grupos y poder.</span><small data-progreso="parcial-1">Quiz sin hacer</small></a>
+<a href="parcial-2.html"><strong>2° parcial</strong><span>Lo que se tomó en 2026, liderazgo, empoderamiento, delegación, conflicto y negociación.</span><small data-progreso="parcial-2">Quiz sin hacer</small></a>
+<a href="ejercicios.html"><strong>Ejercicios</strong><span>El único examen del Drive, sin resolución.</span></a>
+<a href="machete.html"><strong>Hoja de repaso</strong><span>Todo en una hoja, para imprimir antes de rendir.</span></a>
+</div>
+<div class="ojo"><p class="ojo-t">Este resumen tiene un agujero grande</p><p>En el Drive no hay apuntes de la cátedra ni programa. Hay un solo examen, el 2° parcial del 23/06/2026. La teoría sale de notas de clase y ensayos de alumnos de 2024.</p>
+<p>De las diez consignas de ese parcial, cinco son de temas que no aparecen en ningún archivo. Las otras cinco tienen apenas un tramo corto. La lista está en <a href="parcial-2.html#lo-que-el-drive-no-trae">Lo que el Drive no trae</a>. Esos temas los tenés que estudiar del material de tu cursada.</p>
+</div>
+
+<section class="sec ex-entrada"><h2 id="rendir">Rendí un examen viejo</h2>
+<p>Elegís uno real y lo hacés con reloj, sin ver la resolución. Al entregar te corregís y ves qué repasar.</p>
+<ul class="ex-ultimos"><li><a class="ex-ultimo" href="ej-p2-2026-06-23.html#rendir"><span class="vh">Rendir con reloj el </span><span class="ex-u-inst">2° parcial</span><span class="vh"> del </span><span class="ex-u-fecha">23/06/2026</span><svg class="ex-u-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg></a></li></ul>
+<p class="ex-otros"><a href="ejercicios.html">Elegir otro en Ejercicios</a></p></section><section class="sec"><h2 id="la-idea-general">La idea general</h2>
+<p>La materia parte de una pregunta simple. ¿Por qué una empresa trata a su gente de una forma y no de otra? La respuesta se arma en capas.</p>
+<p>El Estado adopta un modelo económico, y ese modelo condiciona las estrategias de RRHH posibles. La sociedad le aporta a la organización su cultura y sus valores. Recién dentro de ese marco, el empresario plantea una estrategia y las personas la llevan a cabo.</p>
+<p>Las notas lo resumen en una cadena, que explica por qué una materia de personas dedica tanto tiempo a la economía:</p>
+<pre class="codigo"><code>Modelo político  determina  Modelo económico  determina  Estrategia de RRHH</code></pre>
+</section>
+<section class="sec"><h2 id="el-recorrido">El recorrido</h2>
+<p>Las notas de 2024 siguen este orden. No tienen un título «Unidad 3», así que las unidades de abajo son las que se pueden leer ahí.</p>
+<ol>
+<li><strong>Unidad 1, los RRHH y el empresario.</strong> De la esclavitud a la ciencia organizacional, pasando por Taylor y Mayo. Qué es una empresa, qué es un empresario y qué es innovar.</li>
+<li><strong>Unidad 2, las organizaciones y su contexto.</strong> Estructuras, procesos, cultura y valores. Después, los modelos económicos: mercado libre, planificado, mixto, y los casos renano, anglosajón, nipón, hindú y argentino.</li>
+<li><strong>Globalización y siglo XXI.</strong> Orden mundial, producción global, talento y el nuevo rol de RRHH.</li>
+<li><strong>Unidad 4, las herramientas de gestión empresarial.</strong> Comportamiento organizacional, grupos, poder, liderazgo, empoderamiento, delegación y conflicto.</li>
+</ol>
+</section>
+<section class="sec"><h2 id="que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p><strong>Parciales.</strong> En el Drive está solo el 2° parcial de 2026. Tiene diez consignas cortas: cuatro de verdadero o falso, dos de mencionar, una de completar, una de opción múltiple, una de diferencias y una de justificar un caso. Sobre el 1° parcial no hay nada, y su <a href="parcial-1.html">reparto de temas</a> es una deducción.</p>
+<p><strong>Ensayos sobre lecturas.</strong> Las entregas de 2024 de una comisión son once ensayos cortos sobre lecturas, y desde mayo cierran con dos preguntas. Tratan de Taylor, Follett, Steve Jobs, el empresario, los modelos económicos, empowerment y negociación, entre otros temas.</p>
+<p><strong>Trabajo monográfico final (TMF).</strong> Es grupal. Las notas lo presentan como la investigación del comportamiento de las organizaciones. La consigna oficial no está en el Drive. Lo que sí se ve en las notas y en una entrega de 2024:</p>
+<ul>
+<li>Cada integrante escribe dos preguntas por lectura, y el grupo elige la mejor para un cuestionario.</li>
+<li>Ese cuestionario se le lleva a dos organizaciones reales, en una entrevista con un gerente.</li>
+<li>De cada organización, la entrega cuenta historia, misión, visión, valores, características de la empresa, del ramo y del equipo, y analiza las respuestas.</li>
+<li>Cierra comparando las dos, con similitudes y diferencias.</li>
+</ul>
+<p>Sobre el final no hay ningún examen ni mención en el Drive.</p>
+</section>
+<section class="sec"><h2 id="como-se-conecta">Cómo se conecta</h2>
+<ul>
+<li>Taylor y Mayo explican por qué hoy se habla de personas y no solo de producción. Esa discusión vuelve en <a href="parcial-1.html#comportamiento-organizacional">comportamiento organizacional</a> y en <a href="parcial-2.html#liderazgo">liderazgo</a>.</li>
+<li>El <a href="parcial-1.html#poder">poder</a> es la base para entender <a href="parcial-2.html#empoderamiento">empoderamiento</a> y <a href="parcial-2.html#delegacion">delegación</a>.</li>
+<li>Los <a href="parcial-1.html#modelos-economicos">modelos económicos</a> condicionan la estrategia de RRHH. Por ejemplo, las notas asocian el modelo neoliberal argentino de los 90 con la precarización laboral.</li>
+<li><a href="parcial-2.html#conflicto">Conflicto</a> y <a href="parcial-2.html#negociacion">negociación</a> van juntos. La negociación es una de las estrategias para resolver un conflicto.</li>
+</ul>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN: un parcial de 2026 y notas y ensayos de alumnos de 2024. No hay apuntes de la cátedra. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

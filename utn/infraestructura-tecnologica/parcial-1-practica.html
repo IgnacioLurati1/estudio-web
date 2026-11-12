@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>1° parcial, práctica: Infraestructura Tecnológica</title>
+<meta name="description" content="Linux desde cero: comandos, man, archivos, inodos, enlaces y permisos.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="infraestructura-tecnologica" data-pagina="parcial-1-practica">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Infraestructura Tecnológica</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1-teoria.html">1° parcial, teoría</a></li><li class="em-fuera"><a href="parcial-1-practica.html" aria-current="page">1° parcial, práctica</a></li><li class="em-fuera"><a href="parcial-2-teoria.html">2° parcial, teoría</a></li><li class="em-fuera"><a href="parcial-2-practica.html">2° parcial, práctica</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=infraestructura-tecnologica">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=infraestructura-tecnologica">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#conceptos-de-linux">Conceptos de Linux</a></li><li class="n3"><a href="#la-variable-path">La variable PATH</a></li><li class="n3"><a href="#el-arbol-de-directorios">El árbol de directorios</a></li><li class="n2"><a href="#formato-de-un-comando">Formato de un comando</a></li><li class="n2"><a href="#comandos-basicos">Comandos básicos</a></li><li class="n2"><a href="#el-manual">El manual</a></li><li class="n2"><a href="#nombres-de-archivo">Nombres de archivo</a></li><li class="n3"><a href="#caminos-absolutos-y-relativos">Caminos absolutos y relativos</a></li><li class="n2"><a href="#archivos-e-inodos">Archivos e inodos</a></li><li class="n2"><a href="#las-tres-fechas">Las tres fechas</a></li><li class="n2"><a href="#enlaces">Enlaces</a></li><li class="n2"><a href="#permisos">Permisos</a></li><li class="n3"><a href="#modo-simbolico">Modo simbólico</a></li><li class="n3"><a href="#modo-octal">Modo octal</a></li><li class="n3"><a href="#en-directorios">En directorios</a></li><li class="n2"><a href="#umask">umask</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>1° parcial, práctica</h1>
+<p class="bajada">Linux desde cero: comandos, manual, archivos, inodos, enlaces y permisos.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>De 2023 en adelante hay dos fuentes en el Drive. Un intento del campus de 26/09/2024, con 14 preguntas y 17 puntos, y una lista de memoria de un alumno de 03/09/2026. Esa lista dice que eran 20 de opción múltiple y recuerda 11. Las de 15/09/2022 y 11/10/2018 no entran en la cuenta.</p>
+<p>Con solo dos fuentes no hay frecuencia que valga. Te sirve más saber que las consignas de 2024 son casi las mismas de 2018 y 2022.</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Examen</th><th>Dónde</th></tr></thead><tbody><tr><td>Unir definición con término</td><td>2024</td><td><a href="#conceptos-de-linux">Conceptos</a></td></tr><tr><td>Formato de comandos</td><td>2024</td><td><a href="#formato-de-un-comando">Formato</a></td></tr><tr><td><code>cal</code>, <code>wc</code></td><td>2024, 2026</td><td><a href="#comandos-basicos">Comandos básicos</a></td></tr><tr><td><code>man</code>, <code>whatis</code>, <code>apropos</code></td><td>2024</td><td><a href="#el-manual">Manual</a></td></tr><tr><td>Nombres de archivo</td><td>2024, 2026</td><td><a href="#nombres-de-archivo">Nombres</a></td></tr><tr><td>Tipos de archivo, inodo</td><td>2024</td><td><a href="#archivos-e-inodos">Archivos e inodos</a></td></tr><tr><td>Tres fechas</td><td>2024</td><td><a href="#las-tres-fechas">Tres fechas</a></td></tr><tr><td>Enlaces rígidos</td><td>2024</td><td><a href="#enlaces">Enlaces</a></td></tr><tr><td>Permisos, octal y simbólico</td><td>2024, 2026</td><td><a href="#permisos">Permisos</a></td></tr><tr><td><code>umask</code></td><td>2026</td><td><a href="#umask">umask</a></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="conceptos-de-linux">Conceptos de Linux</h2>
+<ul>
+<li><strong>Multitarea:</strong> ejecuta varios procesos a la vez.</li>
+<li><strong>Multiusuario:</strong> varios usuarios lo usan al mismo tiempo.</li>
+<li><strong>Kernel:</strong> es la parte del sistema que interactúa con el hardware.</li>
+<li><strong>Shell:</strong> es la parte que interactúa con el usuario.</li>
+<li><strong>vi:</strong> el editor disponible en la mayoría de los Unix y Linux.</li>
+</ul>
+<p>Fuente: Práctica 01, Introducción, páginas 4, 9 y 10.</p>
+<p>Lo que el apunte agrega de cada concepto:</p>
+<ul>
+<li><strong>Multitarea:</strong> con un solo procesador, su tiempo se reparte entre los procesos y da la ilusión de que todo ocurre a la vez.</li>
+<li><strong>Multiusuario:</strong> en la práctica requiere capacidad multitarea. Linux además es multiplataforma, porque anda en distintas arquitecturas.</li>
+<li><strong>Sensible a mayúsculas y minúsculas:</strong> comandos y archivos se escriben exactamente igual. <code>echo hola</code> anda, y <code>ECHO hola</code> da error porque no existe ningún comando <code>ECHO</code>.</li>
+<li><strong>Kernel o núcleo:</strong> «es el encargado de realizar la mayoría de funciones básicas del sistema y gestiona entre otras cosas la memoria, los archivos, los usuarios, las comunicaciones, los procesos». Lo hace con un número limitado de funciones, las llamadas al sistema. Mientras un proceso ejecuta una llamada está en modo núcleo, que es privilegiado, y fuera de eso en modo usuario. Así ningún programa de usuario toca los recursos generales ni a otros procesos sin pasar por el núcleo. Solo root puede alterar el núcleo.</li>
+<li><strong>Shell:</strong> «es el nombre dado a la interfaz básica entre el usuario y el kernel del sistema operativo». Algunos interpretan comandos, otros dan menús. También puede usarse como lenguaje de programación, con variables y estructuras como if-then-else, y permite lanzar procesos en background o en foreground.</li>
+<li><strong>Proceso:</strong> a diferencia de un programa, es algo vivo, que está funcionando. Un programa puede dar varios procesos. Cada uno tiene un PID y guarda el UID de su dueño. El que cuenta para los permisos es el usuario efectivo, EUID, y el de root vale 0.</li>
+<li><strong>Usuarios y grupos:</strong> se identifican por un número, UID y GID. El nombre se guarda en un archivo junto a ese número, pero el sistema trabaja con las claves numéricas.</li>
+<li><strong>Distribución:</strong> junta el núcleo Linux con un programa de instalación y un conjunto de aplicaciones de uso general. Las más conocidas son RedHat, Debian, SuSE, Oracle y Ubuntu.</li>
+<li><strong>GNU/Linux:</strong> las herramientas del proyecto GNU, iniciado en 1983, más el núcleo Linux, que Linus Torvalds empezó en 1991.</li>
+</ul>
+<p>Fuente: Práctica 01, Introducción, páginas 3 a 11.</p>
+<p>Los comandos se dividen en dos:</p>
+<ul>
+<li><strong>Externos:</strong> programas ajenos al shell. Corren en un proceso nuevo y se buscan en el PATH.</li>
+<li><strong>Internos:</strong> corren en el mismo proceso del shell y no usan el PATH. Con <code>type</code> ves de qué tipo es cada uno.</li>
+</ul>
+<p>Fuente: Práctica 01, páginas 7 y 8.</p>
+<p>Ejemplos de externos son <code>ls</code>, <code>cat</code> y <code>mkdir</code>. Ejemplos de internos son <code>cd</code>, <code>alias</code>, <code>pwd</code>, <code>time</code> y <code>exit</code>. Con <code>type cd</code> el shell responde «cd is a shell builtin», y con <code>type cat</code> responde la ruta, <code>/bin/cat</code>. Fuente: Práctica 01, páginas 7 y 8.</p>
+<h3 id="la-variable-path">La variable PATH</h3>
+<p>Un comando es, en general, un archivo ejecutable que está en algún lugar del sistema. <code>$PATH</code> contiene la lista de caminos donde el shell busca los comandos, separados por <code>:</code>. Lo que dice el apunte:</p>
+<ul>
+<li>Se mira con <code>echo $PATH</code>.</li>
+<li>Si un comando no está en ninguno de esos caminos, hay que llamarlo con el camino completo.</li>
+<li>Si un comando está en dos caminos del PATH, se ejecuta el del primer camino. <code>which</code> también muestra solo ese.</li>
+<li>Si el directorio actual no está en el PATH, un comando de ahí se ejecuta como <code>./comando</code>.</li>
+</ul>
+<p>Fuente: Práctica 01, página 7, y Práctica 04, página 4.</p>
+<p>Las variables <code>$PS1</code> y <code>$PS2</code> son los introductores, o prompts. <code>$PS1</code> aparece cuando el shell espera una orden. Si al apretar Enter el comando no está completo, el shell espera más y muestra <code>$PS2</code>. El de root suele ser distinto. Fuente: Práctica 01, páginas 5 y 6.</p>
+<h3 id="el-arbol-de-directorios">El árbol de directorios</h3>
+<p>La estructura es un árbol que arranca en el directorio raíz, <code>/</code>, el origen único. Cada nivel se separa con otra <code>/</code>, como en <code>/usr/local/bin</code>. El directorio <code>home</code> es donde te deja el sistema al entrar. El directorio de trabajo actual es <code>.</code> y su padre es <code>..</code>. Los directorios básicos del apunte:</p>
+<div class="tabla"><table><thead><tr><th>Directorio</th><th>Qué tiene</th></tr></thead><tbody><tr><td><code>/bin</code></td><td>Programas ejecutables básicos del sistema</td></tr><tr><td><code>/boot</code></td><td>Lo necesario para el arranque</td></tr><tr><td><code>/dev</code></td><td>Los archivos de los dispositivos</td></tr><tr><td><code>/etc</code></td><td>Configuración</td></tr><tr><td><code>/home</code></td><td>Los directorios de trabajo de cada usuario</td></tr><tr><td><code>/lib</code></td><td>Librerías compartidas y módulos del kernel</td></tr><tr><td><code>/media</code></td><td>Donde se montan CD, USB y discos portátiles</td></tr><tr><td><code>/opt</code></td><td>Reservado para instalar aplicaciones</td></tr><tr><td><code>/sbin</code></td><td>Binarios ejecutables del sistema operativo</td></tr><tr><td><code>/srv</code></td><td>Datos de los servicios del sistema</td></tr><tr><td><code>/tmp</code></td><td>Archivos temporales</td></tr><tr><td><code>/usr</code></td><td>La mayoría de los archivos del sistema, aplicaciones, librerías y manuales, compartido por todos</td></tr><tr><td><code>/var</code></td><td>Datos que cambian seguido, como registros de errores, bases de datos y colas de impresión</td></tr><tr><td><code>/root</code></td><td>El directorio de trabajo de root</td></tr><tr><td><code>/proc</code></td><td>Datos del kernel e información de los procesos</td></tr></tbody></table></div>
+<p>Fuente: Práctica 01, páginas 6 y 7.</p>
+<p>También hace falta saber esto:</p>
+<ul>
+<li><code>which</code> dice dónde está un comando en el PATH.</li>
+<li><code>whoami</code> muestra tu usuario y <code>who</code> los conectados.</li>
+<li><code>id</code> muestra UID y GID. Root tiene UID 0.</li>
+</ul>
+<p>Fuente: Práctica 01, páginas 7 a 9, y Práctica 02, páginas 6 y 7.</p>
+<div class="tomado"><aside class="nota"><strong>Unir cada definición con su término</strong><span>1° parcial práctica, 26/09/2024</span></aside><p>Las opciones son <code>whoami</code>, comandos internos, comandos externos, <code>vi</code>, <code>who</code>, multitarea, kernel, multiusuario, shell y <code>which</code>. Con las listas de arriba te alcanza.</p>
+</div>
+</section>
+<section class="sec"><h2 id="formato-de-un-comando">Formato de un comando</h2>
+<p>Comando primero, opciones con guion, y espacios entre las partes. Los ejemplos del apunte son estos:</p>
+<div class="tabla"><table><thead><tr><th>Correcto</th><th>Incorrecto</th></tr></thead><tbody><tr><td><code>who -u</code></td><td><code>who-u</code></td></tr><tr><td><code>who -m -u</code></td><td><code>-u who</code></td></tr><tr><td><code>who -mu</code></td><td><code>who -m-u</code></td></tr><tr><td></td><td><code>who -m u</code></td></tr></tbody></table></div>
+<p>Fuente: Práctica 02, Usando Linux, página 3.</p>
+<p>Las reglas completas del apunte, para la forma <code>comando opción(es) argumento(s)</code>:</p>
+<ul>
+<li>El orden y la separación importan. El nombre del comando va primero.</li>
+<li>El shell usa los espacios como separadores.</li>
+<li>Las opciones siguen al comando, separadas por un espacio y precedidas por <code>-</code>. Varias opciones se agrupan detrás de un solo <code>-</code>, como en <code>who -mu</code>, o van separadas, cada una con su <code>-</code>, como en <code>who -m -u</code>.</li>
+<li>Las opciones suelen modificar cómo opera el comando.</li>
+<li>Los argumentos siguen a las opciones, separados por un espacio. Su orden depende del comando. <code>mail grupo01 grupo02</code> es correcto, y <code>mail grupo01grupo02</code> no, porque falta el espacio.</li>
+<li>Hay algunas excepciones.</li>
+</ul>
+<p>Fuente: Práctica 02, Usando Linux, página 3.</p>
+<div class="tomado"><aside class="nota"><strong>Cuál o cuáles formatos de comandos son correctos</strong><span>1° parcial práctica, 26/09/2024</span></aside><p>Las opciones de esa pregunta son otras. Aplicá las reglas de la tabla y mirala en <a href="ejercicios.html">el examen</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="comandos-basicos">Comandos básicos</h2>
+<ul>
+<li><strong>Salir:</strong> <code>exit</code>, <code>logout</code> o Ctrl+d. Fuente: Práctica 02, página 2.</li>
+<li><strong><code>cal</code>:</strong> la sintaxis es <code>cal [[[day] month] year]</code>. Por ejemplo, <code>cal 12 2000</code> da diciembre de 2000. Fuente: Práctica 02, páginas 5 y 6.</li>
+<li><strong><code>wc</code>:</strong> muestra nuevas líneas, palabras y bytes. Con <code>-l</code> solo líneas, con <code>-w</code> palabras y con <code>-c</code> bytes. Fuente: Práctica 02, páginas 10 y 11.</li>
+<li><strong><code>echo</code>:</strong> <code>-n</code> no salta de línea y <code>-e</code> interpreta los escapes. Fuente: Práctica 02, páginas 8 a 10.</li>
+</ul>
+<p>Lo que completa el apunte de estos comandos:</p>
+<ul>
+<li><strong>Entrar:</strong> hay tres formas, por consola de texto, por un gestor de sesiones gráfico (X Window) o desde un equipo remoto por telnet o secure shell. La contraseña no se ve al teclearla, y se cambia con <code>passwd</code>, que pide la actual y dos veces la nueva. Fuente: Práctica 02, páginas 2 y 3.</li>
+<li><strong>Salir en modo texto:</strong> Ctrl+d, <code>exit</code>, que cierra la última sesión de shell abierta, o <code>logout</code>, que solo funciona en la sesión donde hiciste login. Fuente: Práctica 02, página 2.</li>
+<li><strong><code>cal</code>:</strong> sin opciones muestra el mes actual. <code>-1</code> un mes, que es lo predeterminado, <code>-3</code> el mes pasado, el actual y el próximo, <code>-s</code> arranca la semana el domingo, <code>-m</code> el lunes, <code>-j</code> muestra el calendario juliano y <code>-y</code> el año entero. Fuente: Práctica 02, páginas 5 y 6.</li>
+<li><strong><code>wc</code>:</strong> el apunte dice que imprime un recuento de líneas, palabras y caracteres de cada archivo, y un total si hay más de uno. <code>-m</code> cuenta caracteres y <code>-L</code> da la línea más larga. El orden de salida es siempre nueva línea, palabra, carácter, byte y longitud máxima. Sin archivo, o con <code>-</code>, cuenta la entrada estándar. Una palabra es una secuencia no vacía de caracteres separada por espacios. Fuente: Práctica 02, páginas 10 y 11.</li>
+<li><strong><code>echo</code>:</strong> en la mayoría de los shells es un comando interno. <code>-E</code> deshabilita los escapes, y es lo predeterminado. Con <code>-e</code>, <code>\n</code> es nueva línea, <code>\t</code> tab horizontal, <code>\v</code> tab vertical, <code>\b</code> retroceso, <code>\r</code> retorno de carro, <code>\\</code> una barra invertida y <code>\c</code> corta todo lo que sigue. Fuente: Práctica 02, páginas 9 y 10.</li>
+<li><strong><code>date</code>:</strong> muestra día y hora. Con formatos como <code>date &#39;+%Y%m%d&#39;</code> saca partes de la fecha, útil para armar nombres de archivo únicos. Fuente: Práctica 02, páginas 4 y 5.</li>
+<li><strong><code>who</code>:</strong> muestra los usuarios conectados, en qué terminal y desde qué hora. <code>who -m</code> muestra solo la terminal donde se escribió, como <code>whoami</code> y <code>who am i</code>. <code>-H</code> agrega encabezados, <code>-q</code> cuenta los usuarios y <code>-b</code> da el último inicio del sistema. Fuente: Práctica 02, páginas 6 y 7.</li>
+<li><strong><code>clear</code>:</strong> limpia la pantalla. Fuente: Práctica 02, página 8.</li>
+</ul>
+<p>Las teclas que conviene saber, de la Práctica 02, página 15:</p>
+<div class="tabla"><table><thead><tr><th>Tecla</th><th>Qué hace</th></tr></thead><tbody><tr><td>Ctrl+c</td><td>Corta el comando</td></tr><tr><td>Ctrl+z</td><td>Lo suspende</td></tr><tr><td>Ctrl+d</td><td>Fin de entrada</td></tr><tr><td>Ctrl+l</td><td>Limpia la pantalla</td></tr><tr><td>Ctrl+s</td><td>Detiene la salida a la pantalla, sin cortar el comando</td></tr><tr><td>Ctrl+q</td><td>Reanuda la salida después de Ctrl+s</td></tr><tr><td>Ctrl+u</td><td>Borra la línea</td></tr></tbody></table></div>
+<p>El apunte explica qué hace cada una por dentro. Ctrl+c manda la señal SIGINT, que técnicamente es un pedido, y algunos procesos la ignoran. Ctrl+z manda SIGTSTP, y el proceso vuelve con <code>fg</code>. Ctrl+d manda un fin de archivo, EOF, y bash sale como con <code>exit</code>. Fuente: Práctica 02, página 15.</p>
+</section>
+<section class="sec"><h2 id="el-manual">El manual</h2>
+<ul>
+<li><strong><code>man</code>:</strong> muestra la página completa, con sintaxis y descripción.</li>
+<li><strong><code>whatis</code>:</strong> equivale a <code>man -f</code>, con una descripción breve.</li>
+<li><strong><code>apropos</code>:</strong> equivale a <code>man -k</code>, y busca por palabra clave.</li>
+</ul>
+<p>Las secciones van del 1 al 9. Por ejemplo, <code>man 2 mkdir</code> abre la sección 2. Fuente: Práctica 03, Man, páginas 2 a 7.</p>
+<p>El apunte define a <code>man</code> como «un paginador de manuales que formatea y muestra las páginas del manual solicitadas». Las páginas dan la sintaxis y la descripción detallada de comandos, utilidades y funciones, con todas sus opciones y argumentos. También sirven para saber la estructura de un archivo o cómo usar una función de C. Fuente: Práctica 03, páginas 2 y 3.</p>
+<p>Las nueve secciones:</p>
+<div class="tabla"><table><thead><tr><th>Sección</th><th>Qué tiene</th></tr></thead><tbody><tr><td>1</td><td>Comandos y aplicaciones de usuario</td></tr><tr><td>2</td><td>Llamadas al sistema (funciones del núcleo) y errores del kernel</td></tr><tr><td>3</td><td>Llamadas a librerías del sistema</td></tr><tr><td>4</td><td>Drivers de dispositivos y protocolos de red</td></tr><tr><td>5</td><td>Formatos estándar de archivos</td></tr><tr><td>6</td><td>Juegos y demos</td></tr><tr><td>7</td><td>Ficheros y documentos misceláneos</td></tr><tr><td>8</td><td>Comandos de administración del sistema</td></tr><tr><td>9</td><td>Especificaciones e interfaces del kernel</td></tr></tbody></table></div>
+<p>Hay además secciones por letra, l, n, o y p, que hoy están obsoletas. <code>man</code> busca en todas las secciones con un orden fijo, en general 1, n, l, 8, 3, 2, 5, 4, 9, 6, 7, y devuelve solo la primera coincidencia. Por eso <code>man passwd</code> muestra la sección 1, aunque también existe la 5. Fuente: Práctica 03, páginas 5 y 6.</p>
+<p>Otras opciones y convenciones del apunte:</p>
+<ul>
+<li><code>man -w</code> muestra la ruta de la página en vez de la página.</li>
+<li><code>man -a</code> muestra todas las coincidencias, sección por sección.</li>
+<li><code>man -h</code> muestra la ayuda.</li>
+<li>Cada página tiene secciones como NAME, SYNOPSIS, DESCRIPTION, AUTHOR, COPYRIGHT y SEE ALSO. Arriba va el comando con su sección entre paréntesis, como <code>MKDIR(1)</code>. La definición corta de NAME es la que muestran <code>whatis</code> y <code>apropos</code>.</li>
+<li>En la sinopsis, lo que está en negrita se escribe tal cual, y lo subrayado se reemplaza. <code>[-abc]</code> es opcional, <code>-a|-b</code> es uno u otro, y los tres puntos dicen que se puede repetir.</li>
+<li>Dentro de <code>man</code>, <code>q</code> sale, la barra espaciadora avanza una ventana y <code>/patrón</code> busca.</li>
+</ul>
+<p>Fuente: Práctica 03, páginas 3 a 9.</p>
+<details class="pregunta"><summary><span>Cuál de los siguientes comandos visualiza la sintaxis del comando mkdir</span><small>1° parcial práctica, 26/09/2024</small></summary><div class="resp"><p><code>man mkdir</code>. El apunte explica que <code>man</code> trae la sintaxis y la descripción, y que <code>whatis</code> y <code>apropos</code> dan solo una descripción breve.</p>
+<p>Fuente: Práctica 03, Man, páginas 2 a 4.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="nombres-de-archivo">Nombres de archivo</h2>
+<p>Un nombre admite cualquier carácter menos <code>/</code> y el nulo, hasta 255. Linux distingue mayúsculas de minúsculas. El apunte da recomendaciones de nombres, porque un nombre como <code>-r</code> se confunde con una opción. Fuente: Práctica 04, Archivos, páginas 2, 4 y 5, y Práctica 01, página 5.</p>
+<p>Por qué esos dos no se pueden usar. La <code>/</code> separa los componentes de un camino, así que <code>x/a</code> se lee como el archivo <code>a</code> dentro del directorio <code>x</code>. El nulo marca el fin de cadena en C, el lenguaje en que está escrito el sistema. Las recomendaciones del apunte, completas:</p>
+<ul>
+<li>El nombre debería describir su contenido.</li>
+<li>Debería usar solo letras mayúsculas y minúsculas, números y los caracteres <code>#</code>, <code>.</code>, <code>@</code> y <code>_</code>.</li>
+<li>No debería incluir blancos.</li>
+<li>No debería contener metacaracteres del shell, como <code>? * &lt; &gt; ; &amp; ! [ ] $ \</code> y las comillas.</li>
+<li>No debería empezar con <code>+</code> ni con <code>-</code>.</li>
+<li>No debería llamarse igual que un comando del sistema.</li>
+<li>Como distingue mayúsculas, <code>programa.exe</code> y <code>Programa.exe</code> son archivos distintos.</li>
+<li>Los que empiezan con <code>.</code> quedan ocultos para <code>ls</code>.</li>
+<li>El nombre puede tener como máximo 255 caracteres.</li>
+</ul>
+<p>Fuente: Práctica 04, Archivos, páginas 4 y 5.</p>
+<p>Dos aclaraciones del apunte. En Unix no existe el concepto de extensión de MS-DOS. Un nombre puede tener varios puntos y más de tres caracteres después del último, y una terminación solo le importa a algunos programas, no al núcleo ni al shell. Y los archivos que empiezan con <code>.</code> no tienen nada de especial. Parecen invisibles porque <code>ls</code> sin opciones y el propio bash los tratan distinto. Fuente: Práctica 04, páginas 4 y 5.</p>
+<h3 id="caminos-absolutos-y-relativos">Caminos absolutos y relativos</h3>
+<p>Una secuencia de directorios separados por <code>/</code> es el camino, path o ruta para encontrar un archivo. Hay dos tipos:</p>
+<ul>
+<li><strong>Camino completo o absoluto:</strong> empieza con <code>/</code>, el directorio raíz. Por ejemplo, <code>/home/&lt;usuario&gt;/doc/mi_reporte.doc</code>.</li>
+<li><strong>Camino relativo:</strong> empieza con <code>.</code>, con <code>..</code> o con un nombre, y depende del directorio donde estés. Por ejemplo, <code>doc/mi_reporte</code>, <code>../grupo01/doc/mi_reporte.doc</code> o <code>./mi_reporte.doc</code>.</li>
+</ul>
+<p>Un camino siempre se considera relativo, salvo que empiece con <code>/</code>. Lo que va después de la última <code>/</code> es el nombre base. El directorio de entrada de cada usuario es el valor de <code>$HOME</code>, y cada directorio tiene como mínimo las entradas <code>.</code> y <code>..</code>. Fuente: Práctica 04, página 4.</p>
+<details class="pregunta"><summary><span>Qué símbolos no se pueden usar en un nombre de archivo y qué nombre no es recomendable</span><small>1° parcial práctica, 03/09/2026, de memoria de un alumno</small></summary><div class="resp"><p>No se puede <code>/</code> ni el carácter nulo <code>\0</code>. El apunte advierte sobre <code>-r</code> como nombre peligroso.</p>
+<p>Fuente: Práctica 04, Archivos, página 4.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="archivos-e-inodos">Archivos e inodos</h2>
+<details class="pregunta"><summary><span>Cuáles son tipos de archivos en Linux</span><small>1° parcial práctica, 26/09/2024</small></summary><div class="resp"><p>Normales, directorios y especiales.</p>
+<p>Fuente: Práctica 04, Archivos, página 2.</p>
+</div></details>
+<p>El apunte define el archivo como «un conjunto de información a la que se le ha asignado un nombre», y el directorio como una colección de archivos. Los directorios forman un árbol, porque pueden contener otros. Cada tipo, según el apunte:</p>
+<ul>
+<li><strong>Normal u ordinario:</strong> contiene texto o instrucciones de programas ejecutables.</li>
+<li><strong>Directorio:</strong> donde se guardan los archivos ordinarios y los especiales. En otros sistemas se llaman carpetas.</li>
+<li><strong>Especial:</strong> algunos dan acceso al hardware, como discos, lectoras o adaptadores de red. Un enlace simbólico también es un archivo especial, como un alias.</li>
+</ul>
+<p>Fuente: Práctica 04, Archivos, página 2.</p>
+<p>Pensá el inodo como la ficha del archivo. Tiene todos los datos, menos el nombre. El nombre vive en el directorio, que apunta a esa ficha.</p>
+<p>Lo que agrega el apunte sobre el inodo:</p>
+<ul>
+<li>Se identifica por un número, y cada archivo tiene un número de inodo distinto.</li>
+<li>También guarda el tipo de archivo, en el sentido de normal, directorio o especial, no de texto o imagen. Una carpeta es un tipo de archivo más, con su entrada en la tabla de inodos, que el sistema trata de forma especial.</li>
+<li>Un disco Unix tiene dos partes, la tabla de inodos y el área de bloques de datos.</li>
+<li>El bloque de datos de una carpeta es una tabla con dos cosas por archivo, el nombre y su número de inodo. En el ejemplo, la carpeta 12500 guarda <code>.</code> 12500, <code>..</code> 6000, <code>carta.txt</code> 12510, <code>foto.jpg</code> 12525 y <code>cancion.mp3</code> 12670. Es la carpeta la que le pone nombre a un inodo.</li>
+<li><code>.</code> apunta a la propia carpeta y <code>..</code> a la carpeta de arriba.</li>
+</ul>
+<p>Fuente: Práctica 04, Archivos, páginas 2 y 3.</p>
+<details class="pregunta"><summary><span>Qué información se guarda en un inodo</span><small>1° parcial práctica, 26/09/2024</small></summary><div class="resp"><p>Fecha de creación, dueño, tamaño y ubicación física de los bloques de datos. No guarda el nombre, que está en el bloque de datos de la carpeta. Con <code>ls -i</code> ves el número de inodo.</p>
+<p>Fuente: Práctica 04, Archivos, páginas 2 y 3.</p>
+</div></details>
+<p>Comandos de directorios:</p>
+<ul>
+<li><code>pwd</code> muestra dónde estás.</li>
+<li><code>cd</code> solo te lleva al HOME, <code>cd ..</code> al padre y <code>cd -</code> al anterior.</li>
+<li><code>mkdir -m</code> crea con permisos, y <code>rmdir -p</code> borra una cadena.</li>
+<li><code>mv arch_original ../</code> mueve un archivo al directorio padre.</li>
+</ul>
+<p>Fuente: Práctica 04, páginas 6, 7 y 10.</p>
+<p>Otros comandos útiles:</p>
+<ul>
+<li><code>ls</code>: <code>-a</code> muestra los ocultos, <code>-l</code> el detalle, <code>-i</code> el inodo, <code>-R</code> recursivo, <code>-t</code> por fecha y <code>-r</code> al revés. Páginas 7 y 8.</li>
+<li><code>cp</code>: <code>-i</code> pregunta, <code>-p</code> conserva atributos y <code>-R</code> copia carpetas. Página 9.</li>
+<li><code>rm</code>: <code>-f</code>, <code>-i</code>, <code>-I</code> y <code>-r</code>. Páginas 15 a 18.</li>
+</ul>
+<p>Lo que completa el apunte:</p>
+<ul>
+<li><strong><code>pwd</code>:</strong> siempre muestra el camino completo. Conviene usarlo seguido, sobre todo antes de borrar.</li>
+<li><strong><code>mkdir</code>:</strong> cada directorio nuevo trae <code>.</code> y <code>..</code>. Se puede crear con camino completo o relativo.</li>
+<li><strong><code>rmdir</code>:</strong> solo borra un directorio vacío, y nunca el directorio actual. Los argumentos se procesan en orden, así que primero va el subdirectorio. <code>rmdir -p doc/informes/cobranza</code> equivale a <code>rmdir doc/informes/cobranza doc/informes doc</code>.</li>
+<li><strong><code>ls</code>:</strong> por defecto ordena alfabéticamente y no muestra lo que empieza con <code>.</code>. Otras opciones son <code>-A</code>, que muestra los ocultos sin <code>.</code> y <code>..</code>, <code>-h</code> tamaños legibles con <code>-l</code>, <code>-S</code> por tamaño, <code>-p</code> agrega <code>/</code> a los directorios y <code>-1</code> uno por línea.</li>
+<li><strong><code>cp</code>:</strong> se usa como <code>cp fuente destino</code> o <code>cp fuente… directorio</code>. <code>-f</code> borra el destino si no puede accederlo y reintenta, <code>-n</code> no pisa un destino que existe y prevalece sobre <code>-i</code>, y <code>-u</code> copia solo si el fuente es más nuevo o si el destino no existe. <code>-p</code> conserva modo, propietario y fechas.</li>
+<li><strong><code>mv</code>:</strong> mueve o renombra, con la misma sintaxis que <code>cp</code>. <code>mv arch_original arch_nuevo</code> renombra en el mismo directorio. Tiene <code>-f</code>, <code>-i</code> y <code>-u</code>.</li>
+<li><strong><code>cat</code>:</strong> lee uno o más archivos y los muestra por la salida estándar, uno detrás del otro. También copia con <code>cat a &gt; b</code> y agrega al final con <code>cat a &gt;&gt; b</code>.</li>
+<li><strong><code>more</code>:</strong> muestra un archivo de a una página. <code>+3</code> arranca en la línea 3, <code>+/&quot;DESCRIPCION&quot;</code> en la primera línea con esa cadena, y se sale con <code>q</code>, <code>Q</code> o Ctrl+c.</li>
+<li><strong><code>rm</code>:</strong> rompe el enlace del nombre con los datos y marca ese espacio como libre. Si el archivo está protegido contra escritura, pide confirmación. <code>-f</code> nunca la pide, <code>-i</code> la pide antes de cada borrado e <code>-I</code> una sola vez si son más de tres archivos o si borra recursivamente. <code>rm -rf directorio</code> borra todo sin preguntar.</li>
+</ul>
+<p>Fuente: Práctica 04, Archivos, páginas 6 a 10 y 15 a 18.</p>
+</section>
+<section class="sec"><h2 id="las-tres-fechas">Las tres fechas</h2>
+<details class="pregunta"><summary><span>En qué momento se modifican las tres fechas de un archivo</span><small>1° parcial práctica, 26/09/2024</small></summary><div class="resp"><p>Las fechas son access, change y modify. Al crear o modificar el contenido, quedan las tres iguales. Leer cambia solo el acceso. Cambiar permisos cambia solo change. Las ves con <code>stat</code>.</p>
+<p>Fuente: Práctica 04, Archivos, páginas 5 y 6.</p>
+</div></details>
+<p>Lo que agrega el apunte sobre las fechas:</p>
+<ul>
+<li>Internamente se guardan como los segundos pasados desde el 1 de enero de 1970.</li>
+<li>La de cambio, change, el apunte la llama «de creación», pero en realidad es la del último cambio de estado. Por eso puede ser posterior a la de modificación.</li>
+<li>La de modificación, modify, es la que muestra <code>ls -l</code>.</li>
+<li>Consultar el nombre o el estado de un archivo no cambia ninguna de sus fechas. El que cambia su fecha de acceso es el directorio que lo contiene, porque es lo que se lee.</li>
+<li>La fecha de modificación de un directorio cambia con cada alta o baja de elementos, porque cuentan como escrituras en su tabla.</li>
+<li><code>touch archivo</code> actualiza las fechas y crea el archivo vacío si no existe. Con <code>-d</code> le asigna una fecha dada. Sirve cuando una aplicación mira la última modificación antes de actuar, como un backup o una compilación.</li>
+</ul>
+<p>Fuente: Práctica 04, Archivos, páginas 5 y 6, y Práctica 05, páginas 3 y 4.</p>
+<div class="ojo"><p class="ojo-t">Dos prácticas dicen distinto qué fechas cambia touch</p><p>La Práctica 04, página 5, dice que <code>touch</code> sirve «para modificar las fechas de modificación y de acceso». La Práctica 05, página 3, dice que actualiza «la fecha de acceso (atime), cambio (ctime) y modificación (mtime)» si se usa sin <code>-d</code>. Si te lo preguntan, consultá cuál toma la cátedra.</p>
+</div>
+</section>
+<section class="sec"><h2 id="enlaces">Enlaces</h2>
+<p>Un enlace rígido es otro nombre para el mismo inodo. Un enlace simbólico, creado con <code>ln -s</code>, es un archivo aparte que apunta al nombre.</p>
+<p>El comando <code>ln</code> permite que un archivo tenga más de un nombre. La forma es <code>ln archivo_fuente archivo_destino</code>, y el destino es el enlace. Lo que muestra el ejercicio del apunte:</p>
+<ul>
+<li><strong>En <code>ls -l</code>:</strong> un enlace rígido no se distingue. Uno simbólico aparece con tipo <code>l</code> y una flecha al nombre apuntado, como <code>ejs1 -&gt; ej0</code>.</li>
+<li><strong>Cantidad de enlaces:</strong> la columna que sigue a los permisos cuenta los enlaces rígidos de ese inodo. <code>ej0</code>, <code>ej1</code> y <code>ej2</code> muestran 3, y comparten el mismo número de inodo.</li>
+<li><strong>Directorios:</strong> un directorio nuevo ya muestra 2, por su nombre y por la entrada <code>.</code> que tiene adentro. Cada subdirectorio le suma uno con su <code>..</code>.</li>
+<li><strong>Mismo contenido:</strong> si cambiás el contenido de cualquiera de los rígidos, cambian todos. No son copias, sino la misma unidad de información.</li>
+<li><strong>Al borrar el original:</strong> los rígidos siguen accediendo a la información. El simbólico queda apuntando a un nombre que ya no existe, y <code>cat</code> da error.</li>
+<li><strong><code>rm</code> sobre un simbólico:</strong> borra el enlace, no el archivo apuntado. <code>rmdir</code> sobre un simbólico a un directorio falla, porque no es un directorio.</li>
+<li><strong>Ubicación:</strong> un enlace simbólico es siempre relativo al lugar donde está el propio enlace, no al directorio donde estés vos.</li>
+</ul>
+<p>Fuente: Práctica 04, Archivos, páginas 10 a 15.</p>
+<details class="pregunta"><summary><span>En caso de tener varios enlaces rígidos, cuándo dejo de acceder a la información</span><small>1° parcial práctica, 26/09/2024</small></summary><div class="resp"><p>El apunte dice que «la información solo desaparecerá del sistema cuando el último enlace rígido sea eliminado». El original no tiene nada de especial, y borrarlo no alcanza.</p>
+<p>Fuente: Práctica 04, Archivos, página 13.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="permisos">Permisos</h2>
+<p>Al leer <code>ls -l</code>, las columnas son estas, en orden:</p>
+<ol>
+<li>Tipo de archivo (<code>-</code>, <code>d</code>, <code>l</code>, <code>p</code>, <code>b</code>, <code>c</code>).</li>
+<li>Permisos.</li>
+<li>Cantidad de enlaces.</li>
+<li>Usuario.</li>
+<li>Grupo.</li>
+<li>Tamaño.</li>
+<li>Fecha de modificación.</li>
+<li>Nombre.</li>
+</ol>
+<p>Fuente: Práctica 05, Permisos, páginas 2 y 3.</p>
+<p>Los tipos de la primera columna, según el apunte:</p>
+<div class="tabla"><table><thead><tr><th>Letra</th><th>Tipo</th></tr></thead><tbody><tr><td><code>-</code></td><td>Archivo regular, con la información de cada usuario</td></tr><tr><td><code>d</code></td><td>Directorio, un archivo especial con referencias a otros archivos o directorios</td></tr><tr><td><code>l</code></td><td>Enlace simbólico</td></tr><tr><td><code>p</code></td><td>FIFO con nombre. Comunica procesos, uno escribe y otro lee, y cada uno queda bloqueado hasta que el otro actúa. Se crea con <code>mkfifo</code></td></tr><tr><td><code>b</code></td><td>Dispositivo de bloques, como una unidad de almacenamiento</td></tr><tr><td><code>c</code></td><td>Dispositivo de caracteres, como una impresora o una terminal</td></tr></tbody></table></div>
+<p>El tamaño va en bytes. <code>ls -ld</code> muestra solo la información del directorio indicado, no su contenido. Fuente: Práctica 05, páginas 2 y 3.</p>
+<details class="pregunta"><summary><span>Qué información no muestra ls -l</span><small>1° parcial práctica, 03/09/2026, de memoria de un alumno</small></summary><div class="resp"><p>El número de inodo, que no figura entre las columnas del apunte. Para eso está <code>ls -i</code>.</p>
+<p>Fuente: Práctica 05, Permisos, páginas 2 y 3, y Práctica 04, página 3.</p>
+</div></details>
+<h3 id="modo-simbolico">Modo simbólico</h3>
+<p><code>chmod</code> usa <code>u</code>, <code>g</code>, <code>o</code> y <code>a</code> para quién, y <code>+</code>, <code>-</code> e <code>=</code> para qué. Varias órdenes se separan con comas, como en <code>chmod u+x,g-w archivo</code>. Fuente: Práctica 05, páginas 5 a 7.</p>
+<p>Los detalles del apunte:</p>
+<ul>
+<li>Con la notación simbólica los cambios son relativos a los permisos que ya tiene el archivo. Por eso primero se mira con <code>ls -l</code>.</li>
+<li><code>u</code> es el propietario, <code>g</code> su grupo, <code>o</code> cualquier otro usuario y <code>a</code> los tres juntos, igual que <code>ugo</code>. <code>a</code> es la opción por defecto.</li>
+<li><code>+</code> agrega, <code>-</code> saca, e <code>=</code> limpia los permisos y deja exactamente los indicados.</li>
+<li>Los modos van separados con comas, sin espacios, y se aplican en orden de izquierda a derecha.</li>
+</ul>
+<p>Fuente: Práctica 05, Permisos, páginas 5 y 6.</p>
+<p>Qué quiere decir cada permiso en un archivo común:</p>
+<ul>
+<li><strong><code>r</code>:</strong> se puede ver o consultar el contenido.</li>
+<li><strong><code>w</code>:</strong> se puede cambiar el contenido o borrar el archivo.</li>
+<li><strong><code>x</code>:</strong> se puede usar como un comando. Para eso también hace falta <code>r</code>.</li>
+</ul>
+<p>Fuente: Práctica 05, página 5.</p>
+<h3 id="modo-octal">Modo octal</h3>
+<p>Cada grupo se escribe sumando <code>r</code> = 4, <code>w</code> = 2 y <code>x</code> = 1. Los ejemplos del apunte son estos:</p>
+<div class="tabla"><table><thead><tr><th>Octal</th><th>Quién puede qué</th></tr></thead><tbody><tr><td>000</td><td>Nadie puede nada</td></tr><tr><td>400</td><td>Solo el dueño lee</td></tr><tr><td>600</td><td>El dueño lee y escribe</td></tr><tr><td>700</td><td>El dueño todo</td></tr><tr><td>744</td><td>El dueño todo, los demás leen</td></tr></tbody></table></div>
+<p>Fuente: Práctica 05, páginas 7 y 8.</p>
+<p>El apunte arma el octal pasando por binario. Cada uno de los 9 permisos vale 1 si está y 0 si falta, y cada grupo de tres bits es un dígito octal. Por ejemplo, <code>rwx rw- r--</code> es 111 110 100, o sea 4+2+1, 4+2+0 y 4+0+0, que da 764. Fuente: Práctica 05, página 7.</p>
+<div class="tomado"><aside class="nota"><strong>Pasar permisos a octal, o elegir el chmod que deja un permiso dado</strong><span>1° parcial práctica, 26/09/2024 y 03/09/2026</span></aside><p>Te muestran un <code>ls -l</code> y piden el octal, o piden el <code>chmod</code> para llegar a otro permiso. Son cuentas de esta tabla, y no se resuelven acá. Practicalas en <a href="ejercicios.html">el examen de 2024</a>.</p>
+</div>
+<h3 id="en-directorios">En directorios</h3>
+<p>En un directorio, <code>r</code> deja listar, <code>x</code> deja entrar y <code>w</code> deja crear y borrar. El apunte dice: «Para borrar un archivo de un directorio sólo se necesita tener permisos X y W en el directorio». Fuente: Práctica 05, páginas 5 y 8 a 10.</p>
+<p>Para entenderlo, el apunte pide imaginar el directorio como un archivo normal que solo tiene una tabla con los archivos que contiene, más las entradas <code>.</code> y <code>..</code>. Lo que muestra su ejercicio:</p>
+<ul>
+<li><strong>Sin <code>r</code>:</strong> ningún comando, ni siquiera <code>ls</code>, puede saber qué hay adentro. Igual se puede entrar con <code>cd</code> y crear un archivo, si están <code>x</code> y <code>w</code>.</li>
+<li><strong>Sin <code>x</code>:</strong> no se puede hacer <code>cd</code> a ese directorio ni a ninguno de los que cuelgan de él. Queda imposible toda operación que lo use como parte del camino, y tampoco se puede borrar un archivo desde afuera. Sin <code>x</code>, el <code>w</code> no sirve.</li>
+<li><strong>Sin <code>w</code>:</strong> no se pueden dar altas, bajas ni modificaciones en la tabla. No se crean archivos, no se borran ni se renombran, pero los archivos que ya están se pueden leer sin problema.</li>
+</ul>
+<p>Fuente: Práctica 05, Permisos, páginas 5 y 8 a 10.</p>
+<div class="ojo"><p class="ojo-t">Dos líneas del apunte que parecen chocar</p><p>La misma hoja lista «borrar» dentro del permiso <code>w</code> del archivo. La tabla de la página 13 dice que <code>rm</code> no necesita ningún permiso sobre el archivo. Quedate con la frase de arriba y con la tabla.</p>
+</div>
+<p>Permisos que pide cada comando:</p>
+<div class="tabla"><table><thead><tr><th>Comando</th><th>Directorio fuente</th><th>Archivo fuente</th><th>Directorio destino</th></tr></thead><tbody><tr><td><code>cd</code></td><td>x</td><td></td><td></td></tr><tr><td><code>ls</code></td><td>r</td><td></td><td></td></tr><tr><td><code>ls -l</code></td><td>rx</td><td></td><td></td></tr><tr><td><code>mkdir</code>, <code>rmdir</code></td><td>x, y w en el padre</td><td></td><td></td></tr><tr><td><code>cat</code>, <code>more</code></td><td>x</td><td>r</td><td></td></tr><tr><td><code>mv</code></td><td>xw</td><td>Ninguno</td><td>xw</td></tr><tr><td><code>cp</code></td><td>x</td><td>r</td><td>xw</td></tr><tr><td><code>touch</code></td><td>x, w</td><td></td><td>Ninguno</td></tr><tr><td><code>rm</code></td><td>x, w</td><td>Ninguno</td><td></td></tr></tbody></table></div>
+<p>Fuente: Práctica 05, página 13.</p>
+<p>La nota de esa tabla aclara <code>touch</code>. Necesita <code>w</code> en el directorio fuente cuando crea un archivo vacío, pero no cuando solo cambia la fecha de uno que ya existe. Fuente: Práctica 05, página 13.</p>
+</section>
+<section class="sec"><h2 id="umask">umask</h2>
+<p>Es lo que se le resta al permiso base, 777 para directorios y 666 para archivos.</p>
+<div class="tabla"><table><thead><tr><th>Usuario</th><th>umask</th><th>Directorio</th><th>Archivo</th></tr></thead><tbody><tr><td>Regular</td><td>0002</td><td>775</td><td>664</td></tr><tr><td>Root</td><td>0022</td><td>755</td><td>644</td></tr></tbody></table></div>
+<p>Fuente: Práctica 05, páginas 11 y 12.</p>
+<p>El umask es un número octal que define los bits de permisos de un archivo o directorio nuevo. Se fija al principio en <code>/etc/profile</code>, y se puede cambiar para la sesión. El apunte muestra la cuenta con root, 777 menos 022 da 755 para directorios, y 666 menos 022 da 644 para archivos. Con un umask de 077 quedan 700 y 600, o sea que solo el dueño lee, escribe o entra. Fuente: Práctica 05, páginas 11 y 12.</p>
+<details class="pregunta"><summary><span>Si el umask está en 002 y creo un directorio, cuál es el permiso resultante</span><small>1° parcial práctica, 03/09/2026, de memoria de un alumno</small></summary><div class="resp"><ol start="775">
+<li>El apunte lo da en la tabla de arriba.</li>
+</ol>
+<p>Fuente: Práctica 05, Permisos, páginas 11 y 12.</p>
+</div></details>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-1-practica" data-materia="infraestructura-tecnologica">
+<h2>Practicá el 1° parcial de práctica</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="SJLRx6UaMX" data-tema="Conceptos de Linux" data-enlace="parcial-1-practica.html#conceptos-de-linux" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-practica-1"><span class="q-n">1</span><div><p>¿Qué parte del sistema operativo interactúa directamente con el hardware?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-practica-1"><li><button type="button" class="op" data-ok="0">El shell</button></li><li><button type="button" class="op" data-ok="1">El kernel</button></li><li><button type="button" class="op" data-ok="0">vi</button></li><li><button type="button" class="op" data-ok="0">El PATH</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El kernel interactúa con el hardware, y el shell con el usuario.</p>
+</div></li><li class="q" data-q="81v52PkM7_" data-tema="Conceptos de Linux" data-enlace="parcial-1-practica.html#conceptos-de-linux" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-practica-2"><span class="q-n">2</span><div><p>¿Cómo son los comandos que corren en el mismo proceso del shell y no usan el PATH?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-practica-2"><li><button type="button" class="op" data-ok="0">Externos</button></li><li><button type="button" class="op" data-ok="1">Internos</button></li><li><button type="button" class="op" data-ok="0">Especiales</button></li><li><button type="button" class="op" data-ok="0">Simbólicos</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los internos corren en el mismo proceso. Los externos abren uno nuevo y se buscan en el PATH.</p>
+</div></li><li class="q" data-q="fQZXd7gDhU" data-tema="Formato de un comando" data-enlace="parcial-1-practica.html#formato-de-un-comando" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-practica-3"><span class="q-n">3</span><div><p>¿Cuál de estos formatos es correcto, según el apunte?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-practica-3"><li><button type="button" class="op" data-ok="0">who-u</button></li><li><button type="button" class="op" data-ok="0">-u who</button></li><li><button type="button" class="op" data-ok="1">who -mu</button></li><li><button type="button" class="op" data-ok="0">who -m u</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte da como correctos who -u, who -m -u y who -mu.</p>
+</div></li><li class="q" data-q="NVOaetjfK4" data-tema="El manual" data-enlace="parcial-1-practica.html#el-manual" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-practica-4"><span class="q-n">4</span><div><p>¿Qué comando muestra la sintaxis completa de mkdir?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-practica-4"><li><button type="button" class="op" data-ok="0">apropos mkdir</button></li><li><button type="button" class="op" data-ok="0">whatis mkdir</button></li><li><button type="button" class="op" data-ok="0">which mkdir</button></li><li><button type="button" class="op" data-ok="1">man mkdir</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>whatis y apropos dan una descripción breve. man trae sintaxis y descripción.</p>
+</div></li><li class="q" data-q="02D5xBNrLP" data-tema="Archivos e inodos" data-enlace="parcial-1-practica.html#archivos-e-inodos" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-practica-5"><span class="q-n">5</span><div><p>¿Qué dato no guarda el inodo?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-practica-5"><li><button type="button" class="op" data-ok="1">El nombre del archivo</button></li><li><button type="button" class="op" data-ok="0">El tamaño</button></li><li><button type="button" class="op" data-ok="0">El dueño</button></li><li><button type="button" class="op" data-ok="0">La ubicación física de los bloques</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El nombre se guarda en el bloque de datos de la carpeta.</p>
+</div></li><li class="q" data-q="gTCPpCKCnu" data-tema="Las tres fechas" data-enlace="parcial-1-practica.html#las-tres-fechas" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-practica-6"><span class="q-n">6</span><div><p>¿Qué hace que coincidan las tres fechas de un archivo?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-practica-6"><li><button type="button" class="op" data-ok="0">Leerlo con cat</button></li><li><button type="button" class="op" data-ok="0">Cambiarle los permisos</button></li><li><button type="button" class="op" data-ok="1">Crearlo o modificar su contenido</button></li><li><button type="button" class="op" data-ok="0">Mirarlo con ls</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Al crear o modificar, las tres quedan iguales.</p>
+</div></li><li class="q" data-q="ezPB4uJFBH" data-tema="Enlaces" data-enlace="parcial-1-practica.html#enlaces" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-practica-7"><span class="q-n">7</span><div><p>Con varios enlaces rígidos, ¿cuándo desaparece la información?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-practica-7"><li><button type="button" class="op" data-ok="0">Al borrar el original</button></li><li><button type="button" class="op" data-ok="0">Al renombrar el original</button></li><li><button type="button" class="op" data-ok="1">Al borrar el último enlace rígido</button></li><li><button type="button" class="op" data-ok="0">Al borrar cualquiera de ellos</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Sigue en el sistema hasta que se elimina el último enlace rígido.</p>
+</div></li><li class="q" data-q="5yLluiB684" data-tema="Permisos" data-enlace="parcial-1-practica.html#permisos" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-practica-8"><span class="q-n">8</span><div><p>¿Qué dato no aparece entre las columnas de ls -l?</p>
+<p class="q-origen">Se tomó: 1° parcial práctica, 2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-practica-8"><li><button type="button" class="op" data-ok="0">El tamaño</button></li><li><button type="button" class="op" data-ok="1">El número de inodo</button></li><li><button type="button" class="op" data-ok="0">La cantidad de enlaces</button></li><li><button type="button" class="op" data-ok="0">La fecha de modificación</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El número de inodo se ve con ls -i.</p>
+</div></li><li class="q" data-q="Vkjn6743_I" data-tema="Permisos" data-enlace="parcial-1-practica.html#en-directorios" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-practica-9"><span class="q-n">9</span><div><p>¿Qué permisos hacen falta en el directorio para borrar un archivo de él?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-practica-9"><li><button type="button" class="op" data-ok="0">Solo r</button></li><li><button type="button" class="op" data-ok="0">Solo w</button></li><li><button type="button" class="op" data-ok="1">x y w</button></li><li><button type="button" class="op" data-ok="0">r y x</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte dice que solo se necesitan x y w en el directorio.</p>
+</div></li><li class="q" data-q="eo2zTXHOX-" data-tema="umask" data-enlace="parcial-1-practica.html#umask" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-practica-10"><span class="q-n">10</span><div><p>Con umask 0022 de root, ¿qué permisos tiene un archivo nuevo, según el apunte?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-practica-10"><li><button type="button" class="op" data-ok="0">775</button></li><li><button type="button" class="op" data-ok="0">664</button></li><li><button type="button" class="op" data-ok="0">755</button></li><li><button type="button" class="op" data-ok="1">644</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte da 755 para directorios y 644 para archivos.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

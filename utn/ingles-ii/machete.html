@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hoja de repaso: Inglés II</title>
+<meta name="description" content="Todo en una hoja para imprimir.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="ingles-ii" data-pagina="machete">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Inglés II</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html" aria-current="page">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=ingles-ii">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=ingles-ii">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#que-se-rinde">Qué se rinde</a></li><li class="n2"><a href="#como-atacar-cada-consigna">Cómo atacar cada consigna</a></li><li class="n2"><a href="#tiempos">Tiempos</a></li><li class="n2"><a href="#reformular">Reformular</a></li><li class="n2"><a href="#conectores">Conectores</a></li><li class="n2"><a href="#clases-de-palabras">Clases de palabras</a></li><li class="n2"><a href="#citar">Citar</a></li><li class="n2"><a href="#ensayo">Ensayo</a></li><li class="n2"><a href="#oral">Oral</a></li><li class="n2"><a href="#escucha">Escucha</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja machete" data-reportable>
+<h1>Hoja de repaso</h1>
+<p class="bajada">Inglés II en dos carillas. Formatos del plan nuevo, gramática y conectores, con lo que traen los libros del Drive.</p>
+
+
+<section class="sec"><h2 id="que-se-rinde">Qué se rinde</h2>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué trae</th></tr></thead><tbody><tr><td>1° parcial 2025</td><td>Escucha (20 p.), títulos, preguntas, referencias, definiciones, cloze, verbos y notas</td></tr><tr><td>2° parcial 2024</td><td>Lectura de 55 p. con opción múltiple, equivalentes, reformulación y cloze</td></tr><tr><td>Final 2023</td><td>1-A escucha, 1-B lectura (45 p.), 2 ensayo de unas 250 palabras (40 p.) y oral</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="como-atacar-cada-consigna">Cómo atacar cada consigna</h2>
+<div class="tabla"><table><thead><tr><th>Consigna</th><th>Método</th></tr></thead><tbody><tr><td>Títulos</td><td>Qué hace cada párrafo, no qué palabras comparte</td></tr><tr><td>Referencias</td><td>Reemplazá la palabra por tu candidato y probá la oración</td></tr><tr><td>Equivalentes</td><td>Orden del texto, sección indicada, misma clase de palabra</td></tr><tr><td>Cloze</td><td>Qué relación hay con lo anterior y qué pide lo que sigue</td></tr><tr><td>Notas</td><td>Ideas clave y abreviaturas: approx, diff, lge, sm, v, yrs, e.g., i.e.</td></tr><tr><td>Reformular</td><td>Marcá qué ya está en el comienzo y cuidá el tiempo verbal</td></tr><tr><td>Definir</td><td>X is when…, X is a type of… for…, X is a… which…</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="tiempos">Tiempos</h2>
+<div class="tabla"><table><thead><tr><th>Tiempo</th><th>Afirmativa</th><th>Pregunta</th><th>Negativa</th></tr></thead><tbody><tr><td>Presente simple</td><td><code>he plays</code></td><td><code>Does he play?</code></td><td><code>he does not play</code></td></tr><tr><td>Pasado simple</td><td><code>he played</code></td><td><code>Did he play?</code></td><td><code>he did not play</code></td></tr><tr><td>Presente continuo</td><td><code>he is playing</code></td><td><code>Is he playing?</code></td><td><code>he is not playing</code></td></tr></tbody></table></div>
+<p>Pasado continuo: <code>while</code> más pasado continuo da el hecho de fondo, y el pasado simple el principal (<code>was descending</code>). Lo que pasó antes del hecho principal va en pasado perfecto (<code>had begun</code>).</p>
+<p>Académico: presente simple para generalizar, pasado simple para resultados de un estudio, presente perfecto para unir pasado y presente, <code>may</code>, <code>might</code>, <code>could</code> en lugar de futuro.</p>
+</section>
+<section class="sec"><h2 id="reformular">Reformular</h2>
+<div class="tabla"><table><thead><tr><th>Estructura</th><th>Regla</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Pasiva</td><td><code>be</code> más participio. El objeto pasa a sujeto. Intransitivos no</td><td><code>The first case was reported in Guinea.</code></td></tr><tr><td>Pasiva con modal</td><td>Modal más <code>be</code> más participio</td><td><code>can be defined as</code>, <code>could be used</code></td></tr><tr><td>Causa</td><td><code>because of</code>, <code>due to</code>, <code>owing to</code>, <code>as a result of</code> más sustantivo</td><td><code>Due to changes to the rules, …</code></td></tr><tr><td>Hedging con verbo</td><td><code>appear to</code>, <code>seem to</code>, <code>tend to</code></td><td><code>The results seem to show that…</code></td></tr><tr><td>Hedging con modal</td><td><code>may</code>, <code>might</code>, <code>could</code></td><td><code>The findings could be significant.</code></td></tr><tr><td>Hedging con <code>It</code></td><td><code>It seems that</code>, <code>It appears that</code></td><td><code>It appears that applications are increasing.</code></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="conectores">Conectores</h2>
+<div class="tabla"><table><thead><tr><th>Función</th><th>Conectores</th></tr></thead><tbody><tr><td>Sumar</td><td>also, in addition, furthermore, as well as, moreover</td></tr><tr><td>Contrastar</td><td>however, although, even though, despite, whereas, on the other hand, in contrast</td></tr><tr><td>Causa</td><td>because of, due to, owing to, as a result of, since</td></tr><tr><td>Consecuencia</td><td>therefore, as a result, as a consequence</td></tr><tr><td>Ejemplo</td><td>for example, for instance, such as</td></tr><tr><td>Ordenar</td><td>first of all, firstly, then, next, lastly, finally</td></tr><tr><td>Cerrar</td><td>overall, on the whole, in conclusion, to conclude</td></tr><tr><td>Parecido</td><td>similarly, similar to, as well as, equally</td></tr><tr><td>Diferencia</td><td>unlike, different from, by comparison, in contrast</td></tr></tbody></table></div>
+<ul>
+<li><code>However</code> lleva comas y va al principio, en el medio o al final.</li>
+<li><code>Although</code> y <code>whereas</code> abren una parte con sujeto y verbo.</li>
+<li><code>Despite</code> va con sustantivo, verbo con -ing o <code>the fact that</code>.</li>
+<li><code>At first</code> no es <code>firstly</code>. <code>At last</code> no es <code>lastly</code>.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="clases-de-palabras">Clases de palabras</h2>
+<div class="tabla"><table><thead><tr><th>Clase</th><th>Sufijos</th></tr></thead><tbody><tr><td>Sustantivo</td><td>-ment, -tion, -ation, -ity, -ness</td></tr><tr><td>Verbo</td><td>-en, -ify, -ize</td></tr><tr><td>Adjetivo</td><td>-ful, -ive, -ous, -less</td></tr><tr><td>Adverbio</td><td>-ly (pero <code>daily</code> es adjetivo)</td></tr></tbody></table></div>
+<p>Relativos: <code>which</code> o <code>that</code> para cosas, <code>who</code> o <code>that</code> para personas, <code>where</code> para lugares.</p>
+<p><code>Effect</code> es sustantivo, <code>affect</code> es verbo. <code>May be</code> son dos palabras, <code>maybe</code> es adverbio.</p>
+</section>
+<section class="sec"><h2 id="citar">Citar</h2>
+<ul>
+<li>Summary: más corto, con tus palabras.</li>
+<li>Paraphrase: mismo sentido, con tus palabras. Tres recursos: sinónimos, otra forma de la palabra y otra estructura.</li>
+<li>Quotation: textual, con comillas, autor y fecha.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="ensayo">Ensayo</h2>
+<ul>
+<li>Unas 250 palabras. Argumento equilibrado antes de tu opinión, con evidencia.</li>
+<li>Introducción: tema y punto de vista opuesto.</li>
+<li>Cuerpo: un punto principal por párrafo, con apoyo.</li>
+<li>Conclusión: resumen breve, argumento principal y comentario final.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="oral">Oral</h2>
+<ul>
+<li>Dos o tres estudiantes. Debate sobre un tema polémico de ingeniería.</li>
+<li>Presentación de 3 a 5 minutos sobre la relevancia del tema.</li>
+<li>El moderador presenta la moción y asigna a favor o en contra.</li>
+<li>De 20 a 30 minutos en total, con una rúbrica.</li>
+<li>Claro y conciso, sin interrumpir, respetando los turnos.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="escucha">Escucha</h2>
+<ul>
+<li>Leé las consignas antes del audio.</li>
+<li>«ONLY ONE WORD» es una sola palabra.</li>
+</ul>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (parciales de 2024 y 2025 y el modelo de final de 2023). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

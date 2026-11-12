@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2° parcial: Sistemas y Procesos de Negocio</title>
+<meta name="description" content="Sistemas, relevamiento, proceso de negocio con enfoque sistémico, diccionario de datos y cursograma.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="sistemas-y-procesos-de-negocio" data-pagina="parcial-2">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Sistemas y Procesos de Negocio</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html" aria-current="page">2° parcial</a></li><li class="em-fuera"><a href="parcial-3.html">3° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=sistemas-y-procesos-de-negocio">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=sistemas-y-procesos-de-negocio">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#que-es-un-sistema">Qué es un sistema</a></li><li class="n3"><a href="#componentes-basicos">Componentes básicos</a></li><li class="n3"><a href="#otros-conceptos-del-apunte">Otros conceptos del apunte</a></li><li class="n2"><a href="#sistema-de-informacion-e-informacion">Sistema de información e información</a></li><li class="n3"><a href="#caracteristicas-de-la-informacion">Características de la información</a></li><li class="n2"><a href="#ciclo-de-vida-del-desarrollo-de-sistemas">Ciclo de vida del desarrollo de sistemas</a></li><li class="n3"><a href="#ciclo-en-cascada">Ciclo en cascada</a></li><li class="n3"><a href="#objetivos-del-relevamiento">Objetivos del relevamiento</a></li><li class="n2"><a href="#relevamiento-de-informacion">Relevamiento de información</a></li><li class="n3"><a href="#muestreo">Muestreo</a></li><li class="n3"><a href="#entrevista">Entrevista</a></li><li class="n3"><a href="#cuestionarios">Cuestionarios</a></li><li class="n3"><a href="#observacion-e-investigacion-de-datos">Observación e investigación de datos</a></li><li class="n3"><a href="#minuta-de-relevamiento">Minuta de relevamiento</a></li><li class="n3"><a href="#que-es-un-proceso-de-negocio">Qué es un proceso de negocio</a></li><li class="n2"><a href="#el-proceso-de-negocio-con-enfoque-sistemico">El proceso de negocio con enfoque sistémico</a></li><li class="n3"><a href="#diagrama-de-contexto-actores-y-objetivos">Diagrama de contexto, actores y objetivos</a></li><li class="n3"><a href="#como-se-escribe-el-flujo-basico">Cómo se escribe el flujo básico</a></li><li class="n3"><a href="#ejemplo-del-apunte-la-biblioteca">Ejemplo del apunte, la biblioteca</a></li><li class="n3"><a href="#reglas-de-negocio">Reglas de negocio</a></li><li class="n3"><a href="#diccionario-de-datos">Diccionario de datos</a></li><li class="n3"><a href="#cuestiones-abiertas">Cuestiones abiertas</a></li><li class="n2"><a href="#cursograma">Cursograma</a></li><li class="n3"><a href="#simbolos">Símbolos</a></li><li class="n3"><a href="#reglas-de-construccion">Reglas de construcción</a></li><li class="n3"><a href="#metodo">Método</a></li><li class="n2"><a href="#preguntas-de-teoria-con-respuesta-en-el-apunte">Preguntas de teoría con respuesta en el apunte</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>2° parcial</h1>
+<p class="bajada">Qué es un sistema, cómo se relevan los procesos de una empresa, cómo se escribe un proceso de negocio con enfoque sistémico y cómo se dibuja un cursograma.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Lo marcado «Plan viejo» es de 2022 o antes, del plan anterior. Puede no coincidir con lo que se toma hoy.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>En el Drive no hay ningún 2° parcial de 2023 en adelante. El último es de 2021. Los temas de esta página se toman igual, en el final y en los 3° parciales de 2024 y 2025. Por eso esta es la página que más pesa.</p>
+<p>Te dan una minuta de relevamiento, un texto que cuenta cómo funciona un negocio (un taller, una veterinaria, un sector de reclamos), y hay que describir ese proceso con la <strong>plantilla de enfoque sistémico</strong>.</p>
+<div class="tomado"><aside class="nota"><strong>Plantilla de enfoque sistémico, en 5 de 7 exámenes</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 del taller, 2024 de la veterinaria y 25/10/25</span></aside><p>Piden actores clasificados, objetivo, alcance, flujo básico, alternativas, al menos tres reglas de negocio, diccionarios de datos y cuestiones abiertas. Los 1° parciales no piden la plantilla. El de 2026 sí pide el evento de inicio y los flujos de una minuta corta.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Cursograma, en 4 de 7 exámenes</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 de la veterinaria y 25/10/25</span></aside><p>Sale de la misma minuta. En la veterinaria, solo de la parte subrayada y en cursiva. La foto del taller se corta antes de esa consigna.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Teoría de esta página</strong><span>1° parcial 01/07/23. Final 03/12/24. 3° parcial 19/11/24 y 25/10/25. 1° parcial 2026</span></aside><p>Qué es un sistema de información, qué es un proceso de negocio, las etapas de la cascada, qué se hace en el relevamiento, la planificación de la entrevista y qué es el diccionario de datos de estructuras y de datos discretos.</p>
+</div>
+<p>Los bloques marcados «Solo en el plan viejo» no aparecen en ningún examen de 2023 en adelante. Siguen en el apunte, así que quedan cortos.</p>
+</section>
+<section class="sec"><h2 id="que-es-un-sistema">Qué es un sistema</h2>
+<p>Un sistema es un conjunto de objetos y sus atributos, que interactúan entre sí y con su ambiente, coordinados para lograr objetivos comunes. Dicho de otra forma, un conjunto de elementos organizados que funcionan interactuando entre sí y con el ambiente, según un criterio de integridad, para cumplir los objetivos para los que fue creado.</p>
+<p>La <strong>Teoría General de Sistemas</strong> es una forma científica de representar la realidad, con perspectiva holística. Sus objetivos originales son tres.</p>
+<ol>
+<li>Impulsar una terminología general que describa las características, funciones y comportamientos sistémicos.</li>
+<li>Desarrollar un conjunto de leyes aplicables a esos comportamientos.</li>
+<li>Promover la formalización de esas leyes.</li>
+</ol>
+<p>Fuente: Apunte Fundamentos de Sistemas y Modelado Sistémico de P.N. v1.17, páginas 3 y 4.</p>
+<h3 id="componentes-basicos">Componentes básicos</h3>
+<div class="tabla"><table><thead><tr><th>Componente</th><th>Qué es</th></tr></thead><tbody><tr><td>Objetivo</td><td>La finalidad del sistema, el para qué existe</td></tr><tr><td>Contexto, ambiente o entorno</td><td>Lo que no es parte del sistema pero lo influye. De ahí vienen las entradas y hacia ahí van las salidas</td></tr><tr><td>Elementos</td><td>Los componentes. Según el estímulo se comportan como parámetros, variables u operadores</td></tr><tr><td>Límite de interés o frontera</td><td>Define qué es parte del sistema y qué no. Depende de los objetivos y las funciones</td></tr><tr><td>Entradas</td><td>Flujos que ingresan al sistema (estímulos)</td></tr><tr><td>Salidas</td><td>Flujos que produce el sistema como respuesta al contexto</td></tr><tr><td>Proceso</td><td>La transformación de entradas en salidas</td></tr><tr><td>Estado</td><td>Valor de todas las variables en un momento</td></tr><tr><td>Transición</td><td>Los sucesivos estados durante el proceso. Se expresa como S = f(E, t)</td></tr><tr><td>Evento</td><td>Situación del contexto que activa las variables y cambia su estado</td></tr></tbody></table></div>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 5 y 6.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en una heladera. La temperatura es una variable, y lo que marca ahora es su estado. Alguien abre la puerta: eso es un evento, viene de afuera, activa la variable y le cambia el estado.</p>
+</div>
+<h3 id="otros-conceptos-del-apunte">Otros conceptos del apunte</h3>
+<ul>
+<li><strong>Sinergia.</strong> Surge de las interacciones entre las partes de un sistema. Responde al postulado aristotélico que dice que «el todo no es igual a la suma de sus partes».</li>
+<li><strong>Homeostasis.</strong> Compensaciones internas que mantienen invariante la estructura ante cambios del ambiente. Está pensada para organismos vivos como sistemas adaptables.</li>
+<li><strong>Caja negra.</strong> Se conocen bien las entradas y salidas y no importa el detalle interno.</li>
+<li><strong>Sistema de referencia.</strong> El sistema menor o desagregado que un sistema de información representa.</li>
+</ul>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 7, 8 y 12.</p>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Subsistemas, acoplamientos, clasificación de sistemas y tipos de sistemas de información se preguntaron hasta 2021. No aparecen en ningún examen de 2023 en adelante.</p>
+<p><strong>Subsistemas.</strong> Un sistema complejo se descompone en subsistemas con sus propios subobjetivos, hasta llegar a cajas negras. Se hace para facilitar la comprensión cuando el problema es complejo.</p>
+<p><strong>Acoplamientos.</strong> En serie (la salida de uno es la entrada del siguiente), en paralelo, con realimentación inmediata o directa (la salida del sucesor vuelve al antecesor) y con realimentación mediata o indirecta (como mínimo entre tres subsistemas).</p>
+<p><strong>Clasificación.</strong> Por origen (naturales o artificiales), por complejidad (simples o complejos), por interacción con el medio (abiertos o cerrados), por uso de computadora (informatizados o no) y por representatividad (de referencia o de información).</p>
+<p><strong>Tipos de sistemas de información.</strong> TPS procesa las transacciones diarias. OAS da soporte a los trabajadores de datos, como el correo. MIS da informes resumidos a nivel administrativo. EIS ayuda a problemas de decisión sin estructura, como un tablero de comando. DSS combina datos y modelos analíticos para apoyar decisiones y no decide por sí mismo.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 8 a 12, 17 y 18.</p>
+</div>
+</section>
+<section class="sec"><h2 id="sistema-de-informacion-e-informacion">Sistema de información e información</h2>
+<p>Un sistema de información es un conjunto de componentes interrelacionados que reúne, procesa, almacena y distribuye información para apoyar la toma de decisiones y el control en una organización. Según el apunte, su objetivo es brindar los datos necesarios para representar la realidad de su sistema de referencia.</p>
+<p>El apunte cierra el tema con una definición más específica. Un sistema de información «Es un conjunto de recursos humanos y materiales a través de los cuales se recolectan, almacenan, recuperan, procesan y comunican datos e información con el fin de lograr una gestión eficiente de las operaciones de una organización». Gestión eficiente incluye planeamiento, toma de decisiones, control e informes. Para eso tiene que dar información correcta, en el momento preciso, a la persona indicada, en el lugar apropiado y a un costo adecuado.</p>
+<p>Hay sistema de información «sin importar si se utiliza una computadora o no». Por eso la cátedra define primero las necesidades de información, y recién después qué datos usar y cómo procesarlos.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 16 y 17.</p>
+<p>Dato e información no son lo mismo. Los datos son flujos sin organizar. La información son datos con forma y sentido útil para una persona, en un momento y para un problema específico. Lo que es información para uno puede ser dato para otro.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 12 y 13.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Una lista con quinientas ventas sueltas son datos. «Este mes vendimos menos que el anterior» es información para quien tiene que decidir qué hacer con eso.</p>
+</div>
+<h3 id="caracteristicas-de-la-informacion">Características de la información</h3>
+<div class="tomado"><aside class="nota"><strong>Nombrar cinco características y explicar al menos dos</strong><span>1° parcial 01/07/23</span></aside><p>Es el único examen de 2023 en adelante que lo pide.</p>
+</div>
+<p>Para ser útil tiene que ser clara, veraz, objetiva, ilustrativa, oportuna, racional, selectiva y adecuada.</p>
+<ul>
+<li><strong>Objetiva:</strong> no influenciada por criterios personales del analista.</li>
+<li><strong>Oportuna:</strong> disponible en el momento en que se la necesita.</li>
+<li><strong>Adecuada:</strong> en su estructuración y selectividad. No debe ser abundante en demasía ni escasa.</li>
+<li><strong>Selectiva:</strong> dirigida solo a quienes les corresponde.</li>
+<li><strong>Racional:</strong> ordenada y bien estructurada.</li>
+</ul>
+<p>Los niveles inferiores generan más información y la necesitan más detallada. Los niveles superiores necesitan más síntesis.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, página 14.</p>
+</section>
+<section class="sec"><h2 id="ciclo-de-vida-del-desarrollo-de-sistemas">Ciclo de vida del desarrollo de sistemas</h2>
+<p>Hay dos enfoques.</p>
+<h3 id="ciclo-en-cascada">Ciclo en cascada</h3>
+<p>Seis actividades, que no se hacen como pasos aislados. Pueden solaparse y repetirse por retroalimentación.</p>
+<ol>
+<li><strong>Relevamiento de requerimientos.</strong></li>
+<li><strong>Análisis</strong> de las necesidades del sistema.</li>
+<li><strong>Diseño</strong> del sistema recomendado.</li>
+<li><strong>Desarrollo y documentación del software</strong> (implementación).</li>
+<li><strong>Pruebas y mantenimiento.</strong></li>
+<li><strong>Instalación y evaluación.</strong></li>
+</ol>
+<div class="tomado"><aside class="nota"><strong>Mencionar las etapas de la cascada en orden</strong><span>3° parcial 19/11/24</span></aside><p>Están en la lista de arriba, con el nombre que les da el apunte.</p>
+</div>
+<h3 id="objetivos-del-relevamiento">Objetivos del relevamiento</h3>
+<p>El relevamiento (también llamado estudio de factibilidad o estudio inicial del negocio) arranca con el requerimiento del usuario. El apunte da cinco objetivos.</p>
+<ol>
+<li>Identificar el sistema y los usuarios responsables.</li>
+<li>Identificar las deficiencias del sistema actual.</li>
+<li>Establecer metas y objetivos para el sistema nuevo. Los debe dar el usuario, no el analista.</li>
+<li>Determinar si es factible y sugerir escenarios aceptables, con estimaciones aproximadas de costo, tiempo y beneficios.</li>
+<li>Planificar las etapas siguientes del proyecto.</li>
+</ol>
+<div class="tomado"><aside class="nota"><strong>Objetivos o funciones de la etapa de relevamiento</strong><span>Final 03/12/24, 1° parcial 2026</span></aside><p>En 2026 pedían su finalidad y al menos tres objetivos. En el final, las funciones de esa etapa.</p>
+</div>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, páginas 3 y 4.</p>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>El Proceso Unificado se preguntó en 2021 y en ningún examen de 2023 en adelante. Se repite en una serie de ciclos, y cada uno termina con una versión lista para entregar. Tiene cuatro fases, cada una con un hito. Inicio, elaboración, construcción y transición.</p>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, páginas 4 y 5.</p>
+</div>
+</section>
+<section class="sec"><h2 id="relevamiento-de-informacion">Relevamiento de información</h2>
+<p>El relevamiento obtiene los datos según un objetivo para conocer los procesos de negocio. Las técnicas son el muestreo, la investigación de datos, la entrevista, el cuestionario y la observación. De 2023 en adelante, la única que se tomó es la entrevista.</p>
+<h3 id="muestreo">Muestreo</h3>
+<p>Se hace por costo, para agilizar, para mejorar la eficacia y para reducir la parcialidad. Un buen diseño sigue cuatro pasos. Determinar qué datos recopilar, delimitar la población, elegir el tipo de muestra y decidir su tamaño.</p>
+<h3 id="entrevista">Entrevista</h3>
+<p>Es una conversación dirigida con un propósito. Busca objetivos, opiniones, sentimientos y procedimientos informales.</p>
+<p><strong>Planeamiento de la entrevista.</strong> El apunte da cinco pasos.</p>
+<ol>
+<li><strong>Lectura de antecedentes.</strong> Explorar de antemano al entrevistado y a la organización.</li>
+<li><strong>Establecimiento de los objetivos de la entrevista.</strong> Definir qué información se quiere obtener.</li>
+<li><strong>Selección de los entrevistados.</strong> Gente clave de todos los niveles.</li>
+<li><strong>Preparación del entrevistado.</strong> Coordinar día, hora y lugar con anticipación. Duran entre quince minutos y una hora.</li>
+<li><strong>Selección del tipo y la estructura de las preguntas.</strong></li>
+</ol>
+<div class="tomado"><aside class="nota"><strong>Pasos de la planificación de la entrevista</strong><span>3° parcial 25/10/25, 1° parcial 2026</span></aside><p>En 2025 pedían nombrarlos y describir dos. En 2026, describir brevemente las etapas.</p>
+</div>
+<p><strong>Tipos de preguntas.</strong></p>
+<ul>
+<li><strong>Abiertas:</strong> dejan todas las opciones de respuesta. Dan riqueza de detalle, pero se puede perder el control del tiempo. Por ejemplo, «¿Cuál es su opinión del sistema actual?».</li>
+<li><strong>Cerradas:</strong> limitan las alternativas. Ahorran tiempo y permiten comparar. Una cerrada <strong>bipolar</strong> solo admite dos respuestas (sí o no, verdadero o falso).</li>
+<li><strong>Sondeo:</strong> va más allá de la respuesta inicial. Por ejemplo, «¿por qué?».</li>
+</ul>
+<p>Errores a evitar. Las preguntas <strong>tendenciosas</strong> (llevan a una respuesta) y las <strong>dobles</strong> (dos preguntas en una).</p>
+<p>La estructura de las preguntas puede ser <strong>piramidal</strong> (de lo específico a lo general), de <strong>embudo</strong> (de lo general a lo específico) o de <strong>diamante</strong> (combina las dos). Y la entrevista es estructurada o no estructurada.</p>
+<p>Se registra con grabación o con notas, y después hay que escribir el informe lo antes posible.</p>
+<h3 id="cuestionarios">Cuestionarios</h3>
+<p>Sirven cuando la gente está dispersa, son muchos o se quiere un estudio exploratorio. Las preguntas abiertas son para opiniones. Las cerradas se usan cuando se pueden listar todas las respuestas posibles y son mutuamente excluyentes. Las escalas pueden ser nominales, ordinales, de intervalo y de relación. Cuidado con la lenidad, la tendencia central y el efecto de halo. La validez es que mida lo que se quiso medir y la confiabilidad que los resultados sean consistentes.</p>
+<h3 id="observacion-e-investigacion-de-datos">Observación e investigación de datos</h3>
+<p>La observación muestra lo que se hace, no solo lo que se dice. Sirve para confirmar entrevistas y cuestionarios. La investigación de datos mira documentos cuantitativos (informes, formularios) y cualitativos (memorandos, manuales de políticas y procedimientos).</p>
+<h3 id="minuta-de-relevamiento">Minuta de relevamiento</h3>
+<p>Es la narrativa clara, ordenada y concisa de los procesos relevados. Debe incluir el propósito del sistema, las tareas y su orden, qué información recibe o produce cada una, qué decisiones se toman, quién es responsable y las reglas y restricciones. Se identifica con número y versión, y cambia la versión si se agregan modificaciones.</p>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, páginas 7 a 24.</p>
+<h3 id="que-es-un-proceso-de-negocio">Qué es un proceso de negocio</h3>
+<p>Un proceso de negocio es un conjunto de tareas relacionadas lógicamente, llevadas a cabo para lograr un resultado de negocio definido. Tiene entradas, funciones y salidas. Hay procesos centrales (dan valor al cliente, como repartir mercaderías) y procesos de soporte (como contabilidad). Se compone de subprocesos, decisiones y actividades.</p>
+<div class="tomado"><aside class="nota"><strong>Definir proceso de negocio</strong><span>Final 03/12/24</span></aside><p>Es la consigna 5 de teoría de ese final.</p>
+</div>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, página 26.</p>
+</section>
+<section class="sec"><h2 id="el-proceso-de-negocio-con-enfoque-sistemico">El proceso de negocio con enfoque sistémico</h2>
+<p>Es la plantilla con la que la cátedra pide describir una minuta. Los exámenes dicen «utilice formato plantilla». Estos son los ítems, en el orden de la plantilla de la cátedra.</p>
+<div class="tabla"><table><thead><tr><th>Ítem de la plantilla</th><th>Qué va</th></tr></thead><tbody><tr><td>Objetivo del actor</td><td>Lo que el actor principal quiere lograr</td></tr><tr><td>Actores</td><td>Principal, de apoyo y pasivo</td></tr><tr><td>Diagrama</td><td>El nombre del proceso de negocio y los actores identificados</td></tr><tr><td>Alcance del proceso</td><td>Desde qué momento hasta qué momento llega. El apunte da este ejemplo, «desde que el cliente solicita la cuenta hasta que el cliente paga y se retira»</td></tr><tr><td>Evento externo iniciador</td><td>Lo que pasa afuera y dispara el proceso</td></tr><tr><td>Flujo básico</td><td>Los pasos del camino normal</td></tr><tr><td>Alternativas</td><td>Las posibles excepciones al flujo básico</td></tr><tr><td>Reglas de negocio</td><td>Políticas y condiciones que deben cumplirse</td></tr><tr><td>Diccionario de datos</td><td>Flujos de entrada y de salida, estructuras, datos discretos y entidades</td></tr><tr><td>Cuestiones abiertas</td><td>Preguntas para una nueva entrevista</td></tr></tbody></table></div>
+<p>Fuente: Plantilla PNES de la cátedra. Apunte Fundamentos de Sistemas v1.17, páginas 24 y 28.</p>
+<h3 id="diagrama-de-contexto-actores-y-objetivos">Diagrama de contexto, actores y objetivos</h3>
+<p>El diagrama de contexto muestra los límites del sistema, lo que queda afuera y cómo se usa. Un <strong>actor</strong> es algo con comportamiento. Una persona identificada por su rol, un sistema, una organización o una máquina.</p>
+<ul>
+<li><strong>Actor principal:</strong> tiene objetivos de usuario que se satisfacen con los servicios del sistema. Es el dueño del objetivo del proceso.</li>
+<li><strong>Actor de apoyo:</strong> proporciona un servicio. Puede ser una persona, una organización o un sistema.</li>
+<li><strong>Actor pasivo:</strong> está interesado en el comportamiento del caso de uso, pero no es principal ni de apoyo.</li>
+</ul>
+<p>Para encontrar los actores el apunte propone preguntas. ¿Quién inicia eventos con el sistema? ¿Quién provee, usa o quita información? ¿Qué otros sistemas interactúan con éste? Para el objetivo se pregunta qué quiere lograr el actor.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 21 a 24.</p>
+<div class="tomado"><aside class="nota"><strong>Clasificar los actores y dar el objetivo</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 de la veterinaria y 25/10/25</span></aside><p>En 2025 también pedían el evento inicializador. En el 1° parcial de 2026, el evento de inicio de una minuta corta.</p>
+</div>
+<h3 id="como-se-escribe-el-flujo-basico">Cómo se escribe el flujo básico</h3>
+<p>Las pautas del apunte.</p>
+<ul>
+<li>Cada oración tiene sujeto, que identifica si actúa un actor o el sistema. Nada de sujeto tácito.</li>
+<li>Forma sujeto, verbo, objeto directo. Por ejemplo, «El cliente consulta la carta».</li>
+<li>Se mira «quién tiene el balón». El actor es el primer sustantivo de la oración, y el balón son el mensaje y los datos que pasa a otro actor.</li>
+<li>Punto de vista de ojos de pájaro.</li>
+</ul>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, página 24.</p>
+<h3 id="ejemplo-del-apunte-la-biblioteca">Ejemplo del apunte, la biblioteca</h3>
+<p>El apunte trae una <strong>solución de referencia</strong>, el préstamo de libros de una biblioteca de una facultad. Este es un tramo, tal como lo da el apunte. Fijate cómo cada renglón empieza por quién actúa.</p>
+<p><strong>Flujo básico, primeros pasos.</strong></p>
+<ul>
+<li>El Socio entrega el carnet al Bibliotecario.</li>
+<li>El Bibliotecario controla el carnet.</li>
+<li>El Socio informa por cuantos días lo quiere y entrega los libros al Bibliotecario.</li>
+<li>El Bibliotecario confecciona un formulario por el préstamo, donde escribe los códigos de los libros y por cuantos días los pidió el Socio.</li>
+<li>El Bibliotecario registra el préstamo.</li>
+</ul>
+<p><strong>Alternativas o posibles excepciones.</strong> Cada una dice qué pasó y qué se hace.</p>
+<ul>
+<li>El Socio esta Inhabilitado o Sancionado, Bibliotecario informa tal situación al socio no pudiendo retirar libros.</li>
+<li>El Socio no entrega el talón, el bibliotecario con los libros devueltos busca el préstamo que tenía pendiente.</li>
+</ul>
+<p><strong>Reglas de negocio, con su tipo.</strong></p>
+<div class="tabla"><table><thead><tr><th>Regla</th><th>Tipo</th></tr></thead><tbody><tr><td>Solo pueden asociarse los alumnos, egresados y docentes de la facultad</td><td>HE</td></tr><tr><td>Solo los socios pueden retirar libros a domicilio</td><td>AR</td></tr><tr><td>La fecha teórica de devolución del préstamo se calcula como la fecha del préstamo más la cantidad de días (hábiles) que pidió el socio</td><td>CA</td></tr></tbody></table></div>
+<p><strong>Cuestión abierta.</strong> La cantidad de días del préstamo supera el tope de algún libro, ¿qué se hace?</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 31 a 33. Ahí está entera.</p>
+<h3 id="reglas-de-negocio">Reglas de negocio</h3>
+<p>Una regla de negocio es una declaración de una política o una condición que debe cumplirse. El apunte propone cinco tipos.</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Qué es</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td>Hechos (HE)</td><td>Condiciones que deben ser verdaderas</td><td>Cada pedido tiene un cargo de envío</td></tr><tr><td>Restricciones o acciones restrictivas (AR)</td><td>Acciones prohibidas según una condición</td><td>No vender a un cliente con crédito excedido</td></tr><tr><td>Acciones disparadoras (AD)</td><td>Disparan una acción cuando se cumplen condiciones</td><td>Enviar pedido al proveedor cuando la existencia llega al stock de seguridad</td></tr><tr><td>Cálculos (CA)</td><td>Calculan un valor a partir de otros</td><td>El precio total es la suma de los artículos menos descuentos más impuestos</td></tr><tr><td>Inferencias (IN)</td><td>Sacan una conclusión cuando se cumplen condiciones</td><td>Si el pago no llega en 30 días, la cuenta es morosa</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Escribir al menos tres reglas de negocio de la minuta</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 del taller, 2024 de la veterinaria y 25/10/25</span></aside><p>Las sacás de lo que dice la minuta. Los tipos de la tabla de arriba te ayudan a reconocerlas.</p>
+</div>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 25 y 26.</p>
+<h3 id="diccionario-de-datos">Diccionario de datos</h3>
+<p>Es la herramienta que describe el significado de los componentes y elimina ambigüedades. Especifica los flujos de datos, las entidades y los valores y unidades de los datos elementales.</p>
+<ul>
+<li><strong>Dato elemental o atributo:</strong> la menor unidad que tiene sentido para el usuario.</li>
+<li><strong>Estructura de dato:</strong> dos o más componentes, cada uno un dato u otra estructura. Domicilio es estructura de calle, número, piso, depto, ciudad y provincia.</li>
+<li><strong>Flujo de datos:</strong> conjuntos de datos en movimiento. Son estructuras.</li>
+<li><strong>Entidad:</strong> objeto donde se guardan los datos.</li>
+</ul>
+<p><strong>Notación</strong> (adaptada de Backus-Naur).</p>
+<div class="tabla"><table><thead><tr><th>Símbolo</th><th>Significa</th></tr></thead><tbody><tr><td>=</td><td>equivale a</td></tr><tr><td>+</td><td>y</td></tr><tr><td>[ a | b ]</td><td>elegir una de las componentes</td></tr><tr><td>{ }</td><td>iteración</td></tr><tr><td>( )</td><td>componente opcional</td></tr><tr><td>** **</td><td>comentario</td></tr><tr><td>(e)</td><td>estructura</td></tr><tr><td>(D)</td><td>dato discreto</td></tr></tbody></table></div>
+<p>Reglas del apunte.</p>
+<ul>
+<li>Cada dato elemental de un flujo o estructura se separa con el signo +.</li>
+<li>Las iteraciones llevan el mínimo y el máximo de repeticiones, antes y después de las llaves. <code>1{ ... }N</code> repite de una a n veces, <code>0{ ... }N</code> de ninguna a n veces y <code>3{ ... }3</code> solamente tres veces.</li>
+<li><code>{ }</code> vacías se usan en los flujos vacíos, cuando no se ingresa ningún dato. Por ejemplo, un empleado que emite un listado de todos los clientes.</li>
+<li>Los DD de los flujos de <strong>entrada</strong> tienen los datos mínimos y necesarios.</li>
+<li>Los DD de los flujos de <strong>salida</strong> tienen todos los datos necesarios, incluidos los que resultan de una operación.</li>
+<li>Las estructuras se marcan (e) y los datos discretos (D). Los discretos se describen con la tabla de valores posibles.</li>
+</ul>
+<p><strong>Ejemplo del apunte, la apertura de una cuenta en un banco.</strong> Si el cliente va por primera vez, informa sus datos personales. Si no, su número de cliente. Además informa el tipo de cuenta y cualquier observación. La empleada registra los datos y le informa el número de cuenta.</p>
+<pre class="codigo"><code>Flujos de datos de entrada
+E1  datos-cliente = [ datos-personales(e) | nro-cliente ] + tipo-cta(D) + (observación)
+
+Flujos de datos de salida
+S1  inform-cta = tipo-cta(D) + nro-cta
+
+Estructura de datos
+datos-personales(e) = nombre + tipo-nrodoc + fecha_nac + dirección + 1{ teléfono }2 + profesión
+
+Elementos de datos discretos
+Atributo: Tipo-cta (D)
+Descripción: Tipo de cuenta
+Valores posibles: Cuenta-corriente, caja-ahorro, plazo-fijo
+
+Entidad
+Clientes = nro-cliente + nombre + tipo-nrodoc + fecha_nac + dirección + 1{ teléfono }2 + profesión + 1{ nro-cta + tipo-cta }n</code></pre>
+<p>Fijate en tres cosas del ejemplo. Los corchetes dicen que se da una cosa o la otra. Los hasta dos teléfonos van con <code>1{ }2</code>. La observación va entre paréntesis porque es opcional.</p>
+<div class="tomado"><aside class="nota"><strong>Diccionario de datos de flujos de entrada, salida y entidad, en 6 de 7 exámenes</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 del taller, 2024 de la veterinaria y 25/10/25. 1° parcial 2026</span></aside><p>En 2025 había que hacerlo de un listado dibujado en el enunciado, además de los flujos y la entidad de la minuta. También se pide el de un comprobante.</p>
+</div>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, páginas 26 a 28.</p>
+<h3 id="cuestiones-abiertas">Cuestiones abiertas</h3>
+<p>Son preguntas para una nueva entrevista, sobre lo que la minuta no aclara. Los tipos están en <a href="#entrevista">entrevista</a>.</p>
+<div class="tomado"><aside class="nota"><strong>Una pregunta abierta y una cerrada</strong><span>Final 03/12/24. 3° parcial 19/11/24, 2024 del taller, 2024 de la veterinaria y 25/10/25</span></aside><p>En 2025 la cerrada tenía que ser bipolar y había que indicar cuál es cuál. En el taller y en la veterinaria, a qué actor se las harías.</p>
+</div>
+</section>
+<section class="sec"><h2 id="cursograma">Cursograma</h2>
+<p>Es la representación gráfica de la sucesión de pasos de un procedimiento administrativo. Muestra los sectores, los soportes de información y el detalle de cada operación. Sirve para ver cuántos formularios se emiten, cómo se archivan, qué controles y decisiones hay y detectar pasos innecesarios o falta de controles.</p>
+<p>Muestra tres cosas. Las áreas de responsabilidad (en columnas), los tipos de operaciones (con símbolos de la norma IRAM 34.501) y el sentido de circulación.</p>
+<h3 id="simbolos">Símbolos</h3>
+<div class="tabla"><table><thead><tr><th>Símbolo</th><th>Cómo se dibuja</th><th>Qué representa</th></tr></thead><tbody><tr><td>Documento</td><td>Rectángulo acostado</td><td>Un formulario. Lleva abreviatura y cantidad de ejemplares</td></tr><tr><td>Operación</td><td>Círculo</td><td>Elaborar, modificar o incorporar información, o decidir</td></tr><tr><td>Control</td><td>Cuadrado</td><td>Toda verificación</td></tr><tr><td>Demora</td><td>Letra D</td><td>Una detención transitoria a la espera de un acontecimiento</td></tr><tr><td>Archivo transitorio</td><td>Triángulo con la punta hacia abajo</td><td>Almacenamiento temporal</td></tr><tr><td>Archivo definitivo</td><td>Triángulo con la punta hacia arriba</td><td>Almacenamiento permanente</td></tr><tr><td>Destrucción</td><td>Cruz en forma de X</td><td>Eliminación de la información</td></tr><tr><td>Alternativa</td><td>Rombo</td><td>Que el procedimiento tiene cursos de acción distintos</td></tr><tr><td>Proceso no representado</td><td>Hexágono</td><td>Acciones que se desconocen o que no interesa representar</td></tr><tr><td>Traslado</td><td>Flecha de línea continua</td><td>Desplazamiento físico del portador de información</td></tr><tr><td>Traslado de información</td><td>Flecha de línea punteada</td><td>Desplazamiento de la información sin mover el soporte</td></tr><tr><td>Conector</td><td>Pentágono con la punta hacia abajo</td><td>Une procedimientos, procesos o páginas</td></tr><tr><td>Puente</td><td>Media circunferencia sobre la línea</td><td>Cruce de dos comunicaciones independientes</td></tr></tbody></table></div>
+<p>Los dibujos están en las páginas 3 y 4 del <a href="https://drive.google.com/file/d/1N4TGRzp_zmTZ8AW5O3kL6kEr9pP8rTLn/view">apunte de cursograma</a>.</p>
+<h3 id="reglas-de-construccion">Reglas de construcción</h3>
+<ul>
+<li>Se dibuja hacia abajo. Horizontal cuando pasa de un sector a otro. Hacia arriba para retrocesos, o para otros pases si ahorra espacio.</li>
+<li>Cada sector es una columna.</li>
+<li>Las flechas no hacen falta en líneas hacia abajo o de izquierda a derecha.</li>
+<li>Se evitan cruces de línea. Si hacen falta, con puentes.</li>
+<li>Las uniones de líneas forman un ángulo recto.</li>
+<li>Las líneas entran a un símbolo por arriba o por la izquierda, y salen por abajo o por la derecha. A la alternativa se entra solo por el vértice de arriba.</li>
+<li>Los ejemplares de un formulario se dibujan superpuestos y desplazados, con un número cada uno. En el ejemplo de la página 9, el apunte numera desde 0 para indicar el original.</li>
+<li>La emisión de un formulario se representa con una operación, y se anota el formulario.</li>
+<li>Dentro de la alternativa va la pregunta. El SI sale por el vértice derecho y el NO por el izquierdo.</li>
+<li>Cada símbolo se describe cerca, dentro del diagrama, en pocas palabras.</li>
+<li>Los archivos se refieren con una letra mayúscula, nombre y tipo de ordenamiento. Los formularios, con sus iniciales y su significado.</li>
+<li>Si una operación y un control se hacen a la vez, se dibujan juntos en un solo símbolo.</li>
+<li>Un conector lleva un código, para encontrar fácil dónde sigue el curso de acción.</li>
+<li>Si dos o más sectores hacen una acción a la vez y en forma conjunta (por ejemplo, una llamada telefónica), se unen con una sola doble línea de traslado, sin sentido.</li>
+</ul>
+<p>Dónde puede ir cada símbolo dentro del procedimiento.</p>
+<div class="tabla"><table><thead><tr><th>Símbolo</th><th>Al inicio</th><th>En el medio</th><th>Al final</th></tr></thead><tbody><tr><td>Operación</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Control</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Demora</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Archivo transitorio</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Archivo definitivo</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Destrucción</td><td>No</td><td>No</td><td>Sí</td></tr><tr><td>Alternativa</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Formulario u otro soporte</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Proceso no representado</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Traslado</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Toma de información</td><td>No</td><td>Sí</td><td>No</td></tr><tr><td>Conector</td><td>Sí</td><td>No</td><td>Sí</td></tr></tbody></table></div>
+<p>Fuente: Apunte Cursograma de Procesos de Negocio v2.0, páginas 5 y 6.</p>
+<h3 id="metodo">Método</h3>
+<p>El apunte resuelve paso a paso el préstamo de libros en una biblioteca, páginas 6 a 15.</p>
+<ol>
+<li>Identificar los sectores o entidades y ponerlos en columnas.</li>
+<li>Recorrer la minuta oración por oración y dibujar cada acción con su símbolo.</li>
+<li>Después de un control, siempre hay una alternativa.</li>
+<li>Consultar un archivo se marca con una línea de trazo discontinuo desde el archivo.</li>
+<li>Marcar qué ejemplar va a dónde, y qué se archiva o se destruye. Si no interesa lo que pasa después con un papel, va un proceso no representado.</li>
+<li>Controlar que todos los formularios dibujados terminen en un archivo. Si no y se desconoce su destino, se indica con un proceso no representado.</li>
+<li>Completar y controlar las referencias. Formularios con sus iniciales y archivos con su nombre, aclarando si son lógicos o físicos.</li>
+</ol>
+<p>Detalles que el ejemplo resuelve.</p>
+<ul>
+<li>Una firma (por ejemplo, el socio firma el formulario) se dibuja con un símbolo de operación.</li>
+<li>Los formularios que viajan juntos se unen con una línea diagonal desde el vértice.</li>
+<li>En la línea de traslado se puede anotar el objeto físico que va con el papel (por ejemplo, «+ LIBRO»). Según la norma IRAM, ese objeto no se representa con símbolo.</li>
+<li>Un archivo donde se guarda un papel es <strong>físico</strong>, y el traslado del formulario hacia él va con línea continua. Un archivo <strong>lógico</strong> (los datos en el sistema) se consulta o actualiza con línea de trazo discontinuo.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Cuando el enunciado marca solo una parte</p><p>En la veterinaria de 2024 pedían el cursograma solo de la parte subrayada y en cursiva. Dibujá nada más que ese fragmento.</p>
+</div>
+<p>Fuente: Apunte Cursograma de Procesos de Negocio v2.0, páginas 2 a 9.</p>
+</section>
+<section class="sec"><h2 id="preguntas-de-teoria-con-respuesta-en-el-apunte">Preguntas de teoría con respuesta en el apunte</h2>
+<details class="pregunta"><summary><span>¿Qué es un sistema de información?</span><small>Final 03/12/24, 3° parcial 25/10/25</small></summary><div class="resp"><p>Un conjunto de componentes interrelacionados que reúne (u obtiene), procesa, almacena y distribuye información para apoyar a la toma de decisiones y el control en una organización.</p>
+<p>Fuente: Apunte Fundamentos de Sistemas v1.17, página 12.</p>
+</div></details>
+<details class="pregunta"><summary><span>Finalidad del relevamiento y al menos tres objetivos</span><small>1° parcial 2026</small></summary><div class="resp"><p>El apunte da cinco objetivos. Identificar al sistema y a los usuarios responsables. Identificar las deficiencias del sistema actual. Establecer metas y objetivos para un sistema nuevo. Determinar si es factible. Planificar las etapas siguientes del proyecto.</p>
+<p>Fuente: Apunte Ciclo de Desarrollo de Sistemas y Relevamiento, página 3.</p>
+</div></details>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-2" data-materia="sistemas-y-procesos-de-negocio">
+<h2>Quiz del 2° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="1y-dBwKEa2" data-tema="Otros conceptos del apunte" data-enlace="parcial-2.html#otros-conceptos-del-apunte" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-1"><span class="q-n">1</span><div><p>El postulado aristotélico «el todo no es igual a la suma de sus partes» corresponde, según el apunte, al concepto de</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-1"><li><button type="button" class="op" data-ok="1">Sinergia</button></li><li><button type="button" class="op" data-ok="0">Homeostasis</button></li><li><button type="button" class="op" data-ok="0">Recursividad</button></li><li><button type="button" class="op" data-ok="0">Caja negra</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es la <strong>sinergia</strong>. La homeostasis, en cambio, es mantener estable la estructura frente a los cambios del ambiente.</p>
+</div></li><li class="q" data-q="LkUT5ZPl-8" data-tema="Otros conceptos del apunte" data-enlace="parcial-2.html#otros-conceptos-del-apunte" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-2"><span class="q-n">2</span><div><p>La salida de un subsistema antecesor es la entrada de un sucesor, y la salida de éste vuelve como entrada al antecesor. El acoplamiento es</p>
+<p class="q-origen">Se tomó: 2° parcial 28/09/21, adaptada <em class="viejo">Plan viejo</em></p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-2"><li><button type="button" class="op" data-ok="0">En serie</button></li><li><button type="button" class="op" data-ok="0">En paralelo</button></li><li><button type="button" class="op" data-ok="1">Con realimentación inmediata o directa</button></li><li><button type="button" class="op" data-ok="0">Con realimentación mediata o indirecta</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Con dos subsistemas que se realimentan entre sí es <strong>realimentación inmediata</strong>. La indirecta necesita como mínimo tres subsistemas.</p>
+</div></li><li class="q" data-q="wQ9AExpwR9" data-tema="Características de la información" data-enlace="parcial-2.html#caracteristicas-de-la-informacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-3"><span class="q-n">3</span><div><p>Que la información sea «adecuada» significa que</p>
+<p class="q-origen">Se tomó: 2° parcial 28/09/21 y 1° parcial 01/07/23, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-3"><li><button type="button" class="op" data-ok="0">No debe estar influenciada por criterios personales</button></li><li><button type="button" class="op" data-ok="1">No debe ser ni abundante en demasía ni escasa</button></li><li><button type="button" class="op" data-ok="0">Debe estar disponible en el momento en que se necesita</button></li><li><button type="button" class="op" data-ok="0">Debe estar dirigida solo a quienes les corresponde</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La primera es <strong>objetiva</strong>, la tercera <strong>oportuna</strong> y la cuarta <strong>selectiva</strong>.</p>
+</div></li><li class="q" data-q="Ex7xrRySzd" data-tema="Otros conceptos del apunte" data-enlace="parcial-2.html#otros-conceptos-del-apunte" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-4"><span class="q-n">4</span><div><p>Un sistema que combina datos y modelos analíticos para apoyar decisiones semiestructuradas y no estructuradas, y que no decide por sí mismo, es un</p>
+<p class="q-origen">Se tomó: 2° parcial 22/05/18, adaptada <em class="viejo">Plan viejo</em></p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-4"><li><button type="button" class="op" data-ok="0">TPS</button></li><li><button type="button" class="op" data-ok="0">MIS</button></li><li><button type="button" class="op" data-ok="0">OAS</button></li><li><button type="button" class="op" data-ok="1">DSS</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es un <strong>DSS</strong>, sistema de apoyo a las decisiones. Se usa ad hoc y provee la información que después usa el administrador. El MIS da informes resumidos y de excepción de rutina.</p>
+</div></li><li class="q" data-q="nBnTu_q_l4" data-tema="Ciclo en cascada" data-enlace="parcial-2.html#ciclo-en-cascada" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-5"><span class="q-n">5</span><div><p>En el ciclo en cascada del apunte, la actividad que sigue al relevamiento es</p>
+<p class="q-origen">Se tomó: 3° parcial 19/11/24, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-5"><li><button type="button" class="op" data-ok="0">Diseño</button></li><li><button type="button" class="op" data-ok="0">Implementación</button></li><li><button type="button" class="op" data-ok="1">Análisis de las necesidades del sistema</button></li><li><button type="button" class="op" data-ok="0">Instalación y evaluación</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El orden es relevamiento, análisis, diseño, desarrollo y documentación, pruebas y mantenimiento, instalación y evaluación.</p>
+</div></li><li class="q" data-q="tbiTDzOfeo" data-tema="Objetivos del relevamiento" data-enlace="parcial-2.html#objetivos-del-relevamiento" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-6"><span class="q-n">6</span><div><p>¿Cuál es uno de los objetivos del relevamiento según el apunte?</p>
+<p class="q-origen">Se tomó: Final 03/12/24, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-6"><li><button type="button" class="op" data-ok="0">Escribir el software original</button></li><li><button type="button" class="op" data-ok="1">Identificar las deficiencias del sistema actual</button></li><li><button type="button" class="op" data-ok="0">Instalar el sistema nuevo</button></li><li><button type="button" class="op" data-ok="0">Probar el sistema con los usuarios</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Entre los cinco objetivos están identificar el sistema y los usuarios responsables, <strong>identificar las deficiencias del sistema actual</strong>, fijar metas, ver la factibilidad y planificar las etapas siguientes. Programar, probar e instalar son etapas posteriores.</p>
+</div></li><li class="q" data-q="k4JhavD4_0" data-tema="Entrevista" data-enlace="parcial-2.html#entrevista" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-7"><span class="q-n">7</span><div><p>¿Cuál de estos NO es un paso de la planificación de la entrevista?</p>
+<p class="q-origen">Se tomó: 3° parcial 25/10/25, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-7"><li><button type="button" class="op" data-ok="0">Lectura de antecedentes</button></li><li><button type="button" class="op" data-ok="0">Selección de los entrevistados</button></li><li><button type="button" class="op" data-ok="1">Grabación de la entrevista</button></li><li><button type="button" class="op" data-ok="0">Establecimiento de los objetivos de la entrevista</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La grabación es una forma de <strong>registrar</strong> la entrevista, que viene después. Los cinco pasos de planificación son antecedentes, objetivos, entrevistados, preparación del entrevistado y tipo y estructura de las preguntas.</p>
+</div></li><li class="q" data-q="v7iwzZiGRD" data-tema="Entrevista" data-enlace="parcial-2.html#entrevista" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-8"><span class="q-n">8</span><div><p>Una pregunta cerrada que solo admite dos respuestas, como sí o no, se llama</p>
+<p class="q-origen">Se tomó: 3° parcial 25/10/25, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-8"><li><button type="button" class="op" data-ok="0">Sondeo</button></li><li><button type="button" class="op" data-ok="0">Tendenciosa</button></li><li><button type="button" class="op" data-ok="1">Bipolar</button></li><li><button type="button" class="op" data-ok="0">Doble</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La cerrada <strong>bipolar</strong> es la más limitativa. Una tendenciosa empuja hacia una respuesta y una doble mete dos preguntas en una.</p>
+</div></li><li class="q" data-q="l8-F4xnimY" data-tema="Diagrama de contexto, actores y objetivos" data-enlace="parcial-2.html#diagrama-de-contexto-actores-y-objetivos" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-9"><span class="q-n">9</span><div><p>El actor que proporciona un servicio al proceso, y puede ser una persona, una organización o un sistema informático, es el actor</p>
+<p class="q-origen">Se tomó: Final 03/12/24, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-9"><li><button type="button" class="op" data-ok="0">Principal</button></li><li><button type="button" class="op" data-ok="0">Pasivo</button></li><li><button type="button" class="op" data-ok="1">De apoyo</button></li><li><button type="button" class="op" data-ok="0">Interesado</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es el actor <strong>de apoyo</strong>. El principal es el dueño del objetivo y el pasivo está interesado en el comportamiento del caso de uso, pero no es principal ni de apoyo.</p>
+</div></li><li class="q" data-q="v2JdZlLc3E" data-tema="Cómo se escribe el flujo básico" data-enlace="parcial-2.html#como-se-escribe-el-flujo-basico" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-10"><span class="q-n">10</span><div><p>Según las pautas del apunte para el flujo básico, cada oración debe</p>
+<p class="q-origen">Se tomó: 2° parcial 28/09/21, adaptada <em class="viejo">Plan viejo</em></p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-10"><li><button type="button" class="op" data-ok="0">Omitir el sujeto cuando es obvio</button></li><li><button type="button" class="op" data-ok="1">Tener sujeto, que identifique si actúa un actor o el sistema</button></li><li><button type="button" class="op" data-ok="0">Estar escrita desde el punto de vista del sistema</button></li><li><button type="button" class="op" data-ok="0">Describir siempre al actor de apoyo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las oraciones llevan sujeto explícito, sin sujeto tácito, con la forma sujeto, verbo y objeto directo.</p>
+</div></li><li class="q" data-q="fYYyKYWjyK" data-tema="Reglas de negocio" data-enlace="parcial-2.html#reglas-de-negocio" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-11"><span class="q-n">11</span><div><p>«No vender a un cliente con crédito excedido» es una regla de negocio de tipo</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-11"><li><button type="button" class="op" data-ok="0">Cálculo</button></li><li><button type="button" class="op" data-ok="0">Inferencia</button></li><li><button type="button" class="op" data-ok="0">Hecho</button></li><li><button type="button" class="op" data-ok="1">Restricción</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es una <strong>restricción</strong>, una acción prohibida basada en una condición. Es el ejemplo que da el apunte.</p>
+</div></li><li class="q" data-q="pVqRX4EhrC" data-tema="Diccionario de datos" data-enlace="parcial-2.html#diccionario-de-datos" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-12"><span class="q-n">12</span><div><p>En la notación del diccionario de datos, ¿qué indica «(e)» después de un nombre?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-12"><li><button type="button" class="op" data-ok="1">Que es una estructura de datos</button></li><li><button type="button" class="op" data-ok="0">Que es un dato opcional</button></li><li><button type="button" class="op" data-ok="0">Que es una entidad</button></li><li><button type="button" class="op" data-ok="0">Que es un dato discreto</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>«(e)» marca una <strong>estructura</strong>. «(D)» marca un dato discreto y los paréntesis solos, un componente opcional.</p>
+</div></li><li class="q" data-q="AeGWyWuXJX" data-tema="Cursograma" data-enlace="parcial-2.html#simbolos" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-13"><span class="q-n">13</span><div><p>En un cursograma, el símbolo de demora representa</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-13"><li><button type="button" class="op" data-ok="0">Una verificación</button></li><li><button type="button" class="op" data-ok="0">La eliminación de información</button></li><li><button type="button" class="op" data-ok="1">Una detención transitoria a la espera de un acontecimiento</button></li><li><button type="button" class="op" data-ok="0">El almacenamiento permanente de documentos</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La primera es el <strong>control</strong>, la segunda la <strong>destrucción</strong> y la cuarta el <strong>archivo definitivo</strong>.</p>
+</div></li><li class="q" data-q="oh-0mdjb2s" data-tema="Cursograma" data-enlace="parcial-2.html#reglas-de-construccion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-14"><span class="q-n">14</span><div><p>En el ejemplo del apunte, al dibujar los ejemplares de un formulario en un cursograma, la numeración empieza desde</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-14"><li><button type="button" class="op" data-ok="0">1, para el original</button></li><li><button type="button" class="op" data-ok="1">0, para el original</button></li><li><button type="button" class="op" data-ok="0">0, para la última copia</button></li><li><button type="button" class="op" data-ok="0">A, para el original</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se numera desde <strong>0</strong> para indicar el original, y las copias siguen en orden.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). La materia se llamó Sistemas y Organizaciones en los exámenes viejos. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

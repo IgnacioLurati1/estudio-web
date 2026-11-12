@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Parcial de práctica, 18/09/2024: Entornos Gráficos</title>
+<meta name="description" content="Ejercicio de examen: Parcial de práctica, 18/09/2024.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="entornos-graficos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Entornos Gráficos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-practica.html">Parcial de práctica</a></li><li class="em-fuera"><a href="parcial-teoria.html">Parcial de teoría</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=entornos-graficos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=entornos-graficos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Parcial de práctica, 18/09/2024</h1>
+<p class="bajada">Parcial de práctica, 18/09/2024</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="pp-2024-09-18" data-titulo="Parcial de práctica, 18/09/2024" data-min="120" data-otro="ejercicios.html#pp" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="pp-2024-09-18" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1ilfLLUWIzrCDAVfZ4LWWJpz5Gndv8Msi/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/pp-2024-09-18-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/pp-2024-09-18-e1.webp" width="1001" height="1369" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p>Para los puntos 1 a 3 van cuatro archivos, <code>index.html</code>, <code>estilos.css</code>, <code>conexion.inc</code> y <code>guardar.php</code>. El punto 4 va aparte, en <code>salida.html</code>.</p>
+<h4>1. Página de bienvenida con los tres tipos de estilo</h4>
+<p>Las tres formas de aplicar estilos van juntas. La externa con <code>link</code> en el <code>head</code>, la interna con <code>&lt;style&gt;</code> y dos estilos en línea con el atributo <code>style</code>.</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">HTML</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Bienvenida<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;estilos.css&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
+<span class="hljs-selector-tag">h1</span> {<span class="hljs-attribute">color</span>: navy;}
+<span class="hljs-selector-tag">p</span> {<span class="hljs-attribute">font-size</span>: <span class="hljs-number">18px</span>;}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-family: Arial, sans-serif;&quot;</span>&gt;</span>¡Bienvenido a nuestra tienda!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-style: italic;&quot;</span>&gt;</span>Mirá las <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#formulario&quot;</span>&gt;</span>novedades<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> y dejanos tu pedido.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<p><code>estilos.css</code> define los enlaces. La Práctica de CSS los escribe en el orden <code>link</code>, <code>visited</code>, <code>hover</code>.</p>
+<pre class="codigo"><code><span class="hljs-selector-tag">body</span> {<span class="hljs-attribute">font-family</span>: Verdana, Geneva, sans-serif;}
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span> {<span class="hljs-attribute">color</span>: blue;}
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span> {<span class="hljs-attribute">color</span>: blue;}
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> {<span class="hljs-attribute">color</span>: green;}</code></pre>
+<h4>2. Formulario validado</h4>
+<p>Sigue en el mismo <code>index.html</code>, debajo del mensaje. <code>required</code> hace que el navegador no lo envíe con un campo vacío. En el <code>select</code>, la primera opción tiene valor vacío para que <code>required</code> obligue a elegir un mes.</p>
+<pre class="codigo"><code><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;formulario&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;guardar.php&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;nombre&quot;</span>&gt;</span>Nombre:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;nombre&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;nombre&quot;</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;email&quot;</span>&gt;</span>Email:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;producto&quot;</span>&gt;</span>Nombre de producto:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;producto&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;producto&quot;</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;mes&quot;</span>&gt;</span>Mes del año:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;mes&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;mes&quot;</span> <span class="hljs-attr">required</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>Elegí un mes<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Enero<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Febrero<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Marzo<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Abril<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Mayo<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Junio<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Julio<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Agosto<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Septiembre<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Octubre<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Noviembre<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Diciembre<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;cantidad&quot;</span>&gt;</span>Cantidad:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;cantidad&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;cantidad&quot;</span> <span class="hljs-attr">min</span>=<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-attr">required</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;terminos&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;terminos&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;acepto&quot;</span> <span class="hljs-attr">required</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;terminos&quot;</span>&gt;</span>Acepto Términos y Condiciones<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Enviar&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<h4>3. Guardar en la base y en la sesión</h4>
+<p><code>conexion.inc</code>, como en el apunte, con una base de nombre inventado.</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-variable">$link</span> = <span class="hljs-title function_ invoke__">mysqli_connect</span>(<span class="hljs-string">&quot;localhost&quot;</span>, <span class="hljs-string">&quot;root&quot;</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-string">&quot;Problemas de conexión a la base de datos&quot;</span>);
+<span class="hljs-title function_ invoke__">mysqli_select_db</span>(<span class="hljs-variable">$link</span>, <span class="hljs-string">&quot;parcial&quot;</span>);
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p><code>guardar.php</code>. <code>session_start()</code> va primero, antes de escribir cualquier texto. La fecha y hora se arma con <code>date</code> en el formato de un <code>DATETIME</code>, y es también la clave de cada envío en <code>$_SESSION[&quot;envios&quot;]</code>. Así cada envío nuevo se suma sin pisar los anteriores.</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-title function_ invoke__">session_start</span>();
+<span class="hljs-keyword">include</span>(<span class="hljs-string">&quot;conexion.inc&quot;</span>);
+<span class="hljs-variable">$vNombre</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;nombre&#x27;</span>];
+<span class="hljs-variable">$vEmail</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;email&#x27;</span>];
+<span class="hljs-variable">$vProducto</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;producto&#x27;</span>];
+<span class="hljs-variable">$vMes</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;mes&#x27;</span>];
+<span class="hljs-variable">$vCantidad</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;cantidad&#x27;</span>];
+<span class="hljs-variable">$vFechaHora</span> = <span class="hljs-title function_ invoke__">date</span>(<span class="hljs-string">&quot;Y-m-d H:i:s&quot;</span>);
+<span class="hljs-variable">$vSql</span> = <span class="hljs-string">&quot;INSERT INTO pedidos (nombre, email, producto, mes, cantidad, fecha_hora)
+values (&#x27;<span class="hljs-subst">$vNombre</span>&#x27;, &#x27;<span class="hljs-subst">$vEmail</span>&#x27;, &#x27;<span class="hljs-subst">$vProducto</span>&#x27;, &#x27;<span class="hljs-subst">$vMes</span>&#x27;, &#x27;<span class="hljs-subst">$vCantidad</span>&#x27;, &#x27;<span class="hljs-subst">$vFechaHora</span>&#x27;)&quot;</span>;
+<span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>, <span class="hljs-variable">$vSql</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-title function_ invoke__">mysqli_error</span>(<span class="hljs-variable">$link</span>));
+<span class="hljs-title function_ invoke__">mysqli_close</span>(<span class="hljs-variable">$link</span>);
+<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&quot;envios&quot;</span>][<span class="hljs-variable">$vFechaHora</span>] = <span class="hljs-keyword">array</span>(<span class="hljs-string">&quot;nombre&quot;</span> =&gt; <span class="hljs-variable">$vNombre</span>, <span class="hljs-string">&quot;email&quot;</span> =&gt; <span class="hljs-variable">$vEmail</span>, <span class="hljs-string">&quot;producto&quot;</span> =&gt; <span class="hljs-variable">$vProducto</span>, <span class="hljs-string">&quot;mes&quot;</span> =&gt; <span class="hljs-variable">$vMes</span>, <span class="hljs-string">&quot;cantidad&quot;</span> =&gt; <span class="hljs-variable">$vCantidad</span>);
+<span class="hljs-meta">?&gt;</span>
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Pedido guardado&lt;/title&gt;
+&lt;meta charset=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Pedido guardado. Estos son los envíos de esta sesión.&lt;/p&gt;
+&lt;ul&gt;
+<span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&quot;envios&quot;</span>] <span class="hljs-keyword">as</span> <span class="hljs-variable">$vClave</span> =&gt; <span class="hljs-variable">$vEnvio</span>) {
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;li&gt;&quot;</span> . <span class="hljs-variable">$vClave</span> . <span class="hljs-string">&quot; - &quot;</span> . <span class="hljs-variable">$vEnvio</span>[<span class="hljs-string">&quot;producto&quot;</span>] . <span class="hljs-string">&quot;, &quot;</span> . <span class="hljs-variable">$vEnvio</span>[<span class="hljs-string">&quot;cantidad&quot;</span>] . <span class="hljs-string">&quot; unidades, &quot;</span> . <span class="hljs-variable">$vEnvio</span>[<span class="hljs-string">&quot;mes&quot;</span>] . <span class="hljs-string">&quot;&lt;/li&gt;&quot;</span>;
+}
+<span class="hljs-meta">?&gt;</span>
+&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h4>4. Replicar la salida</h4>
+<p>Dos columnas sobre fondo oscuro, con <code>display:flex</code>. Las dos quedan de la misma altura, así que el borde izquierdo de la segunda hace de línea divisoria. La etiqueta «FOTOS» se ubica con <code>position:absolute</code> dentro de un <code>div</code> con <code>position:relative</code>, que es su ancestro posicionado. La primera frase de cada título va en un <code>span</code> naranja.</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">HTML</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Noticias<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
+<span class="hljs-selector-class">.noticias</span> {
+  <span class="hljs-attribute">display</span>: flex;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">680px</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">6px</span> <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#333333</span>;
+}
+<span class="hljs-selector-class">.noticia</span> {
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">50%</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">6px</span> <span class="hljs-number">90px</span> <span class="hljs-number">6px</span>;
+}
+<span class="hljs-selector-class">.separada</span> {
+  <span class="hljs-attribute">border-left</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#555555</span>;
+}
+<span class="hljs-selector-class">.noticia</span> <span class="hljs-selector-tag">img</span> {
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+}
+<span class="hljs-selector-class">.foto</span> {
+  <span class="hljs-attribute">position</span>: relative;
+}
+<span class="hljs-selector-class">.etiqueta</span> {
+  <span class="hljs-attribute">position</span>: absolute;
+  <span class="hljs-attribute">left</span>: <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">bottom</span>: <span class="hljs-number">10px</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">4px</span> <span class="hljs-number">12px</span>;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">14px</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#000000</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#ffffff</span>;
+  <span class="hljs-attribute">font-family</span>: Arial, sans-serif;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">14px</span>;
+}
+<span class="hljs-selector-class">.noticia</span> <span class="hljs-selector-tag">h2</span> {
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
+  <span class="hljs-attribute">font-family</span>: Georgia, <span class="hljs-string">&quot;Times New Roman&quot;</span>, serif;
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">24px</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.35</span>;
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#ffffff</span>;
+}
+<span class="hljs-selector-class">.destacado</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#f5a623</span>;
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;noticias&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;noticia&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;ciudad.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Vista de una ciudad europea con una torre&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;destacado&quot;</span>&gt;</span>Los argentinos son &quot;bien vistos&quot;.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> El país europeo que pasó de no tener infraestructura básica a ser un “paraíso digital”<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;noticia separada&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;foto&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;auto.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Mini auto eléctrico celeste&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;etiqueta&quot;</span>&gt;</span>FOTOS<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;destacado&quot;</span>&gt;</span>Tendencia.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> El mini auto eléctrico que se ve cada vez más en Europa y que no requiere licencia para manejarlo<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<h4>5. Entrega</h4>
+<p>No lleva código. Se mandan por correo los cinco archivos adjuntos, con el asunto y los datos que pide la hoja.</p>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con Parcial de práctica, secciones Tres formas de aplicar estilos, Pseudo-clases de enlaces, Formularios, Validar en el navegador, Ubicar elementos, Base de datos con mysqli (conexion.inc y Alta.php de Confección de bases de datos) y Sesiones.</p><p class="bloque-fuente">Quedó en duda: La hoja no dice qué campos tiene la tabla. Se supuso pedidos (nombre, email, producto, mes, cantidad, fecha_hora), con fecha_hora de tipo DATETIME. Las consultas pegan los datos en el texto del SQL, como Alta.php del apunte, sin escaparlos. «Agrupados en el array, por la fecha-hora» se leyó como un array de la sesión cuya clave es la fecha y hora de cada envío. En la salida del punto 4 hay un rectángulo blanco abajo a la izquierda que parece un recorte de la imagen y no se replicó. Los colores y tamaños son aproximados y las imágenes van con nombres inventados. El PHP no se pudo correr en esta máquina; el HTML y el CSS se probaron en Chromium.</p><div class="em-votos" data-m="entornos-graficos" data-e="pp-2024-09-18" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="HTML" data-enlace="parcial-practica.html#html-de-base" data-donde="Parcial de práctica"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">HTML</span><span class="ex-t-teoria"><a href="parcial-practica.html#html-de-base">HTML de base</a>, en Parcial de práctica</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="CSS" data-enlace="parcial-practica.html#css" data-donde="Parcial de práctica"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">CSS</span><span class="ex-t-teoria"><a href="parcial-practica.html#css">CSS</a>, en Parcial de práctica</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Formulario" data-enlace="parcial-practica.html#formularios" data-donde="Parcial de práctica"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Formulario</span><span class="ex-t-teoria"><a href="parcial-practica.html#formularios">Formularios</a>, en Parcial de práctica</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="PHP y base de datos" data-enlace="parcial-practica.html#base-de-datos-con-mysqli" data-donde="Parcial de práctica"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">PHP y base de datos</span><span class="ex-t-teoria"><a href="parcial-practica.html#base-de-datos-con-mysqli">Base de datos con mysqli</a>, en Parcial de práctica</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Sesiones" data-enlace="parcial-practica.html#sesiones" data-donde="Parcial de práctica"><div class="ex-t-cab"><span class="ex-t-nom" id="exT4">Sesiones</span><span class="ex-t-teoria"><a href="parcial-practica.html#sesiones">Sesiones</a>, en Parcial de práctica</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT4"><label class="ex-op" data-v="bien"><input type="radio" name="exT4r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT4r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT4r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><span></span><a href="ej-pp-2024-06-26.html">Siguiente: Parcial de práctica, 26/06/2024</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2024). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

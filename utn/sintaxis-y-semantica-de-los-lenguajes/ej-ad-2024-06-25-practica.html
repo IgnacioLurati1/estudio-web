@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Parcial para aprobación directa, práctica, 25/06/2024: Sintaxis y Semántica de los Lenguajes</title>
+<meta name="description" content="Ejercicio de examen: Parcial para aprobación directa, práctica, 25/06/2024.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="sintaxis-y-semantica-de-los-lenguajes" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Sintaxis y Semántica de los Lenguajes</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final y aprobación directa</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=sintaxis-y-semantica-de-los-lenguajes">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=sintaxis-y-semantica-de-los-lenguajes">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Parcial para aprobación directa, práctica, 25/06/2024</h1>
+<p class="bajada">Final y aprobación directa, 25/06/2024</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="ad-2024-06-25-practica" data-titulo="Parcial para aprobación directa, práctica, 25/06/2024" data-min="120" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="ad-2024-06-25-practica" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1Vvink1gC_J5ZqBor8QwJNBlh950oNJHL/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/ad-2024-06-25-practica-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/ad-2024-06-25-practica-e1.webp" width="1300" height="1834" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p>Las funciones <code>ingresa_instrucciones</code>, <code>depura_nueva_instruccion</code> y <code>depura_pred_instruccion</code> las da el enunciado y no se programan. El <code>main</code> sigue el del final del 15/12/22, que trae este mismo programa con el <code>main</code> escrito por la cátedra. En la hoja de 2024, el <code>char *</code> de <code>almacena_instrucciones</code> está tachado y dice <code>void</code> a mano, como en la de 2022.</p>
+<pre class="codigo"><code><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;ctype.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string.h&gt;</span></span>
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">map_instr</span> {</span>
+    <span class="hljs-type">char</span> nueva_inst[<span class="hljs-number">5</span>];
+    <span class="hljs-type">char</span> prede_inst[<span class="hljs-number">5</span>];
+};
+
+<span class="hljs-type">char</span> * <span class="hljs-title function_">ingresa_instrucciones</span><span class="hljs-params">(<span class="hljs-type">int</span> *)</span>;
+<span class="hljs-type">char</span> * <span class="hljs-title function_">depura_nueva_instruccion</span><span class="hljs-params">(<span class="hljs-type">char</span> *, <span class="hljs-type">int</span>)</span>;
+<span class="hljs-type">char</span> * <span class="hljs-title function_">depura_pred_instruccion</span><span class="hljs-params">(<span class="hljs-type">char</span> *, <span class="hljs-type">int</span>)</span>;
+<span class="hljs-type">void</span> <span class="hljs-title function_">almacena_instrucciones</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> map_instr *, <span class="hljs-type">int</span> *, <span class="hljs-type">char</span> *, <span class="hljs-type">char</span> *)</span>;
+
+<span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> {
+    <span class="hljs-type">char</span> * instruccion_total;
+    <span class="hljs-type">char</span> * nueva_instruccion;
+    <span class="hljs-type">char</span> * pred_instruccion;
+    <span class="hljs-type">int</span> op, cant, cant_instruccion_total = <span class="hljs-number">1</span>;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">map_instr</span> <span class="hljs-title">mapa_total</span>[150] =</span> {{<span class="hljs-string">&quot;begin&quot;</span>, <span class="hljs-string">&quot;none&quot;</span>}};
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Desea ingresar una nueva instruccion? 1 (si), 0 (no): &quot;</span>);
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;op);
+    fflush(<span class="hljs-built_in">stdin</span>);
+    <span class="hljs-keyword">while</span> (op == <span class="hljs-number">1</span>) {
+        instruccion_total = ingresa_instrucciones(&amp;cant);
+        nueva_instruccion = depura_nueva_instruccion(instruccion_total, cant);
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span>(nueva_instruccion, <span class="hljs-string">&quot;ERROR&quot;</span>) == <span class="hljs-number">0</span>)
+            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;La nueva instruccion no cumple con los requisitos solicitados\n&quot;</span>);
+        <span class="hljs-keyword">else</span> {
+            pred_instruccion = depura_pred_instruccion(instruccion_total, cant);
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span>(pred_instruccion, <span class="hljs-string">&quot;ERROR&quot;</span>) == <span class="hljs-number">0</span>)
+                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;La instruccion predecesora no cumple con los requisitos solicitados\n&quot;</span>);
+            <span class="hljs-keyword">else</span>
+                almacena_instrucciones(mapa_total, &amp;cant_instruccion_total, nueva_instruccion, pred_instruccion);
+        }
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Desea ingresar una nueva instruccion? 1 (si), 0 (no): &quot;</span>);
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;op);
+        fflush(<span class="hljs-built_in">stdin</span>);
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-type">void</span> <span class="hljs-title function_">almacena_instrucciones</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> map_instr * mapa, <span class="hljs-type">int</span> * cant, <span class="hljs-type">char</span> * nueva, <span class="hljs-type">char</span> * pred)</span> {
+    <span class="hljs-type">int</span> i, existe_pred = <span class="hljs-number">0</span>, existe_nueva = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; *cant; i++) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strncmp</span>(mapa[i].nueva_inst, pred, <span class="hljs-number">5</span>) == <span class="hljs-number">0</span>)
+            existe_pred = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strncmp</span>(mapa[i].nueva_inst, nueva, <span class="hljs-number">5</span>) == <span class="hljs-number">0</span>)
+            existe_nueva = <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-keyword">if</span> (existe_pred == <span class="hljs-number">0</span>)
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;La predecesora %s no esta cargada como instruccion nueva\n&quot;</span>, pred);
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (existe_nueva == <span class="hljs-number">1</span>)
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;La instruccion %s ya esta en la tabla\n&quot;</span>, nueva);
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (*cant == <span class="hljs-number">150</span>)
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;La tabla ya tiene 150 instrucciones\n&quot;</span>);
+    <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">strncpy</span>(mapa[*cant].nueva_inst, nueva, <span class="hljs-number">5</span>);
+        <span class="hljs-built_in">strncpy</span>(mapa[*cant].prede_inst, pred, <span class="hljs-number">5</span>);
+        (*cant)++;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Se almaceno %s con su predecesora %s\n&quot;</span>, nueva, pred);
+    }
+}</code></pre>
+<ul>
+<li>La tabla arranca con la fila <code>begin</code>, <code>none</code> del MAPA. Sin una primera fila no se podría cargar ninguna instrucción, porque su predecesora tiene que estar ya en <code>nueva_inst</code>.</li>
+<li><code>char nueva_inst[5]</code> no deja lugar para el <code>&#39;\0&#39;</code> de una instrucción de 5 letras, como <code>addla</code>. Por eso los campos se copian con <code>strncpy(..., 5)</code> y se comparan con <code>strncmp(..., 5)</code>, que nunca pasan de 5 caracteres. En el inicializador, <code>&quot;begin&quot;</code> entra justo sin el <code>&#39;\0&#39;</code>, y C lo permite.</li>
+<li>La función recorre la tabla una vez y marca si encontró la predecesora y si la nueva ya estaba. Solo si la predecesora está y la nueva no, guarda en la posición <code>*cant</code>. También controla que no pase de 150.</li>
+<li>La cantidad llega por referencia, con <code>int *</code> en el parámetro y <code>&amp;cant_instruccion_total</code> en la llamada. Por eso <code>(*cant)++</code> cambia la variable del <code>main</code>.</li>
+<li>Como la función es <code>void</code>, los avisos de lo que no se pudo guardar salen desde adentro con <code>printf</code>.</li>
+</ul>
+<p>Una prueba con la tabla recién arrancada.</p>
+<div class="tabla"><table><thead><tr><th>Se ingresa</th><th>Qué pasa</th></tr></thead><tbody><tr><td><code>addla-begin</code></td><td>Se guarda, porque <code>begin</code> ya está</td></tr><tr><td><code>sumsa-addla</code></td><td>Se guarda, porque <code>addla</code> ya está</td></tr><tr><td><code>sumsa-addla</code></td><td>No se guarda, porque <code>sumsa</code> ya está</td></tr><tr><td><code>mul-xx</code></td><td>No se guarda, porque <code>xx</code> no está como instrucción nueva</td></tr><tr><td><code>-sumsa</code></td><td>El <code>main</code> avisa, porque <code>depura_nueva_instruccion</code> devuelve «ERROR»</td></tr></tbody></table></div>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la página del final, sección Cómo se lee la práctica, la del 2° parcial, secciones C: estructuras, C: punteros y C: funciones, y la hoja del final del 15/12/22, de plan viejo, para la forma del main. Se compiló y se probó con versiones simples de las tres funciones que da el enunciado.</p><p class="bloque-fuente">Quedó en duda: La hoja llama al tipo struct map_instr y en el prototipo struct mapa_inst. Usé map_instr en los dos lugares. strncpy y strncmp no están en la lista de funciones de la materia. Si tu comisión acepta agrandar los campos a [6], alcanza con strcpy y strcmp. Cargar begin y none antes del ciclo sale del MAPA y no está escrito en el enunciado. Las filas substrac, Contab y francl del MAPA pasan de 5 caracteres, así que las tomé solo como ejemplo de la forma de la tabla. fflush(stdin) está como en el main de 2022, y algunos compiladores lo ignoran.</p><div class="em-votos" data-m="sintaxis-y-semantica-de-los-lenguajes" data-e="ad-2024-06-25-practica" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="C: funciones" data-enlace="parcial-2.html#paso-de-parametros" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">C: funciones</span><span class="ex-t-teoria"><a href="parcial-2.html#paso-de-parametros">Paso de parámetros</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="C: estructuras" data-enlace="parcial-2.html#c-estructuras" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">C: estructuras</span><span class="ex-t-teoria"><a href="parcial-2.html#c-estructuras">C: estructuras</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-ad-2026-06-22-teoria.html">Anterior: Teoría del 22/06/2026, recuerdo de alumno</a><a href="ej-autotest-2026-lexemas.html">Siguiente: Formativa de teoría: lexemas de un código</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (autotests y exámenes de 2024 a 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

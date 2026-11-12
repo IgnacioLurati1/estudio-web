@@ -1,0 +1,141 @@
+/* «¡Te recibiste!» (recibido.js): a sheet of the binder, with its three holes, on the night of the notebook.
+   One sequence, in this order: the sheet comes up (0 s), the title rises (.2 s), the halo is drawn in pen (.7 s), the
+   degree is written word by word (1 s), the highlighter goes over the halo and it lights up (1.65 s and 1.95 s), the
+   line under the degree (2.25 s), the violet stamp lands (2.65 s, the sheet takes the blow and the bits of paper fly),
+   and the last line (2.8 s). Only transform and opacity move, besides the pen strokes and the handwriting.
+   Without motion (reduced motion or «Sin animaciones») everything is already in place and the sheet only fades in. */
+
+/* «Volver a festejar», next to the count once the degree is complete: quiet, with a small halo. */
+.c-festejo { display: inline-flex; align-items: center; gap: .35rem; min-height: 24px; padding: .1rem .15rem; font: 600 .98rem/1.3 var(--mano); color: var(--tinta); text-decoration: underline; text-underline-offset: 3px; background: none; border: 0; border-radius: 4px; cursor: pointer; }
+.c-festejo svg { width: 1.5rem; height: auto; overflow: visible; }
+.c-festejo ellipse { fill: none; stroke: var(--resaltador-borde); stroke-width: 2.2; }
+.c-festejo:active { transform: scale(.97); }
+.c-festejo, .rc-cerrar { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+/* Like the menu: the page stays still behind it and keeps the scrollbar's room. */
+html:has(dialog.rc[open]) { overflow: hidden; scrollbar-gutter: stable; }
+.rc {
+  /* Each theme brings its paper, its grid and the inks of the bits of paper (read by recibido.js as rgb()). */
+  --rc-papel: var(--lapiz);
+  --rc-cuadro: var(--cuadro);
+  --rc-sello: #5b2fb8;
+  --rc-bit-papel: #fff;
+  --rc-bit-cuadro: #c3d2ee;
+  --rc-bit-tinta: #1f3a9e;
+  --rc-bit-tilde: #fff;
+  --rc-mezcla: multiply;
+  position: fixed; inset: 0; box-sizing: border-box; width: 100%; height: 100%; max-width: none; max-height: none;
+  --rc-aire: clamp(1rem, 4vw, 2.5rem);
+  margin: 0; display: grid;
+  padding: max(var(--rc-aire), env(safe-area-inset-top)) max(var(--rc-aire), env(safe-area-inset-right)) max(var(--rc-aire), env(safe-area-inset-bottom)) max(var(--rc-aire), env(safe-area-inset-left)); place-items: center; overflow-y: auto;
+  overscroll-behavior: contain; color: var(--tinta); background: transparent; border: 0;
+  transition: opacity .16s ease-out;
+}
+.rc:not([open]) { display: none; }
+.rc::backdrop { background: rgb(6 18 43 / 86%); animation: rc-fundir .3s ease-out both; transition: opacity .16s ease-out; }
+.rc.rc-sale, .rc.rc-sale::backdrop { opacity: 0; }
+.rc-tintas { display: none; }
+.rc-tintas [data-c='papel'] { color: var(--rc-bit-papel); }
+.rc-tintas [data-c='cuadro'] { color: var(--rc-bit-cuadro); }
+.rc-tintas [data-c='tinta'] { color: var(--rc-bit-tinta); }
+.rc-tintas [data-c='tilde'] { color: var(--rc-bit-tilde); }
+.rc-tintas [data-c='resaltador'] { color: var(--resaltador); }
+.rc-tintas [data-c='sello'] { color: var(--rc-sello); }
+.rc-papelitos { position: fixed; inset: 0; z-index: 1; width: 100%; height: 100%; pointer-events: none; }
+
+.rc-hoja { position: relative; width: min(35rem, 100%); transform: rotate(-1.2deg); animation: rc-entra .62s cubic-bezier(.23, 1, .32, 1) both; }
+.rc-golpe { position: relative; animation: rc-golpe .24s ease-out 2.64s; }
+.rc-golpe::before { content: ''; position: absolute; inset: 0; border-radius: 3px; box-shadow: 0 2px 6px rgb(0 0 0 / 28%), 0 34px 70px -26px rgb(0 0 0 / 75%); }
+.rc-papel {
+  --rc-ojal: .36rem;
+  position: relative; padding: clamp(1.4rem, 5vw, 2.2rem) clamp(1.2rem, 5vw, 2.6rem) clamp(1.5rem, 5vw, 2.1rem) clamp(2.4rem, 8vw, 3.4rem);
+  text-align: center; background-color: var(--rc-papel); border-radius: 3px;
+  background-image: linear-gradient(var(--rc-cuadro) 1px, transparent 1px), linear-gradient(90deg, var(--rc-cuadro) 1px, transparent 1px);
+  background-size: 22px 22px; background-position: -1px -1px;
+  /* The three holes of a binder sheet. Where masks cannot be combined, the sheet stays whole. */
+  mask:
+    radial-gradient(circle at 1.15rem 17%, #0000 var(--rc-ojal), #000 calc(var(--rc-ojal) + .5px)),
+    radial-gradient(circle at 1.15rem 50%, #0000 var(--rc-ojal), #000 calc(var(--rc-ojal) + .5px)),
+    radial-gradient(circle at 1.15rem 83%, #0000 var(--rc-ojal), #000 calc(var(--rc-ojal) + .5px));
+  mask-composite: intersect;
+}
+
+/* The halo: pen first, highlighter after, then it lights up with a few strokes of shine. */
+.rc-santo { position: relative; width: min(14.5rem, 72%); margin: 0 auto -.5rem; }
+.rc-aureola, .rc-brillo { display: block; width: 100%; height: auto; overflow: visible; }
+.rc-brillo { position: absolute; inset: 0; opacity: .55; filter: blur(9px); animation: rc-prende .7s ease-out 1.95s both; }
+.rc-brillo path { fill: none; stroke: var(--resaltador); stroke-width: 16; stroke-linecap: round; }
+.rc-aureola { position: relative; }
+.rc-aureola path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.rc-a-birome { stroke: var(--birome); stroke-width: 3; stroke-dasharray: 1 2; animation: rc-trazo .95s cubic-bezier(.65, 0, .35, 1) .7s both; }
+.rc-a-resaltador { stroke: var(--resaltador); stroke-width: 11; opacity: .9; mix-blend-mode: var(--rc-mezcla); stroke-dasharray: 1 2; animation: rc-trazo .42s cubic-bezier(.23, 1, .32, 1) 1.65s both; }
+.rc-aureola .rc-rayo { stroke: var(--birome); stroke-width: 2.6; transform-box: fill-box; transform-origin: center; animation: rc-rayo .3s cubic-bezier(.23, 1, .32, 1) calc(2s + var(--i) * 45ms) both; }
+
+.rc-titulo { margin: 0 0 .8rem; padding: 0; font: 800 clamp(2.5rem, 10.5vw, 4.7rem)/.95 var(--sans); letter-spacing: -.035em; color: var(--titulo); text-wrap: balance; }
+.rc-p { display: inline-block; overflow: clip; padding: .1em .05em .16em; margin: -.1em -.05em -.16em; vertical-align: bottom; }
+.rc-p > span { display: inline-block; animation: rc-sube .64s cubic-bezier(.23, 1, .32, 1) .22s both; }
+.rc-p + .rc-p > span { animation-delay: .31s; }
+
+/* The degree, by hand, a little crooked, with a highlighter stroke under it. */
+.rc-carrera { position: relative; margin: 0 auto; font: 600 clamp(1.15rem, 4.8vw, 1.55rem)/1.3 var(--mano); color: var(--birome); transform: rotate(-1.4deg); }
+.rc-renglon { display: block; }
+.rc-w { display: inline-block; animation: rc-escribe var(--t, .3s) linear calc(1s + var(--d, 0s)) both; }
+.rc-subrayado { display: block; width: min(15rem, 82%); height: .75rem; margin: .05rem auto 0; overflow: visible; }
+.rc-subrayado path { fill: none; stroke: var(--resaltador); stroke-width: 7px; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: .9; mix-blend-mode: var(--rc-mezcla); stroke-dasharray: 1 2; animation: rc-trazo .38s cubic-bezier(.23, 1, .32, 1) 2.25s both; }
+
+.rc-texto { max-width: 25ch; margin: 1.1rem auto 1.3rem; font: 400 1.02rem/1.45 var(--sans); color: var(--tinta-suave); animation: rc-aparece .38s cubic-bezier(.23, 1, .32, 1) 2.8s both; }
+.rc-cerrar { min-width: 7rem; }
+
+/* The stamp, in violet ink and a little worn, lands on the corner of the sheet. */
+.rc-sello { position: absolute; right: clamp(.4rem, 3vw, 1.3rem); bottom: clamp(.4rem, 2.5vw, 1.1rem); width: clamp(5.6rem, 22vw, 8rem); color: var(--rc-sello); mix-blend-mode: var(--rc-mezcla); pointer-events: none; transform: rotate(-14deg); animation: rc-sello .34s cubic-bezier(.2, .7, .3, 1) 2.38s both; }
+.rc-sello svg { display: block; width: 100%; height: auto; overflow: visible; }
+/* On a phone the stamp shrinks and the sheet grows at the bottom, so the stamp never sits on the text or the button. */
+@media (max-width: 400px) {
+  .rc-papel { padding-bottom: 4.4rem; }
+  .rc-sello { width: 4.8rem; }
+}
+.rc-s-aro { fill: none; stroke: currentcolor; stroke-width: 3.2; }
+.rc-s-fino { stroke-width: 1.4; }
+.rc-s-arco { font: 700 10.5px var(--sans); letter-spacing: .05em; fill: currentcolor; }
+.rc-s-centro { font: 800 21px var(--sans); letter-spacing: -.02em; fill: currentcolor; }
+.rc-s-punto { fill: currentcolor; }
+
+@keyframes rc-fundir { from { opacity: 0; } }
+@keyframes rc-entra { from { opacity: 0; transform: translateY(2.5rem) rotate(-5deg) scale(.94); } }
+@keyframes rc-golpe { 0%, 100% { transform: none; } 30% { transform: translateY(3px) scale(.994); } }
+@keyframes rc-sube { from { transform: translateY(125%); } }
+@keyframes rc-trazo { from { stroke-dashoffset: 1.05; } to { stroke-dashoffset: 0; } }
+@keyframes rc-prende { from { opacity: 0; } 45% { opacity: 1; } to { opacity: .55; } }
+@keyframes rc-rayo { from { opacity: 0; transform: scale(.2); } }
+@keyframes rc-escribe { from { clip-path: inset(-.4em 100% -.4em -.15em); } to { clip-path: inset(-.4em -.15em -.4em -.15em); } }
+@keyframes rc-sello { 0% { opacity: 0; transform: rotate(-26deg) scale(1.9); } 78% { opacity: 1; transform: rotate(-13deg) scale(.95); } 100% { opacity: 1; transform: rotate(-14deg) scale(1); } }
+@keyframes rc-aparece { from { opacity: 0; transform: translateY(6px); } }
+
+/* Without motion: the same sheet, already finished, fading in. */
+.rc-quieto *, .rc-quieto::backdrop { animation: none !important; }
+.rc-quieto .rc-hoja { animation: rc-fundir .22s ease-out both !important; }
+
+@media screen {
+  [data-tema='noche'] .rc {
+    --rc-papel: var(--hoja);
+    --rc-cuadro: color-mix(in srgb, var(--borde-hoja) 42%, var(--hoja));
+    --rc-sello: #cdb8ff;
+    --rc-bit-papel: #e6edfb;
+    --rc-bit-cuadro: #a9bde3;
+    --rc-bit-tinta: #1f3a9e;
+    --rc-bit-tilde: var(--birome);
+    --rc-mezcla: normal;
+  }
+  [data-tema='noche'] .rc::backdrop { background: rgb(1 5 16 / 86%); }
+  [data-tema='noche'] .rc-papel { box-shadow: inset 0 0 0 1px var(--borde-hoja); }
+  [data-estilo='sepia'] .rc { --rc-sello: #7a2f6e; }
+  [data-tema='noche'][data-estilo='sepia'] .rc { --rc-sello: #f0b6dd; }
+  [data-contraste] .rc { --rc-papel: var(--lapiz); --rc-sello: var(--tinta); --rc-mezcla: normal; }
+  [data-contraste] .rc-papel { background-image: none; box-shadow: inset 0 0 0 2px var(--tinta); }
+  [data-contraste] .rc-texto { color: var(--tinta); }
+  [data-contraste] .rc-brillo { display: none; }
+}
+@media (forced-colors: active) {
+  .rc-brillo, .rc-a-resaltador, .rc-subrayado { display: none; }
+  .rc-papel { border: 2px solid CanvasText; }
+}

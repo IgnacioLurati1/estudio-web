@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Eje 2: firma: Informática Jurídica</title>
+<meta name="description" content="Firma ológrafa, electrónica y digital, clave pública y privada, certificados e infraestructura.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="informatica-juridica" data-pagina="firma">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Informática Jurídica</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="entorno.html">Eje 1: entorno</a></li><li class="em-fuera"><a href="firma.html" aria-current="page">Eje 2: firma</a></li><li class="em-fuera"><a href="contratos.html">Eje 3: contratos</a></li><li class="em-fuera"><a href="ejusticia.html">Eje 4: e-Justicia</a></li><li class="em-fuera"><a href="pericia.html">Eje 5: pericia</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios y TP</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=informatica-juridica">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=informatica-juridica">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#que-es-una-firma">Qué es una firma</a></li><li class="n3"><a href="#para-que-se-firma">Para qué se firma</a></li><li class="n3"><a href="#que-se-firma-documentos">Qué se firma: documentos</a></li><li class="n2"><a href="#los-tres-tipos-de-firma">Los tres tipos de firma</a></li><li class="n3"><a href="#electronica-contra-digital">Electrónica contra digital</a></li><li class="n2"><a href="#marco-juridico">Marco jurídico</a></li><li class="n3"><a href="#ley-25-506">Ley 25.506</a></li><li class="n2"><a href="#como-funciona-por-dentro">Cómo funciona por dentro</a></li><li class="n3"><a href="#clave-publica-y-clave-privada-pki">Clave pública y clave privada (PKI)</a></li><li class="n3"><a href="#firmar-y-verificar">Firmar y verificar</a></li><li class="n3"><a href="#certificado-digital">Certificado digital</a></li><li class="n2"><a href="#infraestructura">Infraestructura</a></li><li class="n3"><a href="#plataforma-de-firma-digital-remota-pfdr">Plataforma de Firma Digital Remota (PFDR)</a></li><li class="n3"><a href="#tipos-de-certificado">Tipos de certificado</a></li><li class="n2"><a href="#donde-se-usa">Dónde se usa</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Eje 2: firma electrónica y digital</h1>
+<p class="bajada">Qué prueba una firma, en qué se diferencian la electrónica y la digital, cómo funcionan las claves y quién da fe de ellas.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+<p>La base es la presentación «3 - Firma Digital» de 2026. Las páginas sin otra aclaración son de ese archivo.</p>
+
+<section class="sec"><h2 id="que-es-una-firma">Qué es una firma</h2>
+<p>Hay dos definiciones en el material (pág. 3).</p>
+<ul>
+<li>«Nombre y apellidos escritos por una persona de su propia mano en un documento, con o sin rúbrica, para darle autenticidad o mostrar la aprobación de su contenido» (RAE).</li>
+<li>«Trazo, título o gráfico que un individuo escribe a mano sobre una documentación con la intención de conferirle validez o de expresar su conformidad».</li>
+</ul>
+<p>Hay tres tipos: <strong>ológrafa</strong>, <strong>electrónica</strong> y <strong>digital</strong>. Sus fines son cuatro (pág. 4): identificatorios, de autoría, de conformidad y de eficacia jurídica.</p>
+<h3 id="para-que-se-firma">Para qué se firma</h3>
+<div class="teorema"><p class="teorema-t">ARTICULO 288 del CCC. Firma</p><p>La firma prueba la autoría de la declaración de voluntad expresada en el texto al cual corresponde. Debe consistir en el nombre del firmante o en un signo. En los instrumentos generados por medios electrónicos, el requisito de la firma de una persona queda satisfecho si se utiliza una firma digital, que asegure indubitablemente la autoría e integridad del instrumento.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 5</p></div>
+<div class="teorema"><p class="teorema-t">ARTICULO 257 del CCC. Hecho jurídico</p><p>El hecho jurídico es el acontecimiento que, conforme al ordenamiento jurídico, produce el nacimiento, modificación o extinción de relaciones o situaciones jurídicas.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 5</p></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Firmar es atarte a un texto. El art. 288 te dice dos cosas que después vuelven en todo el eje: quién lo dijo (autoría) y que el texto es ese y no otro (integridad). Y para un documento electrónico nombra solo a la firma digital.</p>
+</div>
+<h3 id="que-se-firma-documentos">Qué se firma: documentos</h3>
+<p>Un documento representa algo, como un hecho jurídico (por ejemplo, un contrato). Ver art. 286 del CCC. Documento equivale a instrumento. Dentro de los instrumentos privados están los particulares (pág. 8):</p>
+<ul>
+<li><strong>Firmados</strong>, como un contrato de alquiler.</li>
+<li><strong>No firmados</strong>, como una grabación de Zoom.</li>
+</ul>
+<div class="teorema"><p class="teorema-t">Documento digital</p><p>Documento cuyo soporte material es algún tipo de dispositivo electrónico y cuyo contenido está codificado y puede ser leído o reproducido por aplicaciones de software.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 17</p></div>
+<p>Sus características (pág. 18):</p>
+<ul>
+<li>Puede haber disociación entre contenido y representación.</li>
+<li>Se accede desde distintos dispositivos y aplicaciones.</li>
+<li>El soporte físico es diferente.</li>
+<li>El formato es abierto o propietario.</li>
+<li>Funcionalmente es hipertextual, interactivo, mutable, volátil y multimediático.</li>
+<li>Permite pasar de soporte digital a papel y viceversa.</li>
+</ul>
+<p>Internet potencia el intercambio de estos documentos. De ahí la pregunta por su valor jurídico y probatorio (págs. 19 y 20).</p>
+</section>
+<section class="sec"><h2 id="los-tres-tipos-de-firma">Los tres tipos de firma</h2>
+<p>La <strong>ológrafa</strong> es la de puño y letra. Cumple con las características de arriba. La presentación deja planteada la pregunta por sus problemas (pág. 7), sin responderla en la diapositiva.</p>
+<div class="teorema"><p class="teorema-t">Firma electrónica</p><p>Datos electrónicos que se vinculan con determinada información del firmante.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 9</p></div>
+<div class="teorema"><p class="teorema-t">Firma digital</p><p>Una firma digital es el resultado de aplicar a un documento digital un procedimiento matemático que requiere información de exclusivo conocimiento del firmante.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 10</p></div>
+<p>Las dos identifican al firmante y dan fe de su voluntad. La diferencia está en lo que la ley presume.</p>
+<p><strong>Particularidades de la firma digital</strong> (pág. 11):</p>
+<ul>
+<li>Representa la identidad de una persona.</li>
+<li>Es una firma convencional, pero en formato electrónico.</li>
+<li>Tiene la misma validez legal que una firma convencional.</li>
+</ul>
+<div class="teorema"><p class="teorema-t">Firma digital como procedimiento</p><p>Procedimiento que aporta a los documentos electrónicos las mismas propiedades que tienen los documentos firmados en papel y que es verificable por terceras partes.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 21</p></div>
+<h3 id="electronica-contra-digital">Electrónica contra digital</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Firma digital</th><th>Firma electrónica</th></tr></thead><tbody><tr><td>Valor</td><td>Idéntico valor que la firma manuscrita</td><td>No tiene idéntico valor que la manuscrita</td></tr><tr><td>Naturaleza jurídica</td><td>Equivalente absoluto a la firma ológrafa</td><td>Instrumento particular no firmado</td></tr><tr><td>Autoría</td><td>Se presume verdadera. Presunción legal <em>iuris tantum</em>, a favor del titular. Quien la cuestione tiene que presentar pruebas</td><td>No se presume verdadera. Hay que probarla</td></tr><tr><td>Integridad</td><td>Se presume íntegra. Se asume legalmente inalterado</td><td>No se presume íntegra. Hay que probarlo</td></tr><tr><td>Repudio</td><td>No repudio garantizado mediante infraestructura PKI</td><td>Desconocimiento o repudio legalmente posible</td></tr></tbody></table></div>
+<p>Fuente: esta presentación, pág. 13, y «4 - Contratos Electrónicos», 2026, pág. 5.</p>
+<p>La pág. 13 separa dos situaciones, cuestionar la firma o cuestionar el documento. Así lo dice la diapositiva.</p>
+<ul>
+<li>Firma electrónica. «No se presume verdadera: si alguien niega o desconoce una firma electrónica, es el firmante quien debe probar que la firma es auténtica». «No se presume íntegra: si alguien no cuestiona la firma, pero sí el documento, también es el firmante quien deberá presentar las pruebas que acrediten su contenido».</li>
+<li>Firma digital. «Se presume verdadera, lo que quiere decir que quien cuestione su validez tendrá que presentar pruebas». «Se presume íntegra, si alguien no cuestiona la firma, pero sí el documento, también tendrá que presentar pruebas».</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Quién prueba la firma electrónica</p><p>Las dos diapositivas de 2026 no dicen lo mismo. «3 - Firma Digital» (pág. 13) dice que es «el firmante quien debe probar que la firma es auténtica». «4 - Contratos Electrónicos» (pág. 5) dice que «debe ser probada por quien la invoca». Consultá con la cátedra cuál espera en el examen.</p>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La firma digital da vuelta la carga de la prueba. Si te llega un contrato con firma digital y decís «yo no firmé», tenés que demostrarlo vos. Si te llega con firma electrónica y decís lo mismo, la otra parte no tiene esa ventaja. La firma no se da por buena sola.</p>
+</div>
+<p>Una firma digital garantiza, según la cátedra (pág. 11):</p>
+<ul>
+<li>Presunción de autoría.</li>
+<li>Presunción de integridad.</li>
+<li>Confidencialidad.</li>
+<li>Principio de no repudio.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Confidencialidad</p><p>La lista la incluye, pero la misma presentación aclara de dónde sale. «La encriptación con la clave pública permite lograr la confidencialidad» (pág. 26). Autoría e integridad dependen de la firma y su verificación (pág. 29).</p>
+</div>
+<p><strong>Beneficios</strong> (págs. 12 y 22): eficiencia y rapidez, trabajo en entornos virtuales, mejor experiencia de compra o contratación, ahorro de costos, seguridad jurídica y beneficios medioambientales. También firmar a cualquier hora y desde cualquier lugar, y acceso simultáneo a originales.</p>
+<p><strong>Original y copia</strong> (pág. 21). Un documento electrónico firmado es original. Si se imprime, es copia. Puede haber más de un original.</p>
+</section>
+<section class="sec"><h2 id="marco-juridico">Marco jurídico</h2>
+<ul>
+<li>Ley 25.506 y decreto 2628/02.</li>
+<li>Ley 27.446/2018 y sus modificatorias.</li>
+<li>Ley provincial de Santa Fe 1249/04 y decreto 1573/08, tal como figuran en la presentación.</li>
+</ul>
+<p>Fuente: pág. 14.</p>
+<h3 id="ley-25-506">Ley 25.506</h3>
+<p>Sancionada el 14 de noviembre de 2001. Promulgada de hecho el 11 de diciembre de 2001.</p>
+<div class="tabla"><table><thead><tr><th>Artículo</th><th>Tema (pág. 15)</th></tr></thead><tbody><tr><td>1</td><td>Objeto</td></tr><tr><td>2</td><td>Definición de firma digital</td></tr><tr><td>3</td><td>Equipara la firma digital con la firma ológrafa</td></tr><tr><td>5</td><td>Definición de firma electrónica</td></tr><tr><td>6</td><td>Definición de documento electrónico</td></tr><tr><td>7</td><td>Autoría</td></tr><tr><td>8</td><td>Integridad</td></tr><tr><td>9</td><td>Validez</td></tr><tr><td>10</td><td>Remitente</td></tr><tr><td>11</td><td>Original</td></tr><tr><td>12</td><td>Conservación</td></tr></tbody></table></div>
+<p>La presentación da los temas, no el texto. La ley está enlazada en la pág. 14.</p>
+</section>
+<section class="sec"><h2 id="como-funciona-por-dentro">Cómo funciona por dentro</h2>
+<p><strong>Criptografía:</strong> práctica y estudio de técnicas para codificar un mensaje haciéndolo ininteligible y recuperar el mensaje original a partir de esa versión ininteligible (pág. 23). Hay muchas técnicas. La que usa la firma digital es la tecnología de clave pública, o asimétrica.</p>
+<h3 id="clave-publica-y-clave-privada-pki">Clave pública y clave privada (PKI)</h3>
+<ul>
+<li>Las claves se generan con un algoritmo matemático altamente seguro.</li>
+<li>Se usa criptografía de curva elíptica (ECC), Rivest-Shamir-Adleman (RSA) y Diffie-Hellman.</li>
+<li>La clave privada es equivalente a la clave secreta de la criptografía simétrica.</li>
+<li>Lo que se cifra con una clave se descifra con la otra, y viceversa.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Pieza</th><th>Qué es (pág. 26)</th></tr></thead><tbody><tr><td>Clave privada</td><td>Bajo exclusivo control del firmante. Permite aplicar la firma a un documento electrónico</td></tr><tr><td>Clave pública</td><td>Se puede distribuir para que terceros verifiquen lo firmado con la privada asociada</td></tr><tr><td>Token</td><td>Dispositivo criptográfico seguro que almacena las claves</td></tr></tbody></table></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en un candado raro con dos llaves. Lo que cerrás con una solo lo abre la otra. Si cerrás con tu llave privada, cualquiera con tu pública puede abrirlo, y eso demuestra que lo cerraste vos.</p>
+</div>
+<h3 id="firmar-y-verificar">Firmar y verificar</h3>
+<p><img src="img/fig-proceso-firma.webp" alt="Proceso de firma y envío y proceso interno de firma, con emisor y receptor"></p>
+<p>La diapositiva lo muestra así (pág. 29).</p>
+<ol>
+<li>El emisor aplica una función de hash al documento y obtiene una huella.</li>
+<li>Firma esa huella con su clave privada.</li>
+<li>Manda el documento firmado junto con el certificado.</li>
+<li>El receptor recalcula la huella del documento.</li>
+<li>Con la clave pública obtiene la huella que firmó el emisor.</li>
+<li>Compara las dos huellas.</li>
+</ol>
+<p>La cátedra lo resume en dos renglones. La clave pública garantiza autoría. El software de verificación garantiza integridad.</p>
+<h3 id="certificado-digital">Certificado digital</h3>
+<p>Da fe de la vinculación entre una clave pública y una persona o entidad (pág. 28). Sin él, nadie sabría de quién es la clave.</p>
+<ul>
+<li>Es un documento digital.</li>
+<li>Lo emite un organismo autorizado.</li>
+<li>Se entrega previa autenticación de la identidad de la persona.</li>
+<li>Contiene información del titular.</li>
+<li>Está firmado digitalmente por el organismo autorizado.</li>
+<li>Contiene información del organismo que firma.</li>
+</ul>
+<p><strong>Dónde se almacena</strong> (pág. 30):</p>
+<div class="tabla"><table><thead><tr><th>Lugar</th><th>Detalle</th></tr></thead><tbody><tr><td>Navegador</td><td>Almacenamiento directo</td></tr><tr><td>Token</td><td>Portable, móvil, interfaz USB, sin lector especial pero con drivers</td></tr><tr><td>SmartCard</td><td>Igual que el token, pero necesita lector especial</td></tr><tr><td>HSM</td><td>Para autoridades certificantes. También genera claves</td></tr></tbody></table></div>
+<p><strong>Revocación</strong> (pág. 31). Se revoca cuando la clave está en riesgo, cuando cambia la condición del certificado, por fallecimiento del titular, por declaración judicial de incapacidad y en los demás casos que propone la ley.</p>
+<p>El estado se consulta con el <strong>protocolo online OCSP</strong>, de formato petición y respuesta. Una petición puede consultar varios certificados y puede ir firmada o no. La respuesta del servidor OCSP debe estar firmada.</p>
+</section>
+<section class="sec"><h2 id="infraestructura">Infraestructura</h2>
+<p><img src="img/fig-infraestructura.webp" alt="Árbol con el ente licenciante arriba, autoridades certificantes licenciadas y autoridades de registro abajo, y autoridades no licenciadas aparte"></p>
+<div class="tabla"><table><thead><tr><th>Actor</th><th>Qué hace (pág. 34)</th></tr></thead><tbody><tr><td>Ente Licenciante</td><td>Raíz del esquema de confianza. Habilita a las AC otorgando una licencia, les emite certificados y controla la seguridad y la operatividad de toda la infraestructura</td></tr><tr><td>Autoridad Certificante (AC)</td><td>Constata la identidad del solicitante, emite certificados digitales, firma digitalmente y tiene autoridades de registro</td></tr><tr><td>Autoridad de Registro (AR)</td><td>Valida identidad y datos del solicitante y suscriptores, revoca certificados, archiva y conserva la documentación</td></tr></tbody></table></div>
+<p>La pág. 32 nombra AC-Raíz, AC-ONTI y AC-Modernización, y dos servicios, firma con token por hardware y firma remota sin token. El árbol también muestra «AC no licenciadas», fuera de la raíz (pág. 33).</p>
+<h3 id="plataforma-de-firma-digital-remota-pfdr">Plataforma de Firma Digital Remota (PFDR)</h3>
+<p>Servicio en la nube, sin token y con HSM. Solo para PDF. Se accede desde cualquier dispositivo con internet. Pide un código OTP generado por una app en el celular. No permite firma masiva (pág. 35).</p>
+<h3 id="tipos-de-certificado">Tipos de certificado</h3>
+<p>Persona física, persona jurídica, aplicaciones, sellos de tiempo y sellos de competencia (pág. 35).</p>
+</section>
+<section class="sec"><h2 id="donde-se-usa">Dónde se usa</h2>
+<p>Facility services, inmobiliarias, aseguradoras, recursos humanos, equipos comerciales y departamentos legales. Por ejemplo, contratos laborales, de arrendamiento, pólizas, órdenes de compra y actas de consejo (pág. 36).</p>
+<p><strong>En la Justicia</strong> (pág. 37):</p>
+<ul>
+<li>Notificación por correo electrónico firmado digitalmente, respetando el debido proceso.</li>
+<li>Presentaciones judiciales: demandas, denuncias, oficios, notificaciones.</li>
+<li>Audiencias por medios electrónicos.</li>
+<li>Capacitaciones.</li>
+</ul>
+<p>Las consignas del TP de firma están en <a href="ejercicios.html">Ejercicios y TP</a>.</p>
+</section><section class="sec quiz" id="quiz" data-quiz="firma" data-materia="informatica-juridica">
+<h2>Quiz del eje 2</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="MJyOWVutXH" data-tema="Para qué se firma" data-enlace="firma.html#para-que-se-firma" data-tipo="mc"><div class="q-enun" id="qe-firma-1"><span class="q-n">1</span><div><p>Según el art. 288 del CCC, ¿qué prueba la firma?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-firma-1"><li><button type="button" class="op" data-ok="1">La autoría de la declaración de voluntad expresada en el texto al cual corresponde</button></li><li><button type="button" class="op" data-ok="0">La fecha exacta del documento</button></li><li><button type="button" class="op" data-ok="0">La capacidad jurídica de las partes</button></li><li><button type="button" class="op" data-ok="0">La licitud del objeto</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El artículo también aclara que en instrumentos electrónicos el requisito se cumple con una <strong>firma digital</strong>.</p>
+</div></li><li class="q" data-q="dNQYITc_p8" data-tema="Electrónica contra digital" data-enlace="firma.html#electronica-contra-digital" data-tipo="mc"><div class="q-enun" id="qe-firma-2"><span class="q-n">2</span><div><p>Si alguien cuestiona la validez de una firma digital, ¿qué pasa según la cátedra?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-firma-2"><li><button type="button" class="op" data-ok="0">El firmante tiene que probar que es auténtica</button></li><li><button type="button" class="op" data-ok="0">La firma pierde validez automáticamente</button></li><li><button type="button" class="op" data-ok="1">Quien la cuestiona tiene que presentar pruebas</button></li><li><button type="button" class="op" data-ok="0">Decide la Autoridad de Registro</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La firma digital <strong>se presume verdadera</strong>. Por eso la carga recae en quien la cuestiona.</p>
+</div></li><li class="q" data-q="RQXsi3v5pr" data-tema="Electrónica contra digital" data-enlace="firma.html#electronica-contra-digital" data-tipo="mc"><div class="q-enun" id="qe-firma-3"><span class="q-n">3</span><div><p>¿Cuál es la naturaleza jurídica de la firma electrónica según la presentación de contratos 2026?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-firma-3"><li><button type="button" class="op" data-ok="0">Equivalente absoluto a la firma ológrafa</button></li><li><button type="button" class="op" data-ok="1">Instrumento particular no firmado</button></li><li><button type="button" class="op" data-ok="0">Instrumento público</button></li><li><button type="button" class="op" data-ok="0">Presunción iuris tantum a favor del titular</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las opciones de equivalencia y de presunción corresponden a la <strong>firma digital</strong>.</p>
+</div></li><li class="q" data-q="GkVXau1CKj" data-tema="Ley 25.506" data-enlace="firma.html#ley-25-506" data-tipo="mc"><div class="q-enun" id="qe-firma-4"><span class="q-n">4</span><div><p>¿Qué artículo de la Ley 25.506 equipara la firma digital con la ológrafa?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-firma-4"><li><button type="button" class="op" data-ok="0">Art. 1</button></li><li><button type="button" class="op" data-ok="0">Art. 5</button></li><li><button type="button" class="op" data-ok="0">Art. 9</button></li><li><button type="button" class="op" data-ok="1">Art. 3</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El art. 2 define la firma digital, el 5 la electrónica y el 3 hace la equiparación.</p>
+</div></li><li class="q" data-q="QIEQ5pEqk-" data-tema="Clave pública y clave privada (PKI)" data-enlace="firma.html#clave-publica-y-clave-privada-pki" data-tipo="mc"><div class="q-enun" id="qe-firma-5"><span class="q-n">5</span><div><p>¿Qué es la clave privada?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-firma-5"><li><button type="button" class="op" data-ok="0">La que se distribuye para que terceros verifiquen</button></li><li><button type="button" class="op" data-ok="1">La que está bajo exclusivo control del firmante y permite aplicar la firma</button></li><li><button type="button" class="op" data-ok="0">El dispositivo que almacena las claves</button></li><li><button type="button" class="op" data-ok="0">La que emite el Ente Licenciante para cada documento</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La pública se distribuye y el <strong>token</strong> es el dispositivo.</p>
+</div></li><li class="q" data-q="L87FEQnngK" data-tema="Firmar y verificar" data-enlace="firma.html#firmar-y-verificar" data-tipo="mc"><div class="q-enun" id="qe-firma-6"><span class="q-n">6</span><div><p>Según la cátedra, ¿qué garantiza el software de verificación?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-firma-6"><li><button type="button" class="op" data-ok="1">La integridad</button></li><li><button type="button" class="op" data-ok="0">La autoría</button></li><li><button type="button" class="op" data-ok="0">La confidencialidad</button></li><li><button type="button" class="op" data-ok="0">La capacidad del firmante</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La diapositiva dice que la clave pública garantiza <strong>autoría</strong> y el software de verificación, <strong>integridad</strong>.</p>
+</div></li><li class="q" data-q="wgPdp6FCWi" data-tema="Certificado digital" data-enlace="firma.html#certificado-digital" data-tipo="mc"><div class="q-enun" id="qe-firma-7"><span class="q-n">7</span><div><p>¿De qué da fe un certificado digital?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-firma-7"><li><button type="button" class="op" data-ok="0">De que el documento es confidencial</button></li><li><button type="button" class="op" data-ok="0">De la fecha de un contrato</button></li><li><button type="button" class="op" data-ok="1">De la vinculación entre una clave pública y una persona o entidad</button></li><li><button type="button" class="op" data-ok="0">De que una clave privada fue revocada</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Por eso lo emite un organismo autorizado, previa autenticación de la identidad.</p>
+</div></li><li class="q" data-q="nwpwJWNXm9" data-tema="Certificado digital" data-enlace="firma.html#certificado-digital" data-tipo="mc"><div class="q-enun" id="qe-firma-8"><span class="q-n">8</span><div><p>¿Para qué sirve el protocolo OCSP?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-firma-8"><li><button type="button" class="op" data-ok="0">Para generar el par de claves</button></li><li><button type="button" class="op" data-ok="1">Para consultar en línea el estado de revocación de certificados</button></li><li><button type="button" class="op" data-ok="0">Para cifrar el documento firmado</button></li><li><button type="button" class="op" data-ok="0">Para licenciar a las autoridades certificantes</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Aparece en la diapositiva de revocación: formato de petición y respuesta, con respuesta firmada.</p>
+</div></li><li class="q" data-q="_35wuYFtR9" data-tema="Infraestructura" data-enlace="firma.html#infraestructura" data-tipo="mc"><div class="q-enun" id="qe-firma-9"><span class="q-n">9</span><div><p>¿Quién es la raíz del esquema de confianza?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-firma-9"><li><button type="button" class="op" data-ok="0">La Autoridad de Registro</button></li><li><button type="button" class="op" data-ok="0">El Oficial de Registro</button></li><li><button type="button" class="op" data-ok="0">El firmante</button></li><li><button type="button" class="op" data-ok="1">El Ente Licenciante</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El <strong>Ente Licenciante</strong> habilita a las AC otorgando una licencia y les emite certificados.</p>
+</div></li><li class="q" data-q="5zDZfosUUX" data-tema="Plataforma de Firma Digital Remota (PFDR)" data-enlace="firma.html#plataforma-de-firma-digital-remota-pfdr" data-tipo="mc"><div class="q-enun" id="qe-firma-10"><span class="q-n">10</span><div><p>¿Qué es cierto de la firma digital remota (PFDR)?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-firma-10"><li><button type="button" class="op" data-ok="0">Necesita un token USB</button></li><li><button type="button" class="op" data-ok="0">Sirve para cualquier formato de archivo</button></li><li><button type="button" class="op" data-ok="1">Es solo para PDF y pide un código OTP</button></li><li><button type="button" class="op" data-ok="0">Permite firma masiva</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es un servicio en la nube, sin token y con HSM, que necesita internet y no permite firma masiva.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material de cursado 2025 y 2026 del Drive de UTN. El Drive no trae ningún parcial ni final, así que no dice qué se toma ni cómo viene el examen. Manda lo que indique tu comisión. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

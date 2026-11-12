@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Seminario Integrador en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Seminario Integrador, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="seminario-integrador" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Seminario Integrador</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Seminario Integrador</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-proyecto">El proyecto del Drive</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN, que para esta materia es un solo proyecto de alumnos de 2016 y 2017, sin exámenes, programa ni apuntes. No dice qué se evalúa hoy: manda lo que indique tu comisión.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Seminario Integrador</p><h1>Para entender</h1>
+<p class="bajada">El Drive de esta materia tiene un solo proyecto de alumnos, de 2016 y 2017. Sirve de ejemplo, y no dice qué se evalúa hoy.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p>
+<div class="ojo"><p class="ojo-t">No hay exámenes, programa ni apuntes</p><p>Revisé los 17 archivos que se pudieron bajar. Ninguno es un examen, una consigna o un apunte de teoría. Tampoco hay nada de 2024 en adelante. Todo es de la época del plan viejo, y sin exámenes nuevos no se puede saber si sigue valiendo. Pedile a tu comisión la consigna y la forma de evaluar. Esto no las reemplaza.</p>
+</div>
+
+<section class="sec"><h2 id="inicio-la-idea-general">La idea general</h2>
+<p>Lo que hay en el Drive es la documentación y el sistema de un trabajo de dos alumnos. Tomaron una escuela secundaria que llevaba todo en papel. Hablaron con los directivos, escribieron los requerimientos y modelaron los casos de uso. Después armaron un prototipo, la base de datos y un programa.</p>
+<p>El problema que eligieron es concreto. Cuando un docente pide cambiar un horario, alguien tiene que buscar en papel quién puede tomar ese lugar sin que se le pise con otra clase. Si esa persona también se mueve, hay que seguir buscando.</p>
+<p>Este material te sirve para ver cómo queda un proyecto documentado de punta a punta. Si te toca hacer uno parecido, usalo para orientarte. No lo copies como modelo, porque es de alumnos y tiene cosas que no cierran. Las junté en <a href="#proyecto-lo-que-no-cierra">Lo que no cierra</a>.</p>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p>No se sabe. El Drive no trae consigna del trabajo, ni fechas, ni criterios, ni notas. Tampoco se puede afirmar que la materia se apruebe con un proyecto. Lo único que se ve es que este proyecto está guardado en su carpeta.</p>
+<div class="ojo"><p class="ojo-t">Puede no ser de esta materia</p><p>El encabezado del listado de casos de uso dice «UTN - Habilitación Profesional - Año 2016». El Drive lo guarda en «3° año / Seminario Integrador». No hay nada más que explique esa diferencia. Confirmá con tu comisión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-que-hay-en-el-drive">Qué hay en el Drive</h2>
+<p>Son 23 archivos en tres carpetas. Seis no se bajaron, por ser binarios, código o fotos, así que no pude leerlos.</p>
+<div class="tabla"><table><thead><tr><th>Carpeta</th><th>Leído</th><th>Sin leer</th></tr></thead><tbody><tr><td>Documentación</td><td>Descripción de la organización, minuta, glosario, visión, reglas de negocio, listado de casos de uso, matriz CRUD, arquitectura y cinco documentos de casos de uso</td><td>Modelo BPMN</td></tr><tr><td>Sistema</td><td>Script SQL y planilla de tablas</td><td>Diagrama de la base, prototipo en Axure, proyecto de Visual Studio</td></tr><tr><td>Varios</td><td>Casos de uso tentativos e idea del proceso principal</td><td>Ejemplo de declaración jurada y de horario consolidado (fotos)</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido">El recorrido</h2>
+<p>Las fechas salen de las tablas de versiones de cada documento. Las marcadas «archivo» salen de la fecha guardada en el Word, que puede ser la de una copia.</p>
+<div class="tabla"><table><thead><tr><th>Cuándo</th><th>Qué hicieron</th><th>De dónde sale la fecha</th></tr></thead><tbody><tr><td>21 y 26/03/2016</td><td>Describieron la organización y le hicieron preguntas</td><td>Versiones</td></tr><tr><td>30/03/2016</td><td>Primera reunión con los directivos, con su minuta</td><td>Minuta</td></tr><tr><td>30/03 y 13/04/2016</td><td>Glosario</td><td>Versiones</td></tr><tr><td>Junio a agosto de 2016</td><td>Casos de uso tentativos, idea del proceso y casos de uso con sus pantallas</td><td>Archivo</td></tr><tr><td>09/12/2016</td><td>Documento de arquitectura</td><td>Versiones</td></tr><tr><td>13/12/2016</td><td>Visión</td><td>Versiones</td></tr><tr><td>Marzo y abril de 2017</td><td>Reglas de negocio, caso de uso resumen y listado de casos de uso</td><td>Archivo</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="inicio-como-se-conecta">Cómo se conecta</h2>
+<p>Cada documento toma algo del anterior:</p>
+<ol>
+<li>La <strong>minuta</strong> cuenta el negocio y trae las reglas para que un docente pueda tomar un horario.</li>
+<li>El <strong>glosario</strong> fija lo que significan las palabras de la escuela.</li>
+<li>La <strong>visión</strong> recorta el problema, los usuarios y las necesidades.</li>
+<li>Los <strong>casos de uso</strong> dicen qué hace el sistema paso a paso. Citan las <strong>reglas de negocio</strong>.</li>
+<li>La <strong>matriz CRUD</strong> cruza cada caso de uso con los datos que toca.</li>
+<li>La <strong>base de datos</strong> y la <strong>arquitectura</strong> bajan todo eso a tablas y capas.</li>
+</ol>
+<p>Para repasar la teoría de esto en otras materias, mirá <a href="../analisis-de-sistemas-de-informacion/index.html">Análisis de Sistemas de Información</a> y <a href="../bases-de-datos/index.html">Bases de Datos</a>. La plantilla del caso de uso resumen tiene en su encabezado «Análisis de Sistemas 2011, Autor: Cátedra». Es el único rastro de la cátedra en esta carpeta.</p>
+</section>
+<section class="sec"><h2 id="inicio-por-donde-seguir">Por dónde seguir</h2>
+<p>Leé <a href="#pdf-proyecto">El proyecto del Drive</a>, que recorre cada documento. Antes de imitar algo, mirá <a href="#proyecto-lo-que-no-cierra">Lo que no cierra</a>. Para repasar, la <a href="machete.html">hoja de repaso</a>.</p>
+</section></section>
+<section class="pdf-parte" id="pdf-proyecto" data-pagina="proyecto" aria-label="El proyecto del Drive"><p class="pdf-de">Seminario Integrador</p><h1>El proyecto del Drive</h1>
+<p class="bajada">Un sistema para gestionar cambios de horario docente en una escuela, documento por documento.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p>
+<div class="ojo"><p class="ojo-t">Esto es un ejemplo de alumnos</p><p>Todo sale de un trabajo de 2016 y 2017. No hay teoría de la cátedra en el Drive, así que acá no hay definiciones generales. Solo se cuenta qué hizo este proyecto. Lo que digo por mi cuenta está marcado como lectura mía.</p>
+</div>
+
+<section class="sec"><h2 id="proyecto-el-caso">El caso</h2>
+<p>Es una escuela secundaria con unos 800 alumnos, dos turnos y unos 160 docentes. Toda la información se registra en papel.</p>
+<p>Para armar los horarios, cada docente completa una <strong>declaración jurada (DDJJ)</strong> con sus cargos y horas cátedra de todas las escuelas donde trabaja. La escuela tiene una planilla de horarios por día, hora y turno, y la actualiza a mano cada vez que algo cambia. Esa planilla es el <strong>Horario Consolidado</strong>.</p>
+<p>Según la minuta, un docente está apto para ocupar un cargo cuando se cumplen estas tres cosas:</p>
+<ul>
+<li>Los horarios de su DDJJ no se solapan con los de la materia vacante o en suplencia.</li>
+<li>Hay al menos 40 minutos entre clases que dicta en escuelas distintas.</li>
+<li>No supera el máximo de 20 horas cátedra semanales.</li>
+</ul>
+<p>Si hay más de un docente apto, se mira el <strong>escalafón</strong>. La secretaria llama por teléfono uno por uno hasta conseguir un sí, y corrige el nombre en la planilla.</p>
+<p>Todo esto sale de la minuta de reunión, «Descripción del negocio». No va enlazada porque nombra a personas.</p>
+</section>
+<section class="sec"><h2 id="proyecto-relevamiento">Relevamiento</h2>
+<p>Dos documentos arrancan el trabajo:</p>
+<ul>
+<li><strong>Descripción de la organización.</strong> Cuenta en un par de párrafos el circuito de notas, de asistencia y de horarios. Trae las preguntas que le iban a hacer a la escuela y sus respuestas.</li>
+<li><strong>Minuta de reunión.</strong> Lleva tema, fecha, horario y participantes. Después, la introducción, la descripción del negocio y lo que piden los directivos.</li>
+</ul>
+<p>Las preguntas fueron cuatro: qué rol cumple el contacto en la institución, quiénes usarían el sistema, en qué tareas ayudaría y quién cargaría los datos de los alumnos.</p>
+<p>La escuela pidió dos cosas: el horario de los profesores y el seguimiento de los alumnos (notas, asistencia, datos personales). Los directivos dijeron que lo principal era el horario.</p>
+<div class="idea"><p>El proyecto documenta solo el horario. Visión, casos de uso y tablas no gestionan notas ni asistencia. Ningún documento dice cuándo se tomó esa decisión. Es lectura mía comparando la minuta con la visión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="proyecto-glosario">Glosario</h2>
+<div class="tabla"><table><thead><tr><th>Término</th><th>Qué significa en este proyecto</th></tr></thead><tbody><tr><td>Escalafón Docente</td><td>Orden de docentes por puntaje y antigüedad. Lo arma el Ministerio de Educación provincial. El puntaje queda fuera del alcance</td></tr><tr><td>Cargo</td><td>Paquete de horas de los trabajadores de la escuela, salvo los docentes. Cada tipo tiene horas fijas</td></tr><tr><td>Hora cátedra</td><td>Las horas que tienen asignadas los docentes. También les dicen «unidades acumuladas»</td></tr><tr><td>Licencia</td><td>El docente se ausenta por algún motivo: salud, fallecimiento familiar, imprevisto, estudio</td></tr><tr><td>Concurso Docente</td><td>Evento donde se titularizan cargos y horas cátedra. Mueve el plantel de cada escuela</td></tr><tr><td>Titularización</td><td>Obtener horas o cargos como titular. Son propias hasta la jubilación, salvo renuncia</td></tr><tr><td>Interinato</td><td>Situación intermedia entre reemplazante y titular. El interino puede perder las horas por un traslado o un concurso</td></tr><tr><td>Suplente</td><td>Reemplaza a un titular en actividad que está de licencia</td></tr><tr><td>Traslado</td><td>En un concurso, un titular toma horas ofrecidas como interinas y pasan a ser titulares suyas</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="proyecto-vision">Visión</h2>
+<p>La visión registra las necesidades de alto nivel y las características del sistema. Tiene dos sentencias armadas como formularios. No va enlazada porque nombra a personas.</p>
+<p><strong>Sentencia del problema</strong></p>
+<div class="tabla"><table><thead><tr><th>Campo</th><th>Contenido</th></tr></thead><tbody><tr><td>El problema de</td><td>Reorganizar el Horario Consolidado ante traslados de horas cátedra y suplencias</td></tr><tr><td>Afecta a</td><td>Docentes, directivos y alumnos</td></tr><tr><td>El impacto es</td><td>Docentes con su horario demorado, directivos con mucho esfuerzo, alumnos con horas libres</td></tr><tr><td>Una solución sería</td><td>Un sistema que asista el cambio de horario, más rápido y con menos personal</td></tr></tbody></table></div>
+<p><strong>Sentencia de posición</strong></p>
+<div class="tabla"><table><thead><tr><th>Campo</th><th>Contenido</th></tr></thead><tbody><tr><td>Para</td><td>Docentes, directivos y alumnos</td></tr><tr><td>Quienes</td><td>Dan clases, organizan horarios y asisten a clases</td></tr><tr><td>El producto</td><td>Sistema de Gestión de Horario Docente</td></tr><tr><td>Que</td><td>Permite ingresar las DDJJ, genera el Horario Consolidado y asiste los cambios</td></tr><tr><td>A diferencia de</td><td>El proceso manual actual</td></tr><tr><td>Nuestro producto</td><td>Reduce tiempos, simplifica y necesita menos personas</td></tr></tbody></table></div>
+<p><strong>Interesados y usuarios.</strong> La directora es interesada y no usuaria. Define políticas y aprueba el horario. La vicedirectora y la secretaria gestionan los cambios. El docente pide el cambio.</p>
+<p><strong>Necesidades</strong></p>
+<div class="tabla"><table><thead><tr><th>Necesidad</th><th>Prioridad</th><th>Qué preocupa</th></tr></thead><tbody><tr><td>Registrar y modificar DDJJ</td><td>Necesario</td><td>Lleva mucho tiempo y no siempre se sabe cuál es la última</td></tr><tr><td>Gestionar suplencias</td><td>Deseable</td><td>Hoy no se registra cuando una hora está reemplazada</td></tr><tr><td>Gestionar cambios de horario</td><td>Necesario</td><td>Lleva mucho tiempo y se cometen errores</td></tr><tr><td>Consultar Horario Consolidado</td><td>Necesario</td><td>No siempre se sabe si el horario actual es el correcto</td></tr></tbody></table></div>
+<p><strong>Alternativa revisada.</strong> Buscando en internet encontraron el programa aSc Horarios. La visión le objeta que tiene demasiadas funciones y no se ajusta a la escuela.</p>
+<p><strong>Otros requerimientos</strong></p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Qué pide</th></tr></thead><tbody><tr><td>Sistema</td><td>PC con Windows 7 en adelante</td></tr><tr><td>Seguridad</td><td>El usuario se identifica. No hay funciones distintas por usuario</td></tr><tr><td>Desempeño</td><td>Sin restricciones: pocos datos y servidor en la red interna</td></tr><tr><td>Disponibilidad</td><td>Durante el horario de la institución. Sin acceso por internet</td></tr><tr><td>Usabilidad</td><td>Simple y con pocas opciones, porque las usuarias tienen conocimientos básicos</td></tr></tbody></table></div>
+<p>Como dato de partida, la visión dice que un concurso lleva unos 2 meses de reacomodar horarios. El cambio de un solo docente lleva de unos días a una semana.</p>
+</section>
+<section class="sec"><h2 id="proyecto-reglas-de-negocio">Reglas de negocio</h2>
+<p>El documento tiene cuatro. Podés verlo en <a href="https://drive.google.com/file/d/1qkpu-SJcsNXAlmcq1cC_fYQhT-JFO6Wp/view">Reglas de negocio en el Drive</a>.</p>
+<div class="tabla"><table><thead><tr><th>N°</th><th>Regla</th><th>Tipo</th></tr></thead><tbody><tr><td>1</td><td>Vicedirección actualiza la planilla de horarios separada por días, horas cátedras y turnos</td><td>HE</td></tr><tr><td>2</td><td>El docente no está apto si se solapan los horarios de su DDJJ con los de la nueva materia</td><td>AR</td></tr><tr><td>3</td><td>De ser posible, se hace un cambio directo entre el solicitante y los afectados</td><td>HE</td></tr><tr><td>4</td><td>Una vez solicitado el cambio, el operador analiza el horario consolidado y busca opciones cubriendo todas las asignaturas</td><td>AD</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Las siglas HE, AR y AD</p><p>El documento no dice qué significan y no hay apunte que lo aclare. No las adivines en un trabajo. Preguntá a tu comisión qué clasificación piden.</p>
+</div>
+</section>
+<section class="sec"><h2 id="proyecto-casos-de-uso">Casos de uso</h2>
+<h3 id="proyecto-los-actores">Los actores</h3>
+<div class="tabla"><table><thead><tr><th>Sigla</th><th>Quién es</th></tr></thead><tbody><tr><td>DS</td><td>Docente solicitante. Pide cambiar el horario de una materia</td></tr><tr><td>DA</td><td>Docente afectado. Su horario se mueve por el cambio</td></tr><tr><td>OCH</td><td>Operador de cambio de horario. Por la visión, serían la vicedirectora o la secretaria</td></tr></tbody></table></div>
+<h3 id="proyecto-el-listado">El listado</h3>
+<p>Nueve casos de uso de usuario, que podés cruzar con la <a href="#proyecto-matriz-crud">matriz CRUD</a>:</p>
+<ol>
+<li>Dar de alta un docente.</li>
+<li>Dar de baja un docente.</li>
+<li>Modificar datos del docente.</li>
+<li>Dar de alta una DDJJ.</li>
+<li>Modificar una DDJJ.</li>
+<li>Dar de baja una DDJJ.</li>
+<li>Consultar Horario Consolidado.</li>
+<li>Analizar cambios posibles.</li>
+<li>Registrar cambio de horario.</li>
+</ol>
+<p>El alta, baja, modificación y consulta de cursos, días, módulos, escuelas y materias queda fuera del sistema. La carga inicial de esos datos la hace la institución a mano.</p>
+<h3 id="proyecto-como-los-clasificaron">Cómo los clasificaron</h3>
+<p>Cada caso de uso lleva una tablita con seis datos. La plantilla no explica cada uno, así que acá solo se muestra cómo los completaron.</p>
+<div class="tabla"><table><thead><tr><th>Dato</th><th>CUR01</th><th>CUU 1.1</th><th>CUU 1.2</th></tr></thead><tbody><tr><td>Nivel</td><td>Resumen</td><td>Usuario</td><td>Usuario</td></tr><tr><td>Estructura</td><td>Re-Estructurado</td><td>Sin estructurar</td><td>Sin estructurar</td></tr><tr><td>Alcance</td><td>Sistema</td><td>Sistema</td><td>Sistema</td></tr><tr><td>Caja</td><td>Negra</td><td>Negra</td><td>Negra</td></tr><tr><td>Instanciación</td><td>Real</td><td>Real</td><td>Real</td></tr><tr><td>Interacción</td><td>Semántica</td><td>Semántico y Dialogal</td><td>Semántica</td></tr></tbody></table></div>
+<p>Los tres tienen las mismas partes: meta, actores, precondiciones, disparador, camino básico, caminos alternativos y postcondiciones. CUR01 separa las precondiciones y postcondiciones de negocio de las de sistema.</p>
+<h3 id="proyecto-cur01-gestion-del-cambio-de-horario">CUR01, gestión del cambio de horario</h3>
+<p>Es el caso de uso resumen. Su meta es cambiar el horario pedido por un docente. Ver <a href="https://drive.google.com/file/d/1zBo4VPceyks20JPwUNlk-KjKBzYGfNR4/view">CUR01 en el Drive</a>.</p>
+<p>El operador analiza el horario e invoca el CUU 1.1. Valida la DDJJ del afectado, se comunica para proponer el cambio y lo repite por cada afectado. Al final invoca el CUU 1.2 para registrar. En cualquier paso puede cancelar.</p>
+<h3 id="proyecto-cuu-1-1-analizar-cambios-posibles">CUU 1.1, analizar cambios posibles</h3>
+<p>El disparador es que un docente pide el cambio. Ver <a href="https://drive.google.com/file/d/1cquUDrRAuReBaKlRDwm_17G0kOwy87Dh/view">CUU 1.1 en el Drive</a>.</p>
+<p>Camino básico:</p>
+<ol>
+<li>El operador ingresa el docente solicitante, la materia a trasladar y los horarios deseados.</li>
+<li>El sistema valida que no se superpongan con la DDJJ. Valida la diferencia horaria con otras escuelas. Valida que haya cambios directos y los muestra.</li>
+<li>El operador elige uno.</li>
+<li>El sistema muestra los datos de contacto del afectado.</li>
+<li>El operador lo contacta para ver si acepta.</li>
+</ol>
+<p>Caminos alternativos:</p>
+<div class="tabla"><table><thead><tr><th>Cuándo</th><th>Qué pasa</th></tr></thead><tbody><tr><td>Los horarios se solapan</td><td>El sistema informa y termina</td></tr><tr><td>No hay diferencia horaria suficiente</td><td>El sistema informa y termina</td></tr><tr><td>No hay cambios directos</td><td>El sistema busca cambios alternativos y los muestra. Si tampoco hay, termina</td></tr></tbody></table></div>
+<h3 id="proyecto-cuu-1-2-registrar-el-cambio">CUU 1.2, registrar el cambio</h3>
+<p>El disparador es confirmar o cancelar un cambio ya analizado. Ver <a href="https://drive.google.com/file/d/1AU5Cul1SCM01CmuuE5G5FBKz-iz81WNZ/view">CUU 1.2 en el Drive</a>.</p>
+<p>El operador confirma. El sistema registra el cambio entre los horarios elegidos y muestra lo que cambió. Si el solicitante desiste o un afectado rechaza, el sistema registra la cancelación del cambio completo.</p>
+<h3 id="proyecto-la-version-dialogal">La versión dialogal</h3>
+<p>Cada CUU tiene dos archivos con los mismos pasos. Comparé los textos y son casi iguales. El «Dialogal» suma, entre paso y paso, las pantallas del prototipo. Las pantallas de esos Word muestran nombres de docentes, por eso no van acá.</p>
+<p>Las pantallas siguen este orden:</p>
+<ol>
+<li>El operador ingresa DNI del docente, materia y curso.</li>
+<li>Indica los días y horarios posibles para trasladar las horas. La pantalla muestra tres.</li>
+<li>El sistema lista los posibles cambios directos, con docente, materia, día y horario.</li>
+<li>Si hace falta, lista los cambios indirectos, con dos docentes por fila.</li>
+<li>Una pantalla de confirmación compara horario actual y nuevo de cada docente.</li>
+</ol>
+<h3 id="proyecto-la-idea-de-fondo">La idea de fondo</h3>
+<p>El archivo <a href="https://drive.google.com/file/d/1y6z1u3LFz26RX4HYq0f-2C8WeaGSdjGQ/view">Idea del proceso principal</a> explica el problema difícil. El solicitante propone unos pocos horarios a donde irse. Hay que ver que los afectados puedan tomar su horario actual.</p>
+<p>Si ninguno puede, se buscan docentes alternativos. Los pasos se repiten hasta que «el círculo cierre». Eso significa tres cosas: el solicitante quedó ubicado, alguien ocupa su lugar y todos los movidos tienen horario nuevo. Si se agotan las opciones, se le avisa que no se pudo.</p>
+<p>El sistema debe seguir un único camino de traslado. Si ese camino falla, tiene que poder volver al punto anterior y probar otro.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensalo como cambiar turnos en un trabajo. Lo fácil es que vos y un compañero se cambien y listo. Si él no puede, capaz que entra un tercero: vos tomás el turno de él, él toma el del tercero y el tercero toma el tuyo. Si en algún punto se traba, volvés un paso atrás y probás con otro.</p>
+</div>
+<p>El archivo <a href="https://drive.google.com/file/d/1hvP5NFbUdFyWp8WogD3qKShNlJzUQgdj/view">CUU tentativos</a> muestra el camino hasta ahí. Identificaron cuatro: validar DDJJ, analizar horario consolidado, contactar docente y registrar cambio. «Contactar docente» aparece marcado como descartado.</p>
+</section>
+<section class="sec"><h2 id="proyecto-matriz-crud">Matriz CRUD</h2>
+<p>Cruza cada caso de uso con los datos que toca. Ver <a href="https://drive.google.com/file/d/1oD-9C0oa8zXUnJVmB-se4WC5cVPlBhgF/view">la matriz en el Drive</a>. Los números son los del <a href="#proyecto-el-listado">listado</a>.</p>
+<div class="tabla"><table><thead><tr><th>CUU</th><th>Profesores</th><th>DDJJ</th><th>M-M-P-C</th></tr></thead><tbody><tr><td>1</td><td>C</td><td></td><td></td></tr><tr><td>2</td><td>R-D</td><td></td><td></td></tr><tr><td>3</td><td>R-U</td><td></td><td></td></tr><tr><td>4</td><td></td><td>C</td><td>R</td></tr><tr><td>5</td><td></td><td>R-U</td><td>R-U</td></tr><tr><td>6</td><td></td><td>R-D</td><td>R-D</td></tr><tr><td>7</td><td>R</td><td>R</td><td>R</td></tr><tr><td>8</td><td>R</td><td>R</td><td>R</td></tr><tr><td>9</td><td>R</td><td>R-U</td><td>R-U</td></tr></tbody></table></div>
+<p>Las columnas de días, cursos, materias, módulos y escuelas tienen un asterisco en todas las filas. Es la nota de que quedan fuera del alcance. <code>M-M-P-C</code> es la tabla que junta materias, módulos, profesores y cursos.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Las letras son crear, leer, actualizar y borrar, en inglés: <em>create</em>, <em>read</em>, <em>update</em>, <em>delete</em>. Modificar es «leer y actualizar», y por eso dice R-U. Esta aclaración es mía. La matriz no la escribe.</p>
+</div>
+</section>
+<section class="sec"><h2 id="proyecto-arquitectura">Arquitectura</h2>
+<p>El documento de arquitectura tiene tres partes. Ver <a href="https://drive.google.com/file/d/1zukwywZqaBIPbw5qsN0eWBiNac5eTzK4/view">el documento en el Drive</a>.</p>
+<p><strong>Herramientas.</strong> MySQL con SQL Manager Lite y MySQL Workbench. Visual Studio 2013, .NET Framework 4.5 y C# con Windows Forms.</p>
+<p><strong>Vista de despliegue.</strong> Un servidor con MySQL y las PC clientes de la oficina de vicedirección, todos en la red LAN de la escuela.</p>
+<p><strong>Vista de implementación.</strong> Un modelo simple de separación en capas:</p>
+<div class="tabla"><table><thead><tr><th>Capa</th><th>Qué contiene</th></tr></thead><tbody><tr><td>Presentación</td><td>Las interfaces gráficas de usuario</td></tr><tr><td>Lógica o de negocio</td><td>Las funcionalidades esenciales, que satisfacen los requisitos funcionales y no funcionales</td></tr><tr><td>Datos</td><td>Las conexiones y consultas a la base de datos</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="proyecto-base-de-datos">Base de datos</h2>
+<p>El script SQL crea ocho tablas. Los datos cargados traen nombres de docentes, por eso no va el enlace.</p>
+<div class="tabla"><table><thead><tr><th>Tabla</th><th>Para qué</th><th>Campos principales</th></tr></thead><tbody><tr><td><code>profesores</code></td><td>Datos del docente</td><td>Nombre, apellido, dirección, ciudad, teléfono, email, DNI</td></tr><tr><td><code>ddjj</code></td><td>Cada renglón de una declaración jurada</td><td>Profesor, cargo, hora desde, hora hasta, día, situación de revista, escuela</td></tr><tr><td><code>escuelas</code></td><td>Las escuelas que aparecen en las DDJJ</td><td>Tipo y número, nombre, regional</td></tr><tr><td><code>dias</code></td><td>Días de la semana</td><td>Descripción</td></tr><tr><td><code>modulos</code></td><td>Bloques horarios de cada día</td><td>Descripción, hora desde, hora hasta, día, número</td></tr><tr><td><code>materias</code></td><td>Materias</td><td>Descripción</td></tr><tr><td><code>cursos</code></td><td>Cursos</td><td>Descripción, año y división</td></tr><tr><td><code>materias_modulos_profesores_cursos</code></td><td>Qué profesor da qué materia a qué curso, en qué módulo y día</td><td>Materia, profesor, módulo, curso, día</td></tr></tbody></table></div>
+<p>La clave primaria de la última tabla junta cinco campos: materia, módulo, curso, profesor y día. Por lectura mía, esa tabla es el Horario Consolidado. Ningún documento lo dice con esas palabras.</p>
+</section>
+<section class="sec"><h2 id="proyecto-lo-que-no-cierra">Lo que no cierra</h2>
+<p>Si usás este proyecto para orientarte, no copies esto. Lo encontré cruzando los documentos.</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Un documento dice</th><th>Otro dice</th></tr></thead><tbody><tr><td>Tope de horas</td><td>Minuta: máximo 20 hs cátedra semanales</td><td>Glosario: no más de 44 unidades acumuladas</td></tr><tr><td>Frecuencia del concurso</td><td>Glosario: cada 2 años, aproximadamente</td><td>Visión: una vez al año</td></tr><tr><td>Reglas citadas</td><td>CUU 1.1: diferencia horaria según RN 3, y cambios directos según RN 6</td><td>Reglas: la RN 3 habla de otra cosa y solo hay cuatro reglas</td></tr><tr><td>Reglas faltantes</td><td>Minuta: 40 minutos entre escuelas y tope de horas</td><td>Reglas: no están</td></tr><tr><td>Numeración</td><td>Listado: CUU 8 y 9</td><td>Archivos: CUU 1.1 y 1.2</td></tr><tr><td>Nombre del cambio</td><td>Casos de uso: cambios alternativos</td><td>Pantalla del prototipo: cambios indirectos</td></tr><tr><td>Versión dialogal</td><td>Archivo CUU 1.2 «Dialogal»</td><td>Su tablita dice «Semántica»</td></tr><tr><td>Usuarios</td><td>Visión 3.3: el docente es usuario</td><td>Visión 8.2: solo lo usan vicedirectora y secretaria</td></tr><tr><td>Casos de uso</td><td>Visión 4.2: «Listar docentes» y «Listar DDJJ»</td><td>Listado: no están</td></tr><tr><td>Suplencias</td><td>Visión: necesidad deseable</td><td>Listado: ningún caso de uso</td></tr><tr><td>Identificación</td><td>Visión 8.2: el usuario se identifica</td><td>Script SQL: sin tabla de usuarios. El código no se leyó</td></tr><tr><td>Código de artefacto</td><td>Visión: cita «ART-GEN-0-Glosario»</td><td>Archivo: «ART-REQ-1-Glosario»</td></tr></tbody></table></div>
+<p>Además, la visión deja «No completado en esta versión» en cinco apartados: licencias e instalación, restricciones, precedencias y prioridades, documentación y estándares.</p>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN, que para esta materia es un solo proyecto de alumnos de 2016 y 2017, sin exámenes, programa ni apuntes. No dice qué se evalúa hoy: manda lo que indique tu comisión. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Informática Jurídica en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Informática Jurídica, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="informatica-juridica" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Informática Jurídica</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Informática Jurídica</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-entorno">Eje 1: entorno</a></li><li><a href="#pdf-firma">Eje 2: firma</a></li><li><a href="#pdf-contratos">Eje 3: contratos</a></li><li><a href="#pdf-ejusticia">Eje 4: e-Justicia</a></li><li><a href="#pdf-pericia">Eje 5: pericia</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material de cursado 2025 y 2026 del Drive de UTN. El Drive no trae ningún parcial ni final, así que no dice qué se toma ni cómo viene el examen. Manda lo que indique tu comisión.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Informática Jurídica</p><h1>Para entender</h1>
+<p class="bajada">Lo que un ingeniero en sistemas necesita del Derecho para firmar, contratar, buscar fallos y trabajar de perito.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+<div class="ojo"><p class="ojo-t">El Drive no trae exámenes</p><p>Entre los 20 archivos no hay ningún parcial, recuperatorio ni final. Este resumen tiene la teoría del material de cursado 2025 y 2026, pero no puede decirte qué se toma ni cómo viene la consigna. Por eso no vas a ver nada en amarillo ni bloques de «se tomó». Tampoco se sabe qué ejes entran en cada parcial: preguntalo en tu comisión.</p>
+</div>
+
+<section class="sec"><h2 id="inicio-la-idea-general">La idea general</h2>
+<p>Un sistema informático vive adentro de un sistema legal. Un contrato se acepta con un clic, un documento se firma con una clave y una prueba puede ser un archivo. Cuando algo sale mal, un juez que no sabe de informática tiene que decidir. Esta materia te da las dos mitades de ese cruce.</p>
+<div class="teorema"><p class="teorema-t">Informática Jurídica</p><p>Ciencia que estudia la utilización de los recursos informáticos (hardware y software) para la mejora de los procesos, análisis, investigación y gestión en el ámbito jurídico.</p>
+<p class="bloque-fuente">Presentación «1 - Presentación de la Materia», 2025, pág. 12</p></div>
+<p>La cátedra también cita a un autor, con una definición más teórica.</p>
+<div class="teorema"><p class="teorema-t">Informática Jurídica, según Noé J. Riande</p><p>La teoría de la estructura y de la función de los elementos estructurales del Derecho (de la disposición normativa en lo particular, o bien, del orden jurídico vigente en su totalidad) con vistas a su procesamiento electrónico.</p>
+<p class="bloque-fuente">Presentación «1 - Presentación de la Materia», 2025, pág. 12</p></div>
+<h3 id="inicio-antecedentes">Antecedentes</h3>
+<p>La presentación 2025 (pág. 13) pregunta «¿Es novedad la temática?» y responde con una línea de tiempo. La diapositiva da solo el año y el nombre, sin explicar cada hito.</p>
+<div class="tabla"><table><thead><tr><th>Año</th><th>Antecedente</th></tr></thead><tbody><tr><td>1938</td><td>Cámara de Representantes del Estado norteamericano de Ohio</td></tr><tr><td>1948</td><td>Norbert Wiener</td></tr><tr><td>1949</td><td>Lee Loevinger</td></tr><tr><td>1959</td><td>John Horty</td></tr><tr><td>1963</td><td>Hans Baade</td></tr><tr><td>1968</td><td>Mario Lozano</td></tr><tr><td>1981</td><td>SAIJ</td></tr></tbody></table></div>
+<p>El TP1 de los dos años parte de esta línea de tiempo. Sus consignas están en <a href="ejercicios.html">Ejercicios y TP</a>.</p>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido">El recorrido</h2>
+<p>El programa se ordena en cinco ejes conceptuales. Cada uno tiene su página acá.</p>
+<div class="tabla"><table><thead><tr><th>Eje</th><th>De qué trata</th><th>Página</th></tr></thead><tbody><tr><td>1. Conceptos del entorno de negocio</td><td>Qué es el Derecho, cómo se ordenan las normas, quién hace qué en el Estado y en la Justicia</td><td><a href="#pdf-entorno">Eje 1</a></td></tr><tr><td>2. Firma electrónica y firma digital</td><td>Qué prueba una firma, cómo funciona con claves y certificados, qué dice la Ley 25.506</td><td><a href="#pdf-firma">Eje 2</a></td></tr><tr><td>3. Contratos electrónicos</td><td>Qué es un contrato, qué cambia en lo digital, cómo se protege al consumidor</td><td><a href="#pdf-contratos">Eje 3</a></td></tr><tr><td>4. e-Justicia</td><td>La transición hacia el expediente y la prueba digital. Jurisprudencia, bases de datos jurídicas y dónde buscar</td><td><a href="#pdf-ejusticia">Eje 4</a></td></tr><tr><td>5. Pericia informática y delitos informáticos</td><td>Cómo se obtiene y se defiende una prueba digital</td><td><a href="#pdf-pericia">Eje 5</a></td></tr></tbody></table></div>
+<p>Fuente de la tabla: presentación «1 - Presentación», 2026, pág. 11.</p>
+</section>
+<section class="sec"><h2 id="inicio-como-se-conecta">Cómo se conecta</h2>
+<p>Imaginá que firmás un contrato de desarrollo de software y después hay un conflicto.</p>
+<ul>
+<li>El eje 3 dice si ese contrato es válido y qué elementos necesita.</li>
+<li>El eje 2 dice si la firma prueba quién firmó y que el texto no cambió.</li>
+<li>El eje 1 dice ante qué fuero y qué tribunal se discute.</li>
+<li>El eje 5 dice cómo un perito demuestra los hechos técnicos ante el juez.</li>
+<li>El eje 4 dice cómo buscar qué resolvieron otros jueces en casos parecidos.</li>
+</ul>
+<p>El hilo técnico es el <strong>hash</strong>. Aparece en la firma digital para verificar que un documento no cambió y vuelve en la pericia para probar que una evidencia no se tocó. El apunte de pericia lo dice así: «ya visto en la cátedra cuando se habló de Firma Digital» (pág. 3).</p>
+</section>
+<section class="sec"><h2 id="inicio-como-se-aprueba">Cómo se aprueba</h2>
+<p>Hay dos caminos. Esto es lo que dice la presentación 2026 (pág. 4).</p>
+<div class="tabla"><table><thead><tr><th>Camino</th><th>Qué pide</th><th>A qué llegás</th></tr></thead><tbody><tr><td>Aprobación directa</td><td>1° parcial aprobado, 2° parcial aprobado o su recuperatorio globalizador en la última semana, y el 100 % de los trabajos prácticos entregados y aprobados</td><td>Te exime del examen final</td></tr><tr><td>Aprobación no directa</td><td>Aprobar al menos una instancia: 1° parcial, 2° parcial o el recuperatorio único</td><td>Te habilita a rendir el final</td></tr></tbody></table></div>
+<p>Un trabajo práctico no aprobado tiene una segunda entrega con fecha pre-establecida. La presentación 2025 (pág. 5) sumaba otro requisito para la directa: desarrollar y aprobar al menos un análisis de caso de éxito. En la de 2026 ya no figura, así que confirmalo con tu comisión.</p>
+<p>En el Drive también hay una carpeta de un trabajo de aprobación directa de 2026. Su consigna está en <a href="#pericia-el-trabajo-de-aprobacion-directa">Eje 5</a>.</p>
+</section>
+<section class="sec"><h2 id="inicio-como-son-los-trabajos-practicos">Cómo son los trabajos prácticos</h2>
+<p>Es lo que más detalle tiene en el material, y según la presentación 2025 (pág. 7) cada nota forma parte de la nota final de quien hace aprobación directa.</p>
+<ol>
+<li>Se proponen en una clase de teoría.</li>
+<li>Se desarrollan en la clase de práctica.</li>
+<li>Se presentan y se defienden con diapositivas en la clase teórica siguiente.</li>
+</ol>
+<p>Lo que pide la presentación 2026 (pág. 5):</p>
+<ul>
+<li>Grupos de 5 alumnos, con 1 referente para el mail y las entregas.</li>
+<li>Dos archivos: un <code>.pdf</code> con el desarrollo y un <code>.pdf</code> con las diapositivas.</li>
+<li>Citar las fuentes e indicar legajos, nombres, materia y docentes.</li>
+<li>Nota de 0 a 10.</li>
+</ul>
+<p>Las consignas que hay en el Drive están en <a href="ejercicios.html">Ejercicios y TP</a>.</p>
+</section>
+<section class="sec"><h2 id="inicio-datos-de-la-materia">Datos de la materia</h2>
+<p>Tercer año, cuatrimestral, 6 horas semanales. Para cursar pide Sistemas Operativos aprobada. Para rendir pide Algoritmos y Estructuras de Datos, Sistemas y Organizaciones y Arquitectura de las Computadoras aprobadas. Fuente: presentación 2026, pág. 3. Revisá las correlativas contra tu plan, porque los nombres pueden variar.</p>
+<p>El marco legal que la cátedra marca como fundamental es la Constitución Nacional (arts. 116 y 117), la Ley 25.506 de Firma Digital y la Ley 26.388 de Delitos Informáticos (presentación 2026, pág. 13).</p>
+</section>
+<section class="sec"><h2 id="inicio-que-hay-en-el-drive">Qué hay en el Drive</h2>
+<div class="tabla"><table><thead><tr><th>Material</th><th>Para qué lo usamos</th></tr></thead><tbody><tr><td><a href="https://drive.google.com/file/d/10xv7djlpOdtdp3DT73lM-k409tk_Ab5S/view">Presentaciones</a> y apuntes de cátedra de 2026</td><td>Base de todo el resumen</td></tr><tr><td>Presentaciones de 2025</td><td>Para completar lo que 2026 trata en menos detalle: tipos de contrato, herramientas, IA</td></tr><tr><td>Trabajos prácticos resueltos por alumnos en 2026</td><td>No son de la cátedra. No sacamos de ahí ninguna afirmación</td></tr></tbody></table></div>
+<p>De 2025 a 2026 cambiaron algunas cosas. Se sumaron los apuntes escritos de pericia, normas ISO y jurisprudencia, los otros poderes del Estado y los smart contracts. La clase propia de inteligencia artificial de 2025 ya no está entre los materiales de 2026, y por eso va como un tramo aparte en <a href="#ejusticia-inteligencia-artificial-material-de-2025">Eje 4</a>.</p>
+</section></section>
+<section class="pdf-parte" id="pdf-entorno" data-pagina="entorno" aria-label="Eje 1: entorno"><p class="pdf-de">Informática Jurídica</p><h1>Eje 1: entorno del negocio</h1>
+<p class="bajada">Qué es el Derecho, cómo se ordenan las normas, quién hace qué en el Estado y ante quién se discute un conflicto.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+<p>La base es la presentación «2 - Entorno del Negocio» de 2026. Las páginas sin otra aclaración son de ese archivo. Lo de 2025 sale de «2.2 - Entorno Del Negocio».</p>
+
+<section class="sec"><h2 id="entorno-las-palabras-de-la-materia">Las palabras de la materia</h2>
+<div class="teorema"><p class="teorema-t">Derecho</p><p>El Derecho es el conjunto de normas jurídicas generales positivas que surgen de la sociedad y que tienen la finalidad de regular la convivencia entre los miembros de esa sociedad, las personas, y de estos con el Estado.</p>
+<p class="bloque-fuente">Presentación «1 - Presentación de la Materia», 2025, pág. 12</p></div>
+<div class="teorema"><p class="teorema-t">Informática</p><p>El conjunto de conocimientos científicos y técnicas que hacen posible el tratamiento automático de la información por medio de ordenadores electrónicas.</p>
+<p class="bloque-fuente">Presentación «1 - Presentación de la Materia», 2025, pág. 12</p></div>
+<p><strong>Jurídica</strong> es lo «que atañe al derecho o se ajusta a él» (RAE, pág. 2). La RAE tiene 17 acepciones de «derecho». La presentación 2025 las lista (pág. 4) y la 13 es la que nos importa: un conjunto de principios y normas que regulan las relaciones humanas y cuya observancia puede imponerse de manera coactiva.</p>
+</section>
+<section class="sec"><h2 id="entorno-tipos-de-derecho">Tipos de Derecho</h2>
+<p>Son cuatro pares. Se clasifican por separado, así que una misma cosa cae en un lado de cada par (presentación «1 - Presentación», 2026, pág. 7).</p>
+<div class="tabla"><table><thead><tr><th>Par</th><th>Un lado</th><th>El otro lado</th></tr></thead><tbody><tr><td>Objetivo y subjetivo</td><td>La norma escrita</td><td>La facultad del individuo de exigir su cumplimiento</td></tr><tr><td>Escrito y consuetudinario</td><td>La ley promulgada y formalizada</td><td>Las normas basadas en la costumbre y la tradición</td></tr><tr><td>Nacional e internacional</td><td>Las leyes que rigen dentro del territorio de un Estado</td><td>Las que regulan las relaciones entre Estados</td></tr><tr><td>Público y privado</td><td>Relaciones de subordinación con el Estado</td><td>Relaciones de coordinación entre particulares en igualdad</td></tr></tbody></table></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Objetivo y subjetivo es lo que más se confunde. Pensalo como la regla y tu botón para usarla. La norma que dice cómo se hace un testamento es derecho objetivo. Tu posibilidad de hacer el tuyo es derecho subjetivo.</p>
+</div>
+<p>La cátedra tiene un ejercicio de clase para practicar esto, con su corrección: <a href="ejercicios.html">Clasificar según tipos de Derecho</a>.</p>
+</section>
+<section class="sec"><h2 id="entorno-sistema-juridico">Sistema jurídico</h2>
+<p>Un <strong>sistema</strong> es un «módulo de elementos interrelacionados que desarrollan interacciones entre sí». Aplicado al Derecho (pág. 18):</p>
+<div class="teorema"><p class="teorema-t">Sistema jurídico</p><p>Conjunto de las normas, las instituciones y los agentes que hacen al derecho que rige en un determinado territorio.</p>
+<p class="bloque-fuente">Presentación «2 - Entorno del Negocio», 2026, pág. 18</p></div>
+<p>La presentación 2025 (pág. 14) agrega que es un ordenamiento vinculado por relaciones de fundamentación, derivación y coordinación. Las normas forman parte de un todo. No están aisladas ni inconexas.</p>
+<p>El sistema jurídico está regido por el Estado. Busca favorecer la convivencia y fijar pautas de conducta, y limita el libre albedrío. Es distinto en distintos países. La misma acción puede ser delito o no serlo, o tener otra pena. En la República Argentina, el ordenamiento jurídico se ordena desde la Constitución (pág. 23).</p>
+<p>El <strong>Estado</strong> tiene tres componentes: territorio, habitantes y orden jurídico (pág. 19).</p>
+<h3 id="entorno-caracteres-del-sistema">Caracteres del sistema</h3>
+<div class="tabla"><table><thead><tr><th>Carácter</th><th>Qué significa (pág. 19)</th></tr></thead><tbody><tr><td>Unidad</td><td>Una fuente fundacional única</td></tr><tr><td>Coherencia</td><td>Ausencia absoluta de contradicciones internas</td></tr><tr><td>Jerarquía</td><td>Orden estricto de precedencia en la ejecución</td></tr><tr><td>Especialidad / Cronología</td><td>Reglas lógicas para resolución de conflictos</td></tr><tr><td>Plenitud</td><td>Principio de clausura (art. 19): lo que no está prohibido, está permitido</td></tr></tbody></table></div>
+<p>La coherencia se sostiene con tres criterios para resolver conflictos entre normas, que la presentación 2025 agrupa bajo ese carácter (pág. 17): <strong>jerárquico</strong>, <strong>de especialidad</strong> y <strong>cronológico</strong>. La presentación 2026 los muestra como renglones propios.</p>
+<div class="idea"><p>La cátedra lo compara con un sistema operativo. Territorio es la infraestructura, habitantes son los usuarios y orden jurídico es el código base (pág. 19). Una norma inferior que contradice a la superior es un «error de sistema» (pág. 21).</p>
+</div>
+<p>Bajo plenitud, la presentación 2025 (pág. 17) pone dos cosas: los delitos informáticos y el art. 19. No desarrolla el vínculo en la diapositiva.</p>
+<h3 id="entorno-la-piramide-de-kelsen">La pirámide de Kelsen</h3>
+<p>Ordena las normas por jerarquía. Cada nivel depende del de arriba.</p>
+<p><img src="img/fig-kelsen.webp" alt="Pirámide de Kelsen aplicada a la Argentina, con tres niveles"></p>
+<div class="tabla"><table><thead><tr><th>Nivel</th><th>Qué entra (pág. 20)</th></tr></thead><tbody><tr><td>Fundamental</td><td>Constitución Nacional y pactos internacionales de derechos humanos</td></tr><tr><td>Legal</td><td>Leyes nacionales, tratados, leyes orgánicas, decretos</td></tr><tr><td>Base</td><td>Reglamentos, ordenanzas, sentencias, contratos</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">La pirámide de 2025 no lista lo mismo</p><p>La presentación 2025 trae dos pirámides de Kelsen con otro contenido por nivel. En la pág. 15: fundamental, Constitución y pactos internacionales; legal, leyes orgánicas, especiales, leyes ordinarias y decretos de ley; base, reglamentos, ordenanzas y sentencias. En la pág. 16: fundamental, Constitución nacional y tratados de DD.HH.; legal, leyes nacionales, locales y tratados; base, normas, sentencias, contratos y testamentos. Si te piden ubicar normas en la pirámide, preguntá en tu comisión cuál toma.</p>
+</div>
+<p><strong>Principio de jerarquía y supremacía (art. 31 CN, pág. 21).</strong> La ley suprema de la Nación es la Constitución, las leyes del Congreso y los tratados. Las autoridades provinciales están obligadas a conformarse a ella. Cualquier norma inferior que la contradiga es inválida. A una ley provincial contradictoria la cátedra la marca como inconstitucional.</p>
+</section>
+<section class="sec"><h2 id="entorno-la-norma-juridica">La norma jurídica</h2>
+<p>Según Kelsen, una norma es jurídica porque tiene sanción (págs. 22 y 27). Tiene tres pasos.</p>
+<div class="tabla"><table><thead><tr><th>Paso</th><th>Qué es</th></tr></thead><tbody><tr><td>Supuesto de hecho</td><td>La condición o el acto</td></tr><tr><td>Fuerza coercitiva</td><td>La regla que establece una sanción impuesta por la fuerza en caso de resistencia</td></tr><tr><td>Efecto jurídico</td><td>La sanción, socialmente organizada y ejecutada por el grupo social</td></tr></tbody></table></div>
+<p>La presencia de la sanción es lo que le da a la norma su carácter jurídico. La <strong>ciencia jurídica</strong> se ocupa de estudiar estos sistemas.</p>
+<p>Las características de la norma jurídica son tres: <strong>coercibilidad</strong>, <strong>heteronomía</strong> y <strong>bilateralidad</strong> (pág. 25). La presentación no las define con palabras. Coercibilidad se entiende por lo de arriba. Para las otras dos, buscá la definición de tu comisión.</p>
+<div class="ojo"><p class="ojo-t">Hay dos «tres caracteres»</p><p>Los caracteres del sistema (unidad, coherencia, plenitud) no son las características de la norma (coercibilidad, heteronomía, bilateralidad). El TP2 de 2025 pide trabajar con los primeros y el de 2026, con los segundos.</p>
+</div>
+<h3 id="entorno-la-ley">La ley</h3>
+<ul>
+<li>Exige o prohíbe algo en consonancia con la justicia y para el bien de la sociedad en su conjunto.</li>
+<li>La norma jurídica no es única: también hay decreto, resolución y ordenanza.</li>
+</ul>
+<p>Fuente: pág. 24.</p>
+<div class="ojo"><p class="ojo-t">Sancionada, ¿por quién?</p><p>La presentación se contradice. La pág. 3 dice que el Poder Legislativo «escribe y sanciona las leyes». La pág. 24 dice «Aprobada: Poder Legislativo» y «Sancionada: Poder Ejecutivo». Copiamos las dos tal como están. Consultá con la cátedra cuál espera.</p>
+</div>
+</section>
+<section class="sec"><h2 id="entorno-los-tres-poderes">Los tres poderes</h2>
+<div class="tabla"><table><thead><tr><th>Poder</th><th>Qué hace (pág. 3)</th></tr></thead><tbody><tr><td>Legislativo</td><td>Escribe y sanciona las leyes. Es el motor de creación de reglas</td></tr><tr><td>Ejecutivo</td><td>Administra el país y ejecuta las leyes. Es el núcleo de procesamiento administrativo</td></tr><tr><td>Judicial</td><td>Interpreta la ley y resuelve conflictos. Es el sistema de manejo de errores y resolución</td></tr></tbody></table></div>
+<h3 id="entorno-poder-legislativo-sistema-bicameral-arts-44-a-74">Poder Legislativo: sistema bicameral (arts. 44 a 74)</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Cámara de Diputados</th><th>Senado</th></tr></thead><tbody><tr><td>Representa a</td><td>El pueblo de la Nación</td><td>Las provincias y CABA</td></tr><tr><td>Proporción</td><td>Según la cantidad de habitantes</td><td>3 senadores por provincia (igualdad territorial)</td></tr><tr><td>Mandato</td><td>4 años, se renueva por mitades cada 2 años</td><td>6 años, se renueva por tercios cada 2 años</td></tr><tr><td>Iniciativa exclusiva</td><td>Impuestos y reclutamiento de tropas</td><td>Acuerdos para jueces y embajadores</td></tr></tbody></table></div>
+<p>Fuente: pág. 4.</p>
+<h3 id="entorno-poder-ejecutivo-arts-87-a-107">Poder Ejecutivo (arts. 87 a 107)</h3>
+<ul>
+<li><strong>Presidente de la Nación.</strong> Jefe supremo, jefe de gobierno y responsable político de la administración general (art. 99).</li>
+<li><strong>Vicepresidente.</strong> Preside el Senado y reemplaza al presidente en caso de vacancia.</li>
+<li><strong>Jefe de Gabinete de Ministros.</strong> Ejerce la administración general del país y ejecuta el presupuesto (art. 100).</li>
+<li><strong>Ministros secretarios.</strong> Despachan los negocios de la Nación en sus áreas.</li>
+</ul>
+<p>Fuente: pág. 5.</p>
+</section>
+<section class="sec"><h2 id="entorno-poder-judicial">Poder Judicial</h2>
+<p>Es uno de los tres poderes de la República Argentina. Es a la vez poder político y servicio público. Lo regula la sección tercera de la segunda parte de la Constitución (arts. 108 a 119, con los 116 y 117 como centrales).</p>
+<p><strong>Misión.</strong> Asegurar la supremacía de la Constitución, ser su intérprete final, custodiar los derechos y garantías, y participar en el gobierno de la República (pág. 6).</p>
+<p><strong>Valores</strong> (pág. 7):</p>
+<ul>
+<li><strong>Independencia.</strong> Externa, de los otros poderes del Estado. Interna, de los tribunales superiores.</li>
+<li><strong>Imparcialidad.</strong> Neutralidad objetiva ante las partes en conflicto.</li>
+</ul>
+<h3 id="entorno-quienes-forman-el-sistema-de-justicia">Quiénes forman el sistema de justicia</h3>
+<p>La presentación 2025 (pág. 18) dice que está compuesto por el Poder Judicial de la Nación, el Poder Judicial de cada provincia, el Ministerio Público Fiscal, el Ministerio Público de la Defensa y el Consejo de la Magistratura.</p>
+<ul>
+<li><strong>Corte Suprema de Justicia de la Nación (CSJN).</strong> Es el vértice del sistema. Requisitos (art. 111): ser abogado de la Nación con 8 años de ejercicio y tener las calidades para ser senador (30 años de edad, 6 de ciudadanía, renta mínima). Los designa el Presidente con acuerdo de dos tercios de los miembros presentes del Senado (art. 99 inc. 4). Fuente: pág. 10.</li>
+<li><strong>Consejo de la Magistratura (art. 114).</strong> Selecciona jueces por concurso público, emite ternas vinculantes, tiene facultades disciplinarias y abre procesos de remoción. También administra los recursos y ejecuta el presupuesto de la justicia. Su composición busca equilibrio entre política, jueces, abogados y academia. Fuente: pág. 9.</li>
+<li><strong>Ministerio Público (art. 120).</strong> Órgano independiente, con autonomía funcional y autarquía financiera. Sus miembros gozan de inmunidades funcionales, y se coordina con el Poder Judicial de la Nación. Promueve la actuación de la justicia en defensa de la legalidad y de los intereses generales. Se divide en Procuración General (fiscales, acusación) y Defensoría General (defensores, garantías). Fuente: pág. 11.</li>
+</ul>
+<h3 id="entorno-instancias">Instancias</h3>
+<p>De abajo hacia arriba (pág. 8):</p>
+<ol>
+<li>Juzgados de Paz, Pequeñas Causas o Comunitarios.</li>
+<li>Juzgados de 1ª Instancia.</li>
+<li>Cámaras de Apelaciones o tribunales de 2ª Instancia.</li>
+<li>Corte Suprema.</li>
+</ol>
+<p>En Santa Fe el orden es el mismo, con la Corte Suprema de Justicia Provincial arriba de todo y los juzgados de primera instancia divididos por fuero. Lo regula la Ley Orgánica del Poder Judicial Provincial (pág. 15).</p>
+<p>Los roles son <strong>magistrados</strong>, <strong>funcionarios</strong> y <strong>empleados</strong> (2025, pág. 19). Los niveles se conectan por la <strong>apelación</strong>.</p>
+<h3 id="entorno-actores-no-solo-abogados">Actores: no solo abogados</h3>
+<p>Martilleros, procuradores, agrimensores, asistentes sociales, arquitectos, contadores, escribanos, traductores, calígrafos, médicos, psiquiatras e ingenieros (2025, pág. 9). La presentación «1 - Presentación» de 2026 (pág. 10) dice que el funcionamiento del Poder Judicial «requiere una red de profesionales especializados para procesar la evidencia y la verdad objetiva». Marca a ingenieros y peritos informáticos como cruciales para la recolección, preservación y análisis de evidencia digital y el mantenimiento de la e-Justicia.</p>
+<h3 id="entorno-fueros">Fueros</h3>
+<p><strong>Fuero:</strong> competencia a la que legalmente están sometidas las partes según la materia específica del conflicto (pág. 16).</p>
+<div class="tabla"><table><thead><tr><th>Fuero</th><th>Qué trata</th></tr></thead><tbody><tr><td>Civil</td><td>Disputas entre particulares, contratos, daños y perjuicios</td></tr><tr><td>Comercial</td><td>Sociedades, quiebras, títulos de crédito</td></tr><tr><td>Penal</td><td>Delitos, investigación de crímenes, sanciones</td></tr><tr><td>Laboral</td><td>Conflictos de trabajo, despidos, accidentes (ART)</td></tr><tr><td>Familia</td><td>Divorcios, adopciones, cuotas alimentarias</td></tr><tr><td>Contencioso-administrativo</td><td>Demandas y litigios directos contra el Estado</td></tr></tbody></table></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Instancia y fuero son dos ejes distintos. El fuero es de qué tema se trata, como la sección de un negocio. La instancia es en qué escalón estás. Un juicio laboral puede estar en primera instancia y, si apelan, pasar a la cámara, sin dejar de ser laboral.</p>
+</div>
+<h3 id="entorno-nacion-o-provincia">Nación o provincia</h3>
+<p>Las provincias conservan todo el poder no delegado por la Constitución al gobierno federal (arts. 5, 121 y 122). Se dan sus instituciones, eligen sus gobernadores, legisladores y jueces sin intervención federal y aseguran su administración de justicia (págs. 13 y 14). También dictan sus propias constituciones y códigos de procedimiento, y manejan la justicia ordinaria, como delitos comunes o disputas entre vecinos locales (pág. 14).</p>
+<p>Del lado federal, la pág. 14 resume el art. 116 como asuntos de estricto interés nacional, conflictos que cruzan fronteras provinciales o internacionales, y causas donde la Nación es parte, narcotráfico, terrorismo y contrabando.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Jurisdicción nacional o federal</th><th>Jurisdicción provincial (ej. Santa Fe)</th></tr></thead><tbody><tr><td>Naturaleza del fuero</td><td>De excepción: limitado y expreso</td><td>Común u ordinario: todo lo no delegado</td></tr><tr><td>Máximo tribunal</td><td>CSJN</td><td>Corte Suprema de Justicia Provincial</td></tr><tr><td>Ejemplos</td><td>Narcotráfico, contrabando, delitos informáticos federales, juicios contra el Estado Nacional</td><td>Robos comunes, divorcios, litigios comerciales locales, juicios laborales provinciales</td></tr></tbody></table></div>
+<p>Fuente: pág. 17.</p>
+<p><strong>Competencia federal (art. 116, pág. 12).</strong> Se define de tres formas.</p>
+<ul>
+<li><strong>Por la materia.</strong> Puntos regidos por la Constitución, leyes nacionales y tratados internacionales.</li>
+<li><strong>Por las personas.</strong> Causas de embajadores o cónsules, asuntos donde la Nación es parte, conflictos entre dos o más provincias o entre vecinos de distintas provincias.</li>
+<li><strong>Por el lugar.</strong> Causas de almirantazgo y jurisdicción marítima.</li>
+</ul>
+<div class="idea"><p>Para ubicar un caso, hacé dos preguntas en orden. ¿Es de excepción federal por materia, personas o lugar? Si no, va a la justicia provincial. Después, ¿de qué tema es? Eso te da el fuero.</p>
+</div>
+</section>
+<section class="sec"><h2 id="entorno-delito">Delito</h2>
+<p>Son acciones o conductas contrarias a la ley. Afectan bienes como la vida, la libertad o la propiedad (pág. 26). De acá salen dos pares que hay que distinguir.</p>
+<h3 id="entorno-dolo-y-culpa">Dolo y culpa</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Dolo (ejecución intencional)</th><th>Culpa (falla por negligencia)</th></tr></thead><tbody><tr><td>Concepto</td><td>Existe la voluntad, el conocimiento y la intención de cometer el acto ilícito</td><td>No hay intención directa de dañar, pero el daño ocurre por negligencia, imprudencia o impericia</td></tr><tr><td>Analogía técnica</td><td>Un ataque DDoS premeditado para tumbar un servidor</td><td>Un desarrollador que deja un puerto abierto por error de configuración, causando una fuga de datos</td></tr><tr><td>Cómo reconocerlo</td><td>Quería hacerlo y conocía las consecuencias</td><td>No quería el resultado, pero falló en su deber de cuidado</td></tr></tbody></table></div>
+<p>Fuente: pág. 28.</p>
+<h3 id="entorno-pena-y-resarcimiento">Pena y resarcimiento</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Pena (castigo)</th><th>Resarcimiento (restauración)</th></tr></thead><tbody><tr><td>Ámbito</td><td>Derecho Penal</td><td>Derecho Civil, responsabilidad civil</td></tr><tr><td>Objetivo</td><td>Castigar al infractor, privar de bienes o libertad y prevenir futuros delitos</td><td>Reparar el daño a la víctima, devolviendo las cosas al estado anterior o con una compensación económica</td></tr><tr><td>Quién lo ejecuta</td><td>El Estado (monopolio de la fuerza)</td><td>Demanda del particular afectado</td></tr><tr><td>Ejemplo</td><td>Prisión, inhabilitación profesional, multas penales</td><td>Indemnización económica por pérdida de ganancias o daño moral</td></tr></tbody></table></div>
+<p>Fuente: pág. 29.</p>
+<p>Los delitos informáticos en particular están en <a href="#pericia-delitos-informaticos">Eje 5</a>.</p>
+</section>
+<section class="sec"><h2 id="entorno-donde-leer-las-normas">Dónde leer las normas</h2>
+<p>La presentación 2025 (pág. 20) enlaza la Ley 13.998, la Ley Orgánica del Poder Judicial de Santa Fe y la norma de Infoleg. Los sitios de consulta están en <a href="#ejusticia-donde-consultar">Eje 4</a>.</p>
+</section></section>
+<section class="pdf-parte" id="pdf-firma" data-pagina="firma" aria-label="Eje 2: firma"><p class="pdf-de">Informática Jurídica</p><h1>Eje 2: firma electrónica y digital</h1>
+<p class="bajada">Qué prueba una firma, en qué se diferencian la electrónica y la digital, cómo funcionan las claves y quién da fe de ellas.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+<p>La base es la presentación «3 - Firma Digital» de 2026. Las páginas sin otra aclaración son de ese archivo.</p>
+
+<section class="sec"><h2 id="firma-que-es-una-firma">Qué es una firma</h2>
+<p>Hay dos definiciones en el material (pág. 3).</p>
+<ul>
+<li>«Nombre y apellidos escritos por una persona de su propia mano en un documento, con o sin rúbrica, para darle autenticidad o mostrar la aprobación de su contenido» (RAE).</li>
+<li>«Trazo, título o gráfico que un individuo escribe a mano sobre una documentación con la intención de conferirle validez o de expresar su conformidad».</li>
+</ul>
+<p>Hay tres tipos: <strong>ológrafa</strong>, <strong>electrónica</strong> y <strong>digital</strong>. Sus fines son cuatro (pág. 4): identificatorios, de autoría, de conformidad y de eficacia jurídica.</p>
+<h3 id="firma-para-que-se-firma">Para qué se firma</h3>
+<div class="teorema"><p class="teorema-t">ARTICULO 288 del CCC. Firma</p><p>La firma prueba la autoría de la declaración de voluntad expresada en el texto al cual corresponde. Debe consistir en el nombre del firmante o en un signo. En los instrumentos generados por medios electrónicos, el requisito de la firma de una persona queda satisfecho si se utiliza una firma digital, que asegure indubitablemente la autoría e integridad del instrumento.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 5</p></div>
+<div class="teorema"><p class="teorema-t">ARTICULO 257 del CCC. Hecho jurídico</p><p>El hecho jurídico es el acontecimiento que, conforme al ordenamiento jurídico, produce el nacimiento, modificación o extinción de relaciones o situaciones jurídicas.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 5</p></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Firmar es atarte a un texto. El art. 288 te dice dos cosas que después vuelven en todo el eje: quién lo dijo (autoría) y que el texto es ese y no otro (integridad). Y para un documento electrónico nombra solo a la firma digital.</p>
+</div>
+<h3 id="firma-que-se-firma-documentos">Qué se firma: documentos</h3>
+<p>Un documento representa algo, como un hecho jurídico (por ejemplo, un contrato). Ver art. 286 del CCC. Documento equivale a instrumento. Dentro de los instrumentos privados están los particulares (pág. 8):</p>
+<ul>
+<li><strong>Firmados</strong>, como un contrato de alquiler.</li>
+<li><strong>No firmados</strong>, como una grabación de Zoom.</li>
+</ul>
+<div class="teorema"><p class="teorema-t">Documento digital</p><p>Documento cuyo soporte material es algún tipo de dispositivo electrónico y cuyo contenido está codificado y puede ser leído o reproducido por aplicaciones de software.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 17</p></div>
+<p>Sus características (pág. 18):</p>
+<ul>
+<li>Puede haber disociación entre contenido y representación.</li>
+<li>Se accede desde distintos dispositivos y aplicaciones.</li>
+<li>El soporte físico es diferente.</li>
+<li>El formato es abierto o propietario.</li>
+<li>Funcionalmente es hipertextual, interactivo, mutable, volátil y multimediático.</li>
+<li>Permite pasar de soporte digital a papel y viceversa.</li>
+</ul>
+<p>Internet potencia el intercambio de estos documentos. De ahí la pregunta por su valor jurídico y probatorio (págs. 19 y 20).</p>
+</section>
+<section class="sec"><h2 id="firma-los-tres-tipos-de-firma">Los tres tipos de firma</h2>
+<p>La <strong>ológrafa</strong> es la de puño y letra. Cumple con las características de arriba. La presentación deja planteada la pregunta por sus problemas (pág. 7), sin responderla en la diapositiva.</p>
+<div class="teorema"><p class="teorema-t">Firma electrónica</p><p>Datos electrónicos que se vinculan con determinada información del firmante.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 9</p></div>
+<div class="teorema"><p class="teorema-t">Firma digital</p><p>Una firma digital es el resultado de aplicar a un documento digital un procedimiento matemático que requiere información de exclusivo conocimiento del firmante.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 10</p></div>
+<p>Las dos identifican al firmante y dan fe de su voluntad. La diferencia está en lo que la ley presume.</p>
+<p><strong>Particularidades de la firma digital</strong> (pág. 11):</p>
+<ul>
+<li>Representa la identidad de una persona.</li>
+<li>Es una firma convencional, pero en formato electrónico.</li>
+<li>Tiene la misma validez legal que una firma convencional.</li>
+</ul>
+<div class="teorema"><p class="teorema-t">Firma digital como procedimiento</p><p>Procedimiento que aporta a los documentos electrónicos las mismas propiedades que tienen los documentos firmados en papel y que es verificable por terceras partes.</p>
+<p class="bloque-fuente">Presentación «3 - Firma Digital», 2026, pág. 21</p></div>
+<h3 id="firma-electronica-contra-digital">Electrónica contra digital</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Firma digital</th><th>Firma electrónica</th></tr></thead><tbody><tr><td>Valor</td><td>Idéntico valor que la firma manuscrita</td><td>No tiene idéntico valor que la manuscrita</td></tr><tr><td>Naturaleza jurídica</td><td>Equivalente absoluto a la firma ológrafa</td><td>Instrumento particular no firmado</td></tr><tr><td>Autoría</td><td>Se presume verdadera. Presunción legal <em>iuris tantum</em>, a favor del titular. Quien la cuestione tiene que presentar pruebas</td><td>No se presume verdadera. Hay que probarla</td></tr><tr><td>Integridad</td><td>Se presume íntegra. Se asume legalmente inalterado</td><td>No se presume íntegra. Hay que probarlo</td></tr><tr><td>Repudio</td><td>No repudio garantizado mediante infraestructura PKI</td><td>Desconocimiento o repudio legalmente posible</td></tr></tbody></table></div>
+<p>Fuente: esta presentación, pág. 13, y «4 - Contratos Electrónicos», 2026, pág. 5.</p>
+<p>La pág. 13 separa dos situaciones, cuestionar la firma o cuestionar el documento. Así lo dice la diapositiva.</p>
+<ul>
+<li>Firma electrónica. «No se presume verdadera: si alguien niega o desconoce una firma electrónica, es el firmante quien debe probar que la firma es auténtica». «No se presume íntegra: si alguien no cuestiona la firma, pero sí el documento, también es el firmante quien deberá presentar las pruebas que acrediten su contenido».</li>
+<li>Firma digital. «Se presume verdadera, lo que quiere decir que quien cuestione su validez tendrá que presentar pruebas». «Se presume íntegra, si alguien no cuestiona la firma, pero sí el documento, también tendrá que presentar pruebas».</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Quién prueba la firma electrónica</p><p>Las dos diapositivas de 2026 no dicen lo mismo. «3 - Firma Digital» (pág. 13) dice que es «el firmante quien debe probar que la firma es auténtica». «4 - Contratos Electrónicos» (pág. 5) dice que «debe ser probada por quien la invoca». Consultá con la cátedra cuál espera en el examen.</p>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La firma digital da vuelta la carga de la prueba. Si te llega un contrato con firma digital y decís «yo no firmé», tenés que demostrarlo vos. Si te llega con firma electrónica y decís lo mismo, la otra parte no tiene esa ventaja. La firma no se da por buena sola.</p>
+</div>
+<p>Una firma digital garantiza, según la cátedra (pág. 11):</p>
+<ul>
+<li>Presunción de autoría.</li>
+<li>Presunción de integridad.</li>
+<li>Confidencialidad.</li>
+<li>Principio de no repudio.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Confidencialidad</p><p>La lista la incluye, pero la misma presentación aclara de dónde sale. «La encriptación con la clave pública permite lograr la confidencialidad» (pág. 26). Autoría e integridad dependen de la firma y su verificación (pág. 29).</p>
+</div>
+<p><strong>Beneficios</strong> (págs. 12 y 22): eficiencia y rapidez, trabajo en entornos virtuales, mejor experiencia de compra o contratación, ahorro de costos, seguridad jurídica y beneficios medioambientales. También firmar a cualquier hora y desde cualquier lugar, y acceso simultáneo a originales.</p>
+<p><strong>Original y copia</strong> (pág. 21). Un documento electrónico firmado es original. Si se imprime, es copia. Puede haber más de un original.</p>
+</section>
+<section class="sec"><h2 id="firma-marco-juridico">Marco jurídico</h2>
+<ul>
+<li>Ley 25.506 y decreto 2628/02.</li>
+<li>Ley 27.446/2018 y sus modificatorias.</li>
+<li>Ley provincial de Santa Fe 1249/04 y decreto 1573/08, tal como figuran en la presentación.</li>
+</ul>
+<p>Fuente: pág. 14.</p>
+<h3 id="firma-ley-25-506">Ley 25.506</h3>
+<p>Sancionada el 14 de noviembre de 2001. Promulgada de hecho el 11 de diciembre de 2001.</p>
+<div class="tabla"><table><thead><tr><th>Artículo</th><th>Tema (pág. 15)</th></tr></thead><tbody><tr><td>1</td><td>Objeto</td></tr><tr><td>2</td><td>Definición de firma digital</td></tr><tr><td>3</td><td>Equipara la firma digital con la firma ológrafa</td></tr><tr><td>5</td><td>Definición de firma electrónica</td></tr><tr><td>6</td><td>Definición de documento electrónico</td></tr><tr><td>7</td><td>Autoría</td></tr><tr><td>8</td><td>Integridad</td></tr><tr><td>9</td><td>Validez</td></tr><tr><td>10</td><td>Remitente</td></tr><tr><td>11</td><td>Original</td></tr><tr><td>12</td><td>Conservación</td></tr></tbody></table></div>
+<p>La presentación da los temas, no el texto. La ley está enlazada en la pág. 14.</p>
+</section>
+<section class="sec"><h2 id="firma-como-funciona-por-dentro">Cómo funciona por dentro</h2>
+<p><strong>Criptografía:</strong> práctica y estudio de técnicas para codificar un mensaje haciéndolo ininteligible y recuperar el mensaje original a partir de esa versión ininteligible (pág. 23). Hay muchas técnicas. La que usa la firma digital es la tecnología de clave pública, o asimétrica.</p>
+<h3 id="firma-clave-publica-y-clave-privada-pki">Clave pública y clave privada (PKI)</h3>
+<ul>
+<li>Las claves se generan con un algoritmo matemático altamente seguro.</li>
+<li>Se usa criptografía de curva elíptica (ECC), Rivest-Shamir-Adleman (RSA) y Diffie-Hellman.</li>
+<li>La clave privada es equivalente a la clave secreta de la criptografía simétrica.</li>
+<li>Lo que se cifra con una clave se descifra con la otra, y viceversa.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Pieza</th><th>Qué es (pág. 26)</th></tr></thead><tbody><tr><td>Clave privada</td><td>Bajo exclusivo control del firmante. Permite aplicar la firma a un documento electrónico</td></tr><tr><td>Clave pública</td><td>Se puede distribuir para que terceros verifiquen lo firmado con la privada asociada</td></tr><tr><td>Token</td><td>Dispositivo criptográfico seguro que almacena las claves</td></tr></tbody></table></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en un candado raro con dos llaves. Lo que cerrás con una solo lo abre la otra. Si cerrás con tu llave privada, cualquiera con tu pública puede abrirlo, y eso demuestra que lo cerraste vos.</p>
+</div>
+<h3 id="firma-firmar-y-verificar">Firmar y verificar</h3>
+<p><img src="img/fig-proceso-firma.webp" alt="Proceso de firma y envío y proceso interno de firma, con emisor y receptor"></p>
+<p>La diapositiva lo muestra así (pág. 29).</p>
+<ol>
+<li>El emisor aplica una función de hash al documento y obtiene una huella.</li>
+<li>Firma esa huella con su clave privada.</li>
+<li>Manda el documento firmado junto con el certificado.</li>
+<li>El receptor recalcula la huella del documento.</li>
+<li>Con la clave pública obtiene la huella que firmó el emisor.</li>
+<li>Compara las dos huellas.</li>
+</ol>
+<p>La cátedra lo resume en dos renglones. La clave pública garantiza autoría. El software de verificación garantiza integridad.</p>
+<h3 id="firma-certificado-digital">Certificado digital</h3>
+<p>Da fe de la vinculación entre una clave pública y una persona o entidad (pág. 28). Sin él, nadie sabría de quién es la clave.</p>
+<ul>
+<li>Es un documento digital.</li>
+<li>Lo emite un organismo autorizado.</li>
+<li>Se entrega previa autenticación de la identidad de la persona.</li>
+<li>Contiene información del titular.</li>
+<li>Está firmado digitalmente por el organismo autorizado.</li>
+<li>Contiene información del organismo que firma.</li>
+</ul>
+<p><strong>Dónde se almacena</strong> (pág. 30):</p>
+<div class="tabla"><table><thead><tr><th>Lugar</th><th>Detalle</th></tr></thead><tbody><tr><td>Navegador</td><td>Almacenamiento directo</td></tr><tr><td>Token</td><td>Portable, móvil, interfaz USB, sin lector especial pero con drivers</td></tr><tr><td>SmartCard</td><td>Igual que el token, pero necesita lector especial</td></tr><tr><td>HSM</td><td>Para autoridades certificantes. También genera claves</td></tr></tbody></table></div>
+<p><strong>Revocación</strong> (pág. 31). Se revoca cuando la clave está en riesgo, cuando cambia la condición del certificado, por fallecimiento del titular, por declaración judicial de incapacidad y en los demás casos que propone la ley.</p>
+<p>El estado se consulta con el <strong>protocolo online OCSP</strong>, de formato petición y respuesta. Una petición puede consultar varios certificados y puede ir firmada o no. La respuesta del servidor OCSP debe estar firmada.</p>
+</section>
+<section class="sec"><h2 id="firma-infraestructura">Infraestructura</h2>
+<p><img src="img/fig-infraestructura.webp" alt="Árbol con el ente licenciante arriba, autoridades certificantes licenciadas y autoridades de registro abajo, y autoridades no licenciadas aparte"></p>
+<div class="tabla"><table><thead><tr><th>Actor</th><th>Qué hace (pág. 34)</th></tr></thead><tbody><tr><td>Ente Licenciante</td><td>Raíz del esquema de confianza. Habilita a las AC otorgando una licencia, les emite certificados y controla la seguridad y la operatividad de toda la infraestructura</td></tr><tr><td>Autoridad Certificante (AC)</td><td>Constata la identidad del solicitante, emite certificados digitales, firma digitalmente y tiene autoridades de registro</td></tr><tr><td>Autoridad de Registro (AR)</td><td>Valida identidad y datos del solicitante y suscriptores, revoca certificados, archiva y conserva la documentación</td></tr></tbody></table></div>
+<p>La pág. 32 nombra AC-Raíz, AC-ONTI y AC-Modernización, y dos servicios, firma con token por hardware y firma remota sin token. El árbol también muestra «AC no licenciadas», fuera de la raíz (pág. 33).</p>
+<h3 id="firma-plataforma-de-firma-digital-remota-pfdr">Plataforma de Firma Digital Remota (PFDR)</h3>
+<p>Servicio en la nube, sin token y con HSM. Solo para PDF. Se accede desde cualquier dispositivo con internet. Pide un código OTP generado por una app en el celular. No permite firma masiva (pág. 35).</p>
+<h3 id="firma-tipos-de-certificado">Tipos de certificado</h3>
+<p>Persona física, persona jurídica, aplicaciones, sellos de tiempo y sellos de competencia (pág. 35).</p>
+</section>
+<section class="sec"><h2 id="firma-donde-se-usa">Dónde se usa</h2>
+<p>Facility services, inmobiliarias, aseguradoras, recursos humanos, equipos comerciales y departamentos legales. Por ejemplo, contratos laborales, de arrendamiento, pólizas, órdenes de compra y actas de consejo (pág. 36).</p>
+<p><strong>En la Justicia</strong> (pág. 37):</p>
+<ul>
+<li>Notificación por correo electrónico firmado digitalmente, respetando el debido proceso.</li>
+<li>Presentaciones judiciales: demandas, denuncias, oficios, notificaciones.</li>
+<li>Audiencias por medios electrónicos.</li>
+<li>Capacitaciones.</li>
+</ul>
+<p>Las consignas del TP de firma están en <a href="ejercicios.html">Ejercicios y TP</a>.</p>
+</section></section>
+<section class="pdf-parte" id="pdf-contratos" data-pagina="contratos" aria-label="Eje 3: contratos"><p class="pdf-de">Informática Jurídica</p><h1>Eje 3: contratos electrónicos</h1>
+<p class="bajada">Qué es un contrato, sus tipos y elementos, qué cambia en lo digital y cómo se protege al consumidor.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+<p>Hay dos presentaciones que se complementan. «5 - Contratos» de 2025 trae la base del contrato en general. «4 - Contratos Electrónicos» de 2026 trae lo digital. Las citamos como 2025 y 2026.</p>
+
+<section class="sec"><h2 id="contratos-que-es-un-contrato">Qué es un contrato</h2>
+<div class="teorema"><p class="teorema-t">Contrato (Art. 957 CCC)</p><p>Contrato es el acto jurídico mediante el cual dos o más partes manifiestan su consentimiento para crear, regular, modificar, transferir o extinguir relaciones jurídicas patrimoniales.</p>
+<p class="bloque-fuente">«5 - Contratos», 2025, pág. 4</p></div>
+<p>La RAE lo define como un «pacto o convenio, oral o escrito, entre partes que se obligan sobre materia o cosa determinada, y a cuyo cumplimiento pueden ser compelidas». Compeler es obligar a alguien, con fuerza o por autoridad, a que haga lo que no quiere (2025, pág. 3).</p>
+<p>La misma diapositiva trae una tercera definición.</p>
+<div class="teorema"><p class="teorema-t">Contrato</p><p>Acuerdo legal, oral o escrito, manifestado en común entre dos o más personas con Capacidad Jurídica (partes del contrato), que se vinculan en virtud del mismo, regulando sus relaciones a una determinada finalidad o cosa, y a cuyo cumplimiento pueden compelerse de manera recíproca.</p>
+<p class="bloque-fuente">«5 - Contratos», 2025, pág. 3</p></div>
+<ul>
+<li><strong>Principios:</strong> autonomía de voluntad y buena fe.</li>
+<li><strong>Características:</strong> capacidad para contratar y consentimiento.</li>
+</ul>
+<p>Fuente: 2025, pág. 4.</p>
+<h3 id="contratos-tipos-de-contrato">Tipos de contrato</h3>
+<div class="tabla"><table><thead><tr><th>Criterio</th><th>Una clase</th><th>La otra</th></tr></thead><tbody><tr><td>Quién queda obligado</td><td><strong>Unilateral:</strong> obligaciones solo para una parte. <strong>Bilateral:</strong> para ambas. <strong>Multipartes:</strong> contratos entre dos o más partes</td><td></td></tr><tr><td>Onerosidad</td><td><strong>Oneroso:</strong> gravámenes y beneficios recíprocos, con sacrificio de ambos. Ej. compraventa</td><td><strong>Gratuito:</strong> beneficio para una sola parte. Ej. comodato</td></tr><tr><td>Certeza</td><td><strong>Conmutativo:</strong> prestaciones ciertas desde que se celebra. Ej. compraventa de una casa</td><td><strong>Aleatorio:</strong> depende de un acontecimiento futuro e incierto. Ej. contratos relacionados con la siembra</td></tr><tr><td>Regulación</td><td><strong>Nominado o típico:</strong> previsto y regulado en la ley</td><td><strong>Innominado o atípico:</strong> la ley no le da nombre ni lo regula</td></tr><tr><td>Tiempo</td><td><strong>Instantáneo:</strong> se cumple al celebrarse. Ej. compraventa al contado</td><td><strong>De tracto sucesivo:</strong> se cumple en un período. Ej. distribución de bebidas</td></tr><tr><td>Forma</td><td><strong>Formal:</strong> la ley ordena un medio para manifestar el consentimiento</td><td><strong>Informal:</strong> no hace falta</td></tr></tbody></table></div>
+<p>Entre los formales, un contrato es <strong>solemne</strong> si además requiere ciertos ritos para cobrar vigencia, como el matrimonio. Si no, es <strong>no solemne</strong>.</p>
+<p>Fuente: 2025, págs. 5 a 10.</p>
+</section>
+<section class="sec"><h2 id="contratos-elementos-del-contrato">Elementos del contrato</h2>
+<p>La presentación 2026 (pág. 7) nombra tres componentes necesarios. La de 2025 (pág. 11) también nombra tres, pero cambia uno.</p>
+<div class="tabla"><table><thead><tr><th>2026, «componentes necesarios»</th><th>2025, «elementos»</th></tr></thead><tbody><tr><td>Consentimiento</td><td>Forma</td></tr><tr><td>Objeto</td><td>Objeto</td></tr><tr><td>Causa</td><td>Causa</td></tr></tbody></table></div>
+<h3 id="contratos-objeto-art-1003-ccc">Objeto (art. 1003 CCC)</h3>
+<p>Es la prestación prometida por las partes, el bien o el hecho sobre los que recae la obligación contraída: dar, hacer o no hacer. La presentación 2026 (pág. 7) dice que es «obligatoriamente lícito, física y jurídicamente posible, y determinado/determinable». La de 2025 (pág. 12) dice que «debe ser real, posible, lícito, determinado o susceptible de determinación».</p>
+<p>No pueden ser objeto del contrato (2025, pág. 12):</p>
+<ol>
+<li>El hecho imposible o prohibido por la ley, o contrario a la moral y al orden público, o lesivo de los derechos ajenos o de la dignidad de la persona humana.</li>
+<li>Un bien que por un motivo especial se haya prohibido que lo sea.</li>
+<li>El hecho contrario a las buenas costumbres.</li>
+</ol>
+<h3 id="contratos-causa-arts-1012-a-1014-ccc">Causa (arts. 1012 a 1014 CCC)</h3>
+<p>Es el «para qué», «el motivo fundamental, directo y jurídico que induce a contratar» (2026, pág. 7). La presentación 2025 (pág. 13) la ubica en el Libro 3, Título 2, Capítulo 6 del CCC (art. 1012). Debe existir en la celebración y subsistir durante la ejecución. Su falta hace nulo el contrato. Una causa falsa o ilícita invalida el acuerdo (2025, pág. 13, y 2026, pág. 7).</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Qué es</th></tr></thead><tbody><tr><td>Causa fuente</td><td>Conjunto de fenómenos aptos para generar relaciones jurídicas obligatorias</td></tr><tr><td>Causa fin</td><td>Finalidad más próxima, más inmediata</td></tr><tr><td>Causa motivo</td><td>Móviles subjetivos o determinantes que las partes tienen en cuenta de manera mediata al tiempo de celebrar un contrato</td></tr></tbody></table></div>
+<div class="ejemplo"><p class="ejemplo-t">Comprar una casa</p><p>La causa fuente es el contrato. La causa fin del vendedor es recibir el precio y la del comprador, la casa. La causa motivo es que el sujeto compra un inmueble para vivienda.</p>
+<p class="bloque-fuente">«5 - Contratos», 2025, pág. 13</p></div>
+<h3 id="contratos-forma-art-1015-ccc">Forma (art. 1015 CCC)</h3>
+<p>Son las solemnidades que deben observarse al tiempo de la formación del acto jurídico: la escritura, la presencia de testigos, que lo haga un escribano u oficial público, o con el concurso del juez del lugar. Dice cómo se manifiesta y se perfecciona. Hay libertad de forma, con excepciones como el matrimonio o la escritura pública.</p>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>La diapositiva «Forma» de «5 - Contratos», 2025, pág. 14, imprime «Forma (Art. 1012, 1013, 1014)». Pusimos art. 1015 porque la misma presentación, en la pág. 11, asigna a la forma el art. 1015 y a la causa los 1013 y 1014, y en la pág. 13 ubica a la causa en el 1012.</p>
+</div>
+<h3 id="contratos-consentimiento">Consentimiento</h3>
+<p>Expresión libre, voluntaria y sin vicios: error, dolo o violencia. Puede ser expresa o tácita (2026, pág. 7).</p>
+</section>
+<section class="sec"><h2 id="contratos-el-acto-voluntario-art-260-cccn">El acto voluntario (art. 260 CCCN)</h2>
+<p>Tiene cuatro elementos. La presentación 2026 (pág. 3) los traduce a lo digital.</p>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Qué es</th><th>En una interfaz</th></tr></thead><tbody><tr><td>Discernimiento</td><td>Aptitud cognitiva</td><td>Claridad de interfaz. Riesgo: dark patterns diseñados para engañar al usuario</td></tr><tr><td>Intención</td><td>Propósito real de realizar el acto</td><td>Inducción algorítmica al error</td></tr><tr><td>Libertad</td><td>Ausencia total de coacción</td><td>Arquitecturas de la elección restrictivas que limitan las opciones del usuario</td></tr><tr><td>Exteriorización</td><td>Manifestación externa</td><td>Ejecución de eventos digitales, como <code>onClick</code> u <code>onSubmit</code></td></tr></tbody></table></div>
+<div class="idea"><p>Acá te toca como desarrollador. El botón que escondés, la opción ya tildada o el texto confuso pueden afectar la voluntad de quien contrata.</p>
+</div>
+</section>
+<section class="sec"><h2 id="contratos-contratos-electronicos">Contratos electrónicos</h2>
+<div class="teorema"><p class="teorema-t">Contrato electrónico (Art. 1105 del CCC)</p><p>Acuerdos de voluntades cuya celebración se perfecciona sin la presencia física de las partes contratantes y a través del uso de medios electrónicos.</p>
+<p class="bloque-fuente">«5 - Contratos», 2025, pág. 15</p></div>
+<ul>
+<li>La manifestación del consentimiento es por un medio electrónico.</li>
+<li>Tiene los mismos efectos que los contratos celebrados entre presentes.</li>
+<li>La presentación 2025 indica que esta regulación solo aplica a los contratos de consumo.</li>
+</ul>
+<h3 id="contratos-equivalencia-funcional">Equivalencia funcional</h3>
+<p>La Comisión de las Naciones Unidas para el Derecho Mercantil Internacional (UNCITRAL) establece que un documento no pierde validez legal por el solo hecho de existir en formato electrónico. Es el paso del intercambio electrónico de datos (EDI) a la desmaterialización de la voluntad (2026, pág. 2).</p>
+<p>Tiene tres patas:</p>
+<ul>
+<li><strong>Accesibilidad.</strong> El documento debe poder ser accedido para su consulta en todo momento y lugar.</li>
+<li><strong>Integridad.</strong> Garantía técnica de que el documento no sufrió alteraciones.</li>
+<li><strong>Autoría.</strong> Capacidad inequívoca de garantizar la identidad de quien firma.</li>
+</ul>
+<p>Los principios rectores de los contratos electrónicos son <strong>equivalencia funcional</strong> y <strong>no discriminación</strong> (2025, pág. 17).</p>
+<h3 id="contratos-validez-legal">Validez legal</h3>
+<ul>
+<li><strong>Ley 26.685.</strong> Autoriza expedientes, documentos, firmas y comunicaciones electrónicas, firmas digitales y domicilios electrónicos en todos los procesos judiciales y administrativos ante el Poder Judicial de la Nación.</li>
+<li><strong>BCRA, Comunicaciones A 5535/2014 y 6112/2016.</strong> Las entidades financieras pueden conservar, en sustitución de los originales en papel, fotografías, microfilmaciones o reproducciones digitalizadas de sus comprobantes, si no se oponen disposiciones legales.</li>
+</ul>
+<p>Fuente: 2025, pág. 16.</p>
+<h3 id="contratos-b2c-y-b2b">B2C y B2B</h3>
+<div class="tabla"><table><thead><tr><td></td><th>B2C (empresa a consumidor)</th><th>B2B (entre empresas)</th></tr></thead><tbody><tr><td>Estilo</td><td>Estandarización contractual</td><td>Tailor made, soluciones no estandarizadas</td></tr><tr><td>Herramientas</td><td>Desarrollos con APIs de identidad existentes</td><td>Contrato marco previo, emails, WhatsApp, redes sociales, portal ad hoc, terceros de confianza, plataformas con APIs de identidad</td></tr><tr><td>Identificación</td><td>Empresa con firma digital (de aplicación). Consumidor con firma electrónica (app de enrollment)</td><td>Ambas empresas con firma digital</td></tr></tbody></table></div>
+<p>Fuente: 2025, págs. 18 y 19.</p>
+<h3 id="contratos-click-wrap-y-browse-wrap">Click-wrap y browse-wrap</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Click-wrap</th><th>Browse-wrap</th></tr></thead><tbody><tr><td>Acción</td><td>Afirmativa y expresa (checkbox)</td><td>Tácita, derivada del simple uso del sitio</td></tr><tr><td>Consentimiento</td><td>Alto y fácilmente demostrable</td><td>Bajo, cuestionable y «dado por hecho»</td></tr><tr><td>Usuario</td><td>Activo</td><td>Pasivo</td></tr><tr><td>Valor</td><td>Preferido por la jurisprudencia</td><td>Validez precaria</td></tr></tbody></table></div>
+<p>Fuente: 2026, pág. 6.</p>
+</section>
+<section class="sec"><h2 id="contratos-el-consumidor">El consumidor</h2>
+<p>Los contratos a distancia están en los arts. 1105 a 1116 del CCCN. El entorno digital agudiza la desigualdad. Una parte concentra el control técnico e impone condiciones sin margen de negociación (2026, pág. 4).</p>
+<div class="tabla"><table><thead><tr><th>Riesgo</th><th>Qué es</th></tr></thead><tbody><tr><td>Cláusulas abusivas</td><td>Términos insertados unilateralmente que favorecen desproporcionadamente a la empresa</td></tr><tr><td>Vulneración de voluntad</td><td>Imposibilidad técnica y legal del usuario para comprender la complejidad del acuerdo</td></tr><tr><td>Riesgos de datos</td><td>Exposición a robo de identidad y transferencia transfronteriza de información personal</td></tr><tr><td>Fricción de jurisdicción</td><td>Dificultad para determinar el tribunal aplicable y el lugar exacto de cumplimiento</td></tr></tbody></table></div>
+<p><strong>Deber de información (art. 1107 CCC).</strong> Es un deber específico para el proveedor. Existe por el desequilibrio de posiciones entre oferente y consumidor, protege al consumidor en la etapa precontractual y se vincula con los contratos de adhesión (2025, pág. 17).</p>
+<p><strong>Hipervulnerabilidad.</strong> La cátedra llama así a la suma de intangibilidad y asimetría técnica (2026, pág. 11). Sus casos son spam y publicidad precontractual, consentimiento automatizado vía apps, prestaciones digitales puras (nube, SaaS, streaming), bienes mixtos e IoT, chatbots, proveedores de conectividad, cobranzas extrajudiciales automatizadas y exposición de datos personales.</p>
+<h3 id="contratos-boton-de-arrepentimiento-art-1110">Botón de arrepentimiento (art. 1110)</h3>
+<p>También llamado derecho de revocación (2026, pág. 12).</p>
+<div class="tabla"><table><thead><tr><th>Aspecto</th><th>Qué dice</th></tr></thead><tbody><tr><td>Naturaleza</td><td>Facultad legal irrenunciable. Se ejerce sin justificar causa</td></tr><tr><td>Plazo</td><td>10 días corridos, desde la celebración del contrato o la entrega del bien</td></tr><tr><td>Efectos</td><td>Restitución recíproca. Gratuito para el consumidor, con gastos de devolución a cargo del vendedor</td></tr><tr><td>Excepciones</td><td>Bienes personalizados o a medida. Software, audios o descargas inmediatas e irreversibles. Suministro de prensa</td></tr></tbody></table></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Es el Ctrl+Z del consumidor, y la propia diapositiva lo llama «Undo». Pero no se puede deshacer lo que ya consumiste en el momento, como un programa que bajaste, ni lo que se hizo solo para vos.</p>
+</div>
+<h3 id="contratos-jurisprudencia-el-proveedor-responde-por-su-algoritmo">Jurisprudencia: el proveedor responde por su algoritmo</h3>
+<div class="tabla"><table><thead><tr><th>Caso</th><th>Conflicto</th><th>Fallo</th></tr></thead><tbody><tr><td>United Airlines (Travel Sale)</td><td>Pasajes vendidos a precios irrisorios por error algorítmico durante un Travel Sale</td><td>En contextos masivos de promociones agresivas, el error no es reconocible para el usuario. La oferta es estrictamente vinculante</td></tr><tr><td>Frávega</td><td>Venta de una notebook a un tercio de su valor por una falla en la carga automatizada</td><td>Quien monetiza una plataforma asume el riesgo de su propio sistema. El proveedor no puede trasladar el costo al eslabón débil, el consumidor</td></tr></tbody></table></div>
+<p>Fuente: 2026, pág. 13.</p>
+</section>
+<section class="sec"><h2 id="contratos-smart-contracts">Smart contracts</h2>
+<p>Código autoejecutable en blockchain que automatiza un acuerdo sin intermediarios. Cumplida la condición, se libera automáticamente la prestación. El esquema es condición (IF), red blockchain y ejecución (THEN) (2026, pág. 8).</p>
+<div class="ojo"><p class="ojo-t">«Code is law» choca con el Derecho</p><p>La cadena de bloques ignora los vicios de la voluntad y los errores algorítmicos. Una vez desplegado en la red, el sistema no permite, por defecto, la revocación ni la rescisión (2026, pág. 8).</p>
+</div>
+<p><strong>Pilares de validez en Argentina</strong> (2026, pág. 9):</p>
+<div class="tabla"><table><thead><tr><th>Pilar</th><th>Qué aporta</th></tr></thead><tbody><tr><td>Autonomía de la voluntad (art. 958)</td><td>Libertad de las partes para pactar reglas de software como manifestación válida de voluntad</td></tr><tr><td>Contratación electrónica (art. 1106)</td><td>El código criptográfico satisface el requisito normativo de «soporte escrito»</td></tr><tr><td>Inmutabilidad (Ley 25.506)</td><td>Eficacia jurídica mediante infraestructura de firmas electrónicas o digitales y criptografía</td></tr><tr><td>Andamiaje normativo</td><td>Integración con los principios de buena fe contractual y los usos de tráfico digital</td></tr></tbody></table></div>
+<p><strong>Retos jurídicos</strong> (2026, pág. 10):</p>
+<ul>
+<li><strong>Interpretación, rigidez contra flexibilidad.</strong> La literalidad absoluta del código colisiona con el CCCN, que busca la verdadera intención de las partes.</li>
+<li><strong>Inalterabilidad, inmutabilidad contra retracto.</strong> Blockchain hace técnicamente inviable ejecutar rescisiones, adendas o el derecho de retracto común en consumo.</li>
+<li><strong>Jurisdicción, descentralización contra competencia.</strong> En redes transfronterizas sin sede física es muy complejo fijar la legislación aplicable y el tribunal competente.</li>
+</ul>
+<p>Las consignas de este eje, incluido un caso de clase para practicar, están en <a href="ejercicios.html">Ejercicios y TP</a>.</p>
+</section></section>
+<section class="pdf-parte" id="pdf-ejusticia" data-pagina="ejusticia" aria-label="Eje 4: e-Justicia"><p class="pdf-de">Informática Jurídica</p><h1>Eje 4: e-Justicia</h1>
+<p class="bajada">Cómo se trata la información legal en entornos digitales: jurisprudencia, bases de datos, tesauros, sitios de consulta y reserva de identidad.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+<p>La base es el «Apunte de Cátedra: Jurisprudencia» de 2026 (3 páginas). Lo que dice «2025» viene de la presentación «6 - Jurisprudencia».</p>
+
+<section class="sec"><h2 id="ejusticia-e-justicia-y-definiciones-base">e-Justicia y definiciones base</h2>
+<p>La <strong>e-Justicia</strong> es un marco de trabajo dentro de la informática jurídica que se encarga del tratamiento y gestión de la información legal en entornos digitales (apunte, pág. 1).</p>
+<div class="teorema"><p class="teorema-t">Jurisprudencia</p><p>Conjunto de sentencias y demás resoluciones emitidas por órganos judiciales en el marco de una doctrina determinada.</p>
+<p class="bloque-fuente">Presentación «6 - Jurisprudencia», 2025, pág. 3 (RAE)</p></div>
+<div class="teorema"><p class="teorema-t">Sentencia</p><p>Declaración del juicio y resolución del juez.</p>
+<p class="bloque-fuente">Presentación «6 - Jurisprudencia», 2025, pág. 3 (RAE)</p></div>
+<div class="teorema"><p class="teorema-t">Base de datos</p><p>Conjunto de datos organizado de tal modo que permita obtener con rapidez diversos tipos de información.</p>
+<p class="bloque-fuente">Presentación «6 - Jurisprudencia», 2025, pág. 3 (RAE)</p></div>
+</section>
+<section class="sec"><h2 id="ejusticia-la-jurisprudencia-como-fuente-de-derecho">La jurisprudencia como fuente de Derecho</h2>
+<p>Para ser efectiva en entornos digitales, presenta estas particularidades (apunte, pág. 1):</p>
+<ul>
+<li>Debe tratarse de una sentencia firme.</li>
+<li>Actúa como fuente de conocimiento y principio unificador sobre cómo se aplican las normas vigentes y su evolución.</li>
+<li>Su valor agregado reside en los argumentos, el rol de los tribunales colegiados y su capacidad de ser fuente de nuevas normas.</li>
+</ul>
+<h3 id="ejusticia-tres-tipos">Tres tipos</h3>
+<p>Se diferencian por la función que cumplen respecto de la ley escrita (apunte, pág. 1).</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Cuándo aparece</th><th>Qué hace</th></tr></thead><tbody><tr><td>Confirmatoria</td><td>La ley ya lo dice claramente</td><td>Ratifica y refuerza. Es un principio unificador que mantiene un criterio constante</td></tr><tr><td>Interpretativa</td><td>La ley es ambigua, oscura o admite varias lecturas</td><td>Aclara el sentido y el alcance. Permite ver cómo evoluciona la aplicación de la ley</td></tr><tr><td>Supletoria</td><td>La norma no es clara o no existe, hay una laguna (situaciones no previstas por el legislador)</td><td>Llena el vacío. Actúa como fuente de nuevas normas, con una solución jurídica donde la ley no dice nada</td></tr></tbody></table></div>
+<p>El apunte cierra que la jurisprudencia no solo aplica la ley. También aporta argumentos técnicos y «sirve como guía para la creación de futuras reglas de derecho».</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Tres situaciones frente a la ley. Si es clara, el juez la repite (confirmatoria). Si se entiende a medias, el juez dice qué quiere decir (interpretativa). Si no dice nada, el juez pone una solución (supletoria).</p>
+</div>
+</section>
+<section class="sec"><h2 id="ejusticia-tratamiento-de-la-informacion-juridica">Tratamiento de la información jurídica</h2>
+<p>Son bases de datos documentales: el tratamiento de la información jurídica en soportes electrónicos para su posterior recuperación y consulta (2025, pág. 9). El flujo tiene dos partes (apunte, págs. 1 y 2).</p>
+<p><strong>Procesamiento.</strong> Se parte de documentos primarios, como la sentencia original. Mediante un análisis documental se convierten en documentos secundarios, más fáciles de gestionar.</p>
+<p><strong>Accesibilidad.</strong> La información se recupera de tres formas:</p>
+<ul>
+<li>Por texto completo.</li>
+<li>Por sumarios, que son resúmenes jurídicos.</li>
+<li>Por palabras clave y un tesauro especializado.</li>
+</ul>
+<h3 id="ejusticia-tesauro">Tesauro</h3>
+<p>Es un lenguaje controlado o un listado de términos vinculados entre sí: sinónimos, términos más generales o más específicos (apunte, pág. 2).</p>
+<div class="ejemplo"><p class="ejemplo-t">Por qué hace falta</p><p>Evita que una búsqueda falle porque el juez usó una palabra, «estupefacientes», y el abogado buscó otra, «drogas». El tesauro vincula ambos términos para que la información se recupere bien.</p>
+<p class="bloque-fuente">Apunte de Cátedra: Jurisprudencia, pág. 2</p></div>
+<ul>
+<li><strong>Método de búsqueda.</strong> Es una consulta técnica, distinta de buscar por texto completo o palabras libres.</li>
+<li><strong>Procesamiento documental.</strong> Forma parte del análisis documental, como guía de términos para categorizar los documentos secundarios.</li>
+<li><strong>Uso real.</strong> En el Poder Judicial de Santa Fe, el campo «Tesauro» aparece en los formularios de búsqueda avanzada.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="ejusticia-sistemas-de-consulta">Sistemas de consulta</h2>
+<div class="tabla"><table><thead><tr><th>Sistema</th><th>Qué ofrece</th></tr></thead><tbody><tr><td>SAIJ (Sistema Argentino de Información Jurídica)</td><td>Del Ministerio de Justicia, gratuito, creado en 1981. Leyes y decretos nacionales y provinciales, resoluciones y dictámenes, normas del Mercosur, fallos de CSJN, cámaras nacionales y tribunales provinciales</td></tr><tr><td>InfoLEG</td><td>Normativa nacional, actualizada a diario con el Boletín Oficial</td></tr><tr><td>CSJN</td><td>Fallos completos desde 1994 y colección histórica desde 1863</td></tr><tr><td>Corte Suprema de Santa Fe</td><td>Más de 50.000 fallos a texto completo desde 1983 y más de 45.000 sumarios</td></tr><tr><td>Cámaras de Apelación</td><td>Búsquedas por voces y materias (administrativo, agrario, civil y otras)</td></tr><tr><td>ISILEG</td><td>La base legislativa más actualizada de Santa Fe, con expedientes y diarios de sesiones</td></tr></tbody></table></div>
+<p>Fuente: apunte, págs. 2 y 3.</p>
+<p><strong>SAIJ en detalle.</strong> En 1979 se empezó a digitalizar y ordenar los marcos legales, y en 1981 se creó (2025, pág. 6). Es una red nacional de información jurídica: trabaja de manera colaborativa con las provincias para completar la base (Resolución 122/1995 MJ).</p>
+<p>En la Corte de Santa Fe se elige buscar en sumarios o en fallos, con campos como palabra libre, tesauro y voces (2025, pág. 12). Los 45.000 sumarios salen de 13.000 fallos (2025, pág. 13).</p>
+<h3 id="ejusticia-donde-consultar">Dónde consultar</h3>
+<div class="tabla"><table><thead><tr><th>Para buscar</th><th>Sitio</th></tr></thead><tbody><tr><td>Normativa nacional</td><td>InfoLEG, Boletín Oficial, SAIJ</td></tr><tr><td>Normativa de Santa Fe</td><td>ISILEG, Sistema de Información de Normativa (SIN), Boletín Oficial provincial, decretos 1955 a 1995 escaneados</td></tr><tr><td>Otros</td><td>Procuración del Tesoro, convenios colectivos de trabajo, Concejo Municipal</td></tr><tr><td>Jurisprudencia</td><td>SAIJ, CSJN, Procuración General, CIJ (Centro de Información Judicial), PJN</td></tr><tr><td>Publicaciones</td><td>Diario Judicial, Pensamiento Penal, Pensamiento Civil</td></tr></tbody></table></div>
+<p>Fuente: 2025, págs. 23 a 25.</p>
+</section>
+<section class="sec"><h2 id="ejusticia-reserva-de-identidad">Reserva de identidad</h2>
+<p>También se llama inicialización de causas. Sustituye datos personales por abreviaturas o signos para proteger la privacidad en ciertos procesos (apunte, pág. 3).</p>
+<p><strong>Cuándo se activa.</strong> Se activa obligatoriamente en fallos sobre:</p>
+<ul>
+<li>Menores de edad.</li>
+<li>Familia, como adopción o incapacidad.</li>
+<li>Salud.</li>
+<li>Ámbito penal, en situaciones de abuso, violencia y otras.</li>
+</ul>
+<p><strong>Cómo funciona.</strong> Se modifica la carátula y el texto completo de la sentencia.</p>
+<ul>
+<li>Nombres y apellidos se reemplazan por iniciales. «Martinez, Laura» pasa a «M., L.».</li>
+<li>DNI, domicilio y datos similares se reemplazan por puntos suspensivos.</li>
+</ul>
+<p><strong>Excepción.</strong> No se aplica a los profesionales intervinientes. Abogados, peritos, médicos, personal policial y funcionarios judiciales quedan visibles.</p>
+<div class="ojo"><p class="ojo-t">Si sos perito, tu nombre queda</p><p>La reserva protege a las partes. Vos, como perito, seguís apareciendo en el fallo publicado.</p>
+</div>
+</section>
+<section class="sec"><h2 id="ejusticia-inteligencia-artificial-material-de-2025">Inteligencia artificial (material de 2025)</h2>
+<div class="ojo"><p class="ojo-t">Solo está en el material de 2025</p><p>La presentación «4 - IA» es de 2025. En 2026 no hay archivo de IA ni aparece entre los cinco ejes. El nombre del TP1 de 2026 sí la menciona («De la historia a la Inteligencia Artificial»). Confirmá si entra.</p>
+</div>
+<p>La presentación arranca diciendo que la IA «es clave, ya que permite la automatización de tareas repetitivas y tediosas, como la revisión de documentos, la identificación de patrones y la predicción de resultados legales» (pág. 2).</p>
+<p>La cátedra da estas definiciones (págs. 5 y 9):</p>
+<ul>
+<li>La combinación de algoritmos planteados con el propósito de crear máquinas que presenten las mismas capacidades que el ser humano.</li>
+<li>La habilidad de una máquina de presentar las mismas capacidades que los seres humanos, como el razonamiento, el aprendizaje, la creatividad y la capacidad de planear.</li>
+<li>Los sistemas de IA son capaces de adaptar su comportamiento en cierta medida, analizar los efectos de acciones previas y trabajar de manera autónoma.</li>
+<li>Rama de las TI que aplica comportamiento de lógica humana en máquinas, para aprender, razonar y autocorregirse. Engloba machine learning y deep learning.</li>
+</ul>
+<p>Hay IA en software (asistentes virtuales, análisis de imágenes, buscadores, reconocimiento de voz y rostro) e integrada (robots, drones, vehículos autónomos, internet de las cosas) (pág. 7).</p>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Qué dice la cátedra</th></tr></thead><tbody><tr><td>Red neuronal</td><td>Procesador distribuido en paralelo de forma masiva, con propensión natural a almacenar conocimiento experimental. Adquiere conocimiento mediante un proceso de aprendizaje y lo guarda en las ponderaciones sinápticas (pág. 10)</td></tr><tr><td>Deep learning</td><td>Imita el cerebro humano. Red neuronal con tres o más capas. Trabaja con datos no estructurados y automatiza la extracción de características (pág. 11)</td></tr><tr><td>Machine learning</td><td>Aprende de datos estructurados y etiquetados. Se entrena antes de implementarse, con un proceso iterativo. Genera modelos predictivos. Enfoques: supervisado, no supervisado, de refuerzo y deep learning (pág. 12)</td></tr></tbody></table></div>
+<p><strong>IA aplicada al Derecho</strong> (pág. 13). Organizar bases de clientes o casos, procesar lenguaje natural, clasificar y actualizar textos legales, hacer seguimiento de acciones de agentes jurídicos, estudiar nuevas aplicaciones de la jurisprudencia, llegar a conclusiones en función de precedentes y desarrollar sistemas expertos legales.</p>
+<p><strong>Qué necesita</strong> (pág. 14). Entender y procesar el lenguaje humano, con su vaguedad, ambigüedad y carácter abierto. Comprender las reglas del ordenamiento jurídico. Procesar toda la información para obtener resultados justos y razonados.</p>
+<p><strong>Ejemplos</strong> (pág. 15). CATO Program, Datalex, Flex Law, Luminance, Omnius y jueces virtuales (ODR).</p>
+</section></section>
+<section class="pdf-parte" id="pdf-pericia" data-pagina="pericia" aria-label="Eje 5: pericia"><p class="pdf-de">Informática Jurídica</p><h1>Eje 5: pericia informática</h1>
+<p class="bajada">Cómo se obtiene una prueba digital, cómo se demuestra que nadie la tocó y cómo se le explica a un juez.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+<p>La base son dos apuntes de cátedra de 2026: «Fundamentos de la Pericia Informática y la Informática Forense» (el apunte de pericia) y «Estándares Internacionales ISO/IEC 27037, 27042 y 27043» (el apunte de ISO). Lo que dice «2025» viene de la presentación «3 - Pericia Informática».</p>
+
+<section class="sec"><h2 id="pericia-conceptos-base">Conceptos base</h2>
+<div class="teorema"><p class="teorema-t">Informática Forense</p><p>La disciplina orientada a generar evidencias legales para ser utilizadas en procedimientos judiciales.</p>
+<p class="bloque-fuente">Apunte de pericia, pág. 1</p></div>
+<div class="teorema"><p class="teorema-t">Evidencia</p><p>Conjunto de recursos y datos a los que el profesional (perito) tiene acceso para extraer y analizar información, verificar su autenticidad y responder a las cuestiones técnicas planteadas durante un proceso judicial.</p>
+<p class="bloque-fuente">Apunte de pericia, pág. 1</p></div>
+<p>El <strong>perito informático judicial</strong> es un auxiliar de la justicia que asesora al juez en temas de informática.</p>
+<h3 id="pericia-perito-de-oficio-y-perito-de-parte">Perito de oficio y perito de parte</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Perito de oficio (o judicial)</th><th>Perito de parte</th></tr></thead><tbody><tr><td>Quién lo convoca</td><td>El órgano jurisdiccional, a través de las listas oficiales del Poder Judicial</td><td>Una de las partes, actor o demandado</td></tr><tr><td>Rol</td><td>Asesorar al juez en lo técnico, de manera imparcial y objetiva</td><td>Aportar prueba que respalde o refute una hipótesis en favor de quien lo contrató</td></tr><tr><td>Da lugar a</td><td>Prueba pericial judicial</td><td>Prueba pericial de parte</td></tr></tbody></table></div>
+<p>Fuente: apunte de pericia, pág. 1.</p>
+<p>El apunte lo cierra así: «En conclusión, mientras el Perito de Oficio colabora con el Juez para que este pueda entender una realidad técnica, el Perito de Parte asiste a los litigantes para demostrar sus pretensiones mediante conocimientos especializados.»</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El de oficio trabaja para que el juez entienda. El de parte trabaja para que su cliente demuestre lo que dice, sin perder rigor técnico.</p>
+</div>
+<h3 id="pericia-requisitos-para-ser-perito">Requisitos para ser perito</h3>
+<p>Es condición excluyente tener <strong>título habilitante</strong> y pertenecer al <strong>Colegio profesional</strong> correspondiente, y mantener los saberes actualizados (apunte de pericia, pág. 5). La presentación 2025 (pág. 18) agrega formación en redacción de informes periciales, experiencia, conocimiento de normativa y no estar inhabilitado ni ser incompatible.</p>
+<p>También debe conocer marcos internacionales. El apunte nombra eIDAS en Europa, la Bharatiya Sakshya Adhiniyam (BSA) 2023 y el DPDP Act 2023.</p>
+</section>
+<section class="sec"><h2 id="pericia-delitos-informaticos">Delitos informáticos</h2>
+<p>La práctica pericial se desarrolla ante delitos regulados por el Código Penal: contra la propiedad, contra la Administración Pública, contra la libertad, contra la seguridad pública y contra la integridad sexual, entre otros (apunte de pericia, pág. 1).</p>
+<p>Los escenarios más comunes (págs. 1 y 2):</p>
+<ul>
+<li>Vulneración de la intimidad y propiedad industrial.</li>
+<li>Delitos contra la propiedad intelectual y piratería.</li>
+<li>Sabotaje, manipulación de datos o programas y uso indebido de equipos.</li>
+<li>Pornografía infantil y despidos por causas tecnológicas.</li>
+</ul>
+<p>La presentación 2025 (pág. 5) suma uso de información, vulneración de la buena fe contractual, publicidad engañosa y competencia desleal.</p>
+<p>La ley que marca la cátedra es la <strong>Ley 26.388 de Delitos Informáticos</strong> (presentación «1 - Presentación», 2026, pág. 13).</p>
+<div class="ojo"><p class="ojo-t">El material no explica los artículos</p><p>La cátedra nombra la ley y los tipos de delito, pero ningún apunte desarrolla sus artículos. Si en tu comisión la piden en detalle, leela en Infoleg. Dolo, culpa, pena y resarcimiento están en <a href="#entorno-delito">Eje 1</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="pericia-las-tres-etapas-de-la-pericia">Las tres etapas de la pericia</h2>
+<p>Para tener validez legal, el trabajo sigue tres etapas (apunte de pericia, pág. 2).</p>
+<p>La presentación 2025 (pág. 10) marca las <strong>implicancias legales</strong> del trabajo.</p>
+<ul>
+<li><strong>Adquisición de evidencias.</strong> Cumpliendo leyes generales y específicas, respetando garantías y derechos, y sin ampliar evidencias no autorizadas.</li>
+<li><strong>Método científico.</strong> Reproducible, establece cadena de custodia y cataloga el hash de cada evidencia.</li>
+<li><strong>Reputación.</strong></li>
+</ul>
+<h3 id="pericia-1-adquisicion">1. Adquisición</h3>
+<p>Asegurar y recolectar los recursos digitales, en la escena del hecho o fuera de ella. El objetivo es no manipular el original y no perder el estado inicial. Tres piezas sostienen esta etapa.</p>
+<ul>
+<li><strong>Copia forense.</strong> Réplica exacta, bit a bit, de cualquier dispositivo con memoria. Garantiza la reproducibilidad. Otro profesional puede alcanzar los mismos resultados en un contraperitaje.</li>
+<li><strong>Hash.</strong> Se genera inmediatamente después de la adquisición y permite demostrar ante el juez que la evidencia no fue modificada.</li>
+<li><strong>Cadena de custodia.</strong> Protocolo estricto que documenta quién tuvo acceso a la evidencia y qué trato recibió.</li>
+</ul>
+<h3 id="pericia-2-analisis">2. Análisis</h3>
+<p>Se indexan, se les da forma y se comprenden los datos para identificar lo que interesa a la causa. La ISO/IEC 27042 define los modelos, en <a href="#pericia-iso-iec-27042-2015-analisis-e-interpretacion">Análisis e interpretación</a>.</p>
+<h3 id="pericia-3-presentacion">3. Presentación</h3>
+<p>Se genera el informe pericial, donde el perito traduce sus hallazgos técnicos a un lenguaje comprensible para el órgano judicial.</p>
+</section>
+<section class="sec"><h2 id="pericia-hash-y-cadena-de-custodia">Hash y cadena de custodia</h2>
+<p>Son las dos garantías técnicas. Si se rompe el protocolo, la evidencia pierde su valor probatorio ante el juez (apunte de pericia, pág. 3).</p>
+<div class="teorema"><p class="teorema-t">Hash</p><p>El Hash es una cadena de texto única e irrepetible generada por un algoritmo matemático (como por ejemplo SHA-256) a partir de un conjunto de datos. Si un solo bit de la evidencia digital cambia, el Hash resultante será completamente distinto.</p>
+<p class="bloque-fuente">Apunte de pericia, pág. 3</p></div>
+<p>El apunte lo llama «sello de integridad» digital. «Esto permite a los peritos certificar que la copia forense es una réplica exacta del dispositivo original, garantizando de esta manera integridad y autenticidad.» Se usa en cada paso de la cadena.</p>
+<div class="teorema"><p class="teorema-t">Cadena de custodia</p><p>Protocolo para tratar la evidencia, que pauta los pasos a seguir y el trato que se debe de tener con la evidencia de un caso.</p>
+<p class="bloque-fuente">«3 - Pericia Informática», 2025, pág. 11</p></div>
+<div class="tabla"><table><thead><tr><th>Momento</th><th>Para qué sirve</th></tr></thead><tbody><tr><td>Adquisición</td><td>Se calcula apenas se obtiene la evidencia, para establecer un estado inicial</td></tr><tr><td>Traslado y almacenamiento</td><td>Según ISO/IEC 27037, los duplicados maestros deben estar hasheados para detectar manipulación accidental o intencionada</td></tr><tr><td>Análisis</td><td>Se trabaja sobre copias, en lectura read-only, asegurando que los hallazgos se basan en datos sin modificar</td></tr></tbody></table></div>
+<p>Sin el catálogo de hashes de cada evidencia, la cadena se considera rota. Una evidencia sin hash verificado es fácilmente impugnable.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El hash es la huella digital de un archivo. Cambiás una coma y la huella es otra. La cadena de custodia es la planilla de quién tuvo la evidencia y qué hizo. La planilla cuenta la historia y el hash prueba que esa historia es cierta.</p>
+</div>
+<div class="ejemplo"><p class="ejemplo-t">Una PC encendida con un pendrive puesto</p><p>En una casa hay una computadora, y se detectó que la IP de la persona que amenazaba estaba en ese domicilio. La PC está encendida y con un pendrive conectado. No se apaga, no se desconecta el USB, no se manipula el original y no se pierde el estado inicial.</p>
+<p class="bloque-fuente">«3 - Pericia Informática», 2025, pág. 12</p></div>
+<p>El apunte (pág. 3) aclara el matiz. No hay que apagar una PC encendida ni desconectar un USB «sin el procedimiento adecuado».</p>
+</section>
+<section class="sec"><h2 id="pericia-el-informe-pericial">El informe pericial</h2>
+<p>Es el resultado del trabajo. Es un medio de prueba documental que interpreta y valida hechos existentes. Es un procedimiento científico que aplica conocimientos y técnicas para determinar veracidad, origen y autoría, y funciona como soporte técnico para el solicitante <strong>sin emitir juicios de valor</strong> (apunte de pericia, pág. 4).</p>
+<p>Suele responder a los «cómo», los «de qué manera», el «origen de» y el «medio utilizado» (2025, pág. 19).</p>
+<p><strong>Características</strong> (apunte de pericia, pág. 4):</p>
+<ul>
+<li><strong>Didáctico.</strong> Comprensible para el juez, que no es técnico.</li>
+<li><strong>Objetivo e independiente.</strong> Basado en la imparcialidad del experto.</li>
+<li><strong>Contundente y verídico.</strong> Basado en hechos constatables.</li>
+</ul>
+<p>La presentación 2025 (pág. 19) suma probatorio, transmisor y <strong>no vinculante</strong>.</p>
+<p><strong>Fases del informe</strong> (2025, pág. 20): análisis (fuentes, procedimientos, resultados), síntesis (dejar solo lo relevante) y conclusiones (opinión posterior al análisis).</p>
+<p><strong>Contenido mínimo según ISO 27042 y 27043</strong> (apunte de pericia, pág. 4):</p>
+<ol>
+<li>Presentación del perito, objetivos, alcance y datos primarios analizados.</li>
+<li>Legislación aplicable y justificación de las alternativas de análisis elegidas.</li>
+<li>Descripción detallada de intervenciones, técnicas aplicadas y resultados obtenidos.</li>
+<li>Conclusiones, argumentación y firma.</li>
+</ol>
+<h3 id="pericia-prueba-y-prueba-pericial">Prueba y prueba pericial</h3>
+<p>La presentación 2025 (pág. 15) da dos definiciones de prueba.</p>
+<div class="teorema"><p class="teorema-t">Prueba</p><ol>
+<li>Razón, argumento, instrumento u otro medio con que se pretende mostrar y hacer patente la verdad o falsedad de algo.</li>
+<li>Actuación procesal de parte, a través de los medios regulados en la norma procesal, por la que intenta acreditar los hechos que invoca como fundamento de su pretensión, con el propósito de acreditar al tribunal su certeza probatoria.</li>
+</ol>
+<p class="bloque-fuente">«3 - Pericia Informática», 2025, pág. 15</p></div>
+<div class="teorema"><p class="teorema-t">Prueba pericial</p><p>Opinión que emite un perito respecto a un hecho concreto que ha de evaluarse en el marco de un proceso judicial.</p>
+<p class="bloque-fuente">«3 - Pericia Informática», 2025, pág. 15</p></div>
+<p>La pág. 16 agrega qué es y para qué sirve. Es la presentación de pruebas por parte de un experto en un tema específico, llamado perito, que brinda su testimonio basado en sus conocimientos y experiencia. Sirve para respaldar o refutar una hipótesis o teoría en un juicio. Y cita: «Es la declaración de un perito que tiene por objetivo aportar una serie de conocimientos a un juez para que pueda entender una realidad no constatable por él.»</p>
+<p><strong>Características</strong> (2025, pág. 17):</p>
+<ul>
+<li>Debe ser realizada por una persona con conocimientos probados.</li>
+<li>La explicación debe ser clara y objetiva.</li>
+<li>El perito tiene que ser imparcial.</li>
+</ul>
+<p><strong>Requisitos formales</strong> (2025, pág. 17): descripción exhaustiva del objeto de estudio, operaciones realizadas y sus resultados, medios científicos y técnicos utilizados y conclusión.</p>
+</section>
+<section class="sec"><h2 id="pericia-herramientas">Herramientas</h2>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Herramientas (apunte de pericia, págs. 4 y 5)</th></tr></thead><tbody><tr><td>Suites forenses y especializadas</td><td>AccessData FTK (imágenes forenses y análisis de datos). Guidance Software EnCase (investigación de dispositivos). Cellebrite UFED (telefonía móvil). BruteShark y OmniPeek (tráfico de red)</td></tr><tr><td>Código abierto</td><td>The Sleuth Kit Autopsy (sistemas de archivos). Distribuciones live de Linux: Caine, Santoku, Kali</td></tr><tr><td>Integridad y copia</td><td>FTK Imager (copias bit a bit). QuickHash-GUI (cálculo y verificación de hash)</td></tr><tr><td>Hardware</td><td>Equipos potentes y portables, clonadoras y, fundamentalmente, bloqueadores de escritura para proteger el soporte original</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="pericia-normas-iso">Normas ISO</h2>
+<p>¿Por qué normas? La evidencia digital se copia sin rastro y sus metadatos son volátiles, y eso exige protocolos para evitar el «vicio de nulidad procedimental». El apunte cita informes del NIST: más del 70 % de las organizaciones que enfrentan litigios digitales fracasan por no seguir procedimientos estandarizados (apunte de ISO, pág. 1). Y concluye que «el seguimiento de las normas ISO es la única garantía científica para asegurar la integridad, autenticidad y reproducibilidad necesarias para la validez legal de una pericia».</p>
+<div class="tabla"><table><thead><tr><th>Norma</th><th>De qué se ocupa</th></tr></thead><tbody><tr><td>ISO/IEC 27037:2012</td><td>Identificación, recolección y preservación. Que el artefacto llegue íntegro al laboratorio</td></tr><tr><td>ISO/IEC 27042:2015</td><td>Examen científico e interpretación. Transforma el dato preservado en evidencia comprensible</td></tr><tr><td>ISO/IEC 27043:2015</td><td>Gobernanza y preparación. Integra las fases anteriores en un ciclo de vida continuo</td></tr></tbody></table></div>
+<p>Fuente: apunte de ISO, pág. 4.</p>
+<p>Las normas ISO definen principios y requisitos generales. Las guías operativas como <strong>SWGDE</strong> dan procedimientos paso a paso para cada tipo de dispositivo.</p>
+<h3 id="pericia-iso-iec-27037-2012-adquisicion">ISO/IEC 27037:2012: adquisición</h3>
+<p>Su objetivo es dar directrices para la identificación, recopilación, adquisición y preservación de evidencia digital. Busca que los métodos mantengan la integridad de la evidencia «para que sea admisible en procesos legales y disciplinarios, transformando datos latentes en &quot;huellas digitales&quot; del delito con validez jurídica» (apunte de ISO, pág. 1).</p>
+<p><strong>Tres principios rectores</strong> (apunte de ISO, pág. 1):</p>
+<ul>
+<li><strong>Relevancia.</strong> La evidencia debe ser real y relacionarse de manera significativa con el incidente.</li>
+<li><strong>Confiabilidad.</strong> Los procesos deben ser auditables y repetibles, y los resultados reproducibles por terceros.</li>
+<li><strong>Suficiencia.</strong> Hay que reunir material suficiente para una investigación adecuada y completa.</li>
+</ul>
+<p><strong>Dos roles</strong> (pág. 2):</p>
+<ul>
+<li><strong>DEFR (Digital Evidence First Responder).</strong> Especialista de primera intervención, responsable de la identificación y recolección inicial en la escena.</li>
+<li><strong>DES (Digital Evidence Specialist).</strong> Especialista con conocimientos avanzados para problemas técnicos complejos y las fases de adquisición y análisis profundo.</li>
+</ul>
+<p><strong>Cuatro actividades secuenciales</strong> (pág. 2):</p>
+<div class="tabla"><table><thead><tr><th>Actividad</th><th>Qué se hace</th></tr></thead><tbody><tr><td>Identificación</td><td>Reconocer, buscar y documentar fuentes potenciales. Se prioriza por volatilidad: primero la RAM y después los discos</td></tr><tr><td>Recopilación</td><td>Retirar físicamente los dispositivos a un laboratorio o entorno controlado. Se documenta si el equipo estaba encendido o apagado, y no se altera su estado</td></tr><tr><td>Adquisición</td><td>Crear una copia forense bit a bit con bloqueadores de escritura y generar un hash, como SHA-256, inmediatamente después</td></tr><tr><td>Preservación</td><td>Salvaguardar contra alteración, daño o destrucción: embalajes antiestáticos, bolsas de Faraday para móviles, protección contra campos electromagnéticos y temperaturas extremas</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Dos listas parecidas</p><p>Las tres etapas de la pericia son adquisición, análisis y presentación. Las cuatro actividades de la ISO 27037 son identificación, recopilación, adquisición y preservación. La palabra «adquisición» está en las dos, con distinto alcance.</p>
+</div>
+<h3 id="pericia-iso-iec-27042-2015-analisis-e-interpretacion">ISO/IEC 27042:2015: análisis e interpretación</h3>
+<p>Regula el tratamiento intelectual y técnico de la evidencia, para que sea científicamente válido y legalmente defendible. Tiene cuatro premisas: análisis estructurado, reconstrucción de eventos, documentación de hallazgos y reportes imparciales (apunte de ISO, págs. 2 y 3).</p>
+<p>Cómo se aplica (apunte de pericia, págs. 5 y 6):</p>
+<ul>
+<li><strong>Selección y validación de métodos (cláusula 6).</strong> El perito documenta y justifica cada método, y demuestra que es «apto para el propósito» (fit for purpose).</li>
+<li><strong>Modelos analíticos (cláusula 7).</strong> Ver la tabla de abajo.</li>
+<li><strong>Interpretación lógica, hechos contra hipótesis (cláusula 8).</strong> La norma obliga a mantener una distinción estricta.</li>
+<li><strong>Reproducibilidad y competencia.</strong> Otro analista competente que siga el mismo proceso debe llegar a los mismos resultados. La versión de las herramientas se registra (apunte de ISO, pág. 3). Los miembros del equipo deben demostrar competencia específica. No basta con ser «experto informático» generalista.</li>
+<li><strong>Informe y trazabilidad (cláusula 9).</strong> Cada conclusión debe ser trazable hasta los datos binarios originales.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Modelo</th><th>Qué hace</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Estático</td><td>Examina copias de datos no volátiles sin ejecutar el sistema original. Minimiza el riesgo de alteración</td><td>Imágenes forenses</td></tr><tr><td>Dinámico</td><td>Monitorea el comportamiento del sistema durante su ejecución, en un entorno controlado</td><td>Detonar malware para ver qué archivos modifica</td></tr><tr><td>En tiempo real</td><td>Captura datos volátiles de sistemas activos antes de que se pierdan</td><td>RAM, conexiones de red, claves criptográficas</td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><td></td><th>Acreditación de hechos</th><th>Formulación de hipótesis</th></tr></thead><tbody><tr><td>Qué es</td><td>Datos directamente verificables</td><td>Inferencias que el perito extrae de los datos</td></tr><tr><td>Ejemplo</td><td>Un hash que coincide, una dirección física en el disco</td><td>Reconstruir una línea de tiempo de acciones de un usuario</td></tr></tbody></table></div>
+<p>Al formular hipótesis se documentan los factores externos, como el desvío del reloj del sistema (clock drift) o metadatos sobrescritos.</p>
+<h3 id="pericia-iso-iec-27043-2015-investigacion-de-incidentes">ISO/IEC 27043:2015: investigación de incidentes</h3>
+<p>Introduce la <strong>Forensic Readiness</strong>, o preparación forense. Busca optimizar la capacidad de una organización para recolectar evidencia creíble, minimizando costos y disrupciones, <strong>antes de que el incidente ocurra</strong> (apunte de ISO, pág. 3).</p>
+<ol>
+<li><strong>Identificación de fuentes de evidencia potenciales.</strong> Mapeo proactivo de logs, sensores y flujos de datos.</li>
+<li><strong>Planificación de la recolección pre-incidente.</strong> Qué datos capturar y bajo qué disparadores.</li>
+<li><strong>Definición de almacenamiento y manejo de evidencia.</strong> Bases de datos forenses distribuidas y seguras.</li>
+<li><strong>Planificación de la detección del incidente.</strong> Protocolos de investigación y límites de responsabilidad forense entre las partes.</li>
+</ol>
+<div class="idea"><p>Ubicalas en el tiempo. La 27043 arranca antes del incidente, la 27037 cubre el momento de levantar la evidencia y la 27042, lo que pasa en el laboratorio.</p>
+</div>
+</section>
+<section class="sec"><h2 id="pericia-el-trabajo-de-aprobacion-directa">El trabajo de aprobación directa</h2>
+<p>En el Drive hay un trabajo de un grupo de alumnos de 2026 que copia esta consigna. No es un documento de la cátedra y no sabemos si se repite. El trabajo resuelto no va en este resumen.</p>
+<div class="teorema"><p class="teorema-t">Consigna</p><p>Utilizando herramientas de software forense, los estudiantes deberán realizar la adquisición forense de un medio de almacenamiento. El trabajo práctico exige la generación de una imagen bit a bit, el cálculo de algoritmos hash para garantizar la integridad y, fundamentalmente, la confección del formulario de Cadena de Custodia, justificando técnicamente por qué la evidencia se considera preservada.</p>
+<p class="bloque-fuente">Copiada en un trabajo de alumnos de la carpeta «TP AD», 2026, pág. 2</p></div>
+<p>La teoría que hace falta está en <a href="#pericia-las-tres-etapas-de-la-pericia">Las tres etapas de la pericia</a>, <a href="#pericia-hash-y-cadena-de-custodia">Hash y cadena de custodia</a> y <a href="#pericia-herramientas">Herramientas</a>.</p>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material de cursado 2025 y 2026 del Drive de UTN. El Drive no trae ningún parcial ni final, así que no dice qué se toma ni cómo viene el examen. Manda lo que indique tu comisión. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

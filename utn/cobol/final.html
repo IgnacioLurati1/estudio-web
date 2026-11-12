@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final: Cobol</title>
+<meta name="description" content="Forma de un programa, niveles, PICTURE, archivos y verbos, con lo que el material no cubre.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="cobol" data-pagina="final">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Cobol</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="final.html" aria-current="page">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=cobol">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=cobol">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-final">Cómo viene el final</a></li><li class="n2"><a href="#la-forma-de-un-programa">La forma de un programa</a></li><li class="n2"><a href="#los-datos">Los datos</a></li><li class="n3"><a href="#numeros-de-nivel">Números de nivel</a></li><li class="n3"><a href="#como-se-ve-dibujada-una-estructura">Cómo se ve dibujada una estructura</a></li><li class="n3"><a href="#la-clausula-picture">La cláusula PICTURE</a></li><li class="n3"><a href="#value-redefines-y-renames">VALUE, REDEFINES y RENAMES</a></li><li class="n2"><a href="#los-archivos">Los archivos</a></li><li class="n3"><a href="#que-es-un-archivo">Qué es un archivo</a></li><li class="n3"><a href="#tipos-segun-su-uso">Tipos según su uso</a></li><li class="n3"><a href="#secuencial-e-indexado">Secuencial e indexado</a></li><li class="n3"><a href="#los-verbos">Los verbos</a></li><li class="n2"><a href="#lo-que-se-pide-y-el-material-no-explica">Lo que se pide y el material no explica</a></li><li class="n2"><a href="#el-contexto-mainframe-terminal-y-batch">El contexto: mainframe, terminal y batch</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Final</h1>
+<p class="bajada">Un programa sobre archivos a partir de un enunciado. La teoría sale de trabajos de alumnos de 2015, porque en el Drive no hay apunte de la cátedra.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="nivel nivel-rapido">Materia del pasado. Ya no está en el plan de estudios.</p><p class="aviso-viejo">Esta materia no tiene apuntes de la cátedra en el Drive. Lo que sigue sale de trabajos y resúmenes de alumnos. Usalo de guía y confirmalo con la cátedra.</p><p class="aviso-viejo">Lo marcado «Plan viejo» es de 2022 o antes, del plan anterior. Puede no coincidir con lo que se toma hoy.</p>
+<div class="ojo"><p class="ojo-t">Antes de estudiar de acá</p><p>Todo es del plan viejo, de 2009 a 2015. Las definiciones vienen de trabajos prácticos de alumnos, con su fuente al lado. Lo que no está en el material no se completó de memoria. Está en <a href="#lo-que-se-pide-y-el-material-no-explica">la lista de faltantes</a>.</p>
+</div>
+
+<section class="sec"><h2 id="como-viene-el-final">Cómo viene el final</h2>
+<div class="tomado"><aside class="nota"><strong>Los 6 finales del Drive, todos prácticos</strong><span>Finales de 05/2009, 11/2009, 05/2010, 12/2010, 02/2011 y 02/2012 <em class="viejo">Plan viejo</em></span></aside><p>Ninguno trae preguntas sueltas de teoría. Te dan un caso con sus datos y piden programar sobre archivos.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Final</th><th>Caso</th><th>Archivos</th><th>Qué pide</th></tr></thead><tbody><tr><td>08/05/2009</td><td>Inscriptos</td><td>Indexado y secuencial</td><td>Menú con altas, bajas y listado por impresora, ordenado por provincia</td></tr><tr><td>26/11/2009</td><td>Deportes de un club</td><td>Indexado</td><td>Programa de carga y otro de consulta de horarios</td></tr><tr><td>Mayo de 2010</td><td>Deuda a proveedores</td><td>Secuencial e indexado</td><td>Definir los registros en formato gráfico. Consulta por pantalla y listado impreso</td></tr><tr><td>Diciembre de 2010</td><td>Tareas de una organización</td><td>A identificar</td><td>Identificar al menos 3 almacenes y declararlos. Dos listados</td></tr><tr><td>Febrero de 2011</td><td>Lotes de sueros</td><td>Indexado y secuencial</td><td>Carga, explicar si tiene que tener un orden, y consulta por pantalla con un porcentaje</td></tr><tr><td>Febrero de 2012</td><td>Libros de una biblioteca</td><td>Secuencial e indexado</td><td>Lógica y programa. Tres estadísticas, con los datos ya cargados</td></tr></tbody></table></div>
+<p>Los enunciados completos están en <a href="ejercicios.html">Ejercicios</a>.</p>
+<p>Lo que se repite, contado sobre esos 6:</p>
+<ul>
+<li><mark>Secuencial más indexado en el mismo enunciado:</mark> 4 (05/2009, 05/2010, 02/2011 y 02/2012).</li>
+<li><mark>Pedido explícito de un programa:</mark> 5, todos menos 12/2010.</li>
+<li><mark>Listado ordenado por un campo:</mark> 3 (05/2009, 12/2010 y 02/2012).</li>
+<li><mark>Consulta de un dato puntual:</mark> 3 (11/2009, 05/2010 y 02/2011).</li>
+<li><mark>Listado por impresora, dicho así:</mark> 3 (05/2009, 05/2010 y 12/2010).</li>
+<li>Programa de carga: 2 (11/2009 y 02/2011). El de 02/2012 aclara que los datos se dan por cargados.</li>
+<li>Datos que se repiten con un tope, como hasta 3 teléfonos o hasta 6 horarios: 2 (11/2009 y 05/2010).</li>
+</ul>
+</section>
+<section class="sec"><h2 id="la-forma-de-un-programa">La forma de un programa</h2>
+<p>Un programa tiene cuatro divisiones, en este orden. Se ven en el ejemplo de lectura del Trabajo Práctico 3 de alumnos, de 2015. Según ese mismo trabajo, el ejemplo sale de páginas web y no figura compilado.</p>
+<pre class="codigo"><code>IDENTIFICATION DIVISION.
+PROGRAM-ID. HELLO.
+
+ENVIRONMENT DIVISION.
+   INPUT-OUTPUT SECTION.
+      FILE-CONTROL.
+      SELECT STUDENT ASSIGN TO 'input.txt'
+      ORGANIZATION IS LINE SEQUENTIAL.
+
+DATA DIVISION.
+   FILE SECTION.
+   FD STUDENT.
+   01 STUDENT-FILE.
+      05 STUDENT-ID PIC 9(5).
+      05 NAME PIC A(25).
+
+   WORKING-STORAGE SECTION.
+   01 WS-STUDENT.
+      05 WS-STUDENT-ID PIC 9(5).
+      05 WS-NAME PIC A(25).
+   01 WS-EOF PIC A(1).
+
+PROCEDURE DIVISION.
+   OPEN INPUT STUDENT.
+      PERFORM UNTIL WS-EOF='Y'
+         READ STUDENT INTO WS-STUDENT
+            AT END MOVE 'Y' TO WS-EOF
+            NOT AT END DISPLAY WS-STUDENT
+         END-READ
+      END-PERFORM.
+   CLOSE STUDENT.
+STOP RUN.</code></pre>
+<div class="tabla"><table><thead><tr><th>División</th><th>Qué lleva en el ejemplo</th></tr></thead><tbody><tr><td><code>IDENTIFICATION</code></td><td>El nombre del programa, en <code>PROGRAM-ID</code></td></tr><tr><td><code>ENVIRONMENT</code></td><td>Qué archivos usa, en <code>FILE-CONTROL</code>, con un <code>SELECT</code> por archivo</td></tr><tr><td><code>DATA</code></td><td>El registro de cada archivo, en <code>FILE SECTION</code>, y las variables, en <code>WORKING-STORAGE SECTION</code></td></tr><tr><td><code>PROCEDURE</code></td><td>Las instrucciones. Termina en <code>STOP RUN</code></td></tr></tbody></table></div>
+<div class="idea"><p>Leelo de abajo para arriba. <code>PROCEDURE</code> abre el archivo, lee hasta el final y muestra cada registro. Todo lo de arriba existe para que esas pocas líneas sepan con qué trabajan.</p>
+</div>
+</section>
+<section class="sec"><h2 id="los-datos">Los datos</h2>
+<h3 id="numeros-de-nivel">Números de nivel</h3>
+<p>Fuente: Trabajo Práctico 2 de alumnos, 2015, que cita «Clase 3, Cobol 2015» y a M. Koutchouk, <em>COBOL: construcción lógica de programas</em> (1986).</p>
+<p>El número de nivel denota la jerarquía de los datos.</p>
+<div class="tabla"><table><thead><tr><th>Nivel</th><th>Para qué</th><th>Dónde empieza</th></tr></thead><tbody><tr><td><code>01</code></td><td>Nombre de un registro o estructura</td><td>Zona A</td></tr><tr><td><code>02</code> a <code>49</code></td><td>Cualquier campo subordinado, elemental o compuesto</td><td>Zona B</td></tr><tr><td><code>66</code></td><td>Cláusula <code>RENAMES</code></td><td>Zona B</td></tr><tr><td><code>77</code></td><td>Campos independientes</td><td>Zona A</td></tr><tr><td><code>88</code></td><td>Nombres de condición</td><td>Zona B</td></tr></tbody></table></div>
+<p>La zona A son las columnas 8 a 11 de la hoja de codificación. La zona B arranca en la columna 12. El trabajo manda a la zona B todo menos los niveles <code>01</code> y <code>77</code>.</p>
+<p>Los números no tienen por qué ser correlativos. El mismo trabajo y el Trabajo Práctico 3 usan <code>10</code> y <code>05</code> directo abajo de un <code>01</code>.</p>
+<p>Un campo elemental es el que no se divide. Varios elementales agrupados forman un elemento de grupo.</p>
+<pre class="codigo"><code>01  DOMICILIO.
+    02  TIPO PIC XX.
+    02  NOMBRE PIC X(20).
+    02  NUMERO PIC 9(4).</code></pre>
+<div class="ojo"><p class="ojo-t">Dos frases del trabajo que confunden</p><p>El trabajo dice «un campo compuesto tendrá un nivel superior a cualquiera de sus campos elementales». Se refiere a la jerarquía. El número es menor, como se ve arriba: <code>DOMICILIO</code> es <code>01</code> y sus campos son <code>02</code>.</p>
+<p>También dice que el <code>01</code> «solo podrá pertenecer al nombre de un registro o estructura», y después muestra <code>01 RAYA PIC X(10)</code>, que no se divide. Si te lo preguntan, confirmalo con la cátedra.</p>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Es como el índice de un libro. El <code>01</code> es el capítulo, el <code>02</code> la sección, el <code>03</code> el apartado. Lo que importa es que el de adentro tenga un número más alto que el de afuera.</p>
+</div>
+<h3 id="como-se-ve-dibujada-una-estructura">Cómo se ve dibujada una estructura</h3>
+<p>La Práctica 1 de la cátedra dibuja los registros en cajas, con el nombre y el modelo de cada campo. El <a href="ejercicios.html#final-mayo-de-2010">final de mayo de 2010</a> pide definir los registros «en formato gráfico». Esta es la única muestra del Drive de cómo se dibuja, y el final no aclara si espera esa forma.</p>
+<p><img src="img/fig-estructura.webp" alt="Consigna 14 de la Práctica 1: dos registros dibujados como cajas anidadas, con el nombre y el modelo de cada campo"></p>
+<p>Pasar esos dibujos a código es el ejercicio 14 de esa práctica, así que acá no va resuelto. La <a href="ej-practica-1.html">hoja completa</a> está en Ejercicios.</p>
+<h3 id="la-clausula-picture">La cláusula PICTURE</h3>
+<p>Fuente: Trabajo Práctico 2 de alumnos, 2015. La cláusula imagen define el tipo de dato, el signo, la posición del punto decimal y la longitud. Las prácticas de la cátedra llaman «modelo» a lo que va en esa cláusula.</p>
+<div class="tabla"><table><thead><tr><th>Símbolo</th><th>Significa</th></tr></thead><tbody><tr><td><code>9</code></td><td>Valor numérico</td></tr><tr><td><code>A</code></td><td>Alfabético</td></tr><tr><td><code>X</code></td><td>Alfanumérico</td></tr><tr><td><code>V</code></td><td>Decimal implícito</td></tr><tr><td><code>S</code></td><td>Signo</td></tr><tr><td><code>P</code></td><td>Decimal asumido</td></tr></tbody></table></div>
+<p>Los tipos:</p>
+<ul>
+<li><strong>Numérico:</strong> solo dígitos del 0 al 9.</li>
+<li><strong>Alfabético:</strong> letras de la A a la Z y espacios.</li>
+<li><strong>Alfanumérico:</strong> dígitos, letras y caracteres especiales.</li>
+</ul>
+<p>El signo se usa con datos numéricos. El punto decimal se puede usar con datos numéricos, y según el trabajo su posición «no se incluye en los datos».</p>
+<p>La longitud se escribe repitiendo el símbolo o con paréntesis. El trabajo usa <code>PIC XX</code> y <code>PIC X(20)</code>, y las prácticas usan <code>9999</code> y <code>9(4)</code> para lo mismo.</p>
+<div class="ojo"><p class="ojo-t">Los modelos de edición no están explicados</p><p>La Práctica 1 trabaja mucho con modelos como los de <code>Z</code>, <code>*</code> o el signo de moneda. Ningún material del Drive dice cómo funcionan. Ver <a href="#lo-que-se-pide-y-el-material-no-explica">faltantes</a>.</p>
+</div>
+<h3 id="value-redefines-y-renames">VALUE, REDEFINES y RENAMES</h3>
+<p>Fuente: Trabajo Práctico 2 de alumnos, 2015.</p>
+<p><strong><code>VALUE</code></strong> es opcional. Va después del <code>PIC</code> e indica el valor inicial del campo hasta que se modifique. Sirve para elementales y para grupos.</p>
+<pre class="codigo"><code>01  RAYA PIC X(10) VALUE &quot;----------&quot;.</code></pre>
+<p><strong><code>REDEFINES</code></strong> sirve para darle a un dato otro formato o cambiarlo a otro tipo. El trabajo agrega que también se usa para crear arrays, sin mostrarlo.</p>
+<pre class="codigo"><code>01 WS-OLD PIC X(10).
+01 WS-NEW1 REDEFINES WS-OLD PIC 9(8).
+01 WS-NEW2 REDEFINES WS-OLD PIC A(10).</code></pre>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Es el mismo dato con otra etiqueta y otra forma de leerlo. No agrega un dato nuevo.</p>
+</div>
+<p><strong><code>RENAMES</code></strong> reagrupa datos con un nombre nuevo y usa el nivel <code>66</code>. Los datos renombrados tienen que venir en secuencia. No se pueden usar los niveles <code>01</code>, <code>77</code> ni <code>66</code>.</p>
+<pre class="codigo"><code>01 WS-OLD.
+10 WS-A PIC 9(12).
+10 WS-B PIC X(20).
+10 WS-C PIC A(25).
+10 WS-D PIC X(12).
+66 WS-NEW RENAMES WS-A THRU WS-C.</code></pre>
+</section>
+<section class="sec"><h2 id="los-archivos">Los archivos</h2>
+<h3 id="que-es-un-archivo">Qué es un archivo</h3>
+<p>Fuente de esta sección: Trabajo Práctico 3 de alumnos, 2015.</p>
+<p>Es un conjunto de registros homogéneos, almacenados en soporte externo, con una relación lógica entre sí. Cada dato de un registro es un campo.</p>
+<h3 id="tipos-segun-su-uso">Tipos según su uso</h3>
+<div class="tabla"><table><thead><tr><th>Clase</th><th>Tipos</th></tr></thead><tbody><tr><td>Permanentes</td><td>De constantes, maestros, históricos</td></tr><tr><td>De movimientos</td><td>Altas, bajas, modificación</td></tr><tr><td>De trabajo</td><td>No los divide</td></tr></tbody></table></div>
+<h3 id="secuencial-e-indexado">Secuencial e indexado</h3>
+<p>Un archivo <strong>secuencial</strong> guarda los registros físicamente contiguos en el soporte. A sus registros solo se accede de forma secuencial. Esta es la declaración que da el trabajo:</p>
+<pre class="codigo"><code>SELECT [OPTIONAL] nombre-de-fichero-interno
+ASSIGN TO dispositivo [nombre-de-fichero-externo]
+[ORGANIZATION IS] [LINE] SEQUENTIAL
+[ACCESS MODE IS SEQUENTIAL].</code></pre>
+<div class="ojo"><p class="ojo-t">Errata del trabajo</p><p>El Trabajo Práctico 3 imprime <code>[[ORGANIZATION IS]][LINE] SEQUENTIAL]</code>, con los corchetes desparejos. Acá quedó <code>[ORGANIZATION IS] [LINE] SEQUENTIAL</code>, porque es la única lectura con los corchetes parejos.</p>
+</div>
+<p>Un archivo <strong>indexado</strong> se declara con su clave. El trabajo no lo define con palabras, pero lo muestra en sus ejemplos:</p>
+<pre class="codigo"><code>SELECT STUDENT ASSIGN TO IN1
+   ORGANIZATION IS INDEXED
+   ACCESS IS RANDOM
+   RECORD KEY IS STUDENT-ID
+   FILE STATUS IS FS.</code></pre>
+<p>Otro ejemplo del mismo trabajo usa <code>ACCESS DYNAMIC</code>. Ninguno explica la diferencia entre <code>RANDOM</code> y <code>DYNAMIC</code>.</p>
+<div class="tomado"><aside class="nota"><strong>Se da por sabido que distingas los dos</strong><span>Finales de 05/2009, 05/2010, 02/2011 y 02/2012 <em class="viejo">Plan viejo</em></span></aside><p>Esos 4 enunciados dicen de entrada cuál archivo es secuencial y cuál indexado. Los de 05/2009, 05/2010 y 02/2011 dicen además cuál es la clave. <mark>Tu declaración tiene que respetar esa organización.</mark></p>
+</div>
+<h3 id="los-verbos">Los verbos</h3>
+<p>El trabajo nombra <code>OPEN</code>, <code>READ</code>, <code>WRITE</code>, <code>REWRITE</code>, <code>DELETE</code> y <code>CLOSE</code>.</p>
+<div class="tabla"><table><thead><tr><th>Verbo</th><th>Sintaxis que da el trabajo</th></tr></thead><tbody><tr><td><code>OPEN</code></td><td><code>OPEN &quot;mode&quot; file-name.</code></td></tr><tr><td><code>READ</code> secuencial</td><td><code>READ file-name NEXT RECORD INTO ws-file-structure</code> con <code>AT END</code> y <code>NOT AT END</code></td></tr><tr><td><code>READ</code> por clave</td><td><code>READ STUDENT KEY IS STUDENT-ID</code> con <code>INVALID KEY</code></td></tr><tr><td><code>WRITE</code></td><td><code>WRITE record-buffer [FROM ws-file-structure]</code></td></tr><tr><td><code>REWRITE</code></td><td><code>REWRITE record-buffer [FROM ws-file-structure]</code></td></tr><tr><td><code>DELETE</code></td><td><code>DELETE file-name RECORD</code> con <code>INVALID KEY</code> y <code>NOT INVALID KEY</code></td></tr><tr><td><code>CLOSE</code></td><td><code>CLOSE file-name.</code></td></tr></tbody></table></div>
+<p>Los modos de <code>OPEN</code> son entrada, salida, ampliar y entrada/salida.</p>
+<div class="tabla"><table><thead><tr><th>Modo</th><th>En el código</th><th>Lo muestra el trabajo</th></tr></thead><tbody><tr><td>Entrada</td><td><code>OPEN INPUT</code></td><td>Sí, para leer</td></tr><tr><td>Salida</td><td><code>OPEN OUTPUT</code></td><td>No, ver la errata de abajo</td></tr><tr><td>Ampliar</td><td><code>OPEN EXTEND</code></td><td>Sí, para agregar con <code>WRITE</code></td></tr><tr><td>Entrada/salida</td><td><code>OPEN I-O</code></td><td>Sí, para <code>REWRITE</code> y <code>DELETE</code></td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Errata del trabajo</p><p>El trabajo dice «sintaxis para leer» en <code>WRITE</code> y en <code>REWRITE</code>. Es un error de traducción. Sus propios ejemplos muestran que <code>WRITE</code> graba un registro y que <code>REWRITE</code> actualiza uno existente.</p>
+<p>Da los modos de <code>OPEN</code> solo en castellano. <code>OUTPUT</code> no aparece en ningún ejemplo del Drive. Lo puse yo como la palabra para «salida». Confirmalo en tu manual.</p>
+<p>Las comillas curvas de <code>‘KEY IS NOT EXISTING’</code> en el trabajo son cosa de Word. En un programa no las copies.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Los ejemplos de archivos no están probados</p><p>El trabajo informa la compilación de otros tres programas, no de estos. Tres de sus ejemplos dejan <code>FD STUDENT</code> sin punto, y usan <code>FILE STATUS IS FS</code> sin declarar <code>FS</code>. Sirven para ver la forma, no para copiarlos.</p>
+</div>
+</section>
+<section class="sec"><h2 id="lo-que-se-pide-y-el-material-no-explica">Lo que se pide y el material no explica</h2>
+<p>Estos temas aparecen en los finales o en la Práctica 1, y ningún archivo del Drive los explica. Vas a necesitar un manual o a tu comisión.</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Dónde aparece</th></tr></thead><tbody><tr><td>Ordenar datos para un listado</td><td>Finales de 05/2009, 12/2010 y 02/2012</td></tr><tr><td>Imprimir un listado, con títulos y agrupado por un campo</td><td>Finales de 05/2009, 05/2010 y 12/2010</td></tr><tr><td>Datos que se repiten con un tope</td><td>Finales de 11/2009 y 05/2010</td></tr><tr><td>Un menú de opciones</td><td>Final de 05/2009</td></tr><tr><td>Condiciones, totales y porcentajes en <code>PROCEDURE</code></td><td>Finales de 05/2010, 02/2011 y 02/2012</td></tr><tr><td>Reglas de los nombres que crea el programador</td><td>Práctica 1, ejercicio 1</td></tr><tr><td>Literales numéricos y no numéricos</td><td>Práctica 1, ejercicios 2 a 4</td></tr><tr><td>Constantes figurativas</td><td>Práctica 1, ejercicio 5</td></tr><tr><td>Usos <code>DISPLAY</code>, <code>COMPUTATIONAL</code> y <code>COMPUTATIONAL-3</code></td><td>Práctica 1, ejercicios 6 y 7</td></tr><tr><td>Categorías de un ítem según su modelo</td><td>Práctica 1, ejercicio 8</td></tr><tr><td>Modelos de edición y <code>DECIMAL-POINT IS COMMA</code></td><td>Práctica 1, ejercicios 11 a 13</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="el-contexto-mainframe-terminal-y-batch">El contexto: mainframe, terminal y batch</h2>
+<p>Fuente: Trabajo Práctico 1 de alumnos, 2015, que sale de páginas web. Ningún final lo pide. Los trabajos de 2015 muestran compilaciones en un sistema z/OS, así que da una idea de dónde se corrían los programas.</p>
+<ul>
+<li><strong>Mainframe:</strong> computadora grande, potente y costosa. La usa una gran compañía para procesar muchos datos, como transacciones bancarias.</li>
+<li><strong>Terminal:</strong> dispositivo para interactuar con una computadora. También se lo llama consola.</li>
+<li><strong>Emulador de terminal:</strong> programa que simula el funcionamiento de una terminal.</li>
+<li><strong>Procesamiento batch:</strong> los programas, los datos y las órdenes se remiten juntos, en lote. Hay poca o ninguna interacción con el usuario mientras corre.</li>
+</ul>
+</section><section class="sec quiz" id="quiz" data-quiz="final" data-materia="cobol">
+<h2>Quiz del final</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="VWhjv79KP-" data-tema="Números de nivel" data-enlace="final.html#numeros-de-nivel" data-tipo="mc"><div class="q-enun" id="qe-final-1"><span class="q-n">1</span><div><p>¿En qué columnas está la zona A de la hoja de codificación?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-1"><li><button type="button" class="op" data-ok="0">1 a 6</button></li><li><button type="button" class="op" data-ok="1">8 a 11</button></li><li><button type="button" class="op" data-ok="0">12 a 72</button></li><li><button type="button" class="op" data-ok="0">7 a 12</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La zona A son las columnas <strong>8 a 11</strong>. La zona B arranca en la 12.</p>
+</div></li><li class="q" data-q="t-HkMmXI2N" data-tema="Números de nivel" data-enlace="final.html#numeros-de-nivel" data-tipo="mc"><div class="q-enun" id="qe-final-2"><span class="q-n">2</span><div><p>¿Para qué se usa el nivel 77?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-2"><li><button type="button" class="op" data-ok="0">Para nombres de condición</button></li><li><button type="button" class="op" data-ok="0">Para la cláusula RENAMES</button></li><li><button type="button" class="op" data-ok="1">Para campos independientes</button></li><li><button type="button" class="op" data-ok="0">Para el primer registro de un archivo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El <strong>77</strong> describe campos independientes. El 88 es para nombres de condición y el 66 para RENAMES.</p>
+</div></li><li class="q" data-q="83x6K8AoM1" data-tema="Números de nivel" data-enlace="final.html#numeros-de-nivel" data-tipo="mc"><div class="q-enun" id="qe-final-3"><span class="q-n">3</span><div><p>Dentro de una estructura, ¿los números de nivel tienen que ser correlativos?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-3"><li><button type="button" class="op" data-ok="1">No, no hace falta</button></li><li><button type="button" class="op" data-ok="0">Sí, siempre de uno en uno</button></li><li><button type="button" class="op" data-ok="0">Solo en WORKING-STORAGE</button></li><li><button type="button" class="op" data-ok="0">Solo en FILE SECTION</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El trabajo lo dice así: los números de nivel utilizados <strong>no tienen por qué ser correlativos</strong>.</p>
+</div></li><li class="q" data-q="S-8P9nDMS0" data-tema="La cláusula PICTURE" data-enlace="final.html#la-clausula-picture" data-tipo="mc"><div class="q-enun" id="qe-final-4"><span class="q-n">4</span><div><p>En una cláusula PICTURE, ¿qué indica el símbolo V?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-4"><li><button type="button" class="op" data-ok="0">Signo</button></li><li><button type="button" class="op" data-ok="0">Valor inicial</button></li><li><button type="button" class="op" data-ok="0">Dato alfanumérico</button></li><li><button type="button" class="op" data-ok="1">Decimal implícito</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><strong>V</strong> es decimal implícito. El signo es S y el valor inicial va en la cláusula VALUE.</p>
+</div></li><li class="q" data-q="LH1D6txKI6" data-tema="La cláusula PICTURE" data-enlace="final.html#la-clausula-picture" data-tipo="mc"><div class="q-enun" id="qe-final-5"><span class="q-n">5</span><div><p>¿Qué admite un dato alfabético?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-5"><li><button type="button" class="op" data-ok="0">Solo dígitos del 0 al 9</button></li><li><button type="button" class="op" data-ok="1">Letras de la A a la Z y espacios</button></li><li><button type="button" class="op" data-ok="0">Dígitos, letras y caracteres especiales</button></li><li><button type="button" class="op" data-ok="0">Letras y dígitos, sin espacios</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Alfabético son <strong>letras y espacios</strong>. Con dígitos y caracteres especiales ya es alfanumérico.</p>
+</div></li><li class="q" data-q="gIqkm1_37T" data-tema="VALUE, REDEFINES y RENAMES" data-enlace="final.html#value-redefines-y-renames" data-tipo="mc"><div class="q-enun" id="qe-final-6"><span class="q-n">6</span><div><p>¿Qué hace la cláusula VALUE?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-6"><li><button type="button" class="op" data-ok="1">Indica el valor inicial del campo hasta que se modifique</button></li><li><button type="button" class="op" data-ok="0">Valida lo que ingresa el usuario</button></li><li><button type="button" class="op" data-ok="0">Impide cambiar el contenido del campo</button></li><li><button type="button" class="op" data-ok="0">Define la longitud del campo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><strong>VALUE</strong> es opcional y da el valor inicial, que dura hasta que el campo se modifica.</p>
+</div></li><li class="q" data-q="cOUMNImhxJ" data-tema="VALUE, REDEFINES y RENAMES" data-enlace="final.html#value-redefines-y-renames" data-tipo="mc"><div class="q-enun" id="qe-final-7"><span class="q-n">7</span><div><p>Según el material, ¿qué condición tienen los datos a los que se les aplica RENAMES?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-7"><li><button type="button" class="op" data-ok="0">Tienen que ser todos numéricos</button></li><li><button type="button" class="op" data-ok="0">Tienen que tener nivel 77</button></li><li><button type="button" class="op" data-ok="1">Tienen que venir en secuencia</button></li><li><button type="button" class="op" data-ok="0">Tienen que estar en FILE SECTION</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los datos renombrados <strong>deben venir en secuencia</strong>, y no se pueden usar los niveles 01, 77 ni 66.</p>
+</div></li><li class="q" data-q="52sgwNmlyJ" data-tema="Secuencial e indexado" data-enlace="final.html#secuencial-e-indexado" data-tipo="mc"><div class="q-enun" id="qe-final-8"><span class="q-n">8</span><div><p>¿Qué caracteriza a un archivo secuencial?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-8"><li><button type="button" class="op" data-ok="0">Se accede a cualquier registro por su clave</button></li><li><button type="button" class="op" data-ok="0">Tiene una tabla de índices aparte</button></li><li><button type="button" class="op" data-ok="0">Solo se usa para impresión</button></li><li><button type="button" class="op" data-ok="1">Sus registros están físicamente contiguos y se accede de forma secuencial</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Almacena los registros <strong>físicamente contiguos</strong> y solo se accede a ellos de forma secuencial.</p>
+</div></li><li class="q" data-q="D9EKFKZNQR" data-tema="Secuencial e indexado" data-enlace="final.html#secuencial-e-indexado" data-tipo="mc"><div class="q-enun" id="qe-final-9"><span class="q-n">9</span><div><p>En los ejemplos del material, ¿con qué cláusula se indica la clave de un archivo indexado?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-9"><li><button type="button" class="op" data-ok="1">RECORD KEY</button></li><li><button type="button" class="op" data-ok="0">FILE STATUS</button></li><li><button type="button" class="op" data-ok="0">ASSIGN TO</button></li><li><button type="button" class="op" data-ok="0">ACCESS MODE</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los ejemplos usan <strong>RECORD KEY IS STUDENT-ID</strong>. FILE STATUS es otra cláusula del mismo SELECT.</p>
+</div></li><li class="q" data-q="Xh6GlFatDa" data-tema="Tipos según su uso" data-enlace="final.html#tipos-segun-su-uso" data-tipo="mc"><div class="q-enun" id="qe-final-10"><span class="q-n">10</span><div><p>¿Cuál de estas clases incluye archivos de altas, bajas y modificación?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-10"><li><button type="button" class="op" data-ok="0">Permanentes</button></li><li><button type="button" class="op" data-ok="0">De trabajo</button></li><li><button type="button" class="op" data-ok="1">De movimientos</button></li><li><button type="button" class="op" data-ok="0">Históricos</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Altas, bajas y modificación son archivos <strong>de movimientos</strong>. Los permanentes son de constantes, maestros e históricos.</p>
+</div></li><li class="q" data-q="1WHL3tgffY" data-tema="Los verbos" data-enlace="final.html#los-verbos" data-tipo="mc"><div class="q-enun" id="qe-final-11"><span class="q-n">11</span><div><p>En los ejemplos del material, ¿con qué modo se abre un archivo antes de un REWRITE?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-11"><li><button type="button" class="op" data-ok="0">INPUT</button></li><li><button type="button" class="op" data-ok="1">I-O</button></li><li><button type="button" class="op" data-ok="0">EXTEND</button></li><li><button type="button" class="op" data-ok="0">Ninguno, no hace falta abrirlo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El ejemplo de REWRITE usa <strong>OPEN I-O STUDENT</strong>. El de DELETE, también.</p>
+</div></li><li class="q" data-q="bVxr5HZLer" data-tema="Los verbos" data-enlace="final.html#los-verbos" data-tipo="mc"><div class="q-enun" id="qe-final-12"><span class="q-n">12</span><div><p>En una lectura secuencial, ¿qué frase del READ atiende el fin de archivo?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-12"><li><button type="button" class="op" data-ok="0">INVALID KEY</button></li><li><button type="button" class="op" data-ok="0">END-READ</button></li><li><button type="button" class="op" data-ok="0">FILE STATUS</button></li><li><button type="button" class="op" data-ok="1">AT END</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><strong>AT END</strong> se ejecuta al llegar al final. INVALID KEY aparece en la lectura por clave.</p>
+</div></li><li class="q" data-q="c73wFw1k9K" data-tema="El contexto" data-enlace="final.html#el-contexto-mainframe-terminal-y-batch" data-tipo="mc"><div class="q-enun" id="qe-final-13"><span class="q-n">13</span><div><p>¿Qué caracteriza al procesamiento batch?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-13"><li><button type="button" class="op" data-ok="0">El usuario responde a cada paso del programa</button></li><li><button type="button" class="op" data-ok="1">Programa, datos y órdenes van juntos en lote, con poca o ninguna interacción</button></li><li><button type="button" class="op" data-ok="0">Solo funciona en microcomputadoras</button></li><li><button type="button" class="op" data-ok="0">Ejecuta cada instrucción desde una terminal</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se remite todo junto <strong>en forma de lote</strong> y casi no hay interacción con el usuario mientras corre.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (finales de 2009 a 2012, prácticas de 2011 y trabajos de alumnos de 2015). No hay nada de 2023 en adelante ni apunte de la cátedra. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

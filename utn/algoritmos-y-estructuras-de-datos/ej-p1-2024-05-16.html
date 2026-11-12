@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>1° parcial, 16/05/2024 (Ferreterías): Algoritmos y Estructuras de Datos</title>
+<meta name="description" content="Ejercicio de examen: 1° parcial, 16/05/2024 (Ferreterías).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="algoritmos-y-estructuras-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Algoritmos y Estructuras de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">3° parcial y final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=algoritmos-y-estructuras-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=algoritmos-y-estructuras-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>1° parcial, 16/05/2024 (Ferreterías)</h1>
+<p class="bajada">1° parcial, 16/05/2024</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="p1-2024-05-16" data-titulo="1° parcial, 16/05/2024 (Ferreterías)" data-min="120" data-otro="ejercicios.html#parcial-1" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="p1-2024-05-16" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1I641kefhlRS7wwSeBFTTXHfrx82SDWxr/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/p1-2024-05-16-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/p1-2024-05-16-e1.webp" width="889" height="674" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p>La hoja pide el diagrama de Chapin. Va un diagrama por módulo, con su declaración de variables arriba, y primero el del programa principal. Si un diagrama no entra en la pantalla, tocalo para verlo completo. Después de los diagramas está el mismo algoritmo en Python, para que lo puedas probar.</p>
+<h4>Programa principal</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 396 192" width="396" height="192" style="width:396px;min-width:396px;max-width:none;height:192px" role="img" aria-label="Diagrama de Chapin del programa principal, con la declaración de variables y los registros. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="160" height="26"/><rect x="14" y="126" width="160" height="26"/><rect x="14" y="152" width="160" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">INICIO()</text><text x="22" y="143.5">CARGA()</text><text x="22" y="169.5">MENU()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Globales</text><text x="14" y="71"># n, numFerre, cantProd, mayorNro, menosDe10: int</text><text x="14" y="88"># precio, totalRecaudado, mayorPresu: float</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">Programa principal</text></svg></figure>
+
+<h4>Variables globales y datos iniciales</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 208 323" width="208" height="323" style="width:208px;min-width:208px;max-width:none;height:323px" role="img" aria-label="Diagrama de Chapin del módulo INICIO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="49" width="179.8" height="26"/><rect x="14" y="75" width="179.8" height="52"/><rect x="38" y="101" width="155.8" height="26"/><rect x="14" y="127" width="179.8" height="26"/><rect x="14" y="153" width="179.8" height="52"/><rect x="38" y="179" width="155.8" height="26"/><rect x="14" y="205" width="179.8" height="26"/><rect x="14" y="231" width="179.8" height="26"/><rect x="14" y="257" width="179.8" height="26"/><rect x="14" y="283" width="179.8" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="66.5">Leer(n)</text><text x="22" y="92.5">Mientras n &lt;= 0:</text><text x="46" y="118.5">Leer(n)</text><text x="22" y="144.5">Leer(precio)</text><text x="22" y="170.5">Mientras precio &lt;= 0:</text><text x="46" y="196.5">Leer(precio)</text><text x="22" y="222.5">totalRecaudado = 0</text><text x="22" y="248.5">mayorPresu = -1</text><text x="22" y="274.5">mayorNro = 0</text><text x="22" y="300.5">menosDe10 = 0</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">INICIO()</text></svg></figure>
+
+<h4>Carga de cada ferretería</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 141" width="372" height="141" style="width:372px;min-width:372px;max-width:none;height:141px" role="img" aria-label="Diagrama de Chapin del módulo LEER_FERRETERIA, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="49" width="343.6" height="26"/><rect x="14" y="75" width="343.6" height="52"/><rect x="38" y="101" width="319.6" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="66.5">Leer(numFerre)</text><text x="22" y="92.5">Mientras numFerre &lt; 100 or numFerre &gt; 999:</text><text x="46" y="118.5">Leer(numFerre)</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">LEER_FERRETERIA()</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 210" width="248" height="210" style="width:248px;min-width:248px;max-width:none;height:210px" role="img" aria-label="Diagrama de Chapin del módulo LEER_PRODUCTOS, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="66" width="219.4" height="26"/><rect x="14" y="92" width="219.4" height="26"/><rect x="14" y="118" width="219.4" height="78"/><rect x="38" y="144" width="195.4" height="26"/><rect x="38" y="170" width="195.4" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="83.5">cantProd = 0</text><text x="22" y="109.5">Leer(codProd)</text><text x="22" y="135.5">Mientras codProd != "*":</text><text x="46" y="161.5">cantProd = cantProd + 1</text><text x="46" y="187.5">Leer(codProd)</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># codProd: str</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">LEER_PRODUCTOS()</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489 340" width="489" height="340" style="width:489px;min-width:489px;max-width:none;height:340px" role="img" aria-label="Diagrama de Chapin del módulo PROCESAR_FERRETERIA, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="66" width="460.6" height="26"/><rect x="14" y="92" width="460.6" height="42"/><rect x="14" y="134" width="460.6" height="26"/><rect x="14" y="160" width="460.6" height="96"/><rect x="14" y="204" width="424.6" height="26"/><rect x="14" y="230" width="424.6" height="26"/><rect x="14" y="256" width="460.6" height="70"/><rect x="14" y="300" width="424.6" height="26"/></g><path class="d-linea" d="M14 160L438.6 204L474.6 160M14 204H474.6M438.6 204V256M14 256L438.6 300L474.6 256M14 300H474.6M438.6 300V326"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="83.5">presu = cantProd * precio</text><text x="22" y="109.5">Mostrar("Ferretería", numFerre, "- productos:", cantProd,</text><text x="22" y="125.5">    "- presupuesto:", presu)</text><text x="22" y="151.5">totalRecaudado = totalRecaudado + presu</text><text x="337" y="176" text-anchor="middle">presu &gt; mayorPresu</text><text x="22" y="221.5">mayorPresu = presu</text><text x="22" y="247.5">mayorNro = numFerre</text><text x="337" y="272" text-anchor="middle">cantProd &lt; 10</text><text x="22" y="317.5">menosDe10 = menosDe10 + 1</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="21" y="197">v</text><text x="467.6" y="197" text-anchor="end">f</text><text x="21" y="293">v</text><text x="467.6" y="293" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># presu: float</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">PROCESAR_FERRETERIA()</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 184" width="232" height="184" style="width:232px;min-width:232px;max-width:none;height:184px" role="img" aria-label="Diagrama de Chapin del módulo CARGA, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="66" width="203.8" height="104"/><rect x="38" y="92" width="179.8" height="26"/><rect x="38" y="118" width="179.8" height="26"/><rect x="38" y="144" width="179.8" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="83.5">for i in range(n):</text><text x="46" y="109.5">LEER_FERRETERIA()</text><text x="46" y="135.5">LEER_PRODUCTOS()</text><text x="46" y="161.5">PROCESAR_FERRETERIA()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># i: int</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">CARGA()</text></svg></figure>
+
+<h4>Menú iterativo</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 997 451" width="997" height="451" style="width:997px;min-width:997px;max-width:none;height:451px" role="img" aria-label="Diagrama de Chapin del módulo MENU, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="83" width="969" height="26"/><rect x="14" y="109" width="969" height="328"/><rect x="38" y="135" width="945" height="26"/><rect x="38" y="161" width="945" height="26"/><rect x="38" y="187" width="945" height="26"/><rect x="38" y="213" width="945" height="26"/><rect x="38" y="239" width="945" height="26"/><rect x="38" y="265" width="945" height="68"/><rect x="62" y="307" width="921" height="26"/><rect x="38" y="333" width="945" height="104"/><rect x="38" y="385" width="226.6" height="42"/><rect x="264.6" y="385" width="328" height="42"/><rect x="592.6" y="385" width="390.4" height="26"/><rect x="592.6" y="411" width="390.4" height="26"/></g><path class="d-linea" d="M38 359H983M38 385H983M264.6 359V437M592.6 359V437"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="100.5">opcion = ""</text><text x="22" y="126.5">Mientras opcion != "d":</text><text x="46" y="152.5">Mostrar("a. Total recaudado por la empresa")</text><text x="46" y="178.5">Mostrar("b. Ferretería con mayor presupuesto")</text><text x="46" y="204.5">Mostrar("c. Porcentaje de ferreterías con menos de 10 productos")</text><text x="46" y="230.5">Mostrar("d. Salir")</text><text x="46" y="256.5">Leer(opcion)</text><text x="46" y="282.5">Mientras opcion != "a" and opcion != "b" and</text><text x="46" y="298.5">    opcion != "c" and opcion != "d":</text><text x="70" y="324.5">Leer(opcion)</text><text x="46" y="350.5">Según opcion:</text><text x="151.3" y="376.5" text-anchor="middle">"a"</text><text x="46" y="402.5">Mostrar("Total recaudado:",</text><text x="46" y="418.5">    totalRecaudado)</text><text x="428.6" y="376.5" text-anchor="middle">"b"</text><text x="272.6" y="402.5">Mostrar("Mayor presupuesto: ferretería",</text><text x="272.6" y="418.5">    mayorNro, "con", mayorPresu)</text><text x="787.8" y="376.5" text-anchor="middle">"c"</text><text x="600.6" y="402.5">porc = menosDe10 / n * 100</text><text x="600.6" y="428.5">Mostrar("Con menos de 10 productos:", porc, "%")</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># opcion: str</text><text x="14" y="71"># porc: float</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">MENU()</text></svg></figure>
+
+<h4>El mismo algoritmo en Python</h4>
+<p>Es el programa que se probó, con las mismas sentencias y en el mismo orden que las cajas. Cada <code>Leer</code> del diagrama es un <code>input</code>, convertido a <code>int</code> o <code>float</code> según la declaración, y cada <code>Mostrar</code> es un <code>print</code>.</p>
+<pre class="codigo"><code><span class="hljs-comment"># Globales</span>
+<span class="hljs-comment"># n, numFerre, cantProd, mayorNro, menosDe10: int</span>
+<span class="hljs-comment"># precio, totalRecaudado, mayorPresu: float</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">INICIO</span>():
+    <span class="hljs-keyword">global</span> n, precio, totalRecaudado, mayorPresu, mayorNro, menosDe10
+    n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Cantidad de ferreterías: &quot;</span>))
+    <span class="hljs-keyword">while</span> n &lt;= <span class="hljs-number">0</span>:
+        n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Tiene que ser mayor que 0: &quot;</span>))
+    precio = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Precio por publicación: &quot;</span>))
+    <span class="hljs-keyword">while</span> precio &lt;= <span class="hljs-number">0</span>:
+        precio = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Tiene que ser mayor que 0: &quot;</span>))
+    totalRecaudado = <span class="hljs-number">0</span>
+    mayorPresu = -<span class="hljs-number">1</span>
+    mayorNro = <span class="hljs-number">0</span>
+    menosDe10 = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">LEER_FERRETERIA</span>():
+    <span class="hljs-keyword">global</span> numFerre
+    numFerre = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Número de ferretería (100 a 999): &quot;</span>))
+    <span class="hljs-keyword">while</span> numFerre &lt; <span class="hljs-number">100</span> <span class="hljs-keyword">or</span> numFerre &gt; <span class="hljs-number">999</span>:
+        numFerre = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Número inválido, entre 100 y 999: &quot;</span>))
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">LEER_PRODUCTOS</span>():
+    <span class="hljs-comment"># codProd: str</span>
+    <span class="hljs-keyword">global</span> cantProd
+    cantProd = <span class="hljs-number">0</span>
+    codProd = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Código de producto (* para terminar): &quot;</span>)
+    <span class="hljs-keyword">while</span> codProd != <span class="hljs-string">&quot;*&quot;</span>:
+        cantProd = cantProd + <span class="hljs-number">1</span>
+        codProd = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Código de producto (* para terminar): &quot;</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">PROCESAR_FERRETERIA</span>():
+    <span class="hljs-comment"># presu: float</span>
+    <span class="hljs-keyword">global</span> totalRecaudado, mayorPresu, mayorNro, menosDe10
+    presu = cantProd * precio
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ferretería&quot;</span>, numFerre, <span class="hljs-string">&quot;- productos:&quot;</span>, cantProd, <span class="hljs-string">&quot;- presupuesto:&quot;</span>, presu)
+    totalRecaudado = totalRecaudado + presu
+    <span class="hljs-keyword">if</span> presu &gt; mayorPresu:
+        mayorPresu = presu
+        mayorNro = numFerre
+    <span class="hljs-keyword">if</span> cantProd &lt; <span class="hljs-number">10</span>:
+        menosDe10 = menosDe10 + <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">CARGA</span>():
+    <span class="hljs-comment"># i: int</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):
+        LEER_FERRETERIA()
+        LEER_PRODUCTOS()
+        PROCESAR_FERRETERIA()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">MENU</span>():
+    <span class="hljs-comment"># opcion: str</span>
+    <span class="hljs-comment"># porc: float</span>
+    opcion = <span class="hljs-string">&quot;&quot;</span>
+    <span class="hljs-keyword">while</span> opcion != <span class="hljs-string">&quot;d&quot;</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;a. Total recaudado por la empresa&quot;</span>)
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;b. Ferretería con mayor presupuesto&quot;</span>)
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;c. Porcentaje de ferreterías con menos de 10 productos&quot;</span>)
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;d. Salir&quot;</span>)
+        opcion = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción: &quot;</span>)
+        <span class="hljs-keyword">while</span> opcion != <span class="hljs-string">&quot;a&quot;</span> <span class="hljs-keyword">and</span> opcion != <span class="hljs-string">&quot;b&quot;</span> <span class="hljs-keyword">and</span> opcion != <span class="hljs-string">&quot;c&quot;</span> <span class="hljs-keyword">and</span> opcion != <span class="hljs-string">&quot;d&quot;</span>:
+            opcion = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción inválida, de a a d: &quot;</span>)
+        <span class="hljs-keyword">match</span> opcion:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;a&quot;</span>:
+                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Total recaudado:&quot;</span>, totalRecaudado)
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;b&quot;</span>:
+                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Mayor presupuesto: ferretería&quot;</span>, mayorNro, <span class="hljs-string">&quot;con&quot;</span>, mayorPresu)
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;c&quot;</span>:
+                porc = menosDe10 / n * <span class="hljs-number">100</span>
+                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Con menos de 10 productos:&quot;</span>, porc, <span class="hljs-string">&quot;%&quot;</span>)
+
+<span class="hljs-comment"># Programa principal</span>
+INICIO()
+CARGA()
+MENU()</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la hoja del examen y la página del 1° parcial (fin de datos, contadores, acumuladores, máximo, porcentaje, validar y menú iterativo). El menú con <code>match</code> y la declaración en comentarios siguen las preguntas frecuentes de los TP 2024. El Chapin sigue la forma de las diapositivas del examen de Historia Clínica de 2019.</p><p class="bloque-fuente">Quedó en duda: La hoja no dice de dónde salen N ni el precio por publicación. Acá se leen al principio, validados mayores que 0. El fin de datos es un <code>*</code>, porque los códigos son letras y números y un asterisco no puede ser un código real. El presupuesto de cada ferretería es la cantidad de productos por el precio único. El total recaudado es la suma de los presupuestos. Si dos ferreterías empatan en el mayor presupuesto, se muestra la primera. Las diapositivas de la materia no muestran en Chapin la lectura de datos ni la selección múltiple. Acá van como <code>Leer</code> y como <code>Según</code>, con una columna por caso.</p><div class="em-votos" data-m="algoritmos-y-estructuras-de-datos" data-e="p1-2024-05-16" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Chapin" data-enlace="parcial-1.html#como-viene-el-examen" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Chapin</span><span class="ex-t-teoria"><a href="parcial-1.html#como-viene-el-examen">Cómo viene el examen</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Repetición" data-enlace="parcial-1.html#repeticion" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Repetición</span><span class="ex-t-teoria"><a href="parcial-1.html#repeticion">Repetición</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Menú" data-enlace="parcial-1.html#menu-iterativo" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Menú</span><span class="ex-t-teoria"><a href="parcial-1.html#menu-iterativo">Menú iterativo</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><span></span><a href="ej-p1-2023-05-17.html">Siguiente: 1° parcial, 17/05/2023 (Vacunas)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta mayo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

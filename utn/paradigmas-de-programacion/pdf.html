@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Paradigmas de Programación en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Paradigmas de Programación, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="paradigmas-de-programacion" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Paradigmas de Programación</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Paradigmas de Programación</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial-1">Parcial de regularización</a></li><li><a href="#pdf-ad">Aprobación directa</a></li><li><a href="#pdf-final">Final</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Paradigmas de Programación</p><h1>Para entender</h1>
+<p class="bajada">Casi todo el examen es lo mismo: leer una narrativa, armar un diagrama de clases y escribir en Smalltalk cómo se registra algo y cómo se lista.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Los exámenes de 2022 o antes son del plan anterior. En esta materia el contenido es el mismo, así que siguen sirviendo.</p>
+
+
+<section class="sec"><h2 id="inicio-de-que-va-la-materia">De qué va la materia</h2>
+<p>Un paradigma es una forma de pensar un programa. En el material aparecen tres.</p>
+<div class="tabla"><table><thead><tr><th>Paradigma</th><th>Cómo aparece</th><th>Dónde se toma, de 2023 en adelante</th></tr></thead><tbody><tr><td>Orientado a objetos</td><td>Objetos que se mandan mensajes. Lenguaje: Smalltalk</td><td>17 de 17 exámenes de desarrollo y el cuestionario del 22/09/2023</td></tr><tr><td>Lógico</td><td>Base de conocimiento, hechos, reglas y consultas</td><td>3 hojas de cuestionario: las dos versiones del 15/06/2023 y el Parcial N°2 de 2024</td></tr><tr><td>Funcional</td><td>Funciones matemáticas puras y datos inalterables</td><td>Las mismas 3 hojas</td></tr></tbody></table></div>
+<p>El peso grande está en objetos. Lógico y funcional aparecen solo en preguntas teóricas del campus.</p>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido">El recorrido</h2>
+<ol>
+<li>Entendés los conceptos de objetos: clase, objeto, mensaje, herencia, polimorfismo. Están en <a href="#pdf-parcial-1">Regularización</a>.</li>
+<li>Aprendés a leer una narrativa y a dibujar el diagrama. Está en <a href="#pdf-ad">Aprobación directa</a>.</li>
+<li>Aprendés las piezas de Smalltalk para registrar y listar. Están en <a href="#pdf-final">Final</a>.</li>
+<li>Practicás con enunciados reales en <a href="ejercicios.html">Ejercicios</a>.</li>
+</ol>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p>Para las cantidades contamos solo lo de 2023 en adelante. Son 17 exámenes de desarrollo y 4 hojas de cuestionario. Los exámenes son 6 de aprobación directa (2023 a 2025) y 11 finales (2023 a 2026). Las hojas son de 2023 y 2024.</p>
+<div class="tomado"><aside class="nota"><strong>Cómo vienen los exámenes de desarrollo</strong><span>17 de 17, de 2023 a 2026</span></aside><p>Todos piden dos cosas. <mark>1) El Diagrama de Clases</mark> y <mark>2) métodos en Smalltalk</mark>. 16 de 17 piden registrar una operación y emitir un listado. El del Vivero (13/02/2023) pide menú, carga inicial de descuentos y alta de un pedido. <mark>12 de 17 aclaran que no se codifica el menú</mark>, 2 lo piden y 3 no dicen nada. El detalle está en <a href="#final-si-te-piden-menu">Final</a>.</p>
+</div>
+<ul>
+<li>La frase «Se evaluará la óptima utilización de los recursos del paradigma y del lenguaje» está en 10 de 17. Otros 3 hablan de aplicar el paradigma orientado a objetos. Los últimos 4 no dicen cómo se evalúa.</li>
+<li>Los exámenes de desarrollo se hacen en hojas. 12 de 17 piden escribir de un solo lado, numerar y poner tus datos.</li>
+<li>Las 3 hojas de lógico y funcional traen 8 preguntas, 6 de verdadero o falso y 2 de opción múltiple.</li>
+<li>La hoja de objetos, del 22/09/2023, trae 10 preguntas. Es la más nueva de objetos que hay en el Drive.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Qué resoluciones son oficiales</p><p>Solo la corrección automática de los 4 cuestionarios del campus. Está en <a href="ejercicios.html">Ejercicios</a>. Lo que marcó el alumno en esas capturas no cuenta. De los exámenes de desarrollo no hay ninguna oficial. Las que revisamos están escritas a mano o sin firma, y varias de 2023 son hojas de alumnos corregidas por un docente. Por eso no las publicamos. Sus consignas también están en Ejercicios, y las piezas para armarlas, en <a href="#pdf-final">Final</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-el-material-que-se-usa-aca">El material que se usa acá</h2>
+<p>Nada de esto dice quién lo escribió, así que no lo presentamos como palabra de la cátedra.</p>
+<ul>
+<li>Glosario de definiciones (Material Util).</li>
+<li>«Estructuras útiles en Smalltalk» (Material Util). Moldes de menú, carga, filtro y listado.</li>
+<li>«Colecciones» (Material Util). Un capítulo de un tutorial de Smalltalk sobre cada tipo de colección y sus mensajes. Está en <a href="#parcial-1-colecciones">Regularización</a> y en <a href="#final-ordenar-con-assortedcollection">Final</a>.</li>
+<li>Tres ejercicios resueltos (Material Util). No son exámenes y traen errores de tipeo.</li>
+<li>Lo que sí viene de la cátedra son los enunciados y las respuestas que muestra el campus en los cuestionarios.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Lo que este resumen no pudo cubrir</p><p>No hay apunte de lógico y funcional. Del apunte de <a href="https://drive.google.com/file/d/1Z4WVKv3KQHqT6bVayroNybHj2SfItj6b/view">Colecciones</a> tomamos el texto. Sus diagramas, como la jerarquía de clases de las colecciones, son imágenes que no pudimos ver. Abrilo vos si los necesitás.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-1" data-pagina="parcial-1" aria-label="Parcial de regularización"><p class="pdf-de">Paradigmas de Programación</p><h1>Parcial de regularización</h1>
+<p class="bajada">Un cuestionario del campus con verdadero o falso, opción múltiple y relacionar conceptos. Sobre objetos, o sobre paradigma lógico y funcional.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-1-que-se-tomo">Qué se tomó</h2>
+<div class="tabla"><table><thead><tr><th>Evaluación</th><th>Tema</th><th>Preguntas</th></tr></thead><tbody><tr><td>Parcial N°2, 2024</td><td>Lógico y funcional</td><td>8</td></tr><tr><td>Parcial para regularizar, 22/09/2023</td><td>Objetos y Smalltalk</td><td>10</td></tr><tr><td>Parcial para regularizar, 15/06/2023 (dos versiones)</td><td>Lógico y funcional</td><td>8 cada una</td></tr><tr><td>Banco de preguntas, 2022</td><td>Objetos y Smalltalk</td><td>Varias evaluaciones juntas, del plan viejo</td></tr></tbody></table></div>
+<p>De 2023 en adelante el Drive tiene 4 hojas, tres de lógico y funcional y una de objetos. El nombre «N°2» de 2024 hace pensar en otro de objetos, pero no está. Los conceptos de objetos también hacen falta para los 17 exámenes de desarrollo de 2023 a 2026.</p>
+<div class="tomado"><aside class="nota"><strong>Lógico y funcional</strong><span>Parcial N°2 2024 y las dos versiones del 15/06/2023</span></aside><p>Las tres hojas traen 8 preguntas: 6 de verdadero o falso y 2 de opción múltiple. <mark>Tipos de datos genéricos</mark> sale en las 3. Inmutabilidad, evaluación perezosa, funciones puras, fundamentos del paradigma lógico y base de conocimiento salen en 2 de 3.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Objetos</strong><span>Parcial 22/09/2023 y Banco de preguntas 2022</span></aside><p><mark>Unir definiciones con conceptos</mark> y <mark>arrastrar variables y métodos a un diagrama de clases</mark>. También hay verdadero o falso sobre variables de clase, self, super y abstracción, y qué da una expresión de Smalltalk.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-conceptos-de-objetos">Conceptos de objetos</h2>
+<p>Primero la intuición. Un programa orientado a objetos es una comunidad de objetos que se piden cosas mandándose mensajes. Cada objeto sabe hacer lo suyo y esconde cómo.</p>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Qué dice el glosario</th></tr></thead><tbody><tr><td>Programación orientada a objetos</td><td>Una metodología de programación construida alrededor de objetos. Se basa en la interacción de los objetos mediante el envío de mensajes. Sus conceptos básicos son el encapsulamiento, la herencia y el polimorfismo</td></tr><tr><td>Objeto</td><td>El bloque de construcción básico en el desarrollo de Smalltalk. Cualquier cosa que puede mostrar un comportamiento, o sea, a la que se le pueden asignar responsabilidades. Todo el código y los datos de Smalltalk deben ser parte de un objeto</td></tr><tr><td>Clase</td><td>Un objeto que especifica las propiedades generales para los tipos específicos de objetos. Incluye la descripción de los atributos, de los comportamientos y de la implementación de un objeto. Los objetos representados por una clase se llaman instancias de la clase. Todas las acciones a las que un objeto responde se definen en la descripción de su clase</td></tr><tr><td>Instancia</td><td>Un objeto que es una ocurrencia particular de una determinada clase. Existe en memoria o en un medio externo en forma permanente</td></tr><tr><td>Comportamiento</td><td>(1) El conjunto externo de características que exhibe un objeto. (2) La clase abstracta que da un comportamiento común para las clases y metaclases</td></tr><tr><td>Mensaje</td><td>La comunicación de un objeto a otro que solicita que el objeto receptor ejecute un método. Consiste en una referencia al receptor, un selector que indica el método solicitado y, generalmente, los argumentos que usa el método. Por el receptor, puede ser un mensaje de instancia o un mensaje de clase</td></tr><tr><td>Método</td><td>El código ejecutable que implementa la lógica de un mensaje particular de una clase. Hay dos tipos, método de clase y método de instancia</td></tr><tr><td>Receptor</td><td>El objeto que recibe el mensaje</td></tr><tr><td>Transmisor</td><td>El objeto que envía un mensaje a otro objeto</td></tr><tr><td>Argumento</td><td>Un dato incluido como parte de un mensaje. Da información adicional que el receptor puede usar para la operación pedida. Los toman los mensajes binarios y los de palabra clave. En uno de palabra clave, los dos puntos después de la palabra clave indican que se necesita un argumento</td></tr><tr><td>Encapsulamiento</td><td>Oculta la representación de los datos internos de un objeto. El objeto proporciona una interfaz que consulta y manipula los datos sin exponer su estructura interna. El objeto solamente dice qué puede hacer, pero no cómo lo hace</td></tr><tr><td>Herencia</td><td>La relación entre las clases en la que una clase comparte su estructura y comportamiento de otra. Una subclase hereda todo de una superclase</td></tr><tr><td>Jerarquía de clases</td><td>Una estructura de árbol que define las relaciones entre las clases. Una clase tiene subclases debajo y superclases por encima. Los métodos y las variables de una clase los heredan sus subclases</td></tr><tr><td>Superclase</td><td>Una clase de la cual otra hereda el comportamiento y las especificaciones, o sea, los métodos y variables</td></tr><tr><td>Subclase</td><td>Hereda de otra clase el comportamiento y las especificaciones, es decir los métodos y las variables</td></tr><tr><td>Polimorfismo</td><td>La capacidad de los objetos que, siendo diferentes, pueden responder a un mismo mensaje de maneras diferentes. Objetos diferentes pueden tener implementaciones de métodos diferentes para un mismo mensaje. Un objeto puede enviar un mensaje sin importarle cómo el receptor lo implementa</td></tr><tr><td>Redefinición</td><td>Volver a definir un método que ya existe en alguna clase superior (superclase)</td></tr><tr><td>Clase abstracta</td><td>Da comportamiento común a sus subclases y no está pensada para generar instancias</td></tr><tr><td>Abstracción</td><td>Una descripción o vista simplificada de algo que enfatiza las características o los propósitos relevantes al usuario, y suprime los detalles que son inmateriales o que distraen</td></tr><tr><td>TAD</td><td>Tipo de dato creado por el programador con un conjunto de operaciones asignadas a él. Un objeto encapsula un TAD</td></tr><tr><td>Metaclase</td><td>La especificación de una clase, es decir, la completa descripción de los atributos, el comportamiento y la implementación de una clase. Toda clase tiene una metaclase de la cual es instancia</td></tr><tr><td>Variable</td><td>Un lugar de almacenamiento dentro de un objeto para un dato, donde el dato es un objeto</td></tr><tr><td>nil</td><td>El objeto que en Smalltalk significa «sin valor». Todas las variables arrancan en nil. Es la única instancia de la clase UndefinedObject</td></tr><tr><td>Literal</td><td>Un objeto creado por el compilador: un número, una cadena de caracteres, un carácter, un símbolo o un vector. Todos los literales son únicos, y dos literales con el mismo valor referencian al mismo objeto. El objeto creado por un literal es inalterable</td></tr><tr><td>Comentario</td><td>Un conjunto de caracteres encerrados entre comillas dobles. Smalltalk ignora los comentarios y no los ejecuta</td></tr><tr><td>Diccionario compartido (pool dictionary)</td><td>Un diccionario cuyas claves definen variables que pueden compartir varias clases. Todos los métodos de una clase pueden acceder a las variables de un diccionario compartido</td></tr></tbody></table></div>
+<p>Fuente: Material Util, Glosario, término de cada fila. El glosario no dice quién lo escribió. Su definición de encapsulamiento coincide palabra por palabra con una consigna del parcial del 22/09/2023.</p>
+<p>Según el mismo glosario, la definición de una clase contiene cinco cosas.</p>
+<ol>
+<li>El nombre de la clase.</li>
+<li>El tipo de clase.</li>
+<li>La superclase inmediata.</li>
+<li>Las variables de instancia y de clase.</li>
+<li>Los diccionarios compartidos que usa la clase.</li>
+</ol>
+<p>Fuente: Glosario, «Definición de la clase». Es lo que muestra el Browser de Smalltalk al definir una clase, como se ve en <a href="#ad-que-lleva-el-diagrama">Aprobación directa</a>.</p>
+<h3 id="parcial-1-lo-que-marca-el-campus">Lo que marca el campus</h3>
+<p>El campus muestra la respuesta correcta al revisar un cuestionario. Estas definiciones salen de ahí, de preguntas de relacionar.</p>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Definición</th></tr></thead><tbody><tr><td>Clase</td><td>Define atributos y comportamientos que tendrán los objetos creados a partir de ella</td></tr><tr><td>Objeto</td><td>Una entidad que tiene un conjunto de responsabilidades y que encapsula un estado interno</td></tr><tr><td>Mensaje</td><td>Se envía a los objetos para que interactúen y colaboren</td></tr><tr><td>Método</td><td>Implementa un comportamiento en la clase</td></tr><tr><td>Polimorfismo</td><td>La habilidad de dos o más objetos de responder a un mensaje con el mismo nombre, cada uno a su manera</td></tr><tr><td>Encapsulamiento</td><td>Esconder los detalles de la implementación que no contribuyen a las características esenciales</td></tr><tr><td>Redefinición</td><td>Una subclase define un método que ya está definido en alguna de sus clases padre</td></tr><tr><td>Ensamble</td><td>Involucra dos objetos distintos, donde uno es parte del otro</td></tr><tr><td>Herencia</td><td>Relaciona clases y es una manera de estructurar la descripción de un solo objeto</td></tr><tr><td>Programa</td><td>Colección de objetos cooperantes</td></tr></tbody></table></div>
+<p>Fuente: Banco de preguntas 2022, páginas 10, 12, 15 y 16, y Parcial para regularizar 22/09/2023, pregunta 10.</p>
+<details open class="pregunta"><summary><span>Mensaje y método tienen el mismo significado</span><small>Parcial 22/09/2023 y Banco 2022</small></summary><div class="resp"><p>Falso. El mensaje es el pedido que se le manda a un objeto. El método es el código con el que el receptor lo atiende. Fuente: Parcial para regularizar 22/09/2023, pregunta 4, respuesta del campus. Glosario, «Mensaje» y «Método».</p>
+</div></details>
+<details open class="pregunta"><summary><span>El polimorfismo en programación orientada a objetos es</span><small>Banco 2022</small></summary><div class="resp"><p>«Es la capacidad de enviar el mismo mensaje desde distintos objetos y cada uno de esos objetos receptores responde a ese mensaje (o a esa invocación) de forma distinta.» Las otras opciones hablaban de métodos con distinto nombre e igual código, o con el mismo resultado siempre. Fuente: Banco de preguntas 2022, página 18, respuesta del campus.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Las cualidades de un objeto son estado, comportamiento e identidad</span><small>Banco 2022</small></summary><div class="resp"><p>Verdadero. Fuente: Banco de preguntas 2022, página 10, respuesta del campus.</p>
+</div></details>
+<details open class="pregunta"><summary><span>El binding dinámico permite implementar el polimorfismo, ya que en tiempo de ejecución se enlaza el mensaje con el método, acorde al receptor</span><small>Banco 2022</small></summary><div class="resp"><p>Verdadero. Fuente: Banco de preguntas 2022, página 6, respuesta del campus.</p>
+</div></details>
+<details open class="pregunta"><summary><span>La abstracción expresa las características esenciales de un objeto, las cuales distinguen a los objetos de una clase de los de otra</span><small>Parcial 22/09/2023 y Banco 2022</small></summary><div class="resp"><p>Verdadero. La versión de la misma pregunta que dice «NO expresa» es falsa. Fuente: Parcial para regularizar 22/09/2023, preguntas 6 y 9, respuesta del campus.</p>
+</div></details>
+<h3 id="parcial-1-variables">Variables</h3>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Quién la ve</th><th>Qué pasa al cambiarla</th></tr></thead><tbody><tr><td>Variable de instancia</td><td>Privada de cada instancia, oculta a los accesos directos del resto de los objetos. Solo la tocan los métodos de instancia de la clase y sus subclases</td><td>Cada objeto tiene su valor</td></tr><tr><td>Variable de clase</td><td>Compartida por la clase que la define y sus subclases. La usan directo los métodos de instancia y los de clase, de la clase y de sus subclases</td><td>Si cambia, cambia para toda la jerarquía</td></tr><tr><td>Variable de instancia de la clase</td><td>Información privada de la clase. Solo la tocan métodos de clase. Cada subclase tiene su copia</td><td>No cambia en las otras clases</td></tr><tr><td>Variable temporal</td><td>Solo dentro del método o bloque donde se define</td><td>Se pierde al terminar</td></tr></tbody></table></div>
+<p>Fuente: Glosario, términos «Variable de clase», «Variable de instancia», «Variable de instancia de la clase» y «Variable Temporal».</p>
+<p>El glosario agrega que el conjunto de variables de instancia define las características particulares de un objeto. Todos los objetos de una clase tienen la misma cantidad de variables de instancia, pero sus valores son diferentes. Fuente: Glosario, «Variable de instancia».</p>
+<details open class="pregunta"><summary><span>Desde un método de instancia se puede acceder a las variables de clase y de instancia de la misma clase y de las superclases</span><small>Parcial 22/09/2023</small></summary><div class="resp"><p>Verdadero. Fuente: Parcial para regularizar 22/09/2023, pregunta 5, respuesta del campus. Glosario, «Variable de clase» y «Variable de instancia».</p>
+</div></details>
+<details open class="pregunta"><summary><span>Una variable de clase es</span><small>Banco 2022</small></summary><div class="resp"><p>Una variable común a todas las instancias. Fuente: Banco de preguntas 2022, página 5, respuesta del campus.</p>
+</div></details>
+<details open class="pregunta"><summary><span>Una subclase puede heredar variables de clase y de instancia de su superclase</span><small>Banco 2022</small></summary><div class="resp"><p>Verdadero. Fuente: Banco de preguntas 2022, página 5, respuesta del campus.</p>
+</div></details>
+<div class="ojo"><p class="ojo-t">Acá el material no coincide</p><p>El Banco de 2022 (página 18) marca como falso que «el valor de una variable de clase puede ser modificado por cualquier instancia de la clase». El glosario dice que los métodos de instancia pueden referirse directamente a las variables de clase. No encontramos nada que lo aclare. Si te lo toman, preguntá en la cursada.</p>
+</div>
+<p>Cómo se usa cada variable en una narrativa está en <a href="#ad-como-leer-la-narrativa">Aprobación directa</a>.</p>
+<h3 id="parcial-1-metodos-de-clase-y-de-instancia">Métodos de clase y de instancia</h3>
+<ul>
+<li>Un método de instancia da el comportamiento de las instancias de la clase. Los mensajes que lo invocan se mandan a una instancia particular, no a la clase.</li>
+<li>Un método de clase da el comportamiento de la clase. El mensaje que lo invoca se manda a la clase, no a la instancia.</li>
+</ul>
+<p>Fuente: Glosario, «Método de Clase» y «Método de Instancia».</p>
+<details open class="pregunta"><summary><span>Un método de clase tiene como objeto receptor a</span><small>Parcial 22/09/2023 y Banco 2022</small></summary><div class="resp"><p>La clase a la que pertenece el método. Fuente: Parcial para regularizar 22/09/2023, pregunta 1, respuesta del campus.</p>
+</div></details>
+<h3 id="parcial-1-self-y-super">self y super</h3>
+<p>Las dos son pseudovariables que hacen referencia al receptor del mensaje. Se usan dentro de un método para mandarle un mensaje nuevo al receptor del mensaje original. La diferencia es dónde empieza la búsqueda del método. Con <code>self</code> empieza en la clase a la que pertenece el receptor. Con <code>super</code> empieza en la superclase, y sirve para llegar a un método redefinido.</p>
+<p>Fuente: Glosario, «Self» y «Super».</p>
+<details open class="pregunta"><summary><span>Si el método carga es «saldo := saldo+1. self deposito.» y en el workspace se hace «x := caja-ahorro new. x carga.»</span><small>Banco 2022</small></summary><div class="resp"><p>El diagrama de la consigna tiene la clase <code>cuentas</code>, con <code>saldo</code>, <code>nombre</code> y <code>deposito</code>, y dos subclases. <code>cta-cte</code> tiene <code>costos</code> y <code>carga</code>. <code>caja-ahorro</code> tiene <code>gastos</code>, <code>deposito</code> y <code>carga</code>. El campus marca «ejecuta deposito de caja-ahorro». Fuente: Banco de preguntas 2022, página 11, respuesta del campus. Glosario, «Self».</p>
+</div></details>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensalo como una receta de familia. <code>self</code> es «buscá primero en mi cuaderno y, si no está, en el de mis viejos». <code>super</code> es «salteá mi cuaderno y andá directo al de mis viejos». En los dos casos cocinás vos. Cambia solo dónde arranca la búsqueda.</p>
+</div>
+<pre class="codigo"><code><span class="hljs-symbol">#cargaDatos</span>
+<span class="hljs-keyword">super</span> cargaDatos.
+credito := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese cretido al mayorista&#x27;</span>) asNumber.</code></pre>
+<p>La subclase llama al <code>cargaDatos</code> de la superclase y después carga lo suyo. Fuente: Material Util, Ejercicio resuelto 1 (Distribuidora), página 7, clase Mayorista. El «cretido» es del original.</p>
+<details open class="pregunta"><summary><span>Las variables self y super son una misma variable con distinto nombre y se utilizan indistintamente</span><small>Banco 2022</small></summary><div class="resp"><p>Falso. Fuente: Banco de preguntas 2022, página 12, respuesta del campus.</p>
+</div></details>
+<h3 id="parcial-1-clase-abstracta">Clase abstracta</h3>
+<details open class="pregunta"><summary><span>Una clase abstracta</span><small>Banco 2022</small></summary><div class="resp"><p>No tiene instancias. Fuente: Banco de preguntas 2022, página 9, respuesta del campus.</p>
+</div></details>
+<h3 id="parcial-1-ensamble">Ensamble</h3>
+<details open class="pregunta"><summary><span>Una relación de ensamble es una relación entre objetos del tipo</span><small>Banco 2022</small></summary><div class="resp"><p>Las dos opciones que da la consigna son correctas: «todo-parte» y «es parte de». Fuente: Banco de preguntas 2022, página 16, respuesta del campus.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="parcial-1-tipos-de-mensaje">Tipos de mensaje</h2>
+<p>El glosario distingue tres.</p>
+<ul>
+<li>Unario: sin argumentos. Ejemplo: <code>size</code>.</li>
+<li>Binario: especifica una acción sobre el receptor y un objeto adicional que va como argumento. Su nombre no lleva ningún carácter alfanumérico. Se usa para aritmética, comparaciones y operaciones lógicas. Ejemplo: <code>X + Y</code>, con <code>+</code> como selector binario.</li>
+<li>De palabra clave: uno o más argumentos. Una palabra clave es un identificador seguido de dos puntos. Cada palabra clave requiere un argumento, y el orden de las palabras clave importa. Ejemplo: <code>&#39;hola&#39; at: 2 put: $H</code>. Los selectores son <code>at:</code> y <code>put:</code>, y los argumentos, <code>2</code> y <code>$H</code>.</li>
+</ul>
+<p>Fuente: Glosario, «Mensaje unario», «Mensaje Binario» y «Mensaje de palabra clave».</p>
+<div class="tomado"><aside class="nota"><strong>Qué da una expresión de Smalltalk</strong><span>Parcial 22/09/2023, pregunta 2, y Banco 2022, página 7</span></aside><p>Dos cuestionarios lo preguntan: <code>16 min: 4 / 3 rounded</code> (22/09/2023) y <code>(5 + 6)* 3 factorial min: 0</code> (Banco 2022). Para contestar hace falta el orden en que se evalúan los tres tipos de mensaje. El material que pudimos leer no lo explica, y no lo inventamos. Preguntalo en la cursada. La respuesta del campus para la primera está en la <a href="ej-reg-2023-09-22.html#resolucion">resolución del 22/09/2023</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-colecciones">Colecciones</h2>
+<p>Una colección es un conjunto de elementos, y cada elemento es un objeto. Un diccionario es una colección desordenada cuyos elementos se acceden por una clave. Fuente: Glosario, «Colección» y «Diccionario».</p>
+<details open class="pregunta"><summary><span>El método do: [bloque] enviado a una variable de la clase bag</span><small>Parcial 22/09/2023 y Banco 2022</small></summary><div class="resp"><p>Ejecuta el bloque para todos los elementos del bag. Fuente: Parcial para regularizar 22/09/2023, pregunta 7, respuesta del campus.</p>
+</div></details>
+<p>Lo que sigue sale de «Colecciones» (Material Util), un capítulo de un tutorial de Smalltalk en castellano. Como el glosario, no dice quién lo escribió.</p>
+<h3 id="parcial-1-que-cambia-de-una-coleccion-a-otra">Qué cambia de una colección a otra</h3>
+<p>Una colección maneja un grupo de objetos, y cada elemento es un puntero a un objeto. A la mayoría no le importa de qué clase es cada elemento. Algunas sí, como String, que solo guarda caracteres. Las colecciones se diferencian en estas cosas.</p>
+<ul>
+<li><strong>Tamaño.</strong> Algunas crecen y se achican, y sirven para listas que cambian, como los clientes de un negocio. Otras tienen tamaño fijo, se manejan de forma más eficiente y convienen cuando la cantidad de elementos se conoce y es estable.</li>
+<li><strong>Organización.</strong> Una colección organizada tiene un orden sobre sus elementos. Puede ser un índice, como en Array, una clave, como en Dictionary, o un orden interno, como en SortedCollection.</li>
+<li><strong>Indexación.</strong> Permite pedir el elemento de un lugar fijo. Los índices empiezan en 1 y terminan en el tamaño de la colección. Un elemento queda en su lugar hasta que se lo mueva explícitamente.</li>
+<li><strong>Duplicados.</strong> Algunas no permiten el mismo elemento dos veces.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Colección</th><th>Indexación</th><th>Tamaño variable</th><th>Duplicados</th><th>Orden</th><th>Contenidos</th></tr></thead><tbody><tr><td>Bag</td><td>N</td><td>S</td><td>S</td><td>N</td><td>Cualquier objeto, pero no nil</td></tr><tr><td>Set</td><td>N</td><td>S</td><td>N</td><td>N</td><td>Cualquier objeto, pero no nil</td></tr><tr><td>Array</td><td>S</td><td>N</td><td>S</td><td>N</td><td>Cualquier objeto</td></tr><tr><td>OrderedCollection</td><td>S</td><td>S</td><td>S</td><td>N</td><td>Cualquier objeto</td></tr><tr><td>SortedCollection</td><td>S</td><td>S</td><td>S</td><td>S</td><td>Cualquier objeto</td></tr><tr><td>String</td><td>S</td><td>N</td><td>S</td><td>N</td><td>Caracteres</td></tr><tr><td>Symbol</td><td>S</td><td>N</td><td>N</td><td>N</td><td>Caracteres</td></tr><tr><td>Dictionary</td><td>N</td><td>S</td><td>N</td><td>N</td><td>Clave + cualquier objeto</td></tr></tbody></table></div>
+<p>S es comportamiento soportado y N, no soportado. Fuente: Colecciones, «Clases de Colecciones Comunes».</p>
+<p>Según el mismo apunte, las colecciones tienen comportamientos en común. Representan un grupo de objetos llamados elementos y dan una estructura de datos básica para programar. Reemplazan los ciclos de los lenguajes tradicionales con los mensajes <code>do:</code>, <code>detect:</code>, <code>select:</code> y <code>collect:</code>. Y tienen mensajes de cuatro categorías: agregar elementos, eliminarlos, ver cuántas veces aparece uno y recorrerlos.</p>
+<h3 id="parcial-1-cada-coleccion">Cada colección</h3>
+<p><strong>Bag.</strong> Una colección desorganizada, preparada para una búsqueda eficiente. Guarda sus elementos en un orden al azar y no se puede indexar. Crece y decrece, y acepta el mismo objeto varias veces. Conviene si el orden no importa y los duplicados tampoco. El apunte da como ejemplo una lista de clientes.</p>
+<pre class="codigo"><code>unaBag := #(<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span>) asBag.
+unaBag size.             <span class="hljs-comment">&quot;6&quot;</span>
+unaBag occurrencesOf: <span class="hljs-number">3.</span> <span class="hljs-comment">&quot;4&quot;</span></code></pre>
+<p><strong>Set.</strong> Igual a Bag, pero no permite duplicados. Ignora cualquier pedido que agregaría un elemento repetido. Asegurarse de que no hay duplicados agrega un costo cada vez que se añade un objeto.</p>
+<pre class="codigo"><code>unSet := #(<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span>) asSet.
+unSet size.             <span class="hljs-comment">&quot;3&quot;</span>
+unSet occurrencesOf: <span class="hljs-number">3.</span> <span class="hljs-comment">&quot;1&quot;</span></code></pre>
+<p><strong>Array.</strong> Tamaño fijo, indexado por enteros que empiezan en 1. No crece ni disminuye y acepta duplicados. Sirve cuando el tamaño se conoce y cambia raramente, como las habitaciones de un edificio. La cantidad de lugares se fija al crearlo. Para agrandarlo hay que crear otra instancia.</p>
+<pre class="codigo"><code>unArray := <span class="hljs-type">Array</span> new: <span class="hljs-number">3.</span>
+unArray at: <span class="hljs-number">1</span> put: <span class="hljs-string">&#x27;hola&#x27;</span>.
+unArray at: <span class="hljs-number">1.</span> <span class="hljs-comment">&quot;&#x27;hola&#x27;&quot;</span>
+unArray at: <span class="hljs-number">3.</span> <span class="hljs-comment">&quot;nil&quot;</span></code></pre>
+<p><strong>OrderedCollection.</strong> Tiene el protocolo más completo de todas y es el «caballo de batalla» más usado. Se indexa con enteros desde 1, acepta objetos de cualquier clase y duplicados. Es para listas de tamaño variable que necesitan controlar dónde queda cada elemento. Puede crecer porque guarda sus elementos en otra colección indexable a la que apunta desde una variable de instancia.</p>
+<pre class="codigo"><code>autos := <span class="hljs-type">OrderedCollection</span> new.
+autos add: <span class="hljs-string">&#x27;Fiat&#x27;</span>.
+autos addFirst: <span class="hljs-string">&#x27;Peugeot&#x27;</span>.
+autos addLast: <span class="hljs-string">&#x27;Ford&#x27;</span>.
+^autos <span class="hljs-comment">&quot;OrderedCollection(&#x27;Peugeot&#x27; &#x27;Fiat&#x27; &#x27;Ford&#x27;)&quot;</span></code></pre>
+<p><strong>SortedCollection.</strong> Guarda los objetos en el orden que indica un bloque de dos argumentos, el sortBlock. Cómo funciona está en <a href="#final-ordenar-con-assortedcollection">Final</a>.</p>
+<p><strong>String.</strong> Igual a Array, pero solo guarda caracteres. No crece ni disminuye, pero se indexa. Responde a <code>at:</code> y <code>at:put:</code>, y no a <code>add:</code> ni a <code>remove:</code>. Lo que parece agrandarla crea un String nuevo, como la coma que pega dos cadenas. <code>&#39;abc&#39; at: 1</code> devuelve una instancia de Character. Las cadenas tienen además mensajes propios. <code>trimBlanks</code> devuelve la cadena sin los espacios iniciales. <code>upTo:</code> devuelve la cadena hasta el primer carácter que se le pasa, como en <code>&#39;Marzo 10, 2000&#39; upTo: $,</code>.</p>
+<p><strong>Symbol.</strong> Las clases los usan para los selectores de sus métodos. Si <code>Cliente</code> tiene un método <code>nombre</code>, su símbolo es <code>#nombre</code>. También sirven de claves únicas en un diccionario. Un símbolo es de solo lectura una vez creado y es único, porque no puede haber dos con el mismo valor. Tiene tamaño fijo y solo se crea con un literal, como <code>#Simbolo</code>. Por eso no responde a <code>new:</code>, <code>with:</code>, <code>add:</code> ni <code>at:put:</code>. La coma sí, pero devuelve una cadena y no un símbolo.</p>
+<p><strong>Dictionary.</strong> Es como una base de datos simple. Es una colección desorganizada cuyos elementos se acceden por una clave externa asignada explícitamente. Cada par clave y valor es una instancia de Association. Las claves suelen ser cadenas o símbolos, pero puede ser cualquier objeto. Las claves son únicas, y la comparación se hace con la igualdad <code>=</code>.</p>
+<p>Fuente: Colecciones, una sección por cada colección.</p>
+<h3 id="parcial-1-como-elegir-la-coleccion">Cómo elegir la colección</h3>
+<p>Al final del archivo hay una hoja escaneada con «un algoritmo posible a seguir para seleccionar la colección más adecuada de acuerdo al problema a modelar». La misma hoja aclara que la elección «debería hacerse de manera intuitiva, considerando las características de cada una de las opciones disponibles».</p>
+<ol>
+<li>¿Usa claves para acceder a sus elementos? Si no, pasá al paso 5.</li>
+<li>¿Las claves son enteros? Si no, es un <strong>Dictionary</strong>.</li>
+<li>¿Tiene tamaño variable o desconocido? Si no, es un <strong>Array</strong>.</li>
+<li>¿Está ordenada por un criterio de orden particular, distinto del de inserción? Si sí, es una <strong>SortedCollection</strong>. Si no, una <strong>OrderedCollection</strong>.</li>
+<li>Sin claves, ¿permite duplicados? Si sí, es un <strong>Bag</strong>. Si no, un <strong>Set</strong>.</li>
+</ol>
+<p>Fuente: Colecciones (Material Util), hoja «Cómo elegir la colección más adecuada?», al final del archivo.</p>
+<h3 id="parcial-1-mensajes-de-un-diccionario">Mensajes de un diccionario</h3>
+<div class="tabla"><table><thead><tr><th>Mensaje</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>add: unaAsociacion</code></td><td>Agrega la asociación y la devuelve</td></tr><tr><td><code>removeKey: unaClave</code></td><td>Elimina la asociación con esa clave y devuelve su valor. Si la clave no está, aparece la ventana de depuración</td></tr><tr><td><code>at: unaClave</code></td><td>Devuelve el valor de esa clave. Si no existe, aparece la ventana de depuración</td></tr><tr><td><code>keyAtValue: unValor</code></td><td>Devuelve la clave del primer valor igual al argumento. Si no está, aparece la ventana de depuración</td></tr><tr><td><code>at: unaClave put: unValor</code></td><td>Reemplaza el valor de esa clave. Si la clave no está, la agrega. Sirve en lugar de <code>add:</code> y devuelve <code>unValor</code></td></tr><tr><td><code>do: unBloque</code></td><td>Recorre el diccionario. El argumento del bloque es el valor de cada asociación</td></tr><tr><td><code>keysDo: unBloque</code></td><td>Recorre el diccionario. El argumento del bloque es la clave de cada asociación</td></tr><tr><td><code>keys</code></td><td>Devuelve un Set con todas las claves</td></tr><tr><td><code>values</code></td><td>Devuelve un Bag con todos los valores</td></tr></tbody></table></div>
+<p>Las claves vuelven en un Set porque no puede haber claves repetidas, y los valores en un Bag porque sí puede haber valores repetidos. Fuente: Colecciones, «Dictionary».</p>
+<p>Los mensajes que entienden todas las colecciones, con código, están en <a href="#final-mensajes-de-colecciones">Final</a>.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-paradigma-logico">Paradigma lógico</h2>
+<div class="ojo"><p class="ojo-t">De dónde sale esto</p><p>No hay apunte de lógico y funcional. Todo lo de estas dos secciones es la corrección automática del campus en tres hojas, y no agregamos nada propio. Las hojas están en <a href="ejercicios.html">Ejercicios</a>. No alcanza para programar en estos paradigmas. Si tu comisión los dio con otro material, guiate por ese.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Consigna</th><th>El campus marca</th><th>Dónde</th></tr></thead><tbody><tr><td>Los predicados son relaciones sin una «dirección» predefinida, y sus argumentos actúan como entrada y como salida</td><td>Verdadero</td><td>2024, pregunta 1</td></tr><tr><td>El paradigma lógico tiene sus fundamentos en la lógica proposicional</td><td>Verdadero</td><td>2024, pregunta 5. 15/06/2023, versión 2, pregunta 3</td></tr><tr><td>¿Qué es la unificación?</td><td>El mecanismo mediante el cual las variables lógicas toman valor</td><td>2024, pregunta 6</td></tr><tr><td>Un programa lógico contiene una base de conocimiento sobre la que se hacen consultas</td><td>Verdadero</td><td>2024, pregunta 8</td></tr><tr><td>¿Cómo está formada la base de conocimiento?</td><td>Por hechos y reglas</td><td>15/06/2023, versión 2, pregunta 4</td></tr><tr><td>¿Qué son las reglas?</td><td>Cláusulas que definen nuevas relaciones basadas en relaciones ya existentes</td><td>15/06/2023, versión 1, pregunta 1</td></tr><tr><td>Los lenguajes del paradigma lógico son declarativos</td><td>Verdadero</td><td>15/06/2023, versión 1, pregunta 5</td></tr><tr><td>Los lenguajes del paradigma lógico son imperativos</td><td>Falso</td><td>15/06/2023, versión 2, pregunta 5</td></tr><tr><td>Un programa lógico realiza las consultas sobre una base de datos relacional</td><td>Falso</td><td>15/06/2023, versión 1, pregunta 6</td></tr><tr><td>Un programa lógico está formado por expresiones que describen la solución</td><td>Verdadero</td><td>15/06/2023, versión 1, pregunta 7</td></tr><tr><td>Un programa lógico es un algoritmo que indica los pasos para llegar a un resultado</td><td>Falso</td><td>15/06/2023, versión 2, pregunta 6</td></tr></tbody></table></div>
+<p>Fuente: Examenes/Parciales/1° Parcial, archivos «Parcial N°2 - 2024», «1 - Paradigma Logico y Funcional 2023-06-15» (versión 1) y «2 - Paradigma Logico y Funcional 2023-06-15» (versión 2).</p>
+</section>
+<section class="sec"><h2 id="parcial-1-paradigma-funcional">Paradigma funcional</h2>
+<div class="tabla"><table><thead><tr><th>Consigna</th><th>El campus marca</th><th>Dónde</th></tr></thead><tbody><tr><td>Un programa funcional se centra en el uso de funciones matemáticas puras</td><td>Verdadero</td><td>15/06/2023, versiones 1 y 2</td></tr><tr><td>¿Qué significa la inmutabilidad de los datos?</td><td>Los datos son inalterables y no se pueden modificar una vez creados</td><td>2024, pregunta 3. 15/06/2023, versión 1, pregunta 4</td></tr><tr><td>La inmutabilidad es una característica de los programas funcionales</td><td>Verdadero</td><td>2024, pregunta 4</td></tr><tr><td>En la evaluación perezosa o diferida, las expresiones no se evalúan enseguida y se posterga hasta que su valor sea necesario</td><td>Verdadero</td><td>2024, pregunta 2. 15/06/2023, versión 1, pregunta 2</td></tr><tr><td>En los lenguajes funcionales no está permitido el uso de tipos de datos genéricos</td><td><mark>Falso</mark></td><td>2024, pregunta 7. 15/06/2023, versiones 1 y 2</td></tr><tr><td>¿Qué significa componer y combinar funciones?</td><td>Utilizar funciones existentes para crear nuevas funciones más complejas</td><td>15/06/2023, versión 2, pregunta 1</td></tr><tr><td>La inferencia de tipos permite deducir los tipos sin que se especifiquen explícitamente</td><td>Verdadero</td><td>15/06/2023, versión 2, pregunta 7</td></tr></tbody></table></div>
+<p>Fuente: los mismos tres archivos de Examenes/Parciales/1° Parcial.</p>
+</section></section>
+<section class="pdf-parte" id="pdf-ad" data-pagina="ad" aria-label="Aprobación directa"><p class="pdf-de">Paradigmas de Programación</p><h1>Aprobación directa</h1>
+<p class="bajada">Un enunciado de una página: la narrativa de un negocio, un diagrama de clases y dos métodos en Smalltalk.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="ad-que-se-tomo">Qué se tomó</h2>
+<p>Contamos los seis exámenes de aprobación directa de 2023 a 2025 que hay en el Drive.</p>
+<div class="tabla"><table><thead><tr><th>Fecha</th><th>Negocio</th><th>Qué se registra</th><th>Qué se lista</th></tr></thead><tbody><tr><td>13/02/2023</td><td>Vivero</td><td>Pedido, y antes la carga inicial de descuentos</td><td>Ningún listado aparte. Al armar el pedido se muestran las plantas, por precio base descendente</td></tr><tr><td>24/06/2024</td><td>Tienda de antigüedades</td><td>Compra de objetos</td><td>Compras en un rango de fechas, por fecha ascendente</td></tr><tr><td>07/11/2024</td><td>Biblioteca</td><td>Préstamo de materiales</td><td>Préstamos activos</td></tr><tr><td>07/11/2024</td><td>Hospital veterinario</td><td>Atención de un animal</td><td>Atenciones en un rango de fechas, por fecha ascendente</td></tr><tr><td>03/11/2025</td><td>Tienda de mascotas</td><td>Venta, con ticket</td><td>Ventas de la fecha actual, por monto descendente</td></tr><tr><td>05/11/2025</td><td>Verdulería</td><td>Venta, con ticket y stock</td><td>Ventas de la última semana, por fecha de venta</td></tr></tbody></table></div>
+<p>Los enunciados están en <a href="ejercicios.html">Ejercicios</a>. La fecha exacta de Biblioteca, Veterinaria y Verdulería sale del nombre del archivo. Las hojas dicen «Noviembre 2024» o no se ve el encabezado. La hoja del Vivero dice «ciclo 2022», pero se rindió el 13/02/2023. La contamos por esa fecha.</p>
+<div class="tomado"><aside class="nota"><strong>Estructura repetida</strong><span>6 de 6 exámenes de aprobación directa, 2023 a 2025</span></aside><p>Los seis piden <mark>1) el Diagrama de Clases</mark> y <mark>2) métodos en Smalltalk</mark>. Los cinco de 2024 y 2025 piden dos métodos. Uno registra una operación y el otro emite un listado o informe. Esos cinco aclaran «No codificar el menú de opciones» y «Se evaluará la óptima utilización de los recursos del paradigma y del lenguaje». El del Vivero pide otra cosa: un menú principal, la carga inicial de descuentos y el alta de un pedido.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Leé las notas del final de la hoja</p><p>Cada enunciado dice qué ya está cargado, y eso decide qué programás. Cambia de un examen a otro.</p>
+<ul>
+<li>Vivero: los plantines y los árboles.</li>
+<li>Antigüedades: los datos de los objetos.</li>
+<li>Biblioteca: «No considerar que los materiales se encuentran cargados en el sistema».</li>
+<li>Veterinaria: los veterinarios y los tratamientos.</li>
+<li>Mascotas y Verdulería: todos los productos y parte de los clientes.</li>
+</ul>
+</div>
+<div class="ojo"><p class="ojo-t">Erratas en la hoja de la Biblioteca</p><p>Dice «relaciones de enseñanza» donde otros 15 exámenes de 2023 a 2026 dicen «ensamble». También trae una frase rota: «El sistema no se encuentra en el sistema debe estar disponible para los socios». Si te pasa en un examen, preguntá en el momento.</p>
+</div>
+</section>
+<section class="sec"><h2 id="ad-como-leer-la-narrativa">Cómo leer la narrativa</h2>
+<p>Los ejemplos de esta sección salen de los tres ejercicios resueltos de Material Util, que no son exámenes. No dicen quién los escribió, pero coinciden entre sí y con los cuestionarios del campus.</p>
+<h3 id="ad-1-sustantivos-con-datos-propios-son-clases">1. Sustantivos con datos propios son clases</h3>
+<p>Todo lo que tiene «se conoce» o «se registra» es candidato a clase. En la Distribuidora del Ejercicio resuelto 1 son <code>Producto</code>, <code>Cliente</code> y <code>Pedido</code>. Además hay una clase principal, <code>Distribuidora</code>, que guarda las colecciones. Fuente: Ejercicio resuelto 1, páginas 3 y 4.</p>
+<h3 id="ad-2-tres-tipos-de-x-es-herencia">2. «Tres tipos de X» es herencia</h3>
+<p>Cuando algo se clasifica en tipos con datos o cálculos distintos, aparece una superclase con lo común y una subclase por tipo.</p>
+<div class="tabla"><table><thead><tr><th>Ejercicio resuelto</th><th>Superclase</th><th>Subclases</th></tr></thead><tbody><tr><td>1, Distribuidora</td><td><code>Producto</code></td><td><code>Granel</code>, <code>Paquete</code></td></tr><tr><td>1, Distribuidora</td><td><code>Cliente</code></td><td><code>Mayorista</code>, <code>Minorista</code></td></tr><tr><td>2, Instituto</td><td><code>Curso</code></td><td><code>CursoPresencial</code>, <code>CursoOnline</code></td></tr><tr><td>3, Ferretería</td><td><code>Herramienta</code></td><td><code>HerramientaManual</code>, <code>HerramientaPesada</code></td></tr></tbody></table></div>
+<p>Según el glosario, la subclase hereda métodos y variables de la superclase. En los ejercicios 2 y 3, cada subclase implementa su propio <code>costoTotal</code>. Eso es polimorfismo. Quien lo usa manda el mismo mensaje y cada objeto responde a su manera. Fuente: Ejercicio resuelto 2, página 9, y Ejercicio resuelto 3, página 9.</p>
+<h3 id="ad-3-igual-para-todos-y-distinto-para-cada-uno">3. «Igual para todos» y «distinto para cada uno»</h3>
+<div class="tabla"><table><thead><tr><th>El enunciado dice</th><th>Va como</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Un valor igual para todos los de ese tipo</td><td>Variable de clase, con mayúscula</td><td><code>Incremento</code> en <code>Minorista</code>, <code>Seguro</code> en <code>HerramientaPesada</code>, <code>CostoEntrega</code> en <code>CursoOnline</code></td></tr><tr><td>Un valor distinto para cada objeto</td><td>Variable de instancia</td><td><code>credito</code> en <code>Mayorista</code>, <code>costoMateriales</code> en <code>CursoPresencial</code></td></tr><tr><td>Un número asignado automáticamente e incremental</td><td>Variable de clase en la clase que numera, y un método de clase que la incrementa</td><td><code>UltimoCodigo</code> en <code>Cliente</code> y en <code>Alquiler</code>, <code>UltimoId</code> en <code>Curso</code></td></tr></tbody></table></div>
+<p>Fuente: Ejercicio resuelto 1, páginas 3 y 4. Ejercicio resuelto 2, páginas 4 y 5. Ejercicio resuelto 3, página 3. Glosario, «Variable de clase» y «Variable de instancia».</p>
+<p>Los porcentajes aparecen en una consigna del campus con esta forma, que da el mismo enunciado: <code>precio + (precio * (Incremento / 100))</code>. Fuente: Banco de preguntas 2022, página 13.</p>
+<h3 id="ad-4-lo-que-tiene-una-lista-es-ensamble">4. Lo que tiene una lista es ensamble</h3>
+<p>Si una operación incluye varias cosas, su clase guarda una colección. Es la relación de ensamble. El material muestra dos formas.</p>
+<ul>
+<li>Sin cantidad: <code>Alquiler</code> guarda directamente <code>herramientas</code>. Fuente: Ejercicio resuelto 3, páginas 3 y 4.</li>
+<li>Con cantidad por cada cosa: <code>Pedido</code> guarda <code>items</code>, y <code>ItemPedido</code> tiene <code>producto</code> y <code>cantidad</code>. Fuente: Ejercicio resuelto 1, página 4.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="ad-que-lleva-el-diagrama">Qué lleva el diagrama</h2>
+<p>Las consignas piden clases, subclases, variables de instancia, variables de clase, métodos de instancia, métodos de clase, y relaciones de ensamble y de herencia.</p>
+<p>Cada clase se dibuja como una caja de cuatro celdas. Los diagramas de los cuestionarios del campus rotulan las celdas así.</p>
+<div class="tabla"><table><thead><tr><td></td><td></td></tr></thead><tbody><tr><td>vc: variables de clase</td><td>vi: variables de instancia</td></tr><tr><td>mc: métodos de clase</td><td>mi: métodos de instancia</td></tr></tbody></table></div>
+<p>Fuente: Banco de preguntas 2022, páginas 9 y 13.</p>
+<details open class="pregunta"><summary><span>Ordene el siguiente diagrama con los métodos y variables de clase e instancia como corresponda (un negocio que vende artículos a sus clientes)</span><small>Banco 2022</small></summary><div class="resp"><p>En la clase <code>Articulo</code>, <code>Incremento</code> va en vc, <code>asignaIncremento</code> en mc, <code>descripcion</code>, <code>codigo</code> y <code>precio</code> en vi, y <code>calculaTotal</code> en mi. En <code>Negocio</code>, <code>articulos</code> y <code>clientes</code> van en vi, y <code>menuPrincipal</code> en mi. En <code>Cliente</code>, <code>nombre</code> y <code>email</code> van en vi. Fuente: Banco de preguntas 2022, página 13, con «Respuesta correcta» del campus.</p>
+</div></details>
+<p>Para las líneas, mirá el <a href="https://drive.google.com/file/d/1EoX790kZZO4gNeRFoZS3TEfakBKcIoVj/view">diagrama del Ejercicio resuelto 1</a>, página 2. La herencia es una flecha punteada de la subclase a la superclase. El ensamble es una línea con su cantidad, como <code>1..N</code> o <code>1..1</code>. Ese mismo archivo muestra las clases en formato de Browser.</p>
+<pre class="codigo"><code><span class="hljs-type">Cliente</span> subclass: <span class="hljs-symbol">#Minorista</span>
+       instanceVariableNames: <span class="hljs-string">&#x27;&#x27;</span>
+       classVariableNames: <span class="hljs-string">&#x27;Incremento&#x27;</span>
+       poolDictionaries: <span class="hljs-string">&#x27;&#x27;</span>
+       category: <span class="hljs-string">&#x27;&#x27;</span></code></pre>
+<p>Fuente: Ejercicio resuelto 1, página 4. Cada renglón es una parte de la definición de la clase del glosario. Están la superclase inmediata (<code>Cliente</code>) y el nombre (<code>#Minorista</code>). Después vienen las variables de instancia, las de clase y los diccionarios compartidos (<code>poolDictionaries</code>). Fuente: Glosario, «Definición de la clase» y «Diccionario Compartido».</p>
+<div class="ojo"><p class="ojo-t">Lo que no encontramos</p><p>Ningún enunciado de 2023 en adelante dice cómo hay que dibujar el diagrama. Lo de arriba sale de los cuestionarios y de un ejercicio sin autor. En los cuestionarios algunas variables llevan la marca <code>(ooo)</code>, como <code>medicos(ooo)</code>, y el material no explica qué significa.</p>
+</div>
+</section>
+<section class="sec"><h2 id="ad-que-llevan-los-metodos">Qué llevan los métodos</h2>
+<p>Las piezas se explican en <a href="#final-las-plantillas-del-drive">Final</a> y en <a href="#final-como-se-arma-el-programa">Cómo se arma el programa</a>. Son las mismas para aprobación directa y para el final.</p>
+</section>
+<section class="sec"><h2 id="ad-que-mirar-antes-de-rendir">Qué mirar antes de rendir</h2>
+<ul>
+<li>Si el listado es por rango de fechas, por una fecha o de lo activo, y por qué se ordena.</li>
+<li>Qué pide mostrar el ticket o el recibo, y de dónde sale cada dato.</li>
+<li>Si pide validar algo antes de registrar, como el stock o la disponibilidad.</li>
+</ul>
+</section></section>
+<section class="pdf-parte" id="pdf-final" data-pagina="final" aria-label="Final"><p class="pdf-de">Paradigmas de Programación</p><h1>Final</h1>
+<p class="bajada">El mismo examen de diagrama y Smalltalk, y las piezas de código que aparecen en el material del Drive.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="final-que-se-tomo">Qué se tomó</h2>
+<p>Contamos los 11 finales de 2023 a 2026 que hay en el Drive.</p>
+<div class="tabla"><table><thead><tr><th>Fecha</th><th>Negocio</th><th>Qué se registra</th><th>Qué pide además</th></tr></thead><tbody><tr><td>27/02/2023</td><td>Fábrica de electrodomésticos</td><td>Pedido</td><td>Alta del cliente. Informar el número de pedido</td></tr><tr><td>03/04/2023</td><td>Carpintería</td><td>Orden de fabricación</td><td>Alta del cliente. Asignar el primer carpintero disponible o abortar con un mensaje</td></tr><tr><td>29/05/2023</td><td>Parque nacional</td><td>Visita y sus actividades</td><td>Un método para cada registro, más el listado</td></tr><tr><td>28/08/2023</td><td>Inmobiliaria El Hornero</td><td>Venta o alquiler</td><td>Actualizar el estado de la propiedad</td></tr><tr><td>25/09/2023</td><td>Alquiler de equipos de montaña</td><td>Alquiler</td><td>Menú principal. Alta del cliente. Equipos disponibles, con actualización. Emitir un resumen</td></tr><tr><td>13/11/2023</td><td>Reciclaje</td><td>Orden de reciclaje</td><td>Alta del reciclador. Imprimir un resumen</td></tr><tr><td>11/12/2023</td><td>Milla Fiel</td><td>Consumo</td><td>Alta del cliente. Mostrar las millas obtenidas</td></tr><tr><td>28/04/2025</td><td>Taller de obras de arte</td><td>Solicitud de restauración</td><td>Alta del cliente. Asignar el primer restaurador disponible de la especialidad. Informar el costo total</td></tr><tr><td>27/04/2026</td><td>Plataforma de cursos online</td><td>Venta de cursos</td><td>Alta del estudiante. Validar que el curso exista. Imprimir un comprobante</td></tr><tr><td>18/05/2026</td><td>Tienda de instrumentos</td><td>Compra</td><td>Alta del cliente. Validar existencia y stock. Actualizar el stock. Informar el total</td></tr><tr><td>31/08/2026</td><td>Editorial Tecnobook</td><td>Compra</td><td>Alta del cliente. Verificar que la cantidad sea mayor a cero. Emitir un recibo</td></tr></tbody></table></div>
+<p>El de Tecnobook se titula «Evaluación» y está en la carpeta de finales del Drive. Las hojas de Carpintería, El Hornero y Montaña dan solo el mes. El día sale del nombre del archivo.</p>
+<div class="tomado"><aside class="nota"><strong>Estructura repetida</strong><span>11 de 11 finales, 2023 a 2026</span></aside><p>Los once piden <mark>diagrama de clases</mark> y <mark>métodos en Smalltalk</mark> para registrar una operación y emitir un listado. <mark>9 de 11 listan por rango de fechas</mark>. Los otros dos son Fábrica, por una fecha, y Reciclaje, por un reciclador. 7 de 11 aclaran que no se programa el menú.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final-que-pide-cada-consigna-de-listado">Qué pide cada consigna de listado</h2>
+<p>Lo que dicen los enunciados de 2023 en adelante. La tabla no resuelve nada, solo marca qué se pide.</p>
+<div class="tabla"><table><thead><tr><th>Examen</th><th>Filtro</th><th>Orden</th></tr></thead><tbody><tr><td>Vivero, 13/02/2023</td><td>Ninguno. Se muestra al armar el pedido</td><td>Precio base descendente</td></tr><tr><td>Fábrica, 27/02/2023</td><td>Una fecha que ingresa el usuario</td><td>Dirección del cliente, alfabético</td></tr><tr><td>Carpintería, 03/04/2023</td><td>Rango de fechas</td><td>Fecha ascendente</td></tr><tr><td>Parque nacional, 29/05/2023</td><td>Rango de fechas</td><td>Fecha, cronológico</td></tr><tr><td>El Hornero, 28/08/2023</td><td>Rango de fechas</td><td>Comisión decreciente</td></tr><tr><td>Montaña, 25/09/2023</td><td>Rango de fechas</td><td>Fecha creciente</td></tr><tr><td>Reciclaje, 13/11/2023</td><td>Un reciclador</td><td>Fecha creciente</td></tr><tr><td>Milla Fiel, 11/12/2023</td><td>Rango de fechas</td><td>No lo pide</td></tr><tr><td>Antigüedades, 24/06/2024</td><td>Rango de fechas</td><td>Fecha ascendente</td></tr><tr><td>Biblioteca, 07/11/2024</td><td>Préstamos activos</td><td>No lo pide</td></tr><tr><td>Veterinaria, 07/11/2024</td><td>Rango de fechas</td><td>Fecha ascendente</td></tr><tr><td>Obras de arte, 28/04/2025</td><td>Rango de fechas</td><td>Fecha ascendente</td></tr><tr><td>Mascotas, 03/11/2025</td><td>Fecha actual</td><td>Monto descendente</td></tr><tr><td>Verdulería, 05/11/2025</td><td>Última semana</td><td>Fecha de venta</td></tr><tr><td>Cursos, 27/04/2026</td><td>Rango de fechas</td><td>Tipo de curso</td></tr><tr><td>Instrumentos, 18/05/2026</td><td>Rango de fechas</td><td>Fecha descendente</td></tr><tr><td>Tecnobook, 31/08/2026</td><td>Rango de fechas</td><td>Fecha ascendente</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Lo que más se repite en el listado</strong><span>17 enunciados, 2023 a 2026</span></aside><p><mark>11 de 17 piden un rango de fechas</mark> y 10 de 17 ordenan por fecha. 4 de 17 piden un orden descendente. Tecnobook pide además el importe total de todas las compras listadas.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final-si-te-piden-menu">Si te piden menú</h2>
+<div class="tomado"><aside class="nota"><strong>El menú</strong><span>17 enunciados, 2023 a 2026</span></aside><p><mark>2 de 17 lo piden</mark>: el Vivero (13/02/2023) y Montaña (25/09/2023). 12 de 17 aclaran que no se programa. Carpintería, El Hornero y Milla Fiel no dicen nada. Desde 2024, los 9 aclaran que no.</p>
+</div>
+<pre class="codigo"><code>menu
+<span class="hljs-comment">&quot;Menu de opciones iterativo&quot;</span>
+|op|
+[op ~= <span class="hljs-number">0</span>] whileTrue: [
+    <span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;MENU
+        1- Opcion 1
+        2- Opcion 2
+        3- Opcion 3
+        0- Salir&#x27;</span>.
+    op := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la opción que desea ejecutar&#x27;</span>) asNumber.
+    op = <span class="hljs-number">1</span> ifTrue: [<span class="hljs-keyword">self</span> metodo1].
+    op = <span class="hljs-number">2</span> ifTrue: [<span class="hljs-keyword">self</span> metodo2].
+    op = <span class="hljs-number">3</span> ifTrue: [<span class="hljs-keyword">self</span> metodo3]]</code></pre>
+<pre class="codigo"><code>|w|
+w := <span class="hljs-type">Lugar</span> new.
+w inicializa.
+w menu</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, página 1, «Menú genérico» y «Workspace genérico». En el original faltan los puntos finales entre las líneas del ciclo. Es un molde genérico y no dice quién lo escribió.</p>
+</section>
+<section class="sec"><h2 id="final-las-plantillas-del-drive">Las plantillas del Drive</h2>
+<p>El archivo «Estructuras útiles en Smalltalk» de Material Util da moldes genéricos. No dice quién lo escribió. Los copiamos cambiando comillas tipográficas por rectas y arreglando lo que marcamos.</p>
+<h3 id="final-crear-un-objeto-y-mandarle-un-mensaje">Crear un objeto y mandarle un mensaje</h3>
+<pre class="codigo"><code>nombreObjeto := <span class="hljs-type">Clase</span> new.
+nombreObjeto metodo.</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, página 1, «Crear objeto y que ejecute un método».</p>
+<h3 id="final-carga-si-no-existe">Carga si no existe</h3>
+<p>La plantilla pide el dato que identifica al objeto y lo busca en la colección. Si no hay, crea el objeto, le pide los datos y lo agrega. Después crea el objeto de la operación y le pasa el que encontró o creó.</p>
+<pre class="codigo"><code>|parametro objetoNuevo clasecita|
+parametro := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese parametro&#x27;</span>.
+objetoNuevo := lista detect: [:i | i oParametro = parametro] ifNone: [
+    objetoNuevo := <span class="hljs-type">Lugar</span> new.
+    objetoNuevo cargaDatos.
+    objetos add: objetoNuevo].
+clasecita := <span class="hljs-type">Clase</span> new.
+clasecita cargaDatos: objetoNuevo</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «Carga si no existe genérica». En el original la variable temporal se declara <code>clasesita</code> y después se usa <code>clasecita</code>. Acá va igual en los dos lugares. Los ejercicios resueltos hacen lo mismo en dos pasos, como se ve en <a href="#final-buscar-o-crear">Buscar o crear</a>.</p>
+<h3 id="final-cargadatos-setters-y-getters">cargaDatos, setters y getters</h3>
+<pre class="codigo"><code>cargaDatos
+<span class="hljs-keyword">self</span> iPelicula: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la pelicula que se exhibe en la sala&#x27;</span>).
+<span class="hljs-keyword">self</span> iHorario: ((<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el horario de la pelicula en la sala&#x27;</span>) asNumber).
+
+iNombre: unString
+nombre := unString
+
+oNombre
+^nombre</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «cargaDatos genérico», «Métodos setter» y «Métodos getter». En el original a la segunda línea le faltan comillas. Si el dato es un número, se convierte con <code>asNumber</code>.</p>
+<h3 id="final-fecha">Fecha</h3>
+<pre class="codigo"><code>fecha := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha&#x27;</span>).
+fecha := <span class="hljs-type">Date</span> today.</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «Carga fecha genérico». <code>Date today</code> da la fecha del día. Son dos formas distintas, no dos pasos.</p>
+<h3 id="final-mensajes-de-colecciones">Mensajes de colecciones</h3>
+<pre class="codigo"><code>listadofiltrado := (listado asSortedCollection: [:a :b | a oParam &lt; b oParam])
+    select: [:i | i metodoFiltro = <span class="hljs-keyword">true</span>].
+listadofiltrado isEmpty
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No se han encontrado&#x27;</span>]
+    ifFalse: [
+        <span class="hljs-type">Transcript</span> clear; show: <span class="hljs-string">&#x27;Nombre&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Edad&#x27;</span>; cr.
+        listadofiltrado do: [:i | i muestraInfo]]</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «Listado filtrado y ordenado genérico». En el original falta el <code>:</code> después de <code>asSortedCollection</code> y dos puntos finales. El método <code>muestraInfo</code> escribe con <code>Transcript show: nombre; tab; show: edad; cr</code>.</p>
+<div class="tabla"><table><thead><tr><th>Mensaje</th><th>Para qué se usa en el material</th></tr></thead><tbody><tr><td><code>detect:ifNone:</code></td><td>Buscar un objeto, con un bloque por si no está</td></tr><tr><td><code>select:</code></td><td>Quedarse con los que cumplen la condición</td></tr><tr><td><code>asSortedCollection:</code></td><td>Ordenar con un bloque de dos parámetros</td></tr><tr><td><code>do:</code></td><td>Ejecutar el bloque con cada elemento</td></tr><tr><td><code>isEmpty</code></td><td>Saber si no hay elementos</td></tr><tr><td><code>add:</code></td><td>Agregar a la colección</td></tr></tbody></table></div>
+<p>En el Ejercicio resuelto 3 se pide un listado «ordenado de forma creciente» y el bloque compara con <code>&lt;</code>. Fuente: Ejercicio resuelto 3, páginas 1 y 6. Ahí el original tiene un error: compara <code>unaHerr codigo &lt; unaHerr codigo</code>, y el segundo debería ser <code>otraHerr</code>.</p>
+<h3 id="final-ordenar-con-assortedcollection">Ordenar con asSortedCollection</h3>
+<p>Una SortedCollection guarda los objetos en el orden que indica un bloque de dos argumentos, llamado sortBlock. La regla del apunte de colecciones es esta. <mark>La colección guarda el primer argumento adelante del segundo cuando el bloque da <code>true</code>.</mark> El bloque puede tener varias sentencias, pero tiene que devolver <code>true</code> o <code>false</code>.</p>
+<pre class="codigo"><code>[:a :b | a &lt;= b]
+    <span class="hljs-comment">&quot;devuelve true cuando a es menor o igual a b&quot;</span></code></pre>
+<p>Ese bloque deja los elementos en orden ascendente, y es el que usa SortedCollection si no le pasás otro. Para otro orden se escribe otro bloque. Estos dos son los ejemplos del apunte.</p>
+<pre class="codigo"><code>#(<span class="hljs-number">4</span> <span class="hljs-number">3</span> <span class="hljs-number">5</span> <span class="hljs-number">2</span> <span class="hljs-number">1</span>) asSortedCollection: [:a :b | a &gt;= b].
+#(<span class="hljs-string">&#x27;uno&#x27;</span> <span class="hljs-string">&#x27;dos&#x27;</span> <span class="hljs-string">&#x27;tres&#x27;</span>) asSortedCollection: [:x :y | x size &gt;= y size].</code></pre>
+<p>Con la regla de arriba, en el primero queda adelante el mayor, y en el segundo, la palabra más larga.</p>
+<p>Cada vez que se agrega un elemento, la colección usa el sortBlock. El primer argumento es siempre el objeto nuevo y el segundo, uno que ya estaba. Recorre los elementos en orden hasta que el bloque da <code>true</code>. Si no da <code>true</code> con ninguno, el nuevo queda último. Por eso mantener una colección ordenada tiene un costo cada vez que se agrega algo, y el apunte pide usarla con prudencia.</p>
+<p>Fuente: Colecciones (Material Util), «SortedCollection (Colección Ordenada)».</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El bloque contesta una sola pregunta: «¿el primero va antes que el segundo?». Si comparás con <code>&lt;=</code>, va antes el más chico. Si comparás con <code>&gt;=</code>, va antes el más grande. Para ordenar objetos, comparás un dato de cada uno, como en el molde del listado (<code>a oParam &lt; b oParam</code>).</p>
+</div>
+<h3 id="final-los-mensajes-de-coleccion-segun-el-apunte">Los mensajes de colección según el apunte</h3>
+<div class="tabla"><table><thead><tr><th>Mensaje</th><th>Qué hace</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td><code>new</code></td><td>Crea una colección con un tamaño por omisión. En una de tamaño fijo la crea vacía, sin lugares, y no conviene</td><td><code>Bag new</code></td></tr><tr><td><code>new: unNúmero</code></td><td>En una de tamaño fijo, crea esa cantidad de lugares y fuera de ese rango no se puede indexar. En una de tamaño variable, reserva espacio, pero la colección sigue vacía hasta que se agregue algo</td><td><code>(Array new: 10) size</code> da 10. <code>(OrderedCollection new: 10) size</code> da 0</td></tr><tr><td><code>with:</code></td><td>Crea una colección con los objetos que recibe, de uno a cuatro (<code>with:with:</code> y así). Vale para todas las colecciones</td><td><code>OrderedCollection with: 1 with: 2 with: 3 with: 4</code></td></tr><tr><td><code>size</code></td><td>Devuelve cuántos elementos tiene. Si está vacía, da cero</td><td></td></tr><tr><td><code>do: unBloque</code></td><td>Recorre cada elemento y ejecuta el bloque de un argumento con él. Se usa por lo que hace el bloque, no por lo que devuelve</td><td>Sumar <code>#(1 2 3 4 5)</code> en una variable da 15</td></tr><tr><td><code>add: unObjeto</code></td><td>Agrega el objeto y lo devuelve. Solo en colecciones que pueden crecer</td><td><code>Bag new add: 1</code></td></tr><tr><td><code>remove: unObjeto</code></td><td>Elimina el objeto y lo devuelve. Busca por igualdad, no por identidad, y saca el primero que encuentra. Si no está, aparece la ventana de depuración. Solo en colecciones que pueden crecer o disminuir</td><td></td></tr><tr><td><code>at: unNúmero put: unObjeto</code></td><td>Pone el objeto en ese índice y lo devuelve. Solo en colecciones indexadas. Con un índice inválido aparece la ventana de depuración</td><td><code>(Array new: 10) at: 5 put: &#39;cadena 5&#39;</code></td></tr><tr><td><code>at: unNúmero</code></td><td>Devuelve el objeto de ese índice. Solo en colecciones indexadas</td><td></td></tr><tr><td><code>, unaColección</code></td><td>Pega dos colecciones en una tercera, de la misma clase que el receptor, que tiene que ser indexada. Sirve para agrandar una de tamaño fijo</td><td><code>unaColeccion, (Array with: &#39;cadena 3&#39;)</code></td></tr><tr><td><code>detect: unBloque</code></td><td>Devuelve el primer elemento para el que el bloque da verdadero</td><td><code>#(4 7 10 3 7) detect: [:nro | nro &gt; 7]</code> da 10</td></tr><tr><td><code>select: unBloque</code></td><td>Devuelve los elementos para los que el bloque da verdadero</td><td><code>&#39;ahora es el momento&#39; select: [:letra | letra isVowel]</code> da las vocales</td></tr><tr><td><code>reject: unBloque</code></td><td>Devuelve los elementos para los que el bloque da falso</td><td>El mismo, con <code>reject:</code>, da las consonantes</td></tr><tr><td><code>collect: unBloque</code></td><td>Crea una colección nueva del mismo tamaño, con lo que devuelve el bloque para cada elemento</td><td><code>#(&#39;ahora&#39; &#39;es&#39; &#39;el&#39; &#39;momento&#39; 123) collect: [:elemento | elemento isString]</code> da <code>true true true true false</code></td></tr></tbody></table></div>
+<p>Fuente: Colecciones (Material Util), «Mensajes a las Colecciones».</p>
+<p>Qué mensajes entiende cada colección, según la tabla del mismo apunte:</p>
+<div class="tabla"><table><thead><tr><th>Colección</th><th><code>do:</code></th><th><code>add:</code></th><th><code>remove:</code></th><th><code>at:</code></th><th><code>at:put:</code></th><th><code>removeIndex:</code></th><th><code>,</code></th><th><code>detect:</code> <code>select:</code> <code>reject:</code> <code>collect:</code></th></tr></thead><tbody><tr><td>Bag</td><td>S</td><td>S</td><td>S</td><td>N</td><td>N</td><td>N</td><td>N</td><td>S</td></tr><tr><td>Set</td><td>S</td><td>S</td><td>S</td><td>N</td><td>N</td><td>N</td><td>N</td><td>S</td></tr><tr><td>Array</td><td>S</td><td>N</td><td>N</td><td>S</td><td>S</td><td>N</td><td>S</td><td>S</td></tr><tr><td>OrderedCollection</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td><td>S</td></tr><tr><td>SortedCollection</td><td>S</td><td>S</td><td>S</td><td>S</td><td>N</td><td>S</td><td>S</td><td>S</td></tr><tr><td>Dictionary</td><td>S</td><td>S</td><td>N</td><td>S</td><td>S</td><td>N</td><td>N</td><td>S</td></tr></tbody></table></div>
+<p>Fuente: Colecciones, «Resumen de colecciones y mensajes». En la hoja, los cuatro de la última columna van separados y todos dicen S.</p>
+<div class="ojo"><p class="ojo-t">String y Symbol en esa tabla</p><p>La tabla del apunte marca para String y Symbol <code>at:</code> en N y <code>at:put:</code> en S. El texto del mismo apunte dice lo contrario. String «soporta los mensajes at: y at:put:», y Symbol no soporta «ningún método que pueda cambiar su valor como at:put:». No elegimos. Si te lo toman, preguntá en la cursada.</p>
+</div>
+<h3 id="final-metodo-filtro">Método filtro</h3>
+<pre class="codigo"><code>valor1 &lt; valor2 ifTrue: [^<span class="hljs-keyword">true</span>] ifFalse: [^<span class="hljs-keyword">false</span>]</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «Método filtro genérico». En el original falta un <code>:</code> después de <code>ifFalse</code>. Un método filtro devuelve un booleano con <code>^</code>.</p>
+</section>
+<section class="sec"><h2 id="final-como-se-arma-el-programa">Cómo se arma el programa</h2>
+<p>Estas piezas salen de los tres ejercicios resueltos de Material Util. No son exámenes y no dicen quién los escribió. Coinciden en la forma, y eso es lo que usamos.</p>
+<div class="ojo"><p class="ojo-t">No los copies sin mirar</p><p>Traen errores de tipeo. <code>#Mayorisa</code> por <code>#Mayorista</code> e <code>ItemProducto</code> por <code>ItemPedido</code> en el 1. <code>cursosEncontrados = cursos select:</code> con <code>=</code> en vez de <code>:=</code> en el 2. Tampoco son lo que pide un examen de 2023 en adelante. Sirven para ver la forma.</p>
+</div>
+<ul>
+<li>Hay una clase principal que guarda las colecciones (<code>clientes</code>, <code>productos</code>, <code>pedidos</code>) y los métodos del programa. Fuente: Ejercicio resuelto 1, página 4.</li>
+<li>Cada clase tiene su <code>cargaDatos</code> y los métodos que devuelven sus datos.</li>
+<li>La subclase llama a <code>super cargaDatos</code> y suma lo suyo. Fuente: Ejercicio resuelto 2, páginas 9 y 10.</li>
+</ul>
+<h3 id="final-buscar-o-crear">Buscar o crear</h3>
+<pre class="codigo"><code><span class="hljs-symbol">#buscarOCrearAlumno</span>
+|dni alu |
+dni := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese DNI del alumno&#x27;</span>) asNumber.
+alu := alumnos detect: [:unAlumno | unAlumno dni = dni ] ifNone: [<span class="hljs-keyword">nil</span>].
+alu isNil ifTrue: [ alu := <span class="hljs-keyword">self</span> nuevoAlumno ].
+^ alu
+
+<span class="hljs-symbol">#nuevoAlumno</span>
+|alu|
+alu := <span class="hljs-type">Alumno</span> new.
+alu cargaDatos.
+alumnos add: alu.
+^ alu</code></pre>
+<p>Fuente: Ejercicio resuelto 2, página 7.</p>
+<h3 id="final-elegir-la-subclase">Elegir la subclase</h3>
+<pre class="codigo"><code><span class="hljs-symbol">#nuevoCliente</span>
+| tipo cli |
+[ cli isNil ] whileTrue: [
+    tipo := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el tipo de cliente (1) Mayorista, (2) Minorista&#x27;</span>.
+    tipo = <span class="hljs-string">&#x27;1&#x27;</span> ifTrue: [ cli := <span class="hljs-type">Mayorista</span> new].
+    tipo = <span class="hljs-string">&#x27;2&#x27;</span> ifTrue: [ cli := <span class="hljs-type">Minorista</span> new].
+].
+cli cargaDatos.
+^ cli</code></pre>
+<p>Fuente: Ejercicio resuelto 1, páginas 5 y 6. La variable arranca en <code>nil</code> y el ciclo se repite hasta que el tipo sea válido. El archivo «Estructuras útiles» tiene otro molde para lo mismo, en «Selección tipo genérico».</p>
+<pre class="codigo"><code>|aux tipo|
+aux := <span class="hljs-keyword">true</span>.
+[aux = <span class="hljs-keyword">true</span>] whileTrue: [
+    tipo := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el tipo (A/B)&#x27;</span>) asUppercase.
+    tipo = <span class="hljs-string">&#x27;A&#x27;</span> | (tipo = <span class="hljs-string">&#x27;B&#x27;</span>) ifTrue: [aux := <span class="hljs-keyword">false</span>]].
+tipo = <span class="hljs-string">&#x27;A&#x27;</span> ifTrue: [objeto := <span class="hljs-type">TiposA</span> new] ifFalse: [objeto := <span class="hljs-type">TiposB</span> new].
+objeto cargaDatos: parametro.
+objetos add: objeto.</code></pre>
+<p>Fuente: Estructuras útiles en Smalltalk, «Selección tipo genérico». Repite la pregunta hasta que el tipo sea A o B, y recién ahí crea la subclase que corresponde. En el original falta el corchete que cierra el ciclo y faltan puntos finales. Lo cerramos después de la validación, que es lo que sugiere la sangría de la hoja. <code>asUppercase</code> pasa lo que se escribió a mayúsculas, así <code>a</code> también vale.</p>
+<h3 id="final-cargar-varios-en-un-ciclo">Cargar varios en un ciclo</h3>
+<pre class="codigo"><code>cont := <span class="hljs-keyword">true</span>.
+[ cont ] whileTrue: [
+    <span class="hljs-keyword">self</span> mostrarHerramientasDisponibles.
+    cod := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el codigo de la herramienta&#x27;</span>) asNumber.
+    herr := herramientas detect: [:unaHerramienta | unaHerramienta codigo = cod] ifNone: [ <span class="hljs-keyword">nil</span> ].
+    herr notNil ifTrue: [
+        herr ocupar.
+        alq agregarHerramienta: herr.
+    ].
+    cont := <span class="hljs-type">MessageBox</span> confirm: <span class="hljs-string">&#x27;¿Desea continuar agregando herramientas?&#x27;</span>.
+].
+alquileres add: alq.</code></pre>
+<p>Fuente: Ejercicio resuelto 3, página 5. <code>herr ocupar</code> cambia el estado de la herramienta. Es un método suyo que pone <code>disponible := &#39;ND&#39;</code>. Fuente: Ejercicio resuelto 3, página 9.</p>
+<h3 id="final-numerar-solo-y-crear-la-coleccion-interna">Numerar solo y crear la colección interna</h3>
+<pre class="codigo"><code><span class="hljs-symbol">#Alquiler</span>
+
+<span class="hljs-type">M</span>étodos de clase
+
+<span class="hljs-symbol">#incrementaUltimoCodigo</span>
+<span class="hljs-type">UltimoCodigo</span> := <span class="hljs-type">UltimoCodigo</span> + <span class="hljs-number">1</span>
+
+<span class="hljs-type">M</span>étodos de instancia
+
+<span class="hljs-symbol">#inicializa</span>
+herramientas := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#cargaDatos</span>
+codigo := <span class="hljs-type">UltimoCodigo</span>.
+<span class="hljs-type">Alquiler</span> incrementaUltimoCodigo.
+fecha := <span class="hljs-type">Date</span> today.</code></pre>
+<p>Fuente: Ejercicio resuelto 3, página 7, recortado.</p>
+<h3 id="final-sumar-un-total-y-cada-subclase-con-su-calculo">Sumar un total y cada subclase con su cálculo</h3>
+<pre class="codigo"><code><span class="hljs-symbol">#costoTotal</span>
+|tot|
+tot := <span class="hljs-number">0.</span>
+herramientas do: [:unaHerramienta | tot := tot + unaHerramienta costoTotal ].
+^ tot * cantidadDias</code></pre>
+<p>Cada herramienta responde <code>costoTotal</code> a su manera, y <code>Alquiler</code> no pregunta de qué tipo es. Fuente: Ejercicio resuelto 3, páginas 8 y 9. El mismo recurso sirve para el tipo que piden los listados. Cada subclase tiene un método <code>tipo</code> que devuelve su texto. Fuente: Ejercicio resuelto 2, páginas 9 y 10.</p>
+<h3 id="final-escribir-en-el-transcript">Escribir en el Transcript</h3>
+<pre class="codigo"><code><span class="hljs-type">Transcript</span>
+    show: <span class="hljs-string">&#x27;Fecha: &#x27;</span>, fecha printString; cr; cr;
+    show: <span class="hljs-string">&#x27;Cliente: &#x27;</span>, cliente razonSocial; cr.</code></pre>
+<p>Fuente: Ejercicio resuelto 1, página 9. Los números y las fechas se pasan a texto con <code>printString</code>, y los textos se pegan con la coma.</p>
+</section>
+<section class="sec"><h2 id="final-lo-que-el-material-no-trae">Lo que el material no trae</h2>
+<div class="ojo"><p class="ojo-t">Temas que se toman y no pudimos explicar</p><p>Estos temas aparecen en los exámenes de 2023 en adelante. No hay un ejemplo en el material que pudimos validar, y no los inventamos.</p>
+<ul>
+<li>Filtrar por rango de fechas: lo piden 11 de 17. El material trae <code>select:</code>, el método filtro y comparaciones sueltas, pero no dos fechas juntas.</li>
+<li>Descontar y validar stock: lo piden Instrumentos y Verdulería.</li>
+</ul>
+<p>Preguntalo en la cursada. El orden descendente, que piden Vivero, El Hornero, Mascotas e Instrumentos, sí está en el apunte de colecciones. Lo explicamos en <a href="#final-ordenar-con-assortedcollection">Ordenar con asSortedCollection</a>.</p>
+</div>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

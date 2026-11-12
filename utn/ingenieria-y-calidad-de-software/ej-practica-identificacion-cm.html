@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Práctica de la cátedra: identificación en CM: Ingeniería y Calidad de Software</title>
+<meta name="description" content="Ejercicio de examen: Práctica de la cátedra: identificación en CM.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="ingenieria-y-calidad-de-software" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Ingeniería y Calidad de Software</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="regularizacion.html">Regularización</a></li><li class="em-fuera"><a href="aprobacion-directa.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=ingenieria-y-calidad-de-software">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=ingenieria-y-calidad-de-software">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Práctica de la cátedra: identificación en CM</h1>
+<p class="bajada">Parcial de aprobación directa</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="practica-identificacion-cm" data-titulo="Práctica de la cátedra: identificación en CM" data-min="120" data-otro="ejercicios.html#ad" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="practica-identificacion-cm" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1Klx6P6E2b02zeDruvf7cPxzHl_btylI1/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/practica-identificacion-cm-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/practica-identificacion-cm-e1.webp" width="818" height="1394" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a><a class="sol-img" href="img/practica-identificacion-cm-e2.webp" aria-label="Abrir la hoja 2 del enunciado en grande"><img src="img/practica-identificacion-cm-e2.webp" width="817" height="1394" loading="lazy" alt="Hoja 2 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a><a class="sol-img" href="img/practica-identificacion-cm-e3.webp" aria-label="Abrir la hoja 3 del enunciado en grande"><img src="img/practica-identificacion-cm-e3.webp" width="841" height="1394" loading="lazy" alt="Hoja 3 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p>Identificar es la primera actividad de CM, con identificadores únicos y una estructura (CM SP 1.1). El nombre tiene que dejar ubicar cada elemento sin abrirlo y responder las preguntas que se le van a hacer.</p>
+<h4>Ejercicio 1, archivos de código fuente</h4>
+<pre class="codigo"><code>&lt;MOD&gt;-&lt;TIPO&gt;-&lt;FLUJO&gt;-&lt;Nombre&gt;.&lt;ext&gt;</code></pre>
+<div class="tabla"><table><thead><tr><th>Parte</th><th>Significado</th><th>Valores</th></tr></thead><tbody><tr><td>MOD</td><td>Módulo al que pertenece el archivo</td><td>Sigla de 3 letras, por ejemplo VEN para Ventas o CLI para Clientes</td></tr><tr><td>TIPO</td><td>Form o report</td><td>FRM o RPT</td></tr><tr><td>FLUJO</td><td>Qué representa</td><td>E entrada, S salida, M mixta. Un report siempre es S, porque es un flujo de salida en papel</td></tr><tr><td>Nombre</td><td>Funcionalidad del archivo</td><td>Palabras juntas, cada una con mayúscula, sin espacios ni acentos</td></tr><tr><td>ext</td><td>Extensión del lenguaje X</td><td>La que use el lenguaje</td></tr></tbody></table></div>
+<p>Por ejemplo, <code>VEN-FRM-E-AltaPedido</code>, <code>VEN-RPT-S-ListadoFacturas</code> y <code>CLI-FRM-M-ConsultaCliente</code>, cada uno con la extensión del lenguaje.</p>
+<div class="tabla"><table><thead><tr><th>Pregunta</th><th>Cómo se responde</th></tr></thead><tbody><tr><td>Archivos de un módulo</td><td>Los que empiezan con su sigla, como <code>VEN-*</code></td></tr><tr><td>Archivos de entrada de datos</td><td>Los forms de entrada y los mixtos, <code>*-FRM-E-*</code> y <code>*-FRM-M-*</code></td></tr><tr><td>Forms o reports</td><td>Por la segunda parte, <code>*-FRM-*</code> o <code>*-RPT-*</code></td></tr></tbody></table></div>
+<h4>Ejercicio 2, documentos de cátedra</h4>
+<p><strong>a. Partes de cada asignatura.</strong></p>
+<div class="tabla"><table><thead><tr><th>Asignatura</th><th>Partes</th><th>Problemas</th></tr></thead><tbody><tr><td>Análisis de Sistemas</td><td>Tipo de documento, Enunciado y Examen. Fecha AAAAMMDD. Versión con V. Extensión</td><td>El separador entre Enunciado y Examen está en un archivo y en los otros no. «2011015» tiene 7 dígitos y no se sabe qué fecha es. La versión tiene dos o tres números, y mezcla pdf y doc</td></tr><tr><td>Diseño de Sistemas</td><td>Tipo de documento, Examen. Instancia, final. Parte, práctica. Fecha AAAA-MM-DD. Versión con v y los números separados por guion bajo</td><td>No dice si es enunciado o solución. Una versión es v1_01 y la otra v1, sin número menor</td></tr><tr><td>Ingeniería de Software</td><td>Asignatura, IS. Tipo, ENUN. Examen y número correlativo, EXAM06. Descripción, Examen_Final_Ing-Soft. Fecha AAAA-MM-DD. Versión v1_01</td><td>Es la más completa y es pareja. Repite la asignatura y el examen en la descripción</td></tr></tbody></table></div>
+<p><strong>b. Directorios y nombre.</strong> El alumno que cursa busca primero por asignatura y después por tipo de material. El que rinde busca la mesa. Por eso la asignatura va arriba y las mesas tienen su carpeta.</p>
+<pre class="codigo"><code>/&lt;ASIG&gt;                 Sigla de la asignatura, por ejemplo IS
+  /&lt;AAAA&gt;               Ciclo lectivo
+    /Teoria             Apuntes de teoría
+    /Practicas          Enunciados y soluciones de prácticas
+    /Parciales          Enunciados y soluciones de parciales
+    /Mesas
+      /M01 … /M10       Enunciados y soluciones de los exámenes de cada mesa
+    /Catedra            Cronograma, fechas y notas de parciales</code></pre>
+<pre class="codigo"><code>&lt;ASIG&gt;-&lt;DOC&gt;-&lt;NUM&gt;_&lt;AAAA-MM-DD&gt;_v&lt;M&gt;_&lt;mm&gt;.pdf</code></pre>
+<div class="tabla"><table><thead><tr><th>Parte</th><th>Significado</th><th>Valores</th></tr></thead><tbody><tr><td>ASIG</td><td>Asignatura</td><td>AS, DS, IS y así para cada una</td></tr><tr><td>DOC</td><td>Tipo de documento</td><td>EEX enunciado de examen, SEX solución de examen, EPR enunciado de práctica, SPR solución de práctica, APU apunte de teoría, CRO cronograma de clases, FPA fechas de parciales, NPA notas de parciales</td></tr><tr><td>NUM</td><td>A qué corresponde</td><td>M01 a M10 para la mesa, P1 o P2 para el parcial, 01 en adelante para la práctica o la unidad del apunte, 00 si no aplica</td></tr><tr><td>AAAA-MM-DD</td><td>Fecha del examen o de publicación</td><td>Siempre con 4, 2 y 2 dígitos</td></tr><tr><td>v M_mm</td><td>Versión</td><td>El mayor y el menor, con el menor en dos dígitos</td></tr></tbody></table></div>
+<p>Por ejemplo, <code>IS-EEX-M06_2012-05-21_v1_00.pdf</code> es el enunciado del examen de la sexta mesa de IS, y <code>IS-SEX-M06_2012-05-21_v1_01.pdf</code> su solución corregida una vez. <code>DS-EPR-03_2012-04-10_v1_00.pdf</code> es la práctica 3 de DS y <code>AS-NPA-P1_2012-06-01_v1_00.pdf</code> son las notas del primer parcial de AS. El sistema deduce del nombre la asignatura, el tipo, la mesa o el parcial, la fecha y la versión.</p>
+<p><strong>c. Documento para moderadores.</strong></p>
+<blockquote>
+<p><strong>Cómo nombrar los archivos de exámenes</strong></p>
+<ol>
+<li>Guardá el archivo en pdf.</li>
+<li>Empezá por la sigla de tu asignatura, en mayúsculas.</li>
+<li>Seguí con EEX si es el enunciado o SEX si es la solución.</li>
+<li>Poné el examen, M01 a M10 para una mesa o P1 y P2 para un parcial.</li>
+<li>Agregá la fecha del examen como AAAA-MM-DD.</li>
+<li>Terminá con la versión. La primera es v1_00. Si corregís el archivo, sube el número menor, v1_01. Si lo rehacés entero, sube el mayor y el menor vuelve a 00, v2_00.</li>
+<li>Separá las tres primeras partes con guion y el resto con guion bajo. Nada de espacios ni acentos.</li>
+</ol>
+<p>Por ejemplo, <code>IS-EEX-M06_2012-05-21_v1_00.pdf</code>. Subilo a la carpeta de la mesa, <code>/IS/2012/Mesas/M06</code>.</p>
+</blockquote>
+<h4>Ejercicio 3, versión del sistema operativo</h4>
+<p><strong>a. Nombre de los archivos con código fuente.</strong></p>
+<pre class="codigo"><code>&lt;PROD&gt;-&lt;MOD&gt;-&lt;SO&gt;&lt;M&gt;_&lt;m&gt;-&lt;LEN&gt;-&lt;Nombre&gt;.&lt;ext&gt;</code></pre>
+<div class="tabla"><table><thead><tr><th>Parte</th><th>Significado</th><th>Valores</th></tr></thead><tbody><tr><td>PROD</td><td>Producto</td><td>Sigla de 3 letras, por ejemplo TPA para Toma-Presion-Arterial</td></tr><tr><td>MOD</td><td>Módulo</td><td>Sigla de 3 letras, por ejemplo MED para Mediciones</td></tr><tr><td>SO y M_m</td><td>Sistema operativo y versión para la que se probó el archivo</td><td>AND o WIN, y la versión con guion bajo, como AND1_1 o AND4_3. Así el punto queda solo para la extensión</td></tr><tr><td>LEN</td><td>Lenguaje</td><td>JAV, DEL o PHP. Va en el nombre porque la extensión no garantiza el lenguaje</td></tr><tr><td>Nombre</td><td>Funcionalidad del archivo</td><td>Palabras juntas, cada una con mayúscula</td></tr><tr><td>ext</td><td>Extensión</td><td>La del lenguaje</td></tr></tbody></table></div>
+<p>Cuando se migra, solo los archivos modificados toman la versión nueva. Los que pasaron las pruebas sin cambios siguen con la suya.</p>
+<div class="tabla"><table><thead><tr><th>Archivo</th><th>Qué es</th></tr></thead><tbody><tr><td><code>TPA-MED-AND1_1-JAV-TomarPresion.java</code></td><td>El original, de Android 1.1</td></tr><tr><td><code>TPA-MED-AND4_3-JAV-TomarPresion.java</code></td><td>El mismo, modificado para Android 4.3. No reemplaza al anterior, porque no garantiza Android 1.1</td></tr><tr><td><code>TPA-INF-AND1_1-JAV-HistorialMediciones.java</code></td><td>No cambió, así que entra en los dos productos</td></tr></tbody></table></div>
+<p>Los archivos de un módulo se buscan con <code>TPA-MED-*</code>, los de una versión del sistema con <code>*-AND4_3-*</code> y los de un lenguaje con <code>*-JAV-*</code>. El producto para Android 4.3 se arma con la versión más alta de cada archivo que no pase de 4.3.</p>
+<p><strong>b. Política de versionado.</strong></p>
+<div class="tabla"><table><thead><tr><th>Pregunta</th><th>Política</th></tr></thead><tbody><tr><td>Cómo empieza</td><td>Cada producto empieza en 1.0 para cada sistema operativo, como TPA para Android 1.1, v1.0</td></tr><tr><td>Cuándo cambia el número mayor</td><td>Cuando cambia la funcionalidad</td></tr><tr><td>Cuándo cambia el menor</td><td>Cuando se corrige un error sin cambiar la funcionalidad</td></tr><tr><td>Qué pasa con el otro número</td><td>Si sube el mayor, el menor vuelve a 0</td></tr><tr><td>Qué pasa al migrar a otro sistema</td><td>Nace un producto nuevo, TPA para Android 4.3, v1.0, con la misma funcionalidad. El de la versión anterior sigue con su numeración</td></tr><tr><td>Cambios simultáneos</td><td>Un archivo lo modifica un programador a la vez. Lo reserva en el sistema de CM y lo libera al terminar</td></tr></tbody></table></div>
+<p>Cada release es una línea base de producto, con la lista de archivos que la forman.</p>
+<p><strong>c. Documento para programadores.</strong></p>
+<blockquote>
+<p><strong>Cómo nombrar un archivo con código fuente</strong></p>
+<ol>
+<li>Empezá por la sigla del producto y la del módulo, como <code>TPA-MED</code>.</li>
+<li>Agregá el sistema operativo y la versión en la que lo probaste, con guion bajo, como <code>AND4_3</code>.</li>
+<li>Agregá el lenguaje, JAV, DEL o PHP, aunque la extensión parezca decirlo.</li>
+<li>Terminá con el nombre de la funcionalidad, con las palabras juntas y cada una con mayúscula, y la extensión.</li>
+<li>Si modificás un archivo para una versión nueva del sistema, no lo pises. Creá uno nuevo con la versión nueva en el nombre. El anterior sigue siendo el de la versión vieja.</li>
+<li>Si el archivo pasó las pruebas sin cambios, dejale el nombre que tiene.</li>
+</ol>
+<p>Por ejemplo, <code>TPA-MED-AND4_3-JAV-TomarPresion.java</code>.</p>
+</blockquote>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la página Aprobación directa, secciones Gestión de configuración CM, Actividades y Versionado.</p><p class="bloque-fuente">Quedó en duda: Los formatos de nombre, las siglas y la estructura de carpetas son una propuesta y hay otras válidas. El ejercicio 2 no dice si los exámenes son solo finales, así que se agregan los parciales.</p><div class="em-votos" data-m="ingenieria-y-calidad-de-software" data-e="practica-identificacion-cm" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="CM" data-enlace="aprobacion-directa.html#gestion-de-configuracion-cm" data-donde="Aprobación directa"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">CM</span><span class="ex-t-teoria"><a href="aprobacion-directa.html#gestion-de-configuracion-cm">Gestión de configuración CM</a>, en Aprobación directa</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-practica-listas-qa.html">Anterior: Práctica de la cátedra: listas de comprobación</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta octubre de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

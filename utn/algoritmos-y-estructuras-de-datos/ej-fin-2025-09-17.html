@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final, 17/09/2025 (Domótica): Algoritmos y Estructuras de Datos</title>
+<meta name="description" content="Ejercicio de examen: Final, 17/09/2025 (Domótica).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="algoritmos-y-estructuras-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Algoritmos y Estructuras de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">3° parcial y final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=algoritmos-y-estructuras-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=algoritmos-y-estructuras-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Final, 17/09/2025 (Domótica)</h1>
+<p class="bajada">3° parcial y final, 17/09/2025</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="fin-2025-09-17" data-titulo="Final, 17/09/2025 (Domótica)" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="fin-2025-09-17" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1I0W68i-10qih9XE2IlVA_Qm_sCXZASmw/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/fin-2025-09-17-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/fin-2025-09-17-e1.webp" width="1300" height="1729" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p>La hoja pide el diagrama de Chapin. Va un diagrama por módulo, con su declaración de variables arriba, y primero el del programa principal. Si un diagrama no entra en la pantalla, tocalo para verlo completo. Después de los diagramas está el mismo algoritmo en Python, para que lo puedas probar. Las sentencias de archivos van con las palabras reservadas de Python (<code>open</code>, <code>pickle.load</code>, <code>pickle.dump</code>, <code>seek</code>, <code>tell</code>). Los textos se completan con <code>ljust</code> para que los registros midan lo mismo. El tamaño de un registro sale de <code>tell()</code> después de leer el primero.</p>
+<h4>Menú iterativo</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 765 677" width="765" height="677" style="width:765px;min-width:765px;max-width:none;height:677px" role="img" aria-label="Diagrama de Chapin del programa principal, con la declaración de variables y los registros. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="407.8" height="26"/><rect x="14" y="143" width="407.8" height="26"/><rect x="14" y="169" width="407.8" height="26"/><rect x="14" y="195" width="407.8" height="26"/><rect x="14" y="221" width="407.8" height="26"/><rect x="14" y="247" width="407.8" height="26"/><rect x="14" y="273" width="407.8" height="26"/><rect x="14" y="299" width="407.8" height="312"/><rect x="38" y="325" width="383.8" height="26"/><rect x="38" y="351" width="383.8" height="26"/><rect x="38" y="377" width="383.8" height="26"/><rect x="38" y="403" width="383.8" height="26"/><rect x="38" y="429" width="383.8" height="26"/><rect x="38" y="455" width="383.8" height="26"/><rect x="38" y="481" width="383.8" height="52"/><rect x="62" y="507" width="359.8" height="26"/><rect x="38" y="533" width="383.8" height="78"/><rect x="38" y="585" width="117.4" height="26"/><rect x="155.4" y="585" width="86.2" height="26"/><rect x="241.6" y="585" width="86.2" height="26"/><rect x="327.8" y="585" width="94" height="26"/><rect x="14" y="611" width="407.8" height="26"/><rect x="14" y="637" width="407.8" height="26"/></g><path class="d-linea" d="M38 559H421.8M38 585H421.8M155.4 559V611M241.6 559V611M327.8 559V611"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">afSensores = "Sensores.dat"</text><text x="22" y="160.5">afEdificios = "Edificios.dat"</text><text x="22" y="186.5">alSensores = open(afSensores, "r+b")</text><text x="22" y="212.5">alEdificios = open(afEdificios, "r+b")</text><text x="22" y="238.5">pickle.load(alEdificios)</text><text x="22" y="264.5">tamEdi = alEdificios.tell()</text><text x="22" y="290.5">opcion = 0</text><text x="22" y="316.5">Mientras opcion != 5:</text><text x="46" y="342.5">Mostrar("1- Instalación de sensores")</text><text x="46" y="368.5">Mostrar("2- Evaluar sensores")</text><text x="46" y="394.5">Mostrar("3- Reporte diario de mantenimiento")</text><text x="46" y="420.5">Mostrar("4- Consulta de temperatura")</text><text x="46" y="446.5">Mostrar("5- Salir")</text><text x="46" y="472.5">Leer(opcion)</text><text x="46" y="498.5">Mientras opcion &lt; 1 or opcion &gt; 5:</text><text x="70" y="524.5">Leer(opcion)</text><text x="46" y="550.5">Según opcion:</text><text x="96.7" y="576.5" text-anchor="middle">1</text><text x="46" y="602.5">INSTALACION()</text><text x="198.5" y="576.5" text-anchor="middle">2</text><text x="163.4" y="602.5">EVALUAR()</text><text x="284.7" y="576.5" text-anchor="middle">3</text><text x="249.6" y="602.5">REPORTE()</text><text x="374.8" y="576.5" text-anchor="middle">4</text><text x="335.8" y="602.5">CONSULTA()</text><text x="22" y="628.5">alSensores.close()</text><text x="22" y="654.5">alEdificios.close()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># afSensores, afEdificios: str</text><text x="14" y="71"># alSensores, alEdificios: archivo</text><text x="14" y="88"># tamEdi: int</text><text x="14" y="105"># opcion: int</text><text x="457.8" y="29">class Sensor:</text><text x="487.8" y="46">def __init__(self):</text><text x="517.8" y="63">self.codigo = ""</text><text x="517.8" y="80">self.ubicacion = ""</text><text x="517.8" y="97">self.temperatura = 0.0</text><text x="517.8" y="114">self.humedad = 0.0</text><text x="517.8" y="131">self.mantenimiento = "N"</text><text x="517.8" y="148">self.nroEdificio = 0</text><text x="457.8" y="173">class Edificio:</text><text x="487.8" y="190">def __init__(self):</text><text x="517.8" y="207">self.nro = 0</text><text x="517.8" y="224">self.direccion = ""</text><text x="517.8" y="241">self.telefono = ""</text><text x="517.8" y="258">self.cantSensoMantXmes = [0]*12</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">Programa principal</text></svg></figure>
+
+<h4>1- Instalación de sensores</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 561 383" width="561" height="383" style="width:561px;min-width:561px;max-width:none;height:383px" role="img" aria-label="Diagrama de Chapin del módulo Busco, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="382.6" height="26"/><rect x="14" y="143" width="382.6" height="26"/><rect x="14" y="169" width="382.6" height="26"/><rect x="14" y="195" width="382.6" height="148"/><rect x="38" y="221" width="358.6" height="26"/><rect x="38" y="247" width="358.6" height="26"/><rect x="38" y="273" width="358.6" height="70"/><rect x="38" y="317" width="322.6" height="26"/><rect x="14" y="343" width="382.6" height="26"/></g><path class="d-linea" d="M38 273L360.6 317L396.6 273M38 317H396.6M360.6 317V343"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">tam = os.path.getsize(afSensores)</text><text x="22" y="160.5">pos = -1</text><text x="22" y="186.5">alSensores.seek(0, 0)</text><text x="22" y="212.5">Mientras alSensores.tell() &lt; tam and pos == -1:</text><text x="46" y="238.5">p = alSensores.tell()</text><text x="46" y="264.5">reg = pickle.load(alSensores)</text><text x="285.7" y="289" text-anchor="middle">reg.codigo == cod</text><text x="46" y="334.5">pos = p</text><text x="22" y="360.5">return pos</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="310">v</text><text x="389.6" y="310" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Secuencial: Sensores.dat está ordenado por temperatura, no por código</text><text x="14" y="71"># cod: str</text><text x="14" y="88"># tam, pos, p: int</text><text x="14" y="105"># reg: Sensor</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">Busco(cod)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351 175" width="351" height="175" style="width:351px;min-width:351px;max-width:none;height:175px" role="img" aria-label="Diagrama de Chapin del módulo Grabo, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="83" width="234.4" height="26"/><rect x="14" y="109" width="234.4" height="26"/><rect x="14" y="135" width="234.4" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="100.5">alSensores.seek(pos, 0)</text><text x="22" y="126.5">pickle.dump(reg, alSensores)</text><text x="22" y="152.5">alSensores.flush()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># reg: Sensor</text><text x="14" y="71"># pos: int (byte donde empieza el registro)</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">Grabo(reg, pos)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 638 639" width="638" height="639" style="width:638px;min-width:638px;max-width:none;height:639px" role="img" aria-label="Diagrama de Chapin del módulo INSTALACION, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="609.8" height="26"/><rect x="14" y="143" width="609.8" height="26"/><rect x="14" y="169" width="609.8" height="456"/><rect x="38" y="195" width="585.8" height="404"/><rect x="38" y="239" width="320.2" height="26"/><rect x="358.2" y="239" width="265.6" height="26"/><rect x="358.2" y="265" width="265.6" height="26"/><rect x="358.2" y="291" width="265.6" height="26"/><rect x="358.2" y="317" width="265.6" height="42"/><rect x="358.2" y="359" width="265.6" height="26"/><rect x="358.2" y="385" width="265.6" height="26"/><rect x="358.2" y="411" width="265.6" height="26"/><rect x="358.2" y="437" width="265.6" height="68"/><rect x="382.2" y="479" width="241.6" height="26"/><rect x="358.2" y="505" width="265.6" height="26"/><rect x="358.2" y="531" width="265.6" height="42"/><rect x="358.2" y="573" width="265.6" height="26"/><rect x="38" y="599" width="585.8" height="26"/></g><path class="d-linea" d="M38 195L358.2 239L623.8 195M38 239H623.8M358.2 239V599"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">cantEdi = os.path.getsize(afEdificios) // tamEdi</text><text x="22" y="160.5">Leer(cod)</text><text x="22" y="186.5">Mientras cod != "*":</text><text x="343.9" y="211" text-anchor="middle">Busco(cod.ljust(10, " ")) != -1</text><text x="46" y="256.5">Mostrar("Ese sensor ya está instalado")</text><text x="366.2" y="256.5">reg = Sensor()</text><text x="366.2" y="282.5">reg.codigo = cod.ljust(10, " ")</text><text x="366.2" y="308.5">Leer(reg.ubicacion)</text><text x="366.2" y="334.5">reg.ubicacion =</text><text x="366.2" y="350.5">    reg.ubicacion.ljust(30, " ")</text><text x="366.2" y="376.5">Leer(reg.temperatura)</text><text x="366.2" y="402.5">Leer(reg.humedad)</text><text x="366.2" y="428.5">Leer(reg.nroEdificio)</text><text x="366.2" y="454.5">Mientras reg.nroEdificio &lt; 0 or</text><text x="366.2" y="470.5">    reg.nroEdificio &gt;= cantEdi:</text><text x="390.2" y="496.5">Leer(reg.nroEdificio)</text><text x="366.2" y="522.5">reg.mantenimiento = "N"</text><text x="366.2" y="548.5">Grabo(reg,</text><text x="366.2" y="564.5">    os.path.getsize(afSensores))</text><text x="366.2" y="590.5">ORDENARxTEMPERATURA()</text><text x="46" y="616.5">Leer(cod)</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="232">v</text><text x="616.8" y="232" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># cod: str</text><text x="14" y="71"># cantEdi: int</text><text x="14" y="88"># reg: Sensor</text><text x="14" y="105"># Fin de datos: código "*"</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">INSTALACION()</text></svg></figure>
+
+<h4>2- Evaluar sensores</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 339" width="420" height="339" style="width:420px;min-width:420px;max-width:none;height:339px" role="img" aria-label="Diagrama de Chapin del módulo EVALUAR, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="83" width="391.3" height="26"/><rect x="14" y="109" width="391.3" height="26"/><rect x="14" y="135" width="391.3" height="190"/><rect x="38" y="161" width="367.3" height="26"/><rect x="38" y="187" width="367.3" height="26"/><rect x="38" y="213" width="367.3" height="112"/><rect x="38" y="273" width="331.3" height="26"/><rect x="38" y="299" width="331.3" height="26"/></g><path class="d-linea" d="M38 213L369.3 273L405.3 213M38 273H405.3M369.3 273V325"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="100.5">tam = os.path.getsize(afSensores)</text><text x="22" y="126.5">alSensores.seek(0, 0)</text><text x="22" y="152.5">Mientras alSensores.tell() &lt; tam:</text><text x="46" y="178.5">pos = alSensores.tell()</text><text x="46" y="204.5">reg = pickle.load(alSensores)</text><text x="273.3" y="229" text-anchor="middle">reg.temperatura &gt; 35 or</text><text x="312.7" y="245" text-anchor="middle">reg.humedad &lt; 15</text><text x="46" y="290.5">reg.mantenimiento = "S"</text><text x="46" y="316.5">Grabo(reg, pos)</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="266">v</text><text x="398.3" y="266" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># tam, pos: int</text><text x="14" y="71"># reg: Sensor</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">EVALUAR()</text></svg></figure>
+
+<h4>3- Reporte diario de mantenimiento</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 701" width="700" height="701" style="width:700px;min-width:700px;max-width:none;height:701px" role="img" aria-label="Diagrama de Chapin del módulo REPORTE, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="671.2" height="26"/><rect x="14" y="143" width="671.2" height="26"/><rect x="14" y="169" width="671.2" height="26"/><rect x="14" y="195" width="671.2" height="26"/><rect x="14" y="221" width="671.2" height="26"/><rect x="14" y="247" width="671.2" height="26"/><rect x="14" y="273" width="671.2" height="414"/><rect x="38" y="299" width="647.2" height="26"/><rect x="38" y="325" width="647.2" height="26"/><rect x="38" y="351" width="647.2" height="336"/><rect x="38" y="395" width="611.2" height="26"/><rect x="38" y="421" width="611.2" height="26"/><rect x="38" y="447" width="611.2" height="42"/><rect x="38" y="489" width="611.2" height="42"/><rect x="38" y="531" width="611.2" height="26"/><rect x="38" y="557" width="611.2" height="26"/><rect x="38" y="583" width="611.2" height="26"/><rect x="38" y="609" width="611.2" height="26"/><rect x="38" y="635" width="611.2" height="26"/><rect x="38" y="661" width="611.2" height="26"/></g><path class="d-linea" d="M38 351L649.2 395L685.2 351M38 395H685.2M649.2 395V687"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">hoy = date.today()</text><text x="22" y="160.5">Mostrar("Fecha del día:", hoy.strftime("%d/%m/%Y"))</text><text x="22" y="186.5">Mostrar("Código sensor / Ubicación / Dirección del edificio / Teléfono de contacto")</text><text x="22" y="212.5">tam = os.path.getsize(afSensores)</text><text x="22" y="238.5">cont = 0</text><text x="22" y="264.5">alSensores.seek(0, 0)</text><text x="22" y="290.5">Mientras alSensores.tell() &lt; tam and cont &lt; 40:</text><text x="46" y="316.5">pos = alSensores.tell()</text><text x="46" y="342.5">reg = pickle.load(alSensores)</text><text x="498.9" y="367" text-anchor="middle">reg.mantenimiento == "S"</text><text x="46" y="412.5">alEdificios.seek(reg.nroEdificio * tamEdi, 0)</text><text x="46" y="438.5">edi = pickle.load(alEdificios)</text><text x="46" y="464.5">Mostrar(reg.codigo, reg.ubicacion, edi.direccion,</text><text x="46" y="480.5">    edi.telefono)</text><text x="46" y="506.5">edi.cantSensoMantXmes[MES() - 1] =</text><text x="46" y="522.5">    edi.cantSensoMantXmes[MES() - 1] + 1</text><text x="46" y="548.5">alEdificios.seek(reg.nroEdificio * tamEdi, 0)</text><text x="46" y="574.5">pickle.dump(edi, alEdificios)</text><text x="46" y="600.5">alEdificios.flush()</text><text x="46" y="626.5">reg.mantenimiento = "N"</text><text x="46" y="652.5">Grabo(reg, pos)</text><text x="46" y="678.5">cont = cont + 1</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="388">v</text><text x="678.2" y="388" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># tam, pos, cont: int</text><text x="14" y="71"># hoy: date</text><text x="14" y="88"># reg: Sensor</text><text x="14" y="105"># edi: Edificio</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">REPORTE()</text></svg></figure>
+
+<h4>4- Consulta de temperatura</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 122" width="450" height="122" style="width:450px;min-width:450px;max-width:none;height:122px" role="img" aria-label="Diagrama de Chapin del módulo MOSTRAR_SENSOR, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="66" width="421.6" height="42"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="83.5">Mostrar(reg.codigo, reg.ubicacion, reg.temperatura,</text><text x="22" y="99.5">    reg.humedad, reg.mantenimiento, reg.nroEdificio)</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># reg: Sensor</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">MOSTRAR_SENSOR(reg)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 551 652" width="551" height="652" style="width:551px;min-width:551px;max-width:none;height:652px" role="img" aria-label="Diagrama de Chapin del módulo CONSULTA, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="523" height="26"/><rect x="14" y="126" width="523" height="26"/><rect x="14" y="152" width="523" height="26"/><rect x="14" y="178" width="523" height="156"/><rect x="38" y="204" width="499" height="26"/><rect x="38" y="230" width="499" height="26"/><rect x="38" y="256" width="499" height="52"/><rect x="62" y="282" width="475" height="26"/><rect x="38" y="308" width="499" height="26"/><rect x="14" y="334" width="523" height="26"/><rect x="14" y="360" width="523" height="278"/><rect x="14" y="404" width="236.2" height="26"/><rect x="250.2" y="404" width="286.8" height="26"/><rect x="250.2" y="430" width="286.8" height="26"/><rect x="250.2" y="456" width="286.8" height="26"/><rect x="250.2" y="482" width="286.8" height="26"/><rect x="250.2" y="508" width="286.8" height="26"/><rect x="250.2" y="534" width="286.8" height="26"/><rect x="250.2" y="560" width="286.8" height="26"/><rect x="250.2" y="586" width="286.8" height="26"/><rect x="250.2" y="612" width="286.8" height="26"/></g><path class="d-linea" d="M14 360L250.2 404L537 360M14 404H537M250.2 404V638"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">Mostrar("Cantidad de sensores mantenidos en el mes por edificio")</text><text x="22" y="143.5">tam = os.path.getsize(afEdificios)</text><text x="22" y="169.5">alEdificios.seek(0, 0)</text><text x="22" y="195.5">Mientras alEdificios.tell() &lt; tam:</text><text x="46" y="221.5">edi = pickle.load(alEdificios)</text><text x="46" y="247.5">Mostrar(edi.nro, end=" ")</text><text x="46" y="273.5">for m in range(12):</text><text x="70" y="299.5">Mostrar(edi.cantSensoMantXmes[m], end=" ")</text><text x="46" y="325.5">Mostrar()</text><text x="22" y="351.5">tam = os.path.getsize(afSensores)</text><text x="263.4" y="376" text-anchor="middle">tam == 0</text><text x="22" y="421.5">Mostrar("No hay sensores")</text><text x="258.2" y="421.5">alSensores.seek(0, 0)</text><text x="258.2" y="447.5">reg = pickle.load(alSensores)</text><text x="258.2" y="473.5">tamSen = alSensores.tell()</text><text x="258.2" y="499.5">Mostrar("Menor temperatura:")</text><text x="258.2" y="525.5">MOSTRAR_SENSOR(reg)</text><text x="258.2" y="551.5">alSensores.seek(tam - tamSen, 0)</text><text x="258.2" y="577.5">reg = pickle.load(alSensores)</text><text x="258.2" y="603.5">Mostrar("Mayor temperatura:")</text><text x="258.2" y="629.5">MOSTRAR_SENSOR(reg)</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="21" y="397">v</text><text x="530" y="397" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># tam, tamSen, m: int</text><text x="14" y="71"># edi: Edificio</text><text x="14" y="88"># reg: Sensor</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">CONSULTA()</text></svg></figure>
+
+<h4>El mismo algoritmo en Python</h4>
+<p>Es el programa que se probó, con las mismas sentencias y en el mismo orden que las cajas. Cada <code>Leer</code> del diagrama es un <code>input</code>, convertido a <code>int</code> o <code>float</code> según la declaración, y cada <code>Mostrar</code> es un <code>print</code>.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> pickle
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> date
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Sensor</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.codigo = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.ubicacion = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.temperatura = <span class="hljs-number">0.0</span>
+        <span class="hljs-variable language_">self</span>.humedad = <span class="hljs-number">0.0</span>
+        <span class="hljs-variable language_">self</span>.mantenimiento = <span class="hljs-string">&quot;N&quot;</span>
+        <span class="hljs-variable language_">self</span>.nroEdificio = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Edificio</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.nro = <span class="hljs-number">0</span>
+        <span class="hljs-variable language_">self</span>.direccion = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.telefono = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.cantSensoMantXmes = [<span class="hljs-number">0</span>]*<span class="hljs-number">12</span>
+
+<span class="hljs-comment"># afSensores, afEdificios: str</span>
+<span class="hljs-comment"># alSensores, alEdificios: archivo</span>
+<span class="hljs-comment"># tamEdi: int</span>
+afSensores = <span class="hljs-string">&quot;Sensores.dat&quot;</span>
+afEdificios = <span class="hljs-string">&quot;Edificios.dat&quot;</span>
+alSensores = <span class="hljs-built_in">open</span>(afSensores, <span class="hljs-string">&quot;r+b&quot;</span>)
+alEdificios = <span class="hljs-built_in">open</span>(afEdificios, <span class="hljs-string">&quot;r+b&quot;</span>)
+pickle.load(alEdificios)
+tamEdi = alEdificios.tell()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">Busco</span>(<span class="hljs-params">cod</span>):
+    <span class="hljs-comment"># Secuencial: Sensores.dat está ordenado por temperatura, no por código</span>
+    <span class="hljs-comment"># cod: str</span>
+    <span class="hljs-comment"># tam, pos, p: int</span>
+    <span class="hljs-comment"># reg: Sensor</span>
+    tam = os.path.getsize(afSensores)
+    pos = -<span class="hljs-number">1</span>
+    alSensores.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alSensores.tell() &lt; tam <span class="hljs-keyword">and</span> pos == -<span class="hljs-number">1</span>:
+        p = alSensores.tell()
+        reg = pickle.load(alSensores)
+        <span class="hljs-keyword">if</span> reg.codigo == cod:
+            pos = p
+    <span class="hljs-keyword">return</span> pos
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">Grabo</span>(<span class="hljs-params">reg, pos</span>):
+    <span class="hljs-comment"># reg: Sensor</span>
+    <span class="hljs-comment"># pos: int (byte donde empieza el registro)</span>
+    alSensores.seek(pos, <span class="hljs-number">0</span>)
+    pickle.dump(reg, alSensores)
+    alSensores.flush()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">INSTALACION</span>():
+    <span class="hljs-comment"># cod: str</span>
+    <span class="hljs-comment"># cantEdi: int</span>
+    <span class="hljs-comment"># reg: Sensor</span>
+    <span class="hljs-comment"># Fin de datos: código &quot;*&quot;</span>
+    cantEdi = os.path.getsize(afEdificios) // tamEdi
+    cod = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Código de sensor (* para terminar): &quot;</span>)
+    <span class="hljs-keyword">while</span> cod != <span class="hljs-string">&quot;*&quot;</span>:
+        <span class="hljs-keyword">if</span> Busco(cod.ljust(<span class="hljs-number">10</span>, <span class="hljs-string">&quot; &quot;</span>)) != -<span class="hljs-number">1</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ese sensor ya está instalado&quot;</span>)
+        <span class="hljs-keyword">else</span>:
+            reg = Sensor()
+            reg.codigo = cod.ljust(<span class="hljs-number">10</span>, <span class="hljs-string">&quot; &quot;</span>)
+            reg.ubicacion = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Ubicación: &quot;</span>).ljust(<span class="hljs-number">30</span>, <span class="hljs-string">&quot; &quot;</span>)
+            reg.temperatura = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Temperatura: &quot;</span>))
+            reg.humedad = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Humedad: &quot;</span>))
+            reg.nroEdificio = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Nro de edificio: &quot;</span>))
+            <span class="hljs-keyword">while</span> reg.nroEdificio &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> reg.nroEdificio &gt;= cantEdi:
+                reg.nroEdificio = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;No existe ese edificio: &quot;</span>))
+            reg.mantenimiento = <span class="hljs-string">&quot;N&quot;</span>
+            Grabo(reg, os.path.getsize(afSensores))
+            ORDENARxTEMPERATURA()
+        cod = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Código de sensor (* para terminar): &quot;</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">EVALUAR</span>():
+    <span class="hljs-comment"># tam, pos: int</span>
+    <span class="hljs-comment"># reg: Sensor</span>
+    tam = os.path.getsize(afSensores)
+    alSensores.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alSensores.tell() &lt; tam:
+        pos = alSensores.tell()
+        reg = pickle.load(alSensores)
+        <span class="hljs-keyword">if</span> reg.temperatura &gt; <span class="hljs-number">35</span> <span class="hljs-keyword">or</span> reg.humedad &lt; <span class="hljs-number">15</span>:
+            reg.mantenimiento = <span class="hljs-string">&quot;S&quot;</span>
+            Grabo(reg, pos)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">REPORTE</span>():
+    <span class="hljs-comment"># tam, pos, cont: int</span>
+    <span class="hljs-comment"># hoy: date</span>
+    <span class="hljs-comment"># reg: Sensor</span>
+    <span class="hljs-comment"># edi: Edificio</span>
+    hoy = date.today()
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Fecha del día:&quot;</span>, hoy.strftime(<span class="hljs-string">&quot;%d/%m/%Y&quot;</span>))
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Código sensor / Ubicación / Dirección del edificio / Teléfono de contacto&quot;</span>)
+    tam = os.path.getsize(afSensores)
+    cont = <span class="hljs-number">0</span>
+    alSensores.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alSensores.tell() &lt; tam <span class="hljs-keyword">and</span> cont &lt; <span class="hljs-number">40</span>:
+        pos = alSensores.tell()
+        reg = pickle.load(alSensores)
+        <span class="hljs-keyword">if</span> reg.mantenimiento == <span class="hljs-string">&quot;S&quot;</span>:
+            alEdificios.seek(reg.nroEdificio * tamEdi, <span class="hljs-number">0</span>)
+            edi = pickle.load(alEdificios)
+            <span class="hljs-built_in">print</span>(reg.codigo, reg.ubicacion, edi.direccion, edi.telefono)
+            edi.cantSensoMantXmes[MES() - <span class="hljs-number">1</span>] = edi.cantSensoMantXmes[MES() - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>
+            alEdificios.seek(reg.nroEdificio * tamEdi, <span class="hljs-number">0</span>)
+            pickle.dump(edi, alEdificios)
+            alEdificios.flush()
+            reg.mantenimiento = <span class="hljs-string">&quot;N&quot;</span>
+            Grabo(reg, pos)
+            cont = cont + <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">MOSTRAR_SENSOR</span>(<span class="hljs-params">reg</span>):
+    <span class="hljs-comment"># reg: Sensor</span>
+    <span class="hljs-built_in">print</span>(reg.codigo, reg.ubicacion, reg.temperatura, reg.humedad, reg.mantenimiento, reg.nroEdificio)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">CONSULTA</span>():
+    <span class="hljs-comment"># tam, tamSen, m: int</span>
+    <span class="hljs-comment"># edi: Edificio</span>
+    <span class="hljs-comment"># reg: Sensor</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Cantidad de sensores mantenidos en el mes por edificio&quot;</span>)
+    tam = os.path.getsize(afEdificios)
+    alEdificios.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alEdificios.tell() &lt; tam:
+        edi = pickle.load(alEdificios)
+        <span class="hljs-built_in">print</span>(edi.nro, end=<span class="hljs-string">&quot; &quot;</span>)
+        <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">12</span>):
+            <span class="hljs-built_in">print</span>(edi.cantSensoMantXmes[m], end=<span class="hljs-string">&quot; &quot;</span>)
+        <span class="hljs-built_in">print</span>()
+    tam = os.path.getsize(afSensores)
+    <span class="hljs-keyword">if</span> tam == <span class="hljs-number">0</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;No hay sensores&quot;</span>)
+    <span class="hljs-keyword">else</span>:
+        alSensores.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+        reg = pickle.load(alSensores)
+        tamSen = alSensores.tell()
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Menor temperatura:&quot;</span>)
+        MOSTRAR_SENSOR(reg)
+        alSensores.seek(tam - tamSen, <span class="hljs-number">0</span>)
+        reg = pickle.load(alSensores)
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Mayor temperatura:&quot;</span>)
+        MOSTRAR_SENSOR(reg)
+
+<span class="hljs-comment"># Programa principal</span>
+<span class="hljs-comment"># opcion: int</span>
+opcion = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> opcion != <span class="hljs-number">5</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;1- Instalación de sensores&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;2- Evaluar sensores&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;3- Reporte diario de mantenimiento&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;4- Consulta de temperatura&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;5- Salir&quot;</span>)
+    opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción: &quot;</span>))
+    <span class="hljs-keyword">while</span> opcion &lt; <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> opcion &gt; <span class="hljs-number">5</span>:
+        opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción inválida: &quot;</span>))
+    <span class="hljs-keyword">match</span> opcion:
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+            INSTALACION()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+            EVALUAR()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+            REPORTE()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+            CONSULTA()
+alSensores.close()
+alEdificios.close()</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la hoja del examen y la página del 3° parcial y final (registros como clase, recorrer, búsquedas, actualizar un registro y alta). Las operaciones de archivos siguen las diapositivas de merge y corte de control. El Chapin sigue la forma de las diapositivas del examen de Historia Clínica de 2019. Edificios.dat se lee por posición relativa, como dice la hoja.</p><p class="bloque-fuente">Quedó en duda: <code>MES()</code> se tomó como el mes de 1 a 12, y por eso se resta 1 para el índice. El reporte toma los primeros 40 sensores con mantenimiento en S en el orden del archivo, que es por temperatura. El sensor de menor temperatura es el primero del archivo y el de mayor, el último, porque el archivo está siempre ordenado. <code>Grabo</code> recibe el registro y el byte donde va. Para un alta se le pasa el tamaño del archivo, que es el final. El código de sensor se completa a 10 caracteres y la ubicación a 30, porque la hoja no da los largos. En Python, pickle graba un entero menor que 256 en menos bytes que uno más grande. Por eso un contador de sensores por mes que pasa de 255 cambia el tamaño del registro del edificio. Entonces el registro deja de coincidir con la posición que calcula el programa. El material pide registros del mismo tamaño y solo muestra cómo lograrlo con textos (<code>ljust</code>). Las pruebas se hicieron con datos que no cambian el tamaño. La fecha del día sale de <code>date.today()</code>, de la librería <code>datetime</code> que aceptan los TP. Las diapositivas de la materia no muestran en Chapin la lectura de datos ni la selección múltiple. Acá van como <code>Leer</code> y como <code>Según</code>, con una columna por caso.</p><div class="em-votos" data-m="algoritmos-y-estructuras-de-datos" data-e="fin-2025-09-17" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Archivos" data-enlace="final.html#secuencial-y-de-acceso-directo" data-donde="3° parcial y final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Archivos</span><span class="ex-t-teoria"><a href="final.html#secuencial-y-de-acceso-directo">Secuencial y de acceso directo</a>, en 3° parcial y final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Posición relativa" data-enlace="final.html#como-viene-el-examen" data-donde="3° parcial y final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Posición relativa</span><span class="ex-t-teoria"><a href="final.html#como-viene-el-examen">Cómo viene el examen</a>, en 3° parcial y final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Búsqueda" data-enlace="parcial-2.html#busqueda-secuencial" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Búsqueda</span><span class="ex-t-teoria"><a href="parcial-2.html#busqueda-secuencial">Búsqueda secuencial</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2025-10-15.html">Anterior: 3° parcial, 2025 (Verdulería)</a><a href="ej-fin-2025-08-20.html">Siguiente: Final, 20/08/2025 (Diagnóstico automotriz)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta mayo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

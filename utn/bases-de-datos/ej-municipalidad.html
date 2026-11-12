@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Municipalidad de Rosario: Bases de Datos</title>
+<meta name="description" content="Ejercicio de examen: Municipalidad de Rosario.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="bases-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Bases de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=bases-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=bases-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Municipalidad de Rosario</h1>
+<p class="bajada">Final, 23/02/2026</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="municipalidad" data-titulo="Municipalidad de Rosario" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="municipalidad" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1r2EtFuKfEhMGvEJv2qwsGXwck9W3T6z7/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/municipalidad-enun-1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/municipalidad-enun-1.webp" width="913" height="1352" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a><p>SQL FINAL 23/2/2026</p>
+<p><strong>(2 puntos)</strong> 1-Por un trabajo de monitoreo de datos, nos solicitan un listado de solicitudes de puestos que al 01/01/2017 no se haya realizado ningún proceso de selección. Mostrar solicitudes de puestos que no hayan sido canceladas. Indicar descripción del área, puestos y fecha de solicitud</p>
+<p><strong>(2 puntos)</strong> 2-Indicar por estado la cantidad de procesos de solicitudes no canceladas cuya cantidad supere 3. No incluir los estados “contrato” y “rechazo”. Mostrar: Codigo de estado, descripción, cantidad de solicitudes.</p>
+<p><strong>(2 puntos)</strong> 3-PROCEDIMIENTO: COMPARATIVA DE SALARIOS Desarrollar un procedimiento que dado un puesto, un área y una fecha, muestre el salario por hora a esa fecha, el salario actual y el porcentaje de aumento entre ambos salarios. Probar el procedimiento realizando la llamada con los siguientes datos: Area: ‘Producción’, puesto: ‘operario’ y fecha: 12/12/2026.</p>
+<p><strong>(4 puntos)</strong> 4-Realice la creación, inserción de registros y modificación de las tablas que se requieran con sus correspondientes claves primarias y foráneas, según el siguiente requerimiento: Cada empleado corresponde a una única categoría. De las categorías se registran, código y descripción. Categoría 1- Empleado gerencial Categoría 2. Empleado técnico. Se deberá asignar la categoría a los empleados según sus puestos de trabajo actuales: Los que tienen puesto 1- Jefe de Producción y 14- Director de sistemas se categorizan como 1-Empleado Gerencial. El resto serán Categoría 2- Empleado Técnico</p>
+</section>
+<section class="sec ex-preguntas" id="exPreguntas" hidden><h2 id="ex-preguntas">Preguntas con opciones</h2><p class="ex-baja">Salen de este examen, algunas adaptadas. Dejalas para el final, porque las opciones pueden dar pistas.</p><ol class="qs"><li class="q" data-q="KOGZlbF9x1" data-tema="INNER JOIN y LEFT JOIN" data-enlace="parcial-2.html#inner-join-y-left-join" data-tipo="mc"><div class="q-enun" id="qe-ex-1"><span class="q-n">1</span><div><p><code>clientes LEFT JOIN contratos</code>: Beto no tiene contratos. ¿Qué pasa con Beto?</p>
+<p class="q-origen">Se tomó: Final 23/02/2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-ex-1"><li><button type="button" class="op" data-ok="0">No aparece</button></li><li><button type="button" class="op" data-ok="1">Aparece una vez, con nulos en las columnas de contrato</button></li><li><button type="button" class="op" data-ok="0">Da error</button></li><li><button type="button" class="op" data-ok="0">Aparece una vez por cada contrato de la base</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El <code>LEFT JOIN</code> conserva todas las filas de la izquierda. Con <code>INNER JOIN</code> no aparecería.</p>
+</div></li><li class="q" data-q="R8ahXC5Jg-" data-tema="Concurrencia" data-enlace="parcial-2.html#concurrencia" data-tipo="mc"><div class="q-enun" id="qe-ex-2"><span class="q-n">2</span><div><p>Dos cajeros extraen dinero de la misma cuenta al mismo tiempo y el saldo queda mal. ¿Qué faltó?</p>
+<p class="q-origen">Se tomó: Final 23/02/2026</p></div></div><ul class="ops" role="group" aria-labelledby="qe-ex-2"><li><button type="button" class="op" data-ok="0">Normalizar la tabla de cuentas</button></li><li><button type="button" class="op" data-ok="1">Control de concurrencia</button></li><li><button type="button" class="op" data-ok="0">Un índice sobre la cuenta</button></li><li><button type="button" class="op" data-ok="0">Un respaldo diario</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es una <strong>actualización perdida</strong>. Se evita con transacciones y bloqueos o con el nivel de aislamiento adecuado.</p>
+</div></li><li class="q" data-q="yfemjbgUGu" data-tema="Reglas de integridad" data-enlace="parcial-1.html#claves-y-reglas-de-integridad" data-tipo="mc"><div class="q-enun" id="qe-ex-3"><span class="q-n">3</span><div><p>¿Qué regla garantiza que un valor en una tabla secundaria exista en la primaria?</p>
+<p class="q-origen">Se tomó: Final 23/02/2026</p></div></div><ul class="ops" role="group" aria-labelledby="qe-ex-3"><li><button type="button" class="op" data-ok="0">Integridad de entidad</button></li><li><button type="button" class="op" data-ok="0">Integridad de dominio</button></li><li><button type="button" class="op" data-ok="1">Integridad referencial</button></li><li><button type="button" class="op" data-ok="0">Independencia lógica</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es la que nace de definir una clave foránea.</p>
+</div></li></ol></section>
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>a) Modelo E-R</h4>
+<p>El <code>mín:máx</code> pegado a una entidad dice cuántas de esa entidad le tocan a una de la otra punta, como en los DER resueltos del Drive. Tocá el dibujo para verlo en pantalla completa.</p>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="49.7 17.5 1377 963" width="1377" height="963" style="width:1377px;min-width:1377px;max-width:none;height:963px" role="img" aria-label="DER de la municipalidad. Bien se especializa, disyunta y total, en vehículo, maquinaria, técnico y edificio, con marca, tipos y actividades. Movimientos, débiles de bien, con repartición y tipo. Ítem y subítem forman la agregación anexo de seguro; bien y anexo forman otra agregación, a la que se vincula la póliza, débil de compañía de seguro."><g fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1081.7 400L1055.2 400M1028.5 400L1002 400M1158.3 400L1189.8 400M1216.5 400L1248 400M742.1 410L730.4 410M703.7 410L692 410M837.9 410L845.6 410M872.3 410L880 410M1050 199L1050 210.5M1050 228.5L1050 240M1050 131L1050 114.5M1050 96.5L1050 80M852 57.8L916.6 57.8M852 62.2L916.6 62.2M943.4 57.8L1008 57.8M943.4 62.2L1008 62.2M808 60L759.7 60M733 60L684.8 60M492 410L513.4 410M540.1 410L608 410M448 407.8L431.1 407.8M448 412.2L431.1 412.2M404.4 407.8L387.5 407.8M404.4 412.2L387.5 412.2M340 324L340 348M340 366L340 390M340 256L340 232M340 214L340 190M200.3 410L233 410M259.7 410L292.5 410M130 376L130 352M130 334L130 310M647.8 513L647.8 430M652.2 513L652.2 430M638.3 527.8L260 620M642.6 534.4L575 620M660.8 530.1L850 620M661.9 526.8L1270 620M352.5 640L340.6 640M313.9 640L302 640M410 674L410 698M410 716L410 740M1008.9 640L978.8 640M952.1 640L922 640M1060 674L1060 698M1060 716L1060 740M260 736L260 707M260 689L260 660M260 804L260 900M260 900L390.6 900M417.4 900L548 900M590 736L590 707M590 689L590 660M590 804L590 833M590 851L590 880M880 736L880 707M880 689L880 660M880 804L880 900M880 900L769.4 900M742.6 900L632 900M1270 736L1270 707M1270 689L1270 660M1270 804L1270 833M1270 851L1270 880"/><rect x="560" y="240" width="840" height="230"/><rect x="880" y="260" width="505" height="195"/><rect x="608" y="390" width="84" height="40"/><rect x="918" y="380" width="84" height="40"/><polygon points="1120,366 1158.3,400 1120,434 1081.7,400"/><rect x="1248" y="380" width="84" height="40"/><polygon points="790,384 837.9,410 790,436 742.1,410"/><polygon points="1050,131 1113.9,165 1050,199 986.1,165"/><rect x="1008" y="40" width="84" height="40"/><rect x="1012" y="44" width="76" height="32"/><polygon points="830,38 852,60 830,82 808,60"/><polygon points="830,45 845,60 830,75 815,60"/><rect x="555.3" y="40" width="129.5" height="40"/><polygon points="470,388 492,410 470,432 448,410"/><polygon points="470,395 485,410 470,425 455,410"/><rect x="292.5" y="390" width="95" height="40"/><rect x="296.5" y="394" width="87" height="32"/><polygon points="340,256 410.3,290 340,324 269.7,290"/><rect x="289.1" y="150" width="101.9" height="40"/><polygon points="130,376 200.3,410 130,444 59.7,410"/><rect x="65.3" y="270" width="129.5" height="40"/><rect x="218" y="620" width="84" height="40"/><rect x="542.5" y="620" width="95" height="40"/><rect x="838" y="620" width="84" height="40"/><rect x="1228" y="620" width="84" height="40"/><polygon points="410,606 467.5,640 410,674 352.5,640"/><rect x="352.1" y="740" width="115.7" height="40"/><polygon points="1060,606 1111.1,640 1060,674 1008.9,640"/><rect x="995.3" y="740" width="129.5" height="40"/><rect x="548" y="880" width="84" height="40"/><polygon points="260,736 317.5,770 260,804 202.5,770"/><polygon points="590,736 660.3,770 590,804 519.7,770"/><polygon points="880,736 931.1,770 880,804 828.9,770"/><polygon points="1270,736 1327.5,770 1270,804 1212.5,770"/><rect x="1226" y="880" width="88.1" height="40"/><ellipse cx="650" cy="350" rx="51.6" ry="40"/><ellipse cx="960" cy="355" rx="51.2" ry="25"/><ellipse cx="1290" cy="355" rx="51.2" ry="25"/><ellipse cx="1177.4" cy="60" rx="85.4" ry="32.5"/><ellipse cx="620" cy="127.5" rx="50.4" ry="47.5"/><ellipse cx="340" cy="447.5" rx="41.5" ry="17.5"/><ellipse cx="340" cy="110" rx="46.3" ry="40"/><ellipse cx="130" cy="245" rx="51.2" ry="25"/><ellipse cx="175.4" cy="640" rx="42.6" ry="55"/><ellipse cx="694.2" cy="640" rx="56.7" ry="32.5"/><ellipse cx="818" cy="685" rx="42.6" ry="25"/><ellipse cx="1354.6" cy="640" rx="42.6" ry="25"/><ellipse cx="410" cy="805" rx="51.2" ry="25"/><ellipse cx="1060" cy="805" rx="51.2" ry="25"/><ellipse cx="590" cy="945" rx="51.2" ry="25"/><ellipse cx="1365.2" cy="900" rx="51.2" ry="25"/><circle cx="650" cy="525" r="12"/></g><g fill="currentColor" stroke="none" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle"><text x="650" y="414.5">bien</text><text x="960" y="404.5">item</text><text x="1120" y="397.5">anexo_</text><text x="1120" y="411.5">seguro</text><text x="1290" y="404.5">subitem</text><text x="790" y="414.5">bien_anexo</text><text x="1050" y="162.5">poliza_</text><text x="1050" y="176.5">bien_anexo</text><text x="1050" y="64.5">poliza</text><text x="620" y="64.5">compania_seguro</text><text x="340" y="414.5">movimiento</text><text x="340" y="287.5">movimiento_</text><text x="340" y="301.5">reparticion</text><text x="340" y="174.5">reparticion</text><text x="130" y="407.5">movimiento_</text><text x="130" y="421.5">tipo</text><text x="130" y="294.5">tipo_movimiento</text><text x="260" y="644.5">vehiculo</text><text x="590" y="644.5">maquinaria</text><text x="880" y="644.5">tecnico</text><text x="1270" y="644.5">edificio</text><text x="410" y="637.5">vehiculo_</text><text x="410" y="651.5">tipo</text><text x="410" y="764.5">tipo_vehiculo</text><text x="1060" y="637.5">tecnico_</text><text x="1060" y="651.5">tipo</text><text x="1060" y="764.5">tipo_componente</text><text x="590" y="904.5">marca</text><text x="260" y="767.5">vehiculo_</text><text x="260" y="781.5">marca</text><text x="590" y="767.5">maquinaria_</text><text x="590" y="781.5">marca</text><text x="880" y="767.5">tecnico_</text><text x="880" y="781.5">marca</text><text x="1270" y="767.5">edificio_</text><text x="1270" y="781.5">actividad</text><text x="1270" y="904.5">actividad</text><text x="650" y="332" text-decoration="underline">codigo</text><text x="650" y="347">nro_matricula</text><text x="650" y="362">descripcion</text><text x="650" y="377">tipo_bien</text><text x="960" y="352" text-decoration="underline">codigo</text><text x="960" y="367">descripcion</text><text x="1290" y="352" text-decoration="underline">codigo</text><text x="1290" y="367">descripcion</text><text x="1177.4" y="49.5" text-decoration="underline">nro</text><text x="1177.4" y="64.5">fecha_poliza</text><text x="1177.4" y="79.5">fecha_vencimiento</text><text x="620" y="102" text-decoration="underline">codigo</text><text x="620" y="117">razon_social</text><text x="620" y="132">domicilio</text><text x="620" y="147">telefono</text><text x="620" y="162">email</text><text x="340" y="452" text-decoration="underline">fecha_hora</text><text x="340" y="92" text-decoration="underline">codigo</text><text x="340" y="107">nombre</text><text x="340" y="122">direccion</text><text x="340" y="137">telefono</text><text x="130" y="242" text-decoration="underline">codigo</text><text x="130" y="257">descripcion</text><text x="175.4" y="607">modelo</text><text x="175.4" y="622">anio</text><text x="175.4" y="637">nro_interno</text><text x="175.4" y="652">dominio</text><text x="175.4" y="667">motor</text><text x="175.4" y="682">chasis</text><text x="694.2" y="629.5">motor</text><text x="694.2" y="644.5">modelo</text><text x="694.2" y="659.5">nro_interno</text><text x="818" y="682">modelo</text><text x="818" y="697">nro_serie</text><text x="1354.6" y="637">condicion</text><text x="1354.6" y="652">ubicacion</text><text x="410" y="802" text-decoration="underline">codigo</text><text x="410" y="817">descripcion</text><text x="1060" y="802" text-decoration="underline">codigo</text><text x="1060" y="817">descripcion</text><text x="590" y="942" text-decoration="underline">codigo</text><text x="590" y="957">descripcion</text><text x="1365.2" y="897" text-decoration="underline">codigo</text><text x="1365.2" y="912">descripcion</text><text x="650" y="529.5">d</text><text x="1041.8" y="404.5">0:N</text><text x="1203.2" y="404.5">1:M</text><text x="717" y="414.5">0:N</text><text x="859" y="414.5">0:M</text><text x="1050" y="224">1:M</text><text x="1050" y="110">0:N</text><text x="930" y="64.5">0:N</text><text x="746.4" y="64.5">1:1</text><text x="526.8" y="414.5">1:1</text><text x="417.8" y="414.5">0:N</text><text x="340" y="361.5">0:N</text><text x="340" y="227.5">1:1</text><text x="246.4" y="414.5">0:N</text><text x="130" y="347.5">1:1</text><text x="327.3" y="644.5">0:N</text><text x="410" y="711.5">1:1</text><text x="965.4" y="644.5">0:N</text><text x="1060" y="711.5">1:1</text><text x="260" y="702.5">0:N</text><text x="404" y="904.5">1:1</text><text x="590" y="702.5">0:N</text><text x="590" y="846.5">1:1</text><text x="880" y="702.5">0:N</text><text x="756" y="904.5">1:1</text><text x="1270" y="702.5">0:N</text><text x="1270" y="846.5">1:M</text></g></svg></figure>
+
+<h4>b) Pasaje a tablas</h4>
+<p>La jerarquía se pasa completa, con una tabla por subclase. La repartición actual de un bien no se guarda. Sale del último movimiento.</p>
+<pre class="codigo"><code>marca (codigo, descripcion)
+CP -&gt; codigo
+
+tipo_vehiculo (codigo, descripcion)
+CP -&gt; codigo
+
+tipo_componente (codigo, descripcion)
+CP -&gt; codigo
+
+actividad (codigo, descripcion)
+CP -&gt; codigo
+
+reparticion (codigo, nombre, direccion, telefono)
+CP -&gt; codigo
+
+tipo_movimiento (codigo, descripcion)
+CP -&gt; codigo
+
+bien (codigo, nro_matricula, descripcion, tipo_bien)
+CP -&gt; codigo
+
+vehiculo (codigo_bien, modelo, anio, nro_interno, dominio, motor, chasis, codigo_tipo_vehiculo, codigo_marca)
+CP -&gt; codigo_bien
+CF(codigo_bien) -&gt; bien(codigo) NN
+CF(codigo_tipo_vehiculo) -&gt; tipo_vehiculo(codigo) NN
+CF(codigo_marca) -&gt; marca(codigo) NN
+
+maquinaria (codigo_bien, motor, modelo, nro_interno, codigo_marca)
+CP -&gt; codigo_bien
+CF(codigo_bien) -&gt; bien(codigo) NN
+CF(codigo_marca) -&gt; marca(codigo) NN
+
+tecnico (codigo_bien, modelo, nro_serie, codigo_tipo_componente, codigo_marca)
+CP -&gt; codigo_bien
+CF(codigo_bien) -&gt; bien(codigo) NN
+CF(codigo_tipo_componente) -&gt; tipo_componente(codigo) NN
+CF(codigo_marca) -&gt; marca(codigo) NN
+
+edificio (codigo_bien, condicion, ubicacion)
+CP -&gt; codigo_bien
+CF(codigo_bien) -&gt; bien(codigo) NN
+
+edificio_actividad (codigo_bien, codigo_actividad)
+CP -&gt; codigo_bien, codigo_actividad
+CF(codigo_bien) -&gt; edificio(codigo_bien) NN
+CF(codigo_actividad) -&gt; actividad(codigo) NN
+
+movimiento (codigo_bien, fecha_hora, codigo_reparticion, codigo_tipo_movimiento)
+CP -&gt; codigo_bien, fecha_hora
+CF(codigo_bien) -&gt; bien(codigo) NN
+CF(codigo_reparticion) -&gt; reparticion(codigo) NN
+CF(codigo_tipo_movimiento) -&gt; tipo_movimiento(codigo) NN
+
+item (codigo, descripcion)
+CP -&gt; codigo
+
+subitem (codigo, descripcion)
+CP -&gt; codigo
+
+anexo_seguro (codigo_item, codigo_subitem)
+CP -&gt; codigo_item, codigo_subitem
+CF(codigo_item) -&gt; item(codigo) NN
+CF(codigo_subitem) -&gt; subitem(codigo) NN
+
+bien_anexo (codigo_bien, codigo_item, codigo_subitem)
+CP -&gt; codigo_bien, codigo_item, codigo_subitem
+CF(codigo_bien) -&gt; bien(codigo) NN
+CF(codigo_item, codigo_subitem) -&gt; anexo_seguro(codigo_item, codigo_subitem) NN
+
+compania_seguro (codigo, razon_social, domicilio, telefono, email)
+CP -&gt; codigo
+
+poliza (codigo_compania, nro, fecha_poliza, fecha_vencimiento)
+CP -&gt; codigo_compania, nro
+CF(codigo_compania) -&gt; compania_seguro(codigo) NN
+
+poliza_bien_anexo (codigo_compania, nro_poliza, codigo_bien, codigo_item, codigo_subitem)
+CP -&gt; codigo_compania, nro_poliza, codigo_bien, codigo_item, codigo_subitem
+CF(codigo_compania, nro_poliza) -&gt; poliza(codigo_compania, nro) NN
+CF(codigo_bien, codigo_item, codigo_subitem) -&gt; bien_anexo(codigo_bien, codigo_item, codigo_subitem) NN</code></pre>
+<h4>SQL</h4>
+<p>El enunciado no trae la base. Los nombres salen del modelo relacional del final Recursos Humanos de esta misma página de ejercicios, que tiene las mismas tablas.</p>
+<p><strong>1)</strong> Las solicitudes sin procesos hasta esa fecha.</p>
+<pre class="codigo"><code><span class="hljs-keyword">select</span> a.denominacion, pt.descripcion, sp.fecha_solic
+<span class="hljs-keyword">from</span> solicitudes_puestos sp
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> areas a
+  <span class="hljs-keyword">on</span> a.cod_area<span class="hljs-operator">=</span>sp.cod_area
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> puestos_de_trabajo pt
+  <span class="hljs-keyword">on</span> pt.cod_puesto<span class="hljs-operator">=</span>sp.cod_puesto
+<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> proceso_seleccion ps
+  <span class="hljs-keyword">on</span> ps.cod_area<span class="hljs-operator">=</span>sp.cod_area
+  <span class="hljs-keyword">and</span> ps.cod_puesto<span class="hljs-operator">=</span>sp.cod_puesto
+  <span class="hljs-keyword">and</span> ps.fecha_solic<span class="hljs-operator">=</span>sp.fecha_solic
+  <span class="hljs-keyword">and</span> ps.fecha_hora<span class="hljs-operator">&lt;=</span><span class="hljs-string">&#x27;20170101T235959&#x27;</span>
+<span class="hljs-keyword">where</span> sp.fecha_canc <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>
+  <span class="hljs-keyword">and</span> sp.fecha_solic<span class="hljs-operator">&lt;=</span><span class="hljs-string">&#x27;20170101&#x27;</span>
+  <span class="hljs-keyword">and</span> ps.fecha_solic <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>;</code></pre>
+<p><strong>2)</strong></p>
+<pre class="codigo"><code><span class="hljs-keyword">select</span> e.cod_estado, e.descripcion, <span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>) cantidad
+<span class="hljs-keyword">from</span> proceso_seleccion ps
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> solicitudes_puestos sp
+  <span class="hljs-keyword">on</span> sp.cod_area<span class="hljs-operator">=</span>ps.cod_area
+  <span class="hljs-keyword">and</span> sp.cod_puesto<span class="hljs-operator">=</span>ps.cod_puesto
+  <span class="hljs-keyword">and</span> sp.fecha_solic<span class="hljs-operator">=</span>ps.fecha_solic
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> estados e
+  <span class="hljs-keyword">on</span> e.cod_estado<span class="hljs-operator">=</span>ps.cod_estado
+<span class="hljs-keyword">where</span> sp.fecha_canc <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>
+  <span class="hljs-keyword">and</span> e.descripcion <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (<span class="hljs-string">&#x27;contrato&#x27;</span>,<span class="hljs-string">&#x27;rechazo&#x27;</span>)
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> e.cod_estado, e.descripcion
+<span class="hljs-keyword">having</span> <span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>) <span class="hljs-operator">&gt;</span> <span class="hljs-number">3</span>;</code></pre>
+<p><strong>3)</strong></p>
+<pre class="codigo"><code><span class="hljs-keyword">drop</span> <span class="hljs-keyword">procedure</span> if <span class="hljs-keyword">exists</span> comparativa_salarios;
+
+delimiter $$
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">procedure</span> comparativa_salarios(<span class="hljs-keyword">in</span> p_area <span class="hljs-type">varchar</span>(<span class="hljs-number">100</span>), <span class="hljs-keyword">in</span> p_puesto <span class="hljs-type">varchar</span>(<span class="hljs-number">100</span>), <span class="hljs-keyword">in</span> p_fecha <span class="hljs-type">date</span>)
+<span class="hljs-keyword">begin</span>
+  <span class="hljs-keyword">select</span> a.cod_area <span class="hljs-keyword">into</span> <span class="hljs-variable">@area</span>
+  <span class="hljs-keyword">from</span> areas a
+  <span class="hljs-keyword">where</span> a.denominacion<span class="hljs-operator">=</span>p_area;
+
+  <span class="hljs-keyword">select</span> pt.cod_puesto <span class="hljs-keyword">into</span> <span class="hljs-variable">@puesto</span>
+  <span class="hljs-keyword">from</span> puestos_de_trabajo pt
+  <span class="hljs-keyword">where</span> pt.descripcion<span class="hljs-operator">=</span>p_puesto;
+
+  <span class="hljs-keyword">select</span> <span class="hljs-built_in">max</span>(s.fecha) <span class="hljs-keyword">into</span> <span class="hljs-variable">@fec_dada</span>
+  <span class="hljs-keyword">from</span> salario s
+  <span class="hljs-keyword">where</span> s.cod_area<span class="hljs-operator">=</span><span class="hljs-variable">@area</span> <span class="hljs-keyword">and</span> s.cod_puesto<span class="hljs-operator">=</span><span class="hljs-variable">@puesto</span>
+  <span class="hljs-keyword">and</span> s.fecha<span class="hljs-operator">&lt;=</span>p_fecha;
+
+  <span class="hljs-keyword">select</span> <span class="hljs-built_in">max</span>(s.fecha) <span class="hljs-keyword">into</span> <span class="hljs-variable">@fec_actual</span>
+  <span class="hljs-keyword">from</span> salario s
+  <span class="hljs-keyword">where</span> s.cod_area<span class="hljs-operator">=</span><span class="hljs-variable">@area</span> <span class="hljs-keyword">and</span> s.cod_puesto<span class="hljs-operator">=</span><span class="hljs-variable">@puesto</span>
+  <span class="hljs-keyword">and</span> s.fecha<span class="hljs-operator">&lt;=</span><span class="hljs-built_in">current_date</span>();
+
+  <span class="hljs-keyword">select</span> s_dada.valor_hora salario_a_fecha, s_act.valor_hora salario_actual
+    , round((s_act.valor_hora<span class="hljs-operator">-</span>s_dada.valor_hora)<span class="hljs-operator">*</span><span class="hljs-number">100</span><span class="hljs-operator">/</span>s_dada.valor_hora,<span class="hljs-number">2</span>) porc_aumento
+  <span class="hljs-keyword">from</span> salario s_dada
+  <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> salario s_act
+    <span class="hljs-keyword">on</span> s_act.cod_area<span class="hljs-operator">=</span>s_dada.cod_area
+    <span class="hljs-keyword">and</span> s_act.cod_puesto<span class="hljs-operator">=</span>s_dada.cod_puesto
+  <span class="hljs-keyword">where</span> s_dada.cod_area<span class="hljs-operator">=</span><span class="hljs-variable">@area</span> <span class="hljs-keyword">and</span> s_dada.cod_puesto<span class="hljs-operator">=</span><span class="hljs-variable">@puesto</span>
+  <span class="hljs-keyword">and</span> s_dada.fecha<span class="hljs-operator">=</span><span class="hljs-variable">@fec_dada</span>
+  <span class="hljs-keyword">and</span> s_act.fecha<span class="hljs-operator">=</span><span class="hljs-variable">@fec_actual</span>;
+<span class="hljs-keyword">end</span>$$
+delimiter ;
+
+<span class="hljs-keyword">call</span> comparativa_salarios(<span class="hljs-string">&#x27;Producción&#x27;</span>,<span class="hljs-string">&#x27;operario&#x27;</span>,<span class="hljs-string">&#x27;20261212&#x27;</span>);</code></pre>
+<p><strong>4)</strong> Primero todos a categoría 2. Después pasan a 1 los que hoy tienen el puesto 1 o el 14.</p>
+<pre class="codigo"><code><span class="hljs-keyword">create table</span> categorias (
+  cod_categoria <span class="hljs-type">int</span> unsigned <span class="hljs-keyword">not null</span>,
+  descripcion <span class="hljs-type">varchar</span>(<span class="hljs-number">45</span>) <span class="hljs-keyword">not null</span>,
+  <span class="hljs-keyword">primary key</span> (cod_categoria)
+);
+
+<span class="hljs-keyword">alter table</span> empleados
+  <span class="hljs-keyword">add</span> <span class="hljs-keyword">column</span> cod_categoria <span class="hljs-type">int</span> unsigned <span class="hljs-keyword">null</span>;
+
+<span class="hljs-keyword">start</span> transaction;
+
+<span class="hljs-keyword">insert into</span> categorias (cod_categoria, descripcion)
+<span class="hljs-keyword">values</span> (<span class="hljs-number">1</span>,<span class="hljs-string">&#x27;Empleado gerencial&#x27;</span>), (<span class="hljs-number">2</span>,<span class="hljs-string">&#x27;Empleado técnico&#x27;</span>);
+
+<span class="hljs-keyword">drop</span> temporary <span class="hljs-keyword">table</span> if <span class="hljs-keyword">exists</span> tt_puesto_actual;
+<span class="hljs-keyword">create</span> temporary <span class="hljs-keyword">table</span> tt_puesto_actual
+<span class="hljs-keyword">select</span> ep.legajo, <span class="hljs-built_in">max</span>(ep.fecha_ini) fecha
+<span class="hljs-keyword">from</span> empleados_puestos ep
+<span class="hljs-keyword">where</span> ep.fecha_ini<span class="hljs-operator">&lt;=</span><span class="hljs-built_in">current_date</span>()
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> ep.legajo;
+
+<span class="hljs-keyword">update</span> empleados
+<span class="hljs-keyword">set</span> cod_categoria<span class="hljs-operator">=</span><span class="hljs-number">2</span>;
+
+<span class="hljs-keyword">update</span> empleados e
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> tt_puesto_actual tt
+  <span class="hljs-keyword">on</span> tt.legajo<span class="hljs-operator">=</span>e.legajo
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> empleados_puestos ep
+  <span class="hljs-keyword">on</span> ep.legajo<span class="hljs-operator">=</span>tt.legajo
+  <span class="hljs-keyword">and</span> ep.fecha_ini<span class="hljs-operator">=</span>tt.fecha
+<span class="hljs-keyword">set</span> e.cod_categoria<span class="hljs-operator">=</span><span class="hljs-number">1</span>
+<span class="hljs-keyword">where</span> ep.cod_puesto <span class="hljs-keyword">in</span> (<span class="hljs-number">1</span>,<span class="hljs-number">14</span>);
+
+<span class="hljs-keyword">commit</span>;
+
+<span class="hljs-keyword">alter table</span> empleados
+  modify <span class="hljs-keyword">column</span> cod_categoria <span class="hljs-type">int</span> unsigned <span class="hljs-keyword">not null</span>,
+  <span class="hljs-keyword">add constraint</span> fk_empleados_categorias <span class="hljs-keyword">foreign key</span> (cod_categoria)
+  <span class="hljs-keyword">references</span> categorias(cod_categoria)
+  <span class="hljs-keyword">on</span> <span class="hljs-keyword">update</span> cascade <span class="hljs-keyword">on</span> <span class="hljs-keyword">delete</span> restrict;</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con 1° parcial para el DER y el pasaje, 2° parcial para el SQL. La forma sigue las resoluciones del Drive de Jusenkyo 2026, y el SQL, las de Recursos Humanos, Manolo Carpa Tigre y los parcialitos de 2025.</p><p class="bloque-fuente">Quedó en duda: La hoja publicada no trae requerimientos de álgebra, aunque el examen está marcado con ese tema. El SQL no trae su base; los nombres se tomaron de Recursos Humanos porque tiene esas mismas tablas, pero sin el script de este final no está confirmado. Se probó en MySQL 8 con esas tablas y datos inventados, no con la base real. En el 1 también se filtran las solicitudes posteriores al 01/01/2017, que el enunciado no aclara. En el 2 se cuentan procesos, como dice la consigna, aunque el pie diga «cantidad de solicitudes»; si son solicitudes distintas, cambia el count. En el 3 la fecha 12/12/2026 es posterior al examen y puede ser un error del enunciado; se dejó tal cual. Si es futura, el salario a esa fecha suele coincidir con el actual y da 0%. En el 4 el create y los alter quedan fuera de la transacción porque en MySQL cierran la transacción abierta. En el DER, la póliza se ata al bien con su anexo; otra lectura son dos N a M separados, con bienes y con anexos. La repartición de la regla 1 no se guarda en bien porque la narrativa dice que sale de la última fecha_hora.</p><div class="em-votos" data-m="bases-de-datos" data-e="municipalidad" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen. Las preguntas con opciones ya se corrigieron solas.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="DER" data-enlace="parcial-1.html#de-la-narrativa-al-der" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">DER</span><span class="ex-t-teoria"><a href="parcial-1.html#de-la-narrativa-al-der">De la narrativa al DER</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Pasaje" data-enlace="parcial-1.html#pasaje-a-tablas" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Pasaje</span><span class="ex-t-teoria"><a href="parcial-1.html#pasaje-a-tablas">Pasaje a tablas</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Álgebra" data-enlace="parcial-1.html#algebra-relacional" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Álgebra</span><span class="ex-t-teoria"><a href="parcial-1.html#algebra-relacional">Álgebra relacional</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="SQL" data-enlace="parcial-2.html#sql-para-la-practica" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">SQL</span><span class="ex-t-teoria"><a href="parcial-2.html#sql-para-la-practica">SQL para la práctica</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-ad-2023-b.html">Anterior: Parcial de aprobación directa, tema B</a><a href="ej-alquileres.html">Siguiente: Alquileres de autos</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta marzo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

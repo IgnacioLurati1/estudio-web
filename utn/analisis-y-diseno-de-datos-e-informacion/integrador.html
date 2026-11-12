@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TP integrador: Análisis y Diseño de Datos e Información</title>
+<meta name="description" content="Entregables, rúbricas, defensa y promoción.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="analisis-y-diseno-de-datos-e-informacion" data-pagina="integrador">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Análisis y Diseño de Datos e Información</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="integrador.html" aria-current="page">TP integrador</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=analisis-y-diseno-de-datos-e-informacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=analisis-y-diseno-de-datos-e-informacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#condiciones">Condiciones</a></li><li class="n2"><a href="#el-enunciado">El enunciado</a></li><li class="n2"><a href="#resultados-de-aprendizaje">Resultados de aprendizaje</a></li><li class="n2"><a href="#entregables">Entregables</a></li><li class="n3"><a href="#que-se-pide-de-cada-ayuda">Qué se pide de cada ayuda</a></li><li class="n2"><a href="#rubricas">Rúbricas</a></li><li class="n3"><a href="#bosquejos-de-interface-r01">Bosquejos de interface (R01)</a></li><li class="n3"><a href="#diccionario-de-datos-r02">Diccionario de datos (R02)</a></li><li class="n3"><a href="#clases-de-equivalencia-r03">Clases de equivalencia (R03)</a></li><li class="n3"><a href="#casos-de-prueba-r03">Casos de prueba (R03)</a></li><li class="n3"><a href="#tipos-de-ayuda-r04">Tipos de ayuda (R04)</a></li><li class="n2"><a href="#la-defensa-r05">La defensa (R05)</a></li><li class="n3"><a href="#artefacto-de-vision">Artefacto de Visión</a></li><li class="n3"><a href="#mapa-del-recorrido-del-cliente">Mapa del recorrido del cliente</a></li><li class="n3"><a href="#para-presentar-mejor">Para presentar mejor</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>TP integrador</h1>
+<p class="bajada">Qué hay que entregar, qué mira cada rúbrica y cómo se defiende. Es requisito de la regularidad y la base de la promoción.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="condiciones">Condiciones</h2>
+<p>De la presentación de la cátedra 2026, diapositivas 4 y 5:</p>
+<ul>
+<li>Los entregables se suben al campus de la UTN.</li>
+<li>Hay presentación y defensa de los bosquejos de interface. Para 2026 son la semana del 27 de julio (primer cuatrimestre) y la del 14 de diciembre (segundo).</li>
+<li>Cada entregable debe tener nota mayor o igual a 6.</li>
+<li><strong>Promoción:</strong> entrega adicional del TP, con el bosquejo de interface hecho en alguna herramienta de prototipado, a tu elección.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Nota y rúbrica</p><p>Las rúbricas tienen niveles (Insuficiente, Bueno, Muy bueno, Excelente), no notas. Ningún archivo del Drive dice cómo se pasa de un nivel al 6. Preguntalo.</p>
+</div>
+</section>
+<section class="sec"><h2 id="el-enunciado">El enunciado</h2>
+<p>El <a href="ejercicios.html">enunciado</a> es una huerta urbana en la terraza de un edificio de Rosario. Los vecinos diseñan un módulo con sensores de humedad, temperatura y luz, riego, invernadero, media sombra y una unidad de control con placa Arduino y WIFI. El sistema tiene que registrar lecturas y acciones, notificar y ayudar con la siembra y la cosecha.</p>
+<p>El enunciado da el proceso de negocio principal, la lista de actores y stakeholders, un modelo de dominio incompleto y las reglas de negocio. Leelo entero, porque lo que acá sigue no reemplaza sus reglas numeradas.</p>
+</section>
+<section class="sec"><h2 id="resultados-de-aprendizaje">Resultados de aprendizaje</h2>
+<p>De la rúbrica R00:</p>
+<ol>
+<li>Construir bosquejos de interfaz, a partir del producto mínimo de valor (PMV), para poder modelar la experiencia del usuario final.</li>
+<li>Identificar las necesidades de información, aplicando el concepto de ingeniería inversa, para poder construir un diccionario de datos.</li>
+<li>Identificar clases de equivalencia para los elementos de datos, utilizando partición equivalente, para construir casos de prueba.</li>
+<li>Identificar los tipos de usuario final, teniendo en cuenta la frecuencia de uso futura, para poder elegir los tipos de ayuda a implementar.</li>
+<li>Combinar los bosquejos de interfaz, diccionario de datos, casos de prueba y tipos de ayuda en una presentación o bien en un prototipo (utilizando una herramienta de prototipado), para demostrar la factibilidad del PMV y hacer una defensa de la solución planteada.</li>
+</ol>
+</section>
+<section class="sec"><h2 id="entregables">Entregables</h2>
+<p>Todos van en PDF, de <a href="https://drive.google.com/file/d/1ig6ACL6Z76p4J97w_JReQSc-wG2Z22zG/view">Entregables finales</a>:</p>
+<div class="tabla"><table><thead><tr><th>RA</th><th>Orden</th><th>Entregable</th><th>Nombre del archivo</th><th>Qué pide</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>Bosquejos de interface</td><td><code>G&lt;nombreGrupo&gt;-BOS</code></td><td>Cada bosquejo, identificado con un número único. Un PDF con todos o uno por fase</td></tr><tr><td>2</td><td>2</td><td>Diccionario de datos</td><td><code>G&lt;nombreGrupo&gt;-DD</code></td><td>Indicar el código del bosquejo antes del diccionario. Un PDF o uno por fase</td></tr><tr><td>2</td><td>3</td><td>Tabla de depuración</td><td><code>G&lt;nombreGrupo&gt;-TDEP</code></td><td>Todo elemento de los flujos de entrada con máscara especial, discreto, con rango definido, con criterios de validación o con comentarios especiales</td></tr><tr><td>3</td><td>4</td><td>Clases de equivalencia</td><td><code>G&lt;nombreGrupo&gt;-CEQ</code></td><td>Todo elemento de datos con criterios de validación debe generar sus clases</td></tr><tr><td>3</td><td>5</td><td>Casos de prueba</td><td><code>G&lt;nombreGrupo&gt;-CP</code></td><td>Indicar a qué bosquejo corresponde y usar las clases detectadas. Lo que se implementa en la interface no se desarrolla completo. Se indica esa situación</td></tr><tr><td>4</td><td>6</td><td>Manual de usuario</td><td><code>G&lt;nombreGrupo&gt;-Ayudas</code></td><td>Agregar a los bosquejos los íconos de las ayudas elegidas, según la rúbrica. Algunas requieren bosquejos propios</td></tr><tr><td>5</td><td>7</td><td>Presentación</td><td><code>G&lt;nombreGrupo&gt;-Defensa</code></td><td>Defensa del trabajo práctico integrador</td></tr></tbody></table></div>
+<p>Si un entregable va en más de un archivo, se agrega <code>&lt;-nombreFase&gt;</code> al final del nombre.</p>
+<h3 id="que-se-pide-de-cada-ayuda">Qué se pide de cada ayuda</h3>
+<p>Es la hoja «Entregable 6» de la misma planilla. Para casi todas se pregunta en qué bosquejos pondrías el acceso, justificando. Se nombran por código o se copian con el acceso agregado. En el prototipo, el contenido de relleno se saca de <a href="https://es.lipsum.com/">lipsum</a>.</p>
+<div class="tabla"><table><thead><tr><th>Ayuda</th><th>Qué mostrar en el prototipo</th></tr></thead><tbody><tr><td>Manual tradicional</td><td>Cómo se muestra después de hacer clic en el acceso, teniendo presente la estructura</td></tr><tr><td>PPFF</td><td>Cómo se muestran después de hacer clic en el acceso</td></tr><tr><td>Tutoriales</td><td>Un espacio reservado para video</td></tr><tr><td>Tooltip</td><td>En qué bosquejos y atributos, y cómo aparece. Justificando</td></tr><tr><td>Ayuda contextual</td><td>La sección del manual tradicional que corresponde a ese bosquejo</td></tr><tr><td>Tour rápido</td><td>Qué bosquejos forman parte. Justificando. Incluirlo es opcional</td></tr><tr><td>Lo nuevo</td><td>Cómo comunicarías un cambio en una funcionalidad, con los bosquejos y la estrategia. Incluirlo es opcional</td></tr></tbody></table></div>
+<p>La teoría de cada una está en <a href="final.html#tipos-de-ayuda">Tipos de ayuda</a>.</p>
+</section>
+<section class="sec"><h2 id="rubricas">Rúbricas</h2>
+<p>Lo que sigue es el nivel más alto de cada categoría, con palabras cercanas a las de la rúbrica.</p>
+<h3 id="bosquejos-de-interface-r01">Bosquejos de interface (R01)</h3>
+<div class="tabla"><table><thead><tr><th>Categoría</th><th>Nivel Excelente</th></tr></thead><tbody><tr><td>Plataforma elegida</td><td>La elección de qué bosquejo aplica para web y cuál para móvil es coherente con la experiencia del usuario</td></tr><tr><td>Landing page</td><td>Se identifican encabezado, cuerpo y pie, y también las fases del Product/Customer Journey sin dificultad</td></tr><tr><td>Actividades del Journey</td><td>Todas están contempladas</td></tr><tr><td>Atributos modelados</td><td>Son los que se deducen del enunciado y se representan siempre de la misma manera</td></tr><tr><td>Botones de acción</td><td>Se distinguen con facilidad, y la ubicación y el modelado se mantienen constantes</td></tr><tr><td>Retroalimentación</td><td>Se modela de manera coherente, con información adicional ante errores</td></tr><tr><td>Simplificación de las actividades</td><td>La secuencia sale del Journey, ayuda al usuario y no pierde contexto. Los elementos visuales facilitan el entendimiento</td></tr></tbody></table></div>
+<p>Los niveles de «Actividades» se escalonan así. Bueno pide el proceso crítico completo. Muy bueno suma los procesos de apoyo y el gerencial. Excelente suma el requerimiento no funcional de seguridad.</p>
+<p>Lo que la rúbrica baja de nivel, en el resto de las categorías:</p>
+<ul>
+<li><strong>Plataforma.</strong> Si se identifica la plataforma, web o móvil, pero los controles (atributos y botones de acción) no siguen los estándares de modelado, es Bueno. Si se identifica pero la experiencia del usuario no es coherente, Muy bueno.</li>
+<li><strong>Landing page.</strong> Si tiene encabezado, cuerpo y pie, pero hay que revisarla detenidamente para encontrar las fases del Journey, es Muy bueno.</li>
+<li><strong>Atributos.</strong> Si los de los procesos crítico, de apoyo y gerencial están bien, pero los del requerimiento no funcional de seguridad son confusos, es Muy bueno.</li>
+<li><strong>Botones de acción.</strong> Si se distinguen pero no se respeta su ubicación entre bosquejos, es Bueno. Si la ubicación se mantiene pero se modelan distinto (estado por defecto y color), Muy bueno.</li>
+<li><strong>Retroalimentación.</strong> Es la finalización con éxito de un flujo o los errores en el flujo. Si no hay coherencia entre bosquejos, es Bueno. Si hay coherencia pero no se da información adicional ante errores, Muy bueno.</li>
+<li><strong>Simplificación.</strong> Si la secuencia sale del Journey pero los elementos visuales varían sin justificación, es Muy bueno.</li>
+</ul>
+<h3 id="diccionario-de-datos-r02">Diccionario de datos (R02)</h3>
+<div class="tabla"><table><thead><tr><th>Categoría</th><th>Nivel Muy bueno</th></tr></thead><tbody><tr><td>Atributos modelados</td><td>Todos los que se deducen de los bosquejos</td></tr><tr><td>Flujos de entrada y salida</td><td>Todos los que se deducen, incluyendo los mensajes de error o de éxito</td></tr><tr><td>Estructuras</td><td>Usadas para facilitar la comprensión o evitar redundancia</td></tr><tr><td>Elementos discretos</td><td>Se identifican y se definen todos los que se desprenden de los bosquejos</td></tr><tr><td>Depuración</td><td>La planilla está completa, según el diccionario planteado</td></tr></tbody></table></div>
+<h3 id="clases-de-equivalencia-r03">Clases de equivalencia (R03)</h3>
+<div class="tabla"><table><thead><tr><th>Categoría</th><th>Nivel Muy bueno</th></tr></thead><tbody><tr><td>Atributos con criterios de validación</td><td>Todos los que tienen criterio en la depuración están en la tabla de clases</td></tr><tr><td>Tipo de clase</td><td>Las clases modeladas son las que corresponden según el tipo de atributo</td></tr><tr><td>Clase válida</td><td>Correctamente definida</td></tr><tr><td>Clases inválidas</td><td>Correctamente definidas</td></tr></tbody></table></div>
+<h3 id="casos-de-prueba-r03">Casos de prueba (R03)</h3>
+<div class="tabla"><table><thead><tr><th>Categoría</th><th>Nivel Muy bueno</th></tr></thead><tbody><tr><td>Bosquejos</td><td>Todos los casos tienen la identificación del bosquejo</td></tr><tr><td>Valor de entrada</td><td>Es el documentado en la tabla de clases</td></tr><tr><td>Resultado esperado</td><td>Coherente con la clase y con la redacción completa</td></tr></tbody></table></div>
+<h3 id="tipos-de-ayuda-r04">Tipos de ayuda (R04)</h3>
+<div class="tabla"><table><thead><tr><th>Ayuda</th><th>Insuficiente</th><th>Bueno</th><th>Muy bueno</th><th>Excelente</th></tr></thead><tbody><tr><td>Manual de usuario tradicional</td><td>No</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Ayuda contextual según la vista y/o tooltip</td><td>No</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Preguntas frecuentes</td><td>No</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Lo nuevo y/o tutorial</td><td>No</td><td>No</td><td>No</td><td>Sí</td></tr><tr><td>Chatbot y/o IA y/o mesa de ayuda</td><td>No</td><td>No</td><td>No</td><td>Sí</td></tr></tbody></table></div>
+<p>«Sí» quiere decir modelado.</p>
+</section>
+<section class="sec"><h2 id="la-defensa-r05">La defensa (R05)</h2>
+<div class="tabla"><table><thead><tr><th>Categoría</th><th>Nivel Excelente</th></tr></thead><tbody><tr><td>Integrantes del equipo</td><td>Se presentan al inicio</td></tr><tr><td>Agenda</td><td>Se incluye y se respeta</td></tr><tr><td>Interrupciones</td><td>No hay. Cada integrante está muy seguro de lo que expone</td></tr><tr><td>Resumen del problema</td><td>Coherente con el enunciado y con hallazgos del mapa de empatía</td></tr><tr><td>Product Journey</td><td>Se define, se explica el propio y se relaciona con el problema, respetando el orden de procesos y subprocesos</td></tr><tr><td>Bosquejos o prototipo</td><td>Respeta el orden de los procesos y subprocesos del Journey</td></tr><tr><td>Casos de prueba</td><td>Se explican en todos los procesos</td></tr><tr><td>Componentes de interface</td><td>Breve resumen previo de qué controles se usaron y por qué</td></tr><tr><td>Tipos de ayuda</td><td>Todos los obtenidos del R4 están presentes, con su justificación</td></tr><tr><td>Recurso audiovisual</td><td>Usado para la agenda y los temas previos, con ítems que guían la explicación</td></tr><tr><td>Artefacto de Visión</td><td>Se usan todas sus secciones</td></tr><tr><td>Datos para prototipo</td><td>Reales, coherentes con la fecha de la defensa y sin inconsistencias</td></tr></tbody></table></div>
+<p>Lo que la rúbrica baja de nivel:</p>
+<ul>
+<li><strong>Integrantes.</strong> Presentarse recién cuando a cada uno le toca hablar es Bueno. Presentarse al final, Muy bueno.</li>
+<li><strong>Agenda.</strong> Incluirla y no respetarla es Muy bueno.</li>
+<li><strong>Interrupciones.</strong> Interrumpir para clarificar es Bueno. Interrumpirse sin motivo aparente, Insuficiente.</li>
+<li><strong>Resumen del problema.</strong> Contar solo lo que está en el enunciado, sin hallazgos del mapa de empatía, es Muy bueno.</li>
+<li><strong>Orden de los bosquejos.</strong> Empezar por el proceso de seguridad y seguir en cualquier orden es Bueno. Empezar por seguridad y respetar el orden del resto, Muy bueno. Excelente respeta el orden de los procesos y subprocesos del Journey.</li>
+<li><strong>Casos de prueba.</strong> Explicarlos solo en los procesos de apoyo es Bueno. En el sustantivo y los de apoyo, Muy bueno. En todos, Excelente.</li>
+<li><strong>Componentes de interface</strong> (íconos, listas desplegables, grillas, calendarios). Explicar los controles solo en los procesos de apoyo es Bueno. En todos los procesos, Muy bueno. Excelente es un breve resumen de los controles y su porqué antes de mostrar los bosquejos o el prototipo.</li>
+<li><strong>Tipos de ayuda.</strong> Solo el manual de usuario es Bueno. Al menos el 50% de los obtenidos en el R4, con su justificación, Muy bueno.</li>
+<li><strong>Recurso audiovisual</strong> (presentación, Prezi, Canva). Usarlo solo para la agenda es Bueno. Usarlo con frases largas que hacen perder la atención, Muy bueno.</li>
+<li><strong>Artefacto de Visión.</strong> Usar la frase resumen, el cliente y el problema es Bueno. Sumar la solución y el valor, Muy bueno. Todas las secciones, Excelente.</li>
+<li><strong>Datos para prototipo.</strong> Ficticios es Insuficiente. Reales pero inconsistentes, Bueno. Reales y consistentes solo en los procesos de apoyo, Muy bueno.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Queda libre quien no participa</p><p>En los cuatro niveles de la rúbrica R05, el alumno que no participa queda libre. La rúbrica dice además que «Datos para prototipo» aplica solo para «AD», sigla que no se aclara. Por la presentación parece aprobación directa, y conviene confirmarlo.</p>
+</div>
+<h3 id="artefacto-de-vision">Artefacto de Visión</h3>
+<p>La planilla <a href="https://drive.google.com/file/d/1erC5f14WAh9z0rMQ6lpMH2KI5wXxfCnM/view">RA5 - Defensa - Visión</a> tiene estas secciones: frase resumen, cliente, problema o necesidad, solución, valor, rivales y diferenciadores.</p>
+<h3 id="mapa-del-recorrido-del-cliente">Mapa del recorrido del cliente</h3>
+<p>La rúbrica pide definir el Product/Customer Journey, pero las clases no lo desarrollan. Hay dos libros en la bibliografía y un video. Según el <a href="https://drive.google.com/file/d/1wPbbNMnBRiz04_EKKOsDMiUUDO74Vmf5/view">e-book de journey mapping</a>:</p>
+<ul>
+<li>Es una representación visual del recorrido típico de un cliente con vos, tu producto, tus servicios y los socios involucrados (pág. 2).</li>
+<li>Se identifican de 3 a 5 etapas en la relación típica con el cliente y las interacciones dentro de cada etapa (pág. 2).</li>
+<li>Un recorrido estándar tiene 4 etapas: preventa y venta, incorporación, uso, soporte y servicio, y renovación y crecimiento (pág. 11).</li>
+<li>Los pasos son cuatro: delinear las etapas, listar los puntos de contacto probables de cada una, pensar una pregunta para el cliente en cada punto de contacto y anotar los sistemas que gobiernan cada uno (pág. 11).</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Es una lectura de la bibliografía</p><p>Este e-book es de un tercero y está en inglés. Cómo aplica la cátedra el Journey al TP (proceso crítico, de apoyo y gerencial) sale solo de las rúbricas. El mapa de empatía no tiene material escrito, solo video.</p>
+</div>
+<h3 id="para-presentar-mejor">Para presentar mejor</h3>
+<p>La cátedra suma un resumen en inglés del libro <em>Presenting to Win</em>, de Jerry Weissman (<a href="https://drive.google.com/file/d/1dPdxWew-1M080QIMbjj08p0e_ID_jLkk/view">presenting-to-win-brief</a>). Estas ideas salen de sus primeras hojas:</p>
+<ul>
+<li>Toda presentación quiere llevar a la audiencia del punto A, donde está al empezar, al punto B, tu objetivo (pág. 2).</li>
+<li>WIIFY, «What&#39;s In It For You»: cada elemento tiene que contestar por qué le importa a la audiencia (pág. 3).</li>
+<li>Elegí una estructura clara y mantenela. Importa menos cuál elegís que elegir una (págs. 4 y 5).</li>
+<li>Los primeros 90 segundos marcan el tono. Después de la apertura, contá brevemente cómo vas a seguir (págs. 5 y 6).</li>
+<li>Las diapositivas están para apoyar al presentador, no al revés (pág. 7).</li>
+</ul>
+</section><section class="sec quiz" id="quiz" data-quiz="integrador" data-materia="analisis-y-diseno-de-datos-e-informacion">
+<h2>Quiz del TP integrador</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="VPcypXqQQZ" data-tema="Condiciones" data-enlace="integrador.html#condiciones" data-tipo="mc"><div class="q-enun" id="qe-integrador-1"><span class="q-n">1</span><div><p>¿Qué nota debe tener cada entregable del TP?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-1"><li><button type="button" class="op" data-ok="0">Mayor o igual a 4.</button></li><li><button type="button" class="op" data-ok="0">Mayor o igual a 8.</button></li><li><button type="button" class="op" data-ok="0">Alcanza con el promedio del grupo.</button></li><li><button type="button" class="op" data-ok="1">Mayor o igual a 6.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación de la cátedra lo pide para cada entregable.</p>
+</div></li><li class="q" data-q="hTrJpkj1EJ" data-tema="Condiciones" data-enlace="integrador.html#condiciones" data-tipo="mc"><div class="q-enun" id="qe-integrador-2"><span class="q-n">2</span><div><p>¿Qué pide la promoción?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-2"><li><button type="button" class="op" data-ok="0">Rendir solo la teoría del final.</button></li><li><button type="button" class="op" data-ok="1">Una entrega adicional del TP: el bosquejo de interface con una herramienta de prototipado.</button></li><li><button type="button" class="op" data-ok="0">Una monografía sobre tipos de ayuda.</button></li><li><button type="button" class="op" data-ok="0">Sacar 10 en la defensa.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La herramienta de prototipado es a elección del alumno.</p>
+</div></li><li class="q" data-q="E5v-rZhxXo" data-tema="Entregables" data-enlace="integrador.html#entregables" data-tipo="mc"><div class="q-enun" id="qe-integrador-3"><span class="q-n">3</span><div><p>¿Qué elementos van en la tabla de depuración?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-3"><li><button type="button" class="op" data-ok="1">Los de los flujos de entrada con máscara especial, discretos, con rango definido, con criterios de validación o con comentarios especiales.</button></li><li><button type="button" class="op" data-ok="0">Todos los elementos de los flujos de salida.</button></li><li><button type="button" class="op" data-ok="0">Solo los elementos numéricos.</button></li><li><button type="button" class="op" data-ok="0">Solo los mensajes de error.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El entregable lo dice con esas condiciones, sobre los flujos de entrada del diccionario.</p>
+</div></li><li class="q" data-q="dxaquq-rMt" data-tema="Entregables" data-enlace="integrador.html#entregables" data-tipo="mc"><div class="q-enun" id="qe-integrador-4"><span class="q-n">4</span><div><p>Una validación ya está resuelta en la interface, como un calendario con fechas limitadas. ¿Qué pide el entregable de casos de prueba?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-4"><li><button type="button" class="op" data-ok="0">Desarrollar igual todos sus casos.</button></li><li><button type="button" class="op" data-ok="0">Sacar ese atributo del diccionario.</button></li><li><button type="button" class="op" data-ok="1">No hace falta desarrollarlos completos: se indica esa situación.</button></li><li><button type="button" class="op" data-ok="0">Pasar la validación a la tabla de clases.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los ejemplos que da son limitar el calendario o mostrar solo los módulos libres.</p>
+</div></li><li class="q" data-q="sKuk9DTgd8" data-tema="Diccionario de datos (R02)" data-enlace="integrador.html#diccionario-de-datos-r02" data-tipo="mc"><div class="q-enun" id="qe-integrador-5"><span class="q-n">5</span><div><p>Para el nivel más alto en flujos de entrada y salida, ¿qué más se tiene que modelar?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-5"><li><button type="button" class="op" data-ok="0">Solo los flujos de entrada.</button></li><li><button type="button" class="op" data-ok="0">Los menús estáticos.</button></li><li><button type="button" class="op" data-ok="0">Los colores de los botones.</button></li><li><button type="button" class="op" data-ok="1">Los relacionados con los mensajes de error o de éxito.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Todos los flujos que se deducen de los bosquejos, incluyendo esos mensajes.</p>
+</div></li><li class="q" data-q="o1U7df71dg" data-tema="Clases de equivalencia (R03)" data-enlace="integrador.html#clases-de-equivalencia-r03" data-tipo="mc"><div class="q-enun" id="qe-integrador-6"><span class="q-n">6</span><div><p>¿Qué atributos deben aparecer en la tabla de clases para el nivel más alto?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-6"><li><button type="button" class="op" data-ok="1">Todos los que en la depuración tienen criterios de validación.</button></li><li><button type="button" class="op" data-ok="0">El 70% de los que tienen criterios.</button></li><li><button type="button" class="op" data-ok="0">Solo los numéricos.</button></li><li><button type="button" class="op" data-ok="0">Solo los obligatorios.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El 70% corresponde al nivel Bueno.</p>
+</div></li><li class="q" data-q="pVuiHu-d46" data-tema="Tipos de ayuda (R04)" data-enlace="integrador.html#tipos-de-ayuda-r04" data-tipo="mc"><div class="q-enun" id="qe-integrador-7"><span class="q-n">7</span><div><p>¿Qué ayudas separan al nivel Excelente de Muy bueno?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-7"><li><button type="button" class="op" data-ok="0">Manual tradicional y preguntas frecuentes.</button></li><li><button type="button" class="op" data-ok="1">Lo nuevo y/o tutorial, y chatbot y/o IA y/o mesa de ayuda.</button></li><li><button type="button" class="op" data-ok="0">Tooltip y ayuda contextual.</button></li><li><button type="button" class="op" data-ok="0">Solo el tour rápido.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las otras tres ya están modeladas desde el nivel Bueno.</p>
+</div></li><li class="q" data-q="bXSI7hjvR_" data-tema="La defensa (R05)" data-enlace="integrador.html#la-defensa-r05" data-tipo="mc"><div class="q-enun" id="qe-integrador-8"><span class="q-n">8</span><div><p>¿Qué pasa con el alumno que no participa en la defensa?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-integrador-8"><li><button type="button" class="op" data-ok="0">Le baja un punto al grupo.</button></li><li><button type="button" class="op" data-ok="0">Recupera en otra fecha.</button></li><li><button type="button" class="op" data-ok="1">Queda libre.</button></li><li><button type="button" class="op" data-ok="0">Rinde solo la práctica.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La rúbrica repite lo mismo en sus cuatro niveles.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN: presentación de la cátedra 2026, clases de teoría, prácticas y rúbricas del trabajo práctico. En el Drive no hay exámenes. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

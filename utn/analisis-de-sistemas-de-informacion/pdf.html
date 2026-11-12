@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Análisis de Sistemas de Información en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Análisis de Sistemas de Información, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="analisis-de-sistemas-de-informacion" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Análisis de Sistemas de Información</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Análisis de Sistemas de Información</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial-1">1° parcial</a></li><li><a href="#pdf-parcial-2">2° parcial</a></li><li><a href="#pdf-final">Final</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Análisis de Sistemas de Información</p><h1>Para entender la materia</h1>
+<p class="bajada">Aprendés a mirar un negocio, entender qué necesita y dejarlo escrito en artefactos que otro pueda construir, sin programar nada.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="inicio-de-que-se-trata">De qué se trata</h2>
+<p>Imaginá que un consultorio te pide un sistema de turnos. Antes de escribir una línea de código hay que saber quién saca el turno, qué pasa si alguien cancela y qué datos hay que guardar. Esta materia enseña a averiguar eso y a escribirlo de una forma que la cátedra pide con reglas muy precisas.</p>
+<p>Cada examen práctico sigue el mismo guion. Te dan un relato de una o dos páginas sobre un negocio: una verdulería, una bedelía, una empresa de vigilancia. Con ese relato tenés que armar uno o varios <strong>artefactos</strong>, que son los documentos del análisis.</p>
+<div class="idea"><p>La materia premia el formato tanto como la idea. Un caso de uso con la numeración equivocada o una actividad sin verbo en infinitivo te resta puntos, aunque hayas entendido el negocio. Por eso cada página marca la sintaxis exacta.</p>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido">El recorrido</h2>
+<p>Los artefactos se apoyan unos en otros. Este es el orden en que se arman y la pregunta que responde cada uno.</p>
+<div class="tabla"><table><thead><tr><th>Artefacto</th><th>Pregunta que responde</th><th>Dónde se estudia</th></tr></thead><tbody><tr><td>Minuta</td><td>¿Qué nos contó el cliente?</td><td><a href="#parcial-1-relevar-tecnicas-y-minutas">1° parcial</a></td></tr><tr><td>Diagrama de actividad</td><td>¿Cómo funciona el proceso hoy?</td><td><a href="#parcial-1-diagrama-de-actividad">1° parcial</a></td></tr><tr><td>Tabla de actores y análisis de metas</td><td>¿Quién participa y qué quiere lograr?</td><td><a href="#parcial-1-analisis-de-metas">1° parcial</a></td></tr><tr><td>Lista de requerimientos</td><td>¿Qué tiene que hacer el sistema?</td><td><a href="#parcial-1-lista-de-requerimientos">1° parcial</a></td></tr><tr><td>Modelo del dominio</td><td>¿Qué conceptos y datos recuerda el sistema?</td><td><a href="#parcial-2-modelo-del-dominio">2° parcial</a></td></tr><tr><td>Subesquema de navegación</td><td>¿Ese modelo alcanza para cumplir un requerimiento?</td><td><a href="#parcial-2-subesquema-de-navegacion">2° parcial</a></td></tr><tr><td>Caso de uso y diccionario de datos</td><td>¿Cómo interactúa cada actor con el sistema, y qué datos entran y salen?</td><td><a href="#parcial-2-casos-de-uso">2° parcial</a></td></tr><tr><td>Matriz CRUD</td><td>¿Falta algún caso de uso?</td><td><a href="#parcial-2-matriz-crud">2° parcial</a></td></tr><tr><td>Máquina de estados</td><td>¿Por qué estados pasa un objeto?</td><td><a href="#parcial-2-maquina-de-estados">2° parcial</a></td></tr></tbody></table></div>
+<p>Todo eso ocurre dentro de un proceso de desarrollo iterativo, el Proceso Unificado (UP). Por eso los artefactos se refinan de a vueltas y ninguno sale completo de una.</p>
+</section>
+<section class="sec"><h2 id="inicio-como-te-evaluan">Cómo te evalúan</h2>
+<p>Revisé 51 exámenes de 2023 a 2026, entre teóricos, prácticos y relatos de quienes rindieron. De ahí salen estas cosas.</p>
+<ul>
+<li><strong>Hoy hay dos parciales.</strong> El ciclo 2023 tuvo tres: 03/06/23, 09/09/23 y 11/11/23, con última fecha el 19/02/24. El 2° era modelo del dominio y subesquema. El 3° era casos de uso y máquina de estados. Desde 2024 todo eso entra en el 2° parcial.</li>
+<li><strong>Cada parcial tiene teoría y práctica,</strong> y además recuperatorio.</li>
+<li><strong>Hay dos modalidades, aprobación directa (AD) y aprobación no directa (AND).</strong> La consigna aclara qué ítem pide cada una y con cuántos puntos se aprueba. En el teórico del 16/12/24, AD aprobaba con 16 de 28 y AND con 12 de 20.</li>
+<li><strong>Se aprueba cerca del 60 %.</strong> Ejemplos: 42 de 70 en la práctica AD del 09/09/23, 36 de 60 en la del 06/06/26, 13 de 22 en el teórico del 01/11/25.</li>
+<li><strong>El teórico tiene unas 20 consignas cortas,</strong> de opción múltiple o verdadero y falso, con media hora o 45 minutos. La cantidad varía según la fecha, y en la mesa del 27/05/24 la respuesta incorrecta descontaba 1.</li>
+<li><strong>El final también tiene teoría y práctica.</strong> La fórmula de la nota cambia. Es 40 % y 60 % en la mesa del 10/03/25, promedio simple en la del 09/03/26. Fijate qué dice tu enunciado.</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Lo que más pesa en la práctica</strong><span>24 prácticas de final de 2023 a 2026</span></aside><p><mark>Casos de uso en 22 de 24 y modelo del dominio en 19 de 24.</mark> Lejos, máquina de estados en 8, CRUD en 6, diagrama de actividad o metas en 6 y subesquema en 5.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Lo que más pesa en el 1° parcial</strong><span>8 prácticas de 2023 a 2026</span></aside><p><mark>Diagrama de actividad en las 8 y lista de requerimientos en 7.</mark> Análisis de metas en 4.</p>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-como-usar-este-resumen">Cómo usar este resumen</h2>
+<ol>
+<li>Leé cada página de parcial de punta a punta una vez. Tiene toda la teoría con la página del apunte de donde sale.</li>
+<li>Hacé los <a href="ejercicios.html">ejercicios</a> sin mirar la resolución. Muchos no tienen, porque solo publicamos las del Drive sin firma de alumno.</li>
+<li>La noche anterior, la <a href="machete.html">hoja de repaso</a> y el quiz.</li>
+</ol>
+<div class="ojo"><p class="ojo-t">La práctica tiene más de una respuesta válida</p><p>Las resoluciones del Drive lo dicen ellas mismas: «puede haber más», «pueden existir otras ideas válidas». Compará tu solución para ver si razonaste parecido, sin esperar que coincida palabra por palabra. Ante una diferencia, consultá en tu comisión.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-1" data-pagina="parcial-1" aria-label="1° parcial"><p class="pdf-de">Análisis de Sistemas de Información</p><h1>1° parcial</h1>
+<p class="bajada">Entender el negocio: el proceso de desarrollo, cómo se relevan requerimientos, quién participa, qué metas persigue y cómo se dibuja el proceso.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-1-como-viene-el-examen">Cómo viene el examen</h2>
+<p>Revisé 8 prácticas (03/06/23, 19/02/24, 24/08/24, 16/12/24, 24/02/25, 28/06/25, 15/12/25 y 06/06/26) y 5 teóricos (03/06/23, 24/08/24, 16/12/24, 28/06/25 y 01/11/25).</p>
+<div class="tomado"><aside class="nota"><strong>Qué pide la práctica</strong><span>8 prácticas de 2023 a 2026</span></aside><p>Un relato de un negocio y estos ítems.</p>
+<ul>
+<li><mark>Diagrama de actividad: en las 8.</mark> Es el ítem que más puntos vale en casi todas. Vale desde 10 en la modalidad AND hasta 40 en el recuperatorio del 19/02/24. Tres veces pidió subdiagrama (24/08/24, 28/06/25 y 06/06/26) y una, zona de interrupción (28/06/25).</li>
+<li><mark>Lista de requerimientos: en 7.</mark> Vale 10 o 15 puntos, con 5 o 10 requerimientos.</li>
+<li>Análisis de metas: en 4 (03/06/23, 19/02/24, 28/06/25 y 06/06/26). A veces con grafo y tabla resumen.</li>
+<li>Actores: en 3 (03/06/23, 19/02/24 y 24/02/25).</li>
+<li>Mapa conceptual: en 1 (24/08/24).</li>
+</ul>
+</div>
+<p>El teórico trae consignas cortas de opción múltiple o verdadero y falso. Los temas repetidos son los siguientes.</p>
+<div class="tomado"><aside class="nota"><strong>Lo que se repite en la teoría</strong><span>Teóricos 03/06/23, 24/08/24, 16/12/24, 28/06/25 y 01/11/25</span></aside><p>Partes y símbolos del diagrama de actividad, directrices, zona de interrupción, análisis de metas como proceso o artefacto, tabla resumen, fases del UP, minuta y técnicas.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-el-proceso-unificado">El Proceso Unificado</h2>
+<p>Pensá en construir una casa de a una habitación por vez. Terminás una, la mostrás, escuchás qué cambiarías y recién ahí planificás la siguiente. Eso es desarrollo iterativo. El Proceso Unificado (UP) organiza ese trabajo.</p>
+<p><strong>Iteración.</strong> Un tramo corto que deja algo probado. El UP recomienda de dos a seis semanas (Larman, p. 17).</p>
+<p><strong>Las cuatro fases</strong> (Larman, p. 19).</p>
+<div class="tabla"><table><thead><tr><th>Fase</th><th>Qué pasa</th></tr></thead><tbody><tr><td>Inicio</td><td>Visión aproximada, análisis del negocio, alcance y estimaciones imprecisas</td></tr><tr><td>Elaboración</td><td>Visión refinada, implementación iterativa del núcleo de la arquitectura, resolución de riesgos altos, más requisitos y alcance, estimaciones más realistas</td></tr><tr><td>Construcción</td><td>Implementación iterativa del resto, lo de menor riesgo, y preparación del despliegue</td></tr><tr><td>Transición</td><td>Pruebas beta y despliegue</td></tr></tbody></table></div>
+<p>Las disciplinas (requisitos, diseño, implementación) ocurren en todas las fases, con distinto esfuerzo.</p>
+<details open class="pregunta"><summary><span>¿La fase de inicio es la fase de requerimientos?</span><small>Teórico 24/08/24 y final 27/04/26</small></summary><div class="resp"><p>No. Es una especie de fase de viabilidad, con el estudio suficiente para decidir si continuar o no. Pensar «inicio igual requisitos» es señal de que no se entendió el UP. Fuente: Larman, UML y Patrones, p. 19 y p. 25.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿En qué fase se trabaja el núcleo de la arquitectura?</span><small>Teórico 28/06/25</small></summary><div class="resp"><p>En Elaboración. Fuente: teórico del 28/06/25 con respuestas, que cita a Larman, p. 21, figura 2.5.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Cuántos casos de uso quedan en detalle al terminar Elaboración?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Del 80 al 90 %. Fuente: Larman, p. 75, y teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿En qué fase hay más implementación y menos requisitos?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>En Construcción. Fuente: Larman, p. 20.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿El UP define la mayoría de los requisitos antes del diseño?</span><small>Teórico 28/06/25</small></summary><div class="resp"><p>No. Intentarlo es otro signo de que no se entendió el UP. Los requisitos surgen de modo adaptable a lo largo de las iteraciones. Fuente: Larman, p. 24 y p. 25.</p>
+</div></details>
+<h3 id="parcial-1-pesado-predictivo-adaptable-y-agil">Pesado, predictivo, adaptable y ágil</h3>
+<p>Esto apareció en el teórico del 27/04/26, según el relato de quien rindió.</p>
+<div class="tabla"><table><thead><tr><th>Término</th><th>Qué significa (Larman, p. 23 y 24)</th></tr></thead><tbody><tr><td>Proceso pesado</td><td>Término peyorativo: muchos artefactos, rigidez y control, planificación muy larga, predictivo</td></tr><tr><td>Proceso predictivo</td><td>Planifica en detalle un intervalo largo. Sigue un ciclo en cascada</td></tr><tr><td>Proceso adaptable</td><td>Acepta el cambio y fomenta adaptarse. Sigue un ciclo iterativo</td></tr><tr><td>Proceso ágil</td><td>Adaptable y ligero</td></tr></tbody></table></div>
+<p><strong>Plan de fase y plan de iteración</strong> (Larman, p. 24). El plan de fase es de alto nivel. Estima la fecha de terminación y los hitos, sin grano fino. El plan de iteración detalla solo la iteración que viene.</p>
+<p><strong>Otros signos de que no se entendió el UP</strong> (Larman, p. 25), además de los de las preguntas de arriba.</p>
+<ul>
+<li>Pensar que el objetivo de la elaboración es definir modelos completos que en construcción se traducen a código.</li>
+<li>Intentar definir la mayoría del diseño, o acordar toda la arquitectura, antes de programar y probar.</li>
+<li>Creer que una iteración adecuada dura cuatro meses en lugar de cuatro semanas, salvo proyectos de cientos de desarrolladores.</li>
+<li>Pensar que programar es una traducción mecánica de los diagramas UML.</li>
+<li>Pensar que adoptar el UP es hacer muchas actividades y crear muchos documentos.</li>
+<li>Planificar el proyecto en detalle de principio a fin, prediciendo todas las iteraciones.</li>
+<li>Querer planes y estimaciones creíbles antes de que termine la elaboración.</li>
+</ul>
+<h3 id="parcial-1-que-se-produce-al-inicio">Qué se produce al inicio</h3>
+<p>La fase de inicio debería ser relativamente corta, «de una a unas pocas semanas» en la mayoría de los proyectos. En muchos, si dura más de una semana, se pierde su idea fundamental: decidir si merece la pena una investigación seria (Larman, p. 34). Del 10 al 20 % de los casos de uso se escribe con detalle para conocer el alcance real (Larman, p. 36 y 37).</p>
+<p>La <strong>Visión</strong> resume los requerimientos de alto nivel (Larman, p. 41, según el teórico del 28/06/25).</p>
+<h3 id="parcial-1-furps">FURPS+</h3>
+<p>Una lista para comprobar que cubrís todos los tipos de requisito (Larman, p. 40 y 41).</p>
+<div class="tabla"><table><thead><tr><th>Letra</th><th>Tipo</th><th>Ejemplos</th></tr></thead><tbody><tr><td>F</td><td>Funcional</td><td>Características, capacidades, seguridad</td></tr><tr><td>U</td><td>Facilidad de uso</td><td>Factores humanos, ayuda, documentación</td></tr><tr><td>R</td><td>Fiabilidad</td><td>Frecuencia de fallos, capacidad de recuperación</td></tr><tr><td>P</td><td>Rendimiento</td><td>Tiempos de respuesta, productividad, disponibilidad, uso de recursos</td></tr><tr><td>S</td><td>Soporte</td><td>Adaptabilidad, facilidad de mantenimiento</td></tr><tr><td>+</td><td>Adicionales</td><td>Implementación, interfaz, operaciones, entre otros</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Requerimientos no funcionales</strong><span>Teórico 03/06/23, finales 28/04/25 y 18/05/26</span></aside><p>Se preguntó si FURPS+ contiene a los no funcionales, qué es un requerimiento no funcional y, en 2026, por usabilidad y soporte. Mirá la tabla de arriba.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-requerimientos">Requerimientos</h2>
+<p>Un <strong>requerimiento</strong> es una capacidad o condición con la que el sistema tiene que cumplir (Larman, capítulo 5).</p>
+<p>La <strong>ingeniería de requerimientos</strong> es el conjunto de tareas y técnicas para entender los requerimientos. Sus 7 tareas: concepción, indagación, elaboración, negociación, especificación, validación y administración (apunte Requerimientos 1.0, p. 1 y 2).</p>
+<h3 id="parcial-1-relevar-tecnicas-y-minutas">Relevar: técnicas y minutas</h3>
+<p>Las técnicas juntan información y su resultado queda en una minuta (apunte Técnicas, p. 1).</p>
+<div class="tabla"><table><thead><tr><th>Técnica</th><th>Para qué</th></tr></thead><tbody><tr><td>Tormenta de ideas</td><td>Cuando no está claro el problema o hay muchos puntos de vista sobre cómo resolverlo</td></tr><tr><td>Grupo de foco</td><td>Abre el debate para llegar a una propuesta concreta</td></tr><tr><td>Taller de requerimientos</td><td>Jornadas intensas de 1 o 2 días para acordar el alcance. <mark>Promueve el consentimiento</mark> sobre los requerimientos</td></tr><tr><td>Juego de roles</td><td>Dinámica activa para intercambiar puntos de vista, en general con grupos de dos roles distintos</td></tr></tbody></table></div>
+<p>Hay otras técnicas nombradas al pie del apunte (p. 1).</p>
+<p>La <strong>minuta</strong> es un documento parcial: registra lo que surgió en una reunión. Tiene encabezado, cuerpo y pie (guía de minutas, p. 1). Las secciones de la cátedra son estructura y descripción de procesos, información complementaria, necesidades para con el nuevo sistema, cuestiones abiertas o cerradas e historial (p. 2).</p>
+<p>Lo que la guía de minutas remarca (p. 1).</p>
+<ul>
+<li>Es «un documento que deja expresado los hechos más importantes producidos a través del relevamiento».</li>
+<li>Es una herramienta de comunicación entre presentes y no presentes. Da la oportunidad de corregir malas interpretaciones.</li>
+<li>Una vez consensuada por los participantes, se transforma en una herramienta de trabajo para el análisis.</li>
+<li><mark>Siempre es un documento parcial</mark>. La visión general sale del conjunto de minutas. Una minuta sola muestra solo algunos aspectos.</li>
+<li>Se escribe después de la reunión, a partir de las notas tomadas en ella.</li>
+<li>Una minuta sin secciones se transforma en una descripción de la reunión, la forma más básica de documentarla.</li>
+<li><strong>Encabezado.</strong> Fecha y objetivo, participantes y temas a tratar, que se obtienen antes de la reunión.</li>
+<li><strong>Cuerpo.</strong> El desarrollo de cada tema: nombre o referencia, introducción si hace falta y descripción. También los temas nuevos que surjan.</li>
+<li><strong>Pie.</strong> Temas no tratados, nuevos o pendientes, cuestiones abiertas y, en lo posible, la próxima fecha de reunión y los invitados.</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Minuta</strong><span>Teóricos 16/12/24 y 01/11/25, relato del final 29/09/25</span></aside><p>Si es proceso o artefacto, sus partes, y qué técnica elegir y por qué.</p>
+</div>
+<details open class="pregunta"><summary><span>¿La minuta es un proceso o un artefacto?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Un artefacto. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<h3 id="parcial-1-lista-de-requerimientos">Lista de requerimientos</h3>
+<div class="tomado"><aside class="nota"><strong>Formato pedido</strong><span>7 de 8 prácticas, de 2023 a 2026</span></aside><p>La consigna pide el «formato dado en clases». Respetalo tal cual: <mark>acción + objeto(s) + (para qué) + (para quién) + (comentarios imprescindibles)</mark>.</p>
+</div>
+<p>Esa sintaxis sale de la plantilla de requerimientos de la cátedra y es para los funcionales. El verbo va primero. Los verbos sugeridos por la plantilla son registrar, actualizar, informar, listar, validar, calcular, generar, publicar, borrar, habilitar, etc.</p>
+<p>La plantilla prohíbe el lenguaje especulativo: «si», «cuándo», «pero», «excepto», «a menos», «aunque», «usualmente», «generalmente», «a menudo», «normalmente» y «típicamente». Los no funcionales no tienen una estructura sintáctica guía.</p>
+<p>La tabla lleva ID, actor, descripción, tema y clasificación, con ID y descripción obligatorios. El ID sirve para seguimiento y rastreo entre artefactos. La clasificación es funcional o no funcional, y en detalle FURPS+ (Plantilla - Lista de Requerimientos).</p>
+<div class="ojo"><p class="ojo-t">Dos órdenes para los paréntesis</p><p>La plantilla dice «para qué, para quién» y el teórico del 28/06/25 dice «para quién, para qué». Ninguna fuente aclara si importa. Usá el de tu comisión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-actores-y-stakeholders">Actores y stakeholders</h2>
+<p>Un <strong>stakeholder</strong> es alguien afectado materialmente por el sistema (Stakeholders y Actores, p. 4). Un <strong>actor</strong> interactúa con él. Todos los actores son stakeholders, pero no al revés (Categorías de actores, p. 1). Los actores se definen por sus metas y su relación con el sistema, los tipos de usuario por sus competencias (Stakeholders y Actores, p. 22).</p>
+<div class="tabla"><table><thead><tr><th>Categoría</th><th>Quién es (Categorías de actores, p. 1)</th></tr></thead><tbody><tr><td>Primario</td><td>Dueño de la meta, con o sin interacción directa</td></tr><tr><td>Iniciador</td><td>Inicia físicamente el caso de uso. Puede ser el reloj del sistema</td></tr><tr><td>Secundario</td><td>Interactúa directo y no es primario ni iniciador</td></tr><tr><td>Terciario</td><td>Interesado sin interacción directa, que provee o recibe información</td></tr></tbody></table></div>
+<p>Un actor puede ser primario e iniciador. Cuando un empleado atiende en nombre del interesado, el iniciador es un intermediario. Categorizá a los actores según el camino básico, porque la categoría puede cambiar de un nivel de meta a otro.</p>
+<details open class="pregunta"><summary><span>¿Los dispositivos son actores?</span><small>Teóricos 24/08/24 y 28/06/25</small></summary><div class="resp"><p>No hay que confundirlos con actores. Fuente: apunte Stakeholders y Actores, p. 25, y teórico del 28/06/25 con respuestas.</p>
+</div></details>
+<div class="tomado"><aside class="nota"><strong>Actores</strong><span>Prácticas 03/06/23, 19/02/24 y 24/02/25, finales 13/03/23 y 29/05/23, teórico 28/04/25</span></aside><p>Identificarlos en un relato y qué es un actor secundario. El 03/06/23 y el 29/05/23 pidieron una tabla con nombre, descripción y tipo, donde tipo es actor o stakeholder.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-analisis-de-metas">Análisis de metas</h2>
+<p>Un cajero «pasa productos» (actividad), pero lo que busca es «vender» (meta). El análisis de metas (AM) separa lo que la gente hace de lo que quiere lograr.</p>
+<p><strong>Meta.</strong> Fin de las acciones. Declaración de lo que debe alcanzarse o evitarse (apunte Análisis de Metas, p. 2).</p>
+<div class="tabla"><table><thead><tr><th>Tipo de meta</th><th>Qué es (p. 2 y 3)</th></tr></thead><tbody><tr><td>Sub-meta</td><td>Al alcanzarla contribuye al logro parcial de otra. También se la llama subordinada</td></tr><tr><td>Obstáculo o fracaso</td><td>Al alcanzarla impide o bloquea el logro de otra</td></tr><tr><td>Intra-actor</td><td>Metas de un mismo actor</td></tr><tr><td>Inter-actor</td><td>Para lograrse involucran metas de más de un actor</td></tr><tr><td>Independiente</td><td>Sin subordinación a otra</td></tr><tr><td>Principal</td><td>Independiente que explica la razón de existir del negocio</td></tr><tr><td>Complementaria</td><td>Independiente que no la explica, pero ayuda</td></tr></tbody></table></div>
+<details open class="pregunta"><summary><span>¿El AM es proceso o artefacto?</span><small>Teóricos 16/12/24 y 01/11/25</small></summary><div class="resp"><p>Un proceso, que produce artefactos. Fuente: apunte Análisis de Metas, p. 3.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Qué se necesita para empezar el AM?</span><small>Teórico 16/12/24</small></summary><div class="resp"><p>Diagrama de actividad, tabla de actores y minutas. Fuente: apunte Análisis de Metas, p. 3.</p>
+</div></details>
+<h3 id="parcial-1-los-artefactos-del-analisis">Los artefactos del análisis</h3>
+<ol>
+<li><strong>Tabla de identificación de metas (TIM).</strong> Columnas actor, actividad, funciones, meta e id (p. 4). Si todas las metas coinciden con la actividad, no se hace análisis. Una línea en Funciones indica que el sistema no colabora (p. 4 y 5).</li>
+<li><strong>Gráfico de subordinación.</strong> Un dígrafo donde <mark>la flecha apunta a la meta que subordina</mark> (p. 5).</li>
+<li><strong>Análisis intra-actor e inter-actor</strong> (p. 5 y 6). Se puede juntar todo en una sola tabla (p. 4).</li>
+<li><strong>Tabla resumen.</strong> «Es un artefacto que sintetiza o resume los requerimientos de un sistema o proceso para alcanzar un meta. El alcance de la tabla puede ser negocio o sistema» (p. 6). Lleva actor primario, meta independiente, descripción breve, otros actores, nombre del proceso (o conjunto de requerimientos) y alcance. En el modelado del negocio resume la primera información de los procesos a analizar. En el análisis de sistemas encuentra los casos de uso más significativos, en general de nivel resumen (p. 6).</li>
+</ol>
+<p><strong>Principales y complementarias</strong>, según el complemento no oficial (p. 2). Las principales están relacionadas con el fin último de los procesos analizados: si su dueño no iniciara «la rueda», el resto ni se movería. Las complementarias no justificarían por sí solas la existencia de la organización, y <mark>las principales no las necesitan para realizarse</mark>. Con ellas definidas se arma la descripción de límites de los casos de uso de sistema.</p>
+<div class="tomado"><aside class="nota"><strong>Metas</strong><span>Prácticas 03/06/23, 19/02/24, 28/06/25 y 06/06/26, relato del final 18/05/26</span></aside><p>TIM, intra e inter, grafo y tabla resumen. En 06/06/26 valieron 25 puntos de 60. El 03/06/23 pidió además determinar el proceso principal y los complementarios.</p>
+</div>
+<h3 id="parcial-1-encontrar-la-meta-correcta">Encontrar la meta correcta</h3>
+<p>El complemento no oficial del apunte propone preguntar <strong>¿Cómo?</strong> para bajar de nivel y <strong>¿Para qué?</strong> para subir (p. 3).</p>
+<ul>
+<li><strong>Nivel usuario.</strong> El «nivel del mar». Una persona, un asiento, de 2 a 20 minutos. Pasa la prueba del café. Al terminar podés tomarte un descanso (p. 3).</li>
+<li><strong>Nivel usuario, siempre subordinado.</strong> Una meta de usuario está subordinada al menos a una meta intermedia o resumen: tiene un «para» bien definido (p. 3).</li>
+<li><strong>Nivel intermedio.</strong> Celeste, el barrilete. Involucra una o más metas de usuario y está subordinada, como mínimo, a una meta resumen (p. 4).</li>
+<li><strong>Nivel resumen.</strong> La nube. Agrupa varias metas de usuario y dura horas, días o semanas. No está subordinada a otra meta: tiene uno o muchos «cómo», pero ningún «para». Se excluyen del análisis metas como «ganar dinero» o «fin de lucro» (p. 4).</li>
+</ul>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>«Vender» se responde con «¿cómo?»: cobrando, emitiendo el ticket. «Emitir el ticket» se responde con «¿para qué?»: para completar la venta. Así te ubicás en qué piso estás.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-diagrama-de-actividad">Diagrama de actividad</h2>
+<p>Es el dibujo del proceso de negocio. Lo que está en el diagrama pasa en la organización, tenga sistema o no.</p>
+<h3 id="parcial-1-simbolos">Símbolos</h3>
+<p>Todo sale del mini-apunte de diagrama de actividad (2023).</p>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Dibujo</th><th>Página</th></tr></thead><tbody><tr><td>Actividad</td><td>Rectángulo redondeado. <mark>Verbo en infinitivo + objeto</mark></td><td>3</td></tr><tr><td>Inicio</td><td>Círculo sólido</td><td>3</td></tr><tr><td>Final</td><td>Círculo transparente con un círculo sólido adentro</td><td>4</td></tr><tr><td>Flujo final (fracaso)</td><td>Círculo con una X</td><td>4</td></tr><tr><td>Transición</td><td>Flecha. No alcanza con una línea, por UML</td><td>4 y 5</td></tr><tr><td>Bifurcación</td><td>Rombo, con guarda entre corchetes</td><td>6</td></tr><tr><td>Fusión</td><td>Rombo</td><td>8</td></tr><tr><td>Calles (swimlanes)</td><td>Columnas por responsable</td><td>8</td></tr><tr><td>División y fusión de control</td><td>Barra</td><td>10</td></tr><tr><td>Objeto de negocio</td><td>Rectángulo, unido con flujo punteado</td><td>11</td></tr><tr><td>Subdiagrama</td><td>Tridente invertido dentro de la actividad</td><td>11</td></tr><tr><td>Evento externo</td><td>Pentágono cóncavo: un rectángulo con un triángulo hacia adentro a la izquierda</td><td>12</td></tr><tr><td>Señal enviada</td><td>Pentágono convexo: un rectángulo con un triángulo a la derecha</td><td>12 y 13</td></tr><tr><td>Evento temporal</td><td>Reloj de arena</td><td>13</td></tr><tr><td>Zona de interrupción</td><td>Rectángulo discontinuo y rayo</td><td>13 y 14</td></tr><tr><td>Nota</td><td>Rectángulo con la esquina superior derecha doblada</td><td>14</td></tr></tbody></table></div>
+<pre class="codigo"><code>(inicio)
+   |
+[Tomar pedido]
+   |
+ &lt;rombo&gt; --[hay stock]--&gt; [Preparar pedido] --&gt; (final)
+   |
+[sin stock]
+   |
+ (X flujo final)</code></pre>
+<details open class="pregunta"><summary><span>¿El diagrama de actividad puede no tener calles?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Sí. No es incorrecto. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Se puede hacer sin mostrar tecnología?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Sí. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<h3 id="parcial-1-directrices">Directrices</h3>
+<p>Son 9, del apunte de directrices del diagrama de actividad.</p>
+<p><strong>Definición.</strong> «Las directrices conforman un conjunto de lineamientos o aportes que llevan a elaborar un producto o artefacto de mejor calidad. Las directrices no representan restricciones ni condicionamientos solo establecen pautas de mejora» (p. 1).</p>
+<div class="tabla"><table><thead><tr><th>N.°</th><th>Directriz</th><th>Qué dice el apunte</th><th>Página</th></tr></thead><tbody><tr><td>1</td><td>Pensar desde la organización</td><td>El límite del diagrama es la organización. Lo que pasa fuera de su control pierde importancia. Ejemplo: lo que hace el cliente para decidir si aprueba un presupuesto no se modela</td><td>1</td></tr><tr><td>2</td><td>Decidir tener en cuenta la tecnología</td><td>Decidir qué se representa, el proceso actual o el mejorado. En general el diagrama refleja la realidad actual. No es lo mismo «el cliente interactúa con la empresa» que «el cliente pide por la web»</td><td>1</td></tr><tr><td>3</td><td>Tomar conciencia del detalle</td><td>Decidir antes de empezar el nivel de atomicidad. En las primeras iteraciones el objetivo es entender el proceso, sin complicarse con detalle. Si entendés el proceso sin diagrama, no lo hagas</td><td>1</td></tr><tr><td>4</td><td>La transición marca una precondición</td><td>Para empezar una actividad debe haberse hecho la previa. La previa produce información, producto, servicio o decisión que la siguiente necesita. Ejemplo: realizar pedido es previa a realizar factura</td><td>1 y 2</td></tr><tr><td>5</td><td>Detectar el disparador</td><td>El proceso arranca con un hecho concreto iniciado por un actor o por el tiempo. Ejemplo: el cliente presenta la receta en el mostrador</td><td>2</td></tr><tr><td>6</td><td>Evitar diálogos entre swimlanes</td><td>Un ida y vuelta entre actores, como el paciente y la recepcionista negociando el turno, puede ser poco trascendente. Evitalos en procesos organizacionales y, si hacen falta, llevalos a un subdiagrama</td><td>2</td></tr><tr><td>7</td><td>La actividad es una unidad de trabajo consistente</td><td>Las acciones de un actor no son actividades distintas. Una actividad es un conjunto de acciones que devuelve un producto, servicio, información o decisión. Ejemplo: validar fecha, sugerir alternativas y registrar son acciones de «otorgar turno»</td><td>2 y 3</td></tr><tr><td>8</td><td>Explicitar objetos de negocio cuando sea útil</td><td>El diagrama puede sobrevivir sin ellos. Usalos cuando brinden mayor información</td><td>3</td></tr><tr><td>9</td><td>Evitar actividades de transporte</td><td>Actividades que solo transportan información o productos, sin transformarlos, no aportan conocimiento nuevo</td><td>3</td></tr></tbody></table></div>
+<p><strong>El ejemplo de la ferretería</strong> (p. 3 a 5) aplica las directrices a una lista de actividades. Las directrices 1, 2 y 5 quitan «solicitar pedido». La 3 quita «registrar pedido», «controlar pedido» e «indicar pago». La 7 agrupa las actividades del vendedor en una sola.</p>
+<p>El mismo apunte trae un ejemplo armado de una ferretería (p. 3 a 5). <a href="https://drive.google.com/file/d/1iOIXNuXCUdDPS9DdGgjb5ssugiMuM4R8/view">Abrilo en el Drive</a> antes de hacer tu primer diagrama.</p>
+<div class="tomado"><aside class="nota"><strong>Directrices</strong><span>Teóricos 24/08/24 y 16/12/24</span></aside><p>La cátedra pidió el beneficio de «evitar diálogos entre swimlanes» y, en AD, explicar 2 directrices a elección.</p>
+</div>
+<h3 id="parcial-1-subdiagramas-y-objetos">Subdiagramas y objetos</h3>
+<p>Un subdiagrama despliega una actividad compleja en otro diagrama, para no recargar el principal. Se marca con el tridente invertido (p. 11).</p>
+<p>Los <strong>objetos de negocio</strong> muestran lo que una actividad consume o produce. Se pidieron en AD («deben exponer los objetos producidos y consumidos», recuperatorio del 16/12/24).</p>
+</section>
+<section class="sec"><h2 id="parcial-1-zona-de-interrupcion">Zona de interrupción</h2>
+<p>Estás cocinando y se corta la luz. Dejás lo que hacías y resolvés. Puede que retomes o que abandones la cena. La zona de interrupción (ZI) dibuja eso.</p>
+<p><strong>Definición.</strong> Representación dentro de un diagrama de actividad de un evento que discontinúa lo que se estaba haciendo, aunque sea temporalmente, hasta resolver la situación (apunte Zona de Interrupción, p. 1). Se dibuja con un rectángulo de bordes discontinuos, y cubre todas las actividades afectadas.</p>
+<div class="ojo"><p class="ojo-t">Dónde va el evento</p><p><mark>El evento está dentro de la zona</mark> (p. 2). Se une a las acciones que resuelven con una flecha con forma de rayo acostado, o de otra forma que muestra la p. 4.</p>
+</div>
+<p><strong>Las 4 terminaciones</strong> (p. 3).</p>
+<div class="tabla"><table><thead><tr><th>Caso</th><th>Cuando termina la interrupción</th></tr></thead><tbody><tr><td>A</td><td>Se alcanza la meta y el proceso termina con éxito</td></tr><tr><td>B</td><td>Se vuelve al punto que quedó interrumpido</td></tr><tr><td>C</td><td>Se vuelve a un punto específico del proceso</td></tr><tr><td>D</td><td>Termina el proceso sin alcanzar la meta</td></tr></tbody></table></div>
+<p><strong>Qué hacer cuando</strong> (p. 5).</p>
+<ul>
+<li><strong>Hay varias zonas.</strong> Declará las más significativas y mandá el resto a una sección «Interrupciones», con evento, descripción breve y actividades incluidas.</li>
+<li><strong>Varias zonas coinciden.</strong> Dibujá una y poné todos los eventos adentro.</li>
+<li><strong>Abarca todo el proceso.</strong> Hay 3 soluciones buenas: dibujar solo el evento con sus acciones, dibujar la zona entera, o agregar una nota junto al evento.</li>
+</ul>
+<p>El evento también puede ser temporal (p. 4).</p>
+<details open class="pregunta"><summary><span>¿Por qué declarar una zona de interrupción?</span><small>Teórico 16/12/24</small></summary><div class="resp"><p>Permite atender situaciones excepcionales. Sin declararla, queda invisible algo que puede romper el proceso. Las metas fracaso son una fuente para encontrarlas. Fuente: apunte Zona de Interrupción, p. 5.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Una zona puede interrumpir a otra?</span><small>Consigna típica</small></summary><div class="resp"><p>Sí. Fuente: apunte Zona de Interrupción, p. 6.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿La zona de interrupción es un artefacto?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>No. Es nomenclatura adicional del diagrama de actividad. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<div class="tomado"><aside class="nota"><strong>Zona de interrupción</strong><span>Práctica 28/06/25, teóricos 24/08/24 y 16/12/24</span></aside><p>Dibujar la ZI en un diagrama, nombrar 2 terminaciones, ubicar el evento y qué pasa si hay más de una.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-mapa-conceptual">Mapa conceptual</h2>
+<p>Se pidió en la práctica del 24/08/24: «Desarrolle el mapa conceptual (Modelo del dominio sin atributos)». Se arma igual que el <a href="#parcial-2-modelo-del-dominio">modelo del dominio</a>, sin atributos.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-procesos-de-negocio">Procesos de negocio</h2>
+<p>Un <strong>proceso de negocio</strong> es un conjunto de actividades relacionadas que toman una entrada y le agregan valor para producir una salida con un resultado bien definido (presentación Procesos de negocio, diapositiva «Proceso de negocio»).</p>
+<p>Un <strong>proceso elemental de negocio (EBP)</strong> es una tarea hecha por una persona en un lugar y en un instante, como respuesta a un evento de negocio. Añade valor cuantificable y deja los datos consistentes (misma presentación, citando a Larman). Lo vas a usar en el <a href="#parcial-2-casos-de-uso">2° parcial</a>.</p>
+<div class="ojo"><p class="ojo-t">Solo fue tomado una vez</p><p>«Proceso de negocio» aparece en el teórico del 28/04/25, de un final. No lo encontré en los teóricos de 1° parcial que revisé.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-2" data-pagina="parcial-2" aria-label="2° parcial"><p class="pdf-de">Análisis de Sistemas de Información</p><h1>2° parcial</h1>
+<p class="bajada">Pasar del negocio al sistema: qué recuerda, cómo interactúa cada actor, qué datos viajan, qué casos de uso faltan y por qué estados pasa un objeto.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-2-como-viene-el-examen">Cómo viene el examen</h2>
+<p>Revisé 9 prácticas (09/09/23, 11/11/23, 19/02/24 recuperatorio, 19/02/24 del 3° parcial, 02/11/24, 16/12/24, 24/02/25, 01/11/25 y 15/12/25) y 3 teóricos (09/09/23, 02/11/24 y 01/11/25). Las de 2023 incluyen el 2° y el 3° parcial de ese ciclo, porque sus temas hoy están juntos.</p>
+<div class="tomado"><aside class="nota"><strong>Qué pide la práctica</strong><span>9 prácticas de 2023 a 2025</span></aside><ul>
+<li><mark>Modelo del dominio: en 7.</mark> De 10 a 70 puntos, y 100 en la modalidad AND del 09/09/23.</li>
+<li><mark>Caso de uso: en 7.</mark> De 10 a 60 puntos, y 100 en la modalidad AND del 11/11/23. A veces sin diccionario de datos, y la consigna lo aclara.</li>
+<li>Diccionario de datos: en 4 (11/11/23, 19/02/24, 01/11/25 y 15/12/25).</li>
+<li>Subesquema: en 2 (09/09/23 y 19/02/24).</li>
+<li>Máquina de estados: en 2 (11/11/23 y 19/02/24).</li>
+<li>Casos de uso faltantes: en 2 (02/11/24 y 01/11/25).</li>
+<li>Reestructuración y CRUD: en 1 cada uno (11/11/23 y 16/12/24).</li>
+</ul>
+</div>
+<div class="ojo"><p class="ojo-t">Leé qué nivel y qué alcance te piden</p><p>Las consignas varían: «caso de uso de sistema», «sin DD», «solo AD». Un caso de uso resumen y uno de usuario se escriben distinto.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-modelo-del-dominio">Modelo del dominio</h2>
+<p>El modelo del dominio (MD) es la memoria del sistema dibujada como conceptos del negocio. Muestra clases conceptuales, no clases de software (apunte Modelo de Dominio 2.0, p. 2). Es una foto de lo que hay que recordar.</p>
+<p>Si lo hacés sin atributos, se llama <strong>mapa conceptual</strong>. El 1° parcial del 24/08/24 lo pidió con esas palabras.</p>
+<h3 id="parcial-2-elementos">Elementos</h3>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Qué es</th><th>Página</th></tr></thead><tbody><tr><td>Clase conceptual</td><td>Una idea o concepto del negocio. Tiene intensión (su definición) y extensión (sus instancias)</td><td>5 y 6</td></tr><tr><td>Atributo</td><td>Dato de una clase</td><td>7</td></tr><tr><td>Asociación</td><td>Relación entre clases, con nombre que se lee en una dirección</td><td>7</td></tr><tr><td>Multiplicidad</td><td>Cuántas instancias se vinculan, en los dos sentidos</td><td>12</td></tr><tr><td>Rol</td><td>El papel de la clase en la asociación</td><td>12 y 13</td></tr><tr><td>Asociación recursiva</td><td>Una clase asociada con sí misma</td><td>14</td></tr><tr><td>Herencia</td><td>Subtipos de una clase</td><td>14</td></tr><tr><td>Clase asociativa</td><td>Datos que pertenecen a la asociación</td><td>15 a 17</td></tr><tr><td>Agregación y composición</td><td>Relación todo y parte</td><td>18</td></tr></tbody></table></div>
+<p><strong>Multiplicidad.</strong> Se pregunta dos veces. Si tomo una sola instancia de A, ¿cuántas de B puedo encontrar? Y lo mismo desde B (p. 12).</p>
+<h3 id="parcial-2-atributos">Atributos</h3>
+<ul>
+<li><strong>Multiplicidad de atributo.</strong> Si es 1 no se grafica. <mark>Se modela cuando es mayor que uno o cero</mark>, por ejemplo <code>email[0..1]</code> (p. 19).</li>
+<li><strong>Atributo derivado.</strong> Se calcula a partir de otros. Se marca con una barra: <code>/total</code>. Se indica porque no se guarda. Se calcula al usarlo (p. 19).</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Atributos</strong><span>Teóricos 09/09/23, 24/08/24, 02/11/24, final 29/09/25</span></aside><p>Multiplicidad de atributos, qué significa <code>atributo[0..1]</code> y qué hacer con un atributo calculado.</p>
+</div>
+<h3 id="parcial-2-composicion-y-agregacion">Composición y agregación</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Composición (rombo lleno)</th><th>Agregación (rombo vacío)</th></tr></thead><tbody><tr><td>Multiplicidad del lado del todo</td><td>Siempre 1</td><td>Puede ser de 0 a muchos</td></tr><tr><td>Vida de las partes</td><td>Atada al todo: si borrás el comprobante, se van sus líneas</td><td>Independiente del todo</td></tr><tr><td>Ejemplo del apunte</td><td>Comprobante y líneas</td><td>Itinerario y ciudades</td></tr></tbody></table></div>
+<p>Fuente: apunte Modelo de Dominio 2.0, p. 18.</p>
+<details open class="pregunta"><summary><span>¿Qué pasa con las partes si se borra el compuesto?</span><small>Teórico 15/12/25</small></summary><div class="resp"><p>Desaparecen junto con él. Fuente: apunte Modelo de Dominio 2.0, p. 18.</p>
+</div></details>
+<h3 id="parcial-2-clase-asociativa">Clase asociativa</h3>
+<p>Un alumno y una asignatura se relacionan muchos a muchos. ¿Dónde va la nota? No es del alumno ni de la asignatura. Es de esa relación. Ahí aparece la clase asociativa.</p>
+<p><strong>Pistas para reconocerla</strong> (apunte Clase Asociativa, p. 3).</p>
+<ul>
+<li>Un atributo está relacionado con la asociación.</li>
+<li>Sus instancias dependen de por vida de la asociación.</li>
+<li>Hay una asociación de muchos a muchos con información propia.</li>
+<li>Una instancia se relaciona con una sola instancia de cada clase asociada.</li>
+</ul>
+<p>Si la clase asociativa relaciona más de una instancia de las clases que asocia, lleva <code>{Bag}</code> (p. 3).</p>
+<p><strong>N-aria.</strong> Es una asociación entre tres o más clases. Cada instancia es una tupla con una instancia de cada clase, y ninguna clase de la relación puede tener indicador de agregación (p. 3 y 4).</p>
+<div class="tomado"><aside class="nota"><strong>Clase asociativa</strong><span>Teóricos 09/09/23, 24/08/24 y 01/11/25</span></aside><p>Agregación ternaria, asociativa en una reflexiva, nombre de la asociación e indicios para usarla.</p>
+</div>
+<h3 id="parcial-2-patrones-que-conviene-reconocer">Patrones que conviene reconocer</h3>
+<p>Todos del apunte de patrones (1.01).</p>
+<div class="tabla"><table><thead><tr><th>Patrón</th><th>Para qué</th><th>Página</th></tr></thead><tbody><tr><td>Modelar el resultado del evento</td><td>El evento deja un registro con sus datos</td><td>2 y 3</td></tr><tr><td>Cabecera y detalle</td><td>Comprobante con líneas</td><td>3 y 4</td></tr><tr><td>Maestro de productos o servicios</td><td>Los datos fijos de lo que se vende, separados de cada venta</td><td>4</td></tr><tr><td>Tipo</td><td>Una clase que clasifica a otra</td><td>5</td></tr><tr><td>Múltiples asociaciones entre las mismas clases, uso de roles (Origen Destino)</td><td>Hay varias asociaciones entre dos clases y hay que diferenciar el papel de cada instancia en cada una. Se resuelve con roles en los extremos</td><td>5</td></tr><tr><td>Asociaciones recursivas (Jefe Empleado)</td><td>Relacionar instancias de una clase con instancias de la misma clase. Asociación recursiva con el rol en cada extremo</td><td>6</td></tr><tr><td>Asociación 1 a 1 o 1 a 0..1 (Reserva y Estadía, Nota de pedido y Factura)</td><td>Aparece la alternativa de unir las dos clases en una. Compiten lo semántico y lo esencial. El analista prioriza lo semántico</td><td>6 y 7</td></tr><tr><td>Valor vigente</td><td>Un valor que cambia y hay que conservar el histórico</td><td>7 y 8</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Corrección: el patrón de roles</p><p>Antes esta tabla decía «Roles: una persona con varios papeles». El apunte (p. 5) lo llama «Múltiples asociaciones entre las mismas clases. Uso de roles (Origen Destino)», y trata de distinguir el papel en cada asociación. Faltaban, además, las asociaciones recursivas y la 1 a 1 (p. 6 y 7). En la 1 a 1, el apunte dice que los dos modelos son por lo general aceptables, y que la elección depende del dominio.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>El precio que cambia</strong><span>Final 28/04/25</span></aside><p>Se preguntó cómo afecta un cambio de precios al MD. Mirá el patrón de valor vigente en el <a href="https://drive.google.com/file/d/1wY6kVm3XB6vgjvV4oo_fvkwR6V9WPN9V/view">apunte</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-subesquema-de-navegacion">Subesquema de navegación</h2>
+<p>Tenés el MD y un requerimiento, por ejemplo «listar los álbumes de un artista». ¿Podés cumplirlo con lo que guardaste? El subesquema lo demuestra dibujando el camino por la memoria.</p>
+<p><strong>Definición.</strong> Artefacto que representa el recorrido que hace el sistema sobre la memoria para cumplir un requerimiento de información, validación o cálculo (apunte Subesquemas, p. 3).</p>
+<p><strong>Para qué sirve</strong> (p. 2 y 3).</p>
+<ol>
+<li>Validar el modelo de memoria.</li>
+<li>Determinar el recorrido para cumplir un requerimiento.</li>
+<li>Mostrarle ese recorrido a otros profesionales.</li>
+<li>Determinar el impacto de un cambio.</li>
+</ol>
+<p><strong>Elementos que intervienen</strong> (p. 3). Del modelo del dominio, clases, asociaciones, atributos y filtros. De los requerimientos, el requerimiento.</p>
+<div class="ojo"><p class="ojo-t">Lo que no muestra</p><p>No muestra cómo el sistema logra el requerimiento. Solo indica el recorrido (p. 3).</p>
+</div>
+<p><strong>Tres formas</strong> (p. 3): gráfico, básico y descriptivo. Las dos últimas son textuales.</p>
+<p><strong>Símbolos del gráfico</strong> (p. 4).</p>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Dibujo</th></tr></thead><tbody><tr><td>Contenedor</td><td>Rectángulo de un compartimento, con el nombre de la clase</td></tr><tr><td>Flecha de asociación</td><td>Indica el sentido de recorrido. Une clases</td></tr><tr><td>Atributos recuperados</td><td>Lista, un atributo por línea o separados con coma o <code>+</code></td></tr><tr><td>Flecha de recuperación</td><td>Parte del contenedor y apunta a los atributos</td></tr><tr><td>Flecha de filtro</td><td>Apunta a un contenedor y no sale de ningún elemento</td></tr><tr><td>Criterio de filtro</td><td>Expresión junto a la flecha de filtro</td></tr></tbody></table></div>
+<p>El ejemplo de canciones del apunte (p. 5 a 7) arranca escribiendo el flujo de entrada <code>FE</code> y el de salida <code>FS</code>.</p>
+<div class="tomado"><aside class="nota"><strong>Subesquema</strong><span>Prácticas 09/09/23 y 19/02/24, finales 13/02/23, 05/02/24, 04/03/24, 09/03/26 y 27/04/26</span></aside><p>Hacerlo para un requerimiento dado y responder si el MD lo cumple. Teoría: sus formas y qué valida.</p>
+</div>
+<details open class="pregunta"><summary><span>¿Cuáles son las formas de subesquema?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Gráfico, básico y descriptivo. Fuente: apunte Subesquemas, p. 3.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="parcial-2-casos-de-uso">Casos de uso</h2>
+<p><strong>Definición.</strong> Colección de escenarios de éxito y fracaso relacionados, que describe a los actores usando un sistema para satisfacer un objetivo. Produce un resultado observable de valor para un actor (presentación Casos de Uso, diapositiva 4). Son texto, y describen el qué, no el cómo.</p>
+<p><strong>Caja negra.</strong> «El sistema registra la venta» está bien. «El sistema dispara un INSERT» no (diapositiva 5).</p>
+<p><strong>Formatos</strong> (diapositivas 5 y 6). Breve, informal y completo. La cátedra usa una variante del completo.</p>
+<h3 id="parcial-2-niveles-de-meta">Niveles de meta</h3>
+<div class="tabla"><table><thead><tr><th>Nivel</th><th>Metáfora</th><th>Qué es</th></tr></thead><tbody><tr><td>Resumen</td><td>Nube o barrilete</td><td>Proceso de negocio. Agrupa metas de usuario. Dura horas, días o semanas</td></tr><tr><td>Usuario</td><td>Nivel del mar</td><td>Un proceso elemental de negocio (EBP). De 3 a 10 pasos en el camino básico</td></tr><tr><td>Subfunción</td><td>Bajo el agua</td><td>Incluirlo solo si hace falta</td></tr></tbody></table></div>
+<p>Fuente: presentación Casos de Uso, diapositivas 9 y 10, y apunte de Cockburn (Writing Effective Use Cases), sección 3.3, para la metáfora de subfunción.</p>
+<p><strong>EBP.</strong> Tarea de una persona en un lugar y en un tiempo corto, como respuesta a un evento de negocio. Añade valor cuantificable y deja los datos consistentes (diapositiva 9).</p>
+<details open class="pregunta"><summary><span>¿Qué nivel es el más importante de encontrar?</span><small>Teóricos 02/11/24 y 01/11/25</small></summary><div class="resp"><p>Nivel usuario: las metas de usuario justifican el sistema. Fuente: presentación Casos de Uso, diapositiva 9, y teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<h3 id="parcial-2-dimensiones">Dimensiones</h3>
+<p>Diapositiva 14.</p>
+<div class="tabla"><table><thead><tr><th>Dimensión</th><th>Valores</th><th>Qué significa cada valor</th></tr></thead><tbody><tr><td>Alcance</td><td>Negocio o Sistema</td><td>Negocio: comportamiento de la organización para llegar a la meta. Sistema: comportamiento del sistema para llegar a la meta</td></tr><tr><td>Nivel</td><td>Resumen, Usuario o Subfunción</td><td>El nivel de la meta</td></tr><tr><td>Caja</td><td>Negra o Blanca</td><td>Negra: describe responsabilidades. Blanca: describe funcionamiento interno, diseño</td></tr><tr><td>Estructura</td><td>Sin estructurar o Re-estructurado</td><td>Re-estructurado: el resumen ya invoca a sus CUU (ver <a href="#parcial-2-reestructuracion-de-un-caso-de-uso-resumen">Reestructuración</a>)</td></tr><tr><td>Instanciación</td><td>Concreto (real) o Abstracto</td><td>Concreto o real: iniciado por un actor. Abstracto: subfunción</td></tr><tr><td>Interacción</td><td>Semántico o Dialogal</td><td>Semántico: sin detalles de la interacción ni tecnología. Dialogal: diálogo entre los actores y el sistema, a nivel atributo</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Dimensiones</strong><span>Teóricos 02/11/24, 01/11/25 y 15/12/25</span></aside><p>Nombrarlas, y clasificar qué valor pertenece a cuál.</p>
+</div>
+<h3 id="parcial-2-plantilla-de-la-catedra">Plantilla de la cátedra</h3>
+<p><strong>Código.</strong> <code>CUX(Y)99</code>. X es el nivel: R, U o S. Y es el alcance: N o S, y en los de usuario no hace falta. Ejemplos: <code>CURN01</code>, <code>CUU01</code> (diapositiva 13).</p>
+<p><strong>Nombre.</strong> Verbo y objeto en usuario y subfunción. El nombre del proceso en resumen.</p>
+<p><strong>Actores</strong> (diapositiva 15). Primario, iniciador, secundario y terciario, como en el <a href="#parcial-1-actores-y-stakeholders">1° parcial</a>.</p>
+<p><strong>Disparador.</strong> El evento que hace comenzar el caso de uso (diapositiva 17).</p>
+<h3 id="parcial-2-precondiciones-y-postcondiciones">Precondiciones y postcondiciones</h3>
+<p>Son lo que se da por cierto antes y lo que es verdad después.</p>
+<ul>
+<li><strong>Las precondiciones no se evalúan</strong> en el caso de uso. Si no son verdaderas, no arranca. No generan caminos alternativos (Pre-Post, p. 4; diapositiva 16).</li>
+<li><strong>De negocio.</strong> Se escriben como certezas: «El cliente posee tarjeta de crédito». «El cliente debe poseer» es incorrecto (p. 2).</li>
+<li><strong>De sistema.</strong> Verbo en presente, en términos de clases. Forma detallada: «Los socios ingresados están registrados». Abreviada: «Existen Socios», «Existen Pedidos con estado Pendiente» (p. 5).</li>
+<li><strong>Postcondiciones.</strong> Éxito, éxito alternativo y fracaso, de negocio y de sistema (p. 2 y 3). Las de sistema van en forma detallada, y pueden citar el camino alternativo, por ejemplo <code>(5.a)</code> (p. 5).</li>
+</ul>
+<div class="ojo"><p class="ojo-t">La palabra vacío es obligatoria</p><p>Si la postcondición de sistema no cambia nada, se escribe <code>&lt;vacío&gt;</code>. No poner la palabra es sintaxis incorrecta, porque no se sabe si se omitió a propósito (p. 5). En las de negocio obvias se usa <code>&lt;Omitido&gt;</code> (p. 3).</p>
+</div>
+<p><strong>Red de pre y post.</strong> En general, las post de un CUU son pre de otro. Sirve para validar que están todos los CUU necesarios para la meta resumen (p. 4).</p>
+<details open class="pregunta"><summary><span>¿Alcance negocio tiene postcondición de sistema?</span><small>Teórico 15/12/25</small></summary><div class="resp"><p>No. Fuente: teórico del 15/12/25 con respuestas.</p>
+</div></details>
+<h3 id="parcial-2-camino-basico">Camino básico</h3>
+<p>El escenario de éxito más frecuente. No incluye condiciones ni bifurcaciones. Cada paso es una interacción, una validación o un cambio de estado (diapositiva 18).</p>
+<p><strong>Sintaxis obligatoria</strong> (apunte Estructura sintáctica, p. 1).</p>
+<ul>
+<li>Toda oración tiene sujeto explícito.</li>
+<li>Los pasos de sistema van con verbo en presente.</li>
+<li><mark>Las adyacencias de negocio van en pasado o futuro, con «cuando» y «para luego».</mark> Son una porción de negocio antes o después del paso de sistema. Su beneficio es poner en contexto la utilidad del paso.</li>
+</ul>
+<details open class="pregunta"><summary><span>¿Qué beneficio tienen las adyacencias y en qué tiempo verbal van?</span><small>Final 27/04/26 y teórico 02/11/24</small></summary><div class="resp"><p>Ponen en contexto la utilidad del paso de sistema. Van con verbo en pasado o futuro, con «cuando» y «para luego». Fuente: apunte Estructura sintáctica, p. 1.</p>
+</div></details>
+<h3 id="parcial-2-directrices-de-redaccion">Directrices de redacción</h3>
+<p>Del apunte de directrices de casos de uso y diapositivas 23 a 26.</p>
+<div class="tabla"><table><thead><tr><th>N.°</th><th>Directriz</th></tr></thead><tbody><tr><td>1</td><td>Gramática simple: actor, verbo, objeto, frase preposicional</td></tr><tr><td>2</td><td>Mostrar quién tiene el balón</td></tr><tr><td>3</td><td>Punto de vista de ojos de pájaro: «Sistema calcula el total», no «Calcular el total»</td></tr><tr><td>4</td><td>Mostrar el avance</td></tr><tr><td>5</td><td>Mostrar la intención, no el movimiento: nada de «hace click»</td></tr><tr><td>6</td><td>Un conjunto razonable de pasos: un paso, una transacción</td></tr><tr><td>7</td><td>No es controla, es <mark>valida</mark></td></tr><tr><td>8</td><td>Mencionar el tiempo es opcional</td></tr><tr><td>9</td><td>El actor hace que el sistema A interactúe con el sistema B</td></tr><tr><td>10</td><td>Hacer los pasos x a y hasta que se cumpla una condición</td></tr><tr><td>11</td><td>La condición dice qué se detectó</td></tr><tr><td>12</td><td>El manejo va indentado</td></tr></tbody></table></div>
+<details open class="pregunta"><summary><span>¿Por qué «valida» y no «controla»?</span><small>Teórico 02/11/24</small></summary><div class="resp"><p>«Controla» deja abierto el resultado. Con «valida», el lector se pregunta qué pasa si falla, y eso va a los caminos alternativos. Fuente: presentación Casos de Uso, diapositiva 25.</p>
+</div></details>
+<h3 id="parcial-2-caminos-alternativos">Caminos alternativos</h3>
+<p>Todo otro escenario, de éxito o de fracaso. Tienen condición (algo detectable por el sistema o un actor) y manejo (los pasos). Al terminar se une al camino principal, salvo que se indique otra cosa (diapositiva 19).</p>
+<p><strong>Numeración</strong> (diapositiva 27).</p>
+<div class="tabla"><table><thead><tr><th>Caso</th><th>Forma</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Asociado a un paso</td><td><code>paso.letra &lt;temporalidad&gt;</code></td><td><code>3.a &lt;durante&gt; Es un nuevo cliente:</code></td></tr><tr><td>Varios pasos</td><td><code>desde-hasta.letra</code></td><td><code>3-6.a &lt;durante&gt; El cliente cancela:</code></td></tr><tr><td>Cualquier momento</td><td><code>*.letra</code></td><td><code>*.a La red no responde:</code></td></tr><tr><td>Manejo</td><td>Indentado</td><td><code>2.a.1 Sistema notifica al cliente</code></td></tr><tr><td>Alternativo de alternativo</td><td>Sigue la numeración, justo después del paso que lo genera (diapositiva 28)</td><td><code>2.a.1.a</code></td></tr></tbody></table></div>
+<p>Temporalidades: <code>&lt;previo&gt;</code>, <code>&lt;posterior&gt;</code>, <code>&lt;durante&gt;</code>, <code>&lt;reemplaza&gt;</code>.</p>
+<p><strong>De dónde salen</strong> (diapositiva 29). Desvíos, actor primario que se equivoca, inacción del actor primario, cada «el sistema valida», falta de respuesta de otro actor, fallas internas, fallas de rendimiento.</p>
+<div class="tomado"><aside class="nota"><strong>Numeración de alternativos</strong><span>Teóricos 02/11/24, 01/11/25 y 15/12/25</span></aside><p>Cómo numerar un alternativo sobre varios pasos, un alternativo de alternativo y el <code>*</code>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-reglas-de-negocio">Reglas de negocio</h2>
+<p>Una <strong>regla de negocio</strong> es una declaración de una política o condición que debe cumplirse (apunte Reglas de Negocio, p. 1). La cátedra usa cinco tipos.</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Qué es</th><th>Página</th></tr></thead><tbody><tr><td>Hecho</td><td>Declaración verdadera del negocio. No se suele traducir directo en un requisito</td><td>2 y 3</td></tr><tr><td>Restricción</td><td>Limita lo que el sistema o sus usuarios pueden hacer</td><td>3</td></tr><tr><td>Acción disparadora</td><td>Si se da una condición, se desencadena una actividad</td><td>3 y 4</td></tr><tr><td>Cálculo</td><td>Fórmula o algoritmo</td><td>4</td></tr><tr><td>Inferencia</td><td>Conocimiento nuevo a partir de hechos</td><td>5</td></tr></tbody></table></div>
+<p>Los términos van al glosario, no son reglas (p. 1).</p>
+<div class="tomado"><aside class="nota"><strong>Reglas en el caso de uso</strong><span>Finales 29/05/23, 04/03/24 y 09/03/26</span></aside><p>Pidieron el CUU con sus reglas de negocio además del diccionario de datos. El 29/05/23 pidió completar pre, post y reglas de un caso de uso dado.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-diccionario-de-datos">Diccionario de datos</h2>
+<p>Describe los flujos de entrada y salida de cada paso.</p>
+<div class="ojo"><p class="ojo-t">De dónde sale esta notación</p><p>No encontré un apunte de cátedra de diccionario de datos. Sale de un resumen de alumno de 2026 y coincide con los exámenes y con las resoluciones del Drive. Confirmá en tu comisión si hay detalles propios.</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><div class="tabla"><table><thead><tr><th>Símbolo</th><th>Significado</th><th>Ejemplo</th></tr></thead><tbody><tr><td><code>=</code></td><td>Está compuesto por</td><td><code>A = B + C</code></td></tr><tr><td><code>+</code></td><td>Y</td><td><code>nombre + apellido</code></td></tr><tr><td><code>[ | ]</code></td><td>O</td><td><code>[DNI | Pasaporte]</code></td></tr><tr><td><code>a{ }b</code></td><td>Repetición</td><td><code>1{itemPedido}n</code></td></tr><tr><td><code>( )</code></td><td>Opcional</td><td><code>(telefonoFijo)</code></td></tr><tr><td><code>* *</code></td><td>Comentario</td><td><code>*Campo clave*</code></td></tr><tr><td><code>(e)</code></td><td>Estructura de datos</td><td><code>domicilio(e)</code></td></tr><tr><td><code>(d)</code></td><td>Dato discreto</td><td><code>tipoFactura(d) = [A | B | C]</code></td></tr></tbody></table></div>
+<p class="bloque-fuente">Resumen de alumno, 2026</p></div>
+<p>Lleva datos, no valores (teórico del 28/06/25 con respuestas).</p>
+<details open class="pregunta"><summary><span>¿En qué nivel va el diccionario de datos?</span><small>Teórico 15/12/25</small></summary><div class="resp"><p>En nivel usuario. Fuente: teórico del 15/12/25 con respuestas.</p>
+</div></details>
+<div class="tomado"><aside class="nota"><strong>Diccionario de datos</strong><span>Prácticas 11/11/23, 19/02/24, 01/11/25 y 15/12/25, finales 13/02/23, 27/02/23 y 13/03/23, relato del final 18/05/26</span></aside><p>Con el CUU pedido, y a veces un flujo puntual como un informe. El 13/03/23 pidió representar flujos de salida de 2 requerimientos.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-reestructuracion-de-un-caso-de-uso-resumen">Reestructuración de un caso de uso resumen</h2>
+<p>Tenés un caso de uso resumen largo y querés saber qué casos de uso de usuario lo forman.</p>
+<p>Apunte Re-Estructuración, no oficial, V2.</p>
+<p><strong>De qué se parte</strong> (p. 1). Del caso de uso resumen con alcance sistema y <mark>sin estructurar</mark> de cada meta principal y complementaria, que sale del análisis de metas.</p>
+<p><strong>Proceso elemental de negocio (BPE).</strong> «Una o más tareas o actividades realizadas por Actores del Negocio al que pertenece el BPE, en un período corto de tiempo, como respuesta a un disparador o evento de negocio, que al ser ejecutada con éxito proporciona un valor apreciable a los Actores del Negocio, dejando el estado del mismo en un estado consistente» (p. 2). Para reconocer una meta de usuario, el apunte usa estas preguntas (p. 2).</p>
+<ul>
+<li>¿El actor primario se retira feliz luego de realizar el trabajo?</li>
+<li>¿La performance del trabajo del usuario depende de cuántas veces haga esto hoy?</li>
+<li>La prueba del café: una persona, un asiento, de 2 a 20 minutos.</li>
+</ul>
+<p>La regla es que a cada BPE le corresponde un CU de nivel usuario. El apunte dice «por lo general», porque puede haber excepciones (p. 2).</p>
+<ol>
+<li><strong>Camino básico.</strong> Detectá los EBP. Puede haber un EBP por paso, varios pasos en uno o un paso con varios (p. 3).</li>
+<li><strong>Por cada EBP, un CUU</strong> con código <code>CUU X.Y</code>. X es el número del resumen e Y un numerador (p. 3).</li>
+<li><strong>Caminos alternativos.</strong> Si el paso entra en un EBP ya definido, no hay CUU nuevo. Si es un EBP distinto, sí (p. 3).</li>
+<li><strong>Reescribí los escenarios</strong> invocando los CUU. El resto queda igual y la dimensión Estructura pasa a «Re-Estructurado» (p. 3). Solo se reescriben los alternativos que originan CUU (p. 3 y 4).</li>
+</ol>
+<p>El ejemplo del apunte es un club de tenis (p. 4 a 6).</p>
+<div class="tomado"><aside class="nota"><strong>Reestructurar</strong><span>3° parcial 11/11/23, finales 29/05/23 y 26/05/25, teórico 02/11/24</span></aside><p>Se pidió reestructurar un caso de uso resumen y qué descubre esa tarea.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-matriz-crud">Matriz CRUD</h2>
+<p>Cruza casos de uso y clases para ver qué le hace cada uno a cada clase. Sirve para encontrar lo que falta (Trazabilidad, p. 2 y 4).</p>
+<div class="tabla"><table><thead><tr><th>Letra</th><th>Significado</th></tr></thead><tbody><tr><td>C</td><td>Crear instancias</td></tr><tr><td>R</td><td>Recuperar instancias</td></tr><tr><td>U</td><td>Actualizar instancias</td></tr><tr><td>D</td><td>Borrar instancias</td></tr></tbody></table></div>
+<p><strong>Reglas</strong> (Trazabilidad, p. 4).</p>
+<ul>
+<li><mark>Toda clase debe tener al menos una C en algún lado</mark>, en un CUU o fuera del alcance.</li>
+<li><mark>Toda clase debe tener al menos una R en algún CUU</mark>. La excepción son objetos que solo recupera otro sistema.</li>
+</ul>
+<p><strong>Detalles</strong> (apuntes Create, Read y Update).</p>
+<ul>
+<li>Con la C se cargan los atributos de multiplicidad 1. Los opcionales dependen de su regla (Create, p. 1).</li>
+<li>Si para llegar a D pasás por B y C, también hay R en esas clases. Son <strong>objetos de paso</strong> (Read, p. 2).</li>
+<li>Un atributo derivado no lleva U. Se calcula al usarlo, y sus atributos base llevan R (Update, p. 3, y Read, p. 3).</li>
+<li>Poner vacío un atributo es U, no D: las operaciones son a nivel objeto (Update, p. 4).</li>
+</ul>
+<details open class="pregunta"><summary><span>¿Qué pasa si no hay ninguna C en una clase?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Puede estar fuera de alcance, ser un caso de uso incompleto o un caso de uso faltante. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Cómo se modela una C que hace otro sistema?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Se coloca en una línea especial de la CRUD. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Se garantiza encontrar todos los casos de uso faltantes?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>No. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<p><strong>Otros artefactos de trazabilidad</strong> (Trazabilidad, p. 2 a 6). Matriz de CUU de mantenimiento, matriz de reglas de negocio contra CUU, red de pre y post, diagrama de escenarios y diagramas de transición modificados.</p>
+<div class="tomado"><aside class="nota"><strong>CRUD</strong><span>Finales 29/05/23, 27/11/23, 11/12/23, 04/03/24, 29/04/24, 16/12/24, teóricos 02/11/24, 01/11/25 y 15/12/25</span></aside><p>Armarla para todas las clases o solo la línea de un CUU, y qué letra corresponde a una acción, como la baja lógica.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-2-maquina-de-estados">Máquina de estados</h2>
+<p>Un pedido nace pendiente, se prepara y se entrega. Si el pedido reacciona distinto según en qué momento esté, conviene dibujar su ciclo de vida.</p>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Definición (apunte ME, p. 2)</th></tr></thead><tbody><tr><td>Evento</td><td>Ocurrencia significativa</td></tr><tr><td>Estado</td><td>Condición de un objeto en un instante, entre eventos</td></tr><tr><td>Transición</td><td>Relación entre dos estados: cuando ocurre el evento, el objeto pasa al siguiente</td></tr></tbody></table></div>
+<p><strong>Cuándo usarla.</strong> Para objetos dependientes del estado con comportamiento complejo. En sistemas de gestión son pocas las clases así (p. 2 y 3).</p>
+<p><strong>Qué puede ir en una transición</strong> (apunte Transiciones, p. 1).</p>
+<ol>
+<li>Eventos: externos o temporales.</li>
+<li>Condiciones de guarda.</li>
+<li>Casos de uso.</li>
+<li>Eventos con condición de guarda.</li>
+</ol>
+<p><strong>Formato de un evento</strong> (p. 2). <mark>Actor o tiempo + verbo + objeto</mark>. También en pasiva: <code>Se firma libreta</code>. El evento de sistema (como hacer clic) no interesa.</p>
+<p><strong>Guarda</strong> (p. 2). Entre corchetes. Pensá si la memoria tiene los atributos para evaluarla (p. 3).</p>
+<p><strong>Bifurcación</strong> (p. 3). Un disparador con varias salidas de guarda distinta. Las guardas deben cubrir todas las posibilidades.</p>
+<p><strong>Regionalización</strong> (p. 4). Si un evento lleva varios estados al mismo destino, podés agruparlos en un estado contenedor. No es obligatorio.</p>
+<p><strong>Faltantes</strong> (p. 5). Una transición con un evento que no se dispara en ningún caso de uso puede ser un caso de uso faltante.</p>
+<details open class="pregunta"><summary><span>¿Para qué sirve la máquina de estados en la materia?</span><small>Teóricos 02/11/24 y 01/11/25</small></summary><div class="resp"><p>Detectar casos de uso faltantes, completar el MD y completar casos de uso incompletos. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<div class="tomado"><aside class="nota"><strong>Máquina de estados</strong><span>Prácticas 11/11/23 y 19/02/24, finales 13/02/23, 27/11/23, 11/12/23, 19/02/24, 28/04/25, 26/05/25, 25/08/25 y 27/04/26</span></aside><p>Dibujarla para una clase del relato, como reclamo, compra, alumno, suscripción o solicitud.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-final" data-pagina="final" aria-label="Final"><p class="pdf-de">Análisis de Sistemas de Información</p><h1>Final</h1>
+<p class="bajada">La mesa toma toda la materia, pero se apoya sobre todo en casos de uso y modelo del dominio, con teoría aparte.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="final-como-viene-la-mesa">Cómo viene la mesa</h2>
+<p>Revisé 27 fechas de mesa, de 13/02/23 a 18/05/26. Hay 24 con práctica que pude leer, y el resto son teóricos sueltos o relatos de quienes rindieron.</p>
+<p>Cada mesa tiene una parte teórica y una práctica. Mirá estos ejemplos, porque el formato cambia de una a otra.</p>
+<div class="tabla"><table><thead><tr><th>Mesa</th><th>Práctica</th><th>Puntaje</th></tr></thead><tbody><tr><td>11/12/23</td><td>Máquina de estados, modelo del dominio, CUU y línea de CRUD</td><td>100 puntos en total</td></tr><tr><td>10/03/25</td><td>Caso de uso y modelo del dominio</td><td>19 de 32. Nota final: 40 % teoría y 60 % práctica</td></tr><tr><td>25/08/25</td><td>12 requerimientos o más, modelo del dominio y máquina de estados</td><td>25 de 42, en 1 hora 40</td></tr><tr><td>09/03/26</td><td>Redundancia en un modelo, subesquema, cambios al modelo y un CUU con diccionario y reglas</td><td>35 de 59. Nota final: promedio de teoría y práctica</td></tr><tr><td>27/04/26</td><td>Modelo del dominio, subesquema y máquina de estados</td><td>21 de 35</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Qué se repite en la práctica</strong><span>24 prácticas de mesa de 2023 a 2026</span></aside><ul>
+<li><mark>Caso de uso, de cualquier nivel: en 22 de 24.</mark></li>
+<li><mark>Modelo del dominio: en 19 de 24.</mark></li>
+<li>Máquina de estados: en 8 (13/02/23, 27/11/23, 11/12/23, 19/02/24, 28/04/25, 26/05/25, 25/08/25 y 27/04/26).</li>
+<li>CRUD: en 6 (29/05/23, 27/11/23, 11/12/23, 04/03/24, 29/04/24 y 16/12/24).</li>
+<li>Diagrama de actividad o metas: en 6 (13/02/23, 27/02/23, 28/08/23, 05/02/24, 19/02/24 y 18/05/26).</li>
+<li>Subesquema: en 5 (13/02/23, 05/02/24, 04/03/24, 09/03/26 y 27/04/26).</li>
+</ul>
+</div>
+<p>Varias mesas coinciden con los recuperatorios y usan el mismo relato. El 13/02/23, el 16/12/24 y el 15/12/25 el enunciado marca qué ítem es de cada instancia, así que buscá el tuyo antes de arrancar.</p>
+<div class="ojo"><p class="ojo-t">Caso de uso resumen o de usuario</p><p>Se pidió varias veces el resumen de sistema (29/05/23, 28/08/23, 29/04/24, 02/12/24 y 10/02/25). En otras mesas se pidió el de usuario con diccionario de datos. Leé la consigna, porque cambia el camino básico entero.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final-que-estudiar">Qué estudiar</h2>
+<p>No hay teoría propia del final. Todo está en las páginas de los parciales.</p>
+<div class="tabla"><table><thead><tr><th>Tema</th><th>Dónde</th></tr></thead><tbody><tr><td>Modelo del dominio y clase asociativa</td><td><a href="#parcial-2-modelo-del-dominio">2° parcial</a></td></tr><tr><td>Casos de uso, plantilla y numeración</td><td><a href="#parcial-2-casos-de-uso">2° parcial</a></td></tr><tr><td>Diccionario de datos</td><td><a href="#parcial-2-diccionario-de-datos">2° parcial</a></td></tr><tr><td>Reestructuración</td><td><a href="#parcial-2-reestructuracion-de-un-caso-de-uso-resumen">2° parcial</a></td></tr><tr><td>Matriz CRUD</td><td><a href="#parcial-2-matriz-crud">2° parcial</a></td></tr><tr><td>Máquina de estados</td><td><a href="#parcial-2-maquina-de-estados">2° parcial</a></td></tr><tr><td>Subesquema</td><td><a href="#parcial-2-subesquema-de-navegacion">2° parcial</a></td></tr><tr><td>Diagrama de actividad y zona de interrupción</td><td><a href="#parcial-1-diagrama-de-actividad">1° parcial</a></td></tr><tr><td>Análisis de metas</td><td><a href="#parcial-1-analisis-de-metas">1° parcial</a></td></tr><tr><td>Proceso Unificado</td><td><a href="#parcial-1-el-proceso-unificado">1° parcial</a></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="final-como-se-conectan-los-artefactos">Cómo se conectan los artefactos</h2>
+<p>Las preguntas de mesa cruzan temas. Esta tabla junta los cruces que el material escribe.</p>
+<div class="tabla"><table><thead><tr><th>De</th><th>A</th><th>Qué los une</th><th>Fuente</th></tr></thead><tbody><tr><td>Metas fracaso</td><td>Zona de interrupción</td><td>Son fuente para crear zonas</td><td>Zona de Interrupción, p. 5</td></tr><tr><td>Tabla resumen</td><td>Caso de uso resumen</td><td>En general da casos de uso de ese nivel</td><td>Análisis de Metas, p. 6</td></tr><tr><td>Caso de uso resumen</td><td>Caso de uso de usuario</td><td>Cada EBP da un CUU</td><td>Re-Estructuración, p. 2 y 3</td></tr><tr><td>Postcondición de un CUU</td><td>Precondición de otro</td><td>Forman la red de pre y post</td><td>Pre-Post, p. 4</td></tr><tr><td>Disparador de un caso de uso</td><td>Evento de una transición</td><td>Es el evento que iría en la máquina de estados</td><td>Transiciones, p. 2</td></tr><tr><td>Transición sin caso de uso</td><td>Caso de uso faltante</td><td>Puede ser uno que falta</td><td>Transiciones, p. 5</td></tr><tr><td>C o R ausente en una clase</td><td>Caso de uso faltante</td><td>La matriz lo deja a la vista</td><td>Trazabilidad, p. 4</td></tr><tr><td>Requerimiento</td><td>Subesquema</td><td>Demuestra que el MD lo cumple</td><td>Subesquemas, p. 2 y 3</td></tr><tr><td>C en la matriz</td><td>Postcondición</td><td>«Una nueva instancia de A está registrada»</td><td>Trazabilidad, p. 4</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>MD contra requerimientos</strong><span>Teóricos 26/08/24 y 02/11/24</span></aside><p>Se pidió explicar la relación entre modelo del dominio y requerimientos. Empezá por <a href="#parcial-2-subesquema-de-navegacion">para qué sirve el subesquema</a>.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Teoría en mesas</strong><span>Relatos de finales 29/09/25, 27/04/26 y 18/05/26</span></aside><p>Minuta y técnicas, atributo calculado, agregación ternaria, composición, tiempos verbales de adyacencias, plan de fase contra plan de iteración, requerimientos de usabilidad y soporte.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Fecha rara en una solución</p><p>La solución propuesta del 26/05/25 tiene un encabezado de otra mesa (2019), pero su diagrama dice «Examen M2 20250526» y coincide con el enunciado.</p>
+</div>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

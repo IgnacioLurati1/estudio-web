@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2° parcial, 28/10/2025: Redes de Datos</title>
+<meta name="description" content="Ejercicio de examen: 2° parcial, 28/10/2025.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="redes-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Redes de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=redes-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=redes-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>2° parcial, 28/10/2025</h1>
+<p class="bajada">2° parcial, 28/10/2025</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="p2-2025-10-28" data-titulo="2° parcial, 28/10/2025" data-min="120" data-otro="ejercicios.html#parcial-2" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="p2-2025-10-28" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1q47RzW-NZQo5WATGpznRd1uxvMO3osib/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><p>Tema 1 de redes:</p>
+<p>-Explicar que es el sink tree</p>
+<p>-Explicar el algoritmo reverse path forwarding</p>
+<p>-Como funciona DHCP</p>
+<p>-Que es ICMP</p>
+<p>-Que campos controla el CRC</p>
+<p>-Con que objetivos se creo IPv6</p>
+<p>-Corrección de errores en IPv6</p>
+<p>-Explicar movilidad del usuario en IPv4</p>
+<p>-Explicar algoritmos Slow start e incremento aditivo</p>
+<p>-Explicar TCP Tahoe y TCP Reno</p>
+<p>Tema 2 de redes:</p>
+<ol>
+<li>comunicación prefijos</li>
+<li>comunicación clases</li>
+<li>ospf y bgp</li>
+<li>inicio comunicación tcp</li>
+<li>tasa justa</li>
+<li>protocolos capa 4 para streaming y transferencia bancaria</li>
+<li>comunicación túnel</li>
+<li>Enrutamiento de redes MPLS</li>
+<li>compatibilidad ipv4 y ipv6</li>
+<li>routers moviles</li>
+</ol>
+</section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>Tema 1</h4>
+<p><strong>Sink tree.</strong> El árbol óptimo o <em>sink tree</em> de un router es el que lo conecta con todos los demás routers por el camino de menor costo o distancia. Se mide por costo y no por cantidad de saltos. Cada router tiene el suyo, y no tiene ciclos.</p>
+<p><strong>Reverse path forwarding.</strong> La forma más eficaz, según el apunte, es <em>Reverse Path Forwarding</em>. Cuando un router recibe un paquete de broadcast, mira por dónde llegó.</p>
+<ul>
+<li>Si llegó por el enlace que él usa para ir hacia el origen, según el sink tree, lo copia a todas las demás salidas.</li>
+<li>Si llegó por otro puerto, lo descarta, porque probablemente es un duplicado.</li>
+</ul>
+<p>No necesita listas de destinos ni que los routers sepan el árbol completo.</p>
+<p><strong>DHCP.</strong> DHCP le da una dirección IP a un host. Al encenderse, el host manda un broadcast pidiendo IP, y el servidor DHCP se la asigna por un tiempo limitado. También le puede enviar datos como las IP del DNS y del <em>default gateway</em>.</p>
+<p><strong>ICMP.</strong> ICMP avisa cuando pasa algo inesperado. El router manda al origen un mensaje dentro de un paquete IP.</p>
+<ul>
+<li><strong>Destino inalcanzable.</strong> El router no logra localizar el destino.</li>
+<li><strong>Tiempo excedido.</strong> El TTL llegó a cero.</li>
+<li><strong>Problema en parámetro.</strong> Valor incorrecto en el encabezado.</li>
+<li><strong>Ruta alternativa.</strong> Hay una mejor.</li>
+<li><strong>Eco.</strong> Lo usa ping.</li>
+</ul>
+<p><strong>Ejemplo.</strong> Traceroute manda paquetes con TTL de 1, 2, 3 y así, y cada router que descarta uno devuelve un tiempo excedido. Con eso se conoce cada salto del camino.</p>
+<p><strong>Qué campos controla el CRC.</strong> En IPv4, el Header Checksum controla solo los campos del encabezado, no los datos. Se recalcula en cada router, porque el TTL cambia en cada salto. Los datos los cubren el CRC32 de la trama en la capa 2 y el checksum del segmento en la capa 4. IPv6 no tiene checksum en el encabezado.</p>
+<p><strong>Objetivos de IPv6.</strong> El IETF empezó a trabajar en 1990 con estos objetivos.</p>
+<ul>
+<li>Soportar más direcciones, con 128 bits.</li>
+<li>Reducir las tablas de ruteo.</li>
+<li>Simplificar el trabajo de los routers, para que sean más rápidos.</li>
+<li>Dar más seguridad.</li>
+<li>Poner el foco en la QoS.</li>
+<li>Mejorar el multicast.</li>
+<li>Dejar que las versiones viejas convivan con las nuevas.</li>
+</ul>
+<p><strong>Corrección de errores en IPv6.</strong> IPv6 no tiene checksum en el encabezado. El control de errores lo dejan a las capas 2 y 4, y así los routers no tienen que recalcular nada en cada salto.</p>
+<p><strong>Movilidad del usuario en IPv4.</strong> Con <strong>IP Mobility</strong>, el móvil que se va de su red pide una dirección local, la <em>Care of Address</em>, y se la manda a su <em>Home Agent</em>, en la red de origen. Los paquetes siguen llegando a la dirección de siempre, y el Home Agent se los reenvía a la nueva. Después la comunicación sigue directa. IPv6 evita esa triangulación.</p>
+<p><strong>Slow start e incremento aditivo.</strong> TCP ajusta su ventana de congestión según AIMD, y los <em>acknowledgements</em> marcan el ritmo de envío (<em>Ack-Clock</em>).</p>
+<ul>
+<li><strong>Slow start.</strong> Arranca con un segmento y duplica la ventana con cada confirmación que vuelve a tiempo. Crece rápido hasta un umbral.</li>
+<li><strong>Incremento aditivo.</strong> Pasado el umbral, suma una unidad por cada retardo de ida y vuelta.</li>
+</ul>
+<p><strong>Tahoe y Reno.</strong></p>
+<ul>
+<li><strong>TCP Tahoe (1988).</strong> Hace slow start hasta un umbral y sigue aditivo. Con tres avisos duplicados asume una pérdida. El umbral baja a la mitad de la ventana y recomienza desde 1.</li>
+<li><strong>TCP Reno (1990).</strong> Agrega <em>fast recovery</em>. Tras la pérdida retoma desde la mitad de la ventana y sigue aplicando AIMD, sin volver a 1.</li>
+</ul>
+<h4>Tema 2</h4>
+<p><strong>1. Direccionamiento por prefijos.</strong> Con CIDR, la agrupación por prefijos, el largo del prefijo es variable y lo marca la máscara (/n). Varias redes con el mismo comienzo se agrupan en una <em>superred</em>, que va con una sola entrada en la tabla del router (<em>Route Aggregation</em>). Es lo que se usa hoy, y por eso las direcciones IPv4 no se agotaron como se preveía.</p>
+<p><strong>2. Direccionamiento por clases.</strong> Hasta 1993 el largo del prefijo era fijo según la clase. La A, de 1.0.0.0 a 127.0.0.0, con /8 y 16 millones de hosts por red. La B, de 128.0.0.0 a 191.255.0.0, con /16 y 65.534 hosts. La C, de 192.0.0.0 a 223.255.255.0, con /24 y 254 hosts. La D es multicast y la E, de uso futuro.</p>
+<p><strong>3. OSPF y BGP.</strong> Los dos son protocolos de ruteo. Un <strong>sistema autónomo</strong> es una de las redes privadas interconectadas que forman internet.</p>
+<div class="tabla"><table><thead><tr><td></td><th>OSPF</th><th>BGP</th></tr></thead><tbody><tr><td>Dónde</td><td>Dentro de un sistema autónomo</td><td>Entre sistemas autónomos</td></tr><tr><td>Algoritmo</td><td>Estado de enlaces</td><td>Vector de paso, parecido a vector distancia</td></tr><tr><td>Qué busca</td><td>El mejor camino, y balancea con ECMP</td><td>Respetar políticas de negocio y seguridad</td></tr><tr><td>Detalles</td><td>Áreas, backbone, designated router</td><td>Multihoming, peering, rutas privadas</td></tr></tbody></table></div>
+<p><strong>4. Inicio de la comunicación TCP.</strong> Es el saludo de tres vías (<em>3-way handshake</em>).</p>
+<pre class="codigo"><code>Cliente                            Servidor
+                                   LISTEN
+CONNECT   SYN=1, ACK=0, secuencia x  ---&gt;
+          &lt;---  SYN=1, ACK=1, secuencia y, confirma x
+          secuencia x+1, confirma y  ---&gt;</code></pre>
+<ol>
+<li>El cliente pide la conexión con SYN y su número de secuencia inicial <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>.</li>
+<li>El servidor acepta con SYN y ACK, su número <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span></span></span></span> y la confirmación de <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>.</li>
+<li>El cliente confirma <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span></span></span></span>, y desde ahí van los datos.</li>
+</ol>
+<p>El número de secuencia, de 32 bits y con valor inicial aleatorio, evita predicciones y que se confundan segmentos duplicados.</p>
+<p><strong>5. Tasa justa.</strong> Es la asignación <strong>Máx-Mín</strong>. Una asignación es justa si cualquier aumento de la tasa de una fuente implica bajarle la tasa a otra. En el ejemplo del apunte, con enlaces de capacidad 1, las tres fuentes que comparten el enlace más cargado reciben 1/3 cada una, y la cuarta dispone de 2/3 en su enlace. La congestión la detecta la capa de red y la causa el tráfico que manda transporte, y TCP llega a la tasa justa con AIMD.</p>
+<p><strong>6. Capa 4 para streaming y para una transferencia bancaria.</strong></p>
+<ul>
+<li><strong>Streaming de voz.</strong> UDP, porque en tiempo real no hay tiempo de retransmitir, y un paquete que llega tarde ya no sirve.</li>
+<li><strong>Transferencia bancaria.</strong> TCP, porque da una conexión confiable con retransmisión de los segmentos perdidos. La guía de capa de red pone el homebanking como ejemplo de servicio orientado a conexión, porque no tolera pérdidas ni errores de datos.</li>
+</ul>
+<p><strong>7. Túnel.</strong> Un túnel une dos redes IPv6 a través de una red IPv4. El router multiprotocolo de entrada mete el paquete IPv6 entero en el campo de datos de un paquete IPv4, y el router del otro extremo lo saca y lo sigue mandando como IPv6. Es una excepción al modelo de capas, porque una capa de red viaja dentro de otra. También se usa en VPN.</p>
+<p><strong>8. MPLS.</strong> MPLS es una tecnología de los proveedores. Agrega una etiqueta al paquete y los routers lo encaminan por esa etiqueta, sin mirar la dirección IP completa. Eso resulta más sencillo y rápido.</p>
+<p><strong>9. Compatibilidad entre IPv4 e IPv6.</strong> Que las versiones viejas convivan con las nuevas fue uno de los objetivos de IPv6. Las dos redes se comunican con <strong>túneles</strong>. El router multiprotocolo mete el paquete IPv6 entero en el campo de datos de uno IPv4 para cruzar la red IPv4, y el otro extremo lo saca.</p>
+<p><strong>10. Routers móviles.</strong></p>
+<ul>
+<li><strong>Network Mobility.</strong> La define la movilidad de IPv6 para cuando lo que viaja es el router, con toda su red, como en un avión.</li>
+<li><strong>Redes ad hoc.</strong> Los usuarios son también routers. El pedido de ruta inunda la red con número de secuencia y TTL, el destino contesta hacia atrás, y la ruta queda definida en ambos sentidos. Los mensajes «Hola» controlan que el vecino siga ahí.</li>
+</ul>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con el resumen del 2° parcial, secciones Broadcasting y sink tree, Protocolos de control, El encabezado, IPv6 e interconexión, Usuarios y routers móviles, Clases y prefijos, OSPF y BGP, Establecimiento de la conexión, Tasa justa y AIMD, Slow start, Tahoe y Reno, y TCP y UDP.</p><p class="bloque-fuente">Quedó en duda: «Qué campos controla el CRC» no dice de qué capa; se tomó el checksum de IPv4, porque es lo que se pregunta en este parcial. Las consignas del tema 2 son títulos sueltos de un recuerdo («comunicación prefijos», «comunicación clases»), y se leyeron como direccionamiento por prefijos y por clases.</p><div class="em-votos" data-m="redes-de-datos" data-e="p2-2025-10-28" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Sink tree" data-enlace="parcial-2.html#broadcasting-y-sink-tree" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Sink tree</span><span class="ex-t-teoria"><a href="parcial-2.html#broadcasting-y-sink-tree">Broadcasting y sink tree</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="IPv6" data-enlace="parcial-2.html#ipv6-e-interconexion" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">IPv6</span><span class="ex-t-teoria"><a href="parcial-2.html#ipv6-e-interconexion">IPv6 e interconexión</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Tahoe y Reno" data-enlace="parcial-2.html#slow-start-tahoe-y-reno" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Tahoe y Reno</span><span class="ex-t-teoria"><a href="parcial-2.html#slow-start-tahoe-y-reno">Slow start, Tahoe y Reno</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="MPLS" data-enlace="parcial-2.html#protocolos-de-control" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">MPLS</span><span class="ex-t-teoria"><a href="parcial-2.html#protocolos-de-control">Protocolos de control</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-p2-2025-10-29-t2.html">Anterior: 2° parcial, 29/10/2025, temas 2 y 3</a><a href="ej-p2-2024-10-29.html">Siguiente: 2° parcial, 29/10/2024, práctica y teoría</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,1210 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tecnologías de Desarrollo de Software IDE en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Tecnologías de Desarrollo de Software IDE, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="tecnologias-de-desarrollo-de-software-ide" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Tecnologías de Desarrollo de Software IDE</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Tecnologías de Desarrollo de Software IDE</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial-1">1° parcial</a></li><li><a href="#pdf-parcial-2">2° parcial</a></li><li><a href="#pdf-aprobacion-directa">Aprobación directa</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). En el Drive no hay ningún final. Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Tecnologías de Desarrollo de Software IDE</p><h1>Para entender</h1>
+<p class="bajada">Aprendés a construir aplicaciones en .NET con C#, desde cómo corre el código hasta un sistema con pantalla, API y base de datos.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="inicio-la-idea-general">La idea general</h2>
+<p>La materia recorre una sola pregunta: ¿cómo se arma una aplicación real en .NET? Empieza abajo, con lo que pasa cuando compilás. Sigue con el lenguaje y los objetos. Después suma una pantalla, una base de datos, la web y los servicios.</p>
+<p>Pensalo como capas de una misma casa. La plataforma es el terreno. C# es el material. Las pantallas, los datos y los servicios son las partes de la casa. Al final del año todo tiene que funcionar junto.</p>
+<p>Eso se nota en los exámenes. El 1° parcial en PC te hace armar una solución chica con dos proyectos. La aprobación directa te hace armar una aplicación entera, con pantalla, API y base.</p>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido">El recorrido</h2>
+<div class="tabla"><table><thead><tr><th>Unidad</th><th>Tema</th><th>Para qué sirve</th><th>Dónde se estudia</th></tr></thead><tbody><tr><td>1</td><td>Plataforma y entorno</td><td>Entender CLR, MSIL, tipos y Visual Studio</td><td><a href="#parcial-1-la-plataforma-net">1° parcial</a></td></tr><tr><td>2</td><td>Sintaxis, objetos, LINQ y asincronía</td><td>Escribir C# y modelar con clases</td><td><a href="#parcial-1-objetos-en-c">1° parcial</a></td></tr><tr><td>3</td><td>Aplicaciones de escritorio</td><td>Armar pantallas con Windows Forms</td><td><a href="#parcial-2-windows-forms">2° parcial</a></td></tr><tr><td>4</td><td>Acceso a datos</td><td>ADO.NET, Entity Framework, archivos TXT y XML</td><td><a href="#parcial-2-ado-net">2° parcial</a></td></tr><tr><td>5</td><td>Aplicaciones web</td><td>Blazor, y antes Web Forms</td><td><a href="#parcial-2-blazor">2° parcial</a></td></tr><tr><td>6</td><td>Servicios web</td><td>Crear y consumir una API REST</td><td><a href="#aprobacion-directa-la-api-rest">Aprobación directa</a></td></tr><tr><td>7</td><td>Aplicaciones empresariales</td><td>Capas, arquitectura y despliegue</td><td><a href="#aprobacion-directa-las-capas">Aprobación directa</a></td></tr></tbody></table></div>
+<p>La lista de temas sale de los archivos «Objetivos de esta unidad» y de las presentaciones de la cátedra. En el Drive no está el programa analítico vigente.</p>
+<div class="idea"><p>Todo se engancha con lo anterior. El <code>DbContext</code> de Entity Framework es una clase que hereda de otra, como las del 1° parcial. Un endpoint de la API usa <code>async</code> y <code>await</code>, que están en la unidad 2. Si te quedó floja la unidad 2, se te complica todo lo demás.</p>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p>Revisé los exámenes de 2023 en adelante que hay en el Drive. Son 9 archivos, de 2024, 2025 y 2026. Lo anterior es del plan viejo y lo usé solo para ubicarme.</p>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Fechas que leí</th><th>Forma</th></tr></thead><tbody><tr><td>1° parcial</td><td>01/06/2024</td><td>Aula virtual. 20 preguntas de 0,50, 17 cerradas y 3 para desarrollar</td></tr><tr><td>1° parcial</td><td>09/06/2025 (temas Auto, Moto y Celular) y 08/06/2026 (tema Médico)</td><td>Práctica en PC. Armás una solución .NET con dos proyectos y entregás un zip</td></tr><tr><td>2° parcial</td><td>14/09/2026</td><td>Aula virtual. 20 preguntas cerradas</td></tr><tr><td>Aprobación directa</td><td>13/10/2025 (temas Alquiler y Promoción) y 05/10/2026 (tema Receta)</td><td>Práctica en PC. Armás una aplicación con EF, API REST y pantalla</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Lo que cambió entre 2024 y 2025</strong><span>1° parcial 01/06/2024 y 09/06/2025</span></aside><p>El 1° parcial pasó de preguntas a código. Con tres años de datos no se puede saber qué forma va a tener el tuyo. Preparate para las dos. Tenés que saber la teoría y también escribir C# en Visual Studio sin ayuda.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Dudas que no pude cerrar con el Drive</p><ul>
+<li><strong>Fecha del 2° parcial.</strong> El archivo se llama «2016-09-14», pero está en la carpeta 2026 y pregunta por Blazor y por el TPI. Lo tomé como 14/09/2026.</li>
+<li><strong>Final.</strong> Hay un archivo que se llama «Para preparar Final», pero en el Drive no hay ni un solo final. Por eso esta materia no tiene página de final. Consultá a tu comisión cómo es.</li>
+<li><strong>Parcial de octubre de 2024.</strong> La carpeta «Parcial AD» trae unas notas de la cátedra del 30/10/2024 sobre un examen de una inmobiliaria, sin el enunciado.</li>
+<li><strong>Trabajo Práctico Integrador (TPI).</strong> Los exámenes lo nombran, pero su consigna no está en el Drive.</li>
+</ul>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-como-usar-este-resumen">Cómo usar este resumen</h2>
+<ol>
+<li>Leé primero la página de la instancia que rendís. Lo marcado en amarillo es lo que se tomó.</li>
+<li>Hacé el quiz del final de la página.</li>
+<li>Abrí Visual Studio y hacé los <a href="ejercicios.html">enunciados reales</a> sin mirar nada.</li>
+<li>La noche anterior, la <a href="machete.html">hoja de repaso</a>.</li>
+</ol>
+<div class="ojo"><p class="ojo-t">Sin resoluciones</p><p>Ningún ejercicio trae resolución. En el Drive hay un solucionario, pero el mismo archivo aclara que no es una clave oficial de la cátedra. Los parciales en aula virtual son capturas de un alumno, con sus marcas. No tomes esas marcas como respuesta segura.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-1" data-pagina="parcial-1" aria-label="1° parcial"><p class="pdf-de">Tecnologías de Desarrollo de Software IDE</p><h1>1° parcial</h1>
+<p class="bajada">Plataforma .NET, Visual Studio, sintaxis de C#, objetos, colecciones y LINQ. Se tomó con preguntas en 2024 y con código en la PC en 2025 y 2026.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-1-como-viene-el-examen">Cómo viene el examen</h2>
+<p>Leí 3 fechas de 2023 en adelante, con 5 temas en total. El 01/06/2024 fue en aula virtual. El 09/06/2025 y el 08/06/2026 fueron prácticas en PC.</p>
+<div class="tomado"><aside class="nota"><strong>La forma de la práctica en PC</strong><span>1° parcial 09/06/2025 (temas Auto, Moto, Celular) y 08/06/2026 (tema Médico)</span></aside><p>Los 4 temas leídos piden lo mismo y cambian los nombres.</p>
+<ol>
+<li>Una solución .NET con dos proyectos. <mark><code>ApellidoNombre.Dominio</code>, del tipo Biblioteca de Clases, y <code>ApellidoNombre.Consola</code>, del tipo Aplicación de Consola.</mark></li>
+<li>Una clase base abstracta que ya viene escrita y copiás.</li>
+<li>Una clase derivada con una propiedad nueva, un constructor que <mark>llama al constructor de la clase superior</mark> y una <mark>sobreescritura de <code>ToString</code> que invoca al método de la clase superior</mark>.</li>
+<li>Una clase con métodos estáticos de búsqueda. Uno <mark>con LINQ</mark> y otro equivalente <mark>iterando sobre la lista</mark>.</li>
+<li>En el <code>Main</code>, una lista del tipo base, tres objetos de la clase derivada, las dos búsquedas y mostrar el resultado con <code>ToString</code>.</li>
+</ol>
+<p>El tema Médico de 2026 suma un <code>enum</code> y un método más, que filtra con LINQ y devuelve una lista.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Las reglas de la entrega</strong><span>1° parcial 09/06/2025 y 08/06/2026</span></aside><p>Los enunciados dicen esto, con estas palabras.</p>
+<ul>
+<li>Criterios de evaluación: «correcto funcionamiento (compilación/ejecución sin errores), uso de convenciones, formateo, estándares y buenas prácticas».</li>
+<li>«Los nombres de la/los solución/proyectos/namespaces deben tener de prefijo su ApellidoNombre». El ejemplo que da es <code>PerezJuan.X</code>.</li>
+<li>«El entregable debe estar zipeado y nombrado como ApellidoNombre.zip».</li>
+</ul>
+</div>
+<div class="tomado"><aside class="nota"><strong>Los temas de las preguntas</strong><span>1° parcial 01/06/2024</span></aside><p>De las 20 preguntas, 3 se desarrollan: un lenguaje nuevo para .NET, la clase parcial y 4 controles WinForm con un ejemplo de uso. Las otras 17 tocan compilador y MSIL, <code>using</code>, interfaz y clase abstracta, CLR, <code>System.Object</code>, excepciones, agregar un <code>Button</code> por código, formularios, tipos anónimos, pilares de objetos, soluciones, ClickOnce, namespaces y tipos por valor. Una pide predecir qué imprime un <code>if</code> con operadores lógicos.</p>
+</div>
+<p>Los enunciados completos están en <a href="ejercicios.html">Ejercicios</a>. Los temas de escritorio de esa fecha se estudian en la <a href="#parcial-2-windows-forms">página del 2° parcial</a>.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-la-plataforma-net">La plataforma .NET</h2>
+<p>.NET es la base sobre la que corre todo lo que escribís. La cátedra la define así.</p>
+<blockquote>
+<p>«La plataforma .NET es un conjunto de tecnologías diseñado por Microsoft que permiten el desarrollo y ejecución de software, de forma independiente del lenguaje de programación, modelo de objetos, sistema operativo, infraestructura de hardware y dispositivos donde se ejecuta.» (Unidad 1, Capítulo 1, Teoría, pág. 4)</p>
+</blockquote>
+<p>Tiene dos componentes principales.</p>
+<ul>
+<li><strong>CLR</strong>, el motor de ejecución.</li>
+<li><strong>BCL</strong>, la librería de clases.</li>
+</ul>
+<p>Se liberó oficialmente en 2002. Hay tres nombres que conviene ubicar.</p>
+<div class="tabla"><table><thead><tr><th>Nombre</th><th>Qué es</th></tr></thead><tbody><tr><td>.NET Framework</td><td>La versión original. La primera estable es de inicios de 2002</td></tr><tr><td>.NET Core</td><td>Implementación «de uso general, modular, multiplataforma (admite Windows, macOS y Linux) y de código abierto». Primera versión estable a inicios de 2014</td></tr><tr><td>.NET 5 y posteriores</td><td>Unifica .NET Core y .NET Framework en una sola plataforma</td></tr></tbody></table></div>
+<p>Fuente: Unidad 1, Capítulo 1, Teoría, págs. 5, 8 y 9.</p>
+<p>La presentación da su objetivo y sus beneficios (Presentación de la Unidad 1, Capítulo 1, diapositivas 3 y 4). El objetivo es «ofrecer un modelo de programación potente, flexible y simple (en comparación con lo que hasta ese momento se conocía como COM)». Los beneficios son estos.</p>
+<ul>
+<li>Interoperabilidad con código existente.</li>
+<li>Soporte para múltiples lenguajes de programación.</li>
+<li>Soporte para múltiples sistemas operativos.</li>
+<li>«Runtime» común compartido por todos los lenguajes y sistemas operativos.</li>
+<li>Integración entre todos los lenguajes.</li>
+<li>Extensa librería de clases compartida.</li>
+<li>Modelo de «deployment» simplificado.</li>
+<li>Amplio soporte para uso desde línea de comando.</li>
+</ul>
+<h3 id="parcial-1-las-caracteristicas-de-net-core">Las características de .NET Core</h3>
+<p>El apunte las enumera así (Unidad 1, Capítulo 1, Teoría, págs. 8 y 9).</p>
+<div class="tabla"><table><thead><tr><th>Característica</th><th>Qué significa</th></tr></thead><tbody><tr><td>Multiplataforma</td><td>Corre en Windows, Linux y macOS</td></tr><tr><td>Código abierto</td><td>Está en GitHub, con licencias MIT y Apache 2. Es un proyecto de .NET Foundation</td></tr><tr><td>Coherente en todas las arquitecturas</td><td>El código se ejecuta con el mismo comportamiento en x64, x86 y ARM</td></tr><tr><td>Compatible</td><td>Con .NET Framework, Xamarin y Mono, mediante .NET Standard</td></tr><tr><td>Modular</td><td>Se publica por NuGet en paquetes chicos. Incluís solo los que necesitás</td></tr><tr><td>Desarrollo flexible</td><td>Implementación basada en el framework o autocontenida (abajo)</td></tr><tr><td>Implementación flexible</td><td>Se incluye en la aplicación o se instala en paralelo, por usuario o por equipo. Se puede usar con Docker</td></tr><tr><td>Herramientas de línea de comandos</td><td>Para el desarrollo local y la integración continua</td></tr></tbody></table></div>
+<p>En la implementación <strong>basada en el framework</strong> se instalan solo tu aplicación y sus dependencias de terceros. La máquina necesita tener una versión de .NET Core instalada. En la <strong>autocontenida</strong>, la versión de .NET Core con la que compilaste viaja junto con la aplicación y puede correr en paralelo con otras versiones (pág. 9).</p>
+<h3 id="parcial-1-common-language-runtime-clr">Common Language Runtime (CLR)</h3>
+<blockquote>
+<p>«El Common Language Runtime (CLR) maneja el código en tiempo de ejecución y provee una serie de servicios esenciales tales como la integración de lenguajes, seguridad, manejo de tipos seguros, manejo de hilos (thread) y manejo de memoria.» (Unidad 1, Capítulo 1, Teoría, pág. 10)</p>
+</blockquote>
+<p>Es el código que administra a tu código. El apunte lo llama «el verdadero núcleo del framework de .NET». Es el entorno de ejecución donde se cargan las aplicaciones escritas en los distintos lenguajes, y permite integrar proyectos en C#, Visual Basic, C++ o F# (pág. 10). «El CLR es el encargado de gestionar lo que se denomina código administrado», y para eso tiene componentes que dan servicios automáticos al código que se ejecuta (pág. 14).</p>
+<p>El CLR también compila. Pasa el CIL a código máquina nativo con una compilación JIT, en tiempo de ejecución y a medida que el programa invoca métodos. El código obtenido queda en la memoria caché y se vuelve a compilar solo si cambia el código fuente (pág. 10).</p>
+<p>Sus componentes, con sus nombres:</p>
+<div class="tabla"><table><thead><tr><th>Componente</th><th>Qué hace</th></tr></thead><tbody><tr><td>Class Loader</td><td>Carga en memoria las clases</td></tr><tr><td>MSIL to Native Compilers</td><td>Pasa código intermedio a código de máquina</td></tr><tr><td>Code Manager</td><td>Coordina los subsistemas del CLR</td></tr><tr><td>Garbage Collector</td><td>Elimina de memoria objetos no utilizados, solo</td></tr><tr><td>Security Engine</td><td>Administra la seguridad del código</td></tr><tr><td>Debug Engine</td><td>Sigue la ejecución, aun con lenguajes distintos</td></tr><tr><td>Type Checker</td><td>Controla que las variables usen el área de memoria asignada</td></tr><tr><td>Exception Manager</td><td>Maneja los errores durante la ejecución</td></tr><tr><td>Thread Support</td><td>Permite ejecutar código en paralelo</td></tr><tr><td>COM Marshaler</td><td>Coordina la comunicación con componentes COM</td></tr><tr><td>BCL Support</td><td>Da soporte a funcionalidades comunes</td></tr></tbody></table></div>
+<p>Fuente: Unidad 1, Capítulo 1, Teoría, pág. 15.</p>
+<details open class="pregunta"><summary><span>¿Qué es válido afirmar del CLR?</span><small>2° parcial 14/09/2026 y 1° parcial 01/06/2024</small></summary><div class="resp"><p>«Motor de ejecución (runtime) de .NET», con servicios automáticos como administración de memoria, seguridad del código, manejo de excepciones, versionado y múltiples lenguajes. Entre sus componentes están el Garbage Collector, el Exception Manager y el Thread Support. Fuente: Presentación de la Unidad 1, Capítulo 1, diapositivas 8 y 9.</p>
+</div></details>
+<h3 id="parcial-1-compilacion-de-c-a-codigo-nativo">Compilación: de C# a código nativo</h3>
+<p>Compilar en .NET son dos pasos. El primero pasa en tu máquina. El segundo, cuando corre el programa.</p>
+<ol>
+<li><strong>Elegir un compilador.</strong> Cada lenguaje .NET tiene el suyo. El de C# es <code>csc.exe</code>.</li>
+<li><strong>Compilar a MSIL.</strong> Convierte el código fuente en CIL (o MSIL) y genera los metadatos.</li>
+<li><strong>Compilar MSIL a código nativo.</strong> En tiempo de ejecución, un compilador JIT (Just-In-Time) convierte el CIL en código nativo. Antes se comprueba la seguridad de tipos.</li>
+<li><strong>Ejecutar.</strong> El CLR da la infraestructura y sus servicios.</li>
+</ol>
+<p>Fuente: Unidad 1, Capítulo 1, Teoría, pág. 11.</p>
+<p>El paso 1 se hace a mano solo si compilás por línea de comandos. Con un IDE, ese paso y el siguiente los hace el entorno solo (Teoría, pág. 11, nota 9).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El MSIL es como un idioma neutro. Todos los lenguajes .NET se traducen a ese idioma. Después el JIT lo traduce al idioma de la máquina donde está corriendo, a medida que el programa invoca métodos. Por eso el mismo MSIL corre en cualquier arquitectura compatible.</p>
+</div>
+<details open class="pregunta"><summary><span>¿Qué tipo de código genera en primera instancia el compilador de C#?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>Cada compilador transforma el código fuente «a un código en un Lenguaje Intermedio (IL) común a todos, conocido como CIL (Common Intermediate Language), que es entendido por el CLR». Fuente: Unidad 1, Capítulo 1, Teoría, pág. 11.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Qué es necesario para construir un compilador .NET?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«Para generarlo, el compilador se basa en la especificación CLS (Common Language Specification) que determina las reglas necesarias para crear el código CIL compatible con el CLR.» Fuente: Unidad 1, Capítulo 1, Teoría, pág. 11.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Se puede desarrollar un lenguaje nuevo soportado por .NET? ¿Qué características debe tener?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>«Cada lenguaje de programación tiene su propio compilador e intérprete de su sintaxis propia, que debe cumplir las normas del CLS, CLI y CTS, aunque todos, luego al compilar, generan código MSIL.» «Cualquier lenguaje que sea acorde a la Common Language Specification (CLS) puede ejecutarse sobre la CLR.» El CLS engloba «las pautas que deben cumplir estos para poder ser soportados por la plataforma» y permite «a otras compañías producir lenguajes compatibles con .NET». La presentación agrega que «todo lenguaje de programación de .NET debe implementar los tipos definidos por el CTS». Fuente: Unidad 1, Capítulo 1, Teoría, págs. 26 y 27, y Presentación de la Unidad 1, Capítulo 1, diapositiva 11.</p>
+</div></details>
+<p>El apunte lista estos lenguajes desarrollados para .NET: «C#, Visual Basic .NET, Delphi (Object Pascal), C++, F#, J#, Perl, Python, Fortran, Prolog, Cobol y PowerBuilder» (Teoría, pág. 16). La publicación de la norma CLI facilitó el desarrollo de lenguajes. Por eso se puede hacer cualquier tipo de aplicación de la plataforma con cualquiera de ellos (pág. 16).</p>
+<div class="ojo"><p class="ojo-t">Pascal no vale como ejemplo</p><p>En el parcial del 01/06/2024 se pedía nombrar 4 lenguajes basados en especificaciones .NET. La corrección dijo: «Pascal no es soportado en .Net. Existe una versión de Pascal llamado PascalABC.NET que sí se podría mencionar». El apunte, en cambio, lista «Delphi (Object Pascal)» entre los lenguajes de la plataforma (Unidad 1, Capítulo 1, Teoría, pág. 16). Su resumen y el del Capítulo 2 nombran también «implementaciones de Python, Pascal, Eiffel, Cobol, Smalltalk y ADA» de terceros (Capítulo 1, pág. 27, y Capítulo 2, pág. 29). Para no arriesgar, usá C#, Visual Basic .NET, C++ o F#, que están en la misma lista.</p>
+</div>
+<h3 id="parcial-1-codigo-en-lenguaje-intermedio-msil">Código en lenguaje intermedio (MSIL)</h3>
+<p>«El código en Lenguaje Intermedio de Microsoft (MSIL o CIL) es un conjunto de instrucciones independiente de la CPU y sistema operativo, que se puede convertir de forma eficaz en código nativo» (Teoría, pág. 12).</p>
+<ul>
+<li>Trae instrucciones para cargar, almacenar, inicializar y llamar a métodos de objetos. También para operaciones lógicas y aritméticas, flujo de control, acceso directo a memoria y control de excepciones (pág. 12).</li>
+<li>Antes de ejecutarse se convierte a código de la CPU con el JIT. El CLR tiene uno o varios compiladores JIT por cada arquitectura compatible (pág. 12).</li>
+<li>Junto con el MSIL, el compilador genera los <strong>metadatos</strong>. Describen los tipos del código, sus definiciones, las firmas de sus miembros y los miembros referenciados (págs. 12 y 13).</li>
+<li>El IL y los metadatos van en un archivo Ejecutable Portable (PE). Gracias a los metadatos, el código es autodescriptivo y no hacen falta bibliotecas de tipos ni IDL (pág. 13).</li>
+<li>«El MSIL es independiente del lenguaje en el que se desarrolla» (Presentación de la Unidad 1, Capítulo 1, diapositiva 12).</li>
+</ul>
+<h3 id="parcial-1-ensamblados-manifiesto-y-metadatos">Ensamblados, manifiesto y metadatos</h3>
+<p>Un <strong>ensamblado</strong> (assembly) es la unidad básica de un desarrollo .NET. Contiene código IL, una colección de tipos, recursos y un manifiesto. El <strong>manifiesto</strong> es un conjunto de metadatos que describe su contenido. Se guarda como <code>.exe</code> o <code>.dll</code> (Unidad 1, Capítulo 1, Teoría, págs. 13 y 14).</p>
+<p>Los metadatos describen dependencias y versión. Por eso pueden convivir varias versiones de un mismo ensamblado sin conflicto. Para mirar adentro de un ensamblado está <code>ildasm.exe</code>.</p>
+<p>El .NET Framework usa el ensamblado como unidad fundamental para la seguridad, la identificación de tipos, el alcance de referencias, el versionado y el despliegue (Teoría, pág. 14). La presentación lo resume así. Son archivos <code>*.dll</code> o <code>*.exe</code>, «unidad mínima de despliegue al CLR», con un número de versión único, que contienen IL y metadata que los describe (Presentación de la Unidad 1, Capítulo 1, diapositiva 13).</p>
+<h3 id="parcial-1-cli-cts-y-cls">CLI, CTS y CLS</h3>
+<p>Estas tres siglas se confunden. Se ordenan de mayor a menor.</p>
+<div class="tabla"><table><thead><tr><th>Sigla</th><th>Qué es</th><th>Fuente</th></tr></thead><tbody><tr><td>CLI</td><td>Especificación estandarizada que describe un entorno virtual de ejecución. Está formada por CTS, metadatos y CLS</td><td>Teoría, pág. 16</td></tr><tr><td>CTS</td><td>Especifica «cómo se declaran, utilizan y administran los tipos en el motor de ejecución»</td><td>Teoría, pág. 16</td></tr><tr><td>CLS</td><td>Conjunto de características básicas del lenguaje que establece los requisitos de compatibilidad. Sus reglas definen un subconjunto del CTS</td><td>Teoría, pág. 19</td></tr></tbody></table></div>
+<p>La característica principal del CLI es que las aplicaciones escritas en distintos lenguajes de alto nivel «puedan luego ejecutarse en múltiples plataformas tanto de hardware como de software sin necesidad de reescribir o re-compilar su código fuente» (Teoría, pág. 16).</p>
+<p>El CTS cumple estas funciones, entre otras (Teoría, págs. 16 y 17).</p>
+<ul>
+<li>Da un marco de trabajo para la integración entre lenguajes, la seguridad de tipos y un alto rendimiento.</li>
+<li>Da un modelo orientado a objetos que admite la implementación completa de muchos lenguajes.</li>
+<li>Define reglas que deben seguir los lenguajes, para que objetos escritos en lenguajes distintos puedan interactuar.</li>
+<li>Da una biblioteca con los tipos de datos primitivos, como <code>Boolean</code>, <code>Byte</code>, <code>Char</code>, <code>Int32</code> y <code>UInt64</code>.</li>
+</ul>
+<p>El CLS existe porque, para interactuar con objetos de cualquier lenguaje, un objeto debe exponer solo las características comunes a todos los lenguajes con los que interopera. Todas las reglas del CTS valen también para el CLS, salvo que el CLS defina reglas más estrictas (Teoría, pág. 19).</p>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>La Teoría de la Unidad 1, Capítulo 1, en la pág. 16 dice que el CTS es el estándar «ECMA 355». En la pág. 4 la misma hoja da el estándar de la plataforma como «ECMA-335, ISO/IEC 23271», y también lo hace en el temario de la pág. 3. Tomá ECMA-335: es el número que se repite y el que lleva la norma ISO.</p>
+</div>
+<h3 id="parcial-1-tipos-por-valor-y-por-referencia">Tipos por valor y por referencia</h3>
+<p>«Todos los tipos derivan del tipo base System.Object» (Teoría, pág. 17). Hay dos categorías.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Por valor</th><th>Por referencia</th></tr></thead><tbody><tr><td>Qué guarda la variable</td><td>«Contienen directamente sus datos»</td><td>«Guardan una referencia a la dirección en memoria del valor»</td></tr><tr><td>Dónde</td><td>En la pila (stack), o en línea en una estructura</td><td>«En un sistema de cola (Heap)», dice el apunte</td></tr><tr><td>Al copiar</td><td>Cada variable tiene su copia</td><td>Dos variables pueden apuntar al mismo objeto</td></tr><tr><td>Ejemplos en el material</td><td>Integrados, definidos por el usuario, enumeraciones, estructuras</td><td>Clases, matrices, interfaces, punteros, delegados, tipos de valor con boxing</td></tr></tbody></table></div>
+<p>Fuente: Unidad 1, Capítulo 1, Teoría, pág. 17. Estructuras y enumeraciones: Presentación de la Unidad 2, Capítulo 1, diapositivas 10 y 11.</p>
+<p>El apunte arma las subcategorías así (Teoría, pág. 17).</p>
+<ul>
+<li><strong>Por valor</strong>: integrados (implementados por el motor en tiempo de ejecución), definidos por el usuario o enumeraciones.</li>
+<li><strong>Por referencia</strong>: autodescriptivos, punteros o de interfaz. Los autodescriptivos se dividen en matrices y clases. Los de clase pueden ser definidos por el usuario, tipos de valor a los que se aplicó boxing, y delegados.</li>
+</ul>
+<div class="ejemplo"><p class="ejemplo-t">La diferencia en código</p><pre class="codigo"><code><span class="hljs-built_in">int</span> val1 = <span class="hljs-number">0</span>;
+<span class="hljs-built_in">int</span> val2 = val1;
+val2 = <span class="hljs-number">123</span>;
+Class1 ref1 = <span class="hljs-keyword">new</span> Class1();
+Class1 ref2 = ref1;
+ref2.Value = <span class="hljs-number">123</span>;
+Console.WriteLine(<span class="hljs-string">&quot;Values: {0}, {1}&quot;</span>, val1, val2);
+Console.WriteLine(<span class="hljs-string">&quot;Refs: {0}, {1}&quot;</span>, ref1.Value, ref2.Value);</code></pre>
+<p>El apunte da esta salida.</p>
+<pre class="codigo"><code>Values: 0, 123
+Refs: 123, 123</code></pre>
+<p class="bloque-fuente">Unidad 1, Capítulo 1, Teoría, pág. 18</p></div>
+<div class="tomado"><aside class="nota"><strong>Tipos por valor</strong><span>1° parcial 01/06/2024 y 2° parcial 14/09/2026</span></aside><p>Salió con el mismo texto en las dos fechas, «¿Cuál/es de las siguientes es/son Tipos por Valor?», con selección múltiple. Trae opciones como <code>Decimal</code>, <code>int</code>, <code>String</code>, <code>Delegate</code>, <code>Exception</code> y «Todos los tipos derivados de System.Object». Estudiá la tabla de arriba y buscá en el apunte a qué categoría va cada una.</p>
+</div>
+<details open class="pregunta"><summary><span>¿Cuál es el tipo del cual heredan todos los tipos de dato de .NET?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>«Todos los tipos derivan del tipo base System.Object.» Fuente: Unidad 1, Capítulo 1, Teoría, pág. 17.</p>
+</div></details>
+<h3 id="parcial-1-base-class-library-bcl">Base Class Library (BCL)</h3>
+<p>Es el «conjunto de tipos básicos (clases, interfaces, etc.) que vienen predefinidos en .NET». Están organizados en jerarquías lógicas de nombres, los namespaces. Son independientes del lenguaje (Presentación de la Unidad 1, Capítulo 1, diapositiva 10). La misma diapositiva agrega que es «Extensible y totalmente Orientada a Objetos».</p>
+<p>El apunte la describe como un conjunto de soluciones predefinidas y unificadas para las necesidades de la programación, organizado en una jerarquía de clases (Teoría, pág. 20). Trae interfaces, clases abstractas y clases concretas. Las concretas se usan tal cual o se extienden por herencia. Para usar una interfaz, creás una clase que la implemente o derivás de una clase del Framework que ya la implementa (pág. 21).</p>
+<p>Agrupa tecnologías clave, cada una en sus namespaces (Teoría, págs. 21 y 22).</p>
+<div class="tabla"><table><thead><tr><th>Tecnología</th><th>Para qué</th></tr></thead><tbody><tr><td>ASP.NET</td><td>Páginas web con el modelo Web Forms</td></tr><tr><td>ASP.NET MVC</td><td>Desarrollo web con el patrón Model-View-Controller</td></tr><tr><td>AJAX</td><td>Interacción asíncrona entre el navegador y el servidor web</td></tr><tr><td>ADO.NET</td><td>Acceso a datos relacionales, XML y de aplicaciones</td></tr><tr><td>LINQ</td><td>Sintaxis de consulta para colecciones, DataSets y XML</td></tr><tr><td>Entity Framework</td><td>Modelo de objetos para distintos orígenes de datos, con su persistencia</td></tr><tr><td>WinForm</td><td>Aplicaciones cliente de escritorio con formularios Windows</td></tr><tr><td>WPF</td><td>Mejora visual de las aplicaciones con XAML</td></tr><tr><td>WCF</td><td>Servicios para aplicaciones distribuidas, base para soluciones SOA</td></tr><tr><td>XML</td><td>Funciones del estándar XML, para la interoperabilidad entre sistemas</td></tr></tbody></table></div>
+<h3 id="parcial-1-namespaces">Namespaces</h3>
+<details open class="pregunta"><summary><span>¿Qué es un Namespace?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>«Un namespace se utiliza para declarar un ámbito que permite organizar el código y proporciona una forma de crear tipos globalmente únicos.» Fuente: Unidad 1, Capítulo 1, Teoría, pág. 23.</p>
+</div></details>
+<p>Puede contener otro namespace, clases, interfaces, structs, enums y delegados. Su acceso es público y no se puede modificar. El principal es <code>System</code>, donde están <code>Int32</code>, <code>Boolean</code> y <code>String</code>, entre otros (Teoría, págs. 23 y 24).</p>
+<ul>
+<li>Aunque declares un namespace, el compilador agrega uno predeterminado sin nombre, el <strong>espacio de nombres global</strong>. Está en todos los archivos, y lo que está en él se puede usar desde cualquier namespace declarado (pág. 23).</li>
+<li>Igual, se recomienda poner siempre el código dentro de un namespace, con la convención <code>CompanyName.TechnologyName</code> (pág. 23).</li>
+<li>Un mismo namespace se puede definir en dos o más declaraciones. El apunte lo muestra con dos clases, cada una en su bloque <code>namespace MyCompany.ProjectName</code> (pág. 24, y Unidad 2, Capítulo 1, Teoría, pág. 15).</li>
+</ul>
+<div class="ejemplo"><p class="ejemplo-t">Referencia completa y referencia corta</p><pre class="codigo"><code><span class="hljs-keyword">namespace</span> <span class="hljs-title">Banco</span>
+{
+    <span class="hljs-keyword">namespace</span> <span class="hljs-title">Gestion</span>
+    {
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CtaCte</span> { }
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CajaAhorro</span> { }
+    }
+}
+<span class="hljs-comment">//Referencia «full»</span>
+Banco.Gestion.CtaCte;
+Banco.Gestion.CajaAhorro;
+<span class="hljs-comment">//Referencia «corta»</span>
+<span class="hljs-keyword">using</span> Banco.Gestion;
+CtaCte cc = <span class="hljs-keyword">new</span> CtaCte();
+CajaAhorro ca = <span class="hljs-keyword">new</span> CajaAhorro();</code></pre>
+<p>La diapositiva define el namespace como un «grupo de clases que tienen el mismo prefijo».</p>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 2, diapositiva 29</p></div>
+<p>La palabra <code>using</code> tiene dos usos. Como <strong>directiva</strong>, importa tipos de otro namespace o crea un alias. Como <strong>instrucción</strong>, define un ámbito y el objeto se destruye al final (Unidad 2, Capítulo 1, Teoría, págs. 15 y 16).</p>
+<div class="tomado"><aside class="nota"><strong>Un error de compilación con using</strong><span>1° parcial 01/06/2024</span></aside><p>Se dio el mensaje de error «La directiva using a un namespace puede solo ser aplicado a los Namespaces; &#39;System.String&#39; es un tipo y no un namespace» y se pidió el motivo. Releé el mensaje con la definición de arriba.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-visual-studio-soluciones-y-proyectos">Visual Studio: soluciones y proyectos</h2>
+<p>Un IDE (Integrated Development Environment) «es una aplicación que proporciona un conjunto de herramientas y servicios integrados, que facilitan y optimizan el desarrollo de software». Suele traer un editor de código fuente, un compilador, un depurador y un diseñador de interfaz gráfica (Unidad 1, Capítulo 2, Teoría, pág. 4). El apunte da como ejemplos Visual Studio .Net, Sharp Develop y Mono Develop, para .NET, y Eclipse o Net Beans, para Java.</p>
+<p>La presentación da las características de Visual Studio (Presentación de la Unidad 1, Capítulo 2, diapositiva 4).</p>
+<ul>
+<li>Un solo IDE, con soporte para varios lenguajes .NET (VB.NET, C#) y para otros como JavaScript, TypeScript, Node.js y Python.</li>
+<li>Desarrollo de múltiples tipos de proyectos.</li>
+<li>Interfaz personalizable.</li>
+<li>Utilidades como acceso a datos SQL Server, depurador, Intellisense, emuladores para móviles e integración con Azure.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Qué es</th><th>Fuente</th></tr></thead><tbody><tr><td>Solución</td><td>«Incluye uno o más proyectos, archivos y metadatos». Se define en <code>.sln</code> y <code>.suo</code></td><td>Unidad 1, Capítulo 2, Teoría, pág. 10</td></tr><tr><td><code>.sln</code></td><td>Se comparte con el equipo</td><td>pág. 10</td></tr><tr><td><code>.suo</code></td><td>Es del usuario. No va a un repositorio como Git</td><td>pág. 10</td></tr><tr><td>Proyecto</td><td>«Contenedores de ítems» que facilitan su administración, compilación y almacenaje. Da un <code>.exe</code>, un <code>.dll</code> o un módulo</td><td>Presentación del Capítulo 2, diapositiva 7. Teoría, pág. 10</td></tr><tr><td>Plantilla</td><td>Bibliotecas de Clases, Aplicaciones de Consola, de Escritorio, web y otras</td><td>Teoría, pág. 11</td></tr></tbody></table></div>
+<p>En una solución con varios proyectos, el 1° es el de inicio por defecto. Al compilar se usa el orden en que fueron creados (Presentación del Capítulo 2, diapositiva 8).</p>
+<p>Lo que guarda cada archivo de la solución (Unidad 1, Capítulo 2, Teoría, pág. 10):</p>
+<ul>
+<li><strong><code>.sln</code></strong>: los proyectos asociados a la solución, los elementos que no están asociados a un proyecto determinado y las configuraciones de compilación.</li>
+<li><strong><code>.suo</code></strong>: los metadatos que personalizan el IDE cuando la solución está activa, como los puntos de interrupción (breakpoints).</li>
+</ul>
+<p>La misma diapositiva 8 agrega que una solución permite abrir, cerrar y guardar sus proyectos al mismo tiempo, y que «la relación lógica entre solución y proyectos no refleja necesariamente una relación física». La diapositiva 7 dice de los proyectos que «el contenido de los ítems depende del tipo de proyecto y del lenguaje», y que el proyecto está contenido dentro de una solución.</p>
+<p>Hay dos clases de elementos (Teoría, pág. 11). Los <strong>elementos del proyecto</strong> son archivos, referencias a bibliotecas, conexiones de datos y carpetas. Los <strong>elementos de la solución</strong> están en la carpeta de la solución y no pertenecen a ningún proyecto.</p>
+<div class="ojo"><p class="ojo-t">Sitios web y aplicaciones web</p><p>Visual Studio crea dos tipos de proyecto web. Conviene elegir bien antes de crearlo, porque «no resulta práctico convertir un tipo en otro». Para ASP.NET MVC tenés que usar una aplicación web. Según el apunte, «los Sitios Web pueden contener páginas web desarrolladas en diferentes lenguajes y no contienen un archivo que representa al proyecto a diferencia de las Aplicaciones Web» (Unidad 1, Capítulo 2, Teoría, págs. 15 y 16).</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Qué puede contener una solución</strong><span>1° parcial 01/06/2024</span></aside><p>Se preguntó qué es posible contener en una misma solución. Las opciones hablan de proyectos de un mismo tipo o de varios, de un solo lenguaje o de varios por proyecto, y de la excepción de los Web Sites. Repasá la tabla de arriba, la diapositiva 7 y el recuadro de sitios web.</p>
+</div>
+<h3 id="parcial-1-el-explorador-de-soluciones">El Explorador de Soluciones</h3>
+<p>Es la interfaz para ver y administrar la solución, los proyectos y sus elementos. Desde ahí podés hacer esto, entre otras cosas (Unidad 1, Capítulo 2, Teoría, págs. 12 y 13).</p>
+<ul>
+<li>Agregar a la solución proyectos nuevos o existentes, o quitarlos.</li>
+<li>Configurar las propiedades de la solución y de sus proyectos.</li>
+<li>Definir el proyecto de inicio (Set as StartUp Project). Su nombre aparece en negrita.</li>
+<li>Agregar, eliminar o excluir elementos de un proyecto, como clases, formularios, controles de usuario o carpetas.</li>
+<li>Agregar o eliminar referencias a otros proyectos, a ensamblados externos o a un servicio web.</li>
+<li>Compilar la solución entera o un proyecto, y depurar un proyecto.</li>
+</ul>
+<h3 id="parcial-1-referencias-entre-proyectos">Referencias entre proyectos</h3>
+<p>«Antes de escribir código que trabaje con un componente externo, el proyecto debe contener en primer lugar una referencia a dicho componente» (Unidad 1, Capítulo 2, Teoría, pág. 13). Sirve para otro proyecto de la misma solución.</p>
+<p>Se puede hacer referencia a bibliotecas de clases o ensamblados de .NET Framework, a componentes COM, a otros ensamblados o bibliotecas de proyectos de la misma solución, a aplicaciones de la Tienda Windows y a Servicios Web XML (págs. 13 y 14). El cuadro de diálogo Agregar referencia tiene cinco opciones (pág. 14).</p>
+<div class="tabla"><table><thead><tr><th>Opción</th><th>Qué enumera</th></tr></thead><tbody><tr><td>.NET</td><td>Los componentes de .NET Framework disponibles</td></tr><tr><td>COM</td><td>Los componentes COM disponibles</td></tr><tr><td>Proyectos</td><td>Los componentes reutilizables creados en proyectos locales</td></tr><tr><td>Examinar</td><td>Permite buscar un componente en el sistema de archivos</td></tr><tr><td>Reciente</td><td>Los componentes agregados hace poco a proyectos de tu equipo</td></tr></tbody></table></div>
+<p>Las solapas que aparecen cambian según el tipo de proyecto abierto (pág. 14).</p>
+<div class="ejemplo"><p class="ejemplo-t">Cómo lo hace el laboratorio</p><p>El laboratorio crea una aplicación de consola y un proyecto <code>Clases</code> del tipo Class Library. Desde el proyecto de consola agrega la referencia a <code>Clases</code> en las referencias del proyecto, pestaña Projects. Después define el <code>using</code> de <code>Clases</code> en <code>program.cs</code>. Sin esos dos pasos, el proyecto de consola no conoce el otro ensamblado.</p>
+<p class="bloque-fuente">Unidad 2, Capítulo 2, Laboratorio POO, págs. 1 y 2</p></div>
+<div class="tomado"><aside class="nota"><strong>Solución con dos proyectos</strong><span>1° parcial 09/06/2025 y 08/06/2026</span></aside><p>Es el primer paso de la práctica en PC. Practicalo hasta hacerlo de memoria. Crear solución, crear los dos proyectos con su prefijo, y que uno vea al otro.</p>
+</div>
+<h3 id="parcial-1-herramientas-del-ide">Herramientas del IDE</h3>
+<p>Todas las páginas de esta sección son de la Teoría de la Unidad 1, Capítulo 2.</p>
+<p><strong>Depurador.</strong> La depuración «es el proceso de identificar y corregir errores». El depurador de Visual Studio te deja observar el comportamiento del programa en tiempo de ejecución y localizar errores de lógica. Con uno o más puntos de interrupción (breakpoints) frenás la ejecución para examinar el código, evaluar y modificar variables, ver registros y la memoria que ocupa la aplicación. Con <strong>Editar y continuar</strong> cambiás el código durante la depuración y seguís ejecutando (pág. 18). La diferencia entre iniciar con depuración (F5) y sin depuración (Ctrl+F5) el apunte la deja en un enlace a un blog, sin explicarla.</p>
+<p><strong>Refactorización.</strong> «Es una técnica de la ingeniería de software para reestructurar código fuente, alterando su estructura interna sin cambiar su comportamiento externo» (pág. 19). Está en el menú contextual del editor de código, con las opciones Rename, Extract Method, Encapsulate Field, Extract Interface, Promote Local Variable to Parameter, Remove Parameters y Reorder Parameters.</p>
+<p><strong>Fragmentos de código (snippets).</strong> Insertan un fragmento en la posición del cursor o envuelven el código seleccionado. Se invocan con Ctrl+K y después X (insertar), o Ctrl+K y después S (envolver con). El tabulador inserta el fragmento elegido y Esc cierra la herramienta sin insertar nada (págs. 19 y 20).</p>
+<p><strong>NuGet.</strong> Es «un complemento de Visual Studio (aparecido a partir de la versión 2010) para gestionar librerías de terceros de una manera automatizada». Baja el paquete con todos sus prerrequisitos, lo instala e inserta las referencias en los archivos de configuración <code>web.config</code> y <code>app.config</code> (pág. 22). Con NuGet se agregan los paquetes de Entity Framework y Swagger de la <a href="#aprobacion-directa-entity-framework-en-la-aplicacion">aprobación directa</a>.</p>
+<p>Los atajos más usados, según el apunte (pág. 20):</p>
+<div class="tabla"><table><thead><tr><th>Atajo</th><th>Comando</th></tr></thead><tbody><tr><td>F5</td><td>Start Debugging</td></tr><tr><td>Ctrl+F5</td><td>Start without Debugging</td></tr><tr><td>Ctrl+Shift+B</td><td>Build Solution</td></tr><tr><td>F7</td><td>View Code</td></tr><tr><td>F12</td><td>Go to definition</td></tr><tr><td>F9</td><td>Toggle Breakpoint</td></tr><tr><td>F10</td><td>Step Over</td></tr><tr><td>F11</td><td>Step Into</td></tr><tr><td>Ctrl+Shift+F9</td><td>Delete all Breakpoints</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">IDE y CLR no son lo mismo</p><p>El material ubica Intellisense, la refactorización y los snippets en Visual Studio (Presentación de la Unidad 1, Capítulo 2, diapositiva 4, y Teoría de ese capítulo, págs. 19 y 20). El CLR es el motor de ejecución. La depuración aparece en los dos lados. El IDE trae el depurador, y el CLR tiene el componente Debug Engine (Unidad 1, Capítulo 1, Teoría, pág. 15).</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-sintaxis-de-c">Sintaxis de C#</h2>
+<p>Lo que define el lenguaje, según la cátedra (Presentación de la Unidad 2, Capítulo 1, diapositiva 3).</p>
+<ul>
+<li>Creado para .NET y totalmente orientado a objetos.</li>
+<li>Sintaxis basada en C (como Java), con algo de influencia de VB (por ejemplo, las propiedades) y de los lenguajes funcionales (por ejemplo, las expresiones lambda).</li>
+<li>Distingue mayúsculas de minúsculas. <code>system.console.writeline</code> es incorrecto.</li>
+<li>Los atributos se acceden con un punto, y todo es tratado como objeto.</li>
+<li>Manejo de memoria automático.</li>
+</ul>
+<p>Todo lenguaje .NET compila a MSIL. Por eso «no hay diferencias de performance entre C# u otro lenguaje .NET» (diapositiva 4). La línea termina con <code>;</code>, aunque ocupe más de un renglón. Los comentarios van con <code>//</code> para una línea y con <code>/* */</code> para varias (diapositivas 14 y 15).</p>
+<h3 id="parcial-1-variables">Variables</h3>
+<p>Toda variable debe ser inicializada explícitamente antes de usarse. Una variable local sin inicializar da error (diapositiva 7). Una variable declarada dentro de un bloque vive solo en ese bloque (diapositiva 12).</p>
+<p>La declaración pone el tipo antes del identificador, como <code>int x;</code> o <code>Cliente cli;</code> (diapositiva 6). Para inicializar con el valor por defecto se usa el literal <code>default</code>. Para un <code>int</code>, el default es 0. También sirve <code>int variable = new int()</code> o directamente <code>int variable = new()</code> (diapositiva 7).</p>
+<div class="ojo"><p class="ojo-t">De qué variable habla el error</p><p>El ejemplo de la diapositiva 7 es una <strong>variable local</strong> (<code>int tempBalance; //variable local</code>). Fijate si el código que te dan usa variables locales o campos de la clase antes de aplicar la regla.</p>
+</div>
+<h3 id="parcial-1-estructuras-y-arreglos">Estructuras y arreglos</h3>
+<p>Las <strong>estructuras</strong> son tipos por valor. Son un compuesto de otros tipos que facilita el manejo de datos. Se pueden convertir en tipos por referencia cambiando la palabra <code>struct</code> por <code>class</code>. Sirven para representar un rango de valores fijos, como grados, ciclos o cuartos (diapositiva 10).</p>
+<p>Los <strong>arreglos</strong> se definen con corchetes (diapositiva 22).</p>
+<pre class="codigo"><code><span class="hljs-built_in">string</span>[] telefonos;                    <span class="hljs-comment">//Definicion de un Arreglo de strings</span>
+telefonos = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>[<span class="hljs-number">3</span>];             <span class="hljs-comment">//De 3 elementos</span>
+telefonos[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;1245&quot;</span>;                 <span class="hljs-comment">//Seteo del 1er elemento del arreglo</span>
+telefonos = <span class="hljs-keyword">new</span> <span class="hljs-built_in">string</span>[] {<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;3&quot;</span>}; <span class="hljs-comment">//Definicion y asignacion de una vez</span></code></pre>
+<h3 id="parcial-1-decision-e-iteracion">Decisión e iteración</h3>
+<p>Tenés <code>if</code> / <code>else if</code> / <code>else</code> y <code>switch</code> con <code>case</code>, <code>break</code> y <code>default</code>. Para repetir están <code>for</code>, <code>foreach</code>, <code>while</code> y <code>do while</code>. La variable de un <code>foreach</code> es de solo lectura (diapositivas 16 a 28).</p>
+<h3 id="parcial-1-operadores-logicos-y-cortocircuito">Operadores lógicos y cortocircuito</h3>
+<div class="tabla"><table><thead><tr><th>Operador</th><th>Significa</th></tr></thead><tbody><tr><td><code>&amp;&amp;</code></td><td>Y lógico</td></tr><tr><td><code>||</code></td><td>O lógico</td></tr><tr><td><code>!</code></td><td>Negación</td></tr><tr><td><code>==</code> y <code>!=</code></td><td>Igual y distinto</td></tr></tbody></table></div>
+<p>«En C# todas las evaluaciones se hacen por cortocircuito.»</p>
+<ul>
+<li>En <code>if (Hacer1() || Hacer2())</code>, si <code>Hacer1()</code> es True, no se evalúa <code>Hacer2()</code>.</li>
+<li>En <code>if (Hacer1() &amp;&amp; Hacer2())</code>, si <code>Hacer1()</code> es False, no se evalúa <code>Hacer2()</code>.</li>
+</ul>
+<p>Fuente: Presentación de la Unidad 2, Capítulo 1, diapositiva 17.</p>
+<div class="tomado"><aside class="nota"><strong>Predecir qué imprime</strong><span>1° parcial 01/06/2024 y 2° parcial 14/09/2026</span></aside><p>Se tomó en las dos instancias. En 2024, un <code>if</code> con <code>!</code>, <code>&amp;&amp;</code> y <code>||</code> sobre variables <code>bool</code>. En 2026, dos <code>if</code> con métodos que además cambian variables estáticas. En el segundo caso, <mark>si te olvidás del cortocircuito, contás mal cuántas veces corrió cada método</mark>.</p>
+</div>
+<h3 id="parcial-1-enumeraciones">Enumeraciones</h3>
+<p>Una enumeración es «un tipo por valor que permite definir un conjunto de constantes con nombre». Se declara con <code>enum</code> (Unidad 2, Capítulo 1, Teoría, pág. 16).</p>
+<ul>
+<li>El primer enumerador vale 0 y cada uno suma 1, salvo que uses inicializadores.</li>
+<li>El tipo subyacente es <code>int</code> por defecto. Puede ser cualquier entero excepto <code>char</code>.</li>
+<li>Para pasar a entero hace falta una conversión explícita: <code>int x = (int)Days.Sun;</code>.</li>
+<li>Suele definirse directo dentro de un namespace.</li>
+</ul>
+<p>Fuente: Unidad 2, Capítulo 1, Teoría, págs. 16 y 17.</p>
+<pre class="codigo"><code><span class="hljs-built_in">enum</span> Days {Sat, Sun, Mon, Tue, Wed, Thu, Fri};          <span class="hljs-comment">// Sat vale 0, Sun 1...</span>
+<span class="hljs-built_in">enum</span> Days {Sat = <span class="hljs-number">1</span>, Sun, Mon, Tue, Wed, Thu, Fri};      <span class="hljs-comment">// con inicializador</span>
+<span class="hljs-built_in">enum</span> Months: <span class="hljs-built_in">byte</span> {Jan = <span class="hljs-number">1</span>, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
+<span class="hljs-built_in">int</span> x = (<span class="hljs-built_in">int</span>)Days.Sun;</code></pre>
+<p>Son los ejemplos del apunte (Teoría, págs. 16 y 17). Lo que completa el tema:</p>
+<ul>
+<li>Los tipos admitidos son <code>byte</code>, <code>sbyte</code>, <code>short</code>, <code>ushort</code>, <code>int</code>, <code>uint</code>, <code>long</code> o <code>ulong</code>. Para usar otro que no sea <code>int</code> se escriben dos puntos después del nombre, como en <code>Months: byte</code> (pág. 17).</li>
+<li>Se define en un namespace para que todas sus clases la usen con la misma facilidad, pero también puede anidarse dentro de una <code>class</code> o un <code>struct</code>. El nombre de un enumerador no puede tener espacios (pág. 16).</li>
+<li>Todas las enumeraciones son instancias de <code>System.Enum</code>. No se pueden derivar clases nuevas de esa clase, pero sus métodos sirven para comparar, convertir a cadena y convertir desde una cadena (pág. 19).</li>
+<li>Con el atributo <code>[Flags]</code>, los valores se combinan con un OR bit a bit, y <code>Console.WriteLine</code> muestra los nombres combinados (págs. 17 y 18).</li>
+</ul>
+<p>Buenas prácticas del apunte (págs. 19 y 20):</p>
+<ul>
+<li>Si no hay un miembro que valga 0, considerá crear una constante <code>Ninguna</code>. El CLR inicializa la enumeración en cero, y sin esa constante arranca con un valor no válido.</li>
+<li>Si hay un caso por defecto obvio, usá la constante que vale cero para representarlo.</li>
+<li>No definas constantes reservadas para uso futuro.</li>
+<li>Si un método o una propiedad recibe un valor de la enumeración, validalo. Se puede convertir a la enumeración un número que no está definido en ella.</li>
+</ul>
+<p>Frente a un tipo numérico, la enumeración deja claro en el código qué valores son válidos, e IntelliSense muestra los valores definidos (pág. 20). La presentación agrega que se la puede pensar como una colección de constantes, y que da una lista de opciones elegibles y autodescriptivas «en reemplazo del uso de banderas» (Presentación de la Unidad 2, Capítulo 1, diapositiva 11).</p>
+<div class="tomado"><aside class="nota"><strong>Un enum en la práctica</strong><span>1° parcial 08/06/2026</span></aside><p>El tema Médico pide agregar un tipo enumerado y una propiedad de ese tipo.</p>
+</div>
+<h3 id="parcial-1-excepciones">Excepciones</h3>
+<p>El apunte arranca por los errores. Algunos se detectan al compilar, como los de sintaxis o semántica. Otros pasan inadvertidos porque son de lógica o necesitan ciertas condiciones para aparecer, como una entrada de datos incorrecta, una división por cero o una falla en la conexión a una fuente de datos (Unidad 2, Capítulo 1, Teoría, pág. 5).</p>
+<p>«Una excepción es una alteración del flujo normal de ejecución de una aplicación» (Unidad 2, Capítulo 1, Teoría, pág. 5). Ante una situación no esperada, el .NET Framework lanza una excepción para informar el error, y hay que capturarla y gestionarla (págs. 5 y 6). Las predefinidas derivan de <code>System.Exception</code> y cubren casos como los aritméticos, de formato, de índice fuera del límite de un arreglo o de división por cero (pág. 6). La BCL también tiene <code>System.SystemException</code> y <code>System.ApplicationException</code> (pág. 23).</p>
+<p>El motor en tiempo de ejecución controla las excepciones así (pág. 6).</p>
+<ul>
+<li>Independientemente del lenguaje que las genera o controla.</li>
+<li>Sin exigir una sintaxis concreta, aunque cada lenguaje puede definir la propia.</li>
+<li>Permitiendo que se inicien traspasando los límites de los procesos e, incluso, de los equipos.</li>
+</ul>
+<p>Frente a otros métodos de notificación, como devolver códigos de error, las excepciones tienen estas ventajas (pág. 6).</p>
+<ul>
+<li>Ningún error pasa desapercibido.</li>
+<li>Los valores no válidos no se siguen propagando por el sistema.</li>
+<li>No es necesario comprobar los códigos devueltos.</li>
+<li>Es muy sencillo agregar código de control de excepciones para aumentar la confiabilidad del programa.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Bloque</th><th>Para qué</th></tr></thead><tbody><tr><td><code>try</code></td><td>Va el código que puede lanzar la excepción</td></tr><tr><td><code>catch</code></td><td>Va el código que la maneja, con un tipo de excepción</td></tr><tr><td><code>finally</code></td><td>«Se ejecutan siempre, independientemente de si se produce una excepción o no». Se usa para liberar recursos</td></tr><tr><td><code>throw</code></td><td>Produce una excepción a mano</td></tr></tbody></table></div>
+<p>Fuente: Unidad 2, Capítulo 1, Teoría, págs. 7, 11 y 12.</p>
+<div class="ojo"><p class="ojo-t">El orden de los catch importa</p><p>Primero los <code>catch</code> de excepciones específicas y después el general, «pues de lo contrario el compilador puede emitir un error» (Unidad 2, Capítulo 1, Teoría, pág. 9).</p>
+</div>
+<p>Qué pasa cuando se lanza una (Unidad 2, Capítulo 1, Teoría, págs. 9 a 11):</p>
+<ul>
+<li>La excepción asciende por la pila, y cada bloque <code>catch</code> tiene la oportunidad de controlarla. El que la toma se elige haciendo coincidir el tipo de la excepción con el del <code>catch</code>. Si no hay uno específico, la toma el <code>catch</code> general, si existe.</li>
+<li>Un <code>catch</code> sin tipo detecta cualquier excepción. El apunte recomienda detectar un tipo específico en lugar de usar esa forma básica.</li>
+<li>Si ningún <code>catch</code> la detecta, la detecta el CLR. Según cómo esté configurado, aparece un cuadro de depuración o el programa se deja de ejecutar y muestra la información de la excepción.</li>
+<li>Con <code>throw</code> también se vuelve a producir una excepción ya detectada. Es muy recomendable agregarle información, para tener más datos al depurar.</li>
+</ul>
+<details open class="pregunta"><summary><span>¿Qué bloque usa .NET para la administración estructurada de excepciones?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>«Estas excepciones se controlan mediante código situado fuera del flujo normal de control mediante bloques de control que en el lenguaje C# utiliza las palabras reservadas try-catch-finally.» Fuente: Unidad 2, Capítulo 1, Teoría, pág. 23.</p>
+</div></details>
+<p>Si creás tu propia excepción, derivá de <code>Exception</code>, terminá el nombre con la palabra de excepción e implementá los tres constructores comunes (Teoría, págs. 13 y 14).</p>
+<div class="ejemplo"><p class="ejemplo-t">Una excepción propia</p><pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">EmployeeListNotFoundException</span>: <span class="hljs-title">Exception</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EmployeeListNotFoundException</span>()</span>
+    { }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EmployeeListNotFoundException</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> message</span>)
+    : <span class="hljs-title">base</span>(<span class="hljs-params">message</span>)</span>
+    { }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">EmployeeListNotFoundException</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> message, Exception inner</span>)
+    : <span class="hljs-title">base</span>(<span class="hljs-params">message, inner</span>)</span>
+    { }
+}</code></pre>
+<p>Sirve para que los usuarios puedan distinguir por código ciertas condiciones de error de otras (pág. 13).</p>
+<p class="bloque-fuente">Unidad 2, Capítulo 1, Teoría, pág. 14</p></div>
+<h3 id="parcial-1-modificadores-de-acceso">Modificadores de acceso</h3>
+<div class="tabla"><table><thead><tr><th>Modificador</th><th>Acceso</th></tr></thead><tbody><tr><td><code>public</code></td><td>No restringido</td></tr><tr><td><code>protected</code></td><td>La clase contenedora o los tipos derivados</td></tr><tr><td><code>internal</code></td><td>El ensamblado actual</td></tr><tr><td><code>protected internal</code></td><td>El ensamblado actual o los tipos derivados</td></tr><tr><td><code>private</code></td><td>El tipo contenedor</td></tr></tbody></table></div>
+<p>Fuente: Unidad 2, Capítulo 1, Teoría, pág. 14.</p>
+</section>
+<section class="sec"><h2 id="parcial-1-objetos-en-c">Objetos en C#</h2>
+<p>Este bloque es el corazón de la práctica en PC. La cátedra cuenta los <strong>pilares</strong> así: herencia, polimorfismo, encapsulamiento y abstracción (Presentación de la Unidad 2, Capítulo 2, diapositiva 7).</p>
+<p>Todas las diapositivas citadas en esta sección son de esa presentación.</p>
+<p>La programación orientada a objetos «es una manera de construir Software basada en el paradigma de orientación a objetos». Propone resolver problemas de la realidad identificando objetos y relaciones de colaboración entre ellos. El objeto y el mensaje son sus elementos fundamentales (diapositiva 3).</p>
+<h3 id="parcial-1-clase-y-objeto">Clase y objeto</h3>
+<p>La clase es «la definición de las características de un determinado tipo de objeto» (diapositiva 24). Implica clasificar en base a comportamiento y atributos comunes. Es una construcción estática que describe el comportamiento común y los atributos (estado), e incluye datos y funciones (métodos) (diapositiva 4).</p>
+<p>Un objeto es una instancia de una clase y posee tres cosas (diapositiva 6).</p>
+<ul>
+<li><strong>Identidad</strong>: la relación única entre el objeto del modelo y el ente de la realidad que representa. Se implementa con un id único en el modelo.</li>
+<li><strong>Comportamiento</strong>: resuelve un conjunto particular de problemas.</li>
+<li><strong>Estado</strong>: almacena información, fija o variable.</li>
+</ul>
+<p>Los miembros de una clase son los que declara y los que hereda de su clase base directa. Se dividen en constantes, campos (las variables de la clase), métodos, propiedades, eventos (las notificaciones que puede generar), indizadores (indizan las instancias como si fueran matrices), operadores, constructores de instancia, destructores, constructores estáticos (inicializan la propia clase) y tipos (Unidad 2, Capítulo 1, Teoría, pág. 22).</p>
+<h3 id="parcial-1-abstraccion-y-encapsulamiento">Abstracción y encapsulamiento</h3>
+<p>La abstracción es «ignorancia selectiva». Decide qué es importante y se enfoca en eso. Ignora lo que no es importante y «utiliza la encapsulación para reforzar la abstracción» (diapositiva 8). El encapsulamiento separa lo accesible desde afuera (métodos públicos) de lo accesible desde adentro (métodos privados). Se usa por control y por cambios (diapositivas 10 y 11).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en un auto. Para acelerar usás el pedal, y no te importa cómo funciona el motor. Ese es el ejemplo de la cátedra con <code>Acelera()</code>, <code>Frena()</code> y <code>velocidad</code>. Si cambian el motor, vos seguís usando el mismo pedal.</p>
+</div>
+<h3 id="parcial-1-propiedades">Propiedades</h3>
+<p>Una propiedad es una característica o atributo de un objeto.</p>
+<pre class="codigo"><code><span class="hljs-keyword">class</span> <span class="hljs-title">CtaCte</span>
+{
+    <span class="hljs-built_in">int</span> _balance;
+    <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Balance
+    {
+        <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> _balance; }
+        <span class="hljs-keyword">set</span> { _balance = <span class="hljs-keyword">value</span>; }
+    }
+}</code></pre>
+<p>Fuente: diapositiva 26. Se usa como <code>co.Balance = 100;</code> para asignar y <code>co.Balance</code> para obtener.</p>
+<h3 id="parcial-1-metodos">Métodos</h3>
+<p>Los métodos son las «acciones que un objeto puede llevar a cabo». Todo método es una función. <code>public void HacerDeposito(int importe)</code> no devuelve valor, y <code>public int ObtenerInventario(int codArticulo)</code> devuelve un entero (diapositiva 27).</p>
+<h3 id="parcial-1-constructores-y-destructores">Constructores y destructores</h3>
+<p>Son dos métodos de las clases que existen por defecto. El <strong>constructor</strong> inicializa valores. El <strong>destructor</strong> libera recursos al finalizar la vida de una instancia creada en memoria. En .NET hay constructores y destructores por defecto (diapositiva 5).</p>
+<p>Los constructores son funciones de la clase que se llaman al crear una instancia. Una clase puede tener el constructor por default, sin parámetros, y otros con parámetros, como <code>public CtaCte(){...}</code> y <code>public CtaCte(int i){...}</code> (diapositiva 25).</p>
+<div class="ejemplo"><p class="ejemplo-t">Invocar al constructor base</p><pre class="codigo"><code><span class="hljs-keyword">class</span> <span class="hljs-title">MyBaseClass</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyBaseClass</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> i</span>)</span> { }
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-title">MyBaseClass</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> s</span>)</span> { }
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title">MyDerivedClass</span>: <span class="hljs-title">MyBaseClass</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyDerivedClass</span>(<span class="hljs-params"><span class="hljs-built_in">int</span> i</span>) : <span class="hljs-title">base</span>(<span class="hljs-params">i</span>)</span> { }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyDerivedClass</span>(): <span class="hljs-title">base</span>(<span class="hljs-params"><span class="hljs-string">&quot;Test&quot;</span></span>)</span> { }
+}</code></pre>
+<p>«El constructor default siempre invoca al constructor de la clase base.»</p>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 2, diapositiva 32</p></div>
+<div class="tomado"><aside class="nota"><strong>Constructor que llama al de la clase superior</strong><span>1° parcial 09/06/2025 y 08/06/2026</span></aside><p>Los 4 temas lo piden. El orden de los argumentos está en el enunciado, así que leelo con cuidado. En el tema Celular y en el tema Médico lo dice con palabras. En Auto y Moto se ve en el <code>new</code> del punto 4.</p>
+</div>
+<h3 id="parcial-1-herencia">Herencia</h3>
+<p>Es una relación «un tipo de» entre clases, de la generalización a la especialización. C# la escribe con <code>:</code> (diapositivas 12 y 30). Dos palabras cambian la posibilidad de heredar, <code>sealed</code> y <code>abstract</code> (diapositiva 31).</p>
+<p>La clase hija hereda la implementación de la clase base (diapositiva 12). La herencia es «el mecanismo por el cual una clase (hija) hereda de otra (padre) para extender su funcionalidad» (diapositiva 30).</p>
+<div class="tabla"><table><thead><tr><th>Herencia</th><th>Qué es</th></tr></thead><tbody><tr><td>Simple</td><td>La clase hija deriva de una única clase padre</td></tr><tr><td>Múltiple</td><td>La clase hija deriva de varias clases padre. «No es soportada por todos los lenguajes» y «puede ser confusa»</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 15. Las interfaces, en cambio, sí pueden heredar de múltiples interfaces (diapositiva 36).</p>
+<p><code>protected</code> es público para las clases derivadas y privado para las externas. No puede usarse en estructuras (diapositiva 33).</p>
+<h3 id="parcial-1-clases-y-metodos-abstractos">Clases y métodos abstractos</h3>
+<p>Una clase abstracta da «una implementación parcial para que sea heredada por las clases derivadas» y <mark>no puede ser instanciada</mark>. Usa el calificador <code>abstract</code> (diapositivas 16 y 42).</p>
+<p>Los métodos abstractos van solo en clases abstractas, no tienen implementación, las derivadas los deben implementar y son virtuales (diapositivas 17 y 44). Además, pueden sobrescribir métodos de la clase base declarados como <code>virtual</code> o como <code>override</code> (diapositiva 44).</p>
+<div class="ejemplo"><p class="ejemplo-t">Interfaz, clase abstracta y clases concretas</p><pre class="codigo"><code><span class="hljs-keyword">interface</span> <span class="hljs-title">ITransporte</span>
+{
+    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">Name</span>()</span>;
+}
+<span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Transporte</span> : <span class="hljs-title">ITransporte</span>
+{
+    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">Name</span>()</span>
+    {...}
+}
+<span class="hljs-keyword">class</span> <span class="hljs-title">Taxi</span>: <span class="hljs-title">Transporte</span>
+{...}
+<span class="hljs-keyword">class</span> <span class="hljs-title">Colectivo</span>: <span class="hljs-title">Transporte</span>
+{...}</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 2, diapositiva 43</p></div>
+<h3 id="parcial-1-metodos-virtuales-override-y-new">Métodos virtuales, override y new</h3>
+<p>Un método virtual «es un método que la clase base permite que sea sobrescrito en una clase derivada». En cambio, «un método no-virtual es la UNICA implementación posible para este método» (diapositiva 18).</p>
+<div class="ejemplo"><p class="ejemplo-t">Qué cambia entre virtual, new y override</p><pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">A</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">F</span>()</span> { Console.WriteLine(<span class="hljs-string">&quot;A.F&quot;</span>); }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">G</span>()</span> { Console.WriteLine(<span class="hljs-string">&quot;A.G&quot;</span>); }
+}
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">B</span> : <span class="hljs-title">A</span>
+{
+    <span class="hljs-keyword">new</span> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">F</span>()</span> { Console.WriteLine(<span class="hljs-string">&quot;B.F&quot;</span>); }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">G</span>()</span> { Console.WriteLine(<span class="hljs-string">&quot;B.G&quot;</span>); }
+}</code></pre>
+<p>El laboratorio hace <code>B b = new B(); A a = b;</code>, llama a <code>F</code> y a <code>G</code> por las dos variables, y te pide analizar la salida. Después pide quitar <code>new</code>: aparece un warning que avisa que, si es intencional, se declare como <code>new</code>. Y pide quitar <code>override</code>: aparece otro warning, y al ejecutar la aplicación llama a <code>A.G()</code>.</p>
+<p class="bloque-fuente">Unidad 2, Capítulo 2, Laboratorio POO, págs. 2 y 3</p></div>
+<p>Corré ese laboratorio. Es el mejor modo de entender qué método se ejecuta. El <code>ToString</code> que piden los parciales es una sobreescritura, así que este es el tema que lo explica.</p>
+<h3 id="parcial-1-interfaces">Interfaces</h3>
+<p>Una interfaz define un «contrato» (diapositiva 19).</p>
+<ul>
+<li>Se declara con <code>interface</code> y, por estándar, lleva el prefijo «I» (diapositivas 34 y 35).</li>
+<li>Sus métodos son implícitamente públicos, sin implementación y sin modificadores de acceso (diapositiva 35).</li>
+<li>Una clase puede implementar cero, una o más. Una interfaz puede heredar de varias (diapositiva 36).</li>
+<li>No se pueden crear instancias de ella (diapositiva 19).</li>
+<li>Contiene solo métodos sin implementación y no hereda atributos. Quien la implementa debe implementar todos sus métodos (diapositivas 19 y 36).</li>
+<li>Se implementa de forma implícita o explícita. La explícita resuelve conflictos de nombre y solo se accede a través de la interfaz (diapositivas 37 a 41).</li>
+</ul>
+<div class="tabla"><table><thead><tr><td></td><th>Implementación implícita</th><th>Implementación explícita</th></tr></thead><tbody><tr><td>Cómo se escribe</td><td>El método igual al de la interfaz, con el mismo tipo de retorno, nombre y parámetros</td><td>Con el nombre completo, como <code>void IMyInterface.MyMethod1() {}</code></td></tr><tr><td>Modificadores</td><td>Puede ser virtual o no virtual</td><td>No puede ser <code>virtual</code> ni llevar modificador de acceso</td></tr><tr><td>Cómo se invoca</td><td>Directo desde la clase o estructura, o con un cast a la interfaz</td><td>Solo con un cast a la interfaz. No es parte pública de la clase</td></tr><tr><td>Para qué</td><td>El caso común</td><td>Sacar la implementación de la cara pública de la clase y resolver conflictos de nombre</td></tr></tbody></table></div>
+<p>Fuente: diapositivas 37 a 41.</p>
+<div class="ejemplo"><p class="ejemplo-t">Implementación explícita</p><pre class="codigo"><code><span class="hljs-keyword">interface</span> <span class="hljs-title">IMyInterface1</span> { <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MyMethod</span>()</span>; }
+<span class="hljs-keyword">interface</span> <span class="hljs-title">IMyInterface2</span> { <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MyMethod</span>()</span>; }
+<span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span>: <span class="hljs-title">IMyInterface1</span>, <span class="hljs-title">IMyInterface2</span>
+{
+    <span class="hljs-keyword">void</span> IMyInterface1.MyMethod() {}
+    <span class="hljs-keyword">void</span> IMyInterface2.MyMethod() {}
+}</code></pre>
+<p>Con una implementación explícita, <code>mc.MyMethod1();</code> sobre un <code>MyClass</code> da «&#39;mc.MyMethod1&#39; does not exist in the current context». Hay que hacer <code>IMyInterface mi = new MyClass(); mi.MyMethod1();</code> (diapositiva 40).</p>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 2, diapositivas 40 y 41</p></div>
+<details open class="pregunta"><summary><span>¿Qué tienen en común una interface y una clase abstracta?</span><small>1° parcial 01/06/2024</small></summary><div class="resp"><p>De las clases abstractas, «no pueden ser instanciadas». De las interfaces, «no se pueden crear instancias». Fuente: Presentación de la Unidad 2, Capítulo 2, diapositivas 16 y 19.</p>
+</div></details>
+<h3 id="parcial-1-polimorfismo-y-sobrecarga">Polimorfismo y sobrecarga</h3>
+<p>«Dos o más objetos son polimórficos con respecto a un conjunto de mensajes, si todos ellos pueden responder a esos mensajes, aún cuando cada uno lo haga de un modo diferente» (diapositiva 21). La definición reside en la clase base y la implementación, en la derivada (diapositiva 22).</p>
+<p>La <strong>sobrecarga</strong> son «varios métodos con el mismo nombre pero diferentes parámetros» (diapositiva 28). Es definir más de un método por cada mensaje, y «los tipos de los argumentos ayudan a decidir a qué mensaje se invoca». Tareas parecidas quedan en métodos con el mismo nombre, y no tenés que recordar nombres distintos para comportamientos iguales (diapositiva 23). El ejemplo de la diapositiva 28 es <code>HacerDeposito(int importe)</code> y <code>HacerDeposito(int importe, bool acreditar)</code>.</p>
+<div class="tomado"><aside class="nota"><strong>Una lista del tipo base con objetos derivados</strong><span>1° parcial 09/06/2025 y 08/06/2026</span></aside><p>El <code>Main</code> guarda objetos de la clase derivada en una lista del tipo base. Después <code>ToString</code> muestra los datos de cada objeto. Ahí se ve el polimorfismo.</p>
+</div>
+<h3 id="parcial-1-metodos-estaticos">Métodos estáticos</h3>
+<p>«Miembros que no requieren de una instancia para ser invocados» (diapositiva 45).</p>
+<details open class="pregunta"><summary><span>¿Qué es un método estático, o de clase?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«Miembros que no requieren de una instancia para ser invocados.» Fuente: Presentación de la Unidad 2, Capítulo 2, diapositiva 45.</p>
+</div></details>
+<h3 id="parcial-1-clases-parciales">Clases parciales</h3>
+<p>«Partial Class permite separar la implementación de una clase en varios archivos fuente» (Presentación de la Unidad 3, diapositiva 32).</p>
+<div class="ojo"><p class="ojo-t">Qué ejemplo dar</p><p>En el parcial del 01/06/2024 se pidió explicarla con un ejemplo. La corrección comentó: «El ejemplo natural de clase parcial es un formulario winform donde se separa parte del código de diseño del código de la clase». Fijate en <a href="#parcial-2-initializecomponent"><code>InitializeComponent</code></a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-1-colecciones-y-genericos">Colecciones y genéricos</h2>
+<p>Todas las diapositivas de esta sección y la siguiente son de la Presentación de la Unidad 2, Capítulo 3.</p>
+<p>Una colección guarda items sin decir cuántos de entrada. Están en <code>System.Collections</code> (diapositiva 3).</p>
+<div class="tabla"><table><thead><tr><th>Clase</th><th>Qué es</th></tr></thead><tbody><tr><td><code>ArrayList</code></td><td>Colección lineal de objetos, de propósito general</td></tr><tr><td><code>Hashtable</code></td><td>Diccionario de pares key/value</td></tr><tr><td><code>Queue</code></td><td>FIFO</td></tr><tr><td><code>Stack</code></td><td>LIFO</td></tr><tr><td><code>SortedList</code></td><td>Diccionario ordenado por key</td></tr><tr><td><code>BitArray</code></td><td>Colección de boolean</td></tr></tbody></table></div>
+<p>Dos cosas más de la diapositiva 3. Los elementos de una colección no tienen que ser del mismo tipo. Y la posición de un objeto puede cambiar cuando cambia la colección. Con un <code>ArrayList</code> agregás con <code>Add</code>, recuperás por índice con un cast, como <code>(Auto) vehiculos[0]</code>, y recorrés con <code>foreach</code>. Con un diccionario como <code>Hashtable</code> agregás clave y valor, recuperás por clave y recorrés la colección <code>Keys</code> (diapositivas 5 y 6).</p>
+<p>El problema es que al consultar «nos vemos obligados a hacer un cast desde Object» (diapositiva 3). <strong>Generics</strong> lo evita: <code>List&lt;T&gt;</code> deja fijar el tipo. Un tipo equivocado da error de compilación y no hace falta el cast (diapositiva 7). Los generics permiten personalizar un método, clase, estructura o interfaz para el tipo de datos preciso sobre el que actúa. Dan código independiente de la clase, y la BCL los usa en las colecciones genéricas y los tipos nullables (diapositivas 7 y 8).</p>
+<div class="ejemplo"><p class="ejemplo-t">Sin y con generics</p><pre class="codigo"><code><span class="hljs-comment">// Sin Generics</span>
+Collection emps = <span class="hljs-keyword">new</span> Collection();
+emps.Add(<span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;Ap1&quot;</span>));
+<span class="hljs-keyword">foreach</span>(<span class="hljs-built_in">object</span> emp <span class="hljs-keyword">in</span> emps)
+{
+    Employee employee = (Employee)emp;
+    Console.WriteLine(employee.Nombre);
+}
+<span class="hljs-comment">// Con Generics</span>
+Collection&lt;Employee&gt; emps = <span class="hljs-keyword">new</span> Collection&lt;Employee&gt;();
+emps.Add(<span class="hljs-keyword">new</span> Employee(<span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;Ap1&quot;</span>));
+<span class="hljs-keyword">foreach</span>(Employee employee <span class="hljs-keyword">in</span> emps)
+{
+    Console.WriteLine(employee.Nombre);
+}</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 3, diapositiva 8</p></div>
+</section>
+<section class="sec"><h2 id="parcial-1-linq">LINQ</h2>
+<p>LINQ integra consultas a C#, desde .NET Framework 3.5 (diapositiva 10). Sus ventajas son una sola sintaxis, detección de errores al compilar, IntelliSense y resultados que se pueden enlazar (diapositiva 13).</p>
+<p>La presentación explica para qué nació (diapositivas 9 y 11). Sin LINQ, cada tipo de información se consulta distinto. Una lista con <code>foreach</code> y condiciones, una base con SQL y un XML con XPath o XQuery. La idea es elegir una sola forma de consultar, que el compilador pueda chequear las consultas y los resultados, y que sea extensible a cualquier tipo de datos.</p>
+<p>Se escribe de dos formas, que dan lo mismo. Este es el ejemplo de la diapositiva 14.</p>
+<pre class="codigo"><code><span class="hljs-keyword">var</span> contacts =
+    <span class="hljs-keyword">from</span> c <span class="hljs-keyword">in</span> customers
+    <span class="hljs-keyword">where</span> c.City == <span class="hljs-string">&quot;Hove&quot;</span>
+    <span class="hljs-keyword">select</span> <span class="hljs-keyword">new</span> { c.Name, c.Phone };
+
+<span class="hljs-keyword">var</span> contacts =
+    customers
+    .Where(c =&gt; c.City == <span class="hljs-string">&quot;Hove&quot;</span>)
+    .Select(c =&gt; <span class="hljs-keyword">new</span> { c.Name, c.Phone });</code></pre>
+<p>Para que eso funcione, C# usa seis piezas.</p>
+<div class="tabla"><table><thead><tr><th>Pieza</th><th>Qué hace</th><th>Diapositiva</th></tr></thead><tbody><tr><td>Inferencia de tipo local</td><td><code>var i = 666;</code>. «El tipo se define en el lado derecho»</td><td>15</td></tr><tr><td>Inicializador de objetos</td><td><code>new Point { X = 0, Y = 1 }</code></td><td>16</td></tr><tr><td>Tipos anónimos</td><td><code>new { Name = &quot;Jenny&quot;, Age = 31 }</code></td><td>17</td></tr><tr><td>Expresiones lambda</td><td><code>c =&gt; c.City == &quot;Hove&quot;</code></td><td>18</td></tr><tr><td>Métodos de extensión</td><td>Método <code>static</code> con <code>this</code> en el primer parámetro</td><td>19</td></tr><tr><td>Query expressions</td><td>Empieza con <code>from</code>, termina con <code>select</code> o <code>group by</code></td><td>21</td></tr></tbody></table></div>
+<p>Algunas piezas, con lo que muestran las diapositivas:</p>
+<ul>
+<li><strong>Inicializador de objetos.</strong> <code>new Point { X = 0, Y = 1 }</code> equivale a crear el <code>Point</code> y asignar <code>a.X = 0;</code> y <code>a.Y = 1;</code> después. Es «asignación a campos o propiedades» (diapositiva 16).</li>
+<li><strong>Tipos anónimos.</strong> <code>var o = new { Name = &quot;Jenny&quot;, Age = 31 };</code> equivale a una clase sin nombre con los campos públicos <code>string Name</code> e <code>int Age</code> (diapositiva 17).</li>
+<li><strong>Métodos de extensión.</strong> Van en una clase <code>static</code>, con <code>this</code> antes del primer parámetro. Se habilitan con el <code>using</code> de su namespace, y desde ahí aparecen en IntelliSense, como <code>names.Concatenate(&quot;, &quot;)</code> sobre un arreglo de strings (diapositiva 19).</li>
+<li><strong>Query expressions.</strong> Empiezan con <code>from</code>. En el medio van cero o más <code>from</code>, <code>join</code>, <code>let</code>, <code>where</code> u <code>orderby</code>. Terminan con <code>select</code> o <code>group by</code>, y el <code>into</code> es opcional (diapositiva 21). Las mismas consultas se pueden expresar con métodos como <code>Where</code>, <code>Join</code>, <code>OrderBy</code>, <code>Select</code> y <code>GroupBy</code> (diapositiva 20).</li>
+</ul>
+<p>La diapositiva 22 agrupa los operadores así:</p>
+<div class="tabla"><table><thead><tr><th>Grupo</th><th>Operadores</th></tr></thead><tbody><tr><td>Project</td><td><code>Select</code></td></tr><tr><td>Filter</td><td><code>Where</code>, <code>Distinct</code></td></tr><tr><td>Test</td><td><code>Any</code>, <code>All</code></td></tr><tr><td>Join</td><td><code>Join ... On ... Equals</code></td></tr><tr><td>Group</td><td><code>Group By ... Into</code>, <code>Group Join ... On ... Equals ... Into</code></td></tr><tr><td>Aggregate</td><td><code>Count</code>, <code>Sum</code>, <code>Min</code>, <code>Max</code>, <code>Avg</code></td></tr><tr><td>Partition</td><td><code>Skip [While]</code>, <code>Take [While]</code></td></tr><tr><td>Set</td><td><code>Union</code>, <code>Intersect</code>, <code>Except</code></td></tr><tr><td>Order</td><td><code>Order By ... [Ascending | Descending]</code></td></tr></tbody></table></div>
+<div class="ejemplo"><p class="ejemplo-t">Una consulta con orden y partición</p><pre class="codigo"><code><span class="hljs-keyword">var</span> misClientes = <span class="hljs-keyword">from</span> c <span class="hljs-keyword">in</span> Clientes
+                  <span class="hljs-keyword">where</span> c.Provincia == <span class="hljs-string">&quot;Santa Fe&quot;</span>
+                  <span class="hljs-keyword">select</span> c;
+
+<span class="hljs-keyword">var</span> mejoresClientes = (<span class="hljs-keyword">from</span> c <span class="hljs-keyword">in</span> db.Clientes
+                       <span class="hljs-keyword">where</span> c.CodigoPostal.StartsWith(<span class="hljs-string">&quot;S&quot;</span>)
+                       <span class="hljs-keyword">orderby</span> c.Ventas <span class="hljs-keyword">descending</span>
+                       <span class="hljs-keyword">select</span> c).Skip(<span class="hljs-number">10</span>).Take(<span class="hljs-number">10</span>);</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 2, Capítulo 3, diapositiva 12</p></div>
+<div class="tomado"><aside class="nota"><strong>Buscar y filtrar con LINQ</strong><span>1° parcial 09/06/2025 y 08/06/2026</span></aside><p>Los 4 temas piden una búsqueda con LINQ que retorna un objeto y su versión iterando la lista. El tema Médico suma un filtro que retorna una lista nueva.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Algo que las diapositivas no muestran</p><p>Los ejemplos de la presentación devuelven colecciones. No hay uno que traiga un solo objeto, que es lo que pide la búsqueda de los parciales. Practicá eso con la documentación de Microsoft antes de rendir. También practicá el <a href="https://drive.google.com/file/d/1z6up4jexOU4kpffilXOm-InSypqFWgGF/view">laboratorio de LINQ to Objects</a>.</p>
+</div>
+<details open class="pregunta"><summary><span>¿Se puede usar LINQ sin Entity Framework?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>La presentación muestra LINQ integrado a C# sobre colecciones comunes, y el laboratorio se llama «LINQ to Objects»: trabaja con un <code>Array</code>, un <code>List&lt;int&gt;</code>, un <code>ArrayList</code> y un <code>List&lt;Empleado&gt;</code>, sin base de datos. Fuente: Unidad 2, Capítulo 3, Laboratorio 1, pág. 1.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="parcial-1-delegados-y-eventos">Delegados y eventos</h2>
+<div class="ojo"><p class="ojo-t">Tema con poco material</p><p>La presentación de la Unidad 2, Capítulo 3 los nombra en el índice («Eventos, Handlers de Eventos, Delegados», diapositiva 2), pero no trae una diapositiva que los desarrolle. Lo poco que hay es esto. Un delegado es un tipo por referencia (Unidad 1, Capítulo 1, Teoría, pág. 17) y los eventos se notifican desde la clase (Unidad 2, Capítulo 1, Teoría, pág. 22). Su uso en pantallas está en <a href="#parcial-2-manejo-de-eventos">Manejo de eventos</a>.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-2" data-pagina="parcial-2" aria-label="2° parcial"><p class="pdf-de">Tecnologías de Desarrollo de Software IDE</p><h1>2° parcial</h1>
+<p class="bajada">Windows Forms, ADO.NET, Entity Framework, Blazor y servicios web, con preguntas que vuelven a la plataforma y a los objetos.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-2-como-viene-el-examen">Cómo viene el examen</h2>
+<p>De 2023 en adelante leí un solo 2° parcial, del 14/09/2026. Fue en aula virtual, con 20 preguntas cerradas. Con un solo examen no se puede decir qué se repite. Se puede decir qué se preguntó esa vez.</p>
+<div class="tomado"><aside class="nota"><strong>Las 20 consignas del último</strong><span>2° parcial 14/09/2026</span></aside><p>Están las consignas, sin las opciones. La última columna te lleva a la teoría.</p>
+<div class="tabla"><table><thead><tr><th>Consigna</th><th>Dónde estudiarlo</th></tr></thead><tbody><tr><td>Qué representa un <code>DbSet&lt;T&gt;</code> dentro de un <code>DbContext</code></td><td><a href="#parcial-2-dbcontext-y-dbset">DbContext y DbSet</a></td></tr><tr><td>Tecnología para que una aplicación windows se actualice sola (salió 2 veces)</td><td><a href="#parcial-2-clickonce">ClickOnce</a></td></tr><tr><td>Qué es válido decir sobre Entity Framework</td><td><a href="#parcial-2-entity-framework">Entity Framework</a></td></tr><tr><td>Qué archivo suele contener el layout principal de Blazor</td><td><a href="#parcial-2-blazor">Blazor</a></td></tr><tr><td>Qué es un método estático</td><td><a href="#parcial-1-metodos-estaticos">1° parcial</a></td></tr><tr><td>Qué protocolo usa un cliente Windows Forms al llamar a un servicio .NET</td><td><a href="#parcial-2-servicios-web">Servicios web</a></td></tr><tr><td>Dónde ocurre el procesamiento de la interfaz en Blazor Server</td><td><a href="#parcial-2-blazor">Blazor</a></td></tr><tr><td>Qué es necesario para construir un compilador .NET</td><td><a href="#parcial-1-compilacion-de-c-a-codigo-nativo">1° parcial</a></td></tr><tr><td>Por qué usamos múltiples proyectos y clases en el TPI</td><td><a href="#aprobacion-directa-las-capas">Aprobación directa</a></td></tr><tr><td>Si se puede usar LINQ sin Entity Framework</td><td><a href="#parcial-1-linq">1° parcial</a></td></tr><tr><td>Cuáles son tipos por valor</td><td><a href="#parcial-1-tipos-por-valor-y-por-referencia">1° parcial</a></td></tr><tr><td>Qué método de <code>SqlCommand</code> ejecuta una consulta que retorna un conjunto de resultados</td><td><a href="#parcial-2-command">Command</a></td></tr><tr><td>Salida de un código con <code>||</code>, <code>&amp;&amp;</code> y métodos que cambian variables</td><td><a href="#parcial-1-operadores-logicos-y-cortocircuito">1° parcial</a></td></tr><tr><td>Qué código de estado HTTP indica que no se encuentra el recurso</td><td><a href="#parcial-2-codigos-de-respuesta">Códigos de respuesta</a></td></tr><tr><td>Para qué sirve el encapsulamiento</td><td><a href="#parcial-1-abstraccion-y-encapsulamiento">1° parcial</a></td></tr><tr><td>Para qué puede usarse ADO.NET</td><td><a href="#parcial-2-ado-net">ADO.NET</a></td></tr><tr><td>Qué es válido afirmar sobre el CLR</td><td><a href="#parcial-1-common-language-runtime-clr">1° parcial</a></td></tr><tr><td>Qué código agregar para mostrar el resultado de un <code>SELECT COUNT(*)</code></td><td><a href="#parcial-2-command">Command</a></td></tr><tr><td>Cómo agregar un <code>Button</code> a un formulario en tiempo de ejecución</td><td><a href="#parcial-2-controles-en-tiempo-de-ejecucion">Controles en tiempo de ejecución</a></td></tr></tbody></table></div>
+</div>
+<div class="ojo"><p class="ojo-t">Sobre el original del Drive</p><p>El <a href="https://drive.google.com/file/d/1ONCuoSITvXvL93s-J20zMek5R0GFdn5x/view">original</a> trae las opciones, pero es la captura de un alumno y se ven sus marcas. No lo uses como clave.</p>
+</div>
+<p>En 2 de esas 20 consignas sale ClickOnce, y 6 son de la plataforma o de objetos. El 2° parcial también repasa lo del 1°. Estudiá esa <a href="#pdf-parcial-1">página</a> antes de rendir.</p>
+</section>
+<section class="sec"><h2 id="parcial-2-windows-forms">Windows Forms</h2>
+<p>Es un «conjunto de clases que permite desarrollar aplicaciones basadas en Windows». Es orientado a eventos, y la mayoría de los controles está en <code>System.Windows.Forms</code> (Presentación de la Unidad 3, diapositivas 3 y 8).</p>
+<p>Todas las diapositivas de esta sección son de esa presentación.</p>
+<p>Según la diapositiva 3, incluye interfaz de usuario rica, acceso al framework de .NET, ejecución en un entorno manejado, seguridad integrada, diseño orientado a objetos, orientación a eventos, aplicaciones orientadas a datos con ADO.NET, fácil acceso a servicios web y elección de lenguaje.</p>
+<p>.NET tiene tres componentes para aplicaciones de escritorio (diapositiva 4).</p>
+<ul>
+<li><strong>Windows Forms</strong>: componentes para gestionar ventanas y controles.</li>
+<li><strong>GDI+</strong>: las funciones que encapsulan las funcionalidades gráficas de bajo nivel. Es el sistema gráfico 2D de Microsoft y Windows Forms lo aprovecha al 100%. Trae dibujo (<code>System.Drawing</code>), lápices, pinceles e imágenes, alpha blending, degradés de color e imágenes en varios formatos además de Bitmap (diapositiva 13).</li>
+<li><strong>Windows Presentation Foundation</strong>: la segunda generación de aplicaciones de escritorio.</li>
+</ul>
+<p>Crear una aplicación Windows Forms «es tan fácil como instanciar y extender los formularios de Windows». El proceso tiene estos pasos (diapositiva 7).</p>
+<ol>
+<li>Crear un proyecto nuevo con la estructura de una aplicación Windows Forms.</li>
+<li>Definir los formularios necesarios.</li>
+<li>Con el diseñador, agregarles controles según el propósito y configurar los manejadores de eventos.</li>
+<li>Agregar tu código para el comportamiento y la apariencia.</li>
+<li>Diseñar tus propios controles.</li>
+</ol>
+<h3 id="parcial-2-la-jerarquia">La jerarquía</h3>
+<div class="tabla"><table><thead><tr><th>Clase</th><th>Qué aporta</th></tr></thead><tbody><tr><td><code>Object</code></td><td>Clase básica de todos los tipos</td></tr><tr><td><code>Component</code></td><td>Funcionalidad básica de los contenedores</td></tr><tr><td><code>Control</code></td><td>Control visual que responde a mouse y teclado, y acepta el foco. Superclase de <code>TextBox</code>, <code>Label</code>, <code>Button</code></td></tr><tr><td><code>Form</code></td><td>La ventana a la que le añadís controles</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 6.</p>
+<h3 id="parcial-2-como-arranca-una-aplicacion">Cómo arranca una aplicación</h3>
+<p>Al crear el proyecto se crea un formulario principal. La aplicación arranca con la línea <code>Application.Run(new Form1())</code>, que «no es un setting mágico del proyecto» (diapositiva 15).</p>
+<p>Hay dos tipos de aplicación (diapositiva 17).</p>
+<ul>
+<li><strong>SDI</strong> (single document interface): un solo formulario activado.</li>
+<li><strong>MDI</strong> (multiple document interface): un formulario padre y muchos hijos. En el padre se setea la propiedad <code>IsMDIContainer</code>, y en los hijos, <code>IsMDIChild</code> en true.</li>
+</ul>
+<h3 id="parcial-2-initializecomponent">InitializeComponent</h3>
+<p>Es un método agregado por Visual Studio. Tiene «toda la creación de los controles sobre la superficie de diseño, el posicionamiento, etc.». Es código generado y se mantiene sincronizado (diapositiva 16).</p>
+<p>El diseñador genera ese código, y «Partial Class permite separar la implementación de una clase en varios archivos fuente» (diapositiva 32).</p>
+<h3 id="parcial-2-abrir-un-formulario">Abrir un formulario</h3>
+<div class="tabla"><table><thead><tr><th>Método</th><th>Cómo se muestra</th></tr></thead><tbody><tr><td><code>form.Show()</code></td><td>No modal</td></tr><tr><td><code>form.ShowDialog()</code></td><td>Modal</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 18.</p>
+<p>Modal significa que «no se podrá interactuar con el resto de la aplicación salvo que se haya cerrado la ventana que se mostró con ShowDialog». Además, <code>ShowDialog</code> devuelve el valor de la propiedad <code>DialogResult</code> del formulario (Unidad 3, Laboratorio 1, pág. 8).</p>
+<p>El mismo laboratorio completa el comportamiento (pág. 8).</p>
+<ul>
+<li>Si se setea <code>DialogResult</code> en un formulario mostrado con <code>ShowDialog</code>, el formulario se cierra solo.</li>
+<li>Si se cierra desde la cruz, la respuesta por defecto es <code>DialogResult.Cancel</code>.</li>
+<li>La propiedad <code>AcceptButton</code> del formulario elige el botón por defecto. Apretar Enter es como hacer clic en ese botón.</li>
+</ul>
+<p>Propiedades y métodos del objeto <code>Form</code> que nombra la diapositiva 33:</p>
+<div class="tabla"><table><thead><tr><th>Miembro</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>Opacity</code></td><td>Transparencia, de 0 a 1</td></tr><tr><td><code>Size</code></td><td>Tamaño</td></tr><tr><td><code>Location</code></td><td>Ubicación</td></tr><tr><td><code>Show()</code></td><td>Muestra el formulario. Permite especificar su propietario</td></tr><tr><td><code>ShowDialog()</code></td><td>Muestra un diálogo, incluso uno modal, que no deja que otro formulario tome el foco mientras se muestra</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Formularios windows</strong><span>1° parcial 01/06/2024</span></aside><p>Se pidió marcar qué es válido afirmar de los formularios. Las opciones hablan de <code>PreRender</code>, <code>MdiParent</code>, <code>Show</code> y <code>ShowDialog</code>, y de herencia entre formularios. Mirá también los <a href="#parcial-2-eventos-del-formulario">eventos del formulario</a>.</p>
+</div>
+<h3 id="parcial-2-controles">Controles</h3>
+<div class="tabla"><table><thead><tr><th>Categoría</th><th>Ejemplos</th></tr></thead><tbody><tr><td>Action</td><td><code>Button</code>, <code>Toolbar</code>, <code>MenuBar</code>, <code>ContextMenu</code></td></tr><tr><td>Value</td><td><code>Label</code>, <code>TextBox</code>, <code>PictureBox</code></td></tr><tr><td>List</td><td><code>ListBox</code>, <code>DataGrid</code>, <code>TreeView</code>, <code>ComboBox</code></td></tr><tr><td>Container</td><td><code>GroupBox</code>, <code>Panel</code>, <code>ImageList</code></td></tr><tr><td>Dialogs</td><td><code>OpenFileDialog</code>, <code>SaveFileDialog</code>, <code>PrintDialog</code></td></tr></tbody></table></div>
+<p>Fuente: diapositiva 19.</p>
+<div class="tomado"><aside class="nota"><strong>Nombrar controles</strong><span>1° parcial 01/06/2024</span></aside><p>Una consigna de desarrollo pidió 4 controles WinForm con un ejemplo de uso de cada uno. Sale de esta tabla.</p>
+</div>
+<p>Otros controles que da la presentación (diapositivas 39 a 53):</p>
+<ul>
+<li><strong>DataGridView</strong>: tabla de datos. Puede vincularse a un origen o usarse sin vinculación.</li>
+<li><strong>MaskedTextBox</strong>: un <code>TextBox</code> que acepta o rechaza el ingreso según una máscara.</li>
+<li><strong>ToolStrip</strong>: barras de herramientas.</li>
+<li><strong>MenuStrip</strong> y <strong>ContextMenuStrip</strong>: menú del formulario y menú del botón derecho.</li>
+<li><strong>TableLayoutPanel</strong>: ubica elementos al estilo tabla. <strong>FlowLayoutPanel</strong>: los controles fluyen a medida que se agregan.</li>
+<li><strong>WebBrowser</strong>: un «wrapper» administrado del control ActiveX del WebBrowser. Reproduce la navegación de Internet Explorer y es un visor de documentos HTML (diapositiva 46).</li>
+</ul>
+<p>Algunos detalles más de esas diapositivas:</p>
+<ul>
+<li>El <strong>DataGridView</strong> es la evolución del <code>DataGrid</code> de .NET 1.0 y 1.1, y soporta el modelo estándar de binding de Windows Forms (diapositiva 40).</li>
+<li>La <strong>MaskedTextBox</strong> deja especificar sin código el número de caracteres, los caracteres opcionales y el carácter esperado en la máscara. Muestra el formato del texto en tiempo de ejecución (diapositiva 44).</li>
+<li>El <strong>MenuStrip</strong> contiene otros objetos, como <code>ToolStripMenuItem</code>, <code>ToolStripComboBox</code>, <code>ToolStripSeparator</code> y <code>ToolStripTextBox</code> (diapositiva 48).</li>
+<li>Los <strong>controles contenedores</strong> pueden contener otros controles y heredan de <code>ContainerControl</code>. Tienen acceso directo solo a los controles de primer nivel. Algunos son <code>Form</code>, <code>Panel</code>, <code>GroupBox</code> y los layout panels (diapositiva 49).</li>
+</ul>
+<p>Dos propiedades para el tamaño de la ventana (diapositiva 50):</p>
+<ul>
+<li><code>Anchor</code> ancla un componente a uno o varios bordes.</li>
+<li><code>Dock</code> lo fija a uno de los bordes de la ventana.</li>
+</ul>
+<h3 id="parcial-2-controles-en-tiempo-de-ejecucion">Controles en tiempo de ejecución</h3>
+<p>Se puede agregar un control sin el diseñador, y el modelo es el código de <code>InitializeComponent</code>. Hace falta cuando un componente se tiene que incluir como resultado de la ejecución de un evento (diapositiva 29). Son 4 pasos (diapositiva 30).</p>
+<ol>
+<li>Añadir un nuevo campo de declaración para el componente.</li>
+<li>Instanciar el control.</li>
+<li>Configurar sus propiedades y añadir eventos si hacen falta.</li>
+<li><mark>Añadirlo a la colección de controles del formulario o a un contenedor.</mark></li>
+</ol>
+<div class="tomado"><aside class="nota"><strong>Agregar un Button por código</strong><span>1° parcial 01/06/2024 y 2° parcial 14/09/2026</span></aside><p>Salió con el mismo texto en las dos fechas. Mirá bien el paso 4 cuando leas las opciones de código.</p>
+</div>
+<h3 id="parcial-2-manejo-de-eventos">Manejo de eventos</h3>
+<p>Por cada evento podés implementar varios métodos manejadores. Un manejador puede recibir eventos de varios objetos. Se cancela el tratamiento por defecto con <code>e.Handled = true</code> (diapositiva 34).</p>
+<h3 id="parcial-2-eventos-del-formulario">Eventos del formulario</h3>
+<div class="tabla"><table><thead><tr><th>Evento</th><th>Cuándo</th></tr></thead><tbody><tr><td><code>Load</code></td><td>Recién cargado, todavía no se muestra</td></tr><tr><td><code>Paint</code></td><td>Se dibuja, con sus controles</td></tr><tr><td><code>Activated</code></td><td>Recibe el foco</td></tr><tr><td><code>FormClosing</code></td><td>Se inició el cierre. Se puede cancelar</td></tr><tr><td><code>FormClosed</code></td><td>Ya se cerró</td></tr><tr><td><code>Disposed</code></td><td>Fue destruido</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 35.</p>
+<h3 id="parcial-2-eventos-del-mouse-y-del-teclado">Eventos del mouse y del teclado</h3>
+<div class="tabla"><table><thead><tr><th>Evento</th><th>Cuándo</th></tr></thead><tbody><tr><td><code>MouseClick</code></td><td>Se hizo clic con el ratón</td></tr><tr><td><code>MouseEnter</code></td><td>El puntero entró a un componente</td></tr><tr><td><code>MouseMove</code></td><td>El puntero se movió dentro del componente</td></tr><tr><td><code>KeyPress</code></td><td>Tecla presionada. Representa una pareja de eventos Up y Down sucesivos, y <code>e.KeyChar</code> dice cuál</td></tr><tr><td><code>KeyDown</code></td><td>Tecla hundida</td></tr><tr><td><code>KeyUp</code></td><td>Tecla liberada</td></tr><tr><td><code>HelpRequested</code></td><td>Se presionó F1</td></tr></tbody></table></div>
+<p>Fuente: diapositivas 36 y 37.</p>
+<h3 id="parcial-2-el-foco">El foco</h3>
+<div class="tabla"><table><thead><tr><th>Miembro</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>CanFocus</code></td><td>Dice si el control puede tomar el foco</td></tr><tr><td><code>Focused</code></td><td>Dice si el control tiene el foco</td></tr><tr><td><code>Focus()</code></td><td>Asigna el foco al componente</td></tr><tr><td><code>TabIndex</code></td><td>Da el orden de movimiento del foco</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 38.</p>
+<h3 id="parcial-2-archivo-de-configuracion">Archivo de configuración</h3>
+<p><code>App.config</code> es un archivo XML, con <code>&lt;appSettings /&gt;</code> para parámetros generales y <code>&lt;connectionStrings /&gt;</code> para las cadenas de conexión (diapositiva 20).</p>
+<h3 id="parcial-2-clickonce">ClickOnce</h3>
+<details open class="pregunta"><summary><span>¿Qué tecnología permite que una aplicación windows se actualice sola, con mínima interacción?</span><small>1° parcial 01/06/2024 y 2° parcial 14/09/2026</small></summary><div class="resp"><p>ClickOnce «permite actualizaciones automáticas de aplicaciones Windows que pueden ser instaladas con mínima interacción del usuario». Fuente: Presentación de la Unidad 3, diapositiva 54.</p>
+</div></details>
+<p>Supera tres obstáculos propios de la distribución de software (diapositiva 54).</p>
+<ul>
+<li>Las dificultades para actualizar las aplicaciones.</li>
+<li>El impacto en el equipo del usuario.</li>
+<li>Los permisos.</li>
+</ul>
+<p>«Cualquier aplicación Windows Form o modo Consola» se publica con ClickOnce. Se publica de tres modos: como página web, desde una dirección de red local o desde un dispositivo de almacenamiento. Las aplicaciones ClickOnce pueden verificar si hay versiones nuevas y reemplazar solas los componentes actualizados (diapositiva 55).</p>
+</section>
+<section class="sec"><h2 id="parcial-2-ado-net">ADO.NET</h2>
+<p>ADO.NET es «un conjunto de clases para conectar y manipular fuentes de datos» (Presentación de la Unidad 4, Capítulo 1, diapositiva 3). Todas las diapositivas de esta sección son de esa presentación.</p>
+<details open class="pregunta"><summary><span>¿Para qué puede usarse ADO.NET?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«Diseñado para trabajar con cualquier origen de datos (no solo base de datos relacionales)». Sus modelos muestran fuentes OLEDB, como Access y Excel. El laboratorio de la Unidad 4 trabaja además con archivos TXT y XML. Fuente: Presentación de la Unidad 4, Capítulo 1, diapositivas 3, 4 y 44.</p>
+</div></details>
+<p>Sus características, según la diapositiva 3:</p>
+<ul>
+<li>Diseñado para trabajar en entornos desconectados.</li>
+<li>Modelo de programación con soporte para XML.</li>
+<li>Brinda clases, estructuras, interfaces y enumeraciones para administrar el acceso a datos.</li>
+<li>Basado en Data Providers.</li>
+<li>Diseñado para trabajar con cualquier origen de datos, no solo bases relacionales.</li>
+</ul>
+<p>Los namespaces se importan con <code>using</code>. Por un lado, <code>System.Data</code> y <code>System.Data.Common</code>. Por otro, el que depende del proveedor que uses, que puede ser <code>System.Data.SqlClient</code>, <code>System.Data.OleDB</code>, <code>System.Data.ODBC</code> o <code>System.Data.OracleClient</code> (diapositiva 6).</p>
+<p>Los objetos cambian de nombre según el proveedor: <code>SqlConnection</code>, <code>OleDbConnection</code>, <code>OdbcConnection</code>, <code>OracleConnection</code> (diapositiva 21). Se trabaja de dos maneras (diapositivas 4 y 5).</p>
+<ul>
+<li><strong>Con DataSets</strong>: el <code>DataAdapter</code> llena tablas en memoria.</li>
+<li><strong>Con objetos</strong>: el <code>DataReader</code> lee y vos armás tus objetos.</li>
+</ul>
+<h3 id="parcial-2-connection">Connection</h3>
+<p>Establece la comunicación física entre la aplicación y la base. Propiedad <code>ConnectionString</code>. Métodos <code>Open</code>, <code>Close</code> y <code>BeginTransaction</code> (diapositivas 20 y 22). Representa una conexión al Data Source, y permite personalizarla e iniciar, confirmar y abortar transacciones (diapositiva 20). Las clases <code>xxxConnection</code> heredan de <code>System.Data.Common.DbConnection</code> (diapositiva 22).</p>
+<div class="ejemplo"><p class="ejemplo-t">Crear la conexión</p><pre class="codigo"><code><span class="hljs-built_in">string</span> sCnn = <span class="hljs-string">&quot;data source=localhost; &quot;</span> +
+    <span class="hljs-string">&quot;initial catalog=northwind; integrated security=true&quot;</span>;
+SqlConnection conn = <span class="hljs-keyword">new</span> SqlConnection(sCnn);</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 4, Capítulo 1, diapositiva 21</p></div>
+<p>La cadena de conexión puede tener datos sensibles. Va en el archivo de configuración, en <code>&lt;connectionStrings&gt;</code>. Se lee con <code>ConfigurationManager.<wbr>ConnectionStrings["..."].<wbr>ConnectionString</code> (diapositiva 23). Sus parámetros son <code>Data Source</code>, <code>Initial Catalog</code>, <code>Integrated Security</code>, <code>Connection Timeout</code>, <code>User ID</code>, <code>Password</code> y <code>Provider</code> (diapositiva 24).</p>
+<h3 id="parcial-2-command">Command</h3>
+<p>«Representa una Instrucción SQL o un procedimiento almacenado que se ejecuta en un origen de datos.» Requiere un objeto Connection y soporta parámetros (diapositiva 26). Es específico de cada proveedor (<code>SQLCommand</code>, <code>ODBCCommand</code>, <code>OLEDBCommand</code>, <code>OracleCommand</code>), se puede usar solo o a través de DataAdapters, y «expone 4 métodos importantes para devolver datos» (diapositiva 26).</p>
+<div class="tabla"><table><thead><tr><th>Propiedades</th><th>Métodos</th></tr></thead><tbody><tr><td><code>CommandType</code>, <code>CommandText</code>, <code>Connection</code>, <code>Parameters</code></td><td><code>ExecuteReader()</code>, <code>ExecuteScalar()</code>, <code>ExecuteNonQuery()</code>, <code>ExecuteXMLReader()</code></td></tr></tbody></table></div>
+<p>Fuente: diapositiva 27. Los laboratorios los usan así.</p>
+<ul>
+<li><code>ExecuteReader</code> «crea un objeto DataReader que nos permite leer los datos» (Unidad 4, Capítulo 1, Laboratorio 3, pág. 6).</li>
+<li><code>ExecuteNonQuery</code> ejecuta los comandos de insertar, modificar y eliminar (mismo laboratorio, págs. 8 y 9).</li>
+</ul>
+<div class="ojo"><p class="ojo-t">ExecuteScalar no está explicado</p><p>La presentación solo lo nombra, y no encontré un laboratorio que lo describa. Se tomó el 14/09/2026 con un <code>SELECT COUNT(*)</code>. Buscá qué devuelve en la documentación de Microsoft antes de rendir.</p>
+</div>
+<p>Los parámetros se crean, se les define dirección y tipo, se les da valor y se agregan a <code>Parameters</code> (diapositivas 28 y 29).</p>
+<div class="tabla"><table><thead><tr><td></td><th>Parámetro de entrada (INPUT)</th><th>Parámetro de salida (OUTPUT)</th></tr></thead><tbody><tr><td>Pasos</td><td>Crear el parámetro, definir dirección y tipo de dato, asignar valor y agregarlo a <code>Parameters</code></td><td>Crear el parámetro, definir la dirección, agregarlo a <code>Parameters</code>, llamar al procedimiento almacenado y leer el parámetro</td></tr><tr><td>Dirección</td><td><code>ParameterDirection.Input</code></td><td><code>ParameterDirection.Output</code></td></tr></tbody></table></div>
+<p>Fuente: diapositivas 28 y 29.</p>
+<div class="ejemplo"><p class="ejemplo-t">Los dos parámetros</p><pre class="codigo"><code><span class="hljs-comment">// Entrada</span>
+SqlParameter param = <span class="hljs-keyword">new</span> SqlParameter(<span class="hljs-string">&quot;@FechaVto&quot;</span>, SQLDbType.DateTime);
+param.Direction = ParameterDirection.Input;
+param.Value = (DateTime)(txtFechaVto.Text);
+cmd.Parameters.Add(param);
+
+<span class="hljs-comment">// Salida</span>
+SqlParameter param = <span class="hljs-keyword">new</span> SqlParameter(<span class="hljs-string">&quot;@Cantidad&quot;</span>, SQLDbType.Int);
+param.Direction = ParameterDirection.Output;
+cmd.Parameters.Add(param);
+cmd.ExecuteNonQuery();
+<span class="hljs-built_in">int</span> cantComprada = (<span class="hljs-built_in">int</span>)cmd.Parameters[<span class="hljs-string">&quot;@Cantidad&quot;</span>].Value;</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 4, Capítulo 1, diapositivas 28 y 29</p></div>
+<h3 id="parcial-2-datareader">DataReader</h3>
+<p>Es de solo avance y solo lectura (forward-only, read-only). Da acceso rápido, usa pocos recursos y queda <mark>conectado al origen</mark>. La conexión la manejás vos. Los datos se manejan por código o con controles enlazados (diapositiva 32).</p>
+<h3 id="parcial-2-datatable-y-dataset">DataTable y DataSet</h3>
+<div class="tabla"><table><thead><tr><th>Objeto</th><th>Qué es</th></tr></thead><tbody><tr><td><code>DataTable</code></td><td>Objeto central si no usás objetos. «Desconoce su origen de datos, por lo que funciona como una entidad independiente» (diapositiva 7)</td></tr><tr><td><code>DataSet</code></td><td>«Representación de datos en memoria». Una colección de <code>DataTable</code>, con integridad por <code>DataRelation</code>. Desconoce el origen (diapositiva 13)</td></tr><tr><td><code>DataSet</code> tipado</td><td>Clase generada en diseño que hereda de <code>DataSet</code>. Da completado de sentencias y comprobación de tipos en compilación (diapositiva 17)</td></tr></tbody></table></div>
+<p>Del <code>DataTable</code> la diapositiva 7 agrega tres cosas. Su esquema lo define <code>DataColumnCollection</code>. Mantiene la integridad de los datos con Constraints. Y con sus eventos se controlan los distintos estados de los registros. Está formado por <code>DataRow</code> y <code>DataColumn</code> (diapositiva 8).</p>
+<div class="tabla"><table><thead><tr><th>Miembro de <code>DataTable</code></th><th>Qué hace</th></tr></thead><tbody><tr><td><code>.NewRow</code></td><td>Devuelve un <code>DataRow</code> vacío con el esquema del <code>DataTable</code></td></tr><tr><td><code>.Rows</code></td><td>Colección de filas del <code>DataTable</code></td></tr><tr><td><code>.Columns</code>, <code>.Columns.Add</code>, <code>.Columns.Remove</code></td><td>Colección de <code>DataColumn</code>. Agregás una columna, o su nombre y tipo, o la sacás</td></tr><tr><td><code>.Select</code></td><td>Consulta con expresiones sobre las filas cargadas</td></tr><tr><td><code>.ReadXMLSchema</code>, <code>.ReadXML</code></td><td>Toman el esquema o el contenido desde un archivo XML</td></tr><tr><td><code>.WriteXMLSchema</code>, <code>.WriteXML</code></td><td>Escriben el esquema o el contenido en un archivo <code>.xml</code></td></tr><tr><td><code>.Load</code></td><td>Carga filas desde un origen, como un DataReader</td></tr><tr><td><code>.Merge</code></td><td>Combina las filas de varios <code>DataTable</code></td></tr></tbody></table></div>
+<p>Fuente: diapositivas 9 y 10. <code>DataSet.Load</code> y <code>DataTable.Load</code> cargan desde un DataReader, como <code>OLEDbDataReader</code> o <code>SqlDataReader</code>, y dan un control más específico de los datos (diapositiva 14).</p>
+<h3 id="parcial-2-dataadapter">DataAdapter</h3>
+<p>«Gestiona el intercambio de datos entre DataTables y un Data Source», con <code>.Fill</code> y <code>.Update</code>. Tiene <code>SelectCommand</code>, <code>InsertCommand</code>, <code>UpdateCommand</code> y <code>DeleteCommand</code> (diapositivas 35 y 37). También provee relaciones entre tablas y columnas, y el usuario puede saltarse los comandos Insert, Update y Delete (diapositiva 35). El dibujo de la diapositiva 37 suma <code>TableMappings</code> entre sus piezas.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El <code>DataReader</code> es como leer un libro de corrido con el bibliotecario al lado. Es rápido, pero sin volver atrás y con la biblioteca abierta para vos. El <code>DataAdapter</code> te saca una copia a tu casa. La trabajás sin conexión, en un <code>DataSet</code>, y después llevás los cambios.</p>
+</div>
+<h3 id="parcial-2-databinding-y-transacciones">DataBinding y transacciones</h3>
+<p>DataBinding enlaza objetos con datos y controles WinForms, sin escribir código, y se establece en diseño (diapositiva 39). <code>TransactionScope</code> agrupa operaciones en una unidad lógica de trabajo, con el método <code>.Complete</code> y dentro de un <code>using</code> (diapositiva 42).</p>
+<ul>
+<li>El <strong>DataBinding</strong> automatiza operaciones y permite navegar y editar registros. Admite varios orígenes, como un DataSet, un servicio web o una base de datos (diapositiva 39).</li>
+<li>El <strong>TransactionScope</strong> controla y conserva la coherencia e integridad de todas las acciones, y puede contener transacciones locales o distribuidas. Pide agregar la referencia a <code>System.Transaction</code>, y la clase está en ese namespace (diapositiva 42).</li>
+</ul>
+</section>
+<section class="sec"><h2 id="parcial-2-entity-framework">Entity Framework</h2>
+<p>Todas las diapositivas de esta sección son de la Presentación de la Unidad 4, Capítulo 2.</p>
+<p>Trabajar con ADO.NET obliga a manejar dos mundos, objetos y datos relacionales, con dos lenguajes y una API que los une (diapositivas 3 y 4). Entity Framework resuelve eso: «En lugar de operar sobre filas y columnas se opera sobre objetos denominados entities». Tiene soporte para LINQ. La cátedra cubre solo <strong>Code First</strong> (diapositiva 5).</p>
+<p>La presentación se titula «ORM Entity Framework» (diapositiva 1). El laboratorio lo presenta como el ORM con el que se aprenden «los fundamentos de los ORM (Object Relational Mapping)», para manipular los datos del dominio modelados como clases y objetos (Unidad 4, Capítulo 2, Laboratorio, pág. 1).</p>
+<p>El problema que resuelve, con más detalle (diapositivas 3 y 4):</p>
+<ul>
+<li>Armar el puente entre el modelo de objetos y el relacional con DataSets o DataReaders «genera un costo elevado en terminos de esfuerzo de desarrollo».</li>
+<li>Hay que conocer dos lenguajes, C# y SQL, con sintaxis, tipos de datos, herramientas y paradigmas distintos.</li>
+<li>Además hay que aprender la API que une los dos mundos, ADO.NET. Es «potente, pero frágil y consumidor importante de tiempo».</li>
+</ul>
+<p>EF apareció con el Service Pack 1 de .NET 3.5, en <code>System.Data.Entity.dll</code>. Soporta dos formas de modelar las entidades, <strong>Code First</strong> y el <strong>EF Designer</strong>. La cátedra cubre solo Code First porque el Designer «presenta varios problemas y ya no esta incluido en .NET Core» (diapositiva 5). El contenido de la presentación nombra también las <strong>Conventions</strong> como forma de mapeo, sin desarrollarlas (diapositiva 2).</p>
+<div class="tomado"><aside class="nota"><strong>Qué es válido decir sobre EF</strong><span>2° parcial 14/09/2026</span></aside><p>Pregunta de selección múltiple. Mezcla frases verdaderas sobre EF con la definición de otras tecnologías. Para distinguirlas, repasá esta sección, <a href="#parcial-1-linq">LINQ</a> y qué dice la presentación de cada cosa.</p>
+</div>
+<h3 id="parcial-2-dbcontext-y-dbset">DbContext y DbSet</h3>
+<p><code>DbContext</code> tiene el constructor que toma la cadena de conexión, <code>Entry</code>, <code>SaveChanges</code> y <code>SaveChangesAsync</code>, y <code>Database</code>. «Representa una combinación de los patrones Unit of Work y Repository» (diapositiva 7).</p>
+<div class="tabla"><table><thead><tr><th>Miembro de <code>DbContext</code></th><th>Qué hace</th></tr></thead><tbody><tr><td><code>DbContext</code></td><td>Constructor. Toma de parámetro la cadena de conexión a la base</td></tr><tr><td><code>Entry</code>, <code>Entry&lt;TEntity&gt;</code></td><td>Obtiene el <code>DbEntityEntry</code> de una entidad, con información sobre ella y la posibilidad de hacer acciones sobre ella</td></tr><tr><td><code>SaveChanges</code>, <code>SaveChangesAsync</code></td><td>Graba en la base los cambios del context actual y devuelve el número de entidades afectadas</td></tr><tr><td><code>Database</code></td><td>Acceso a la base. Creación, eliminación, validación de existencia, ejecución de procedimientos almacenados, sentencias SQL y funciones transaccionales</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 7. La misma diapositiva completa la frase de los patrones. Unit of Work y Repository «pueden ser usados para consultar datos y acumular cambios sobre los objetos que luego puedan ser guardados en un solo Unit of Work».</p>
+<div class="ejemplo"><p class="ejemplo-t">Un contexto propio</p><pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AcademiaEntities</span> : <span class="hljs-title">DbContext</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AcademiaEntities</span>() : <span class="hljs-title">base</span>(<span class="hljs-params"><span class="hljs-string">&quot;name=AcademiaConnection&quot;</span></span>)</span>
+    {
+    }
+}</code></pre>
+<p class="bloque-fuente">Presentación de la Unidad 4, Capítulo 2, diapositiva 8</p></div>
+<details open class="pregunta"><summary><span>¿Qué representa un DbSet dentro de un DbContext?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«Para agregar tablas al context se usa el objeto DbSet<T> para cada tabla.» Fuente: Presentación de la Unidad 4, Capítulo 2, diapositiva 9.</p>
+</div></details>
+<div class="tabla"><table><thead><tr><th>Miembro de <code>DbSet&lt;T&gt;</code></th><th>Qué hace</th></tr></thead><tbody><tr><td><code>Add</code>, <code>AddRange</code></td><td>Agrega y marca como Added. Se inserta al llamar a <code>SaveChanges</code></td></tr><tr><td><code>Attach</code></td><td>Asocia un objeto al <code>DbContext</code>. Es un uso muy común en entornos desconectados como ASP.NET/MVC</td></tr><tr><td><code>Find</code>, <code>FindAsync</code></td><td>Busca una fila por primary key y devuelve un objeto que la representa</td></tr><tr><td><code>Remove</code>, <code>RemoveRange</code></td><td>Marca para eliminar</td></tr><tr><td><code>FromSql</code></td><td>SQL puro que devuelve entidades</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 9.</p>
+<h3 id="parcial-2-estados-de-una-entidad">Estados de una entidad</h3>
+<div class="tabla"><table><thead><tr><th>Estado</th><th>Significa</th></tr></thead><tbody><tr><td><code>Detached</code></td><td>Existe, pero no se está siguiendo. Recién creado</td></tr><tr><td><code>Unchanged</code></td><td>Sin cambios desde que se asoció o desde el último <code>SaveChanges</code></td></tr><tr><td><code>Added</code></td><td>Nuevo, falta <code>SaveChanges</code></td></tr><tr><td><code>Deleted</code></td><td>Eliminado del context, todavía no de la base</td></tr><tr><td><code>Modified</code></td><td>Cambió una propiedad, falta <code>SaveChanges</code></td></tr></tbody></table></div>
+<p>Fuente: diapositiva 10. El estado de una entidad se lee con <code>EntityState state = context.Entry(entity).State;</code> (diapositiva 10).</p>
+<h3 id="parcial-2-mapeo">Mapeo</h3>
+<p>Se configura con <strong>Data Annotations</strong> (diapositiva 11) o con <strong>Fluent API</strong>, en <code>OnModelCreating</code> (diapositiva 12). Las annotations «se utilizan para configurar las entidades y mapear tablas y columnas» (diapositiva 11).</p>
+<div class="tabla"><table><thead><tr><th>Annotation</th><th>Para qué</th></tr></thead><tbody><tr><td><code>Key</code></td><td>Primary key. No tiene que ser de una sola columna, porque soporta claves múltiples</td></tr><tr><td><code>Required</code></td><td>No permite nulos</td></tr><tr><td><code>ForeignKey</code></td><td>Clave foránea para navegación</td></tr><tr><td><code>StringLength</code></td><td>Mínimo y máximo</td></tr><tr><td><code>NotMapped</code></td><td>Sin relación con la base</td></tr><tr><td><code>ConcurrencyCheck</code></td><td>Control de concurrencia</td></tr><tr><td><code>Table</code>, <code>Column</code></td><td>Nombres distintos a los de la clase</td></tr><tr><td><code>DatabaseGenerated</code></td><td>La genera la base, por ejemplo un Identity</td></tr><tr><td><code>Index</code></td><td>Crea un índice</td></tr></tbody></table></div>
+<div class="ejemplo"><p class="ejemplo-t">Lo mismo con Fluent API</p><pre class="codigo"><code><span class="hljs-keyword">internal</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MyContext</span> : <span class="hljs-title">DbContext</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DbSet</span>&lt;<span class="hljs-title">Blog</span>&gt; Blogs</span> { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnModelCreating</span>(<span class="hljs-params">ModelBuilder modelBuilder</span>)</span>
+    {
+        modelBuilder.Entity&lt;Blog&gt;()
+            .Property(b =&gt; b.Url)
+            .IsRequired();
+    }
+}</code></pre>
+<p>Hace obligatoria la propiedad <code>Url</code> de <code>Blog</code>, como haría <code>Required</code>.</p>
+<p class="bloque-fuente">Presentación de la Unidad 4, Capítulo 2, diapositiva 12</p></div>
+<p>La presentación también genera un EDM con un asistente. El asistente genera las entidades, los <code>DbSet</code> y las configuraciones con Data Annotations, pero todo eso «se podria haber hecho sin Wizard de manera sencilla y transparente», y los mapeos también con Fluent API (diapositiva 15).</p>
+<h3 id="parcial-2-las-cuatro-operaciones">Las cuatro operaciones</h3>
+<div class="ejemplo"><p class="ejemplo-t">Insertar, consultar, eliminar y actualizar</p><pre class="codigo"><code><span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> context = <span class="hljs-keyword">new</span> AcademiaEntities())
+{
+    <span class="hljs-keyword">var</span> usuario = <span class="hljs-keyword">new</span> Usuario()
+    {
+        NombreUsuario = <span class="hljs-string">&quot;Admin&quot;</span>,
+        Clave = <span class="hljs-string">&quot;Password&quot;</span>,
+        Habilitado = <span class="hljs-literal">true</span>
+    };
+    context.Usuarios.Add(usuario);
+    context.SaveChanges();
+}</code></pre>
+<p>Para consultar, recorre <code>context.Usuarios.Where(u =&gt; u.NombreUsuario.Contains(&quot;r&quot;))</code>. Para eliminar, <code>Find</code> y <code>Remove</code>, seguidos de <code>SaveChanges</code>. Para actualizar, <code>Find</code>, cambiar la propiedad y <code>SaveChanges</code>.</p>
+<p class="bloque-fuente">Presentación de la Unidad 4, Capítulo 2, diapositivas 16 a 19</p></div>
+<h3 id="parcial-2-herencia-en-ef-core">Herencia en EF Core</h3>
+<p>Tres enfoques (Presentación de la Unidad 4, Capítulo 2.1, diapositivas 4 a 6).</p>
+<div class="tabla"><table><thead><tr><th>Enfoque</th><th>Cómo guarda</th><th>A favor</th><th>En contra</th></tr></thead><tbody><tr><td>TPH (por jerarquía)</td><td>Una sola tabla con columna discriminadora. <strong>Es el enfoque por defecto</strong></td><td>Simplicidad y rendimiento</td><td>Tablas grandes con columnas nulas</td></tr><tr><td>TPT (por tipo)</td><td>Tabla general y tablas por subclase</td><td>Normalización, menos nulos</td><td>Los JOIN pueden afectar el rendimiento</td></tr><tr><td>TPC (por clase concreta)</td><td>Una tabla por clase concreta, con todo lo heredado</td><td>Sencillez, sin JOIN</td><td>Duplicación y problemas de normalización</td></tr></tbody></table></div>
+<p>La presentación nombra además Migrations y Lazy, Eager y Explicit Loading, sin desarrollarlos (diapositiva 20). Migrations se ve en <a href="#aprobacion-directa-entity-framework-en-la-aplicacion">Aprobación directa</a>.</p>
+</section>
+<section class="sec"><h2 id="parcial-2-blazor">Blazor</h2>
+<p>Es un framework de Microsoft, de código abierto, para desarrollar «aplicaciones web de una sola página (SPA) dinámicas y eficientes usando C# y Razor» (Presentación de la Unidad 5, Blazor, diapositiva 3). Todas las diapositivas de esta sección son de esa presentación.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Blazor Server</th><th>Blazor WebAssembly</th></tr></thead><tbody><tr><td>Dónde corre</td><td><mark>En el servidor. El HTML se actualiza en el navegador mediante SignalR</mark></td><td>En el navegador del usuario, con WebAssembly</td></tr><tr><td>Interacción</td><td>Cada acción va al servidor y vuelve. Ligera latencia</td><td>Local y rápida. Solo llama al servidor por APIs o datos</td></tr><tr><td>Carga inicial</td><td>Rápida</td><td>Más larga, porque se baja todo</td></tr><tr><td>Estado</td><td>En el servidor</td><td>En el cliente</td></tr><tr><td>Si se corta la conexión</td><td>La aplicación deja de funcionar</td><td>Puede seguir, si no depende de un backend</td></tr></tbody></table></div>
+<p>Fuente: diapositivas 5, 7, 8, 11 y 12.</p>
+<p>La presentación lo resume como «Browser + Razor = Blazor» (diapositiva 3). Da cuatro motivos para elegirlo (diapositiva 4).</p>
+<ul>
+<li><strong>Código reutilizable</strong>: el mismo C# se comparte entre el frontend y el backend.</li>
+<li><strong>Fácil de aprender</strong>: si ya conocés C# y .NET, la curva es suave.</li>
+<li><strong>Rendimiento nativo</strong>: con Blazor WebAssembly, el código corre directo en el navegador.</li>
+<li><strong>Soporte completo para .NET</strong>: usa sus librerías y su ecosistema.</li>
+</ul>
+<p><strong>WebAssembly</strong> (Wasm) «es un formato de código binario que permite ejecutar código de bajo nivel en navegadores web y otros entornos», con un rendimiento casi nativo. Se diseñó para complementar JavaScript, y permite que lenguajes como C, C++ o Rust se compilen y corran en el navegador de forma eficiente y segura (diapositiva 10).</p>
+<div class="tabla"><table><thead><tr><td></td><th>Blazor Server</th><th>Blazor WebAssembly</th></tr></thead><tbody><tr><td>Escenarios ideales</td><td>Aplicaciones que necesitan acceso frecuente a datos del servidor, o que no pueden bajar mucho código al cliente</td><td>Aplicaciones con más interactividad, que pueden correr enteras en el cliente y donde la conectividad no es una limitante constante</td></tr></tbody></table></div>
+<p>Fuente: diapositivas 8 y 12. La carga inicial de Blazor Server es rápida porque el navegador solo baja un archivo HTML y JavaScript chico para iniciar la conexión con el servidor (diapositiva 7).</p>
+<details open class="pregunta"><summary><span>En una aplicación Blazor Server, ¿dónde ocurre el procesamiento de la interfaz?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«Se ejecuta en el servidor y utiliza SignalR para comunicar cambios de la UI al navegador del cliente.» Fuente: Presentación de la Unidad 5, Blazor, diapositiva 7.</p>
+</div></details>
+<h3 id="parcial-2-las-piezas">Las piezas</h3>
+<ul>
+<li><strong>Componentes</strong>: los bloques principales, en C# y Razor (diapositiva 14).</li>
+<li><strong>Páginas</strong>: un tipo especial de componente, asociado a una ruta (diapositiva 15).</li>
+<li><strong>Rutas</strong>: manejan la navegación entre componentes. Van con la directiva <code>@page</code>, admiten parámetros, parámetros opcionales (<code>?</code>) y varias rutas en un solo componente. Al navegar, el navegador no recarga toda la página, porque Blazor actualiza solo la parte necesaria (diapositiva 16).</li>
+<li><strong>Binding</strong>: la sincronización entre la interfaz y los datos. One-way, del código a la vista. Two-way, entre vista y modelo, ideal para formularios (diapositiva 17).</li>
+<li><strong>Archivos del proyecto inicial</strong>: <code>Program.cs</code>, <code>App.razor</code> y <code>MainLayout.razor</code> (diapositiva 18).</li>
+</ul>
+<p>Ventajas: no necesitás JavaScript, se integra con .NET y reutilizás código. Desafíos: el tamaño de descarga y los límites de WebAssembly en el navegador (diapositiva 20).</p>
+</section>
+<section class="sec"><h2 id="parcial-2-servicios-web">Servicios web</h2>
+<p>«Los servicios web son componentes de software que permiten que diferentes aplicaciones se comuniquen e interactúen entre sí a través de una red» (Presentación de la Unidad 6, diapositiva 3). Son independientes de la plataforma y del lenguaje, porque otras aplicaciones los usan mediante tecnologías web estándar (diapositiva 3).</p>
+<p>Qué problemas resuelven, según la diapositiva 4:</p>
+<ul>
+<li>Dan un mecanismo para que las aplicaciones intercambien datos e invoquen funcionalidades de forma remota.</li>
+<li>Permiten integración e interoperabilidad entre sistemas distintos, sin importar sus tecnologías.</li>
+<li>Habilitan la computación distribuida. Las aplicaciones aprovechan las capacidades de las demás y comparten datos de forma segura y eficiente.</li>
+</ul>
+<p>La diapositiva 5 muestra cómo evolucionaron, con RPC (1980), DCE (1990), CORBA (1991), COM (1993), DCOM (1996), Java RMI (1997), XML-RPC (1998), SOAP y REST (2000) y .NET Remoting (2002).</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Se apoya en</th></tr></thead><tbody><tr><td>Basados en SOAP</td><td>Protocolo SOAP (Simple Object Access Protocol), XML para el intercambio</td></tr><tr><td>RESTful</td><td>Principios REST (REpresentational State Transfer), HTTP + JSON o XML</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 6.</p>
+<p>Los servicios RESTful también se conocen como REST APIs. Son un estilo arquitectónico popular para diseñar servicios web, basado en principios que enfatizan la simplicidad, la escalabilidad y la falta de estado (stateless) (diapositiva 7). La arquitectura pone a los clientes contra una RESTful API, que corre en un servidor web con su base de datos (diapositiva 10).</p>
+<details open class="pregunta"><summary><span>¿Qué protocolo usa un cliente Windows Forms al llamar a un servicio .NET?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>Para los servicios RESTful, «HTTP + JSON o XML para intercambio». El laboratorio consume el servicio con una URL <code>https://localhost:7011/api/Alumno/</code>. Fuente: Presentación de la Unidad 6, diapositiva 6, y Unidad 6, Laboratorio 3, pág. 6.</p>
+</div></details>
+<h3 id="parcial-2-caracteristicas-de-rest">Características de REST</h3>
+<p>Orientado a recursos, sin estado (stateless), con interfaz uniforme. Formatos JSON, «estándar de facto», y XML (diapositiva 8). Las operaciones son las de un CRUD.</p>
+<div class="tabla"><table><thead><tr><th>Verbo</th><th>Para qué</th></tr></thead><tbody><tr><td><code>GET</code></td><td>Recuperar un recurso o una colección</td></tr><tr><td><code>POST</code></td><td>Crear un recurso</td></tr><tr><td><code>PUT</code></td><td>Actualizar uno existente</td></tr><tr><td><code>DELETE</code></td><td>Eliminar</td></tr></tbody></table></div>
+<h3 id="parcial-2-codigos-de-respuesta">Códigos de respuesta</h3>
+<div class="tabla"><table><thead><tr><th>Familia</th><th>Códigos</th></tr></thead><tbody><tr><td>1xx Informational</td><td>100 Continue</td></tr><tr><td>2xx Success</td><td>200 OK, 201 Created, 204 No Content</td></tr><tr><td>3xx Redirection</td><td>301 Moved Permanently, 304 Not Modified</td></tr><tr><td>4xx Client Error</td><td>400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found</td></tr><tr><td>5xx Server Error</td><td>500 Internal Server Error, 503 Service Unavailable</td></tr></tbody></table></div>
+<p>Fuente: diapositiva 9. La diapositiva explica para qué están. Los códigos de respuesta HTTP «nos brindan un diálogo rico entre clientes y servidores sobre el estado de una solicitud (request)».</p>
+<p>Crear una API, con su código, está en <a href="#aprobacion-directa-la-api-rest">Aprobación directa</a>.</p>
+</section>
+<section class="sec"><h2 id="parcial-2-archivos-txt-y-xml">Archivos TXT y XML</h2>
+<p>La Unidad 4 tiene un laboratorio sobre esto. No salió en los exámenes de 2023 en adelante que leí.</p>
+<ul>
+<li>Las clases de entrada y salida están en <code>System.IO</code>. La E/S está «organizada alrededor del concepto de stream, o canal» (Laboratorio Archivos TXT y XML, pág. 3).</li>
+<li><code>FileStream</code> abre el archivo, <code>StreamReader</code> lee con <code>ReadLine()</code> y <code>StreamWriter</code> escribe línea por línea (págs. 3, 4 y 7).</li>
+<li>Las clases para XML están en <code>System.XML</code> (pág. 10).</li>
+</ul>
+</section>
+<section class="sec"><h2 id="parcial-2-lo-que-quedo-del-plan-viejo">Lo que quedó del plan viejo</h2>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p><strong>Web Forms.</strong> Los parciales escritos de 2014 a 2017 preguntan por <code>IsPostBack</code>, Code-Behind, <code>Web.config</code>, manejo de estado, Master Pages, Themes y Skins, y el ciclo de vida de la página. También lo toman las prácticas en capas de 2016 y 2017. El último 2° parcial que leí, del 14/09/2026, no trae nada de eso y pregunta por Blazor. Si tu comisión todavía lo ve, los laboratorios 1 a 6 de la Unidad 5 están en el Drive.</p>
+<p>Lo que dicen las presentaciones de 2015 <a href="https://drive.google.com/file/d/17F1TokME5a5ziq19TyKx6gGutPf0aJcZ/view">Aplicaciones Web Parte 1</a> (P1) y <a href="https://drive.google.com/file/d/16BfdeN-wHosFPNsgys3ZXhZ35Daj7xxr/view">Parte 2</a> (P2), con el número de diapositiva:</p>
+<ul>
+<li><strong>Code-Behind.</strong> «Diferentes archivos para la gráfica y la lógica», unidos con la directiva <code>@Page</code> (P1, 23).</li>
+<li><strong><code>IsPostBack</code>.</strong> <code>Page_Load</code> se ejecuta en cada request. <code>Page.IsPostBack</code> sirve para ejecutar lógica condicional y prevenir el reload en cada request (P1, 31).</li>
+<li><strong>Ciclo de vida.</strong> Eventos de página (<code>Page_Init</code>, <code>Page_Load</code>, <code>Page_Unload</code>), eventos de control, de cambio y de acciones, y <code>Dispose</code>, donde se elimina el objeto Page. El orden está en el dibujo de la diapositiva (P1, 29).</li>
+<li><strong>Manejo de estado.</strong> En el servidor, Application (para todos los usuarios), Session (única por usuario mientras dure su sesión) y base de datos. En el cliente, Cookies, ViewState (retiene los valores entre requests a la página) y Query Strings (P1, 34). El lado del cliente es menos seguro y fiable, y guarda menos información (P1, 36).</li>
+<li><strong><code>Web.config</code>.</strong> «Repositorio central de configuración de la aplicación Web» (P2, 20). Hay uno por aplicación (P1, 18).</li>
+<li><strong>Master Pages.</strong> «Herencia Visual» para páginas web (P2, 5). La master define <code>&lt;asp:ContentPlaceHolder&gt;</code> y las páginas definen <code>&lt;asp:Content&gt;</code> (P2, 7).</li>
+<li><strong>Themes y Skins.</strong> Un Theme es un conjunto de Skins. Un Skin es un conjunto de atributos visuales para uno o más controles, y no reemplaza al CSS (P2, 12).</li>
+</ul>
+<p><strong>MVC.</strong> Ninguna hoja de 2023 en adelante lo pregunta. La presentación de la Unidad 6 lo nombra como una de las formas de armar una API. Sale de <a href="https://drive.google.com/file/d/1PLVWb6385odnho7IVYRQlOGa7fykEOeO/view"><code>3 - Presentación - MVC.ppt</code></a>, de 2016, con el número de diapositiva:</p>
+<ul>
+<li><strong>Model.</strong> Objetos que implementan la lógica de negocio. Es «totalmente independiente de la View y del Controller» (9 y 10).</li>
+<li><strong>View.</strong> Presenta la UI al usuario. «Practicamente no deberian incluir código no HTML» (9 y 11).</li>
+<li><strong>Controller.</strong> Maneja la interacción con el usuario, consulta al modelo y selecciona la vista adecuada (12).</li>
+<li><strong>Contra Web Forms.</strong> Web Forms representa la página como un árbol de controles con eventos. Su deuda son el Viewstate, el ciclo de vida y el control limitado sobre el HTML (7).</li>
+<li><strong>Routing.</strong> Mapea las URL a controladores y acciones. El enrutado por defecto se define en <code>App_Start/RouteConfig.cs</code> (23).</li>
+<li><strong>Actions.</strong> Métodos del Controller que retornan <code>ActionResult</code> (24).</li>
+<li><strong>Validación.</strong> Con atributos en las propiedades del modelo: <code>Required</code>, <code>StringLength</code>, <code>Range</code>, <code>RegularExpression</code> y <code>Compare</code> (33).</li>
+<li><strong>Datos a la vista.</strong> <code>ViewDataDictionary</code>, <code>ViewBag</code> y vistas fuertemente tipadas (35).</li>
+<li><strong>Razor.</strong> Genera las vistas. El código C# se reconoce por el símbolo <code>@</code> (40).</li>
+</ul>
+<p><strong>Servicios web con SOAP.</strong> Hoy la materia trabaja con API REST. La presentación vieja, <a href="https://drive.google.com/file/d/1lltuVyXTanSOFwk0UUBZ4-eVf1muHG2i/view"><code>Presentación - WebServices.ppt</code></a>, de 2015, está en la carpeta «Material Viejo» y dice esto, con el número de diapositiva:</p>
+<ul>
+<li><strong>SOAP.</strong> Simple Object Access Protocol, basado en XML y «diseñado para trabajar con objetos remotamente» (11).</li>
+<li><strong>WSDL.</strong> Web Service Description Language, un «contrato que provee definiciones sobre tipos usados en las operaciones» (13).</li>
+<li><strong>UDDI.</strong> Un directorio donde se publican los servicios web de distintas empresas (12).</li>
+<li><strong>Proxy.</strong> Es igual a la clase original pero sin la implementación lógica. Se crea a partir del WSDL y usa SOAP para hablar con el servicio (18).</li>
+<li><strong>Contra una página web.</strong> La página tiene UI e interactúa con usuarios. El servicio no tiene UI e interactúa con aplicaciones (14).</li>
+</ul>
+<p><strong>Práctica en capas con ADO.NET.</strong> En 2016 y 2017 se pidió una solución con Entidades, Datos, Negocio, Escritorio y Web. Hoy la práctica equivalente es la <a href="#pdf-aprobacion-directa">aprobación directa</a>, que usa EF. Hay dos en <a href="ejercicios.html">Ejercicios</a>, por si querés practicar ADO.NET con código.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-aprobacion-directa" data-pagina="aprobacion-directa" aria-label="Aprobación directa"><p class="pdf-de">Tecnologías de Desarrollo de Software IDE</p><h1>Aprobación directa</h1>
+<p class="bajada">Una aplicación entera en la PC: entidad con Entity Framework, API REST asíncrona que se prueba con Swagger, y una pantalla en Windows Forms o Blazor.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="aprobacion-directa-como-viene-el-examen">Cómo viene el examen</h2>
+<p>Leí 3 temas de 2 fechas: Alquiler y Promoción del 13/10/2025, y Receta del 05/10/2026. Los tres tienen la misma estructura. Cambian la entidad, el nombre de la base y las validaciones.</p>
+<div class="tomado"><aside class="nota"><strong>Lo que pide siempre</strong><span>Aprobación directa 13/10/2025 y 05/10/2026</span></aside><p>El enunciado dice que desarrolles una aplicación .NET «aplicando los principios de arquitectura, buenas prácticas y lineamientos vistos en clase y aplicados en el TPI», considerando:</p>
+<ul>
+<li><strong>Capa de Presentación</strong>: «puede elegir Escritorio (Windows Forms) o Web (Blazor). Debe comunicarse con los servicios mediante una API Rest».</li>
+<li><strong>Servicios</strong>: <mark>«todos deben ser asíncronos y se deben poder testear mediante swagger»</mark>.</li>
+<li><strong>Acceso a datos</strong>: <mark>«Utilice el patrón repositorio para resolver el acceso a datos mediante EF»</mark>. La base debe crearse con el nombre pedido, por ejemplo <code>dbReceta</code>, «siguiendo los mecanismos que provee EF».</li>
+<li><strong>Criterios</strong>: «correcto funcionamiento (compilación/ejecución sin errores), uso de convenciones solicitadas, estética visual de las pantallas, estándares y buenas prácticas».</li>
+</ul>
+</div>
+<div class="tomado"><aside class="nota"><strong>Las 4 consignas</strong><span>Aprobación directa 13/10/2025 y 05/10/2026</span></aside><ol>
+<li><strong>Estructura y entidad.</strong> Una carpeta <code>ApellidoNombre</code>. Cada proyecto y namespace respeta <code>[Apellido].[NombreProyecto]</code>, por ejemplo <code>Perez.Presentacion</code>. La entidad trae <code>Id</code> entero, autoincremental y clave primaria, datos propios y un <code>Estado</code> de texto.</li>
+<li><strong>API de servicios.</strong> Tres endpoints: recuperar registros según el estado, agregar un registro que se crea siempre en el primer estado, y pasarlo al segundo estado.</li>
+<li><strong>Validaciones.</strong> Campos obligatorios, un rango numérico y una regla de fechas.</li>
+<li><strong>Presentación.</strong> Un listado con un control tipo lista para filtrar por estado y un botón que aplica el filtro. Un alta que se abre con un botón «Agregar», donde <mark>el usuario no elige el estado: lo pone el servicio</mark>. Y en el listado, la acción de pasar de estado.</li>
+</ol>
+</div>
+<p>Los enunciados completos están en <a href="ejercicios.html">Ejercicios</a>.</p>
+<div class="ojo"><p class="ojo-t">La regla de fechas cambia</p><p>En Alquiler y Promoción, <code>FechaInicio</code> debe ser inferior a <code>FechaFin</code>. En Receta, <code>FechaEmision</code> debe ser igual a la fecha de hoy o el día previo. Leé la tuya con cuidado.</p>
+</div>
+</section>
+<section class="sec"><h2 id="aprobacion-directa-las-capas">Las capas</h2>
+<p>Una aplicación en capas se divide en sectores mantenibles por función. Las capas son conceptuales, y cada una tiene al menos un componente físico. El laboratorio de la Unidad 7 usa estas (Lab. Agenda, pág. 1).</p>
+<ul>
+<li>Capa de Datos.</li>
+<li>Capa de Negocios.</li>
+<li>Capa de Presentación.</li>
+<li>Componentes transversales. Entidades, que pasan información entre capas, y Configuración, que centraliza por ejemplo la cadena de conexión.</li>
+</ul>
+<p>Lo de abajo sale de la presentación de la Unidad 7, <code>Presentación - Aplicaciones Empresariales.ppt</code>. Es de 2015 y sus ejemplos usan DataSets y ADO.NET, no Entity Framework. Queda porque el 2° parcial del 14/09/2026 y la aprobación directa siguen trabajando con proyectos separados. Los números son de diapositiva, contados desde el principio del archivo.</p>
+<h3 id="aprobacion-directa-que-es-una-arquitectura">Qué es una arquitectura</h3>
+<div class="teorema"><p class="teorema-t">Arquitectura</p><p>«Es la descripción de los elementos utilizados para construir sistemas de software, la interacción entre estos elementos, los patrones que guían su composición y las restricciones de esos patrones.» Shaw-Garlan.</p>
+<p class="bloque-fuente">Presentación de Aplicaciones Empresariales, diapositiva 3</p></div>
+<p>Representa decisiones tempranas del diseño. Ahí se define cómo se van a satisfacer los atributos de calidad: performance, seguridad, mantenibilidad, escalabilidad y reusabilidad (diapositiva 6).</p>
+<h3 id="aprobacion-directa-capas-logicas-y-fisicas">Capas lógicas y físicas</h3>
+<ul>
+<li><strong>Lógicas.</strong> Estructuran la solución de software y especifican qué componentes van en cada capa.</li>
+<li><strong>Físicas.</strong> Estructuran la infraestructura.</li>
+</ul>
+<p>Cada capa se comunica con la siguiente, y cada una se puede cambiar (diapositiva 11). «Los cambios en una capa deberían impactar mínimamente en las demás capas» (diapositiva 12). Lo que se intercambia «son los mensajes del contrato entre dos capas»: DataSets, XML u objetos (diapositiva 15).</p>
+<h3 id="aprobacion-directa-las-tres-capas">Las tres capas</h3>
+<div class="tabla"><table><thead><tr><th>Capa</th><th>De qué se encarga</th><th>Funciones</th></tr></thead><tbody><tr><td>Presentación</td><td>«Mostrar la información al usuario e interpretar sus comandos». No hace procesamiento de negocios ni validaciones de negocio</td><td>Recoge la información del usuario, la manda a Negocios, recoge los resultados y los presenta</td></tr><tr><td>Negocio</td><td>«Representar los conceptos del negocio, información sobre la situación del negocio, y reglas del negocio». «Es el corazón del software»</td><td>Recibe la información de Presentación, usa los servicios de datos para la lógica y manda los resultados a Presentación</td></tr><tr><td>Datos</td><td>Bases relacionales u otros repositorios. Sus componentes exponen los datos a Negocio</td><td>Almacena y recibe datos, los mantiene y cuida su integridad</td></tr></tbody></table></div>
+<p>Fuente: diapositivas 18, 19 y 25.</p>
+<p>«La capa de presentación instancia a la capa de negocio, y la capa de negocio instancia a la capa de datos. La interfaz solo debe comunicarse con la capa de negocios, nunca con la de datos.» (Diapositiva 41.)</p>
+<p>La capa de negocio se implementa con estas piezas (diapositivas 20 a 24).</p>
+<div class="tabla"><table><thead><tr><th>Pieza</th><th>Qué es</th></tr></thead><tbody><tr><td>Service Interface</td><td>El punto de entrada. Expone la funcionalidad que otras aplicaciones pueden consumir</td></tr><tr><td>Business Entities</td><td>Contenedores de datos, en general sin lógica de negocios. Se usan como Data Transfer Objects entre capas</td></tr><tr><td>Business Components</td><td>Encapsulan las reglas de negocio de una entidad, como <code>FacturaBO.AplicarDescuento(factura, descuento)</code></td></tr><tr><td>Business Workflows</td><td>Actividades de alto nivel, como el proceso de una factura. Son métodos que no pertenecen a un objeto en particular</td></tr></tbody></table></div>
+<p>Del otro lado, los componentes de acceso a datos son «objetos sin comportamiento que solo saben guardar un Business Entity en la base de datos» (diapositiva 26).</p>
+<h3 id="aprobacion-directa-ventajas-y-desventajas">Ventajas y desventajas</h3>
+<div class="tabla"><table><thead><tr><th>Ventajas (diapositiva 29)</th><th>Desventajas (diapositiva 30)</th></tr></thead><tbody><tr><td>Reutilización de capas</td><td>A veces no se logra la independencia deseada y hay que cambiar más de una capa</td></tr><tr><td>Los cambios quedan contenidos en una o pocas capas</td><td>Pérdida de eficiencia y performance</td></tr><tr><td>Clara distribución de responsabilidades</td><td>Trabajo innecesario de las capas internas, o redundante entre capas</td></tr><tr><td>Es más fácil trabajar en equipo</td><td>Cuesta diseñar bien los métodos de cada capa</td></tr><tr><td>Se puede cambiar de repositorio de datos o de interfaz con bajo impacto</td><td>Requiere una toma de decisiones arquitectónicas importante</td></tr></tbody></table></div>
+<p>Conviene cuando el proyecto es muy grande, cuando son varios programadores difíciles de coordinar o cuando es para una empresa con sucursales de métodos y políticas diferentes (diapositiva 28).</p>
+<div class="ejemplo"><p class="ejemplo-t">El mismo pedido en 1 capa y en 3</p><p>Una aplicación de escritorio maneja créditos y débitos de clientes. La solución en 1 capa tiene toda la lógica y el acceso a datos dentro de los formularios. La de 3 capas es una solución con tres proyectos: uno con los formularios, una class library con la lógica y otro con el acceso a datos.</p>
+<ul>
+<li><strong>Piden también una interfaz web.</strong> En 1 capa se vuelve a escribir toda la lógica y todo el acceso a datos. En 3 capas se agrega el sitio web, que hace referencia al proyecto de la lógica, y el acceso a datos no se toca.</li>
+<li><strong>Piden no permitir débitos ni transferencias con saldo menor a $10.</strong> En 1 capa se cambian las funciones en el sitio web y también en la aplicación de escritorio. En 3 capas se cambian solo en la clase de negocio.</li>
+</ul>
+<p class="bloque-fuente">Presentación de Aplicaciones Empresariales, diapositivas 31 a 44</p></div>
+<div class="tomado"><aside class="nota"><strong>Por qué múltiples proyectos</strong><span>2° parcial 14/09/2026</span></aside><p>Se preguntó por qué en el TPI se usan múltiples proyectos y clases en lugar de uno solo. Ninguna frase de la cátedra habla del TPI. Lo que sí escribió, en general, es que una solución en 3 capas tiene un proyecto por capa (diapositiva 34), que así los cambios quedan contenidos en una o pocas capas y se distribuyen las responsabilidades (diapositiva 29), y que «se agrupan funcionalidades similares en proyectos» (diapositiva 46). Fuente: <code>Presentación - Aplicaciones Empresariales.ppt</code>, de 2015.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Lineamientos de la cátedra para el examen</strong><span>Notas de la cátedra sobre un examen del 30/10/2024</span></aside><p>En el Drive hay <a href="https://drive.google.com/file/d/1cgUnqcUTQGcuUHSg47S3P2i78M8-8nmf/view">notas de la cátedra</a> sobre un examen de una inmobiliaria. No está el enunciado, pero sí lo que se aceptaba. Citas textuales:</p>
+<ul>
+<li><strong>Nombres.</strong> «Se podrían haber usado otros nombres en la medida que sean representativos.» Para el dominio, también <code>AppCore</code> o <code>Core</code>. Para presentación, <code>UI</code>, <code>Escritorio</code>, <code>Desktop</code>, <code>Winform</code> o <code>Presentación</code>. Para la API, <code>Endpoints</code>, <code>Api</code> o <code>PubliAPI</code>.</li>
+<li><strong>Más proyectos.</strong> «Era válido crear otros proyectos adicionales para mejorar el desacoplamiento», pero «no las recomendamos para el parcial ya que agregan complejidad y siempre vamos a tener un tiempo acotado».</li>
+<li><strong>DTO.</strong> Crear un DTO «busca desacoplar 100% el backend del frontend. A los fines del examen era válido compartir la entidad». Y «es importante que el alumno comprenda el impacto de acoplamiento que esto genera desde lo conceptual».</li>
+<li><strong>Validaciones.</strong> Del lado del cliente o del servidor, «para el alcance del parcial ambas opciones son válidas». Pero «nuestra API de servicios nunca puede confiarse de que la presentación va a realizar estas validaciones».</li>
+<li><strong>Configuración.</strong> La URL de los endpoints y el string de conexión «en un ejemplo real se recomienda moverlos a un archivo de configuración».</li>
+<li><strong>Depuración.</strong> Se configuró «que arranquen inicialmente el proyecto de presentación y el web api». Se cambia con botón derecho en la solución, en los proyectos de inicio.</li>
+</ul>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Un DTO es una clase que existe solo para viajar entre la API y la pantalla. Si la pantalla usa la misma clase que la base, un cambio en la base puede romper la pantalla. Con un DTO en el medio, cada lado cambia por su cuenta. En el examen podías no usarlo, pero te pueden preguntar qué costo tiene.</p>
+</div>
+</section>
+<section class="sec"><h2 id="aprobacion-directa-el-patron-repositorio">El patrón repositorio</h2>
+<div class="ojo"><p class="ojo-t">El material no lo desarrolla</p><p>Los exámenes lo piden, pero en los archivos de la cátedra del Drive que pude leer solo aparece nombrado. La presentación de EF dice que <code>DbContext</code> «representa una combinación de los patrones Unit of Work y Repository» (Unidad 4, Capítulo 2, diapositiva 7). Cómo se organiza en el examen se vio en clase y en el TPI. Pedile a tu comisión o mirá tu TPI antes de rendir. No te voy a dar una receta que la cátedra no escribió.</p>
+</div>
+</section>
+<section class="sec"><h2 id="aprobacion-directa-entity-framework-en-la-aplicacion">Entity Framework en la aplicación</h2>
+<p>La teoría está en el <a href="#parcial-2-entity-framework">2° parcial</a>. Acá van los pasos de los laboratorios.</p>
+<ol>
+<li>Agregar el paquete NuGet <code>Microsoft.<wbr>EntityFrameworkCore.<wbr>SqlServer</code> (Unidad 4, Capítulo 2, Laboratorio, pág. 1).</li>
+<li>Crear una clase que herede de <code>DbContext</code> y tenga una propiedad <code>DbSet&lt;T&gt;</code> por tabla.</li>
+<li>Configurar la conexión.</li>
+<li>Registrar el contexto en <code>Program.cs</code> con <code>builder.Services.AddDbContext&lt;...&gt;()</code> (Unidad 6, Laboratorio 1, pág. 2).</li>
+</ol>
+<p>La conexión puede ir de dos maneras en los laboratorios.</p>
+<ul>
+<li>Sobrescribiendo <code>OnConfiguring</code> y llamando a <code>optionsBuilder.UseSqlServer(...)</code> (Unidad 4, Capítulo 2, Laboratorio, pág. 1).</li>
+<li>En <code>appsettings.json</code>, en la sección <code>&quot;ConnectionStrings&quot;</code> (Unidad 6, Laboratorio 2, págs. 13 y 14).</li>
+</ul>
+<p>Para ver en la consola el SQL que genera el ORM, el laboratorio suma una línea en el <code>optionsBuilder</code>. Es <code>optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);</code> (Unidad 4, Capítulo 2, Laboratorio, pág. 2).</p>
+<div class="ejemplo"><p class="ejemplo-t">El contexto del laboratorio</p><pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MyDbContext</span> : <span class="hljs-title">DbContext</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyDbContext</span>(<span class="hljs-params">DbContextOptions&lt;MyDbContext&gt; options</span>) : <span class="hljs-title">base</span>(<span class="hljs-params">options</span>)</span> { }
+    <span class="hljs-keyword">public</span> DbSet&lt;Alumno&gt; Alumnos { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+}</code></pre>
+<p>«La clase hereda de DbContext y cada modelo o tabla nueva debemos agregarla en esta clase para poder manipularla en nuestra aplicación.»</p>
+<p class="bloque-fuente">Unidad 6, Laboratorio 2, pág. 20</p></div>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>En la pág. 20 de ese laboratorio la propiedad se imprime como <code>DbSet&lt;Alumno&gt; Productos</code>. Puse <code>Alumnos</code>, porque el controlador de las págs. 22 y 23 usa <code>_context.Alumnos</code>. Con <code>Productos</code>, ese controlador no compila.</p>
+</div>
+<h3 id="aprobacion-directa-crear-la-base">Crear la base</h3>
+<div class="tomado"><aside class="nota"><strong>La base con el nombre pedido</strong><span>Aprobación directa 13/10/2025 y 05/10/2026</span></aside><p>Se pide que se cree «siguiendo los mecanismos que provee EF».</p>
+</div>
+<p>El material muestra dos mecanismos.</p>
+<ul>
+<li><code>this.Database.EnsureCreated();</code> en el constructor del contexto. El ORM «se asegure de crear la base de datos si la misma no existe» (Unidad 4, Capítulo 2, Laboratorio, pág. 2).</li>
+<li><strong>Migrations</strong>, nombrado en la presentación con un <a href="https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/">enlace a la documentación de Microsoft</a>, sin los comandos (Unidad 4, Capítulo 2, diapositiva 20).</li>
+</ul>
+<h3 id="aprobacion-directa-la-clave-primaria">La clave primaria</h3>
+<p>La etiqueta <code>[Key]</code> marca la clave primaria. «Si tuvieramos un Id que fuera la clave primaria no es necesario identificarla de esta manera ya que es la clave primaria que se asume por defecto» (Unidad 6, Laboratorio 2, pág. 19).</p>
+</section>
+<section class="sec"><h2 id="aprobacion-directa-la-api-rest">La API REST</h2>
+<p>Hay tres enfoques en ASP.NET Core (Presentación de la Unidad 6, diapositiva 13, y Laboratorio 1, pág. 3).</p>
+<ul>
+<li>Con el patrón MVC (tradicional). Qué es MVC está en <a href="#parcial-2-lo-que-quedo-del-plan-viejo">lo que quedó del plan viejo</a>.</li>
+<li>API mínima (nuevo).</li>
+<li>API endpoints (app de referencia, con el paquete <code>Ardalis.ApiEndpoints</code>).</li>
+</ul>
+<p>Las respuestas que espera la cátedra para un ABMC:</p>
+<div class="tabla"><table><thead><tr><th>Verbo</th><th>Hace</th><th>Código</th></tr></thead><tbody><tr><td><code>GET</code></td><td>Devuelve todos</td><td>200 OK</td></tr><tr><td><code>GET</code> con id</td><td>Devuelve uno</td><td>200 OK si existe, 404 Not Found si no</td></tr><tr><td><code>POST</code></td><td>Crea</td><td>201 Created</td></tr><tr><td><code>PUT</code></td><td>Actualiza</td><td>204 No Content si existe, 404 Not Found si no</td></tr><tr><td><code>DELETE</code></td><td>Elimina</td><td>204 No Content si existe, 404 Not Found si no</td></tr></tbody></table></div>
+<p>Fuente: Unidad 6, Laboratorio 1, pág. 3.</p>
+<details open class="pregunta"><summary><span>¿Qué código de estado indica que no se encuentra el recurso?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«404 Not Found, si no existe.» Fuente: Unidad 6, Laboratorio 1, pág. 3, y Presentación de la Unidad 6, diapositiva 9.</p>
+</div></details>
+<div class="ejemplo"><p class="ejemplo-t">Dos operaciones con API mínima</p><pre class="codigo"><code>app.MapGet(<span class="hljs-string">&quot;/alumnos/{id}&quot;</span>, <span class="hljs-keyword">async</span> (<span class="hljs-built_in">int</span> id, UniversidadContext context) =&gt;
+    <span class="hljs-keyword">await</span> context.Alumnos.FindAsync(id) <span class="hljs-keyword">is</span> Alumno alumno
+        ? Results.Ok(alumno)
+        : Results.NotFound());
+
+app.MapPost(<span class="hljs-string">&quot;/alumnos&quot;</span>, <span class="hljs-keyword">async</span> (Alumno alumno, UniversidadContext context) =&gt;
+{
+    context.Alumnos.Add(alumno);
+    <span class="hljs-keyword">await</span> context.SaveChangesAsync();
+    <span class="hljs-keyword">return</span> Results.Created(<span class="hljs-string">$&quot;/alumnos/<span class="hljs-subst">{alumno.Id}</span>&quot;</span>, alumno);
+});</code></pre>
+<p class="bloque-fuente">Unidad 6, Laboratorio 1, pág. 3</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Un controlador</p><pre class="codigo"><code>[<span class="hljs-meta">ApiController</span>]
+[<span class="hljs-meta">Route(<span class="hljs-string">&quot;api/[controller]&quot;</span>)</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AlumnoController</span> : <span class="hljs-title">ControllerBase</span>
+{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> MyDbContext _context;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AlumnoController</span>(<span class="hljs-params">MyDbContext context</span>)</span>
+    {
+        _context = context;
+    }
+    [<span class="hljs-meta">HttpGet(<span class="hljs-string">&quot;{DNI}&quot;</span>)</span>]
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ActionResult&lt;Alumno&gt; <span class="hljs-title">GetById</span>(<span class="hljs-params">String DNI</span>)</span>
+    {
+        <span class="hljs-keyword">var</span> alumno = _context.Alumnos.Find(DNI);
+        <span class="hljs-keyword">if</span> (alumno == <span class="hljs-literal">null</span>)
+        {
+            <span class="hljs-keyword">return</span> NotFound();
+        }
+        <span class="hljs-keyword">return</span> alumno;
+    }
+}</code></pre>
+<p>El laboratorio completa con <code>Create</code>, <code>Update</code> y <code>Delete</code>, y marca los verbos con <code>[HttpGet]</code>, <code>[HttpPost]</code>, <code>[HttpPut]</code> y <code>[HttpDelete]</code>.</p>
+<p class="bloque-fuente">Unidad 6, Laboratorio 2, págs. 22 y 23</p></div>
+<div class="ojo"><p class="ojo-t">Ese controlador no es asíncrono</p><p>Es del laboratorio 2 y usa <code>Find</code>, <code>ToList</code> y <code>SaveChanges</code>. El examen pide que todos los servicios sean asíncronos. El laboratorio 1 dice «Utilizar flujos asíncronos (async / await) para exponer cada una de las operaciones» y usa <code>FindAsync</code> y <code>SaveChangesAsync</code>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="aprobacion-directa-programacion-asincrona">Programación asíncrona</h2>
+<p>Se usa «si tenemos cualquier necesidad I/O-bound», como solicitar datos de una red, acceder a una base de datos o leer archivos. También sirve para código CPU-bound, un cálculo costoso (Presentación de Programación Asíncrona, diapositiva 3).</p>
+<p>El laboratorio lo aplica a la API: los flujos asíncronos «son los flujos recomendados para interacciones con una base de datos (I/O-bound)» (Unidad 6, Laboratorio 1, pág. 1).</p>
+<div class="tabla"><table><thead><tr><th>Pieza</th><th>Qué es</th></tr></thead><tbody><tr><td><code>Task</code> y <code>Task&lt;T&gt;</code></td><td>Modelan las operaciones asincrónicas</td></tr><tr><td><code>async</code></td><td>«Convierte un método en un método asincrónico», y permite usar <code>await</code> en su cuerpo</td></tr><tr><td><code>await</code></td><td>«Se suspende el método invocado y se cede el control de vuelta al autor de la invocación hasta que se completa la tarea esperada»</td></tr><tr><td><code>Task.Run</code></td><td>Inicia trabajo CPU-bound en un subproceso en segundo plano</td></tr><tr><td><code>Task.WhenAll</code></td><td>Espera varios trabajos, sin bloquear</td></tr></tbody></table></div>
+<p>Fuente: Presentación de Programación Asíncrona, diapositivas 4, 7 y 8.</p>
+<p>El código asincrónico sirve para los dos casos, «pero de forma distinta en cada escenario» (diapositiva 7). La diapositiva 4 marca la diferencia.</p>
+<ul>
+<li><strong>Código I/O-bound</strong>: se espera con <code>await</code> una operación que devuelve <code>Task</code> o <code>Task&lt;T&gt;</code>, dentro de un método <code>async</code>.</li>
+<li><strong>Código CPU-bound</strong>: se espera con <code>await</code> una operación que se inicia en un subproceso en segundo plano con <code>Task.Run</code>.</li>
+</ul>
+<div class="ejemplo"><p class="ejemplo-t">Los dos casos sin bloquear la pantalla</p><pre class="codigo"><code><span class="hljs-comment">// I/O-bound: bajar datos de un servicio web al presionar un botón</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> HttpClient _httpClient = <span class="hljs-keyword">new</span> HttpClient();
+downloadButton.Clicked += <span class="hljs-keyword">async</span> (o, e) =&gt;
+{
+    <span class="hljs-keyword">var</span> stringData = <span class="hljs-keyword">await</span> _httpClient.GetStringAsync(URL);
+    DoSomethingWithData(stringData);
+};
+
+<span class="hljs-comment">// CPU-bound: un cálculo costoso en un subproceso en segundo plano</span>
+calculateButton.Clicked += <span class="hljs-keyword">async</span> (o, e) =&gt;
+{
+    <span class="hljs-keyword">var</span> damageResult = <span class="hljs-keyword">await</span> Task.Run(() =&gt; CalculateDamageDone());
+    DisplayDamage(damageResult);
+};</code></pre>
+<p>En los dos casos, mientras se espera, el subproceso de la interfaz queda libre para hacer otro trabajo.</p>
+<p class="bloque-fuente">Presentación de Programación Asíncrona, diapositivas 5 y 6</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Esperar varios trabajos</p><pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task&lt;IEnumerable&lt;User&gt;&gt; GetUsersAsync(IEnumerable&lt;<span class="hljs-built_in">int</span>&gt; userIds)
+{
+    <span class="hljs-keyword">var</span> getUserTasks = <span class="hljs-keyword">new</span> List&lt;Task&lt;User&gt;&gt;();
+    <span class="hljs-keyword">foreach</span> (<span class="hljs-built_in">int</span> userId <span class="hljs-keyword">in</span> userIds)
+    {
+        getUserTasks.Add(GetUserAsync(userId));
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> Task.WhenAll(getUserTasks);
+}</code></pre>
+<p class="bloque-fuente">Presentación de Programación Asíncrona, diapositiva 8</p></div>
+<p>Reglas de la diapositiva 9:</p>
+<ul>
+<li>Los métodos <code>async</code> deben tener un <code>await</code> en el cuerpo, o serán ineficientes.</li>
+<li>Agregá «Async» como sufijo al nombre de los métodos asincrónicos.</li>
+<li><code>async void</code> solo se usa para manejadores de eventos.</li>
+<li>Escribí código menos «stateful». Es decir, no depender del estado de objetos globales (shared state), sino solo de los valores que devuelven los métodos.</li>
+</ul>
+<p>Y una que se olvida: <mark><code>await</code> solo puede usarse dentro de un método asincrónico</mark> (diapositiva 7).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en pedir un café. Sincrónico es quedarte parado en la barra sin hacer nada hasta que te lo den. Asincrónico es pedirlo, sentarte a contestar mensajes, y que te llamen cuando está. En una pantalla, eso hace que la ventana no se congele mientras espera la base.</p>
+</div>
+</section>
+<section class="sec"><h2 id="aprobacion-directa-swagger">Swagger</h2>
+<p>OpenAPI, antes Swagger, es «una especificación que define un formato de descripción para APIs REST». Permite describir una API completa (Presentación de la Unidad 6, diapositiva 11).</p>
+<ul>
+<li>Los recursos disponibles, como <code>/usuarios</code>.</li>
+<li>Las operaciones sobre cada recurso, como <code>GET /usuarios</code> y <code>POST /usuarios</code>.</li>
+<li>Los parámetros de entrada y salida de cada operación.</li>
+<li>Los métodos de autenticación.</li>
+<li>La información de contacto, la licencia, los términos de uso y otros datos.</li>
+</ul>
+<div class="ejemplo"><p class="ejemplo-t">Habilitarlo en Program.cs</p><pre class="codigo"><code><span class="hljs-keyword">var</span> builder = WebApplication.CreateBuilder(<span class="hljs-keyword">args</span>);
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+<span class="hljs-keyword">var</span> app = builder.Build();
+<span class="hljs-keyword">if</span> (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+app.Run();</code></pre>
+<p>Hace falta el paquete NuGet <code>Swashbuckle.AspNetCore</code> (pág. 9). Desde el navegador probás las operaciones en la interfaz que genera (Laboratorio 1, pág. 3).</p>
+<p class="bloque-fuente">Unidad 6, Laboratorio 2, pág. 17</p></div>
+</section>
+<section class="sec"><h2 id="aprobacion-directa-la-pantalla-que-consume-la-api">La pantalla que consume la API</h2>
+<h3 id="aprobacion-directa-con-windows-forms">Con Windows Forms</h3>
+<p>El laboratorio arma tres proyectos: el cliente WinForm, <code>Entidades</code> y <code>Negocio</code>, que consulta los servicios. <code>Negocio</code> lleva el paquete <code>Microsoft.AspNet.WebApi.Client</code> (Unidad 6, Laboratorio 3, págs. 2 y 4).</p>
+<div class="ejemplo"><p class="ejemplo-t">Consumir el servicio</p><p>Una clase <code>Conexion</code> crea un único <code>HttpClient</code>, con el patrón Singleton. Después:</p>
+<pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task&lt;IEnumerable&lt;Alumno&gt;&gt; GetAll()
+{
+    <span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> Conexion.Instancia.Cliente.GetStringAsync(<span class="hljs-string">&quot;https://localhost:7011/api/Alumno/&quot;</span>);
+    <span class="hljs-keyword">var</span> data = JsonConvert.DeserializeObject&lt;List&lt;Alumno&gt;&gt;(response);
+    <span class="hljs-keyword">return</span> data;
+}</code></pre>
+<p>«Este método (GetAll) va a ser un método asíncrono ya que vamos a estar consumiendo un servicio.» Para borrar usa <code>DeleteAsync</code> y le pasa el DNI en la ruta (pág. 14).</p>
+<p class="bloque-fuente">Unidad 6, Laboratorio 3, págs. 5 y 6</p></div>
+<p>El puerto sale de la configuración de la solución de la API, en <code>applicationUrl</code> (pág. 7). En el formulario, el oyente del botón se marca <code>async</code>, para no quedar bloqueado esperando (pág. 11).</p>
+<div class="ojo"><p class="ojo-t">Dos soluciones corriendo</p><p>En el laboratorio, la API y el cliente son dos soluciones. Primero se ejecuta la API, que «va a quedar corriendo». Recién ahí se ejecuta el formulario (Unidad 6, Laboratorio 3, pág. 12).</p>
+</div>
+<h3 id="aprobacion-directa-con-blazor">Con Blazor</h3>
+<p>La teoría está en el <a href="#parcial-2-blazor">2° parcial</a>. Para formularios conviene el enlace two-way (Presentación de Blazor, diapositiva 17). En el Drive no hay un laboratorio de Blazor con una API, así que practicalo con tu TPI.</p>
+</section>
+<section class="sec"><h2 id="aprobacion-directa-convenciones">Convenciones</h2>
+<div class="tomado"><aside class="nota"><strong>Se corrigen</strong><span>Aprobación directa 13/10/2025 y 05/10/2026, y 1° parcial 2025 y 2026</span></aside><p>Los enunciados evalúan «uso de convenciones». Lo que escribe el material:</p>
+<ul>
+<li><code>[Apellido].[NombreProyecto]</code> en proyectos y namespaces (enunciado de aprobación directa).</li>
+<li>Prefijo «I» en las interfaces (Unidad 2, Capítulo 2, diapositiva 35).</li>
+<li>Sufijo «Async» en los métodos asincrónicos (Programación Asíncrona, diapositiva 9).</li>
+</ul>
+</div>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). En el Drive no hay ningún final. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

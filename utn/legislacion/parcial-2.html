@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2° parcial: Legislación</title>
+<meta name="description" content="Propiedad intelectual e industrial, contrato de trabajo, responsabilidad civil, Colegio de Ingenieros y obra pública.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="legislacion" data-pagina="parcial-2">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Legislación</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html" aria-current="page">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=legislacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=legislacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#derechos-intelectuales">Derechos intelectuales</a></li><li class="n3"><a href="#propiedad-intelectual">Propiedad intelectual</a></li><li class="n3"><a href="#propiedad-industrial">Propiedad industrial</a></li><li class="n3"><a href="#marcas">Marcas</a></li><li class="n3"><a href="#dibujo-y-modelo-industrial">Dibujo y modelo industrial</a></li><li class="n3"><a href="#casos-especiales">Casos especiales</a></li><li class="n2"><a href="#contrato-de-trabajo">Contrato de trabajo</a></li><li class="n3"><a href="#los-dos-elementos-exclusivos">Los dos elementos exclusivos</a></li><li class="n3"><a href="#derechos-y-deberes-de-cada-parte">Derechos y deberes de cada parte</a></li><li class="n3"><a href="#duracion-del-contrato">Duración del contrato</a></li><li class="n3"><a href="#que-puede-cambiar-el-empleador">Qué puede cambiar el empleador</a></li><li class="n3"><a href="#extincion-del-contrato">Extinción del contrato</a></li><li class="n3"><a href="#como-se-calcula-la-indemnizacion-por-antiguedad">Cómo se calcula la indemnización por antigüedad</a></li><li class="n3"><a href="#preaviso">Preaviso</a></li><li class="n3"><a href="#suspension-del-contrato">Suspensión del contrato</a></li><li class="n3"><a href="#jornada-y-licencias">Jornada y licencias</a></li><li class="n3"><a href="#derechos-laborales-de-las-mujeres">Derechos laborales de las mujeres</a></li><li class="n3"><a href="#derechos-laborales-de-los-ninos">Derechos laborales de los niños</a></li><li class="n3"><a href="#contrato-de-trabajo-y-contrato-de-servicios">Contrato de trabajo y contrato de servicios</a></li><li class="n2"><a href="#responsabilidad-civil">Responsabilidad civil</a></li><li class="n3"><a href="#las-tres-funciones">Las tres funciones</a></li><li class="n3"><a href="#los-cuatro-presupuestos-de-la-funcion-resarcitoria">Los cuatro presupuestos de la función resarcitoria</a></li><li class="n3"><a href="#factores-de-atribucion">Factores de atribución</a></li><li class="n3"><a href="#responsabilidad-penal-y-administrativa">Responsabilidad penal y administrativa</a></li><li class="n2"><a href="#colegio-de-ingenieros-especialistas">Colegio de Ingenieros Especialistas</a></li><li class="n3"><a href="#que-hace">Qué hace</a></li><li class="n3"><a href="#gobierno-del-colegio">Gobierno del Colegio</a></li><li class="n3"><a href="#matriculacion">Matriculación</a></li><li class="n3"><a href="#de-que-vive-el-colegio">De qué vive el Colegio</a></li><li class="n3"><a href="#tribunal-de-etica-profesional-y-disciplina">Tribunal de Ética Profesional y Disciplina</a></li><li class="n3"><a href="#el-codigo-de-etica">El Código de Ética</a></li><li class="n2"><a href="#obra-publica-y-licitacion">Obra pública y licitación</a></li><li class="n3"><a href="#contrato-administrativo">Contrato administrativo</a></li><li class="n3"><a href="#contrato-de-obra-publica-y-concesion">Contrato de obra pública y concesión</a></li><li class="n3"><a href="#como-se-elige-al-contratista">Cómo se elige al contratista</a></li><li class="n3"><a href="#licitacion-publica">Licitación pública</a></li><li class="n3"><a href="#licitacion-privada">Licitación privada</a></li><li class="n3"><a href="#contratacion-directa">Contratación directa</a></li><li class="n3"><a href="#quienes-pueden-contratar-con-el-estado">Quiénes pueden contratar con el Estado</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>2° parcial</h1>
+<p class="bajada">Unidades 4 a 6 y obra pública. Propiedad intelectual e industrial, contrato de trabajo, responsabilidad del ingeniero, Colegio de Ingenieros y licitaciones.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Lo marcado «Plan viejo» es de 2022 o antes, del plan anterior. Puede no coincidir con lo que se toma hoy.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>Hay tres 2° parciales de 2023 en adelante. Uno escrito de 2024 y dos orales de 2025, anotados por alumnos.</p>
+<div class="tomado"><aside class="nota"><strong>Completar sobre Colegio, matrícula, propiedad intelectual, patente y ética. Caso laboral. Responsabilidad civil y propiedad intelectual</strong><span>2° parcial 23/10/2024 (unidades 4, 5 y 6)</span></aside><p>La hoja dice «promoción directa». Tiene cinco frases para completar, un caso de traslado de un trabajador a otro lugar de trabajo, y dos temas para desarrollar. El enunciado está en <a href="ejercicios.html">Ejercicios</a>.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Propiedad intelectual, deberes y derechos del empleador y el empleado, presupuestos y funciones de la responsabilidad civil, contratación directa y licitación</strong><span>2° parcial 14/10/2025</span></aside><p>Temas que se tomaron oralmente, anotados por un alumno.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Presunciones a favor del trabajador, licitaciones, Colegio de Ingenieros (tribunal de disciplina, objetivos y deberes para con los colegas, el Colegio y el empleador) y responsabilidad penal y civil</strong><span>2° parcial 27/10/2025</span></aside><p>También orales.</p>
+</div>
+<p>Hay licitación en los dos orales de 2025. Por eso la unidad 8 está acá y no sólo en el <a href="final.html">final</a>.</p>
+</section>
+<section class="sec"><h2 id="derechos-intelectuales">Derechos intelectuales</h2>
+<div class="ojo"><p class="ojo-t">De dónde sale esta unidad</p><p>El único apunte de la cátedra de la unidad 4 en el Drive es la lista de leyes. Las duraciones, los requisitos y las definiciones de abajo salen de resúmenes de alumnos y no los pudimos confirmar en un apunte. Verificalos en las leyes antes de estudiarlos de memoria.</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Son derechos <strong>patrimoniales</strong>, o sea con contenido económico, que nacen del intelecto. La Constitución los respalda en el artículo 17. Garantiza al autor o inventor la propiedad exclusiva por el tiempo que fije la ley.</p>
+<p>Se dividen en dos.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Propiedad intelectual</th><th>Propiedad industrial</th></tr></thead><tbody><tr><td>Ley</td><td>11.723</td><td>24.481 (patentes y modelos de utilidad), decreto-ley 6673/63 (dibujos y modelos), 22.362 (marcas)</td></tr><tr><td>Protege</td><td>La forma en que se expresa una idea</td><td>Ideas técnicas aplicadas a la industria y al comercio</td></tr><tr><td>Cómo se adquiere</td><td>Automática, con la creación</td><td>Hay que solicitarlo al INPI</td></tr><tr><td>Ámbito</td><td>Internacional</td><td>El país donde se registra</td></tr></tbody></table></div>
+<p class="bloque-fuente">Resúmenes de alumnos</p></div>
+<div class="tomado"><aside class="nota"><strong>Propiedad intelectual</strong><span>2° parcial 23/10/2024 y 2° parcial 14/10/2025</span></aside><p>En 2024 hubo que desarrollarla y completar una frase sobre su duración. En 2025 fue tema del oral.</p>
+</div>
+<h3 id="propiedad-intelectual">Propiedad intelectual</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Regula dos cosas.</p>
+<ul>
+<li><strong>Derechos de autor.</strong> Protegen la expresión de la idea, no la idea. Cubren obras literarias, científicas y artísticas, programas de computación y bases de datos. Duran la vida del autor y 70 años después de su muerte.</li>
+<li><strong>Derechos conexos.</strong> Protegen a quienes dan a conocer obras ya creadas, como intérpretes, productores de fonogramas y organismos de radiodifusión. Duran 70 años desde la primera interpretación, publicación o emisión.</li>
+</ul>
+<p>El titular es el autor, sus herederos o adaptadores. En el software lo es la empresa cuyos empleados lo hicieron en el desempeño de sus funciones, salvo pacto en contrario.</p>
+<p class="bloque-fuente">Resúmenes de alumnos</p></div>
+<h3 id="propiedad-industrial">Propiedad industrial</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>La registra el <strong>Instituto Nacional de la Propiedad Industrial (INPI)</strong>.</p>
+<div class="tabla"><table><thead><tr><th>Figura</th><th>Qué es</th><th>Duración</th></tr></thead><tbody><tr><td><strong>Patente de invención</strong></td><td>Título que da el Estado al autor de un invento nuevo, con mérito inventivo y aplicación industrial</td><td>20 años desde la solicitud, no renovable</td></tr><tr><td><strong>Modelo de utilidad</strong></td><td>Certificado para mejoras funcionales en herramientas u objetos</td><td>10 años desde la solicitud, no renovable</td></tr><tr><td><strong>Dibujo y modelo industrial</strong></td><td>Título para nuevas formas ornamentales aplicables a productos industriales</td><td>5 años, renovable hasta 15</td></tr><tr><td><strong>Marca</strong></td><td>Signo distintivo para bienes y servicios</td><td>10 años, renovable indefinidamente si se usa</td></tr></tbody></table></div>
+<p class="bloque-fuente">Resúmenes de alumnos</p></div>
+<div class="tomado"><aside class="nota"><strong>Qué es un modelo de utilidad y sus características</strong><span>Final 20/11/2020 <em class="viejo">Plan viejo</em></span></aside><p>La teoría está en <a href="parcial-2.html#propiedad-industrial">Propiedad industrial</a>.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Requisitos para patentar</strong><span>2° parcial 23/10/2024</span></aside><p>Era una frase para completar. El Final 04/12/2020 pidió además cuánto dura. La teoría está en <a href="parcial-2.html#propiedad-industrial">Propiedad industrial</a>.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>¿Cuál es la autoridad que otorga la patente? ¿Es válida internacionalmente?</strong><span>Lista de alumnos, unidad 4, sin fecha</span></aside><p>La respuesta no está en un apunte de la cátedra que hayamos podido leer. La teoría está en <a href="parcial-2.html#propiedad-industrial">Propiedad industrial</a>.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Qué dicen las fuentes sobre la novedad</p><p>La lista de alumnos dice «novedad absoluta». El resumen de alumnos de 2025 habla de novedad nacional e internacional para la patente y solo nacional para el modelo de utilidad. En el oral, nombrá el requisito y aclará el alcance.</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>No son patentables los descubrimientos, las teorías, los métodos, el software como tal, las obras artísticas ni las invenciones que afecten la vida de personas, animales, plantas o el ambiente. El software se protege por la ley 11.723. Sí son patentables las invenciones que usan computadoras.</p>
+<p class="bloque-fuente">Resúmenes de alumnos</p></div>
+<h3 id="marcas">Marcas</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>La propiedad y el uso exclusivo se obtienen con el <strong>registro</strong>. No se pueden registrar signos que describan el producto, de uso general, idénticos a otros existentes, engañosos ni inmorales, entre otros.</p>
+<p class="bloque-fuente">Resúmenes de alumnos</p></div>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Finales de 2017 y 2018 pidieron la lista completa de lo que no puede ser marca. El resumen de 2025 solo da los ejemplos de arriba.</p>
+</div>
+<h3 id="dibujo-y-modelo-industrial">Dibujo y modelo industrial</h3>
+<div class="tomado"><aside class="nota"><strong>Qué es un dibujo industrial y qué requisitos tiene</strong><span>Final 08/08/2025</span></aside><p>No hay apunte de la cátedra sobre esto. El resumen de alumnos de 2025 dice que protege nuevas formas ornamentales, de dos o tres dimensiones, aplicables a productos industriales, y que pide novedad u originalidad ornamental. Confirmalo con el decreto-ley 6673/63.</p>
+</div>
+<h3 id="casos-especiales">Casos especiales</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><ul>
+<li><strong>Programas de computación.</strong> Los regula la ley 11.723, que protege su código fuente y su código objeto.</li>
+<li><strong>Invenciones laborales.</strong> La titularidad puede ser del empleador (si fue encargada, con retribución adicional al trabajador), del trabajador (si es personal) o compartida (si es incidental). Si patentás hasta un año después de dejar la empresa, se presume que la creaste en la relación laboral.</li>
+<li><strong>Transferencia de tecnología</strong> (ley 22.426). Regula licencias de marcas, patentes, modelos y conocimientos técnicos entre una parte del exterior y una del país.</li>
+<li><strong>Doble protección.</strong> Se permite, pero en caso de infracción solo se acciona por un régimen.</li>
+</ul>
+<p class="bloque-fuente">Resúmenes de alumnos</p></div>
+</section>
+<section class="sec"><h2 id="contrato-de-trabajo">Contrato de trabajo</h2>
+<p>El derecho del trabajo protege al trabajador, que está en desigualdad. Rige la Ley de Contrato de Trabajo (LCT). Y rige el principio de <strong>primacía de la realidad</strong>. Si lo que pasa en los hechos es una relación laboral, importa eso y no el nombre que se le puso al contrato.</p>
+<p><strong>Contrato de trabajo.</strong> Hay contrato de trabajo cuando una persona física (el trabajador) se obliga a realizar actos, ejecutar obras o prestar servicios a favor de otra (el empleador), bajo su dependencia, durante un período determinado o indeterminado, mediante una remuneración.</p>
+<h3 id="los-dos-elementos-exclusivos">Los dos elementos exclusivos</h3>
+<ul>
+<li><strong>Dependencia.</strong> Tiene tres caras. <strong>Técnica</strong> (el empleador indica cómo, dónde y cuándo trabajar), <strong>económica</strong> (el trabajador depende de los recursos del empleador) y <strong>jurídica o disciplinaria</strong> (el empleador da órdenes, sanciona y despide).</li>
+<li><strong>Remuneración.</strong> Es la contraprestación principal. Puede ser <strong>remunerativa</strong> (genera aportes y entra en el aguinaldo, vacaciones e indemnización) o <strong>no remunerativa</strong> (como asignaciones familiares o viáticos con comprobante).</li>
+</ul>
+<p>El <strong>salario mínimo, vital y móvil</strong> es la remuneración mínima obligatoria (art. 116 LCT). El <strong>SAC o aguinaldo</strong> es un sueldo extra, pagado en dos mitades, junio y diciembre, de 50% del mayor sueldo del semestre.</p>
+<p>Formas de determinar el sueldo.</p>
+<ul>
+<li><strong>Por tiempo.</strong> Jornal (por día o semana) o sueldo mensual.</li>
+<li><strong>Por resultado.</strong> Unidad de obra o destajo, comisión, participación en ganancias, habilitación, primas y premios.</li>
+</ul>
+<p>Se paga en dinero o en especie. La parte en especie no supera el 20% del sueldo. Las propinas habituales y no prohibidas también son remuneración.</p>
+<h3 id="derechos-y-deberes-de-cada-parte">Derechos y deberes de cada parte</h3>
+<div class="tomado"><aside class="nota"><strong>Deberes y derechos del empleador y del empleado</strong><span>2° parcial 14/10/2025</span></aside><p>Fue tema del oral.</p>
+</div>
+<p><strong>Derechos del empleador.</strong> Organizar, dirigir y controlar el trabajo, sancionar y modificar las condiciones del contrato, que se llama <em>ius variandi</em>.</p>
+<p>Para modificar tienen que cumplirse tres condiciones.</p>
+<ul>
+<li>Que sea <strong>razonable</strong>, o sea funcional a la empresa.</li>
+<li>Que <strong>no altere lo esencial</strong>, como remuneración, categoría o jornada.</li>
+<li>Que <strong>no perjudique</strong> al trabajador.</li>
+</ul>
+<p>Ejemplos de cambios que da la cátedra. Cambiar las tareas o el sector, el horario, el domicilio de la empresa o mudar al trabajador de una sucursal a otra (art. 66 LCT). Fuente: Contrato de trabajo (diapositivas de la cátedra).</p>
+<p><strong>Deberes del empleador.</strong> Ocupación efectiva, no discriminar, pagar cargas sociales, dar certificado de trabajo, seguridad personal y patrimonial, llevar libros, formación profesional y pagar la remuneración.</p>
+<p><strong>Derechos del trabajador.</strong> Cobrar el sueldo, ocupación efectiva, igualdad de trato, certificados y derechos sobre invenciones laborales.</p>
+<p><strong>Deberes del trabajador.</strong> Diligencia y colaboración, fidelidad, obediencia, cuidar los instrumentos de trabajo, responder por daños y no hacer competencia.</p>
+<p>Ambas partes deben actuar de buena fe y colaborar (art. 62 LCT).</p>
+<h3 id="duracion-del-contrato">Duración del contrato</h3>
+<ul>
+<li><strong>Por tiempo indeterminado.</strong> Es la regla (art. 10). Dura hasta que el trabajador se pueda jubilar, salvo que se extinga por una causa. Tiene un <strong>período de prueba de tres meses</strong> (art. 92). En ese tiempo cualquiera lo termina sin indemnización y con 15 días de preaviso. El manual lo cita así. «El contrato por tiempo indeterminado dura hasta que el trabajador se encuentre en condiciones de gozar de los beneficios que le asignan los regímenes de seguridad social, por límites de edad y años de servicios…», «…salvo que se configuren algunas de las causales de extinción previstas en la presente ley» (Manual Contrato de trabajo, página 3).</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Qué artículo es</p><p>El manual atribuye esa frase al art. 10 LCT. En el texto de la ley, esa frase parece ser el art. 91, y el art. 10 trata la conservación del contrato. No hay en el Drive un texto de la LCT para confirmarlo. Si lo citás con número en el examen, chequealo en la ley.</p>
+</div>
+<ul>
+<li><strong>A plazo fijo.</strong> Se hace por escrito y se usa para tareas especiales (art. 90). Según el resumen de 2025, el plazo es cierto y no supera los 5 años. El manual de la cátedra no lo detalla.</li>
+<li><strong>Eventual o de plazo incierto.</strong> El plazo no es cierto y depende de un hecho. El manual de la cátedra muestra casos transitorios, como reemplazar personal de vacaciones o con licencia, un evento puntual o un pedido excepcional.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Qué casos da el manual para cada uno</p><p>El manual pone esos casos transitorios en el contrato por tiempo determinado, que se hace por escrito (art. 90 LCT). Por eso se les dice, mal, «trabajadores por contrato». Aparte trata las <strong>empresas de servicios eventuales</strong> («agencias»). La ley solo permite tomar personal por agencia en situaciones excepcionales. La ausencia de un trabajador permanente por licencia o vacaciones, una demanda excepcional y transitoria, congresos o exposiciones, y reparaciones urgentes que no puede hacer el personal de planta.</p>
+<p>Fuente: Manual Contrato de trabajo, páginas 3 y 4.</p>
+</div>
+<ul>
+<li><strong>De temporada.</strong> Contrato por tiempo indeterminado con servicio discontinuo (art. 96).</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Cuándo un contrato es eventual y en qué se diferencia del plazo fijo</strong><span>Final 08/08/2025</span></aside><p>Se pidió la diferencia. La teoría está en <a href="parcial-2.html#duracion-del-contrato">Duración del contrato</a>.</p>
+</div>
+<h3 id="que-puede-cambiar-el-empleador">Qué puede cambiar el empleador</h3>
+<p>Si el empleador impone cambios esenciales o que perjudican, el trabajador puede considerarse despedido. Eso es el <strong>despido indirecto</strong>. Antes tiene que intimarlo a cumplir, salvo que haya sido agredido (Manual Contrato de trabajo, página 16).</p>
+<div class="tomado"><aside class="nota"><strong>El empleador cambia reglas o baja el sueldo y qué pasa</strong><span>Final 04/12/2020 <em class="viejo">Plan viejo</em></span></aside><p>Fue un caso de normas de trabajo que no estaban en el contrato. Después preguntaron cuánto corresponde y qué pasa con el preaviso.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Caso de un traslado a otro lugar de trabajo</strong><span>2° parcial 23/10/2024</span></aside><p>Pregunta el motivo de la demanda, sus fundamentos y la consecuencia si procede. No lo resolvemos acá. La hoja está en <a href="ejercicios.html">Ejercicios</a>. La teoría está en <a href="parcial-2.html#derechos-y-deberes-de-cada-parte">Derechos y deberes de cada parte</a> y <a href="parcial-2.html#extincion-del-contrato">Extinción del contrato</a>.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Presunciones a favor del trabajador</p><p>El 2° parcial 27/10/2025 pide «presunciones a favor del trabajador». No encontramos un apunte de la cátedra con ese título. En el material hay ideas que van por ahí. La primacía de la realidad, la presunción de despido por causa de embarazo (art. 178, más abajo) y la de que un invento patentado hasta un año después de irte se creó en la relación laboral. El manual de la cátedra suma dos más. Para la ley, «el trabajo no se presume gratuito» (art. 115 LCT). Y todo trabajador en relación de dependencia tiene un contrato aunque no haya papel firmado. Preguntá a tu comisión qué presunciones esperan.</p>
+<p>Fuente: Manual Contrato de trabajo, páginas 3 y 4.</p>
+</div>
+<h3 id="extincion-del-contrato">Extinción del contrato</h3>
+<p>Puede darse por tres tipos de causas.</p>
+<ul>
+<li><strong>Ajenas a la voluntad de las partes.</strong> Muerte, caso fortuito o fuerza mayor.</li>
+<li><strong>Voluntad de ambas.</strong> Acuerdo o cumplimiento del plazo o del trabajo pactado.</li>
+<li><strong>Voluntad de una parte.</strong><ul>
+<li>Del empleador. <strong>Despido sin causa</strong> o <strong>despido con causa</strong> (por injuria grave del trabajador, art. 242).</li>
+<li>Del trabajador. <strong>Renuncia</strong> o <strong>despido indirecto</strong> (injuria grave del empleador, como falta de pago, no registrar la relación o acoso).</li>
+</ul>
+</li>
+</ul>
+<p>Sobre las consecuencias.</p>
+<div class="tabla"><table><thead><tr><th>Situación</th><th>Indemnización</th></tr></thead><tbody><tr><td>Despido sin causa</td><td>Antigüedad (art. 245), sustitutiva de preaviso, integración del mes de despido, SAC y vacaciones proporcionales</td></tr><tr><td>Despido indirecto</td><td>La misma que el despido sin causa</td></tr><tr><td>Despido con causa</td><td>Ninguna</td></tr><tr><td>Renuncia</td><td>Ninguna</td></tr></tbody></table></div>
+<p>Tipos de indemnización según el resumen. <strong>Completa</strong> (despido sin causa o indirecto), <strong>reducida</strong> (por ejemplo falta o disminución de trabajo, fuerza mayor o quiebra) y <strong>agravada</strong> (por ejemplo maternidad).</p>
+<h3 id="como-se-calcula-la-indemnizacion-por-antiguedad">Cómo se calcula la indemnización por antigüedad</h3>
+<p>El manual de la cátedra dice que se paga <strong>un mes de sueldo por año trabajado, o por fracción mayor de tres meses</strong>. Si tenés cinco años y cuatro meses, se calcula como seis meses.</p>
+<ul>
+<li>La base es la <strong>mejor remuneración normal y habitual</strong>. Si el sueldo es variable, se toma el más alto de los últimos doce meses.</li>
+<li>No se cuenta el aguinaldo ni pagos excepcionales, como premios.</li>
+<li>Se usa el sueldo bruto.</li>
+<li>Hay un tope, de tres veces el promedio de sueldos del convenio colectivo. La Corte lo declaró inconstitucional en 2004 cuando era menor al 67% del sueldo (Manual, página 18).</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Cómo se calcula la indemnización</strong><span>Final 20/11/2020 y Final 04/12/2020 <em class="viejo">Plan viejo</em></span></aside><p>El primero preguntó cómo se calcula. El segundo, cuánto corresponde y qué pasa con el preaviso.</p>
+</div>
+<h3 id="preaviso">Preaviso</h3>
+<p>Es el aviso anticipado de que se va a terminar el contrato.</p>
+<ul>
+<li><strong>Del trabajador.</strong> 15 días, según el resumen de 2025. El manual de la cátedra no lo detalla.</li>
+<li><strong>Del empleador.</strong> 15 días en el período de prueba, <strong>un mes</strong> si el trabajador tiene menos de 5 años y <strong>dos meses</strong> si tiene más (art. 231).</li>
+</ul>
+<p>Se cuenta desde el primer día del mes siguiente al de la notificación (Manual, página 18). Si no se da, se paga una <strong>indemnización sustitutiva</strong>.</p>
+<p>Si el despido no cae en el último día del mes, se paga además la <strong>integración del mes de despido</strong>. El manual da un ejemplo. Si el aviso llega el día 5, el empleador paga los 25 días que faltan hasta el fin del mes.</p>
+<h3 id="suspension-del-contrato">Suspensión del contrato</h3>
+<p>Interrumpe las obligaciones sin romper el vínculo. Se notifica por escrito, con justa causa y plazo determinado.</p>
+<ul>
+<li><strong>Disciplinaria.</strong> Hasta 30 días por año aniversario, sin remuneración.</li>
+<li><strong>Económica.</strong> Hasta 30 días por año aniversario, sin remuneración.</li>
+<li><strong>Fuerza mayor.</strong> Hasta 75 días por año aniversario.</li>
+</ul>
+<p>Los topes de 30 y 75 días salen del resumen de 2025. No los encontramos en el manual de la cátedra.</p>
+<h3 id="jornada-y-licencias">Jornada y licencias</h3>
+<p>Las horas extras se pagan con 50% de recargo en días hábiles y 100% en francos y fines de semana.</p>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Licencias especiales pagas, en días corridos, según el resumen de alumnos de 2025.</p>
+<ul>
+<li>Nacimiento de un hijo, 2 días.</li>
+<li>Matrimonio, 10 días.</li>
+<li>Fallecimiento de cónyuge, hijo o padres, 3 días. De un hermano, 1.</li>
+<li>Examen secundario o universitario, 2 días por examen y hasta 10 por año.</li>
+</ul>
+<p class="bloque-fuente">Resumen de alumnos, 2025</p></div>
+<h3 id="derechos-laborales-de-las-mujeres">Derechos laborales de las mujeres</h3>
+<p>Son los arts. 172 a 183 de la LCT.</p>
+<ul>
+<li><strong>Antidiscriminación.</strong> Prohibición de discriminar por sexo, edad, religión, nacionalidad o actividad gremial o política (art. 17). Plena capacidad para contratar. Igualdad de remuneración por trabajo de igual valor.</li>
+<li><strong>Protección.</strong> Descanso intermedio, prohibición de dar trabajo a domicilio a quien trabaja en la empresa y de ocupar mujeres en tareas penosas, peligrosas o insalubres.</li>
+<li><strong>Maternidad.</strong> Licencia de <strong>90 días</strong> en total, 45 antes y 45 después del parto. Se presume que el despido dentro de los 7 meses y medio antes o después del parto es por esa causa, y se paga una indemnización agravada. La lactancia da dos descansos de media hora. Fuente: Manual Contrato de trabajo, páginas 7 y 8.</li>
+</ul>
+<p><strong>Estado de excedencia</strong> (art. 183). Al terminar la licencia por maternidad, la trabajadora puede volver a trabajar, retirarse con el 25% de la indemnización por despido o pedir una licencia sin goce de sueldo de <strong>entre tres y seis meses</strong>. Si al terminar esa licencia el empleador no tiene vacante para ella, se rompe el contrato y le paga el 25% de la indemnización por despido. Fuente: Manual Contrato de trabajo, página 7.</p>
+<div class="ojo"><p class="ojo-t">Excedencia, de 3 a 6 meses</p><p>El resumen de alumnos de 2019 dice de 6 a 12 meses. El manual de la cátedra y el resumen de 2025 dicen de 3 a 6. Estudiá 3 a 6.</p>
+</div>
+<h3 id="derechos-laborales-de-los-ninos">Derechos laborales de los niños</h3>
+<ul>
+<li>Se puede trabajar desde los <strong>18 años</strong>. Entre los 16 y los 17, con autorización de los padres.</li>
+<li>Menores de 16, prohibido. Excepción, desde los 14 en una empresa del padre, madre o tutor, hasta 3 horas diarias o 15 semanales, sin tareas riesgosas y cumpliendo la escuela.</li>
+<li>Entre 16 y 17 años, jornada de 6 horas diarias o 36 semanales. Con permiso del Ministerio de Trabajo puede llegar a 8 y 48.</li>
+<li>Prohibido trabajar de noche, entre las 20 y las 6 horas.</li>
+<li>Igual sueldo que un mayor que hace la misma tarea. Vacaciones de al menos 15 días.</li>
+</ul>
+<h3 id="contrato-de-trabajo-y-contrato-de-servicios">Contrato de trabajo y contrato de servicios</h3>
+<div class="tomado"><aside class="nota"><strong>¿En qué se diferencia el contrato de obra del contrato de trabajo?</strong><span>Lista de preguntas del resumen de alumnos de 2025</span></aside><p>Ese resumen compara cuatro cosas. La naturaleza (laboral o civil y comercial), la persona (en el de trabajo el trabajador es una persona física, en el otro pueden ser físicas o jurídicas), la actividad (dependiente o independiente) y la retribución (remuneración u honorarios). No hay apunte de la cátedra que lo diga así. Mirá también <a href="parcial-1.html#obra-y-servicios">Obra y servicios</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="responsabilidad-civil">Responsabilidad civil</h2>
+<p>Se estudia en la unidad 6. La responsabilidad del ingeniero puede ser civil, penal o administrativa.</p>
+<div class="tomado"><aside class="nota"><strong>Responsabilidad civil, presupuestos, funciones y factores de atribución</strong><span>2° parcial 23/10/2024, 2° parcial 14/10/2025 y 2° parcial 27/10/2025</span></aside><p>En 2024 hubo que desarrollar responsabilidad contractual y extracontractual y factores de atribución. En 2025, presupuestos y funciones, y responsabilidad penal y civil. También en el Final 08/08/2025, con la responsabilidad objetiva.</p>
+</div>
+<p><strong>Responsabilidad civil.</strong> Busca reparar económicamente el daño que se le causó a la víctima.</p>
+<ul>
+<li><strong>Contractual.</strong> Por incumplir una obligación.</li>
+<li><strong>Extracontractual.</strong> Por violar el deber general de no dañar a otro.</li>
+</ul>
+<h3 id="las-tres-funciones">Las tres funciones</h3>
+<ul>
+<li><strong>Resarcitoria.</strong> Reparar el daño. Es la que exige los cuatro presupuestos.</li>
+<li><strong>Preventiva.</strong> Evitar que un daño se produzca, siga o se agrave.</li>
+<li><strong>Punitiva.</strong> Castigar a quien daña de manera deliberada. Se aplica en leyes específicas, como la de Consumidor.</li>
+</ul>
+<h3 id="los-cuatro-presupuestos-de-la-funcion-resarcitoria">Los cuatro presupuestos de la función resarcitoria</h3>
+<ol>
+<li><strong>Antijuridicidad.</strong> Toda acción u omisión que cause un daño, salvo que esté justificada. La legítima defensa la justifica si hay agresión ilícita actual o inminente, sin provocación de quien se defiende, y con un medio proporcionado.</li>
+<li><strong>Factor de atribución.</strong> La razón por la que se le atribuye el daño. Puede ser <strong>subjetivo</strong> u <strong>objetivo</strong>.</li>
+<li><strong>Nexo causal.</strong> Una relación de causa a efecto entre el hecho y el daño.</li>
+<li><strong>Daño.</strong> La lesión a un derecho o interés no prohibido, de una persona, del patrimonio o de un derecho de incidencia colectiva (art. 1737 CCyC). En las palabras del material, «es la lesión a un derecho o interés no prohibido por el ordenamiento jurídico y que tiene por objeto la persona, el patrimonio o un derecho de incidencia colectiva (art. 1737)».</li>
+</ol>
+<p>Fuente: Responsabilidad civil (diapositivas de la cátedra).</p>
+<h3 id="factores-de-atribucion">Factores de atribución</h3>
+<ul>
+<li><strong>Subjetivo.</strong> Importa la culpa o el dolo de quien causó el daño.<ul>
+<li><strong>Culpa.</strong> No tener la diligencia debida. Tiene tres formas, imprudencia (obrar precipitado), negligencia (falta de atención) e impericia (falta de conocimiento o habilidad en la profesión).</li>
+<li><strong>Dolo.</strong> Dañar con intención o con manifiesta indiferencia por los intereses ajenos.</li>
+</ul>
+</li>
+<li><strong>Objetivo.</strong> No importa la culpa. Hay responsabilidad objetiva, por ejemplo, cuando la obligación es de resultado (art. 1723) y en la responsabilidad del principal por el hecho del dependiente (art. 1753). En este último caso, solo cuando el hecho dañoso ocurre en ejercicio o con ocasión de las funciones encomendadas al dependiente.</li>
+</ul>
+<p>Para valorar la conducta, el material dice que a mayor deber de obrar con prudencia y pleno conocimiento, mayor es la diligencia que se exige y la valoración de la previsibilidad de las consecuencias. La culpa se mide según la naturaleza de la obligación y las circunstancias de persona, tiempo y lugar.</p>
+<p>Fuente: Responsabilidad civil (diapositivas de la cátedra).</p>
+<p>Para el profesional liberal, la responsabilidad es subjetiva, salvo que haya prometido un resultado concreto y no lo logre (art. 1768).</p>
+<div class="tomado"><aside class="nota"><strong>Responsabilidad objetiva dentro del factor de atribución</strong><span>Final 08/08/2025</span></aside><p>Según el material, es la que prescinde de la culpa. Aparece, por ejemplo, cuando la obligación es de resultado. Fuente: Responsabilidad civil (diapositivas de la cátedra), diapositiva 9.</p>
+</div>
+<div class="idea"><p>Para recordar el nombre de cada forma de culpa. Imprudencia es hacer de más, negligencia es no atender y impericia es no saber lo que un profesional debería saber.</p>
+</div>
+<h3 id="responsabilidad-penal-y-administrativa">Responsabilidad penal y administrativa</h3>
+<ul>
+<li><strong>Penal.</strong> Tiene función punitiva. Sanciona con prisión, inhabilitación o multa a quien comete un delito del Código Penal. La multa va al Estado.</li>
+<li><strong>Administrativa.</strong> Se incurre por infracciones o faltas según normas de la administración pública, con sanciones como multas.</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Responsabilidad penal y civil</strong><span>2° parcial 27/10/2025</span></aside><p>Fue tema del oral.</p>
+</div>
+</section>
+<section class="sec"><h2 id="colegio-de-ingenieros-especialistas">Colegio de Ingenieros Especialistas</h2>
+<p>Se regula por la <strong>ley provincial 11.291</strong>, de 1995. El texto de la ley está en el Drive y es la fuente de esta sección.</p>
+<ul>
+<li>Es una <strong>persona jurídica de derecho privado que ejerce funciones públicas</strong> (art. 1).</li>
+<li>Se divide en dos distritos. <strong>Distrito I</strong> con sede en Santa Fe y <strong>Distrito II</strong> con sede en Rosario (art. 2).</li>
+<li>Se rige por la ley, su reglamentación, el <strong>Estatuto</strong>, el <strong>Reglamento Interno</strong> y el <strong>Código de Ética Profesional</strong> (art. 3).</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Qué es el Colegio de Ingenieros Especialistas</strong><span>2° parcial 23/10/2024</span></aside><p>Era una frase para completar. El artículo 1 dice que funciona como persona jurídica de derecho privado en ejercicio de funciones públicas. Fuente: Ley 11.291 (apunte escaneado), página 1.</p>
+</div>
+<h3 id="que-hace">Qué hace</h3>
+<p>El artículo 4 enumera las finalidades.</p>
+<ul>
+<li>Controlar el ejercicio de la profesión.</li>
+<li>Gobernar la matrícula.</li>
+<li>Ejercer el poder disciplinario sobre los colegiados.</li>
+<li>Vigilar el cumplimiento de la ley y combatir el ejercicio ilegal.</li>
+<li>Representar y defender a los colegiados ante los poderes públicos.</li>
+<li>Promover el mejoramiento profesional.</li>
+<li>Recaudar los derechos de matriculación, cuotas, tasas y multas.</li>
+</ul>
+<h3 id="gobierno-del-colegio">Gobierno del Colegio</h3>
+<ul>
+<li><strong>Colegio provincial.</strong> Lo gobiernan las Asambleas Ordinarias y Extraordinarias de matriculados, el <strong>Directorio General</strong> y el <strong>Tribunal de Ética Profesional y Disciplina</strong>.</li>
+<li><strong>Cada Distrito.</strong> Las Asambleas del distrito, el <strong>Directorio de Distrito</strong> y la Comisión Revisora de Cuentas.</li>
+<li>El Directorio de Distrito lo preside un ingeniero. Tiene igual número de titulares y suplentes de cuatro áreas, ingeniería química, eléctrica, mecánica y demás especialidades (art. 6).</li>
+<li>Los cargos en los Directorios y el Tribunal son obligatorios, salvo dispensa (art. 7).</li>
+</ul>
+<h3 id="matriculacion">Matriculación</h3>
+<p>La matrícula es el acto con el que el Colegio habilita a ejercer en la provincia (art. 21).</p>
+<div class="tomado"><aside class="nota"><strong>Requisitos para matricularse</strong><span>2° parcial 23/10/2024</span></aside><p>Era una frase para completar. Los requisitos del art. 21 están abajo. Fuente: Ley 11.291 (apunte escaneado), página 6.</p>
+</div>
+<p>Requisitos.</p>
+<ol>
+<li>Inscripción previa en el Registro Especial del Colegio.</li>
+<li>Fijar <strong>domicilio real, legal y profesional</strong> en la provincia.</li>
+<li>Acreditar con documentos el <strong>título</strong> de ingeniero.</li>
+<li>No tener causales de cancelación de la matrícula.</li>
+<li>Pagar el <strong>derecho de matriculación</strong>.</li>
+</ol>
+<p>Cada año hay que reinscribirse. Para eso no se debe estar inhabilitado ni suspendido y hay que pagar el derecho de reinscripción.</p>
+<ul>
+<li>No se puede negar la matrícula por razones ideológicas, políticas, raciales, religiosas ni discriminatorias (art. 22). Se puede apelar ante la Corte Suprema provincial dentro de cinco días.</li>
+<li>Se suspende o cancela por pedido propio, incompatibilidades, enfermedades que inhabiliten temporalmente, sanciones o proceso criminal vinculado con la profesión (art. 24).</li>
+<li>Falta de pago de seis cuotas consecutivas, previa intimación, se interpreta como abandono y permite suspender la matrícula (art. 25).</li>
+</ul>
+<h3 id="de-que-vive-el-colegio">De qué vive el Colegio</h3>
+<p>Los recursos de cada Distrito (art. 25).</p>
+<ul>
+<li>El derecho de inscripción y reinscripción.</li>
+<li>La cuota periódica.</li>
+<li>Las contribuciones extraordinarias.</li>
+<li>Las multas.</li>
+<li>Donaciones, subsidios y legados.</li>
+<li>Rentas de sus bienes e intereses bancarios.</li>
+</ul>
+<h3 id="tribunal-de-etica-profesional-y-disciplina">Tribunal de Ética Profesional y Disciplina</h3>
+<p>Es el órgano con potestad <strong>exclusiva y autónoma</strong> para investigar y juzgar las faltas (art. 11).</p>
+<ul>
+<li>Tiene <strong>cuatro miembros titulares y dos suplentes</strong> por Distrito, por dos años, reelegibles. Hace falta tener cinco años en el ejercicio de la profesión (art. 12).</li>
+<li>Antes de sancionar hay que citar al acusado, que tiene <strong>siete días</strong> para ser oído. El plazo se puede ampliar al doble por causa justificada (art. 16).</li>
+<li>El fallo se dicta dentro de los <strong>15 días hábiles</strong> desde que la causa queda en estado de sentencia (art. 17). No puede juzgar hechos de más de dos años antes de la denuncia.</li>
+<li>El denunciante no es parte del proceso (art. 15).</li>
+</ul>
+<p><strong>Causas de sanción</strong> (art. 18). Condena criminal por delito doloso. Incumplir la ley, el estatuto o los reglamentos. Negligencia reiterada o ineptitud manifiesta. Violar el régimen de incompatibilidades. Incumplir el Código de Ética. Actos que afecten las relaciones profesionales. Actos que comprometan el honor, el decoro o la dignidad de la profesión. Faltar sin justificación a las sesiones de los órganos directivos.</p>
+<p><strong>Sanciones</strong> (art. 19). Llamado de atención, apercibimiento privado o público, multas y suspensión de la matrícula. Las dos últimas se apelan ante la Corte Suprema provincial dentro de los cinco días. Para volver tras ser excluido hacen falta tres años del fallo firme (art. 20).</p>
+<div class="tomado"><aside class="nota"><strong>Tribunal de disciplina y actos contrarios a la ética</strong><span>2° parcial 27/10/2025 y 2° parcial 23/10/2024</span></aside><p>El 2024 completaba «constituyen actos contrarios a la ética y disciplina profesional para con la profesión». El detalle de esos actos está en el Código de Ética, que no está en el Drive. Lo que sí está es el artículo 18 de la ley.</p>
+</div>
+<h3 id="el-codigo-de-etica">El Código de Ética</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Según el resumen de alumnos de 2025, define los deberes del profesional hacia la profesión, hacia los colegas, hacia el comitente o empleador y hacia el Colegio, y qué actos son contrarios a la ética.</p>
+<p class="bloque-fuente">Resumen de alumnos, 2025</p></div>
+<div class="ojo"><p class="ojo-t">El Código de Ética no está en el Drive</p><p>El 2° parcial 27/10/2025 pide objetivos y deberes para con los colegas, el Colegio y el empleador. El Drive solo tiene el resumen de 2025. Pedí el texto del Código a tu comisión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="obra-publica-y-licitacion">Obra pública y licitación</h2>
+<p>El Estado contrata para satisfacer un interés público. Eso se estudia en la unidad 8, con un apunte de la cátedra.</p>
+<div class="tomado"><aside class="nota"><strong>Licitaciones y contratación directa</strong><span>2° parcial 14/10/2025, 2° parcial 27/10/2025 y Final 08/08/2025</span></aside><p>Los tres lo pidieron. El Final 04/12/2020 trajo además un caso de obra, para decidir entre licitación pública y privada.</p>
+</div>
+<h3 id="contrato-administrativo">Contrato administrativo</h3>
+<p>Es un acuerdo entre un órgano del Estado, en ejercicio de funciones administrativas, y otro órgano o un particular, para satisfacer finalidades públicas (Marienhoff). Tiene cuatro caracteres.</p>
+<ol>
+<li><strong>Formalismo.</strong> Su validez depende de cumplir las formas y el procedimiento exigidos.</li>
+<li><strong>Prerrogativas de la administración.</strong> Hay desigualdad jurídica y cláusulas exorbitantes. El contratista acepta o rechaza las condiciones. Prevalece el interés público.</li>
+<li><strong>Derechos y obligaciones personales</strong> (intuito personae).</li>
+<li><strong>Efectos respecto de terceros.</strong> Puede alcanzar a terceros, a diferencia del derecho privado. Ejemplo, en una concesión el concesionario puede cobrar a ciertos terceros una contribución de mejoras.</li>
+</ol>
+<h3 id="contrato-de-obra-publica-y-concesion">Contrato de obra pública y concesión</h3>
+<ul>
+<li><strong>Obra pública.</strong> El Estado paga la obra y el contratista solo construye. Ejemplo, una escuela.</li>
+<li><strong>Concesión de obra pública.</strong> El privado financia y construye, explota la obra por un tiempo y luego vuelve al Estado. Ejemplo, una autopista con peaje.</li>
+</ul>
+<p>La obra pública es el bien que el Estado construye, de forma directa o con terceros. El contrato de obra pública es una de las formas de hacerla.</p>
+<p>Sistemas de contratación (ley 13.064).</p>
+<ul>
+<li><strong>Ajuste alzado.</strong> Precio total, fijo y global, para obras pequeñas.</li>
+<li><strong>Unidad de medida.</strong> Se paga por ítems o medidas, con ajustes.</li>
+<li><strong>Coste y costas.</strong> Costos reales más la utilidad del contratista, para urgencias.</li>
+</ul>
+<h3 id="como-se-elige-al-contratista">Cómo se elige al contratista</h3>
+<ul>
+<li><strong>Libre elección.</strong> La administración elige con discrecionalidad, que no es irracionalidad.</li>
+<li><strong>Licitación.</strong> Se selecciona sobre la base de idoneidad moral, técnica y financiera, para ver quién ofrece el precio más conveniente. Se basa en la igualdad de trato.</li>
+<li><strong>Contratación directa.</strong> El Estado elige directamente, sin concurrencia de oferentes. Es una excepción.</li>
+<li><strong>Remate público.</strong> Venta de bienes al mejor postor.</li>
+<li><strong>Concurso.</strong> Se valora el factor personal, técnico, científico o artístico.</li>
+</ul>
+<h3 id="licitacion-publica">Licitación pública</h3>
+<p>Es el procedimiento de principio para contratar con el Estado (ley 13.064 y reglamento de contrataciones). Es un pedido de ofertas general, a cualquier empresa inscripta en el registro de proveedores. Es obligatoria a partir de cierto monto y no hay un número máximo de oferentes.</p>
+<p>Etapas.</p>
+<ol>
+<li><strong>Preparatoria.</strong> Interna, se elabora el pliego.</li>
+<li><strong>Esencial.</strong> Llamado, apertura de sobres y adjudicación.</li>
+<li><strong>Integrativa.</strong> Se formaliza el contrato.</li>
+</ol>
+<p>El <strong>pliego de condiciones</strong> es el conjunto de cláusulas que redacta la administración. Dice qué se licita, las condiciones del contrato y el trámite. Puede ser <strong>general</strong> (reglas para todos los contratos) o <strong>particular</strong> (condiciones de cada contrato). Es parte integrante del contrato.</p>
+<h3 id="licitacion-privada">Licitación privada</h3>
+<p>Es un pedido de ofertas a personas o empresas determinadas, invitadas en cada caso. Suele tener un monto menor. No se exige publicidad y en general se invita al menos a <strong>6 personas</strong> (Contratos administrativos, página 5).</p>
+<h3 id="contratacion-directa">Contratación directa</h3>
+<details class="pregunta"><summary><span>¿Cuándo procede la contratación directa?</span><small>Final 08/08/2025</small></summary><div class="resp"><p>Procede en casos determinados, y muchas veces después de que fracasó una licitación. Algunos de los casos que lista el apunte son los trabajos suplementarios en una obra en curso, la urgencia o las circunstancias imprevistas, la capacidad científica o artística determinante o la patente, la licitación sin oferentes o sin ofertas admisibles, la escasez de bienes en el mercado local acreditada y los contratos entre reparticiones públicas. Fuente: Contratos administrativos, páginas 5 y 6.</p>
+</div></details>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>En la pública, el Estado le abre la puerta a cualquier empresa inscripta. En la privada, invita a algunas. En la directa, elige a una sin competencia, y solo en los casos que lista la norma.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Los montos del apunte están viejos</p><p>El apunte pone un límite de 3 millones de pesos para una obra pública y de 100.000 pesos para otras operaciones. Son valores de hace años. No los estudies como dato actual.</p>
+</div>
+<h3 id="quienes-pueden-contratar-con-el-estado">Quiénes pueden contratar con el Estado</h3>
+<p>Personas humanas o jurídicas, sin sanciones y anotadas en la base del órgano rector (art. 27). <strong>No</strong> pueden las personas sancionadas, los agentes y funcionarios, los condenados por delitos dolosos, los procesados por delitos contra la propiedad, la administración o la fe pública, quienes no cumplen sus obligaciones tributarias o previsionales y los empleadores con sanciones laborales (art. 28).</p>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-2" data-materia="legislacion">
+<h2>Quiz del 2° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="v2mAeB_s98" data-tema="Contrato de trabajo" data-enlace="parcial-2.html#contrato-de-trabajo" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-1"><span class="q-n">1</span><div><p>¿Qué es el despido indirecto?</p>
+<p class="q-origen">Se tomó: Final 04/12/2020, adaptada <em class="viejo">Plan viejo</em></p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-1"><li><button type="button" class="op" data-ok="0">El que hace el empleador con causa</button></li><li><button type="button" class="op" data-ok="1">El trabajador se considera despedido por una injuria grave del empleador</button></li><li><button type="button" class="op" data-ok="0">La renuncia del trabajador sin causa</button></li><li><button type="button" class="op" data-ok="0">El fin del contrato al vencer el plazo fijo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Lo decide el trabajador, que pone fin al contrato culpando al patrón.</p>
+</div></li><li class="q" data-q="siMT_-1jpE" data-tema="Contrato de trabajo" data-enlace="parcial-2.html#contrato-de-trabajo" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-2"><span class="q-n">2</span><div><p>Según el manual de la cátedra, ¿cómo se computa la indemnización por antigüedad?</p>
+<p class="q-origen">Se tomó: Final 20/11/2020, adaptada <em class="viejo">Plan viejo</em></p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-2"><li><button type="button" class="op" data-ok="0">Medio sueldo por año trabajado</button></li><li><button type="button" class="op" data-ok="0">Un sueldo por cada cinco años</button></li><li><button type="button" class="op" data-ok="0">Un mes de sueldo por cada mes trabajado</button></li><li><button type="button" class="op" data-ok="1">Un mes de sueldo por año trabajado o fracción mayor de tres meses</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La base es la <strong>mejor remuneración normal y habitual</strong>, con un tope de tres veces el promedio del convenio colectivo (art. 245).</p>
+</div></li><li class="q" data-q="HP__W5FwCC" data-tema="Contrato de trabajo" data-enlace="parcial-2.html#contrato-de-trabajo" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-3"><span class="q-n">3</span><div><p>¿Qué preaviso tiene que dar un empleador que despide sin causa a un trabajador con más de cinco años de antigüedad?</p>
+<p class="q-origen">Se tomó: Final 04/12/2020, adaptada <em class="viejo">Plan viejo</em></p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-3"><li><button type="button" class="op" data-ok="0">15 días</button></li><li><button type="button" class="op" data-ok="0">Un mes</button></li><li><button type="button" class="op" data-ok="1">Dos meses</button></li><li><button type="button" class="op" data-ok="0">No tiene que dar preaviso</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Un mes si tiene menos de cinco años de antigüedad y dos meses si tiene más. El empleador puede pagar ese tiempo junto con la indemnización.</p>
+</div></li><li class="q" data-q="sflVm4HpBn" data-tema="Contrato de trabajo" data-enlace="parcial-2.html#contrato-de-trabajo" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-4"><span class="q-n">4</span><div><p>Según el manual de la cátedra, ¿qué es el estado de excedencia?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-4"><li><button type="button" class="op" data-ok="1">Una licencia sin goce de sueldo de entre 3 y 6 meses al terminar la licencia por maternidad</button></li><li><button type="button" class="op" data-ok="0">La licencia de 90 días por maternidad</button></li><li><button type="button" class="op" data-ok="0">Una suspensión disciplinaria</button></li><li><button type="button" class="op" data-ok="0">El descanso por lactancia</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es una de las opciones al terminar la licencia por maternidad. Las otras son volver a trabajar o retirarse con una indemnización del <strong>25%</strong> de la de despido.</p>
+</div></li><li class="q" data-q="G9zvocMMeL" data-tema="Responsabilidad civil" data-enlace="parcial-2.html#responsabilidad-civil" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-5"><span class="q-n">5</span><div><p>¿Cuál NO es uno de los cuatro presupuestos de la función resarcitoria?</p>
+<p class="q-origen">Se tomó: 2° parcial 14/10/2025, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-5"><li><button type="button" class="op" data-ok="0">Antijuridicidad</button></li><li><button type="button" class="op" data-ok="0">Factor de atribución</button></li><li><button type="button" class="op" data-ok="0">Nexo causal</button></li><li><button type="button" class="op" data-ok="1">Intención de la víctima</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Son <strong>antijuridicidad, factor de atribución, nexo causal y daño</strong>. La intención de la víctima no es un presupuesto.</p>
+</div></li><li class="q" data-q="w3BPVUBRle" data-tema="Responsabilidad civil" data-enlace="parcial-2.html#responsabilidad-civil" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-6"><span class="q-n">6</span><div><p>En un factor de atribución subjetivo, la impericia es...</p>
+<p class="q-origen">Se tomó: 2° parcial 23/10/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-6"><li><button type="button" class="op" data-ok="0">Un acto precipitado</button></li><li><button type="button" class="op" data-ok="0">La falta de atención</button></li><li><button type="button" class="op" data-ok="1">La falta de conocimientos o habilidades en la profesión</button></li><li><button type="button" class="op" data-ok="0">El daño causado con intención</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La culpa tiene tres formas. <strong>Imprudencia</strong> (acto precipitado), <strong>negligencia</strong> (falta de atención) e <strong>impericia</strong>. El dolo es la intención de dañar.</p>
+</div></li><li class="q" data-q="0S0usXPH0k" data-tema="Responsabilidad civil" data-enlace="parcial-2.html#responsabilidad-civil" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-7"><span class="q-n">7</span><div><p>¿Cuándo hay un factor de atribución objetivo?</p>
+<p class="q-origen">Se tomó: Final 08/08/2025, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-7"><li><button type="button" class="op" data-ok="1">Cuando se atribuye el daño sin considerar si hubo culpa, por ejemplo en una obligación de resultado</button></li><li><button type="button" class="op" data-ok="0">Cuando el daño fue intencional</button></li><li><button type="button" class="op" data-ok="0">Cuando la víctima prueba la negligencia</button></li><li><button type="button" class="op" data-ok="0">Cuando el daño es extrapatrimonial</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Hay responsabilidad objetiva, por ejemplo, si la obligación es <strong>de resultado</strong> o en la del principal por el hecho de su dependiente. El profesional liberal responde por culpa salvo que prometa un resultado.</p>
+</div></li><li class="q" data-q="WPxxmw9A3y" data-tema="Colegio de Ingenieros Especialistas" data-enlace="parcial-2.html#colegio-de-ingenieros-especialistas" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-8"><span class="q-n">8</span><div><p>¿Qué es el Colegio de Ingenieros Especialistas de Santa Fe según la ley 11.291?</p>
+<p class="q-origen">Se tomó: 2° parcial 23/10/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-8"><li><button type="button" class="op" data-ok="0">Un organismo del Poder Ejecutivo provincial</button></li><li><button type="button" class="op" data-ok="1">Una persona jurídica de derecho privado que ejerce funciones públicas</button></li><li><button type="button" class="op" data-ok="0">Un sindicato de ingenieros</button></li><li><button type="button" class="op" data-ok="0">Una cámara empresaria</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Controla el ejercicio de la profesión, gobierna la matrícula y ejerce el poder disciplinario. Se divide en el Colegio de Distrito I (Santa Fe) y el de Distrito II (Rosario).</p>
+</div></li><li class="q" data-q="KhubSFG-GQ" data-tema="Obra pública y licitación" data-enlace="parcial-2.html#obra-publica-y-licitacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-9"><span class="q-n">9</span><div><p>¿Qué caracteriza a la licitación privada según el apunte de la unidad 8?</p>
+<p class="q-origen">Se tomó: Final 04/12/2020, adaptada <em class="viejo">Plan viejo</em></p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-9"><li><button type="button" class="op" data-ok="0">Es el procedimiento de principio para contratar con el Estado</button></li><li><button type="button" class="op" data-ok="0">El Estado elige directamente sin pedir ofertas</button></li><li><button type="button" class="op" data-ok="1">Es un pedido de ofertas a empresas invitadas, de monto menor, a un mínimo de 6</button></li><li><button type="button" class="op" data-ok="0">Es una venta de bienes al mejor postor</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La <strong>licitación pública</strong> es el procedimiento de principio (página 3). La <strong>contratación directa</strong> es una excepción a la regla general (página 5).</p>
+</div></li><li class="q" data-q="2UTuJvFB6f" data-tema="Obra pública y licitación" data-enlace="parcial-2.html#obra-publica-y-licitacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-10"><span class="q-n">10</span><div><p>¿En cuál de estos casos procede la contratación directa según el apunte?</p>
+<p class="q-origen">Se tomó: Final 08/08/2025, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-10"><li><button type="button" class="op" data-ok="0">Siempre que la obra sea grande</button></li><li><button type="button" class="op" data-ok="0">Cuando el contratista es amigo de un funcionario</button></li><li><button type="button" class="op" data-ok="0">Cuando se quiere ahorrar tiempo de trámite sin otra razón</button></li><li><button type="button" class="op" data-ok="1">Ante urgencia o circunstancias imprevistas</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Procede en casos determinados. Algunos son urgencia, trabajos suplementarios en una obra en curso, patente o capacidad especial, o licitación sin ofertas admisibles.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta noviembre de 2025). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

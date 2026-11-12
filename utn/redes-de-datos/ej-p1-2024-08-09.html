@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>1° parcial, 09/08/2024: Redes de Datos</title>
+<meta name="description" content="Ejercicio de examen: 1° parcial, 09/08/2024.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="redes-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Redes de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=redes-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=redes-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>1° parcial, 09/08/2024</h1>
+<p class="bajada">1° parcial, 09/08/2024</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="p1-2024-08-09" data-titulo="1° parcial, 09/08/2024" data-min="120" data-otro="ejercicios.html#parcial-1" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="p1-2024-08-09" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1uBAYsL_e44K2VNzFO9HBQSbOcp-f_Pvh/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><p>1er parcial 404 09/08/24</p>
+<p>1 -</p>
+<ul>
+<li><strong>a)</strong> Explique las alternativas para indicar el comienzo de una trama en la Capa de Enlace.</li>
+<li><strong>b)</strong> Describa qué sucede si un &quot;Flag&quot; de comienzo de trama es igual a un dato del campo de datos.</li>
+</ul>
+<p>2 -</p>
+<ul>
+<li><strong>a)</strong> Compare las redes Classic Ethernet y Fast Ethernet.</li>
+<li><strong>b)</strong> Explique cómo se mantiene la compatibilidad en ambas versiones.</li>
+</ul>
+<p>3 -</p>
+<ul>
+<li><strong>a)</strong> Describa por qué decimos que Ethernet es un ejemplo de &quot;servicio sin conexión&quot; en Capa de Enlace.</li>
+<li><strong>b)</strong> Explique las alternativas que se utilizan para contrarrestar los errores en una red Ethernet.</li>
+</ul>
+<p>4 -</p>
+<ul>
+<li><strong>a)</strong> Explique qué tipos de interferencias puede sufrir una red WiFi.</li>
+<li><strong>b)</strong> Mencione los mecanismos de WiFi para contrarrestar las interferencias en el canal.</li>
+</ul>
+<p>5 -</p>
+<ul>
+<li><strong>a)</strong> Describa la arquitectura de una red RFID. Mencione ejemplos de estas redes.</li>
+<li><strong>b)</strong> Explique el mecanismo que emplea una etiqueta RFID para responder a un mensaje de un Lector de etiquetas.</li>
+</ul>
+</section>
+<section class="sec ex-preguntas" id="exPreguntas" hidden><h2 id="ex-preguntas">Preguntas con opciones</h2><p class="ex-baja">Salen de este examen, adaptadas. Dejalas para el final, porque las opciones pueden dar pistas.</p><ol class="qs"><li class="q" data-q="0LHg-o6gXU" data-tema="Dónde empieza una trama" data-enlace="parcial-1.html#donde-empieza-una-trama" data-tipo="mc"><div class="q-enun" id="qe-ex-1"><span class="q-n">1</span><div><p>En PPP, si el flag aparece dentro de los datos, ¿qué se hace?</p>
+<p class="q-origen">Se tomó: 1° parcial 09/08/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-ex-1"><li><button type="button" class="op" data-ok="0">Se descarta la trama</button></li><li><button type="button" class="op" data-ok="1">Se antepone un byte de escape</button></li><li><button type="button" class="op" data-ok="0">Se agrega un bit 0 después de cinco unos</button></li><li><button type="button" class="op" data-ok="0">Se cambia el valor del flag</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>PPP es orientado a bytes y usa <strong>byte-stuffing</strong> con un byte de escape. El bit 0 tras cinco unos es bit-stuffing, de HDLC.</p>
+</div></li><li class="q" data-q="1S4mt8Emlz" data-tema="Interferencias" data-enlace="parcial-1.html#interferencias" data-tipo="mc"><div class="q-enun" id="qe-ex-2"><span class="q-n">2</span><div><p>¿Cuál de estos no es un mecanismo de WiFi contra las interferencias?</p>
+<p class="q-origen">Se tomó: 1° parcial 09/08/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-ex-2"><li><button type="button" class="op" data-ok="0">Bajar la velocidad</button></li><li><button type="button" class="op" data-ok="0">Acortar la trama</button></li><li><button type="button" class="op" data-ok="0">Fragmentar la trama</button></li><li><button type="button" class="op" data-ok="1">Aumentar la potencia sin límite</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los tres mecanismos son <strong>bajar la velocidad, acortar la trama y fragmentar</strong>.</p>
+</div></li></ol></section>
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p><strong>1a.</strong></p>
+<div class="tabla"><table><thead><tr><th>Método</th><th>Cómo funciona</th><th>Dónde se usa</th></tr></thead><tbody><tr><td>Contar bytes</td><td>Un campo dice cuántos bytes siguen</td><td>Ya no se usa</td></tr><tr><td>Flag y <em>byte-stuffing</em></td><td>Byte especial de inicio. Si aparece en los datos, se antepone un byte ESC</td><td>PPP</td></tr><tr><td>Flag y <em>bit-stuffing</em></td><td>Flag 01111110. Después de un cero y cinco unos seguidos, se agrega un 0</td><td>HDLC, USB</td></tr><tr><td>Violar la codificación</td><td>Se usan símbolos que no representan datos, como en 4B/5B</td><td>Ethernet, WiFi</td></tr></tbody></table></div>
+<p><strong>1b.</strong> El receptor creería que ahí termina la trama. Para que no pase, el emisor rellena.</p>
+<ul>
+<li>Con <strong>byte-stuffing</strong>, antepone un byte ESC a cada byte de datos igual al flag o al ESC. En la guía de enlace (problema 2), los datos A B Esc Flag se mandan como Flag A B Esc Esc Esc Flag. El receptor saca los ESC agregados.</li>
+<li>Con <strong>bit-stuffing</strong>, después de un cero y cinco unos seguidos agrega un 0, así el patrón 01111110 solo aparece en el flag. El receptor borra ese 0.</li>
+</ul>
+<p><strong>2a.</strong> El tiempo de bit es la inversa de la velocidad.</p>
+<div class="tabla"><table><thead><tr><th>Versión</th><th>Estándar</th><th>Velocidad</th><th>Tiempo de bit</th><th>Detalle</th></tr></thead><tbody><tr><td>Clásica</td><td>802.3</td><td>10 Mbps</td><td>0,1 μs</td><td></td></tr><tr><td>Fast</td><td>802.3u</td><td>100 Mbps</td><td>0,01 μs</td><td>Mismo formato de trama. Sin coaxil. Variantes T4, TX y FX</td></tr><tr><td>Gigabit</td><td>802.3ab</td><td>1 Gbps</td><td>1 ns</td><td>Variantes SX, LX, CX y T</td></tr></tbody></table></div>
+<p><strong>2b.</strong> Fast Ethernet mantiene el mismo formato de trama que la clásica. Antes de transmitir, los switches negocian la velocidad y si van en half o full dúplex, así un equipo nuevo convive con uno viejo. Gigabit suma <em>carrier extension</em> (mínimo 512 bytes), <em>frame bursting</em> y <em>jumbo frames</em> de hasta 9000 bytes. Las jumbo pierden la compatibilidad.</p>
+<p><strong>3a.</strong> Porque Ethernet manda las tramas sin establecer una conexión antes y sin confirmarlas. Es <em>best effort</em>. Cada trama lleva su CRC, y si llega con errores se descarta, pero Ethernet no la confirma ni la retransmite. Eso lo deja a las capas superiores.</p>
+<p><strong>3b.</strong></p>
+<ul>
+<li><strong>CRC32.</strong> Cada trama lleva 4 bytes de CRC. Detecta ráfagas de hasta 32 bits y, por su distancia de Hamming de 4, hasta 3 errores aislados (guía de enlace, problema 9). Si falla, la trama se descarta.</li>
+<li><strong>Las capas superiores.</strong> Ethernet no retransmite. La trama perdida la recupera la capa 4, con la retransmisión de TCP.</li>
+<li><strong>Colisiones.</strong> Las resuelve CSMA/CD, que deja de transmitir apenas detecta una colisión y espera un tiempo exponencial antes de reintentar.</li>
+</ul>
+<p><strong>4a.</strong></p>
+<ul>
+<li><strong>Otros equipos en la misma banda.</strong> WiFi usa bandas ISM, que comparte con microondas y portones.</li>
+<li><strong>Otras estaciones.</strong> Las colisiones no se detectan bien en el aire, por la atenuación. Con la terminal escondida, dos estaciones lejanas que no se escuchan le transmiten al mismo Access Point y chocan.</li>
+</ul>
+<p><strong>4b.</strong> WiFi usa tres mecanismos contra las interferencias.</p>
+<ol>
+<li><strong>Bajar la velocidad.</strong> Las modulaciones lentas son más robustas.</li>
+<li><strong>Acortar la trama.</strong> La probabilidad de que <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span></span></span></span> bits lleguen bien es <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><msup><mo stretchy="false">)</mo><mi>N</mi></msup></mrow><annotation encoding="application/x-tex">(1-p)^N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:1.0913em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.109em;">N</span></span></span></span></span></span></span></span></span></span></span>. Con <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>&#61;</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>4</mn></mrow></msup></mrow><annotation encoding="application/x-tex">p&#61;10^{-4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span>, una trama de 12.144 bits llega bien el 30% de las veces, y a un tercio de largo, el 66%.</li>
+<li><strong>Fragmentar.</strong> Cada fragmento lleva su checksum y se manda con stop and wait. El largo lo define el Access Point.</li>
+</ol>
+<p>Contra las colisiones, CSMA/CA con sensado físico y virtual (NAV), y RTS y CTS de forma opcional.</p>
+<p><strong>5a.</strong> La arquitectura tiene dos partes. El <strong>lector</strong> es la parte inteligente, con alimentación y antenas. La <strong>etiqueta</strong> es pasiva, con 96 bits de identificación y un poco de memoria. El lector manda una portadora y la etiqueta toma de ahí la energía para responder (<em>backscatter</em>). Trabaja en la banda ISM de 902 a 928 MHz, hasta 10 m. Un ejemplo es una etiqueta en un producto, que se identifica con su EPC.</p>
+<p><strong>5b.</strong> Las etiquetas no se escuchan entre sí, así que usan Slotted-Aloha.</p>
+<ol>
+<li>El lector manda un Query con la cantidad de slots, que son <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>2</mn><mi>Q</mi></msup><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2^Q-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.9247em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">Q</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>.</li>
+<li>Cada etiqueta elige un slot al azar y en ese slot manda un RN16, un número de 16 bits.</li>
+<li>Si no hay colisión, el lector confirma ese RN16.</li>
+<li>La etiqueta confirmada envía su EPC completo.</li>
+</ol>
+<p>Si dos etiquetas eligen el mismo slot, chocan y vuelven a intentar en otra ronda.</p>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con el resumen del 1° parcial, secciones Dónde empieza una trama, Detección de errores, Ethernet, CSMA/CA, Interferencias y RFID, y los problemas 2 y 9 de la guía de enlace.</p><p class="bloque-fuente">Quedó en duda: El resumen no clasifica las interferencias de WiFi en tipos; en 4a se separaron los equipos de la misma banda de las colisiones entre estaciones. El ejemplo de red RFID sale de que la etiqueta responde con su EPC; el apunte no da una lista de ejemplos.</p><div class="em-votos" data-m="redes-de-datos" data-e="p1-2024-08-09" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen. Las preguntas con opciones ya se corrigieron solas.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Trama" data-enlace="parcial-1.html#la-trama" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Trama</span><span class="ex-t-teoria"><a href="parcial-1.html#la-trama">La trama</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Ethernet" data-enlace="parcial-1.html#ethernet" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Ethernet</span><span class="ex-t-teoria"><a href="parcial-1.html#ethernet">Ethernet</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="WiFi" data-enlace="parcial-1.html#wifi" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">WiFi</span><span class="ex-t-teoria"><a href="parcial-1.html#wifi">WiFi</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="RFID" data-enlace="parcial-1.html#rfid" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">RFID</span><span class="ex-t-teoria"><a href="parcial-1.html#rfid">RFID</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-p1-2024-08-28-practica.html">Anterior: 1° parcial, práctica, 28/08/2024</a><a href="ej-guia-capa-fisica.html">Siguiente: Guía de problemas de capa física</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

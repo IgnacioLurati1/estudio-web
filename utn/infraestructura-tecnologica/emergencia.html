@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-solo>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Emergencia: Infraestructura Tecnológica</title>
+<meta name="description" content="Lo necesario para rendir Infraestructura Tecnológica.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="infraestructura-tecnologica" data-pagina="emergencia">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Infraestructura Tecnológica</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html" aria-current="page">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1-teoria.html">1° parcial, teoría</a></li><li class="em-fuera"><a href="parcial-1-practica.html">1° parcial, práctica</a></li><li class="em-fuera"><a href="parcial-2-teoria.html">2° parcial, teoría</a></li><li class="em-fuera"><a href="parcial-2-practica.html">2° parcial, práctica</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=infraestructura-tecnologica">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=infraestructura-tecnologica">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#1-parcial-teoria">1° parcial, teoría</a></li><li class="n2"><a href="#1-parcial-practica">1° parcial, práctica</a></li><li class="n2"><a href="#2-parcial-teoria">2° parcial, teoría</a></li><li class="n2"><a href="#2-parcial-practica">2° parcial, práctica</a></li><li class="n2"><a href="#que-cae">Qué cae más</a></li><li class="n2"><a href="#examenes">Exámenes</a></li><li class="n3"><a href="#ex-p1t">1° parcial, teoría</a></li><li class="n3"><a href="#ex-p1p">1° parcial, práctica</a></li><li class="n3"><a href="#ex-p2t">2° parcial, teoría</a></li><li class="n3"><a href="#ex-p2p">2° parcial, práctica</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Protocolo de emergencia</h1>
+<p class="bajada">Lo justo de Infraestructura Tecnológica para los cuatro parciales, con el examen encima. Cada respuesta sale de los apuntes de la cátedra, con archivo y página.</p>
+
+<p class="em-salto"><a href="#examenes">Ir a los exámenes</a></p>
+
+<div class="ojo"><p class="ojo-t">Qué falta en el Drive</p><ul>
+<li><strong>Apunte de nube.</strong> Cloud computing se toma en los dos 2° parciales de teoría y no hay apunte. Esas consignas quedan sin respuesta. Conseguí el apunte o la clase de tu comisión.</li>
+<li><strong>Resoluciones oficiales.</strong> Ningún examen trae una. Las respuestas de los alumnos están tapadas.</li>
+<li><strong>Final y programa.</strong> No hay ningún final ni programa vigente. Preguntale a tu comisión si se toma final.</li>
+</ul>
+</div>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué piden</th></tr></thead><tbody><tr><td>1° parcial, teoría</td><td>8 preguntas abiertas de 1,25. En los tres de 2023, 2025 y 2026 salieron MTTR, MTTF, MTBF y disponibilidad con cuenta, PUE y DCiE de dos data centers y los costos ante una amenaza física</td></tr><tr><td>1° parcial, práctica</td><td>En el campus. En 2024, 14 preguntas y 17 puntos, con opción múltiple, verdadero o falso y una de unir de 4 puntos. Tipos de archivo, inodo, permisos, <code>man</code>, enlaces y fechas</td></tr><tr><td>2° parcial, teoría</td><td>7 u 8 preguntas de 1 a 2 puntos. En 2023 y 2025, pasillos, presión de aire desde el piso, frigorías de dos racks y nube</td></tr><tr><td>2° parcial, práctica</td><td>En el campus. En 2023 y 2024, 14 y 15 preguntas sobre 17 puntos, con una de unir metacaracteres. vi, comodines, variables, procesos y <code>find</code></td></tr></tbody></table></div>
+<p>Los parciales de 2022 también sirven. Sus consignas se repiten casi letra por letra en 2024, 2025 y 2026. El 1° parcial de teoría de 2026 repite la consigna de disponibilidad de 2022 con los mismos números, y el de 2025 repite la de 2023.</p>
+
+<section class="sec"><h2 id="1-parcial-teoria">1° parcial, teoría</h2>
+<h3 id="disponibilidad">Disponibilidad</h3>
+<details class="pregunta"><summary><span>Describa las tres métricas de disponibilidad estudiadas</span><small>1° parcial teoría, 01/10/2025</small></summary><div class="resp"><ul>
+<li><strong>MTTF (mean time to failure):</strong> tiempo medio hasta que se produce un fallo.</li>
+<li><strong>MTTR (mean time to repair):</strong> tiempo medio que se tarda en poner de nuevo en marcha el sistema.</li>
+<li><strong>MTBF (mean time between failures):</strong> tiempo medio entre fallos.</li>
+</ul>
+<p>Fuente: apunte 4, Métricas de Disponibilidad, página 1 del PDF.</p>
+</div></details>
+<p>Las fórmulas del apunte 4:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MTTF</mtext><mo>&#61;</mo><mfrac><mtext>tiempo total de funcionamiento correcto</mtext><mtext>cantidad de fallos</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{MTTF}&#61;&#92;frac{&#92;text{tiempo total de funcionamiento correcto}}{&#92;text{cantidad de fallos}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">MTTF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">cantidad de fallos</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">tiempo total de funcionamiento correcto</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MTTR</mtext><mo>&#61;</mo><mfrac><mtext>tiempo total de inactividad</mtext><mtext>cantidad de fallos</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{MTTR}&#61;&#92;frac{&#92;text{tiempo total de inactividad}}{&#92;text{cantidad de fallos}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">MTTR</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">cantidad de fallos</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">tiempo total de inactividad</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>MTBF</mtext><mo>&#61;</mo><mfrac><mtext>tiempo total</mtext><mtext>cantidad de fallos</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{MTBF}&#61;&#92;frac{&#92;text{tiempo total}}{&#92;text{cantidad de fallos}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">MTBF</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">cantidad de fallos</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">tiempo total</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>La disponibilidad es el funcionamiento correcto sobre el tiempo total, en porcentaje. Así la saca el ejemplo del apunte.</p>
+<div class="ejemplo"><p class="ejemplo-t">Un servidor con 5 caídas en 3 meses</p><p>Tres caídas duraron 5 minutos, una 30 y otra 40. El apunte toma el mes de 30 días.</p>
+<ul>
+<li>Tiempo total: 129600 minutos.</li>
+<li>Inactividad: 85 minutos.</li>
+<li>Funcionamiento correcto: 129515 minutos.</li>
+<li>MTTR = 85 / 5 = 17 minutos.</li>
+<li>MTTF = 129515 / 5 = 25903 minutos.</li>
+<li>MTBF = 129600 / 5 = 25920 minutos.</li>
+<li>Disponibilidad = 129515 / 129600 = 99,93 %.</li>
+</ul>
+<p class="bloque-fuente">Apunte 4, Métricas de Disponibilidad, página 1 del PDF</p></div>
+<div class="ojo"><p class="ojo-t">El apunte 1 define distinto el MTTF</p><p>La página 16 del apunte 1 llama a MTTF «tiempo medio entre fallas». El apunte 4 le da ese nombre a MTBF. Para las cuentas usá las fórmulas del apunte 4, que son las que tienen ejemplo.</p>
+</div>
+<h3 id="pue-y-dcie">PUE y DCiE</h3>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>PUE</mtext><mo>&#61;</mo><mfrac><mtext>Demanda total del data center</mtext><mtext>Demanda de equipos TI</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{PUE}&#61;&#92;frac{&#92;text{Demanda total del data center}}{&#92;text{Demanda de equipos TI}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">PUE</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.2519em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Demanda de equipos TI</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Demanda total del data center</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>DCiE</mtext><mo>&#61;</mo><mfrac><mtext>Demanda de equipos TI</mtext><mtext>Demanda total del data center</mtext></mfrac><mo>×</mo><mn>100</mn><mtext> </mtext><mi mathvariant="normal">%</mi><mo>&#61;</mo><mfrac><mn>1</mn><mtext>PUE</mtext></mfrac></mrow><annotation encoding="application/x-tex">&#92;text{DCiE}&#61;&#92;frac{&#92;text{Demanda de equipos TI}}{&#92;text{Demanda total del data center}}&#92;times 100&#92;,&#92;%&#61;&#92;frac{1}{&#92;text{PUE}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">DCiE</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Demanda total del data center</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Demanda de equipos TI</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.8056em;vertical-align:-0.0556em;"></span><span class="mord">100</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">%</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0074em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">PUE</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>Fuente: apunte 5, Eficiencia Energética, página 2 del PDF en adelante.</p>
+<div class="tabla"><table><thead><tr><th>PUE</th><th>DCiE</th><th>Nivel</th></tr></thead><tbody><tr><td>3,0</td><td>33 %</td><td>Muy ineficiente</td></tr><tr><td>2,5</td><td>40 %</td><td>Ineficiente</td></tr><tr><td>2,0</td><td>50 %</td><td>Promedio</td></tr><tr><td>1,5</td><td>67 %</td><td>Eficiente</td></tr><tr><td>1,2</td><td>83 %</td><td>Muy eficiente</td></tr></tbody></table></div>
+<p>Fuente: apunte 5, página 6.</p>
+<div class="ejemplo"><p class="ejemplo-t">Dos casos del apunte</p><ul>
+<li>100 000 kW en total y 80 000 kW de IT dan PUE 1,25 y DCiE 0,8.</li>
+<li>200 kW en total y 94 kW de IT dan PUE 2,13 y DCiE 47 %. El soporte es enfriamiento 80, UPS 24 e iluminación 2.</li>
+</ul>
+<p class="bloque-fuente">Apunte 5, Eficiencia Energética, páginas 5 y 6</p></div>
+<div class="ojo"><p class="ojo-t">El dato de IT no viene en la consigna</p><p>Te dan el consumo total y cuánto va a refrigeración, iluminación y UPS. El total incluye el soporte, así que IT es el total menos el soporte. El PUE menor es el más eficiente.</p>
+</div>
+<h3 id="costos-ante-una-amenaza-fisica">Costos ante una amenaza física</h3>
+<details class="pregunta"><summary><span>Ante la ocurrencia de una amenaza física hay costos asociados que pueden ser tipificados, cuál es la clasificación</span><small>1° parcial teoría, 04/10/2023, 01/10/2025 y 30/09/2026</small></summary><div class="resp"><ul>
+<li><strong>De oportunidad:</strong> las utilidades que se pierden por no estar disponibles.</li>
+<li><strong>Directos:</strong> influyen directamente en las finanzas y son fáciles de medir. Por ejemplo, empleados esperando, transacciones, recuperación, testeo y demandas.</li>
+<li><strong>Indirectos:</strong> se sabe que existen, pero son difíciles de medir. Por ejemplo, satisfacción, clientes perdidos, imagen y relaciones públicas.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, página 2.</p>
+</div></details>
+<p>El apunte también da una fórmula de costo de interrupción, Costo = P x A x E x H. P son las personas afectadas, A el porcentaje medio de afectación, E el costo de la hora y H las horas.</p>
+<div class="ojo"><p class="ojo-t">Errata en el ejemplo del apunte</p><p>El ejemplo usa P = 8, A = 100, E = 60 y H = 5, y llega a $240 000. Si A es un porcentaje, el 100 % debería valer 1 y no 100. Fuente: apunte 2, páginas 2 y 3.</p>
+</div>
+<h3 id="tiers">Tiers</h3>
+<p>Si hacen falta tres generadores, el apunte cuenta así:</p>
+<div class="tabla"><table><thead><tr><th>Configuración</th><th>Generadores</th></tr></thead><tbody><tr><td>N</td><td>3</td></tr><tr><td>N+1</td><td>4</td></tr><tr><td>N+2</td><td>5</td></tr><tr><td>2N</td><td>6</td></tr><tr><td>2N+1</td><td>7</td></tr></tbody></table></div>
+<p>Fuente: apunte 1, página 12.</p>
+<details class="pregunta"><summary><span>De acuerdo al Tier o número de capa, indique qué configuración de redundancia en función de N aplica</span><small>1° parcial teoría, 04/10/2023 y 01/10/2025</small></summary><div class="resp"><p>La tabla del apunte da N para el Tier I, N+1 para el II, N+1 para el III y 2(N+1) para el IV.</p>
+<p>Fuente: apunte 1, Estructura Física, página 16.</p>
+</div></details>
+<details class="pregunta"><summary><span>La clasificación de centro de datos en Tiers: en cuántas capas se divide, describa brevemente cada una</span><small>1° parcial teoría, 01/10/2025</small></summary><div class="resp"><p>Son cuatro capas.</p>
+<ul>
+<li><strong>Capa I, básico.</strong> Sin redundancia y con varios puntos únicos de falla. Sale de servicio al menos una vez al año por mantenimiento. Carga máxima del 100 %.</li>
+<li><strong>Capa II, componentes redundantes.</strong> Diseño N+1, con piso falso, UPS y generadores, conectado a una sola línea de distribución.</li>
+<li><strong>Capa III, mantenimiento concurrente.</strong> Doble línea de distribución. Carga máxima del 90 %.</li>
+<li><strong>Capa IV, tolerante a fallas.</strong> Dos líneas activas y dos UPS independientes, cada una N+1. Tiene EPO, el corte de emergencia.</li>
+</ul>
+<p>Fuente: apunte 1, Estructura Física, páginas 12 a 15.</p>
+</div></details>
+<p><img src="img/fig-tabla-tiers.webp" alt="Tabla comparativa de los cuatro Tiers, del apunte 1"></p>
+<div class="tabla"><table><thead><tr><td></td><th>Tier I</th><th>Tier II</th><th>Tier III</th><th>Tier IV</th></tr></thead><tbody><tr><td>Redundancia</td><td>N</td><td>N+1</td><td>N+1</td><td>2(N+1)</td></tr><tr><td>Alimentaciones</td><td>1</td><td>1</td><td>1 activa y 1 pasiva</td><td>2</td></tr><tr><td>Personal</td><td>Ninguno</td><td>1 en un turno</td><td>1 por turno</td><td>24x7x365</td></tr><tr><td>Mantenimiento en operación</td><td>No</td><td>No</td><td>Sí</td><td>Sí</td></tr><tr><td>Piso</td><td>30 cm</td><td>45 cm</td><td>70 a 75 cm</td><td>70 a 75 cm</td></tr><tr><td>Tolerancia a fallos únicos</td><td>No</td><td>No</td><td>No</td><td>Sí</td></tr><tr><td>Disponibilidad</td><td>99,671 %</td><td>99,749 %</td><td>99,982 %</td><td>99,991 %</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">El apunte da dos valores para la Capa IV</p><p>El texto de la página 14 dice 99,995 % y la tabla de la página 16 dice 99,991 %. Preguntá cuál se toma.</p>
+</div>
+<h3 id="piso-tecnico-y-sensores">Piso técnico y sensores</h3>
+<details class="pregunta"><summary><span>Como deben ubicarse las cargas en un piso técnico</span><small>1° parcial teoría, 01/10/2025 y 30/09/2026</small></summary><div class="resp"><p>El apunte no usa la palabra «ubicar». Habla de cargas concentradas o puntuales, que son puntos de pequeña superficie que soportan todo el peso. Las patas del mobiliario fijo ejercen una carga puntual más fuerte. Con una superficie de apoyo mayor, el peso se distribuye en una zona más amplia y baja la concentración.</p>
+<p>Fuente: apunte 1, Estructura Física, páginas 4 y 5.</p>
+</div></details>
+<details class="pregunta"><summary><span>Describa la ubicación ideal de los sensores de humedad en los racks del Datacenter</span><small>1° parcial teoría, 01/10/2025 y 30/09/2026</small></summary><div class="resp"><p>Van en los pasillos fríos. El apunte dice «colocar un sensor de humedad por fila en la parte frontal del Rack a la mitad de la fila».</p>
+<p>Fuente: apunte 1, Estructura Física, página 9.</p>
+</div></details>
+<h3 id="incendios">Incendios</h3>
+<details class="pregunta"><summary><span>Mencione la clasificación de detectores de incendio según la etapa en que se encuentra el evento</span><small>1° parcial teoría, 30/09/2026</small></summary><div class="resp"><ul>
+<li><strong>Pre combustión:</strong> el fuego empieza a originarse y todavía no se ve. Lo detectan sensores de alta sensibilidad con tecnología CCD.</li>
+<li><strong>Humo visible:</strong> aparecen indicios de humo.</li>
+<li><strong>Fuego con llamas:</strong> ya aparecen las llamas. Los detectores térmicos del mercado no se recomiendan para data centers.</li>
+<li><strong>Calor intenso:</strong> después de varios minutos, las llamas toman temperatura elevada y es muy difícil de controlar.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, página 5.</p>
+</div></details>
+<details class="pregunta"><summary><span>Según la forma en que la cañería de extinción transporta el agua, cuáles son los tipos, descríbalos</span><small>1° parcial teoría, 04/10/2023 y 30/09/2026</small></summary><div class="resp"><ul>
+<li><strong>Mojada:</strong> es la más común. Está llena de agua, que sale apenas se activan los rociadores. Tiene riesgo de goteras y puede subir la humedad.</li>
+<li><strong>Seca:</strong> cargada con aire comprimido y nitrógeno. El agua empuja el aire y después sale por los rociadores.</li>
+<li><strong>Pre acción:</strong> usa cañería seca y un tablero que hace de doble control. Verifica por segunda vez si hay incendio. Es la altamente recomendada para data centers.</li>
+</ul>
+<p>Fuente: apunte 2, Seguridad e Incendios, página 8.</p>
+</div></details>
+<details class="pregunta"><summary><span>Qué diferencia hay entre los extintores HCFC y HFC, cuál es el más adecuado para tecnología y por qué</span><small>1° parcial teoría, 04/10/2023</small></summary><div class="resp"><p>El HCFC tiene flúor y cloro, y extingue por absorción de calor. Está en desuso por el cloro. El HFC es similar, pero sin cloro. El apunte da al HFC-227ea como el más usado en IT para data centers, por su alta eficacia con una concentración baja.</p>
+<p>Fuente: apunte 2, Seguridad e Incendios, página 8.</p>
+</div></details>
+<details class="pregunta"><summary><span>Describa el tipo de agente extintor más utilizado e indique un nombre comercial</span><small>1° parcial teoría, 04/10/2023</small></summary><div class="resp"><p>El HFC-227ea, que DuPont vende como FM-200®.</p>
+<p>Fuente: apunte 2, Seguridad e Incendios, página 8.</p>
+</div></details>
+<h3 id="ups">UPS</h3>
+<details class="pregunta"><summary><span>A la hora de evaluar una UPS, cuál es la métrica que indica una mejor calidad y cómo se calcula</span><small>1° parcial teoría, 04/10/2023 y 30/09/2026</small></summary><div class="resp"><p>El apunte dice que un concepto muy importante para evaluar una UPS es la eficiencia. Es el cociente entre la salida y la entrada de energía, en porcentaje. Mientras mayor sea, más conveniente.</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Eficiencia</mtext><mo>&#61;</mo><mfrac><mtext>Salida</mtext><mtext>Entrada</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding="application/x-tex">&#92;text{Eficiencia}&#61;&#92;frac{&#92;text{Salida}}{&#92;text{Entrada}}&#92;times 100</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord text"><span class="mord">Eficiencia</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Entrada</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Salida</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">100</span></span></span></span></span></p>
+<p>Fuente: apunte 3, Alimentación Eléctrica, página 5.</p>
+</div></details>
+<div class="ejemplo"><p class="ejemplo-t">Eficiencia de una UPS</p><p>Entran 100 kW y salen 90 kW, así que la eficiencia es 90 %. Los 10 kW perdidos, por 24 horas y 365 días, son 87 600 kWh por año.</p>
+<p class="bloque-fuente">Apunte 3, Alimentación Eléctrica, página 5</p></div>
+</section>
+<section class="sec"><h2 id="1-parcial-practica">1° parcial, práctica</h2>
+<h3 id="conceptos-y-comandos">Conceptos y comandos</h3>
+<p>La pregunta de unir de 2024 vale 4 puntos y usa estas definiciones.</p>
+<div class="tabla"><table><thead><tr><th>Término</th><th>Definición del apunte</th></tr></thead><tbody><tr><td>Multitarea</td><td>Ejecuta varios procesos a la vez</td></tr><tr><td>Multiusuario</td><td>Varios usuarios lo usan al mismo tiempo</td></tr><tr><td>Kernel</td><td>La parte del sistema que interactúa con el hardware</td></tr><tr><td>Shell</td><td>La parte que interactúa con el usuario</td></tr><tr><td><code>vi</code></td><td>El editor disponible en la mayoría de los Unix y Linux</td></tr><tr><td>Comandos externos</td><td>Programas ajenos al shell. Corren en un proceso nuevo y se buscan en el PATH</td></tr><tr><td>Comandos internos</td><td>Corren en el mismo proceso del shell y no usan el PATH</td></tr><tr><td><code>whoami</code></td><td>Muestra tu usuario</td></tr><tr><td><code>who</code></td><td>Muestra los conectados</td></tr><tr><td><code>which</code></td><td>Dice dónde está un comando en el PATH</td></tr></tbody></table></div>
+<p>Fuente: Práctica 01, Introducción, páginas 4 y 7 a 10, y Práctica 02, páginas 6 y 7.</p>
+<ul>
+<li><strong>Formato.</strong> Comando primero, opciones con guion y espacios entre las partes. Valen <code>who -u</code>, <code>who -m -u</code> y <code>who -mu</code>. No valen <code>who-u</code>, <code>-u who</code>, <code>who -m-u</code> ni <code>who -m u</code>. Fuente: Práctica 02, Usando Linux, página 3.</li>
+<li><strong>Salir.</strong> <code>exit</code>, <code>logout</code> o Ctrl+d. Fuente: Práctica 02, página 2.</li>
+<li><strong><code>cal</code>.</strong> La sintaxis es <code>cal [[[day] month] year]</code>. Por ejemplo, <code>cal 12 2000</code> da diciembre de 2000. Fuente: Práctica 02, páginas 5 y 6.</li>
+<li><strong><code>wc</code>.</strong> Muestra nuevas líneas, palabras y bytes. Con <code>-l</code> solo líneas, con <code>-w</code> palabras y con <code>-c</code> bytes. Fuente: Práctica 02, páginas 10 y 11.</li>
+<li><strong>Manual.</strong> <code>man</code> muestra la página completa, con sintaxis y descripción. <code>whatis</code> equivale a <code>man -f</code> y <code>apropos</code> a <code>man -k</code>, y dan solo una descripción breve. Fuente: Práctica 03, Man, páginas 2 a 7.</li>
+</ul>
+<h3 id="archivos">Archivos</h3>
+<ul>
+<li><strong>Tipos.</strong> Normales, directorios y especiales. Fuente: Práctica 04, Archivos, página 2.</li>
+<li><strong>Nombres.</strong> Admiten cualquier carácter menos <code>/</code> y el nulo, hasta 255. Linux distingue mayúsculas de minúsculas. El apunte advierte sobre <code>-r</code> como nombre peligroso, porque se confunde con una opción. Los que empiezan con punto son ocultos y <code>ls -a</code> los muestra. Fuente: Práctica 04, páginas 2, 4 a 5 y 7 a 8, y Práctica 01, página 5.</li>
+<li><strong>Inodo.</strong> Guarda fecha de creación, dueño, tamaño y ubicación física de los bloques de datos. No guarda el nombre, que está en el bloque de datos de la carpeta. Con <code>ls -i</code> ves el número de inodo. Fuente: Práctica 04, páginas 2 y 3.</li>
+<li><strong>Las tres fechas.</strong> Access, change y modify. Al crear o modificar el contenido, quedan las tres iguales. Leer cambia solo el acceso. Cambiar permisos cambia solo change. Las ves con <code>stat</code>. Fuente: Práctica 04, páginas 5 y 6.</li>
+<li><strong>Enlaces rígidos.</strong> Son otros nombres para el mismo inodo. El apunte dice que «la información solo desaparecerá del sistema cuando el último enlace rígido sea eliminado». Borrar el original no alcanza. Fuente: Práctica 04, página 13.</li>
+</ul>
+<h3 id="permisos">Permisos</h3>
+<p>Al leer <code>ls -l</code>, las columnas son tipo, permisos, cantidad de enlaces, usuario, grupo, tamaño, fecha de modificación y nombre. El número de inodo no aparece. Fuente: Práctica 05, Permisos, páginas 2 y 3.</p>
+<p>Cada grupo de permisos se escribe en octal sumando <code>r</code> = 4, <code>w</code> = 2 y <code>x</code> = 1.</p>
+<div class="tabla"><table><thead><tr><th>Octal</th><th>Quién puede qué</th></tr></thead><tbody><tr><td>000</td><td>Nadie puede nada</td></tr><tr><td>400</td><td>Solo el dueño lee</td></tr><tr><td>600</td><td>El dueño lee y escribe</td></tr><tr><td>700</td><td>El dueño todo</td></tr><tr><td>744</td><td>El dueño todo, los demás leen</td></tr></tbody></table></div>
+<p>En modo simbólico, <code>chmod</code> usa <code>u</code>, <code>g</code>, <code>o</code> y <code>a</code> para quién, y <code>+</code>, <code>-</code> e <code>=</code> para qué. Varias órdenes se separan con comas, como en <code>chmod u+x,g-w archivo</code>. Fuente: Práctica 05, páginas 5 a 8.</p>
+<p>En un directorio, <code>r</code> deja listar, <code>x</code> deja entrar y <code>w</code> deja crear y borrar. El apunte dice: «Para borrar un archivo de un directorio sólo se necesita tener permisos X y W en el directorio». Fuente: Práctica 05, páginas 5 y 8 a 10.</p>
+<div class="ojo"><p class="ojo-t">Dos líneas del apunte que parecen chocar</p><p>La misma hoja lista «borrar» dentro del permiso <code>w</code> del archivo. La tabla de la página 13 dice que <code>rm</code> no necesita ningún permiso sobre el archivo. Quedate con la frase de arriba y con la tabla.</p>
+</div>
+<p><strong>umask.</strong> Es lo que se le resta al permiso base, 777 para directorios y 666 para archivos.</p>
+<div class="tabla"><table><thead><tr><th>Usuario</th><th>umask</th><th>Directorio</th><th>Archivo</th></tr></thead><tbody><tr><td>Regular</td><td>0002</td><td>775</td><td>664</td></tr><tr><td>Root</td><td>0022</td><td>755</td><td>644</td></tr></tbody></table></div>
+<p>Fuente: Práctica 05, páginas 11 y 12.</p>
+</section>
+<section class="sec"><h2 id="2-parcial-teoria">2° parcial, teoría</h2>
+<h3 id="frigorias">Frigorías</h3>
+<p>Todo lo que consume un equipo termina en calor, así que hay que sacar esa misma potencia con el aire acondicionado. Las equivalencias del apunte son estas:</p>
+<div class="tabla"><table><thead><tr><th>Para pasar</th><th>Hacé</th></tr></thead><tbody><tr><td>BTU/h a W</td><td>BTU/h x 0,293</td></tr><tr><td>W a BTU/h</td><td>W x 3,41</td></tr><tr><td>Toneladas a W</td><td>Toneladas x 3530</td></tr><tr><td>W a toneladas</td><td>W x 0,000284</td></tr></tbody></table></div>
+<p>Fuente: apunte 6, Climatización, página 4.</p>
+<p>La frigoría es la capacidad de bajar 1 °C la temperatura de un kilogramo de agua a 15,5 °C. Muchos equipos domésticos expresan su capacidad en frigorías. Fuente: apunte 6, página 4.</p>
+<div class="ojo"><p class="ojo-t">El factor de BTU a frigorías no está en el apunte</p><div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>El apunte define la frigoría, pero no da cómo pasar de BTU/h a frigorías. Tres exámenes de alumnos, de 2022, 2023 y 2025, usan 4 BTU/h por frigoría. No hay corrección de la cátedra que lo confirme, así que preguntalo antes del parcial.</p>
+<p class="bloque-fuente">Exámenes de alumnos de 2022, 2023 y 2025</p></div>
+</div>
+<div class="ejemplo"><p class="ejemplo-t">Calor de una sala</p><p>El apunte toma 21 servidores 2U de 575 W, y lleva la carga a BTU/h.</p>
+<p class="bloque-fuente">Apunte 6, Climatización, página 4</p></div>
+<div class="ojo"><p class="ojo-t">Errata del apunte en ese ejemplo</p><p>El apunte escribe 12,8 kW y 41.212 BTU/h. Pero 21 x 575 da 12.075 W, y eso por 3,41 da unos 41.176 BTU/h. Usá el método, no esos números.</p>
+</div>
+<h3 id="pasillos-frios-y-calientes">Pasillos fríos y calientes</h3>
+<details class="pregunta"><summary><span>Describa cómo se diseña de la forma más adecuada la disposición por pasillos, características y ventajas</span><small>2° parcial teoría, 09/11/2023 y 05/11/2025</small></summary><div class="resp"><p>Los racks se alinean frente con frente, y quedan pasillos intercalados, uno frío y uno caliente. Los equipos toman aire frío por el frente y expulsan el caliente por atrás. El aire frío entra por rejillas y el CRAC toma el caliente. Aislar los pasillos reduce el consumo.</p>
+<p>Fuente: apunte 6, Climatización, página 7.</p>
+</div></details>
+<p><img src="img/fig-pasillos.webp" alt="Disposición de racks en pasillos fríos y calientes"></p>
+<h3 id="presion-de-aire">Presión de aire</h3>
+<details class="pregunta"><summary><span>Describa cómo debe ser la presión adecuada de aire desde el piso, analice los tres casos y cuál es el más adecuado</span><small>2° parcial teoría, 09/11/2023 y 05/11/2025</small></summary><div class="resp"><ul>
+<li><strong>Flujo bajo:</strong> es insuficiente y no alcanza la parte superior del rack.</li>
+<li><strong>Flujo correcto:</strong> refrigera de manera uniforme a todos los equipos del rack. Es el adecuado.</li>
+<li><strong>Flujo excesivo:</strong> el aire sube de forma ineficiente, sin refrigerar la parte trasera del rack.</li>
+</ul>
+<p>Fuente: apunte 6, Climatización, página 9.</p>
+</div></details>
+<p><img src="img/fig-flujo-aire.webp" alt="Los tres casos de flujo de aire desde el piso técnico"></p>
+<h3 id="eficiencia-energetica">Eficiencia energética</h3>
+<p>Las fórmulas de PUE y DCiE son las del 1° parcial. En 2023 pidieron el PUE de un data center con racks, UPS, torres de enfriamiento, humidificador y extinción, y a cuánto deberían bajar las torres para llegar a 1,5. Lo que no es IT entra en el soporte.</p>
+<div class="ejemplo"><p class="ejemplo-t">Modelado de un rack</p><p>Un rack de 14,89 kW y otro de 4,47 kW suman 19,36 kW. Eso da 169.629 kWh por año. Con PUE 1,2, el soporte es 33.926 kWh y el total 203.554 kWh.</p>
+<p class="bloque-fuente">Apunte 5, Eficiencia Energética, práctica de modelado</p></div>
+<p>Es el mismo camino de la tabla de PUE 1,2, 1,5 y 1,8 del 09/11/2023, marcada «solo recuperatorio».</p>
+<div class="ojo"><p class="ojo-t">Errata del apunte 5</p><p>El apunte imprime 87000 en la cuenta de ahorro. La cuenta 10 x 24 x 365 da 87600, y el apunte después usa ese valor.</p>
+</div>
+<h3 id="nube">Nube</h3>
+<div class="ojo"><p class="ojo-t">Estas consignas se toman y no tienen apunte</p><p>En el Drive no hay ningún material de cloud computing, salvo los exámenes con respuestas de alumnos. En 2023 y 2025 pidieron los modelos de implementación y las tres categorías de servicios. En 2025, además, las ventajas frente a los sistemas tradicionales y los aspectos a cuidar al implementar. Conseguí el apunte o la clase de tu comisión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="2-parcial-practica">2° parcial, práctica</h2>
+<h3 id="metacaracteres">Metacaracteres</h3>
+<p>Antes de correr un comando, el shell expande estos caracteres. El comando recibe el resultado, no el asterisco. Fuente: Práctica 06, Shell, páginas 3 y 4.</p>
+<div class="tabla"><table><thead><tr><th>Carácter</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>*</code></td><td>Cualquier cadena</td></tr><tr><td><code>?</code></td><td>Un carácter</td></tr><tr><td><code>[ ]</code></td><td>Un carácter de la lista o del rango</td></tr><tr><td><code>{ }</code></td><td>Arma varias cadenas</td></tr><tr><td><code>~</code></td><td>El directorio HOME</td></tr><tr><td><code>&gt;</code></td><td>Redirige la salida</td></tr><tr><td><code>&gt;&gt;</code></td><td>Redirige la salida, añadiendo</td></tr><tr><td><code>&lt;</code></td><td>Redirige la entrada</td></tr><tr><td><code>2&gt;</code></td><td>Redirige el error</td></tr><tr><td><code>;</code></td><td>Ejecuta en secuencia</td></tr><tr><td><code>&amp;</code></td><td>Ejecuta en segundo plano</td></tr><tr><td><code>\</code></td><td>Anula un carácter especial</td></tr></tbody></table></div>
+<p>El pipe, la barra vertical, conecta la salida de un comando con la entrada de otro. Fuente: Práctica 06, página 11. La pregunta de unir de 2023 y 2024 también pide asignar y visualizar una variable, que están en Variables.</p>
+<p>Los ejemplos del apunte usan <code>echo</code> para ver la expansión. Con los archivos <code>few myfile nest net new test1 test1.2 test1.3</code>:</p>
+<pre class="codigo"><code><span class="hljs-built_in">echo</span> *               <span class="hljs-comment"># todos los nombres</span>
+<span class="hljs-built_in">echo</span> k*              <span class="hljs-comment"># los que empiezan con k</span>
+<span class="hljs-built_in">echo</span> *xt             <span class="hljs-comment"># los que terminan en xt</span>
+<span class="hljs-built_in">echo</span> .*              <span class="hljs-comment"># los ocultos</span>
+<span class="hljs-built_in">echo</span> ???             <span class="hljs-comment"># los de tres caracteres</span>
+<span class="hljs-built_in">echo</span> ne[stw]         <span class="hljs-comment"># net new</span>
+<span class="hljs-built_in">echo</span> [fghjdn]e[tw]   <span class="hljs-comment"># few net new</span>
+<span class="hljs-built_in">echo</span> *[1-5]          <span class="hljs-comment"># test1 test1.2 test1.3</span>
+<span class="hljs-built_in">echo</span> [!tn]*          <span class="hljs-comment"># few myfile</span></code></pre>
+<p>Cada corchete vale un solo carácter. Con <code>!</code> adentro, se niega la lista. Las llaves arman cadenas, como <code>archivo{1,2,3}.txt</code> o <code>{2..10..2}</code>. Fuente: Práctica 06, páginas 4 a 7.</p>
+<p><code>tee</code> muestra en pantalla y a la vez guarda en un archivo. Fuente: Práctica 06, páginas 12 y 13.</p>
+<h3 id="variables-y-comillas">Variables y comillas</h3>
+<ul>
+<li><strong>Nombres.</strong> Válidos <code>_variable1</code>, <code>llave_a</code> y <code>var_1</code>. Inválidos <code>2_var</code>, <code>-variable</code>, <code>var1-var2</code> y <code>var_a!</code>. Se asigna sin espacios alrededor del <code>=</code>. Fuente: Práctica 07, Variables, página 2.</li>
+<li><strong>Pegada a una cadena.</strong> Con llaves, <code>${VAR}CADENA</code>. Fuente: Práctica 07, página 3.</li>
+<li><strong><code>readonly</code>.</strong> <code>unset</code> no funciona con variables <code>readonly</code>. Fuente: Práctica 07, páginas 4 y 5.</li>
+<li><strong>Tipos.</strong> Local, presente en la instancia actual del shell y no disponible para los programas que inicia. De entorno, disponible para los procesos hijos. De shell, las que el propio shell define y usa. Fuente: Práctica 07, página 5.</li>
+<li><strong>Listar.</strong> <code>env</code> es externo y muestra solo las de entorno. <code>set</code> es interno y muestra también las demás. Fuente: Práctica 07, página 7.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Comillas</th><th>Efecto</th></tr></thead><tbody><tr><td>Simples</td><td>Todo pierde su significado especial</td></tr><tr><td>Dobles</td><td>Todo lo pierde, salvo <code>$</code>, la comilla invertida y <code>\</code></td></tr><tr><td>Invertidas</td><td>Lo de adentro se ejecuta como comando</td></tr></tbody></table></div>
+<p>Fuente: Práctica 07, Variables, páginas 7 a 10.</p>
+<h3 id="vi">vi</h3>
+<ul>
+<li><strong>Modos.</strong> Comando, el inicial. Texto o inserción, con <code>i</code>, <code>I</code>, <code>a</code>, <code>A</code>, <code>o</code>, <code>O</code> o <code>R</code>. Última línea o ex, con <code>:</code>. Fuente: Práctica 08, vi, páginas 6 y 7.</li>
+<li><strong>Salir.</strong> Guardan <code>:wq</code>, <code>:x</code> y Shift+zz. Sale sin guardar <code>:q!</code>. <code>:q</code> solo sirve si no hubo cambios. Fuente: Práctica 08, página 6.</li>
+</ul>
+<details class="pregunta"><summary><span>En cuál de los modos no puedo copiar ni mover texto</span><small>2° parcial práctica, 02/11/2023 y 07/11/2024</small></summary><div class="resp"><p>El apunte no lo dice con esa frase, pero sale de cómo lo ordena. Copiar y mover aparecen en modo comando y en modo última línea. En el modo texto o inserción, las teclas solo ingresan caracteres.</p>
+<p>Fuente: Práctica 08, vi, páginas 6, 10, 11 y 12.</p>
+</div></details>
+<p>La sustitución va en modo última línea:</p>
+<div class="tabla"><table><thead><tr><th>Comando</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>:#l1,#l2 s/a/b</code></td><td>Primera ocurrencia de cada línea</td></tr><tr><td><code>:#l1,#l2 s/a/b/c</code></td><td>Lo mismo, con confirmación</td></tr><tr><td><code>:#l1,#l2 s/a/b/g</code></td><td>Todas las ocurrencias</td></tr><tr><td><code>:#l1,#l2 s/a/b/gc</code></td><td>Todas, con confirmación</td></tr><tr><td><code>:1,$ s/a/b/g</code></td><td>Todo el archivo</td></tr></tbody></table></div>
+<p>Fuente: Práctica 08, vi, páginas 11 y 12. Son preguntas de «una o más de una», así que fijate también en las variantes con confirmación.</p>
+<h3 id="procesos">Procesos</h3>
+<p>Un proceso es un programa en ejecución. Cada uno tiene un PID único y el PPID de su padre. Un padre puede tener varios hijos, y un hijo tiene un solo padre. <code>echo</code>, que es interno, no crea un proceso hijo. Fuente: Práctica 09, Procesos, páginas 2 y 3.</p>
+<p>Un cambio en un hijo no afecta al padre. Lo exportado baja a los hijos, nunca sube. El apunte lo muestra con <code>x=4</code> y <code>x=400</code>. Fuente: Práctica 09, páginas 3 y 4.</p>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Permiso de ejecución</th><th>Dónde corre</th></tr></thead><tbody><tr><td><code>bash script.sh</code></td><td>No hace falta</td><td>Sub-shell</td></tr><tr><td><code>./script.sh</code></td><td>Hace falta, con <code>chmod</code></td><td>Sub-shell</td></tr><tr><td><code>. ./script.sh</code></td><td>No hace falta</td><td>Shell actual</td></tr></tbody></table></div>
+<p>Fuente: Práctica 09, páginas 5 a 7.</p>
+<ul>
+<li><strong>Prioridad.</strong> <code>renice</code> cambia a un proceso existente, por su PID. <code>nice</code> lanza uno nuevo con otra prioridad. Va de -20 a 19. Fuente: Práctica 09, páginas 9 y 10.</li>
+<li><strong>Tareas.</strong> <code>&amp;</code> lanza en segundo plano. Ctrl+z suspende la tarea en primer plano. <code>jobs</code> lista las suspendidas o en segundo plano. <code>bg</code> sigue en segundo plano una suspendida y <code>fg</code>, en primer plano. Fuente: Práctica 09, páginas 8 y 11 a 13.</li>
+</ul>
+<h3 id="find-grep-y-compania">find, grep y compañía</h3>
+<p><code>find camino expresión</code>. El apunte dice que «la búsqueda es recursiva y de la misma manera lista directorios como archivos». Fuente: Práctica 10, Comandos, página 3.</p>
+<ul>
+<li><code>-type f</code> archivos, <code>-type d</code> directorios, <code>-name &#39;patrón&#39;</code>.</li>
+<li><code>-size</code> en bloques de 512 bytes, con <code>+n</code> más grande y <code>-n</code> más chico.</li>
+<li><code>-exec comando {} \;</code> ejecuta sobre cada resultado. <code>-ok comando {} \;</code> hace lo mismo, pero pide confirmación.</li>
+</ul>
+<p>Fuente: Práctica 10, Comandos, páginas 3 a 5.</p>
+<div class="tabla"><table><thead><tr><th>Comando</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>grep</code></td><td>Busca en uno o más archivos las líneas que cumplen un patrón</td></tr><tr><td><code>cut</code></td><td>Corta columnas o campos, con <code>-c</code>, <code>-f</code> y <code>-d</code></td></tr><tr><td><code>sort</code></td><td>Ordena las líneas</td></tr><tr><td><code>head</code> y <code>tail</code></td><td>Primeras y últimas líneas, 10 por defecto</td></tr><tr><td><code>kill</code></td><td>Finaliza procesos</td></tr></tbody></table></div>
+<p>Fuente: Práctica 10, Comandos, páginas 6 a 12, y Práctica 09, página 11.</p>
+</section>
+<section class="sec cae"><h2 id="que-cae">Qué cae más</h2>
+<p class="cae-baja">El sitio no tiene todos los exámenes que se tomaron, así que esto es una pista y no una promesa. Tocá un tema para ver en qué exámenes salió.</p>
+<h3 id="cae-p1t">1° parcial, teoría</h3>
+<p class="cae-de">Sale de 3 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">MTTR</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 3 de 3</span></summary><ul class="cae-ex"><li><a href="ej-t1-2026-09-30.html">1° parcial de teoría, 30/09/2026</a></li><li><a href="ej-t1-2025-10-01.html">1° parcial de teoría, 01/10/2025</a></li><li><a href="ej-t1-2023-10-04.html">1° parcial de teoría, 04/10/2023</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">PUE</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 3 de 3</span></summary><ul class="cae-ex"><li><a href="ej-t1-2026-09-30.html">1° parcial de teoría, 30/09/2026</a></li><li><a href="ej-t1-2025-10-01.html">1° parcial de teoría, 01/10/2025</a></li><li><a href="ej-t1-2023-10-04.html">1° parcial de teoría, 04/10/2023</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">costos</span><span class="cae-barra" aria-hidden="true"><span style="width:100%"></span></span><span class="cae-num">en 3 de 3</span></summary><ul class="cae-ex"><li><a href="ej-t1-2026-09-30.html">1° parcial de teoría, 30/09/2026</a></li><li><a href="ej-t1-2025-10-01.html">1° parcial de teoría, 01/10/2025</a></li><li><a href="ej-t1-2023-10-04.html">1° parcial de teoría, 04/10/2023</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">UPS</span><span class="cae-barra" aria-hidden="true"><span style="width:67%"></span></span><span class="cae-num">en 2 de 3</span></summary><ul class="cae-ex"><li><a href="ej-t1-2026-09-30.html">1° parcial de teoría, 30/09/2026</a></li><li><a href="ej-t1-2023-10-04.html">1° parcial de teoría, 04/10/2023</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">sensores</span><span class="cae-barra" aria-hidden="true"><span style="width:67%"></span></span><span class="cae-num">en 2 de 3</span></summary><ul class="cae-ex"><li><a href="ej-t1-2026-09-30.html">1° parcial de teoría, 30/09/2026</a></li><li><a href="ej-t1-2025-10-01.html">1° parcial de teoría, 01/10/2025</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">piso técnico</span><span class="cae-barra" aria-hidden="true"><span style="width:67%"></span></span><span class="cae-num">en 2 de 3</span></summary><ul class="cae-ex"><li><a href="ej-t1-2026-09-30.html">1° parcial de teoría, 30/09/2026</a></li><li><a href="ej-t1-2025-10-01.html">1° parcial de teoría, 01/10/2025</a></li></ul></details></li></ul></section>
+<section class="sec em-examenes"><h2 id="examenes">Exámenes</h2>
+<p class="em-leyenda">«Respuesta oficial» es lo que está en el Drive. «Propuesta sin verificar» es una respuesta armada con inteligencia artificial que ningún docente revisó.</p>
+<h3 id="ex-p1t">1° parcial, teoría</h3><ul class="em-lista"><li class="em-fila"><a href="ej-t1-2026-09-30.html"><span class="em-nom">1° parcial de teoría, 30/09/2026</span><span class="ej-fecha">30/09/2026</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-t1-2025-10-01.html"><span class="em-nom">1° parcial de teoría, 01/10/2025</span><span class="ej-fecha">01/10/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-t1-2023-10-04.html"><span class="em-nom">1° parcial de teoría, 04/10/2023</span><span class="ej-fecha">04/10/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul>
+<h3 id="ex-p1p">1° parcial, práctica</h3><ul class="em-lista"><li class="em-fila"><a href="ej-p1-2024-09-26.html"><span class="em-nom">1° parcial de práctica, 26/09/2024</span><span class="ej-fecha">26/09/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul>
+<h3 id="ex-p2t">2° parcial, teoría</h3><ul class="em-lista"><li class="em-fila"><a href="ej-t2-2025-11-05.html"><span class="em-nom">2° parcial de teoría, 05/11/2025</span><span class="ej-fecha">05/11/2025</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-t2-2023-11-09.html"><span class="em-nom">2° parcial de teoría, 09/11/2023</span><span class="ej-fecha">09/11/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul>
+<h3 id="ex-p2p">2° parcial, práctica</h3><ul class="em-lista"><li class="em-fila"><a href="ej-p2-2024-11-07.html"><span class="em-nom">2° parcial de práctica, 07/11/2024</span><span class="ej-fecha">07/11/2024</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-p2-2023-11-02.html"><span class="em-nom">2° parcial de práctica, 02/11/2023</span><span class="ej-fecha">02/11/2023</span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul></section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

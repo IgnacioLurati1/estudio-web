@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>3° parcial o globalizador, 20/11/2024 (Alquiler de bicicletas): Algoritmos y Estructuras de Datos</title>
+<meta name="description" content="Ejercicio de examen: 3° parcial o globalizador, 20/11/2024 (Alquiler de bicicletas).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="algoritmos-y-estructuras-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Algoritmos y Estructuras de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">3° parcial y final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=algoritmos-y-estructuras-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=algoritmos-y-estructuras-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>3° parcial o globalizador, 20/11/2024 (Alquiler de bicicletas)</h1>
+<p class="bajada">3° parcial y final, 20/11/2024</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="fin-2024-11-20" data-titulo="3° parcial o globalizador, 20/11/2024 (Alquiler de bicicletas)" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="fin-2024-11-20" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1iPrZib54j5EOEILAztZ7exJVactIAwz-/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/fin-2024-11-20-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/fin-2024-11-20-e1.webp" width="1300" height="1324" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><p>La hoja pide el diagrama de Chapin. Va un diagrama por módulo, con su declaración de variables arriba, y primero el del programa principal. Si un diagrama no entra en la pantalla, tocalo para verlo completo. Después de los diagramas está el mismo algoritmo en Python, para que lo puedas probar. Las sentencias de archivos van con las palabras reservadas de Python (<code>open</code>, <code>pickle.load</code>, <code>pickle.dump</code>, <code>seek</code>, <code>tell</code>). Los textos se completan con <code>ljust</code> para que los registros midan lo mismo. El tamaño de un registro sale de <code>tell()</code> después de leer el primero.</p>
+<h4>Menú iterativo</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 859 677" width="859" height="677" style="width:859px;min-width:859px;max-width:none;height:677px" role="img" aria-label="Diagrama de Chapin del programa principal, con la declaración de variables y los registros. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="509.2" height="26"/><rect x="14" y="143" width="509.2" height="26"/><rect x="14" y="169" width="509.2" height="26"/><rect x="14" y="195" width="509.2" height="26"/><rect x="14" y="221" width="509.2" height="26"/><rect x="14" y="247" width="509.2" height="26"/><rect x="14" y="273" width="509.2" height="26"/><rect x="14" y="299" width="509.2" height="312"/><rect x="38" y="325" width="485.2" height="26"/><rect x="38" y="351" width="485.2" height="26"/><rect x="38" y="377" width="485.2" height="26"/><rect x="38" y="403" width="485.2" height="26"/><rect x="38" y="429" width="485.2" height="26"/><rect x="38" y="455" width="485.2" height="26"/><rect x="38" y="481" width="485.2" height="52"/><rect x="62" y="507" width="461.2" height="26"/><rect x="38" y="533" width="485.2" height="78"/><rect x="38" y="585" width="133" height="26"/><rect x="171" y="585" width="172" height="26"/><rect x="343" y="585" width="94" height="26"/><rect x="437" y="585" width="86.2" height="26"/><rect x="14" y="611" width="509.2" height="26"/><rect x="14" y="637" width="509.2" height="26"/></g><path class="d-linea" d="M38 559H523.2M38 585H523.2M171 559V611M343 559V611M437 559V611"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">afEstaciones = "C:\\ESTACIONES.DAT"</text><text x="22" y="160.5">afUsuarios = "C:\\USUARIOS.DAT"</text><text x="22" y="186.5">alEstaciones = open(afEstaciones, "r+b")</text><text x="22" y="212.5">alUsuarios = open(afUsuarios, "r+b")</text><text x="22" y="238.5">pickle.load(alEstaciones)</text><text x="22" y="264.5">tamEst = alEstaciones.tell()</text><text x="22" y="290.5">opcion = 0</text><text x="22" y="316.5">Mientras opcion != 5:</text><text x="46" y="342.5">Mostrar("1. Alta usuarios")</text><text x="46" y="368.5">Mostrar("2. Actualizar usuario")</text><text x="46" y="394.5">Mostrar("3. Realizar alquiler")</text><text x="46" y="420.5">Mostrar("4. Informe")</text><text x="46" y="446.5">Mostrar("5. Salir sistema")</text><text x="46" y="472.5">Leer(opcion)</text><text x="46" y="498.5">Mientras opcion &lt; 1 or opcion &gt; 5:</text><text x="70" y="524.5">Leer(opcion)</text><text x="46" y="550.5">Según opcion:</text><text x="104.5" y="576.5" text-anchor="middle">1</text><text x="46" y="602.5">ALTA_USUARIOS()</text><text x="257" y="576.5" text-anchor="middle">2</text><text x="179" y="602.5">ACTUALIZAR_USUARIO()</text><text x="390" y="576.5" text-anchor="middle">3</text><text x="351" y="602.5">ALQUILER()</text><text x="480.1" y="576.5" text-anchor="middle">4</text><text x="445" y="602.5">INFORME()</text><text x="22" y="628.5">alEstaciones.close()</text><text x="22" y="654.5">alUsuarios.close()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># afEstaciones, afUsuarios: str</text><text x="14" y="71"># alEstaciones, alUsuarios: archivo</text><text x="14" y="88"># tamEst: int</text><text x="14" y="105"># opcion: int</text><text x="559.2" y="29">class Estacion:</text><text x="589.2" y="46">def __init__(self):</text><text x="619.2" y="63">self.codigoEstacion = 0</text><text x="619.2" y="80">self.bicicletasDisponibles = 0</text><text x="559.2" y="105">class Usuario:</text><text x="589.2" y="122">def __init__(self):</text><text x="619.2" y="139">self.dni = ""</text><text x="619.2" y="156">self.saldo = 0.0</text><text x="619.2" y="173">self.cantAlqMen = [0]*12</text><text x="619.2" y="190">self.estado = ""</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">Programa principal</text></svg></figure>
+
+<h4>Búsquedas</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 613 383" width="613" height="383" style="width:613px;min-width:613px;max-width:none;height:383px" role="img" aria-label="Diagrama de Chapin del módulo BUSCA_USUARIO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="382.6" height="26"/><rect x="14" y="143" width="382.6" height="26"/><rect x="14" y="169" width="382.6" height="26"/><rect x="14" y="195" width="382.6" height="148"/><rect x="38" y="221" width="358.6" height="26"/><rect x="38" y="247" width="358.6" height="26"/><rect x="38" y="273" width="358.6" height="70"/><rect x="38" y="317" width="322.6" height="26"/><rect x="14" y="343" width="382.6" height="26"/></g><path class="d-linea" d="M38 273L360.6 317L396.6 273M38 317H396.6M360.6 317V343"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">tam = os.path.getsize(afUsuarios)</text><text x="22" y="160.5">pos = -1</text><text x="22" y="186.5">alUsuarios.seek(0, 0)</text><text x="22" y="212.5">Mientras alUsuarios.tell() &lt; tam and pos == -1:</text><text x="46" y="238.5">p = alUsuarios.tell()</text><text x="46" y="264.5">reg = pickle.load(alUsuarios)</text><text x="285.7" y="289" text-anchor="middle">reg.dni == dni</text><text x="46" y="334.5">pos = p</text><text x="22" y="360.5">return pos</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="310">v</text><text x="389.6" y="310" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Secuencial: USUARIOS.DAT no tiene orden. Devuelve el byte donde empieza o -1</text><text x="14" y="71"># dni: str</text><text x="14" y="88"># tam, pos, p: int</text><text x="14" y="105"># reg: Usuario</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">BUSCA_USUARIO(dni)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 543 436" width="543" height="436" style="width:543px;min-width:543px;max-width:none;height:436px" role="img" aria-label="Diagrama de Chapin del módulo BUSCA_ESTACION, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="514.5" height="26"/><rect x="14" y="126" width="514.5" height="26"/><rect x="14" y="152" width="514.5" height="26"/><rect x="14" y="178" width="514.5" height="218"/><rect x="38" y="204" width="490.5" height="26"/><rect x="38" y="230" width="490.5" height="26"/><rect x="38" y="256" width="490.5" height="26"/><rect x="38" y="282" width="490.5" height="114"/><rect x="38" y="326" width="101.8" height="26"/><rect x="139.8" y="326" width="388.7" height="70"/><rect x="139.8" y="370" width="178.6" height="26"/><rect x="318.4" y="370" width="210.1" height="26"/><rect x="14" y="396" width="514.5" height="26"/></g><path class="d-linea" d="M38 282L139.8 326L528.5 282M38 326H528.5M139.8 326V396M139.8 326L318.4 370L528.5 326M139.8 370H528.5M318.4 370V396"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">inicio = 0</text><text x="22" y="143.5">fin = os.path.getsize(afEstaciones) // tamEst - 1</text><text x="22" y="169.5">pos = -1</text><text x="22" y="195.5">Mientras inicio &lt;= fin and pos == -1:</text><text x="46" y="221.5">medio = (inicio + fin) // 2</text><text x="46" y="247.5">alEstaciones.seek(medio * tamEst, 0)</text><text x="46" y="273.5">reg = pickle.load(alEstaciones)</text><text x="214.8" y="298" text-anchor="middle">reg.codigoEstacion == cod</text><text x="46" y="343.5">pos = medio</text><text x="326.7" y="342" text-anchor="middle">cod &lt; reg.codigoEstacion</text><text x="147.8" y="387.5">fin = medio - 1</text><text x="326.4" y="387.5">inicio = medio + 1</text><text x="22" y="413.5">return pos</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="319">v</text><text x="521.5" y="319" text-anchor="end">f</text><text x="146.8" y="363">v</text><text x="521.5" y="363" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># Dicotómica: ESTACIONES.DAT está ordenado por código</text><text x="14" y="71"># cod, inicio, fin, medio, pos: int</text><text x="14" y="88"># reg: Estacion</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">BUSCA_ESTACION(cod)</text></svg></figure>
+
+<h4>1. Alta usuarios</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 231 149" width="231" height="149" style="width:231px;min-width:231px;max-width:none;height:149px" role="img" aria-label="Diagrama de Chapin del módulo ACT_CANT_ALQ_MENS, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="83" width="164.2" height="52"/><rect x="38" y="109" width="140.2" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="100.5">for m in range(12):</text><text x="46" y="126.5">v[m] = 0</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># v: arreglo [0..11] de int</text><text x="14" y="71"># m: int</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">ACT_CANT_ALQ_MENS(v)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 263 175" width="263" height="175" style="width:263px;min-width:263px;max-width:none;height:175px" role="img" aria-label="Diagrama de Chapin del módulo GRABAR_USUARIO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="83" width="234.4" height="26"/><rect x="14" y="109" width="234.4" height="26"/><rect x="14" y="135" width="234.4" height="26"/></g><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="100.5">alUsuarios.seek(pos, 0)</text><text x="22" y="126.5">pickle.dump(reg, alUsuarios)</text><text x="22" y="152.5">alUsuarios.flush()</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># reg: Usuario</text><text x="14" y="71"># pos: int</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">GRABAR_USUARIO(reg, pos)</text></svg></figure>
+
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 591 486" width="591" height="486" style="width:591px;min-width:591px;max-width:none;height:486px" role="img" aria-label="Diagrama de Chapin del módulo ALTA_USUARIOS, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="100" width="563" height="26"/><rect x="14" y="126" width="563" height="346"/><rect x="38" y="152" width="539" height="26"/><rect x="38" y="178" width="539" height="268"/><rect x="38" y="222" width="265.6" height="26"/><rect x="303.6" y="222" width="273.4" height="26"/><rect x="303.6" y="248" width="273.4" height="26"/><rect x="303.6" y="274" width="273.4" height="26"/><rect x="303.6" y="300" width="273.4" height="52"/><rect x="327.6" y="326" width="249.4" height="26"/><rect x="303.6" y="352" width="273.4" height="26"/><rect x="303.6" y="378" width="273.4" height="26"/><rect x="303.6" y="404" width="273.4" height="42"/><rect x="38" y="446" width="539" height="26"/></g><path class="d-linea" d="M38 178L303.6 222L577 178M38 222H577M303.6 222V446"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="117.5">Leer(dni)</text><text x="22" y="143.5">Mientras dni != "*":</text><text x="46" y="169.5">dni = dni.ljust(8, " ")</text><text x="305.6" y="194" text-anchor="middle">BUSCA_USUARIO(dni) != -1</text><text x="46" y="239.5">Mostrar("Ese usuario ya existe")</text><text x="311.6" y="239.5">reg = Usuario()</text><text x="311.6" y="265.5">reg.dni = dni</text><text x="311.6" y="291.5">Leer(reg.saldo)</text><text x="311.6" y="317.5">Mientras reg.saldo &lt;= 0:</text><text x="335.6" y="343.5">Leer(reg.saldo)</text><text x="311.6" y="369.5">reg.estado = "A"</text><text x="311.6" y="395.5">ACT_CANT_ALQ_MENS(reg.cantAlqMen)</text><text x="311.6" y="421.5">GRABAR_USUARIO(reg,</text><text x="311.6" y="437.5">    os.path.getsize(afUsuarios))</text><text x="46" y="463.5">Leer(dni)</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="215">v</text><text x="570" y="215" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># dni: str</text><text x="14" y="71"># reg: Usuario</text><text x="14" y="88"># Fin de datos: DNI "*"</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">ALTA_USUARIOS()</text></svg></figure>
+
+<h4>2. Actualizar usuario, con submenú</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 983 823" width="983" height="823" style="width:983px;min-width:983px;max-width:none;height:823px" role="img" aria-label="Diagrama de Chapin del módulo ACTUALIZAR_USUARIO, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="117" width="954.4" height="26"/><rect x="14" y="143" width="954.4" height="26"/><rect x="14" y="169" width="954.4" height="26"/><rect x="14" y="195" width="954.4" height="104"/><rect x="38" y="221" width="930.4" height="26"/><rect x="38" y="247" width="930.4" height="26"/><rect x="38" y="273" width="930.4" height="26"/><rect x="14" y="299" width="954.4" height="26"/><rect x="14" y="325" width="954.4" height="484"/><rect x="38" y="351" width="930.4" height="26"/><rect x="38" y="377" width="930.4" height="26"/><rect x="38" y="403" width="930.4" height="26"/><rect x="38" y="429" width="930.4" height="26"/><rect x="38" y="455" width="930.4" height="26"/><rect x="38" y="481" width="930.4" height="26"/><rect x="38" y="507" width="930.4" height="68"/><rect x="62" y="549" width="906.4" height="26"/><rect x="38" y="575" width="930.4" height="26"/><rect x="38" y="601" width="930.4" height="26"/><rect x="38" y="627" width="930.4" height="182"/><rect x="38" y="679" width="242.2" height="26"/><rect x="38" y="705" width="242.2" height="52"/><rect x="62" y="731" width="218.2" height="26"/><rect x="38" y="757" width="242.2" height="26"/><rect x="38" y="783" width="242.2" height="26"/><rect x="280.2" y="679" width="203.2" height="26"/><rect x="280.2" y="705" width="203.2" height="26"/><rect x="483.4" y="679" width="242.8" height="68"/><rect x="507.4" y="705" width="218.8" height="42"/><rect x="726.2" y="679" width="242.2" height="42"/></g><path class="d-linea" d="M38 653H968.4M38 679H968.4M280.2 653V809M483.4 653V809M726.2 653V809"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="134.5">Leer(dni)</text><text x="22" y="160.5">dni = dni.ljust(8, " ")</text><text x="22" y="186.5">pos = BUSCA_USUARIO(dni)</text><text x="22" y="212.5">Mientras pos == -1:</text><text x="46" y="238.5">Leer(dni)</text><text x="46" y="264.5">dni = dni.ljust(8, " ")</text><text x="46" y="290.5">pos = BUSCA_USUARIO(dni)</text><text x="22" y="316.5">op = ""</text><text x="22" y="342.5">Mientras op != "e":</text><text x="46" y="368.5">Mostrar("a- Cargar saldo")</text><text x="46" y="394.5">Mostrar("b- Deshabilitar usuario")</text><text x="46" y="420.5">Mostrar("c- Alquileres por mes")</text><text x="46" y="446.5">Mostrar("d- Inicio de año")</text><text x="46" y="472.5">Mostrar("e- Volver")</text><text x="46" y="498.5">Leer(op)</text><text x="46" y="524.5">Mientras op != "a" and op != "b" and op != "c" and</text><text x="46" y="540.5">    op != "d" and op != "e":</text><text x="70" y="566.5">Leer(op)</text><text x="46" y="592.5">alUsuarios.seek(pos, 0)</text><text x="46" y="618.5">reg = pickle.load(alUsuarios)</text><text x="46" y="644.5">Según op:</text><text x="159.1" y="670.5" text-anchor="middle">"a"</text><text x="46" y="696.5">Leer(monto)</text><text x="46" y="722.5">Mientras monto &lt;= 0:</text><text x="70" y="748.5">Leer(monto)</text><text x="46" y="774.5">reg.saldo = reg.saldo + monto</text><text x="46" y="800.5">GRABAR_USUARIO(reg, pos)</text><text x="381.8" y="670.5" text-anchor="middle">"b"</text><text x="288.2" y="696.5">reg.estado = "D"</text><text x="288.2" y="722.5">GRABAR_USUARIO(reg, pos)</text><text x="604.8" y="670.5" text-anchor="middle">"c"</text><text x="491.4" y="696.5">for m in range(12):</text><text x="515.4" y="722.5">Mostrar("Mes", m + 1, ":",</text><text x="515.4" y="738.5">    reg.cantAlqMen[m])</text><text x="847.3" y="670.5" text-anchor="middle">"d"</text><text x="734.2" y="696.5">INI_CANT_ALQ_MENS(alUsuarios,</text><text x="734.2" y="712.5">    afUsuarios)</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># dni, op: str</text><text x="14" y="71"># pos, m: int</text><text x="14" y="88"># monto: float</text><text x="14" y="105"># reg: Usuario</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">ACTUALIZAR_USUARIO()</text></svg></figure>
+
+<h4>3. Realizar alquiler</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1965 868" width="1965" height="868" style="width:1965px;min-width:1965px;max-width:none;height:868px" role="img" aria-label="Diagrama de Chapin del módulo ALQUILER, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="134" width="1936.8" height="26"/><rect x="14" y="160" width="1936.8" height="26"/><rect x="14" y="186" width="1936.8" height="668"/><rect x="14" y="230" width="273.4" height="26"/><rect x="287.4" y="230" width="1663.4" height="26"/><rect x="287.4" y="256" width="1663.4" height="26"/><rect x="287.4" y="282" width="1663.4" height="26"/><rect x="287.4" y="308" width="1663.4" height="26"/><rect x="287.4" y="334" width="1663.4" height="26"/><rect x="287.4" y="360" width="1663.4" height="494"/><rect x="287.4" y="404" width="265.6" height="26"/><rect x="553" y="404" width="1397.8" height="450"/><rect x="553" y="448" width="468.4" height="26"/><rect x="1021.4" y="448" width="929.4" height="26"/><rect x="1021.4" y="474" width="929.4" height="26"/><rect x="1021.4" y="500" width="929.4" height="354"/><rect x="1021.4" y="544" width="328" height="26"/><rect x="1349.4" y="544" width="601.4" height="26"/><rect x="1349.4" y="570" width="601.4" height="284"/><rect x="1349.4" y="614" width="242.2" height="26"/><rect x="1591.6" y="614" width="359.2" height="26"/><rect x="1591.6" y="640" width="359.2" height="42"/><rect x="1591.6" y="682" width="359.2" height="26"/><rect x="1591.6" y="708" width="359.2" height="42"/><rect x="1591.6" y="750" width="359.2" height="26"/><rect x="1591.6" y="776" width="359.2" height="26"/><rect x="1591.6" y="802" width="359.2" height="26"/><rect x="1591.6" y="828" width="359.2" height="26"/></g><path class="d-linea" d="M14 186L287.4 230L1950.8 186M14 230H1950.8M287.4 230V854M287.4 360L553 404L1950.8 360M287.4 404H1950.8M553 404V854M553 404L1021.4 448L1950.8 404M553 448H1950.8M1021.4 448V854M1021.4 500L1349.4 544L1950.8 500M1021.4 544H1950.8M1349.4 544V854M1349.4 570L1591.6 614L1950.8 570M1349.4 614H1950.8M1591.6 614V854"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="151.5">Leer(cod)</text><text x="22" y="177.5">posE = BUSCA_ESTACION(cod)</text><text x="650.7" y="202" text-anchor="middle">posE == -1</text><text x="22" y="247.5">Mostrar("Estación no disponible")</text><text x="295.4" y="247.5">alEstaciones.seek(posE * tamEst, 0)</text><text x="295.4" y="273.5">est = pickle.load(alEstaciones)</text><text x="295.4" y="299.5">Leer(dni)</text><text x="295.4" y="325.5">dni = dni.ljust(8, " ")</text><text x="295.4" y="351.5">posU = BUSCA_USUARIO(dni)</text><text x="848.9" y="376" text-anchor="middle">posU == -1</text><text x="295.4" y="421.5">Mostrar("No existe ese usuario")</text><text x="1141.9" y="420" text-anchor="middle">est.bicicletasDisponibles == 0</text><text x="561" y="465.5">Mostrar("Estación no disponible: no le quedan bicicletas")</text><text x="1029.4" y="465.5">alUsuarios.seek(posU, 0)</text><text x="1029.4" y="491.5">reg = pickle.load(alUsuarios)</text><text x="1420.9" y="516" text-anchor="middle">reg.estado == "D"</text><text x="1029.4" y="561.5">Mostrar("El usuario está deshabilitado")</text><text x="1357.4" y="561.5">Leer(valor)</text><text x="1622.2" y="586" text-anchor="middle">reg.saldo &lt; valor</text><text x="1357.4" y="631.5">Mostrar("Saldo insuficiente")</text><text x="1599.6" y="631.5">reg.saldo = reg.saldo - valor</text><text x="1599.6" y="657.5">reg.cantAlqMen[DEV_MES_ACTUAL() - 1] =</text><text x="1599.6" y="673.5">    reg.cantAlqMen[DEV_MES_ACTUAL() - 1] + 1</text><text x="1599.6" y="699.5">GRABAR_USUARIO(reg, posU)</text><text x="1599.6" y="725.5">est.bicicletasDisponibles =</text><text x="1599.6" y="741.5">    est.bicicletasDisponibles - 1</text><text x="1599.6" y="767.5">alEstaciones.seek(posE * tamEst, 0)</text><text x="1599.6" y="793.5">pickle.dump(est, alEstaciones)</text><text x="1599.6" y="819.5">alEstaciones.flush()</text><text x="1599.6" y="845.5">Mostrar("Alquiler registrado")</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="21" y="223">v</text><text x="1943.8" y="223" text-anchor="end">f</text><text x="294.4" y="397">v</text><text x="1943.8" y="397" text-anchor="end">f</text><text x="560" y="441">v</text><text x="1943.8" y="441" text-anchor="end">f</text><text x="1028.4" y="537">v</text><text x="1943.8" y="537" text-anchor="end">f</text><text x="1356.4" y="607">v</text><text x="1943.8" y="607" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># cod, posE, posU: int</text><text x="14" y="71"># dni: str</text><text x="14" y="88"># valor: float</text><text x="14" y="105"># est: Estacion</text><text x="14" y="122"># reg: Usuario</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">ALQUILER()</text></svg></figure>
+
+<h4>4. Informe</h4>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 605 391" width="605" height="391" style="width:605px;min-width:605px;max-width:none;height:391px" role="img" aria-label="Diagrama de Chapin del módulo INFORME, con su declaración de variables. El mismo algoritmo está en Python más abajo."><g class="d-caja"><rect x="14" y="83" width="576.9" height="26"/><rect x="14" y="109" width="576.9" height="26"/><rect x="14" y="135" width="576.9" height="26"/><rect x="14" y="161" width="576.9" height="26"/><rect x="14" y="187" width="576.9" height="148"/><rect x="38" y="213" width="552.9" height="26"/><rect x="38" y="239" width="552.9" height="96"/><rect x="38" y="283" width="516.9" height="26"/><rect x="38" y="309" width="516.9" height="26"/><rect x="14" y="335" width="576.9" height="42"/></g><path class="d-linea" d="M38 239L554.9 283L590.9 239M38 283H590.9M554.9 283V335"/><g style="font:400 13px var(--mono);fill:var(--tinta);white-space:pre"><text x="22" y="100.5">tam = os.path.getsize(afEstaciones)</text><text x="22" y="126.5">dispMax = -1</text><text x="22" y="152.5">codMax = 0</text><text x="22" y="178.5">alEstaciones.seek(0, 0)</text><text x="22" y="204.5">Mientras alEstaciones.tell() &lt; tam:</text><text x="46" y="230.5">est = pickle.load(alEstaciones)</text><text x="429.2" y="255" text-anchor="middle">est.bicicletasDisponibles &gt; dispMax</text><text x="46" y="300.5">dispMax = est.bicicletasDisponibles</text><text x="46" y="326.5">codMax = est.codigoEstacion</text><text x="22" y="352.5">Mostrar("Estación con más bicicletas disponibles:",</text><text x="22" y="368.5">    codMax, "con", dispMax)</text></g><g style="font:600 13px var(--sans);fill:var(--tinta-suave)"><text x="45" y="276">v</text><text x="583.9" y="276" text-anchor="end">f</text></g><g style="font:400 12.5px var(--mono);fill:var(--tinta-suave);white-space:pre"><text x="14" y="54"># tam, codMax, dispMax: int</text><text x="14" y="71"># est: Estacion</text></g><text x="14" y="29" style="font:500 14px var(--mono);fill:var(--tinta)">INFORME()</text></svg></figure>
+
+<h4>El mismo algoritmo en Python</h4>
+<p>Es el programa que se probó, con las mismas sentencias y en el mismo orden que las cajas. Cada <code>Leer</code> del diagrama es un <code>input</code>, convertido a <code>int</code> o <code>float</code> según la declaración, y cada <code>Mostrar</code> es un <code>print</code>.</p>
+<pre class="codigo"><code><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> pickle
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Estacion</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.codigoEstacion = <span class="hljs-number">0</span>
+        <span class="hljs-variable language_">self</span>.bicicletasDisponibles = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Usuario</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-variable language_">self</span>.dni = <span class="hljs-string">&quot;&quot;</span>
+        <span class="hljs-variable language_">self</span>.saldo = <span class="hljs-number">0.0</span>
+        <span class="hljs-variable language_">self</span>.cantAlqMen = [<span class="hljs-number">0</span>]*<span class="hljs-number">12</span>
+        <span class="hljs-variable language_">self</span>.estado = <span class="hljs-string">&quot;&quot;</span>
+
+<span class="hljs-comment"># afEstaciones, afUsuarios: str</span>
+<span class="hljs-comment"># alEstaciones, alUsuarios: archivo</span>
+<span class="hljs-comment"># tamEst: int</span>
+afEstaciones = <span class="hljs-string">&quot;C:\\ESTACIONES.DAT&quot;</span>
+afUsuarios = <span class="hljs-string">&quot;C:\\USUARIOS.DAT&quot;</span>
+alEstaciones = <span class="hljs-built_in">open</span>(afEstaciones, <span class="hljs-string">&quot;r+b&quot;</span>)
+alUsuarios = <span class="hljs-built_in">open</span>(afUsuarios, <span class="hljs-string">&quot;r+b&quot;</span>)
+pickle.load(alEstaciones)
+tamEst = alEstaciones.tell()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">BUSCA_USUARIO</span>(<span class="hljs-params">dni</span>):
+    <span class="hljs-comment"># Secuencial: USUARIOS.DAT no tiene orden. Devuelve el byte donde empieza o -1</span>
+    <span class="hljs-comment"># dni: str</span>
+    <span class="hljs-comment"># tam, pos, p: int</span>
+    <span class="hljs-comment"># reg: Usuario</span>
+    tam = os.path.getsize(afUsuarios)
+    pos = -<span class="hljs-number">1</span>
+    alUsuarios.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alUsuarios.tell() &lt; tam <span class="hljs-keyword">and</span> pos == -<span class="hljs-number">1</span>:
+        p = alUsuarios.tell()
+        reg = pickle.load(alUsuarios)
+        <span class="hljs-keyword">if</span> reg.dni == dni:
+            pos = p
+    <span class="hljs-keyword">return</span> pos
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">BUSCA_ESTACION</span>(<span class="hljs-params">cod</span>):
+    <span class="hljs-comment"># Dicotómica: ESTACIONES.DAT está ordenado por código</span>
+    <span class="hljs-comment"># cod, inicio, fin, medio, pos: int</span>
+    <span class="hljs-comment"># reg: Estacion</span>
+    inicio = <span class="hljs-number">0</span>
+    fin = os.path.getsize(afEstaciones) // tamEst - <span class="hljs-number">1</span>
+    pos = -<span class="hljs-number">1</span>
+    <span class="hljs-keyword">while</span> inicio &lt;= fin <span class="hljs-keyword">and</span> pos == -<span class="hljs-number">1</span>:
+        medio = (inicio + fin) // <span class="hljs-number">2</span>
+        alEstaciones.seek(medio * tamEst, <span class="hljs-number">0</span>)
+        reg = pickle.load(alEstaciones)
+        <span class="hljs-keyword">if</span> reg.codigoEstacion == cod:
+            pos = medio
+        <span class="hljs-keyword">elif</span> cod &lt; reg.codigoEstacion:
+            fin = medio - <span class="hljs-number">1</span>
+        <span class="hljs-keyword">else</span>:
+            inicio = medio + <span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> pos
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">ACT_CANT_ALQ_MENS</span>(<span class="hljs-params">v</span>):
+    <span class="hljs-comment"># v: arreglo [0..11] de int</span>
+    <span class="hljs-comment"># m: int</span>
+    <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">12</span>):
+        v[m] = <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">GRABAR_USUARIO</span>(<span class="hljs-params">reg, pos</span>):
+    <span class="hljs-comment"># reg: Usuario</span>
+    <span class="hljs-comment"># pos: int</span>
+    alUsuarios.seek(pos, <span class="hljs-number">0</span>)
+    pickle.dump(reg, alUsuarios)
+    alUsuarios.flush()
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">ALTA_USUARIOS</span>():
+    <span class="hljs-comment"># dni: str</span>
+    <span class="hljs-comment"># reg: Usuario</span>
+    <span class="hljs-comment"># Fin de datos: DNI &quot;*&quot;</span>
+    dni = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;DNI (* para terminar): &quot;</span>)
+    <span class="hljs-keyword">while</span> dni != <span class="hljs-string">&quot;*&quot;</span>:
+        dni = dni.ljust(<span class="hljs-number">8</span>, <span class="hljs-string">&quot; &quot;</span>)
+        <span class="hljs-keyword">if</span> BUSCA_USUARIO(dni) != -<span class="hljs-number">1</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ese usuario ya existe&quot;</span>)
+        <span class="hljs-keyword">else</span>:
+            reg = Usuario()
+            reg.dni = dni
+            reg.saldo = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Saldo: &quot;</span>))
+            <span class="hljs-keyword">while</span> reg.saldo &lt;= <span class="hljs-number">0</span>:
+                reg.saldo = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;El saldo tiene que ser positivo: &quot;</span>))
+            reg.estado = <span class="hljs-string">&quot;A&quot;</span>
+            ACT_CANT_ALQ_MENS(reg.cantAlqMen)
+            GRABAR_USUARIO(reg, os.path.getsize(afUsuarios))
+        dni = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;DNI (* para terminar): &quot;</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">ACTUALIZAR_USUARIO</span>():
+    <span class="hljs-comment"># dni, op: str</span>
+    <span class="hljs-comment"># pos, m: int</span>
+    <span class="hljs-comment"># monto: float</span>
+    <span class="hljs-comment"># reg: Usuario</span>
+    dni = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;DNI: &quot;</span>).ljust(<span class="hljs-number">8</span>, <span class="hljs-string">&quot; &quot;</span>)
+    pos = BUSCA_USUARIO(dni)
+    <span class="hljs-keyword">while</span> pos == -<span class="hljs-number">1</span>:
+        dni = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;No existe, ingrese otro DNI: &quot;</span>).ljust(<span class="hljs-number">8</span>, <span class="hljs-string">&quot; &quot;</span>)
+        pos = BUSCA_USUARIO(dni)
+    op = <span class="hljs-string">&quot;&quot;</span>
+    <span class="hljs-keyword">while</span> op != <span class="hljs-string">&quot;e&quot;</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;a- Cargar saldo&quot;</span>)
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;b- Deshabilitar usuario&quot;</span>)
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;c- Alquileres por mes&quot;</span>)
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;d- Inicio de año&quot;</span>)
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;e- Volver&quot;</span>)
+        op = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción: &quot;</span>)
+        <span class="hljs-keyword">while</span> op != <span class="hljs-string">&quot;a&quot;</span> <span class="hljs-keyword">and</span> op != <span class="hljs-string">&quot;b&quot;</span> <span class="hljs-keyword">and</span> op != <span class="hljs-string">&quot;c&quot;</span> <span class="hljs-keyword">and</span> op != <span class="hljs-string">&quot;d&quot;</span> <span class="hljs-keyword">and</span> op != <span class="hljs-string">&quot;e&quot;</span>:
+            op = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción inválida: &quot;</span>)
+        alUsuarios.seek(pos, <span class="hljs-number">0</span>)
+        reg = pickle.load(alUsuarios)
+        <span class="hljs-keyword">match</span> op:
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;a&quot;</span>:
+                monto = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Monto a cargar: &quot;</span>))
+                <span class="hljs-keyword">while</span> monto &lt;= <span class="hljs-number">0</span>:
+                    monto = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Tiene que ser positivo: &quot;</span>))
+                reg.saldo = reg.saldo + monto
+                GRABAR_USUARIO(reg, pos)
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;b&quot;</span>:
+                reg.estado = <span class="hljs-string">&quot;D&quot;</span>
+                GRABAR_USUARIO(reg, pos)
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;c&quot;</span>:
+                <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">12</span>):
+                    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Mes&quot;</span>, m + <span class="hljs-number">1</span>, <span class="hljs-string">&quot;:&quot;</span>, reg.cantAlqMen[m])
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;d&quot;</span>:
+                INI_CANT_ALQ_MENS(alUsuarios, afUsuarios)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">ALQUILER</span>():
+    <span class="hljs-comment"># cod, posE, posU: int</span>
+    <span class="hljs-comment"># dni: str</span>
+    <span class="hljs-comment"># valor: float</span>
+    <span class="hljs-comment"># est: Estacion</span>
+    <span class="hljs-comment"># reg: Usuario</span>
+    cod = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Código de estación: &quot;</span>))
+    posE = BUSCA_ESTACION(cod)
+    <span class="hljs-keyword">if</span> posE == -<span class="hljs-number">1</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Estación no disponible&quot;</span>)
+    <span class="hljs-keyword">else</span>:
+        alEstaciones.seek(posE * tamEst, <span class="hljs-number">0</span>)
+        est = pickle.load(alEstaciones)
+        dni = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;DNI: &quot;</span>).ljust(<span class="hljs-number">8</span>, <span class="hljs-string">&quot; &quot;</span>)
+        posU = BUSCA_USUARIO(dni)
+        <span class="hljs-keyword">if</span> posU == -<span class="hljs-number">1</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;No existe ese usuario&quot;</span>)
+        <span class="hljs-keyword">elif</span> est.bicicletasDisponibles == <span class="hljs-number">0</span>:
+            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Estación no disponible: no le quedan bicicletas&quot;</span>)
+        <span class="hljs-keyword">else</span>:
+            alUsuarios.seek(posU, <span class="hljs-number">0</span>)
+            reg = pickle.load(alUsuarios)
+            <span class="hljs-keyword">if</span> reg.estado == <span class="hljs-string">&quot;D&quot;</span>:
+                <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;El usuario está deshabilitado&quot;</span>)
+            <span class="hljs-keyword">else</span>:
+                valor = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Valor del alquiler: &quot;</span>))
+                <span class="hljs-keyword">if</span> reg.saldo &lt; valor:
+                    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Saldo insuficiente&quot;</span>)
+                <span class="hljs-keyword">else</span>:
+                    reg.saldo = reg.saldo - valor
+                    reg.cantAlqMen[DEV_MES_ACTUAL() - <span class="hljs-number">1</span>] = reg.cantAlqMen[DEV_MES_ACTUAL() - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>
+                    GRABAR_USUARIO(reg, posU)
+                    est.bicicletasDisponibles = est.bicicletasDisponibles - <span class="hljs-number">1</span>
+                    alEstaciones.seek(posE * tamEst, <span class="hljs-number">0</span>)
+                    pickle.dump(est, alEstaciones)
+                    alEstaciones.flush()
+                    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Alquiler registrado&quot;</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">INFORME</span>():
+    <span class="hljs-comment"># tam, codMax, dispMax: int</span>
+    <span class="hljs-comment"># est: Estacion</span>
+    tam = os.path.getsize(afEstaciones)
+    dispMax = -<span class="hljs-number">1</span>
+    codMax = <span class="hljs-number">0</span>
+    alEstaciones.seek(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">while</span> alEstaciones.tell() &lt; tam:
+        est = pickle.load(alEstaciones)
+        <span class="hljs-keyword">if</span> est.bicicletasDisponibles &gt; dispMax:
+            dispMax = est.bicicletasDisponibles
+            codMax = est.codigoEstacion
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Estación con más bicicletas disponibles:&quot;</span>, codMax, <span class="hljs-string">&quot;con&quot;</span>, dispMax)
+
+<span class="hljs-comment"># Programa principal</span>
+<span class="hljs-comment"># opcion: int</span>
+opcion = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> opcion != <span class="hljs-number">5</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;1. Alta usuarios&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;2. Actualizar usuario&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;3. Realizar alquiler&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;4. Informe&quot;</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;5. Salir sistema&quot;</span>)
+    opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción: &quot;</span>))
+    <span class="hljs-keyword">while</span> opcion &lt; <span class="hljs-number">1</span> <span class="hljs-keyword">or</span> opcion &gt; <span class="hljs-number">5</span>:
+        opcion = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Opción inválida: &quot;</span>))
+    <span class="hljs-keyword">match</span> opcion:
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+            ALTA_USUARIOS()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+            ACTUALIZAR_USUARIO()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+            ALQUILER()
+        <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+            INFORME()
+alEstaciones.close()
+alUsuarios.close()</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con la hoja del examen y la página del 3° parcial y final (registros como clase, recorrer, búsquedas, actualizar un registro y alta). Las operaciones de archivos siguen las diapositivas de merge y corte de control. El Chapin sigue la forma de las diapositivas del examen de Historia Clínica de 2019. La baja lógica con el campo Estado sigue la sección «Alta, baja y modificación».</p><p class="bloque-fuente">Quedó en duda: Antes de alquilar se controla que la estación tenga bicicletas y que el usuario no esté deshabilitado. La hoja no lo pide, pero sin eso las bicicletas podrían quedar en negativo. <code>INI_CANT_ALQ_MENS</code> recibe el archivo y su ruta, porque tiene que recorrer todos los usuarios. Se invoca y no se programa. <code>DEV_MES_ACTUAL()</code> devuelve el mes de 1 a 12, así que se resta 1 para el índice. El fin de datos del alta es el DNI <code>*</code>. En Python, pickle graba un entero menor que 256 en menos bytes que uno más grande. Por eso un contador de alquileres o un total de bicicletas que cruza 255 cambia el tamaño del registro. Entonces el registro deja de coincidir con la posición que calcula el programa. El material pide registros del mismo tamaño y solo muestra cómo lograrlo con textos (<code>ljust</code>). Las pruebas se hicieron con datos que no cambian el tamaño. Las diapositivas de la materia no muestran en Chapin la lectura de datos ni la selección múltiple. Acá van como <code>Leer</code> y como <code>Según</code>, con una columna por caso.</p><div class="em-votos" data-m="algoritmos-y-estructuras-de-datos" data-e="fin-2024-11-20" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Archivos" data-enlace="final.html#secuencial-y-de-acceso-directo" data-donde="3° parcial y final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Archivos</span><span class="ex-t-teoria"><a href="final.html#secuencial-y-de-acceso-directo">Secuencial y de acceso directo</a>, en 3° parcial y final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Registros" data-enlace="final.html#registros" data-donde="3° parcial y final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Registros</span><span class="ex-t-teoria"><a href="final.html#registros">Registros</a>, en 3° parcial y final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Menú" data-enlace="parcial-1.html#menu-iterativo" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Menú</span><span class="ex-t-teoria"><a href="parcial-1.html#menu-iterativo">Menú iterativo</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2024-12-18.html">Anterior: Final, 18/12/2024 (Playa de estacionamiento)</a><a href="ej-fin-2024-10-25.html">Siguiente: 3° parcial, 25/10/2024 (Gimnasio)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta mayo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

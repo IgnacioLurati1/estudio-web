@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-solo>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Emergencia: Seguridad en los Sistemas de Información</title>
+<meta name="description" content="Lo necesario para rendir Seguridad en los Sistemas de Información.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="seguridad-en-los-sistemas-de-informacion" data-pagina="emergencia">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Seguridad en los Sistemas de Información</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html" aria-current="page">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=seguridad-en-los-sistemas-de-informacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=seguridad-en-los-sistemas-de-informacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#1-parcial">1° parcial</a></li><li class="n2"><a href="#2-parcial">2° parcial</a></li><li class="n2"><a href="#que-cae">Qué cae más</a></li><li class="n2"><a href="#examenes">Exámenes</a></li><li class="n3"><a href="#ex-parcial-1">1° parcial</a></li><li class="n3"><a href="#ex-parcial-2">2° parcial</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Protocolo de emergencia</h1>
+<p class="bajada">Lo justo de Seguridad en los Sistemas de Información para cada parcial, con lo que marca el campus.</p>
+
+<p class="em-salto"><a href="#examenes">Ir a los exámenes</a></p>
+
+<div class="ojo"><p class="ojo-t">Este resumen sale solo de cinco exámenes</p><p>El Drive no trae apuntes, ni programa, ni un final. Trae cinco parciales del campus, de 2024 y 2025. Todo lo de acá sale de lo que marca el campus al revisar esos intentos, con «La respuesta correcta es». Lo que marcó el alumno en la captura no cuenta. Si un tema no apareció en esos cinco, no está.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué piden</th></tr></thead><tbody><tr><td>1° parcial, práctica, 27/09/2024</td><td>Cuestionario del campus de 20 preguntas a 0,50. Vulnerabilidad y amenaza, malware, criptografía, redes, firewall, VPN y DMZ</td></tr><tr><td>1° parcial, teoría, 03/10/2024</td><td>Cuestionario de 20 preguntas a 0,50. Seguridad de la información, SGSI e ISO 27001, políticas, normas y procedimientos, y modelos de ataque con su dibujo</td></tr><tr><td>2° parcial, teoría, 06/11/2025</td><td>Cuestionario de 20 preguntas a 1 punto sobre 20, todo de ISO 22301 y el SGCN</td></tr><tr><td>2° parcial, práctica, 08/11/2024 y 07/11/2025</td><td>Cuestionarios de 20 preguntas a 0,50. Pentesting, tipos de caja, fases, hardening, móviles, herramientas de Kali y grados de política</td></tr></tbody></table></div>
+<p>Algunas preguntas piden marcar dos o tres opciones. Esos intentos duraron entre 12 y 20 minutos, y las capturas no dicen cuál era el tiempo límite.</p>
+<div class="ojo"><p class="ojo-t">Estudiá la respuesta que marca el campus</p><p>Alguna puede sonarte distinta de lo que leíste en otro lado. Por ejemplo, la definición de política prudente. Acá va lo que marcó la cátedra, sin corregirlo. Las capturas casi nunca explican el porqué. Si una respuesta no te cierra, preguntá en tu comisión.</p>
+</div>
+
+<section class="sec"><h2 id="1-parcial">1° parcial</h2>
+<h3 id="practica">Práctica</h3>
+<p>Sale de la práctica del 27/09/2024. RSA y la pregunta de las capas de TCP/IP salieron también en la práctica del 2° parcial del 08/11/2024.</p>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Lo que marca el campus</th></tr></thead><tbody><tr><td>Vulnerabilidad</td><td>La debilidad en el software o en el hardware que permite su ataque</td></tr><tr><td>Amenaza</td><td>Cualquier acción que explota una vulnerabilidad informática para comprometer un sistema de información</td></tr><tr><td>Ingeniería social</td><td>Las diferentes técnicas de manipulación que usan los ciberdelincuentes para obtener información confidencial de los usuarios</td></tr><tr><td>El eslabón más débil en seguridad</td><td>Los usuarios</td></tr><tr><td>Red completa sin segmentar, con todo lo demás bien</td><td>Vulnerabilidad de red. Las opciones eran humana, física, software y red</td></tr><tr><td>Ransomware</td><td>El malware diseñado para cifrar archivos y sitios web y exigir un rescate económico a cambio de liberar la información</td></tr><tr><td>DDoS, objetivo principal</td><td>Sobrecargar la capacidad de una máquina objetivo</td></tr><tr><td>Contra el malware ayudan</td><td>Actualizar con regularidad el sistema operativo y las aplicaciones, no usar perfil de administrador en el trabajo diario y suscribirse a boletines de seguridad. Facilitar datos personales por correo es la que no ayuda</td></tr></tbody></table></div>
+<p><strong>Criptografía.</strong></p>
+<ul>
+<li>Los algoritmos de cifrado simétrico más utilizados son AES, DES y 3DES.</li>
+<li>En la asimétrica, el emisor encripta con la clave pública del receptor y se desencripta con la clave privada del receptor.</li>
+<li>Para cifrar un mensaje con RSA necesitás la clave pública del receptor.</li>
+<li>La simétrica es más veloz que la asimétrica. Las claves de la asimétrica suelen ser más largas.</li>
+<li>Con el cifrado César (ROT-3), «Ho fliudgr Fhvdu qr hv frpsolfdgr gh ghvfliudu» es «El cifrado Cesar no es complicado de descifrar». Las otras dos opciones cambian una sola palabra, así que mirá el mensaje entero.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">La clave pública no descifra</p><p>Se pidió marcar la afirmación falsa entre tres. La falsa era «las claves públicas se utilizan para descifrar los mensajes enviados cuando se utiliza la criptografía asimétrica». Las otras dos son las de la comparación de arriba. Fuente: 1° parcial práctica 27/09/2024, pregunta 5, página 2, respuesta del campus.</p>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en un buzón. Cualquiera puede meter una carta por la ranura, y esa es la clave pública. Solo el dueño tiene la llave para abrirlo, y esa es la privada. Por eso se cifra con la pública de quien recibe.</p>
+</div>
+<p><strong>Redes, firewall, VPN y DMZ.</strong></p>
+<div class="tabla"><table><thead><tr><th>Pregunta</th><th>Lo que marca el campus</th></tr></thead><tbody><tr><td>Funciones del firewall</td><td>Filtrar el tráfico malicioso, proteger contra ataques de red y controlar el acceso a recursos. Detectar y eliminar virus no era la correcta</td></tr><tr><td>ACL más segura y eficiente</td><td>Denegar por defecto (Deny any). Se bloquea todo el tráfico a menos que una regla lo permita</td></tr><tr><td>DMZ</td><td>Una subred física o lógica que expone los servicios externos de una organización a una red no confiable, como Internet</td></tr><tr><td>Sucursal conectada por VPN a la casa central</td><td>VPN de sitio a sitio</td></tr><tr><td>Herramienta para modelar el segmentado de red</td><td>Cisco Packet Tracer. Las otras eran Wireshark, Nessus e Hydra</td></tr><tr><td>DNS</td><td>Capa de aplicación. Se utiliza para la resolución de nombres de dominio</td></tr><tr><td>FTP</td><td>Capa de aplicación. Se utiliza para la transferencia de archivos</td></tr><tr><td>Capas del modelo TCP/IP</td><td>Acceso a red, Internet, transporte y aplicación</td></tr></tbody></table></div>
+<p>Fuente: 1° parcial práctica 27/09/2024 y 2° parcial práctica 08/11/2024, respuestas del campus.</p>
+<h3 id="teoria">Teoría</h3>
+<p>Sale de la teoría del 03/10/2024.</p>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Lo que marca el campus</th></tr></thead><tbody><tr><td>Incidente de seguridad</td><td>Cualquier evento adverso relacionado con la seguridad</td></tr><tr><td>Qué protege la seguridad de la información</td><td>Recursos, sistemas e información, «todas las anteriores»</td></tr><tr><td>Su objetivo</td><td>Minimizar la posibilidad de ocurrencia de los riesgos. «Evitar que los riesgos ocurran» no era la correcta</td></tr><tr><td>Integridad</td><td>Que la información se mantiene precisa y completa</td></tr><tr><td>Autenticación de usuarios</td><td>La verificación de la identidad de los usuarios</td></tr><tr><td>Medida para garantizar la confidencialidad</td><td>El uso de encriptado</td></tr><tr><td>Objetivo principal de la autenticación multifactor</td><td>Proteger la información mediante múltiples capas de seguridad</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Integridad no es confidencialidad</p><p>En la pregunta de integridad, «que la información está protegida contra accesos no autorizados» estaba entre las opciones y no era la correcta. Fuente: 1° parcial teoría 03/10/2024, pregunta 15, página 7, respuesta del campus.</p>
+</div>
+<p><strong>SGSI e ISO 27001.</strong></p>
+<ul>
+<li>Adoptar un SGSI es una decisión estratégica de la organización.</li>
+<li>El alcance (scope) al planificar un SGSI define qué procesos serán asegurados por el SGSI. Personas, tecnologías y tiempo eran las otras opciones.</li>
+<li>ISO 27001 adopta el modelo de mejora continua PHVA.</li>
+<li>La ventaja clave de implementar un SGSI es reducir el riesgo y el tiempo de respuesta ante incidentes de seguridad.</li>
+<li>Las dos mejores prácticas para proteger los activos de información son hacer un inventario de todos los activos y, por cada activo, designar un responsable por el mantenimiento de su seguridad.</li>
+</ul>
+<p><strong>Políticas, normas y procedimientos.</strong></p>
+<div class="tabla"><table><thead><tr><th>Pregunta</th><th>Lo que marca el campus</th></tr></thead><tbody><tr><td>Quién avala la política de seguridad</td><td>Requiere el aval y apoyo primario de los líderes de la organización</td></tr><tr><td>Rol de la alta gerencia</td><td>Definir los objetivos y la estrategia de seguridad</td></tr><tr><td>Normas</td><td>Responden a «qué» hacer para alcanzar las directrices definidas en la política de seguridad. Son las reglas básicas de cómo debe implementarse el control o conjunto de controles definidos en las políticas</td></tr><tr><td>Procedimientos</td><td>Determinan «cómo» y «quién» se debe hacer</td></tr><tr><td>Nivel de planeación de los procedimientos</td><td>Táctico</td></tr></tbody></table></div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La norma te dice qué hay que hacer. El procedimiento te dice cómo se hace y quién lo hace.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Lo que falta de este tema</p><p>Las opciones nombran instructivos, estándares, evidencias y los niveles estratégico y operacional. Los exámenes no dicen qué es cada uno. Tampoco dicen con qué nivel van las políticas o las normas. Buscalo en el material de tu comisión.</p>
+</div>
+<p><strong>Ataques y sus modelos.</strong> Un ataque basado en escuchar y monitorear las transmisiones se denomina ataque pasivo. Se mostró un dibujo y se pidió el modelo de ataque, entre intercepción, interrupción, modificación y fabricación.</p>
+<p><img src="img/fig-ataque-interrupcion.webp" alt="Dos círculos con una flecha que sale del primero y termina en una barra antes de llegar al segundo"></p>
+<p>Este dibujo es interrupción.</p>
+<p><img src="img/fig-ataque-intercepcion.webp" alt="Dos círculos unidos por una flecha, y otra flecha que baja desde la línea hacia un tercer círculo"></p>
+<p>Este dibujo es intercepción. Fuente: 1° parcial teoría 03/10/2024, preguntas 19 y 20, página 9, respuesta del campus.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>En el primer dibujo el mensaje se corta y no llega. En el segundo llega, pero un tercero se lleva una copia.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Modificación y fabricación</p><p>Eran opciones, pero no hay un dibujo ni una definición de ellas en los exámenes. Puede salir el gráfico que no viste. Buscalos en el material de tu comisión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="2-parcial">2° parcial</h2>
+<h3 id="teoria-continuidad-del-negocio">Teoría, continuidad del negocio</h3>
+<p>Sale de la teoría del 06/11/2025. Las 20 preguntas son de ISO 22301 y del sistema de gestión de la continuidad (SGCN).</p>
+<ul>
+<li><strong>Continuidad del negocio (business continuity).</strong> Capacidad de una organización para continuar la entrega de productos y servicios dentro de plazos aceptables a una capacidad predefinida durante una disrupción.</li>
+<li><strong>Gestión de la continuidad de negocio.</strong> Proceso holístico de gestión que identifica amenazas potenciales y el impacto que esas amenazas pueden causar, proporcionando un marco para crear resiliencia organizativa con capacidad de respuesta eficaz.</li>
+<li><strong>En qué se diferencia de otras normas.</strong> Se centra en el «qué pasaría si» y en la capacidad de identificar y planificar posibles impactos y riesgos para la empresa.</li>
+</ul>
+<p><strong>El ciclo PDCA.</strong> La fase de «Actuar» es tomar medidas cuando sea necesario, basándose en el seguimiento, la medición y otros factores que impulsen la acción. La cláusula 8 (Operación) abarca principalmente la etapa de Hacer (implementar y operar).</p>
+<div class="tabla"><table><thead><tr><th>Fase</th><th>Cómo la escribe la consigna</th></tr></thead><tbody><tr><td>Planificar</td><td>Establecer los objetivos y los recursos necesarios</td></tr><tr><td>Hacer</td><td>Aplicar lo planificado. Implementar y operar</td></tr><tr><td>Verificar</td><td>Supervisar y medir la eficacia. Monitorear y revisar</td></tr><tr><td>Actuar</td><td>Mantener y mejorar</td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><th>Cláusula</th><th>Lo que marca el campus</th></tr></thead><tbody><tr><td>4.2.2</td><td>Implementar y mantener un proceso para identificar, tener acceso y evaluar los requisitos legales y regulatorios aplicables</td></tr><tr><td>4.3 Alcance</td><td>Los alcances documentados describen los procesos, actividades, productos o servicios internos y externos incluidos (o no incluidos)</td></tr><tr><td>5.1 Liderazgo</td><td>La alta dirección demuestra compromiso asegurando la integración de los requisitos del SGCN en los procesos de negocio y garantizando que cuenta con los recursos adecuados</td></tr><tr><td>6.1 Planificación</td><td>Sus riesgos y oportunidades se relacionan con la eficacia del sistema de gestión</td></tr><tr><td>7.3 Concienciación</td><td>El personal debe ser consciente de la política del SGCN, su contribución a la eficacia del sistema, y sus roles antes, durante y después de las disrupciones, y de las implicaciones de no cumplir con los requisitos del SGCN</td></tr><tr><td>7.5 Información documentada</td><td>El acceso se controla para que no pueda modificarse, corromperse, borrarse o ser consultada por personas a las que no corresponda</td></tr><tr><td>8.1 Control operacional</td><td>Los procesos subcontratados y la cadena de suministro deben ser controlados</td></tr><tr><td>8.2.3 Evaluación de riesgos</td><td>Sus riesgos se relacionan con la disrupción de las actividades del negocio</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Dos clases de riesgo</p><p>La 8.2.3 mira los riesgos del negocio. La 6.1 mira los riesgos del propio sistema de gestión. Eso es justo lo que pide la pregunta 3. Fuente: 2° parcial teoría 06/11/2025, pregunta 3, página 2, consigna y respuesta del campus.</p>
+</div>
+<ul>
+<li><strong>Política de continuidad.</strong> Además de dar un marco para establecer objetivos, debe incluir el compromiso de cumplir los requisitos aplicables y el compromiso de mejora continua.</li>
+<li><strong>Cambios en el SGCN.</strong> Además del propósito, las consecuencias potenciales y la disponibilidad de recursos, hay que considerar la integridad del SGCN.</li>
+<li><strong>Proveedores de alto riesgo.</strong> Asegurarse de que aplican controles al menos tan buenos como los de la organización, o buscar alternativas.</li>
+<li><strong>Estrategias y soluciones.</strong> Se eligen por la medida en que cumplen con los requisitos para continuar y recuperar las actividades prioritarias, por reducir la probabilidad y la duración de las perturbaciones, por los costos y beneficios asociados, por la cantidad y el tipo de riesgo que la organización puede o no asumir, y por la propensión al riesgo.</li>
+<li><strong>RTO.</strong> El Objetivo de Tiempo de Recuperación es el período de tiempo tras un incidente en el que se reanuda un producto o servicio o una actividad, o se recuperan los recursos.</li>
+</ul>
+<p>Las opciones traen otras siglas que no fueron la respuesta pedida, pero sirven para no confundirlas. PMPT es el tiempo máximo tolerable antes de que el impacto adverso sea inaceptable, y otra opción lo nombra Periodo Máximo de Interrupción Tolerable. MBCO es el nivel mínimo de servicios que una organización debe mantener tras una interrupción.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El RTO mide en cuánto tiempo volvés. El PMPT mide cuánto aguantás sin volver. El MBCO mide con qué nivel mínimo de servicio tenés que seguir.</p>
+</div>
+<p>Fuente: 2° parcial teoría 06/11/2025, respuestas del campus.</p>
+<h3 id="practica-pentesting-y-hardening">Práctica, pentesting y hardening</h3>
+<p>Sale de las prácticas del 08/11/2024 y del 07/11/2025. Cuatro preguntas salieron iguales en los dos años, con las opciones en otro orden. Son el objetivo principal del pentesting, el elemento que no se evalúa, la fase de gathering y qué sabe el auditor en caja negra.</p>
+<p><strong>Pentesting.</strong></p>
+<ul>
+<li>Su objetivo principal es encontrar y prevenir fallos de seguridad. «Mejorar la seguridad de la empresa» estaba entre las opciones y no era la marcada. Salió en los dos años.</li>
+<li>Lo que no se evalúa en un pentest es la velocidad de procesamiento. Salió en los dos años.</li>
+<li>Lo que lo diferencia de una evaluación de vulnerabilidades es que intenta explotar las vulnerabilidades encontradas.</li>
+<li>Como método, es la simulación de ataques controlados para identificar fallos.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Lo que marca el campus</th></tr></thead><tbody><tr><td>Caja negra</td><td>No tiene información previa sobre el sistema. Es la más realista en términos de ataque externo. Salió en los dos años</td></tr><tr><td>Caja blanca</td><td>Permite al auditor conocer toda la información del sistema. Es la considerada más completa</td></tr><tr><td>Caja gris</td><td>Evalúa desde el punto de vista de un usuario interno o un atacante con acceso limitado</td></tr></tbody></table></div>
+<p>Caja azul aparece como opción en varias preguntas y nunca fue la marcada. Ante una captura de Kali con un comando de Hydra contra un servicio FTP, el tipo de pentesting que marca el campus es Grey Box, sin explicar el motivo.</p>
+<div class="ojo"><p class="ojo-t">Realista no es lo mismo que completa</p><p>Caja negra es la más realista. Caja blanca es la más completa. Los dos superlativos se preguntaron por separado, en exámenes distintos. Fuente: 2° parcial práctica 08/11/2024, pregunta 2, página 1, y 07/11/2025, pregunta 12, página 6, respuesta del campus.</p>
+</div>
+<p><strong>Las fases.</strong></p>
+<ul>
+<li><strong>Gathering o recolección de información.</strong> Se recopila toda la información posible sobre los sistemas, redes, software, hardware y otras fuentes externas, como metadatos y redes sociales. Salió en los dos años.</li>
+<li><strong>Análisis de vulnerabilidades.</strong> Entran en juego la combinación de factores como herramientas de hacking, experiencia y astucia del auditor.</li>
+<li><strong>Acceso al sistema.</strong> El auditor organiza los ataques y mantiene el acceso al objetivo.</li>
+<li><strong>Generación de informes.</strong> Es la fase final del white hat.</li>
+<li>Cuando las hace un black o grey hat, se reemplazan la definición de reglas y límites, y la generación de informes. El black hat reemplaza la generación de informes con mantener acceso y borrador de huellas.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Astucia es análisis, no explotación</p><p>En la consigna de la astucia del auditor, «explotación de vulnerabilidades» era opción y no era la correcta. Fuente: 2° parcial práctica 07/11/2025, pregunta 8, página 5, respuesta del campus.</p>
+</div>
+<div class="ojo"><p class="ojo-t">El orden de las fases</p><p>Ningún examen da la lista completa ni el orden, solo que el informe es la fase final. Buscá la lista en el material de tu comisión.</p>
+</div>
+<p><strong>Vulnerabilidades, amenazas y ataques.</strong></p>
+<ul>
+<li>Una vulnerabilidad por políticas de seguridad deficientes es de tipo diseño. Las otras opciones eran uso e implementación.</li>
+<li>Las tres principales categorías de amenazas en los sistemas son amenazas en la red, amenazas en los sistemas y amenazas en las aplicaciones.</li>
+<li><strong>Ingeniería social.</strong> Manipulación psicológica para persuadir a la víctima de que revele credenciales u otra información, por conversaciones, correos o llamadas, sin software malicioso.</li>
+<li><strong>Phishing.</strong> El atacante se hace pasar por una entidad legítima para obtener información confidencial.</li>
+<li><strong>DDoS.</strong> Realizar peticiones de acceso a una página web desde muchos servidores al mismo tiempo.</li>
+</ul>
+<p><strong>Hardening.</strong> Es implementar configuraciones adicionales para mejorar la seguridad y reducir las vulnerabilidades de un sistema. Un ejemplo que entra en el concepto es la deshabilitación de dispositivos ópticos, USB o similares. Los tres puntos del hardening en un host Windows son directiva de contraseña, activar firewall de Windows e instalar antivirus.</p>
+<div class="ojo"><p class="ojo-t">Las tres de Windows</p><p>Había seis opciones. Configurar IP fija, cambiar el usuario administrador por estándar y crear listas de acceso en el firewall no estaban marcadas. Fuente: 2° parcial práctica 07/11/2025, pregunta 19, página 9, respuesta del campus.</p>
+</div>
+<p><strong>Móviles.</strong> Las capas de la arquitectura interna de Android son aplicación, framework de aplicación, librerías y Linux Kernel. El jailbreaking en iOS es el proceso de romper la seguridad del sistema para obtener privilegios root.</p>
+<div class="tabla"><table><thead><tr><th>Herramienta o salida</th><th>Lo que marca el campus</th></tr></thead><tbody><tr><td>Kali</td><td>Distribución completa de Linux especializada en auditoría de seguridad</td></tr><tr><td>Metasploit</td><td>Para simular ataques y realizar pruebas de penetración en sistemas</td></tr><tr><td>John the Ripper</td><td>Descifrar contraseñas sin conexión</td></tr><tr><td>Parámetro <code>cat</code> vulnerable, qué herramienta lo encontró</td><td>Sqlmap. Las otras eran Nikto, Nessus y Nmap</td></tr><tr><td>Salida de Nikto, cuál es de severidad alta</td><td><code>wp-config.php</code> accesible</td></tr><tr><td>Nmap con el puerto 22/tcp abierto, cómo conectarse</td><td><code>ssh</code> seguido de la IP del equipo</td></tr></tbody></table></div>
+<p><strong>Grados de política.</strong> La política promiscua no establece restricciones de acceso a los recursos del sistema. La prudente es un grado de política de seguridad alto donde los recursos están limitados exclusivamente a las personas más imprescindibles.</p>
+<div class="ojo"><p class="ojo-t">La prudente, no la extrema</p><p>En esa definición, «política extrema» era una opción y no era la correcta. Permisiva también aparece como opción, sin definición en ningún examen. Fuente: 2° parcial práctica 07/11/2025, pregunta 1, página 1, respuesta del campus.</p>
+</div>
+<p>Un firewall dedicado para monitorear y controlar el tráfico entrante y saliente va entre el módem del proveedor de internet y el router.</p>
+<p>Fuente: 2° parcial práctica 08/11/2024 y 07/11/2025, respuestas del campus.</p>
+</section>
+<section class="sec cae"><h2 id="que-cae">Qué cae más</h2>
+<p class="cae-baja">El sitio no tiene todos los exámenes que se tomaron, así que esto es una pista y no una promesa. Tocá un tema para ver en qué exámenes salió.</p>
+<h3 id="cae-parcial-2">2° parcial</h3>
+<p class="cae-de">Sale de 6 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">Políticas de seguridad</span><span class="cae-barra" aria-hidden="true"><span style="width:33%"></span></span><span class="cae-num">en 2 de 6</span></summary><ul class="cae-ex"><li><a href="ej-p2-practica-2025-11-07-a.html">2° parcial práctica, 07/11/2025, preguntas 1 a 10</a></li><li><a href="ej-p2-practica-2024-11-08-b.html">2° parcial práctica, 08/11/2024, preguntas 11 a 20</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Fases del pentesting</span><span class="cae-barra" aria-hidden="true"><span style="width:33%"></span></span><span class="cae-num">en 2 de 6</span></summary><ul class="cae-ex"><li><a href="ej-p2-practica-2025-11-07-a.html">2° parcial práctica, 07/11/2025, preguntas 1 a 10</a></li><li><a href="ej-p2-practica-2024-11-08-a.html">2° parcial práctica, 08/11/2024, preguntas 1 a 10</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Pentesting</span><span class="cae-barra" aria-hidden="true"><span style="width:33%"></span></span><span class="cae-num">en 2 de 6</span></summary><ul class="cae-ex"><li><a href="ej-p2-practica-2025-11-07-b.html">2° parcial práctica, 07/11/2025, preguntas 11 a 20</a></li><li><a href="ej-p2-practica-2024-11-08-b.html">2° parcial práctica, 08/11/2024, preguntas 11 a 20</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Tipos de caja</span><span class="cae-barra" aria-hidden="true"><span style="width:33%"></span></span><span class="cae-num">en 2 de 6</span></summary><ul class="cae-ex"><li><a href="ej-p2-practica-2025-11-07-b.html">2° parcial práctica, 07/11/2025, preguntas 11 a 20</a></li><li><a href="ej-p2-practica-2024-11-08-a.html">2° parcial práctica, 08/11/2024, preguntas 1 a 10</a></li></ul></details></li></ul></section>
+<section class="sec em-examenes"><h2 id="examenes">Exámenes</h2>
+<p class="em-leyenda">«Respuesta oficial» es lo que está en el Drive. «Propuesta sin verificar» es una respuesta armada con inteligencia artificial que ningún docente revisó.</p>
+<h3 id="ex-parcial-1">1° parcial</h3><ul class="em-lista"><li class="em-fila"><a href="ej-p1-teoria-2024-10-03-a.html"><span class="em-nom">1° parcial teoría, 03/10/2024, preguntas 1 a 10</span><span class="ej-fecha">03/10/2024</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-p1-teoria-2024-10-03-b.html"><span class="em-nom">1° parcial teoría, 03/10/2024, preguntas 11 a 20</span><span class="ej-fecha">03/10/2024</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-p1-practica-2024-09-27-a.html"><span class="em-nom">1° parcial práctica, 27/09/2024, preguntas 1 a 9</span><span class="ej-fecha">27/09/2024</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-p1-practica-2024-09-27-b.html"><span class="em-nom">1° parcial práctica, 27/09/2024, preguntas 10 a 20</span><span class="ej-fecha">27/09/2024</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li></ul>
+<h3 id="ex-parcial-2">2° parcial</h3><ul class="em-lista"><li class="em-fila"><a href="ej-p2-practica-2025-11-07-a.html"><span class="em-nom">2° parcial práctica, 07/11/2025, preguntas 1 a 10</span><span class="ej-fecha">07/11/2025</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-p2-practica-2025-11-07-b.html"><span class="em-nom">2° parcial práctica, 07/11/2025, preguntas 11 a 20</span><span class="ej-fecha">07/11/2025</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-p2-teoria-2025-11-06-a.html"><span class="em-nom">2° parcial teoría, 06/11/2025, preguntas 1 a 10</span><span class="ej-fecha">06/11/2025</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-p2-teoria-2025-11-06-b.html"><span class="em-nom">2° parcial teoría, 06/11/2025, preguntas 11 a 20</span><span class="ej-fecha">06/11/2025</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-p2-practica-2024-11-08-a.html"><span class="em-nom">2° parcial práctica, 08/11/2024, preguntas 1 a 10</span><span class="ej-fecha">08/11/2024</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li><li class="em-fila"><a href="ej-p2-practica-2024-11-08-b.html"><span class="em-nom">2° parcial práctica, 08/11/2024, preguntas 11 a 20</span><span class="ej-fecha">08/11/2024</span><span class="em-estado" data-estado="oficial">Respuesta oficial</span></a></li></ul></section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado solo con cinco exámenes del campus que hay en el Drive de UTN (2024 y 2025). El Drive no trae apuntes ni programa. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

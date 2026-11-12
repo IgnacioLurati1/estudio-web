@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Lenguaje de Programación Java en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Lenguaje de Programación Java, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="lenguaje-de-programacion-java" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Lenguaje de Programación Java</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Lenguaje de Programación Java</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial">Parcial</a></li><li><a href="#pdf-final">Final</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026 y un trabajo final de alumnos de 2020). En el Drive no hay programa ni apunte de la cátedra. Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Lenguaje de Programación Java</p><h1>Para entender</h1>
+<p class="bajada">Una electiva donde el parcial te pide escribir código Java a partir de un diagrama de clases. El Drive trae las hojas de examen, pero no trae teoría de la cátedra.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+<div class="ojo"><p class="ojo-t">Qué podés esperar de este resumen</p><p>En el Drive no hay programa, apunte ni clases. Hay exámenes y trabajos de alumnos. Por eso acá vas a encontrar qué se pide y cómo viene, con su hoja. La teoría de Java no se completó de memoria, porque cada cátedra pide las cosas a su manera. Lo que falta está en <a href="#parcial-lo-que-se-pide-y-el-material-no-explica">esta lista</a>.</p>
+</div>
+
+<section class="sec"><h2 id="inicio-la-idea-general">La idea general</h2>
+<p>Te dan un diagrama de clases y reglas de negocio. Lo pasás a código Java y programás un método que calcula algo, como un sueldo o una ganancia. La hoja pide que lo hagas con <strong>herencia, polimorfismo y redefinición</strong>.</p>
+<div class="idea"><p>Pensá el parcial como una traducción. El diagrama dice qué clases hay y cómo se relacionan. Las reglas dicen qué cuenta hacer. Tu código tiene que respetar las dos cosas.</p>
+</div>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido">El recorrido</h2>
+<div class="tabla"><table><thead><tr><th>Paso</th><th>Qué hacés</th><th>Dónde está</th></tr></thead><tbody><tr><td>1</td><td>Mirar cómo viene la hoja y qué vale cada ejercicio</td><td><a href="#parcial-como-viene-el-parcial">Parcial</a></td></tr><tr><td>2</td><td>Aprender a leer los diagramas que usa la cátedra</td><td><a href="#parcial-leer-el-diagrama-de-clases">Leer el diagrama</a></td></tr><tr><td>3</td><td>Practicar con las hojas de 2024 a 2026</td><td><a href="ejercicios.html">Ejercicios</a></td></tr><tr><td>4</td><td>Estudiar los temas que el Drive no explica</td><td><a href="#parcial-lo-que-se-pide-y-el-material-no-explica">Lista de faltantes</a></td></tr><tr><td>5</td><td>Mirar qué presentó un grupo para el final</td><td><a href="#pdf-final">Final</a></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<div class="tomado"><aside class="nota"><strong>Parcial y recuperatorio, los 5 con la misma forma</strong><span>Parciales 2024, 2025 y 2026. Recuperatorios 2024 y 2025</span></aside><p><mark>Dos ejercicios de programar</mark>. El primero vale 6 puntos. El segundo vale 4, y en 2026 podía llegar a 5 con un punto extra. Ninguna de estas 5 hojas trae preguntas de teoría.</p>
+</div>
+<p>Del final hay una sola pista. Una carpeta del Drive se llama «Sistema para final» y trae el trabajo que presentó un grupo en 2020. No hay consigna de la cátedra, así que no se sabe qué se pide hoy. Preguntalo en tu comisión.</p>
+</section>
+<section class="sec"><h2 id="inicio-como-se-conecta">Cómo se conecta</h2>
+<ul>
+<li>El <strong>ejercicio 1</strong> junta clases, atributos, relaciones y un método que cambia según el tipo de objeto.</li>
+<li>El <strong>ejercicio 2</strong> es más corto y gira alrededor de una colección de objetos, como una <code>LinkedList</code>.</li>
+<li>El <strong>sistema del final</strong> usa clases parecidas, pero suma páginas web y una base de datos.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="inicio-que-hay-en-el-drive">Qué hay en el Drive</h2>
+<div class="tabla"><table><thead><tr><th>Material</th><th>Qué trae</th><th>Años</th></tr></thead><tbody><tr><td>Parciales y recuperatorios</td><td>8 hojas distintas. Las fotos de 2016 repiten la hoja que está como 2014 A</td><td>2014 a 2026</td></tr><tr><td>Sistema para final</td><td>Documentación, casos de uso, modelo de dominio y base de datos de un grupo</td><td>2020</td></tr><tr><td>Carpeta TPI</td><td>Dos bases de datos, una nota de pasos y programas que no se abrieron</td><td>Sin fecha en la carpeta</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Lo de 2022 para atrás</p><p>Es del plan viejo y lleva su marca. Las hojas de 2014 y 2016 tienen otra forma, con preguntas de teoría. La de 2022 ya tiene la forma de ahora. Por eso primero practicá con las de 2024 en adelante.</p>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial" data-pagina="parcial" aria-label="Parcial"><p class="pdf-de">Lenguaje de Programación Java</p><h1>Parcial</h1>
+<p class="bajada">Un diagrama de clases para pasar a Java, un método con reglas de negocio y un método corto sobre una colección.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+<div class="ojo"><p class="ojo-t">Antes de estudiar de acá</p><p>Esta página describe lo que piden las hojas. No hay apunte de la cátedra en el Drive, así que no se escriben definiciones de Java de memoria ni se resuelven consignas. Para practicar, usá <a href="ejercicios.html">Ejercicios</a>.</p>
+</div>
+
+<section class="sec"><h2 id="parcial-como-viene-el-parcial">Cómo viene el parcial</h2>
+<div class="tomado"><aside class="nota"><strong>Los 5 exámenes de 2024 a 2026 tienen dos ejercicios</strong><span>Parciales 2024, 2025 y 2026. Recuperatorios 2024 y 2025</span></aside><p><mark>Ejercicio 1, 6 puntos</mark>: de diagrama de clases a código, con un método de cálculo. <mark>Ejercicio 2, 4 puntos</mark>: un método sobre objetos relacionados. Ninguna de estas hojas trae preguntas de teoría.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Hoja</th><th>Método del ejercicio 1</th><th>Clases con herencia</th><th>Método del ejercicio 2</th></tr></thead><tbody><tr><td><a href="ej-parcial-2026.html">Parcial 2026</a></td><td><code>getGananciaTotal()</code></td><td><code>ServicioPrestado</code>, con <code>FinDeObra</code> y <code>Limpieza</code></td><td><code>getConsumo</code> y <code>debeReponerStock</code></td></tr><tr><td><a href="ej-recu-2025.html">Recuperatorio 2025</a></td><td><code>getCostoMensual</code></td><td><code>Dispositivo</code>, con <code>SmartPhone</code>, <code>Tablet</code> y <code>Notebook</code></td><td><code>cantLargas</code></td></tr><tr><td><a href="ej-parcial-2025.html">Parcial 2025</a></td><td><code>getSueldo()</code></td><td><code>Empleado</code>, con <code>Chofer</code>, <code>Vendedor</code> y <code>Coordinador</code></td><td><code>getEjemplaresAPedir</code></td></tr><tr><td><a href="ej-recu-2024.html">Recuperatorio 2024</a></td><td><code>getPagoEncargado()</code></td><td><code>Empleado</code>, con <code>Encargado</code>. <code>Servicio</code>, con <code>ServicioPropio</code>, <code>ServicioDeTerceros</code> y <code>MusicaEnVivo</code></td><td><code>mejorPrueba</code></td></tr><tr><td><a href="ej-parcial-2024.html">Parcial 2024</a></td><td><code>getPrecioFinal()</code></td><td><code>Evento</code>, con <code>EventoFacturadoPorInvitado</code> y <code>EventoPrecioFijo</code>. <code>ServicioCatering</code>, con <code>ServicioCateringCustom</code></td><td><code>getHsTareasTerminadas</code></td></tr></tbody></table></div>
+<p>El Recuperatorio de 2022 tiene la misma forma, con un método <code>getSalary()</code> y dos métodos de promedio. Es del plan viejo y lleva su marca.</p>
+</section>
+<section class="sec"><h2 id="parcial-el-ejercicio-1">El ejercicio 1</h2>
+<div class="tomado"><aside class="nota"><strong>Lo que hay que entregar, con las mismas palabras en las 5 hojas</strong><span>Parciales y recuperatorios de 2024 a 2026</span></aside><p>«Construya el código fuente en java para el diagrama de clases anexo.» La hoja pide:</p>
+<ul>
+<li><mark>Definición de las clases, herencia y atributos.</mark></li>
+<li><mark>Relaciones entre las clases.</mark> «Queda librado a su elección en cuál clase representar las variables y métodos necesarios para la asociación.»</li>
+<li><mark>Los métodos necesarios</mark> para modelar esas relaciones y para ejecutar el método pedido.</li>
+</ul>
+<p>El método «debe programarse utilizando los conceptos del paradigma de orientación a objeto utilizando <mark>herencia, polimorfismo y redefinición</mark>».</p>
+</div>
+<div class="idea"><p>Las 5 hojas traen esas tres palabras en negrita. Al terminar, revisá tu código buscándolas.</p>
+</div>
+<p>Las hojas también dicen que «pueden desarrollar métodos intermedios que consideren necesarios o convenientes». O sea que podés partir el cálculo en métodos más chicos.</p>
+<h3 id="parcial-lo-que-se-repite-en-las-reglas">Lo que se repite en las reglas</h3>
+<div class="tabla"><table><thead><tr><th>Qué aparece</th><th>En cuántas hojas</th><th>Dónde</th></tr></thead><tbody><tr><td>Una regla distinta según el tipo de objeto</td><td>5 de 5</td><td>Todas</td></tr><tr><td>Una suma pedida con palabras («sumatoria», «suma»)</td><td>4 de 5</td><td>Todas menos el Recuperatorio 2025</td></tr><tr><td>Una condición con un mínimo</td><td>2 de 5</td><td>Parcial 2024 (invitados) y Parcial 2025 (pasajes)</td></tr></tbody></table></div>
+<p>El Recuperatorio 2025 repite el caso de dispositivos del Parcial 2014 B, con un diagrama casi igual.</p>
+</section>
+<section class="sec"><h2 id="parcial-leer-el-diagrama-de-clases">Leer el diagrama de clases</h2>
+<p>La hoja no explica su notación, así que conviene conocerla antes de entrar. Esta tabla junta lo que se ve en los 5 exámenes. Cuando la hoja aclara algo con palabras, va la cita.</p>
+<div class="tabla"><table><thead><tr><th>En el diagrama</th><th>Dónde se ve</th><th>Qué dice la hoja</th></tr></thead><tbody><tr><td>Triángulo vacío que apunta a una clase</td><td>Las 5 hojas</td><td>La consigna pide «herencia». Las clases del lado de abajo son los tipos de la de arriba</td></tr><tr><td><code>&lt;&lt;abstract&gt;&gt;</code></td><td>Recuperatorio 2025 (<code>Dispositivo</code>)</td><td>Marca de clase abstracta. No se explica más</td></tr><tr><td><code>1</code> de un lado y <code>*</code> del otro</td><td>Parcial 2024 (<code>Tecnico</code> y <code>Tarea</code>)</td><td>«Los técnicos cuentan con una lista de tareas asignadas»</td></tr><tr><td><code>1</code> de un lado y <code>*</code> del otro</td><td>Recuperatorio 2024 (<code>Velocista</code> y <code>Prueba</code>)</td><td>«Los velocistas cuentan con una LinkedList de pruebas de velocidad»</td></tr><tr><td><code>*</code> en el lado de una relación</td><td>Parcial 2026 (<code>ServicioPrestado</code> y <code>Equipamiento</code>)</td><td>«Algunos pueden no utilizar ninguno»</td></tr><tr><td><code>1..1</code>, <code>0..*</code>, <code>1..*</code>, <code>0..1</code></td><td>Recuperatorio 2025 y hojas de 2014</td><td>No se explica. Lectura de este resumen: mínimo y máximo</td></tr><tr><td>Rombo negro</td><td>Parcial 2024 (<code>Tecnico</code> y <code>Tarea</code>)</td><td>No se explica</td></tr><tr><td>Nota con <code>(*)</code> o texto en rojo</td><td>Parcial 2026 y Parcial 2025</td><td>Es parte de la consigna. Leela</td></tr></tbody></table></div>
+<p><img src="img/fig-herencia-2026.webp" alt="Diagrama del Parcial 2026: ServicioPrestado con sus clases FinDeObra y Limpieza, relacionado con Inmueble, Equipamiento y Empleado, y una nota sobre Duration"></p>
+<p><em>Parcial 2026, página 2.</em></p>
+<p><img src="img/fig-lista-2024.webp" alt="Diagrama del Parcial 2024: Tecnico y Tarea unidos por un rombo negro, con 1 y asterisco, y el atributo tareas de tipo LinkedList"></p>
+<p><em>Parcial 2024, página 2. La misma relación está en la línea y en el atributo <code>tareas: LinkedList</code>.</em></p>
+<h3 id="parcial-clases-en-el-medio-que-guardan-un-dato">Clases en el medio que guardan un dato</h3>
+<div class="tomado"><aside class="nota"><strong>Una clase entre otras dos, con un atributo cantidad</strong><span>Recuperatorio 2024, Parcial 2025 y Parcial 2026</span></aside><p><mark>3 de los 5 exámenes</mark> la traen. <code>MenuEvento</code> tiene <code>cantidad</code> entre <code>Evento</code> y <code>Menu</code>. <code>LineaPedido</code> tiene <code>cantidad</code> entre <code>Libro</code> y <code>Pedido</code>. <code>MedicamentoUtilizado</code> tiene <code>cantidad</code> entre <code>Atencion</code> y <code>Medicamento</code>. Fijate qué dice la consigna de esa cantidad antes de escribir el método.</p>
+</div>
+<div class="ojo"><p class="ojo-t">La nota en rojo del Parcial 2025</p><p>Debajo del diagrama dice «Un cliente tiene muchos pasajes y un pasaje pertenece a un solo cliente». Los números dibujados en esa línea parecen decir lo contrario. Una nota así puede corregir el dibujo. Si dudás, preguntá durante el examen.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-herencia-redefinicion-y-polimorfismo">Herencia, redefinición y polimorfismo</h2>
+<p>Las hojas piden las tres palabras y ninguna las define. Esto es lo que se puede mostrar con el material.</p>
+<h3 id="parcial-herencia">Herencia</h3>
+<p>Se escribe con <code>extends</code>. Está en las hojas de 2014 y en el trabajo final de 2020.</p>
+<pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Proveedor</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">EntidadMadre</span> {
+
+    <span class="hljs-keyword">private</span> String razonSocial;
+    <span class="hljs-keyword">private</span> String cuit;</code></pre>
+<p><em>Documentación del trabajo final de alumnos, 2020, página 29.</em></p>
+<p>En el diagrama de ese trabajo, <code>EntidadMadre</code> tiene <code>id</code>, domicilio, teléfono y correo. <code>Proveedor</code> suma solo <code>razonSocial</code> y <code>cuit</code>. Su constructor le pasa los datos comunes a la clase de arriba con <code>super</code>.</p>
+<pre class="codigo"><code><span class="hljs-built_in">super</span>(domicilioCalle, domicilioNumero, domicilioPiso, domicilioDepartamento,
+        telefono, correoElectronico);
+
+<span class="hljs-built_in">this</span>.razonSocial = razonSocial;
+<span class="hljs-built_in">this</span>.cuit = cuit;</code></pre>
+<p><em>Misma página.</em></p>
+<h3 id="parcial-redefinicion">Redefinición</h3>
+<p>En las dos hojas de 2014, <code>A</code> y <code>B extends A</code> declaran los dos el mismo método. No hay otro código de la cátedra así en el Drive.</p>
+<pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-type">String</span> <span class="hljs-title function_">getTexto</span><span class="hljs-params">()</span> {   <span class="hljs-comment">// en la clase A</span>
+<span class="hljs-keyword">public</span> <span class="hljs-type">String</span> <span class="hljs-title function_">getTexto</span><span class="hljs-params">()</span> {   <span class="hljs-comment">// en la clase B</span></code></pre>
+<p>El Parcial 2014 B también escribe <code>super.getLetras()</code> y el 2014 A, <code>super.getTexto()</code>.</p>
+<h3 id="parcial-polimorfismo">Polimorfismo</h3>
+<p>El Drive no trae una definición ni un ejemplo explicado. La hoja de 2014 tiene la línea <code>A unObj = new B();</code> dentro de una consigna. Esa consigna queda para que la pienses vos, con <a href="ej-parcial-2014-a.html">la hoja</a> al lado.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Una imagen para ubicarte, que no sale de la cátedra. Apretás «encender» en una tele y en una radio. La orden es la misma, pero cada aparato hace lo suyo. Quien aprieta no necesita saber cuál tiene adelante. La definición formal y el código buscalos en tu comisión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-el-ejercicio-2">El ejercicio 2</h2>
+<div class="tomado"><aside class="nota"><strong>Un método corto sobre objetos relacionados</strong><span>Parciales y recuperatorios de 2024 a 2026</span></aside><div class="tabla"><table><thead><tr><th>Hoja</th><th>Firma</th><th>Qué pide la consigna</th></tr></thead><tbody><tr><td>Parcial 2026</td><td><code>getConsumo(desde, hasta)</code> y <code>debeReponerStock()</code></td><td>Decidir si el consumo pasa el punto de pedido</td></tr><tr><td>Recuperatorio 2025</td><td><code>cantLargas(ArrayList&lt;String&gt; listaNombres, int tamanio)</code></td><td>Contar palabras con más letras que el número</td></tr><tr><td>Parcial 2025</td><td><code>getEjemplaresAPedir(LinkedList&lt;Libro&gt; libros)</code></td><td>Una suma que recorre libros, líneas y pedidos pendientes</td></tr><tr><td>Recuperatorio 2024</td><td><code>mejorPrueba()</code></td><td>Devolver la prueba de menor tiempo</td></tr><tr><td>Parcial 2024</td><td><code>getHsTareasTerminadas()</code></td><td>Sumar las horas de las tareas terminadas</td></tr></tbody></table></div>
+<p><mark>Las 5 trabajan sobre un conjunto de objetos</mark>. <code>LinkedList</code> está en 3 y <code>ArrayList</code> en 1. El diagrama de 2026 no dice qué colección usar.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Filtrar por fecha daba un punto extra</strong><span>Parcial 2026</span></aside><p>«Sin filtrar por fecha» se otorgaba el puntaje normal, 4 puntos. «Filtrando por fecha» se otorgaba <mark>1 punto extra</mark>, 5 puntos, y había que invocar <code>getConsumo</code> con las fechas de hace 1 mes hasta hoy. La hoja usa <code>LocalDate</code>.</p>
+</div>
+<p>La sintaxis para recorrer una colección aparece en el trabajo de 2020. Es de alumnos, y sirve solo para ver cómo se escribe.</p>
+<pre class="codigo"><code><span class="hljs-keyword">for</span> (Proveedor p : lista) {</code></pre>
+<p><em>Documentación del trabajo final de alumnos, 2020, página 19.</em></p>
+</section>
+<section class="sec"><h2 id="parcial-tipos-que-aparecen-en-las-hojas">Tipos que aparecen en las hojas</h2>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Dónde se ve</th></tr></thead><tbody><tr><td><code>int</code>, <code>double</code>, <code>Double</code>, <code>float</code>, <code>boolean</code>, <code>String</code></td><td>Atributos de todos los diagramas</td></tr><tr><td><code>LocalDate</code></td><td>Parciales 2024 y 2026, Recuperatorio 2024 y Parcial 2025</td></tr><tr><td><code>LocalDateTime</code></td><td><code>fechaHora</code> del Recuperatorio 2024 y <code>fechaHoraInicio</code> del Parcial 2025</td></tr><tr><td><code>Duration</code></td><td><code>horas</code> del Parcial 2026</td></tr><tr><td><code>LinkedList</code>, <code>ArrayList</code></td><td>Ejercicio 2</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="parcial-lo-que-se-pide-y-el-material-no-explica">Lo que se pide y el material no explica</h2>
+<p>Estos temas hacen falta para el parcial y ningún archivo del Drive los enseña. Estudialos de lo que dé tu comisión o de la documentación oficial de Java.</p>
+<ul>
+<li>Qué son la herencia, el polimorfismo y la redefinición, con su definición formal.</li>
+<li>Clases y métodos abstractos.</li>
+<li>Cómo se programa una relación entre clases con una colección, y en cuál clase conviene ponerla.</li>
+<li><code>ArrayList</code> y <code>LinkedList</code>: cómo se crean, se recorren y se les agregan elementos.</li>
+<li><code>LocalDate</code>, <code>LocalDateTime</code> y <code>Duration</code>: cómo se comparan y se calculan.</li>
+<li>Cómo acumular un total, contar o buscar el menor dentro de un recorrido.</li>
+</ul>
+</section>
+<section class="sec"><h2 id="parcial-errores-de-las-hojas">Errores de las hojas</h2>
+<p>Las hojas tienen diferencias entre el texto y el diagrama. No las resuelvas por tu cuenta en el examen. Preguntá.</p>
+<div class="tabla"><table><thead><tr><th>Hoja</th><th>Qué pasa</th></tr></thead><tbody><tr><td>Parcial 2026</td><td>Para <code>horas</code>, el texto dice «utilizar tipo double» y la nota del diagrama dice «usar int». Las firmas están escritas como <code>desde: LocalDate</code></td></tr><tr><td>Recuperatorio 2025</td><td>Pide <code>getCostoMensual</code> «para los empleados», pero las reglas hablan de dispositivos</td></tr><tr><td>Parcial 2024</td><td><code>Mesero</code> trae <code>precoPorHora</code>. <code>Tarea</code> tiene el atributo <code>duracionHs</code> y el método <code>getDuracion()</code></td></tr><tr><td>Recuperatorio 2022</td><td>Pide <code>getDPAWithoutFailingGrades</code>, y el diagrama dice <code>getGPAWithoutFailingGrades</code></td></tr><tr><td>Parcial 2014 A</td><td>Pide <code>getAlquilerMensual</code> y después nombra <code>getCostoMensual</code>. Las notas llegan en un <code>ArrayList&lt;Boolean&gt;</code></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="parcial-lo-que-solo-se-tomo-en-2014-y-2016">Lo que solo se tomó en 2014 y 2016</h2>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Las hojas <a href="ej-parcial-2014-a.html">2014 A</a> y <a href="ej-parcial-2014-b.html">2014 B</a> traen más ejercicios y consignas que ya no aparecen desde 2022. Las fotos de 2016 son la misma hoja que 2014 A. Quedan como consigna, sin respuesta, porque el Drive no trae dónde contestarlas.</p>
+<ul>
+<li>Preguntas sobre clases abstractas, <code>public</code>, <code>static</code>, <code>void</code>, interfaces y métodos de clase.</li>
+<li>Excepciones: el bloque <code>try</code>, <code>throw</code> y <code>throws</code>, y un método de ejemplo.</li>
+<li>Por qué los métodos de <code>Math</code> se usan sin <code>new</code>.</li>
+<li>Similitudes y diferencias entre clases abstractas e interfaces.</li>
+<li>Leer un código y decir qué muestra el <code>main</code> en la consola.</li>
+</ul>
+</div>
+</section></section>
+<section class="pdf-parte" id="pdf-final" data-pagina="final" aria-label="Final"><p class="pdf-de">Lenguaje de Programación Java</p><h1>Final</h1>
+<p class="bajada">Lo único que hay es el sistema que presentó un grupo de alumnos en 2020. Sirve para ver cómo puede quedar el trabajo, no para saber qué se pide hoy.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+<div class="ojo"><p class="ojo-t">Antes de estudiar de acá</p><p>No hay consigna de la cátedra ni exámenes finales en el Drive. Todo lo de esta página sale de un trabajo de alumnos de 2020, del plan viejo. El código no es un modelo revisado por la cátedra. Confirmá en tu comisión qué se presenta y cómo se evalúa.</p>
+</div>
+
+<section class="sec"><h2 id="final-que-se-presento">Qué se presentó</h2>
+<p>La carpeta se llama «Sistema para final». Es un sistema de gestión para una forrajería. Trae estos documentos.</p>
+<div class="tabla"><table><thead><tr><th>Documento</th><th>Qué trae</th><th>Dónde</th></tr></thead><tbody><tr><td>Diagrama de clases</td><td>Las clases con atributos, constructores y métodos</td><td>Documentación, página 3</td></tr><tr><td>Modelo de datos</td><td>Las tablas, en diagrama «Crow Foot»</td><td>Documentación, página 4</td></tr><tr><td>Casos de uso</td><td>Un caso resumen, <code>CUR1 - Comprar</code>, y tres de usuario</td><td>Documentación, páginas 5 a 7</td></tr><tr><td>Capturas de pantalla</td><td>Inicio, contacto, ABMC y perfil de usuario, entre otras</td><td>Documentación, páginas 8 a 17</td></tr><tr><td>Fragmentos de código</td><td>Un caso elegido, «Consulta de Proveedores», por todas sus capas</td><td>Documentación, páginas 18 a 29</td></tr><tr><td>Listado de casos de uso</td><td>7 casos y 5 ABMC</td><td>Archivo aparte</td></tr><tr><td>Modelo de dominio</td><td>Clases del negocio y sus relaciones</td><td>Archivo aparte</td></tr><tr><td>Base de datos</td><td>Volcado de MySQL con las tablas</td><td>Archivo aparte</td></tr><tr><td>Usuarios para acceder</td><td>Una tabla de usuarios y privilegios</td><td>Archivo aparte</td></tr><tr><td>Repositorio</td><td>Una nota que dice dónde están el código, las librerías y la base</td><td>Archivo aparte</td></tr></tbody></table></div>
+<h3 id="final-los-casos-de-uso-del-listado">Los casos de uso del listado</h3>
+<ol>
+<li>Realizar compra (cliente).</li>
+<li>Realizar una consulta (cliente).</li>
+<li>Cargar compra de un cliente, cuando llama o envía WhatsApp.</li>
+<li>Ingresar stock.</li>
+<li>Revisar productos a vencer.</li>
+<li>Armar pedidos de compras que el cliente hizo por la web.</li>
+<li>Cargar promociones.</li>
+</ol>
+<p>Se suman los ABMC de producto, categoría de producto, proveedor, cliente y tipo de cliente.</p>
+</section>
+<section class="sec"><h2 id="final-como-esta-armado-el-sistema">Cómo está armado el sistema</h2>
+<p>El código de ejemplo se reparte en tres paquetes con nombre propio, más un cuarto para la excepción del grupo.</p>
+<div class="tabla"><table><thead><tr><th>Paquete o archivo</th><th>Qué hace en el trabajo</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Página JSP</td><td>Muestra los datos y envía los formularios</td><td><code>proveedores.jsp</code></td></tr><tr><td><code>logica</code></td><td>Recibe el pedido y se lo pasa a la capa de datos</td><td><code>ControladorProveedor</code></td></tr><tr><td><code>datos</code></td><td>Arma las sentencias SQL y las ejecuta</td><td><code>DatosProveedor</code></td></tr><tr><td><code>entidades</code></td><td>Las clases con atributos, getters y setters</td><td><code>Proveedor</code></td></tr><tr><td><code>extras</code></td><td>La clase <code>Excepcion</code> del grupo</td><td><code>Excepcion</code></td></tr></tbody></table></div>
+<h3 id="final-de-la-pagina-a-la-base">De la página a la base</h3>
+<p>La página crea el controlador y recorre lo que devuelve.</p>
+<pre class="codigo"><code><span class="hljs-type">ControladorProveedor</span> <span class="hljs-variable">cp</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ControladorProveedor</span>();
+<span class="hljs-type">ArrayList</span>&lt;Proveedor&gt; <span class="hljs-variable">lista</span> <span class="hljs-operator">=</span> cp.buscarTodos();</code></pre>
+<p><em>Documentación, página 19.</em></p>
+<p>El controlador le pasa cada operación a la clase de datos.</p>
+<pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ControladorProveedor</span> {
+
+    <span class="hljs-type">DatosProveedor</span> <span class="hljs-variable">datos</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DatosProveedor</span>();
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">void</span> <span class="hljs-title function_">alta</span><span class="hljs-params">(Proveedor proveedor)</span> <span class="hljs-keyword">throws</span> SQLException, Excepcion {
+        datos.alta(proveedor);
+    }</code></pre>
+<p><em>Documentación, página 24.</em></p>
+<p>La clase de datos ejecuta la consulta y arma un objeto por cada fila.</p>
+<pre class="codigo"><code>sentenciaSQL = Conexion.crearInstancia().abrirConexion().prepareStatement(<span class="hljs-string">&quot;SELECT * FROM proveedores&quot;</span>);
+
+resultado = sentenciaSQL.executeQuery();
+
+<span class="hljs-keyword">while</span> (resultado.next()) {
+    <span class="hljs-type">Proveedor</span> <span class="hljs-variable">proveedor</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Proveedor</span>();
+    proveedor.setId(resultado.getInt(<span class="hljs-string">&quot;id&quot;</span>));
+    proveedor.setRazonSocial(resultado.getString(<span class="hljs-string">&quot;razonSocial&quot;</span>));
+    <span class="hljs-comment">// ...los demás campos</span>
+    listado.add(proveedor);
+}</code></pre>
+<p><em>Documentación, página 25. Los campos del medio están resumidos.</em></p>
+<p>Para guardar, la sentencia lleva signos de pregunta y cada valor se carga por su posición.</p>
+<pre class="codigo"><code>sentenciaSQL.setString(<span class="hljs-number">1</span>, proveedor.getRazonSocial());
+sentenciaSQL.setString(<span class="hljs-number">2</span>, proveedor.getCuit());
+<span class="hljs-comment">// ...hasta el 8</span>
+sentenciaSQL.executeUpdate();</code></pre>
+<p><em>Documentación, página 26.</em></p>
+<h3 id="final-las-clases-del-trabajo">Las clases del trabajo</h3>
+<p><img src="img/fig-tp-clases.webp" alt="Diagrama de clases del trabajo de 2020: EntidadMadre con Persona y Proveedor, Persona con Empleado y Cliente, Compra con CompraCliente y una lista de LineaDeCompra, Producto, TipoCliente, CategoriaProducto y la enumeración Privilegio"></p>
+<p><em>Documentación, página 3.</em></p>
+<p>Hay herencia en dos niveles: <code>EntidadMadre</code>, <code>Persona</code> y después <code>Empleado</code> o <code>Cliente</code>. <code>Compra</code> tiene una <code>ArrayList&lt;LineaDeCompra&gt;</code>, y <code>LineaDeCompra</code> guarda <code>idProducto</code> y <code>cantidad</code>.</p>
+<h3 id="final-la-base-de-datos">La base de datos</h3>
+<p><img src="img/fig-tp-datos.webp" alt="Modelo de datos del trabajo de 2020, con las tablas productos, categoria_producto, proveedores, compra_cliente, linea_compra_cliente, empleados, clientes, usuarios y tipo_cliente"></p>
+<p><em>Documentación, página 4.</em></p>
+<p>La nota del repositorio dice que hace falta bajar Eclipse, configurar las librerías e importar la base de MySQL.</p>
+</section>
+<section class="sec"><h2 id="final-excepciones-en-el-codigo-del-trabajo">Excepciones en el código del trabajo</h2>
+<p>Cada método de datos declara <code>throws</code> y tiene dos bloques <code>try</code>. El primero hace la consulta. El segundo cierra la conexión. Los comentarios son del grupo.</p>
+<pre class="codigo"><code><span class="hljs-comment">// Estos 2 &quot;Catch&quot; son para el &quot;Try&quot; principal (donde está la consulta a la base</span>
+<span class="hljs-comment">// de datos)</span>
+<span class="hljs-keyword">catch</span> (SQLException excepcion) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">SQLException</span>(<span class="hljs-string">&quot;Algo salió mal intentando buscar los proveedores en la base de datos&quot;</span>, excepcion);
+}
+<span class="hljs-keyword">catch</span> (Excepcion excepcion) {
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Excepcion</span>(excepcion, <span class="hljs-string">&quot;Algo salió mal intentando buscar los proveedores&quot;</span>);
+}</code></pre>
+<p><em>Documentación, página 25.</em></p>
+</section>
+<section class="sec"><h2 id="final-la-carpeta-tpi">La carpeta TPI</h2>
+<p>Otra carpeta del Drive, sin fecha ni consigna, trae dos bases casi iguales con una tabla <code>personajes</code> (<code>vida</code>, <code>energia</code>, <code>defensa</code>, <code>evasion</code>, <code>puntos</code>) y una nota de pasos. Los programas de esa carpeta no se abrieron para este resumen.</p>
+<p>La nota dice:</p>
+<ol>
+<li>Agregar librerías, conector.</li>
+<li>Crear servlet.</li>
+<li>Crear JSP.</li>
+<li>Corregir la organización de la página, con un botón de atacar y defender único y un campo para la energía.</li>
+<li>Código, con el camino «index - servlet - jsp y vuelve», usando métodos POST y GET.</li>
+</ol>
+<p>No se sabe si ese trabajo se sigue pidiendo.</p>
+</section>
+<section class="sec"><h2 id="final-lo-que-falta-para-el-final">Lo que falta para el final</h2>
+<p>Ningún archivo explica estos temas. Si te los piden, salen de tu comisión.</p>
+<ul>
+<li>Qué tiene que tener el sistema y cómo se defiende.</li>
+<li>Servlets y JSP, más allá de los fragmentos de arriba.</li>
+<li>La conexión a la base desde Java y la clase <code>Conexion</code>, que el documento usa y no muestra.</li>
+<li>Si sigue valiendo este tipo de trabajo o la herramienta cambió desde 2020.</li>
+</ul>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026 y un trabajo final de alumnos de 2020). En el Drive no hay programa ni apunte de la cátedra. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

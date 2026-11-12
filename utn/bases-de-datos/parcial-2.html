@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2° parcial: Bases de Datos</title>
+<meta name="description" content="SQL, SGBD, transacciones, concurrencia y seguridad.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="bases-de-datos" data-pagina="parcial-2">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Bases de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html" aria-current="page">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=bases-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=bases-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#sql-para-la-practica">SQL para la práctica</a></li><li class="n3"><a href="#lo-que-se-repite-en-sus-resoluciones">Lo que se repite en sus resoluciones</a></li><li class="n3"><a href="#lo-que-la-catedra-corrige-en-el-sql">Lo que la cátedra corrige en el SQL</a></li><li class="n3"><a href="#inner-join-y-left-join">INNER JOIN y LEFT JOIN</a></li><li class="n3"><a href="#group-by">GROUP BY</a></li><li class="n3"><a href="#not-in">NOT IN</a></li><li class="n3"><a href="#subconsultas-temporales-y-cte">Subconsultas, temporales y CTE</a></li><li class="n3"><a href="#transacciones-en-sql">Transacciones en SQL</a></li><li class="n3"><a href="#migrar-una-estructura">Migrar una estructura</a></li><li class="n3"><a href="#rutinas">Rutinas</a></li><li class="n2"><a href="#sql-para-el-teorico">SQL para el teórico</a></li><li class="n3"><a href="#corregir-un-sql">Corregir un SQL</a></li><li class="n3"><a href="#vistas">Vistas</a></li><li class="n2"><a href="#archivos-contra-sgbd">Archivos contra SGBD</a></li><li class="n2"><a href="#tres-niveles-e-independencia">Tres niveles e independencia</a></li><li class="n2"><a href="#diccionario-de-datos">Diccionario de datos</a></li><li class="n2"><a href="#arquitecturas">Arquitecturas</a></li><li class="n2"><a href="#transacciones">Transacciones</a></li><li class="n3"><a href="#estados-de-una-transaccion">Estados de una transacción</a></li><li class="n3"><a href="#recuperacion-ante-fallos">Recuperación ante fallos</a></li><li class="n2"><a href="#concurrencia">Concurrencia</a></li><li class="n2"><a href="#seguridad">Seguridad</a></li><li class="n2"><a href="#administracion-y-rendimiento">Administración y rendimiento</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>2° parcial</h1>
+<p class="bajada">Por un lado, SQL en máquina, con siete tipos de ejercicio que se repiten. Por el otro, la teoría de lo que el SGBD hace por vos.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p><strong>Para regularizar</strong> hay parcialitos: enunciados cortos contra una base que conocés. En 2025 cada comisión tuvo los mismos siete tipos, con esta numeración:</p>
+<div class="tabla"><table><thead><tr><th>N.°</th><th>Tipo</th><th>Qué tenés que hacer</th></tr></thead><tbody><tr><td>1</td><td><code>INNER JOIN</code></td><td>Listar datos que están en varias tablas</td></tr><tr><td>2</td><td><code>LEFT JOIN</code></td><td>Listar todos, tengan o no datos relacionados</td></tr><tr><td>3</td><td><code>GROUP BY</code></td><td>Contar, sumar, filtrar con <code>HAVING</code></td></tr><tr><td>4</td><td><code>NOT IN</code></td><td>Los que hicieron A pero no B</td></tr><tr><td>5</td><td>Subconsulta, temporal, variable o CTE (tabla común, con <code>with</code>)</td><td>Un listado que necesita un paso intermedio</td></tr><tr><td>6</td><td>Transacciones</td><td>Altas, bajas y cambios que van juntos</td></tr><tr><td>7</td><td>Rutinas</td><td>Crear e invocar un procedimiento o función</td></tr></tbody></table></div>
+<p><strong>Para aprobación directa (AD)</strong> hay un parcial con 3 o 4 consignas más difíciles. Una suele ser una <mark>migración de estructura en una transacción</mark>, y las otras, listados con varias subconsultas y rutinas.</p>
+<p><strong>El teórico</strong> son preguntas para escribir. En 12/2024 hubo un tema con independencia de datos, SQL con errores, transacciones y confidencialidad; el otro, con diccionario, transacciones y encapsulamiento.</p>
+</section>
+<section class="sec"><h2 id="sql-para-la-practica">SQL para la práctica</h2>
+<div class="ojo"><p class="ojo-t">Todo el SQL de esta sección sale del Drive</p><p>Las resoluciones son textuales. Salen de los <a href="https://drive.google.com/file/d/17lv6IwvMS5NgVKSp68ySZvq2YeN5cR2h/view">parcialitos de 2025 con su resolución</a> y de la <a href="https://drive.google.com/file/d/1Vu3uk4wHCWDpsMKmD6S6fup6F-0tBy02/view">práctica resuelta</a>. No resolvimos nada por nuestra cuenta, porque en esta materia también se corrige la forma. Si tu comisión pide otra cosa, vale lo de tu comisión.</p>
+</div>
+<h3 id="lo-que-se-repite-en-sus-resoluciones">Lo que se repite en sus resoluciones</h3>
+<p>No es un reglamento. Es lo que se ve cuando leés las soluciones una tras otra.</p>
+<ul>
+<li><strong>Alias en cada tabla</strong> y columnas con el alias adelante: <code>per_age.id</code>, <code>sc.id_propiedad</code>.</li>
+<li><strong><code>inner join</code> y <code>left join</code> explícitos</strong>, con la condición en el <code>on</code>.</li>
+<li><strong><code>group by</code> por la clave:</strong> <code>group by tg.id, g.estado</code>, aunque muestre también <code>tg.nombre</code>. Un resumen de estudiantes del Drive (Resumen Teoría 2° Parcial SQL) lo dice así: «group by agrupa por PK o FK de cada tabla utilizada en la query». Leé el aviso de abajo: otra resolución de la cátedra pide otra cosa.</li>
+<li><strong>Rangos de fecha con <code>between</code>:</strong> <code>between &#39;20250101&#39; and &#39;20251231T235959&#39;</code>.</li>
+<li><strong>Transacciones con <code>begin</code> y <code>commit</code></strong>, y datos intermedios en variables: <code>select id into @sheridan</code>, <code>last_insert_id()</code>.</li>
+<li><strong>Rutinas con <code>delimiter</code></strong> y <code>drop ... if exists</code> antes del <code>create</code>, y la invocación incluida en la entrega.</li>
+<li><strong>Claves foráneas:</strong> <code>on delete restrict on update cascade</code>. Así están todas las CF de los scripts de la cátedra de 2024 (Guardería Gaghiel) y 2025 (CalciferHowl), y así lo anota el resumen de estudiantes.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Dos criterios de la cátedra para el GROUP BY</p><p>Las resoluciones de los parcialitos de 2025 agrupan por la clave y muestran columnas que no están en el <code>group by</code>, como <code>tg.nombre</code> en la 301.3.</p>
+<p>La resolución propuesta del final Farmacia, que la cátedra usa para corregir, dice lo contrario. Lo marca como «uno de los errores más comunes»: «querer que la consulta muestre también un atributo que no fue agrupado». Y cierra: «Todos los atributos que se indican en la consulta SELECT deben también indicarse en la cláusula GROUP BY para que la función de agregación pueda realizarse correctamente». Avisa que MySQL no da error si no lo hacés, pero puede dar resultados incorrectos.</p>
+<p>El campus de 2023 da como estructura correcta «GROUP BY lista de atributos (solo si luego de la lista de atributos existen funciones de grupo)». No elegimos por vos: preguntá en tu comisión cuál corrigen.</p>
+</div>
+<p>En la práctica de SQL aparece además esta advertencia: «PRECAUCION: NO utilizar el diseñador gráfico de tablas».</p>
+<p>El orden de las cláusulas: <code>where</code>, <code>group by</code>, <code>having</code>, <code>order by</code>. Es la estructura que el campus de 2023 (Evaluación Formativa Teoría AD, 2° cuatrimestre) da por bien organizada:</p>
+<pre class="codigo"><code>SELECT lista de atributos, [funciones de grupo (o agregación)]
+FROM (nombre de tabla)
+INNER JOIN/LEFT JOIN/RIGHT JOIN /OUTER JOIN (nombre de tabla) ON (atributos de combinacion) --&gt; Se repite para todas las combinaciones necesarias
+WHERE (condiciones de registro)
+GROUP BY lista de atributos (solo si luego de la lista de atributos existen funciones de grupo)
+HAVING (condicion de grupo, solo si se utilizó la cláusula GROUP BY)
+ORDER BY (lista de atributos para el orden);</code></pre>
+<p>En el mismo campus, un <code>INSERT ... VALUES</code> con <code>WHERE</code> está mal organizado, y una transacción que se confirma es <code>START TRANSACTION;</code> seguida de las operaciones y <code>COMMIT;</code>. Con <code>ROLLBACK</code> no se confirma.</p>
+<h3 id="lo-que-la-catedra-corrige-en-el-sql">Lo que la cátedra corrige en el SQL</h3>
+<p>La resolución propuesta del final Farmacia (Examenes/Finales/Práctica/Farmacia/Farmacia.pdf) marca para cada consigna sus «errores frecuentes» y cuestiones de optimización: «Todas estas consideraciones son evaluadas en la corrección del examen». Los que valen para cualquier enunciado:</p>
+<ul>
+<li><strong>Entrega:</strong> todo el SQL en un archivo con tu apellido y nombre, <code>.sql</code> o <code>.txt</code>. Lo que no está en el archivo se considera no hecho, y sin archivo la evaluación queda reprobada. Lo que se pide «para el día de hoy» va con la función de fecha actual.</li>
+<li><mark>Una transacción en toda operación con <code>INSERT</code>, <code>UPDATE</code> o <code>DELETE</code>.</mark> El nivel de aislamiento se da por bueno sin indicarlo, salvo que el enunciado lo pida.</li>
+<li>Nada de revisar la tabla a mano y escribir <code>INSERT</code> sueltos: va un <code>INSERT ... SELECT</code>, sin la cláusula <code>VALUES</code>.</li>
+<li><code>DISTINCT</code> donde el modelo puede dar filas repetidas. Si no hay función de agregación, <code>DISTINCT</code> es lo indicado. Con <code>MAX</code>, <code>MIN</code>, <code>SUM</code>, <code>COUNT</code> o <code>AVG</code>, <code>GROUP BY</code>.</li>
+<li><code>SUM</code> para sumar cantidades, no <code>COUNT</code>.</li>
+<li><code>LEFT JOIN</code> cuando puede no haber filas relacionadas. Si después filtrás por una columna de la tabla de la derecha, contemplá el nulo en la condición (<code>v.fecha is null or ...</code>).</li>
+<li>No sumar con <code>INNER JOIN</code> una tabla que no aporta columnas: además de sobrar, puede sacar filas con la CF en nulo.</li>
+<li>Al filtrar por mes, filtrá también por año.</li>
+<li>Un único valor va en una variable, no en una tabla temporal. Y un total sobre todas las filas no lleva <code>GROUP BY</code>.</li>
+<li>Cláusulas en su orden, <code>ORDER BY ... DESC</code> si lo piden, cada sentencia terminada en <code>;</code> y los porcentajes multiplicados por 100.</li>
+<li>Para un precio, <code>DECIMAL</code> y no <code>FLOAT</code> ni <code>INT</code>. Y no pedir <code>MAX(fecha)</code> y el precio en la misma consulta: buscá primero la fecha y después el precio de esa fecha.</li>
+<li><strong>Optimización:</strong> empezá por la tabla que da la combinación con menos registros.</li>
+</ul>
+<p>En la práctica de SQL de la cátedra (Práctica N° 11, TCL) está explicado el <code>AUTOCOMMIT</code>. En 1, que es el valor por defecto, cada sentencia hace un <code>COMMIT</code> implícito al terminar. Para ejecutar varias sentencias en una sola transacción hay que empezarla explícitamente con <code>START TRANSACTION</code>.</p>
+<h3 id="inner-join-y-left-join">INNER JOIN y LEFT JOIN</h3>
+<div class="tomado"><aside class="nota"><strong>Parcialitos, y final 23/02/26</strong><span>Se pide explicar la diferencia usando clientes y contratos</span></aside><div class="tabla"><table><thead><tr><th>Consulta</th><th>Devuelve</th></tr></thead><tbody><tr><td><code>INNER JOIN</code></td><td><mark>Solo las filas con coincidencia en las dos tablas</mark></td></tr><tr><td><code>LEFT JOIN</code></td><td><mark>Todas las filas de la izquierda</mark>; las de la derecha, si hay. Si no hay, quedan en nulo</td></tr></tbody></table></div>
+</div>
+<div class="ejercicio"><p class="ej-t">301.1, Garantías no rechazadas por agente <small>Parcialito 2025, resolución del Drive</small></p><p>Listar para cada agente las solicitudes que recibió y las garantías no rechazadas de cada solicitud. Indicar id, nombre, apellido de agente; id, importe mensual de la solicitud; nombre del tipo de garantía; fecha de alta, fecha de baja de la garantía. Ordenar por apellido y nombre del agente alfabéticamente y por fecha de alta de garantía descendente.</p>
+<details class="sol"><summary>Ver la resolución del Drive</summary><pre class="codigo"><code><span class="hljs-keyword">select</span> per_age.id id_agente, per_age.nombre nombre_agente,
+  per_age.apellido apellido_agente
+  , sc.id id_solicitud, sc.importe_mensual
+  , tg.nombre tipo_garantia
+  , g.fecha_alta, g.fecha_baja
+<span class="hljs-keyword">from</span> solicitud_contrato sc
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> persona per_age
+  <span class="hljs-keyword">on</span> per_age.id<span class="hljs-operator">=</span>sc.id_agente
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> garantia g
+  <span class="hljs-keyword">on</span> g.id_solicitud<span class="hljs-operator">=</span>sc.id
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> tipo_garantia tg
+  <span class="hljs-keyword">on</span> g.id_tipo_garantia<span class="hljs-operator">=</span>tg.id
+<span class="hljs-keyword">where</span> g.estado<span class="hljs-operator">&lt;&gt;</span><span class="hljs-string">&#x27;rechazada&#x27;</span>
+<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> per_age.apellido, per_age.nombre, g.fecha_alta <span class="hljs-keyword">desc</span>;</code></pre>
+</details></div>
+<div class="ejercicio"><p class="ej-t">301.2, Solicitudes en oferta con garantías rechazadas <small>Parcialito 2025, resolución del Drive</small></p><p>Listar las solicitudes de propiedades que están «en oferta» y, si tienen garantías rechazadas, mostrar los datos de los garantes. Indicar id, dirección, zona de la propiedad; id, fecha, importe mensual de la solicitud; id, nombre y apellido del garante.</p>
+<details class="sol"><summary>Ver la resolución del Drive</summary><p>Fijate que <code>g.estado=&#39;rechazada&#39;</code> va en el <code>on</code>, no en el <code>where</code>. Si fuera en el <code>where</code>, se perderían las solicitudes sin garantías rechazadas.</p>
+<pre class="codigo"><code><span class="hljs-keyword">select</span> prop.id id_propiedad, prop.direccion, prop.zona
+  , sc.id, sc.fecha_solicitud, sc.importe_mensual
+  , per_gar.id id_garante, per_gar.nombre nombre_garante,
+  per_gar.apellido apellido_garante
+<span class="hljs-keyword">from</span> propiedad prop
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> solicitud_contrato sc
+  <span class="hljs-keyword">on</span> sc.id_propiedad<span class="hljs-operator">=</span>prop.id
+<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> garantia g
+  <span class="hljs-keyword">on</span> g.id_solicitud<span class="hljs-operator">=</span>sc.id
+  <span class="hljs-keyword">and</span> g.estado<span class="hljs-operator">=</span><span class="hljs-string">&#x27;rechazada&#x27;</span>
+<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> persona per_gar
+  <span class="hljs-keyword">on</span> per_gar.id<span class="hljs-operator">=</span>g.id_garante
+<span class="hljs-keyword">where</span> prop.situacion<span class="hljs-operator">=</span><span class="hljs-string">&#x27;en oferta&#x27;</span>;</code></pre>
+</details></div>
+<h3 id="group-by">GROUP BY</h3>
+<p><code>where</code> filtra filas antes de agrupar y <code>having</code> filtra grupos después. <code>count(*)</code> cuenta filas, <code>count(columna)</code> no cuenta nulos y <code>count(distinct columna)</code> cuenta valores diferentes.</p>
+<div class="ejercicio"><p class="ej-t">301.3, Garantías no canceladas por tipo y estado <small>Parcialito 2025, resolución del Drive</small></p><p>Listar la cantidad de garantías que no hayan sido dadas de baja y, de ellas, la cantidad de garantes distintos por tipo de garantía y estado de la garantía donde haya habido al menos 5 garantías presentadas en dicho estado. Indicar id y nombre del tipo de garantía; estado de la garantía; cantidad de garantías y cantidad de garantes distintos.</p>
+<details class="sol"><summary>Ver la resolución del Drive</summary><pre class="codigo"><code><span class="hljs-keyword">select</span> tg.id, tg.nombre
+  , g.estado
+  , <span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>), <span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> id_garante)
+<span class="hljs-keyword">from</span> tipo_garantia tg
+<span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> garantia g
+  <span class="hljs-keyword">on</span> tg.id<span class="hljs-operator">=</span>g.id_tipo_garantia
+<span class="hljs-keyword">where</span> g.fecha_baja <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> tg.id, g.estado
+<span class="hljs-keyword">having</span> <span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>) <span class="hljs-operator">&gt;=</span> <span class="hljs-number">5</span>;</code></pre>
+</details></div>
+<h3 id="not-in">NOT IN</h3>
+<div class="ejercicio"><p class="ej-t">301.4, Agentes asignados en 2025 sin visitas <small>Parcialito 2025, resolución del Drive</small></p><p>Listar los agentes que han sido asignados a alguna propiedad durante 2025 pero no han podido organizar una visita a ninguna propiedad durante 2025. Indicar id, nombre y apellido del agente.</p>
+<details class="sol"><summary>Ver la resolución del Drive</summary><pre class="codigo"><code><span class="hljs-keyword">select</span> age.id, age.nombre, age.apellido
+<span class="hljs-keyword">from</span> persona age
+<span class="hljs-keyword">where</span> age.id <span class="hljs-keyword">in</span> ( # se puede hacer con un <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> <span class="hljs-operator">+</span> <span class="hljs-keyword">distinct</span>
+  <span class="hljs-keyword">select</span> aa.id_agente
+  <span class="hljs-keyword">from</span> agente_asignado aa
+  <span class="hljs-keyword">where</span> aa.fecha_hora_desde <span class="hljs-keyword">between</span> <span class="hljs-string">&#x27;20250101&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;20251231T235959&#x27;</span>
+  )
+  <span class="hljs-keyword">and</span> age.id <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (
+  <span class="hljs-keyword">select</span> v.id_agente
+  <span class="hljs-keyword">from</span> visita v
+  <span class="hljs-keyword">where</span> v.fecha_hora_visita <span class="hljs-keyword">between</span> <span class="hljs-string">&#x27;20250101&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;20251231T235959&#x27;</span>
+  );</code></pre>
+</details></div>
+<h3 id="subconsultas-temporales-y-cte">Subconsultas, temporales y CTE</h3>
+<div class="ejercicio"><p class="ej-t">301.5, Mejor pago de solicitudes en alquiler <small>Parcialito 2025, resolución del Drive</small></p><p>Listar todas las propiedades y para cada una indicar la solicitud de contrato en alquiler con mayor importe mensual y la cantidad de solicitudes que generaron contratos y la cantidad que no. Indicar id, dirección y zona de la propiedad; id, importe, fecha de solicitud de la solicitud de mayor importe; id, nombre y apellido del cliente que realizó dicha solicitud; cantidad de solicitudes que generaron contratos y cantidad que no. Si alguna propiedad no posee solicitudes deberá indicar los valores correspondientes en null.</p>
+<details class="sol"><summary>Ver la resolución del Drive</summary><pre class="codigo"><code><span class="hljs-keyword">with</span> imp <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span> sc.id_propiedad, <span class="hljs-built_in">max</span>(sc.importe_mensual) max_imp
+  <span class="hljs-keyword">from</span> solicitud_contrato sc
+  <span class="hljs-keyword">where</span> sc.estado<span class="hljs-operator">=</span><span class="hljs-string">&#x27;en alquiler&#x27;</span>
+  <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> sc.id_propiedad
+), cant <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span> sc.id_propiedad, <span class="hljs-built_in">count</span>(sc.nro_contrato) cant_contratos
+  , <span class="hljs-built_in">count</span>(<span class="hljs-operator">*</span>)<span class="hljs-operator">-</span><span class="hljs-built_in">count</span>(sc.nro_contrato) cant_sin_contratos
+  <span class="hljs-keyword">from</span> solicitud_contrato sc
+  <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> sc.id_propiedad
+)
+<span class="hljs-keyword">select</span> p.id id_propiedad, p.direccion, p.zona
+  , sc.id id_solicitud, max_imp, sc.fecha_solicitud
+  , c.id id_cliente, c.nombre, c.apellido
+  , cant.cant_contratos, cant.cant_sin_contratos
+<span class="hljs-keyword">from</span> propiedad p
+<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> imp
+  <span class="hljs-keyword">on</span> p.id<span class="hljs-operator">=</span>imp.id_propiedad
+<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> solicitud_contrato sc
+  <span class="hljs-keyword">on</span> imp.id_propiedad<span class="hljs-operator">=</span>sc.id_propiedad
+  <span class="hljs-keyword">and</span> imp.max_imp<span class="hljs-operator">=</span>sc.importe_mensual
+  <span class="hljs-keyword">and</span> sc.estado<span class="hljs-operator">=</span><span class="hljs-string">&#x27;en alquiler&#x27;</span>
+<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> persona c
+  <span class="hljs-keyword">on</span> sc.id_cliente<span class="hljs-operator">=</span>c.id
+<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> cant
+  <span class="hljs-keyword">on</span> p.id<span class="hljs-operator">=</span>cant.id_propiedad</code></pre>
+</details></div>
+<p>Los apuntes del Drive anotan también la tabla temporal:</p>
+<pre class="codigo"><code><span class="hljs-keyword">CREATE</span> TEMPORARY <span class="hljs-keyword">TABLE</span> [IF <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span>] nombre_tabla_temporal
+<span class="hljs-keyword">SELECT</span> lista_columnas <span class="hljs-keyword">FROM</span> nombre_tabla;</code></pre>
+<h3 id="transacciones-en-sql">Transacciones en SQL</h3>
+<div class="ejercicio"><p class="ej-t">301.6, Regresa el comandante <small>Parcialito 2025, resolución del Drive</small></p><p>El agente John Sheridan renuncia y la empresa contrata un reemplazo. Dar de alta a Jeffrey Sinclair con los datos dados, asignarlo desde este momento a todas las propiedades a las que John Sheridan no tenga fecha y hora de baja asignada y finalizar dichas asignaciones de John Sheridan a partir de este momento.</p>
+<details class="sol"><summary>Ver la resolución del Drive</summary><pre class="codigo"><code><span class="hljs-keyword">begin</span>;
+<span class="hljs-keyword">select</span> id <span class="hljs-keyword">into</span> <span class="hljs-variable">@sheridan</span>
+<span class="hljs-keyword">from</span> persona
+<span class="hljs-keyword">where</span> nombre<span class="hljs-operator">=</span><span class="hljs-string">&#x27;John&#x27;</span> <span class="hljs-keyword">and</span> apellido<span class="hljs-operator">=</span><span class="hljs-string">&#x27;Sheridan&#x27;</span>;
+
+<span class="hljs-keyword">insert into</span> persona (tipo_doc, nro_doc, nombre, apellido, domicilio
+  , telefono, email, cuil, matricula)
+<span class="hljs-keyword">values</span> (<span class="hljs-string">&#x27;ssn&#x27;</span>, <span class="hljs-string">&#x27;94890124&#x27;</span>, <span class="hljs-string">&#x27;Jeffrey&#x27;</span>, <span class="hljs-string">&#x27;Sinclair&#x27;</span>,<span class="hljs-string">&#x27;Babylon 5, Espacio Neutral&#x27;</span>
+  , <span class="hljs-string">&#x27;1100112233&#x27;</span>,<span class="hljs-string">&#x27;jsinclair@babylon5.com&#x27;</span>,<span class="hljs-string">&#x27;20222333444&#x27;</span>,<span class="hljs-string">&#x27;11033&#x27;</span>);
+
+<span class="hljs-keyword">select</span> last_insert_id() <span class="hljs-keyword">into</span> <span class="hljs-variable">@sinclair</span>;
+
+<span class="hljs-keyword">insert into</span> agente_asignado (id_agente, id_propiedad, fecha_hora_desde)
+<span class="hljs-keyword">select</span> <span class="hljs-variable">@sinclair</span>, id_propiedad, now()
+<span class="hljs-keyword">from</span> agente_asignado
+<span class="hljs-keyword">where</span> id_agente<span class="hljs-operator">=</span><span class="hljs-variable">@sheridan</span> #puede hacerse con <span class="hljs-keyword">join</span>
+<span class="hljs-keyword">and</span> fecha_hora_hasta <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>;
+
+<span class="hljs-keyword">update</span> agente_asignado
+<span class="hljs-keyword">set</span> fecha_hora_hasta<span class="hljs-operator">=</span>now()
+<span class="hljs-keyword">where</span> id_agente<span class="hljs-operator">=</span><span class="hljs-variable">@sheridan</span>;
+
+<span class="hljs-keyword">commit</span>;</code></pre>
+</details></div>
+<h3 id="migrar-una-estructura">Migrar una estructura</h3>
+<div class="tomado"><aside class="nota"><strong>Parcial de aprobación directa 2023 y 01/12/2025, final práctica 04/03/24</strong><span>También se pide migrar de un vínculo 1 a N a uno N a M</span></aside><p>Cambiar la estructura y conservar los datos, por ejemplo convertir un atributo en entidad. Los apuntes del Drive lo ordenan así:</p>
+<ol>
+<li>Crear la nueva tabla.</li>
+<li>Migrar datos de la tabla vieja a la nueva.</li>
+<li>Modificar la tabla vieja (crear la columna de claves foráneas).</li>
+<li>Agregar los datos en la columna creada.</li>
+<li>Eliminar la columna redundante.</li>
+<li>Definir la nueva clave foránea en la tabla vieja.</li>
+</ol>
+</div>
+<p>Para verlo resuelto: <a href="https://drive.google.com/file/d/1JzSOsr4xEhdcLtJVCL8utjI4eTXCxROO/view">parcial AD 27/11/2023, tema A</a> y <a href="https://drive.google.com/file/d/1GqrYiVYOgIpNbkyXJyI4Q5HAlYnKswxc/view">tema B</a>, los dos con la resolución de la cátedra.</p>
+<h3 id="rutinas">Rutinas</h3>
+<div class="tomado"><aside class="nota"><strong>Encapsulamiento: final 30/09/24, parciales 2020 y 12/2024</strong><span>Piden diferencias y un ejemplo de ejecución</span></aside><p>Tres formas de guardar código SQL en la base.</p>
+<div class="tabla"><table><thead><tr><td></td><th>Procedimiento</th><th>Función</th><th>Trigger</th></tr></thead><tbody><tr><td><strong>Cómo se ejecuta</strong></td><td><mark>A mano, con <code>CALL</code></mark></td><td><mark>Dentro de una consulta</mark></td><td><mark>Solo, ante un evento</mark></td></tr><tr><td><strong>Parámetros</strong></td><td><code>in</code>, <code>out</code></td><td>De entrada</td><td>No recibe</td></tr><tr><td><strong>Devuelve</strong></td><td>Listados o parámetros <code>out</code></td><td>Un valor con <code>return</code></td><td>Nada</td></tr><tr><td><strong>Evento</strong></td><td>No</td><td>No</td><td><code>insert</code>, <code>update</code> o <code>delete</code> en una tabla</td></tr></tbody></table></div>
+<p>Las definiciones que la cátedra da por correctas en el campus de 2023: los tres son «un conjunto de operaciones almacenadas en el diccionario de datos de la base de datos». El procedimiento se ejecuta ante una llamada (<code>CALL</code>) y puede hacer consultas o actualizaciones. Su objetivo es «encapsular código para que el programador no requiera conocer el mismo, solo los parámetros para su ejecución». El trigger se ejecuta ante un <code>INSERT</code>, <code>UPDATE</code> o <code>DELETE</code> en una tabla. A la función la marca como incorrecto ejecutarla con <code>CALL</code> o ante un evento, y también decir que «se implementan para realizar actualizaciones de datos».</p>
+</div>
+<div class="ejercicio"><p class="ej-t">301.7, Aumentos de fin de año <small>Parcialito 2025, resolución del Drive</small></p><p>Crear un SP <code>nuevo_valor</code> que reciba un id de una propiedad y un porcentaje de aumento y en función al id de la propiedad calcule el valor actual que tiene asignada la misma e ingrese un nuevo valor desde este momento aplicando el porcentaje de aumento. Invocar al SP con la propiedad 12001 y 10% de aumento. Incluir las sentencias de creación del SP y de la invocación.</p>
+<details class="sol"><summary>Ver la resolución del Drive</summary><pre class="codigo"><code>delimiter (_)
+
+<span class="hljs-keyword">drop</span> <span class="hljs-keyword">procedure</span> if <span class="hljs-keyword">exists</span> nuevo_valor (_)
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">procedure</span> nuevo_valor(<span class="hljs-keyword">in</span> prop <span class="hljs-type">int</span> unsigned, <span class="hljs-keyword">in</span> aumento <span class="hljs-type">float</span>)
+<span class="hljs-keyword">MODIFIES</span> <span class="hljs-keyword">SQL</span> DATA
+<span class="hljs-keyword">BEGIN</span>
+  <span class="hljs-keyword">select</span> <span class="hljs-built_in">max</span>(fecha_hora_desde) <span class="hljs-keyword">into</span> <span class="hljs-variable">@ult_fec</span>
+  <span class="hljs-keyword">from</span> valor_propiedad
+  <span class="hljs-keyword">where</span> id_propiedad<span class="hljs-operator">=</span>prop
+  <span class="hljs-keyword">and</span> fecha_hora_desde <span class="hljs-operator">&lt;=</span>now();
+  #también lo pueden hacer con la temp con en los videos
+  <span class="hljs-keyword">insert into</span> valor_propiedad
+  <span class="hljs-keyword">select</span> vp.id_propiedad, now(), vp.valor<span class="hljs-operator">+</span>(vp.valor<span class="hljs-operator">*</span>aumento<span class="hljs-operator">/</span><span class="hljs-number">100</span>)
+  <span class="hljs-keyword">from</span> valor_propiedad vp
+  <span class="hljs-keyword">where</span> vp.id_propiedad<span class="hljs-operator">=</span>prop
+  <span class="hljs-keyword">and</span> vp.fecha_hora_desde<span class="hljs-operator">=</span><span class="hljs-variable">@ult_fec</span>;
+<span class="hljs-keyword">END</span> (_)
+
+delimiter ;
+
+<span class="hljs-keyword">Start</span> transaction;
+<span class="hljs-keyword">call</span> nuevo_valor(<span class="hljs-number">12001</span>,<span class="hljs-number">10</span>);
+<span class="hljs-keyword">commit</span>;</code></pre>
+</details></div>
+<p>Dos triggers, textuales de la <a href="https://drive.google.com/file/d/1Vu3uk4wHCWDpsMKmD6S6fup6F-0tBy02/view">práctica resuelta</a> (Práctica N° 13, ejercicio 3). Cada nota de la cátedra va arriba de su trigger, como en el original:</p>
+<pre class="codigo"><code><span class="hljs-comment">/*
+Acá el antes o el después no tiene importancia.
+Tienen usar los valores de la CP del curso del los nuevos valores porque como es un INSERT
+no existen los viejos
+*/</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TRIGGER</span> `inscripciones_after_ins_tr` AFTER <span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">ON</span> `inscripciones`
+  <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span>
+<span class="hljs-keyword">BEGIN</span>
+  <span class="hljs-keyword">update</span> cursos
+  <span class="hljs-keyword">set</span> cant_inscriptos<span class="hljs-operator">=</span>cant_inscriptos<span class="hljs-operator">+</span><span class="hljs-number">1</span>
+  <span class="hljs-keyword">where</span> nom_plan<span class="hljs-operator">=</span>new.nom_plan <span class="hljs-keyword">and</span> nro_curso<span class="hljs-operator">=</span>new.nro_curso;
+<span class="hljs-keyword">END</span>;
+
+<span class="hljs-comment">/*
+Acá es muy importante que saquen el dato de la CP del curso de los valores anteriores de la
+fila (old.) porque luego de borrar no existen los valores (new.) y daría error si usan el
+new.
+*/</span>
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TRIGGER</span> `inscripciones_after_del_tr` AFTER <span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">ON</span> `inscripciones`
+  <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">EACH</span> <span class="hljs-type">ROW</span>
+<span class="hljs-keyword">BEGIN</span>
+  <span class="hljs-keyword">update</span> cursos
+  <span class="hljs-keyword">set</span> cant_inscriptos<span class="hljs-operator">=</span>cant_inscriptos<span class="hljs-number">-1</span>
+  <span class="hljs-keyword">where</span> nom_plan<span class="hljs-operator">=</span>old.nom_plan <span class="hljs-keyword">and</span> nro_curso<span class="hljs-operator">=</span>old.nro_curso;
+<span class="hljs-keyword">END</span>;</code></pre>
+<p>En un <code>INSERT</code> solo existe <code>new</code>, en un <code>DELETE</code> solo <code>old</code>, y en un <code>UPDATE</code> los dos (la práctica calcula la diferencia <code>new.cant_disponible-old.cant_disponible</code>). Las otras notas de esa práctica sobre cuándo va cada uno:</p>
+<ul>
+<li><code>AFTER INSERT</code> cuando el trigger inserta en una tabla que referencia a la fila nueva: «Este TRIGGER se tiene que crear después de la inserción o da error de clave foránea».</li>
+<li><code>BEFORE INSERT</code> cuando el trigger cambia la fila que entra: «tiene que ser ANTES de insertar porque no se puede modificar el valor de la nueva fila (new) si ya se insertó».</li>
+</ul>
+</section>
+<section class="sec"><h2 id="sql-para-el-teorico">SQL para el teórico</h2>
+<div class="tomado"><aside class="nota"><strong>7 de 15 teóricos</strong><span>Finales 30/09/24, 29/09/25, 23/02/26, 09/03/26. Parciales 2020 y 12/2024</span></aside><p>En el final aparecen preguntas cortas de SQL para resolver con la hoja. Las más repetidas:</p>
+<div class="tabla"><table><thead><tr><th>Pregunta</th><th>Respuesta</th></tr></thead><tbody><tr><td>Renombrar una columna</td><td><code>ALTER TABLE t RENAME COLUMN a TO b</code></td></tr><tr><td>Agregar columna con valor por defecto</td><td><code>ALTER TABLE t ADD COLUMN estado VARCHAR(10) DEFAULT &#39;Activo&#39;</code></td></tr><tr><td>Atributos obligatorios y opcionales</td><td><code>NOT NULL</code> y <code>NULL</code> en cada columna</td></tr><tr><td>¿<code>DROP TABLE</code> o <code>DELETE FROM</code>?</td><td><mark><code>DROP</code> es DDL: borra datos y estructura. <code>DELETE</code> es DML: borra filas y la tabla sigue</mark></td></tr><tr><td>Borrar en cascada las ventas de un cliente</td><td>La CF con <code>ON DELETE CASCADE</code></td></tr><tr><td>¿Qué mejora un índice?</td><td>Las búsquedas. Hace más lentas las escrituras</td></tr><tr><td>¿<code>ALTER</code> o <code>UPDATE</code>?</td><td><code>ALTER</code> cambia la estructura; <code>UPDATE</code>, los datos</td></tr><tr><td>Opciones de una clave foránea</td><td>Los apuntes indican <code>on update cascade</code> y <code>on delete restrict</code></td></tr></tbody></table></div>
+</div>
+<p>Los cuatro sublenguajes de SQL:</p>
+<div class="tabla"><table><thead><tr><th>Sublenguaje</th><th>Para qué</th><th>Comandos</th></tr></thead><tbody><tr><td><strong>DDL</strong> (definición)</td><td>Estructura</td><td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code></td></tr><tr><td><strong>DML</strong> (manipulación)</td><td>Datos</td><td><code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td></tr><tr><td><strong>DCL</strong> (control)</td><td>Permisos</td><td><code>CREATE USER</code>, <code>GRANT</code>, <code>REVOKE</code></td></tr><tr><td><strong>TCL</strong> (transacciones)</td><td>Unidades de trabajo</td><td><code>START TRANSACTION</code>, <code>COMMIT</code>, <code>ROLLBACK</code></td></tr></tbody></table></div>
+<p>Lo que el campus de 2023 da por correcto: el DCL es «el sublenguaje del SQL que permite definir usuarios, conceder y revocar privilegios», y lo usa el DBA, no el programador. <code>GRANT</code> solo autoriza privilegios sobre objetos de la base y <code>REVOKE</code> solo los deniega: ninguno de los dos crea usuarios. <code>CREATE USER</code>, <code>GRANT</code> y <code>REVOKE</code> no son DDL. Para agregar un atributo o cambiar su tipo, <code>ALTER</code> (no <code>UPDATE</code> ni <code>MODIFY</code>). Una base se crea con <code>CREATE DATABASE</code>.</p>
+<h3 id="corregir-un-sql">Corregir un SQL</h3>
+<div class="tomado"><aside class="nota"><strong>Salió 3 veces entre 2024 y 2025</strong><span>Final 30/09/24, parcial 12/2024, final 29/09/25</span></aside><p>Te dan una consulta con errores y te piden <mark>marcarlos, escribir la versión correcta y describir el requerimiento</mark>.</p>
+</div>
+<p>Las consultas están en los <a href="https://drive.google.com/drive/folders/1sPTaCNkWERIH61U7BykphgIZfjMI1_p4">finales del Drive</a>, en las fechas 30/09/24 y 29/09/25. No hay una corrección publicada, así que no ponemos una.</p>
+<h3 id="vistas">Vistas</h3>
+<p>Tablas ficticias, derivadas de un <code>SELECT</code>, que no guardan datos propios.</p>
+<p>Según el material del Drive:</p>
+<ul>
+<li><strong>Simple:</strong> una sola tabla, sin funciones ni grupos. Permite DML a través de la vista.</li>
+<li><strong>Compuesta:</strong> varias tablas o funciones de grupo. No permite DML.</li>
+</ul>
+<p>Es el criterio del material. En MySQL 8 algunas vistas compuestas sí se pueden actualizar, así que no te sorprendas si lo probás.</p>
+<p>Ayudan a la independencia lógica. Cada usuario ve una versión de los datos que no cambia si reorganizás las tablas.</p>
+</section>
+<section class="sec"><h2 id="archivos-contra-sgbd">Archivos contra SGBD</h2>
+<div class="tomado"><aside class="nota"><strong>4 de 15 teóricos</strong><span>Finales 10/02/25, 29/09/25, 09/03/26, parcial 2020</span></aside><p>Con archivos, cada programa conoce el formato de los datos y se encarga de su acceso. Con un SGBD, eso pasa a un programa especializado. Las ventajas que te piden relacionar:</p>
+<div class="tabla"><table><thead><tr><th>Con archivos</th><th>Con SGBD</th></tr></thead><tbody><tr><td>Cambiar el formato obliga a tocar los programas</td><td><mark>Independencia de datos</mark></td></tr><tr><td>El desarrollador programa cómo acceder</td><td>Acceso eficiente: lo resuelve el motor</td></tr><tr><td>Cada aplicación valida a su manera</td><td>Integridad y seguridad centralizadas</td></tr><tr><td>Una falla puede dejar datos a medias</td><td>Recuperación ante fallas</td></tr><tr><td>Un usuario por vez</td><td>Acceso concurrente</td></tr><tr><td>Datos repetidos en varios archivos</td><td>Administración centralizada, menos redundancia</td></tr><tr><td>Cada programa implementa todo</td><td>Reducción en el tiempo de desarrollo: triggers y procedimientos guardados en la base</td></tr></tbody></table></div>
+</div>
+<p>La última fila la traen el Resumen Completo y el Resumen 1° Parcial del Drive (de estudiantes). En el campus de 2023 la cátedra da como mejoras respecto de los archivos la «abstracción de la representación» y la «abstracción del almacenamiento» de los datos, y marca como incorrecta la «dependencia de las aplicaciones que acceden a los datos».</p>
+<details class="pregunta"><summary><span>¿Qué características debe cumplir un SGBD en calidad y en seguridad de datos?</span><small>Final 10/02/25</small></summary><div class="resp"><p><strong>Calidad:</strong> apego a estándares (un lenguaje común como SQL), documentación propia, flexibilidad ante cambios, fiabilidad y eficiencia en el uso de recursos.</p>
+<p><strong>Seguridad de datos:</strong> integridad (validez de los datos), disponibilidad (acceso continuo, resistencia a fallos) y confidencialidad (solo acceden los autorizados).</p>
+<p>Fuente: Resumen Completo del Drive (resumen de estudiantes), secciones «Calidad» y «Características deseables de un SGBD». No hay un apunte de la cátedra con esta respuesta.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="tres-niveles-e-independencia">Tres niveles e independencia</h2>
+<div class="tomado"><aside class="nota"><strong>5 de 15 teóricos: la pregunta tiene casi siempre el mismo texto</strong><span>Finales 04/03/24 y 25/08/25, parciales 2020, 2023 y 12/2024</span></aside><p>La arquitectura ANSI/SPARC concibe la base en tres niveles:</p>
+<figure><svg viewBox="0 0 640 248" role="img" aria-label="Tres niveles apilados: externo, conceptual e interno. Entre externo y conceptual está la independencia lógica; entre conceptual e interno, la física."><rect class="d-caja" x="20" y="8" width="360" height="56"/><text class="d-t" x="200" y="32">Nivel externo</text><text class="d-s" x="200" y="51">Lo que ve cada usuario: vistas</text><rect class="d-caja" x="20" y="96" width="360" height="56"/><text class="d-t" x="200" y="120">Nivel conceptual o lógico</text><text class="d-s" x="200" y="139">Toda la base: tablas, restricciones, seguridad</text><rect class="d-caja" x="20" y="184" width="360" height="56"/><text class="d-t" x="200" y="208">Nivel interno o físico</text><text class="d-s" x="200" y="227">Cómo se guarda: archivos, índices, discos</text><path class="d-linea" d="M200 64v32M200 152v32"/><text class="d-i" x="512" y="76">independencia lógica</text><text class="d-s" x="512" y="94">cambio el conceptual, no el externo</text><text class="d-i" x="512" y="164">independencia física</text><text class="d-s" x="512" y="182">cambio el interno, no el conceptual</text><path class="d-linea-m" d="M210 80h170M210 168h170"/></svg></figure>
+
+<p><strong>Independencia de datos</strong> es poder cambiar el esquema de un nivel sin tener que cambiar el del nivel superior.</p>
+<ul>
+<li><mark><strong>Física:</strong> cambiar el nivel interno sin alterar el conceptual ni el externo.</mark> Ejemplo: mover la base de disco o crear un índice, y los programas siguen igual.</li>
+<li><mark><strong>Lógica:</strong> cambiar el conceptual sin alterar el externo.</mark> Ejemplo: agregar una columna, y las vistas y aplicaciones siguen igual.</li>
+</ul>
+<p><strong>Qué se buscaba respecto de los archivos:</strong> con archivos, los programas dependían del formato físico. Cualquier cambio obligaba a reescribirlos. Separar los niveles permite que los datos cambien sin tocar las aplicaciones.</p>
+</div>
+</section>
+<section class="sec"><h2 id="diccionario-de-datos">Diccionario de datos</h2>
+<div class="tomado"><aside class="nota"><strong>3 de 15 teóricos</strong><span>Final 04/03/24, parciales 2020 y 12/2024</span></aside><p><strong>Qué es:</strong> el catálogo donde el SGBD guarda <mark>los metadatos: la descripción de los datos</mark>. Tablas, columnas, restricciones, vistas, usuarios, permisos, procedimientos y triggers.</p>
+<p><strong>Para qué sirve:</strong> da acceso a una definición centralizada del esquema, que se consulta con el mismo lenguaje que los datos.</p>
+<p><strong>Comandos del DML aplicables:</strong> <mark>solo <code>SELECT</code></mark>. El contenido cambia cuando ejecutás DDL o DCL, y lo mantiene el SGBD. Nadie hace <code>INSERT</code> a mano en el catálogo.</p>
+</div>
+</section>
+<section class="sec"><h2 id="arquitecturas">Arquitecturas</h2>
+<div class="tomado"><aside class="nota"><strong>3 de 15 teóricos</strong><span>Parciales 28/08/23, 25/09/23, 2020</span></aside><div class="tabla"><table><thead><tr><th>Arquitectura</th><th>Idea</th></tr></thead><tbody><tr><td><strong>Centralizada</strong></td><td>El SGBD corre en un único servidor y los usuarios entran por terminales. La seguridad se controla ahí</td></tr><tr><td><strong>Cliente-servidor</strong></td><td><mark>El servidor es el SGBD (backend). El cliente, la interfaz (frontend)</mark>. Se comunican por red</td></tr><tr><td><strong>Distribuida</strong></td><td>Los datos están en varias sedes, cerca de donde se usan, pero se accede como a una sola</td></tr><tr><td><strong>Paralela</strong></td><td>Varios procesadores trabajan a la vez, para ser más rápidos</td></tr></tbody></table></div>
+<p>En cliente-servidor, el campus de 2023 da por correcto que <mark>el cliente administra la interfaz gráfica del usuario</mark> y por incorrecto que haga las verificaciones de integridad o el control de acceso a los datos: eso lo hace el servidor. En la arquitectura centralizada, el SGBD está en un único servidor y se entra por terminales o por PC que actúan como emuladores de terminales (Resumen Teoría 2° Parcial SQL del Drive, de estudiantes).</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Las herramientas de un SGBD relacional:</p>
+<ul>
+<li><strong>Motor de base de datos</strong> (servidor, el que lleva el sufijo SERVER): el software principal, que gestiona consultas, seguridad, transacciones y la coordinación general.</li>
+<li><strong>Motor de almacenamiento</strong> (MyISAM, InnoDB): el componente interno que guarda y recupera los datos de cada tabla en disco y memoria.</li>
+<li><strong>Herramientas de desarrollo</strong> (front-end), para armar interfaces.</li>
+<li><strong>Herramientas de acceso al diccionario</strong>: interfaces gráficas como Workbench, que permite acceder a la base y ejecutar SQL.</li>
+</ul>
+<p>El nivel conceptual (DDL) lo define y mantiene el DBA.</p>
+<p class="bloque-fuente">Resumen Teoría 2° Parcial SQL del Drive</p></div>
+</section>
+<section class="sec"><h2 id="transacciones">Transacciones</h2>
+<div class="tomado"><aside class="nota"><strong>7 de 15 teóricos</strong><span>Finales 30/09/24, 25/08/25, 29/09/25, 23/02/26. Parciales 2020 y los dos de 12/2024</span></aside><p><strong>Transacción:</strong> conjunto de operaciones elementales que <mark>se procesan como una única unidad lógica</mark>, entre un inicio y un fin.</p>
+<p>La diferencia que preguntan es esta. <strong>Para el usuario</strong> es una operación de negocio, con significado («transferir plata»). <strong>Para la base</strong> son las operaciones elementales que la componen (dos <code>UPDATE</code>).</p>
+<p>Las propiedades ACID (la cátedra también escribe ACAD), con quién se encarga de cada una:</p>
+<div class="tabla"><table><thead><tr><th>Propiedad</th><th>Qué significa</th><th>Responsable</th></tr></thead><tbody><tr><td><strong>Atomicidad</strong></td><td>Se hace entera o no se hace</td><td>Gestión de transacciones</td></tr><tr><td><strong>Consistencia</strong></td><td>De un estado consistente pasa a otro</td><td><mark>El programador</mark></td></tr><tr><td><strong>Aislamiento</strong></td><td>Las transacciones simultáneas no se afectan</td><td>Control de concurrencia</td></tr><tr><td><strong>Durabilidad</strong></td><td>Lo confirmado sobrevive a cualquier fallo</td><td>Gestión de recuperaciones</td></tr></tbody></table></div>
+</div>
+<h3 id="estados-de-una-transaccion">Estados de una transacción</h3>
+<div class="tomado"><aside class="nota"><strong>Se pidió el gráfico</strong><span>Final 25/08/25; parcial 2020</span></aside><figure><svg viewBox="0 0 660 214" role="img" aria-label="Activa pasa a parcialmente comprometida, y de ahí a comprometida. Activa y parcialmente comprometida pueden pasar a fallida, y de fallida a abortada."><rect class="d-caja" x="10" y="30" width="118" height="48" rx="22"/><text class="d-t" x="69" y="59">Activa</text><rect class="d-caja" x="222" y="30" width="186" height="48" rx="22"/><text class="d-t" x="315" y="59">Parc. comprometida</text><rect class="d-caja" x="502" y="30" width="148" height="48" rx="22"/><text class="d-t" x="576" y="59">Comprometida</text><rect class="d-caja" x="222" y="150" width="186" height="48" rx="22"/><text class="d-t" x="315" y="179">Fallida</text><rect class="d-caja" x="502" y="150" width="148" height="48" rx="22"/><text class="d-t" x="576" y="179">Abortada</text><path class="d-linea" d="M128 54h86M408 54h86"/><path class="d-punta" d="M222 54l-9-4.5v9zM502 54l-9-4.5v9z"/><path class="d-linea-m" d="M69 78v98h145M315 78v64M408 174h86"/><path class="d-punta-m" d="M222 176l-9-4.5v9zM315 150l-4.5-9h9zM502 174l-9-4.5v9z"/><text class="d-s" x="175" y="44">fin</text><text class="d-s" x="451" y="44">COMMIT</text><text class="d-s" x="451" y="166">ROLLBACK</text><text class="d-i" x="100" y="196">error</text><text class="d-i" x="345" y="118">error</text></svg></figure>
+
+<ul>
+<li><strong>Activa:</strong> se está ejecutando. Mientras tanto, la base está en un estado inconsistente.</li>
+<li><strong>Parcialmente comprometida:</strong> terminó la última instrucción, pero falta confirmar.</li>
+<li><strong>Comprometida:</strong> se confirmó con <code>COMMIT</code>. Llevó la base a un nuevo estado consistente.</li>
+<li><strong>Fallida:</strong> descubrió que no puede seguir.</li>
+<li><strong>Abortada:</strong> después del <code>ROLLBACK</code>, con la base como estaba antes.</li>
+</ul>
+</div>
+<div class="tomado"><aside class="nota"><strong>Qué puede fallar y cómo se recupera</strong><span>Final 25/08/25 y parcial 12/2024</span></aside><p><strong>Fallos, según el resumen del Drive:</strong></p>
+<ul>
+<li>Problemas lógicos en la transacción: integridad de dominio, referencial o de entidad; fallas de programación como la división por cero. Dan lugar a un <code>ROLLBACK</code>.</li>
+<li>Terminación anormal: comunicación con el servidor, tiempo límite de espera, <em>dead-locks</em>.</li>
+<li>Caídas del sistema.</li>
+</ul>
+<p><strong>Recuperación:</strong> el componente de recuperaciones del SGBD examina la <strong>bitácora</strong> y deshace o rehace las operaciones, transacción por transacción.</p>
+</div>
+<h3 id="recuperacion-ante-fallos">Recuperación ante fallos</h3>
+<p>La <strong>bitácora</strong> se escribe en disco, separada de la base, para sobrevivir a un fallo. Tiene marca de inicio, cada escritura con su valor anterior y posterior, y marca de fin.</p>
+<div class="tabla"><table><thead><tr><th>Mecanismo</th><th>Para qué</th></tr></thead><tbody><tr><td><strong>Deshacer</strong> (<em>undo</em>)</td><td>Revertir lo que hizo una transacción sin confirmar, con los valores anteriores</td></tr><tr><td><strong>Rehacer</strong> (<em>redo</em>)</td><td>Volver a aplicar lo confirmado que no llegó al disco, con los posteriores</td></tr><tr><td><strong>Puntos de control</strong></td><td>Marcas periódicas en la bitácora. Reducen cuánto hay que revisar al reiniciar</td></tr><tr><td><strong>Escritura forzada</strong></td><td>Controlar cuándo el SGBD pasa el buffer al disco</td></tr><tr><td><strong>Respaldo</strong></td><td>La copia para cuando el fallo es físico</td></tr></tbody></table></div>
+<p>Los cambios llegan al disco de dos formas: con <strong>actualización diferida</strong>, recién después de confirmar la transacción. Con <strong>actualización inmediata</strong>, a medida que ocurren.</p>
+</section>
+<section class="sec"><h2 id="concurrencia">Concurrencia</h2>
+<div class="tomado"><aside class="nota"><strong>Salió como caso</strong><span>Final 23/02/26: dos cajeros extraen de la misma cuenta y el saldo queda mal</span></aside><p>La respuesta: <mark>faltó control de concurrencia</mark>, es decir, ejecutar la operación como transacción con el nivel de aislamiento o el bloqueo adecuado. El problema se llama <strong>actualización perdida</strong>.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Problema</th><th>Qué pasa</th></tr></thead><tbody><tr><td><strong>Actualización perdida</strong></td><td>Una actualización pisa a otra</td></tr><tr><td><strong>Lectura sucia</strong> (algunos apuntes dicen «vacía»)</td><td>Leés algo que otra transacción cambió y todavía no confirmó</td></tr><tr><td><strong>Lectura no repetible</strong></td><td>Leés dos veces un dato y cambió en el medio</td></tr><tr><td><strong>Lectura fantasma</strong></td><td>Repetís una consulta y aparecen filas nuevas</td></tr></tbody></table></div>
+<p><strong>Bloqueos:</strong> compartido para leer, exclusivo para escribir. Cuanto más grande el objeto bloqueado (grano grueso), menos concurrencia.</p>
+<p><strong>Compromiso en dos fases</strong> (en los libros, bloqueo en dos fases): la transacción primero adquiere todos los bloqueos y después los libera. No toma ninguno nuevo una vez que empezó a liberar. Evita actualizaciones perdidas, pero puede dejar a otras esperando.</p>
+<p><strong>Niveles de aislamiento</strong>, de más a menos estricto. Más aislamiento da más precisión y menos concurrencia:</p>
+<div class="tabla"><table><thead><tr><th>Nivel</th><th>Evita</th></tr></thead><tbody><tr><td>Serializable</td><td>Todo</td></tr><tr><td>Lectura repetible</td><td>Sucia y no repetible. En teoría no evita la fantasma; en MySQL, con un <code>SELECT</code> común, no la vas a ver</td></tr><tr><td>Lectura comprometida</td><td>Solo la sucia</td></tr><tr><td>Lectura no comprometida</td><td>Nada. Para datos de solo lectura</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="seguridad">Seguridad</h2>
+<div class="tomado"><aside class="nota"><strong>5 de 15 teóricos</strong><span>Finales 04/03/24, 10/02/25, 29/09/25. Parciales 2020 y 12/2024</span></aside><p>Las tres dimensiones, las de la norma ISO 27001:</p>
+<ul>
+<li><mark><strong>Confidencialidad:</strong> solo acceden quienes están autorizados.</mark></li>
+<li><mark><strong>Integridad:</strong> los datos son correctos y completos.</mark></li>
+<li><mark><strong>Disponibilidad:</strong> los datos están accesibles cuando se necesitan.</mark></li>
+</ul>
+<p>Y la pregunta del final de 2025: «¿por qué la seguridad no se limita a controles informáticos?». Porque también incluye procesos, personas y obligaciones legales. Normas que podés nombrar: <strong>Ley 25.326</strong> de Protección de Datos Personales (Argentina), <strong>RGPD</strong> (Europa) e <strong>ISO/IEC 27001</strong>.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Mecanismos de confidencialidad</strong><span>Final 04/03/24 y parcial 12/2024</span></aside><p>El <mark>control de accesos</mark> es la función del SGBD que los implementa, y el DBA (administrador de la base) es su responsable.</p>
+<ul>
+<li><strong>Global:</strong> cuentas y contraseñas, guardadas cifradas en el catálogo. Toda operación queda atribuida a la cuenta. Es la <strong>auditoría</strong>.</li>
+<li><strong>Discrecional:</strong> privilegios sobre cuentas, con <code>GRANT</code> y <code>REVOKE</code>. A nivel de cuenta (<code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>) y a nivel de relación (<code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>).</li>
+<li><strong>Obligatorio:</strong> seguridad multinivel. Cada objeto tiene un nivel y cada usuario, una acreditación: Top Secret, Secret, Confidential o Unclassified.</li>
+</ul>
+</div>
+<p>Los apuntes del Drive anotan así los permisos:</p>
+<pre class="codigo"><code><span class="hljs-keyword">grant</span> <span class="hljs-keyword">insert</span>, <span class="hljs-keyword">update</span>, <span class="hljs-keyword">delete</span>, <span class="hljs-keyword">all</span> privileges <span class="hljs-keyword">on</span> nobmreBD.<span class="hljs-operator">*</span> <span class="hljs-keyword">to</span> usuario<span class="hljs-variable">@localhost</span>;
+<span class="hljs-keyword">revoke</span> <span class="hljs-keyword">insert</span>, <span class="hljs-keyword">update</span>, <span class="hljs-keyword">delete</span>, <span class="hljs-keyword">all</span> privileges <span class="hljs-keyword">on</span> nobmreBD.<span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> usuario<span class="hljs-variable">@localhost</span>;</code></pre>
+</section>
+<section class="sec"><h2 id="administracion-y-rendimiento">Administración y rendimiento</h2>
+<div class="tomado"><aside class="nota"><strong>Rendimiento e índices</strong><span>Final 09/03/26</span></aside><p>El DBA debe revisar los planes de acceso de las consultas y actualizaciones que se desempeñen mal.</p>
+<p><strong>Índices.</strong> Son una estructura que acelera las búsquedas a costa de escrituras más lentas. Reglas para elegirlos: la CP, las CF y los atributos usados en condiciones de igualdad o rangos selectivos. No conviene sobre atributos que se actualizan seguido, ni tener muchos en tablas de alta volatilidad.</p>
+</div>
+<p><strong>Desnormalización.</strong> Juntar tablas a propósito para que consultar sea más rápido, sabiendo que violás una forma normal. Se hace con cuidado y solo cuando el rendimiento lo justifica.</p>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-2" data-materia="bases-de-datos">
+<h2>Quiz del 2° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="KOGZlbF9x1" data-tema="INNER JOIN y LEFT JOIN" data-enlace="parcial-2.html#inner-join-y-left-join" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-1"><span class="q-n">1</span><div><p><code>clientes LEFT JOIN contratos</code>: Beto no tiene contratos. ¿Qué pasa con Beto?</p>
+<p class="q-origen">Se tomó: Final 23/02/2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-1"><li><button type="button" class="op" data-ok="0">No aparece</button></li><li><button type="button" class="op" data-ok="1">Aparece una vez, con nulos en las columnas de contrato</button></li><li><button type="button" class="op" data-ok="0">Da error</button></li><li><button type="button" class="op" data-ok="0">Aparece una vez por cada contrato de la base</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El <code>LEFT JOIN</code> conserva todas las filas de la izquierda. Con <code>INNER JOIN</code> no aparecería.</p>
+</div></li><li class="q" data-q="UC0rtV1Bj0" data-tema="INNER JOIN y LEFT JOIN" data-enlace="parcial-2.html#inner-join-y-left-join" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-2"><span class="q-n">2</span><div><p>En un <code>LEFT JOIN</code>, poner en el <code>WHERE</code> una condición sobre la tabla de la derecha:</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-2"><li><button type="button" class="op" data-ok="0">No cambia el resultado</button></li><li><button type="button" class="op" data-ok="1">Hace que se comporte como un <code>INNER JOIN</code></button></li><li><button type="button" class="op" data-ok="0">Hace que se comporte como un <code>RIGHT JOIN</code></button></li><li><button type="button" class="op" data-ok="0">No está permitido</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las filas sin coincidencia tienen nulos en esa tabla, y la condición las descarta. La excepción es <code>IS NULL</code>, que se usa justamente para pedir «los que no tienen». En la resolución 301.2 la condición va en el <code>ON</code>.</p>
+</div></li><li class="q" data-q="tpGNig5tDX" data-tema="GROUP BY" data-enlace="parcial-2.html#group-by" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-3"><span class="q-n">3</span><div><p>¿Qué cláusula filtra los grupos después de agrupar?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-3"><li><button type="button" class="op" data-ok="0"><code>WHERE</code></button></li><li><button type="button" class="op" data-ok="0"><code>ON</code></button></li><li><button type="button" class="op" data-ok="1"><code>HAVING</code></button></li><li><button type="button" class="op" data-ok="0"><code>ORDER BY</code></button></li></ul><div class="q-expl" tabindex="-1" hidden><p><code>WHERE</code> filtra filas antes de agrupar y <code>HAVING</code>, grupos después.</p>
+</div></li><li class="q" data-q="1snDCy5Nj0" data-tema="GROUP BY" data-enlace="parcial-2.html#group-by" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-4"><span class="q-n">4</span><div><p><code>count(nro_contrato)</code>, con una columna que tiene 3 valores y 2 nulos, devuelve:</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-4"><li><button type="button" class="op" data-ok="0">5</button></li><li><button type="button" class="op" data-ok="1">3</button></li><li><button type="button" class="op" data-ok="0">2</button></li><li><button type="button" class="op" data-ok="0"><code>NULL</code></button></li></ul><div class="q-expl" tabindex="-1" hidden><p><code>count(columna)</code> no cuenta nulos; <code>count(*)</code> sí contaría las 5 filas.</p>
+</div></li><li class="q" data-q="nyjT2HBA8h" data-tema="SQL para el teórico" data-enlace="parcial-2.html#sql-para-el-teorico" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-5"><span class="q-n">5</span><div><p>Si un administrador necesita renombrar una columna, ¿qué comando usa?</p>
+<p class="q-origen">Se tomó: Final 09/03/2026</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-5"><li><button type="button" class="op" data-ok="0"><code>RENAME COLUMN</code></button></li><li><button type="button" class="op" data-ok="1"><code>ALTER TABLE ... RENAME COLUMN</code></button></li><li><button type="button" class="op" data-ok="0"><code>UPDATE COLUMN</code></button></li><li><button type="button" class="op" data-ok="0"><code>MODIFY COLUMN</code></button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Cambia la estructura, y por eso es <code>ALTER TABLE</code>.</p>
+</div></li><li class="q" data-q="HjVF9coB8h" data-tema="SQL para el teórico" data-enlace="parcial-2.html#sql-para-el-teorico" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-6"><span class="q-n">6</span><div><p>Un índice mejora el rendimiento de:</p>
+<p class="q-origen">Se tomó: Final 09/03/2026</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-6"><li><button type="button" class="op" data-ok="0">Las inserciones</button></li><li><button type="button" class="op" data-ok="1">Las búsquedas</button></li><li><button type="button" class="op" data-ok="0">Los borrados</button></li><li><button type="button" class="op" data-ok="0">Los cambios de esquema</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>A costa de escrituras más lentas, porque hay que mantener el índice actualizado.</p>
+</div></li><li class="q" data-q="KOATVwzRop" data-tema="SQL para el teórico" data-enlace="parcial-2.html#sql-para-el-teorico" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-7"><span class="q-n">7</span><div><p>¿Qué diferencia hay entre <code>DROP TABLE</code> y <code>DELETE FROM</code>?</p>
+<p class="q-origen">Se tomó: Final 09/03/2026, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-7"><li><button type="button" class="op" data-ok="0">Ninguna: las dos vacían la tabla</button></li><li><button type="button" class="op" data-ok="1"><code>DROP</code> borra datos y estructura; <code>DELETE</code> borra filas</button></li><li><button type="button" class="op" data-ok="0"><code>DELETE</code> borra la estructura; <code>DROP</code>, solo las filas</button></li><li><button type="button" class="op" data-ok="0"><code>DROP</code> es DML y <code>DELETE</code>, DDL</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><code>DROP</code> es DDL y <code>DELETE</code>, DML. Después de un <code>DELETE</code> la tabla sigue existiendo.</p>
+</div></li><li class="q" data-q="lTMpnd-GlU" data-tema="SQL para el teórico" data-enlace="parcial-2.html#sql-para-el-teorico" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-8"><span class="q-n">8</span><div><p>La sentencia <code>UPDATE</code> permite:</p>
+<p class="q-origen">Se tomó: 2° parcial, 07/10/2020, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-8"><li><button type="button" class="op" data-ok="0">Cambiar definiciones del diccionario de datos</button></li><li><button type="button" class="op" data-ok="1">Actualizar registros existentes, con <code>WHERE</code></button></li><li><button type="button" class="op" data-ok="0">Insertar registros copiándolos de otra tabla</button></li><li><button type="button" class="op" data-ok="0">Agregar una columna a una tabla</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El diccionario no se toca con DML, los registros nuevos se cargan con <code>INSERT ... SELECT</code> y las columnas se agregan con <code>ALTER TABLE</code>.</p>
+</div></li><li class="q" data-q="_g2IA-V-Xj" data-tema="Encapsulamiento" data-enlace="parcial-2.html#rutinas" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-9"><span class="q-n">9</span><div><p>Un trigger es:</p>
+<p class="q-origen">Se tomó: 2° parcial, 07/10/2020, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-9"><li><button type="button" class="op" data-ok="1">Un conjunto de operaciones que se ejecuta ante un evento en la base</button></li><li><button type="button" class="op" data-ok="0">Un conjunto de operaciones que se ejecuta cuando lo llama un programa</button></li><li><button type="button" class="op" data-ok="0">Un comando para borrar registros y su definición</button></li><li><button type="button" class="op" data-ok="0">Una vista que se actualiza sola</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se dispara solo, ante <code>INSERT</code>, <code>UPDATE</code> o <code>DELETE</code>. La segunda opción es un procedimiento.</p>
+</div></li><li class="q" data-q="V9dqtmf-WG" data-tema="Vistas" data-enlace="parcial-2.html#vistas" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-10"><span class="q-n">10</span><div><p>¿Qué vista permite operaciones de DML?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-10"><li><button type="button" class="op" data-ok="1">La simple: una tabla, sin funciones ni grupos</button></li><li><button type="button" class="op" data-ok="0">La compuesta: varias tablas</button></li><li><button type="button" class="op" data-ok="0">La que tiene funciones de grupo</button></li><li><button type="button" class="op" data-ok="0">Ninguna</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es el criterio del material: la simple sí, la compuesta no.</p>
+</div></li><li class="q" data-q="SlrgdvDdn3" data-tema="Niveles ANSI e independencia" data-enlace="parcial-2.html#tres-niveles-e-independencia" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-11"><span class="q-n">11</span><div><p>La independencia <strong>lógica</strong> es poder:</p>
+<p class="q-origen">Se tomó: Parcial 2020 y final 04/03/2024, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-11"><li><button type="button" class="op" data-ok="0">Modificar el esquema interno sin alterar el conceptual</button></li><li><button type="button" class="op" data-ok="1">Modificar el esquema conceptual sin alterar el externo</button></li><li><button type="button" class="op" data-ok="0">Cambiar de sistema operativo sin tocar la base</button></li><li><button type="button" class="op" data-ok="0">Modificar los datos sin tocar los índices</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La primera opción es la <strong>física</strong>. Cada una protege al nivel de arriba.</p>
+</div></li><li class="q" data-q="DiYMdcfXX2" data-tema="Diccionario de datos" data-enlace="parcial-2.html#diccionario-de-datos" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-12"><span class="q-n">12</span><div><p>¿Qué comando del DML se puede aplicar al diccionario de datos?</p>
+<p class="q-origen">Se tomó: 2° parcial, 12/2024 y final 04/03/2024</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-12"><li><button type="button" class="op" data-ok="1">Solo <code>SELECT</code></button></li><li><button type="button" class="op" data-ok="0"><code>INSERT</code> y <code>DELETE</code></button></li><li><button type="button" class="op" data-ok="0"><code>UPDATE</code></button></li><li><button type="button" class="op" data-ok="0">Todos</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se consulta con <code>SELECT</code>. Su contenido cambia a través del DDL y el DCL, y lo mantiene el SGBD.</p>
+</div></li><li class="q" data-q="WnNLDRbCMJ" data-tema="Arquitecturas" data-enlace="parcial-2.html#arquitecturas" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-13"><span class="q-n">13</span><div><p>En una arquitectura centralizada:</p>
+<p class="q-origen">Se tomó: 2° parcial, 07/10/2020, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-13"><li><button type="button" class="op" data-ok="0">Los datos están en varias sedes</button></li><li><button type="button" class="op" data-ok="1">El SGBD está en un único servidor y se accede por terminales</button></li><li><button type="button" class="op" data-ok="0">Las aplicaciones corren en un cliente</button></li><li><button type="button" class="op" data-ok="0">La seguridad se controla del lado del cliente</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las aplicaciones en un cliente corresponden a la arquitectura cliente-servidor.</p>
+</div></li><li class="q" data-q="bP98q6P2Q6" data-tema="Transacciones" data-enlace="parcial-2.html#transacciones" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-14"><span class="q-n">14</span><div><p>La propiedad de <strong>aislamiento</strong> es responsabilidad de:</p>
+<p class="q-origen">Se tomó: 2° parcial, 07/10/2020, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-14"><li><button type="button" class="op" data-ok="0">El sistema operativo</button></li><li><button type="button" class="op" data-ok="0">El programador</button></li><li><button type="button" class="op" data-ok="1">El componente de control de concurrencia del SGBD</button></li><li><button type="button" class="op" data-ok="0">El componente de recuperaciones</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El programador responde por la consistencia, y recuperaciones por la durabilidad.</p>
+</div></li><li class="q" data-q="J7-kAPJhZ5" data-tema="Estados de una transacción" data-enlace="parcial-2.html#estados-de-una-transaccion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-15"><span class="q-n">15</span><div><p>¿Cuándo pasa una transacción de parcialmente comprometida a fallida?</p>
+<p class="q-origen">Se tomó: 2° parcial, 07/10/2020, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-15"><li><button type="button" class="op" data-ok="0">Cuando terminó bien el <code>COMMIT</code></button></li><li><button type="button" class="op" data-ok="1">Cuando ocurre un error al registrar los cambios y debe deshacerse</button></li><li><button type="button" class="op" data-ok="0">Después de terminar el <code>ROLLBACK</code></button></li><li><button type="button" class="op" data-ok="0">Nunca: esa transición no existe</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Después del <code>ROLLBACK</code> queda <strong>abortada</strong>, y después del <code>COMMIT</code>, <strong>comprometida</strong>.</p>
+</div></li><li class="q" data-q="R8ahXC5Jg-" data-tema="Concurrencia" data-enlace="parcial-2.html#concurrencia" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-16"><span class="q-n">16</span><div><p>Dos cajeros extraen dinero de la misma cuenta al mismo tiempo y el saldo queda mal. ¿Qué faltó?</p>
+<p class="q-origen">Se tomó: Final 23/02/2026</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-16"><li><button type="button" class="op" data-ok="0">Normalizar la tabla de cuentas</button></li><li><button type="button" class="op" data-ok="1">Control de concurrencia</button></li><li><button type="button" class="op" data-ok="0">Un índice sobre la cuenta</button></li><li><button type="button" class="op" data-ok="0">Un respaldo diario</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es una <strong>actualización perdida</strong>. Se evita con transacciones y bloqueos o con el nivel de aislamiento adecuado.</p>
+</div></li><li class="q" data-q="_MZbRdWL7-" data-tema="Concurrencia" data-enlace="parcial-2.html#concurrencia" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-17"><span class="q-n">17</span><div><p>Repetís una consulta en la misma transacción y aparecen filas nuevas. ¿Cómo se llama?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-17"><li><button type="button" class="op" data-ok="0">Lectura sucia</button></li><li><button type="button" class="op" data-ok="0">Lectura no repetible</button></li><li><button type="button" class="op" data-ok="1">Lectura fantasma</button></li><li><button type="button" class="op" data-ok="0">Actualización perdida</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>En la no repetible, cambia un dato ya leído. En la fantasma, aparecen filas que antes no estaban.</p>
+</div></li><li class="q" data-q="cPOKMhYVPX" data-tema="Concurrencia" data-enlace="parcial-2.html#concurrencia" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-18"><span class="q-n">18</span><div><p>¿Qué nivel de aislamiento <strong>no</strong> evita la lectura fantasma, pero sí la no repetible?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-18"><li><button type="button" class="op" data-ok="0">Serializable</button></li><li><button type="button" class="op" data-ok="1">Lectura repetible</button></li><li><button type="button" class="op" data-ok="0">Lectura comprometida</button></li><li><button type="button" class="op" data-ok="0">Lectura no comprometida</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es la clasificación teórica. Serializable lo evita todo y comprometida solo evita la sucia.</p>
+</div></li><li class="q" data-q="Smch1r2mbs" data-tema="Seguridad" data-enlace="parcial-2.html#seguridad" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-19"><span class="q-n">19</span><div><p>Las tres dimensiones básicas de un sistema de gestión de seguridad de la información (SGSI), según ISO 27001, son:</p>
+<p class="q-origen">Se tomó: Final 29/09/2025</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-19"><li><button type="button" class="op" data-ok="0">Atomicidad, consistencia y durabilidad</button></li><li><button type="button" class="op" data-ok="1">Confidencialidad, integridad y disponibilidad</button></li><li><button type="button" class="op" data-ok="0">Autenticación, autorización y auditoría</button></li><li><button type="button" class="op" data-ok="0">Interno, conceptual y externo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La primera opción es parte de ACID; la última son los niveles ANSI.</p>
+</div></li><li class="q" data-q="O5GQonswfA" data-tema="Seguridad" data-enlace="parcial-2.html#seguridad" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-20"><span class="q-n">20</span><div><p>Las cuentas de usuario y contraseñas:</p>
+<p class="q-origen">Se tomó: 2° parcial, 07/10/2020, adaptada</p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-20"><li><button type="button" class="op" data-ok="0">Las controla el cliente en una arquitectura centralizada</button></li><li><button type="button" class="op" data-ok="0">Solo se definen en el sistema operativo</button></li><li><button type="button" class="op" data-ok="1">Se almacenan en el diccionario de la base</button></li><li><button type="button" class="op" data-ok="0">Se guardan en la bitácora</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se guardan en el catálogo, en una tabla cifrada, y las valida el SGBD.</p>
+</div></li><li class="q" data-q="E2UBppmFgT" data-tema="Niveles ANSI e independencia" data-enlace="parcial-2.html#tres-niveles-e-independencia" data-tipo="abierta"><div class="q-enun" id="qe-parcial-2-21"><span class="q-n">21</span><div><p>Según la arquitectura ANSI de tres niveles, escribí sobre la independencia lógica y física, y qué se quería lograr que no se hacía en archivos.</p>
+<p class="q-origen">Se tomó: Final 04/03/2024 y parcial 12/2024</p></div></div><details class="q-abierta"><summary>Ver qué dice el material</summary><div><p><strong>Física:</strong> cambiar el esquema interno sin alterar el conceptual ni el externo. <strong>Lógica:</strong> cambiar el conceptual sin alterar el externo.</p>
+<p>Con archivos, los programas dependían del formato físico y cualquier cambio obligaba a reescribirlos. La separación en niveles permite que los datos evolucionen sin tocar las aplicaciones.</p>
+</div><p class="q-auto">¿Cómo te fue? <button type="button" class="b-auto" aria-pressed="false" data-ok="1">La sabía</button> <button type="button" class="b-auto" aria-pressed="false" data-ok="0">Me faltó</button></p></details></li><li class="q" data-q="DzU-GZEZBW" data-tema="Diccionario de datos" data-enlace="parcial-2.html#diccionario-de-datos" data-tipo="abierta"><div class="q-enun" id="qe-parcial-2-22"><span class="q-n">22</span><div><p>¿Qué es el diccionario de datos? ¿Cuál es su funcionalidad? ¿Qué comandos del DML se le pueden aplicar?</p>
+<p class="q-origen">Se tomó: Final 04/03/2024 y parcial 12/2024</p></div></div><details class="q-abierta"><summary>Ver qué dice el material</summary><div><p>Es el catálogo donde el SGBD guarda los metadatos: la descripción de tablas, columnas, restricciones, vistas, usuarios y permisos.</p>
+<p>Da acceso a una definición centralizada del esquema, con el mismo lenguaje que los datos.</p>
+<p>Solo se le aplica <code>SELECT</code>.</p>
+</div><p class="q-auto">¿Cómo te fue? <button type="button" class="b-auto" aria-pressed="false" data-ok="1">La sabía</button> <button type="button" class="b-auto" aria-pressed="false" data-ok="0">Me faltó</button></p></details></li><li class="q" data-q="5zVcVKV5-9" data-tema="Encapsulamiento" data-enlace="parcial-2.html#rutinas" data-tipo="abierta"><div class="q-enun" id="qe-parcial-2-23"><span class="q-n">23</span><div><p>Explicá las diferencias entre las posibilidades de encapsulamiento de código SQL.</p>
+<p class="q-origen">Se tomó: Final 30/09/2024 y parcial 12/2024</p></div></div><details class="q-abierta"><summary>Ver qué dice el material</summary><div><p><strong>Procedimiento:</strong> no se ejecuta solo. Se invoca con <code>CALL</code>, y puede recibir parámetros y devolver resultados.</p>
+<p><strong>Función:</strong> devuelve un valor con <code>return</code>.</p>
+<p><strong>Trigger:</strong> se activa automáticamente ante un <code>INSERT</code>, <code>UPDATE</code> o <code>DELETE</code> en una tabla.</p>
+</div><p class="q-auto">¿Cómo te fue? <button type="button" class="b-auto" aria-pressed="false" data-ok="1">La sabía</button> <button type="button" class="b-auto" aria-pressed="false" data-ok="0">Me faltó</button></p></details></li><li class="q" data-q="OdTExz3oOs" data-tema="Transacciones" data-enlace="parcial-2.html#transacciones" data-tipo="abierta"><div class="q-enun" id="qe-parcial-2-24"><span class="q-n">24</span><div><p>Explicá el modelo de transacciones y sus propiedades.</p>
+<p class="q-origen">Se tomó: 2° parcial, 2020 y 12/2024</p></div></div><details class="q-abierta"><summary>Ver qué dice el material</summary><div><p>Una transacción es un conjunto de operaciones elementales que se procesan como una unidad de trabajo. Cumple las propiedades ACID: atomicidad, consistencia, aislamiento y durabilidad.</p>
+</div><p class="q-auto">¿Cómo te fue? <button type="button" class="b-auto" aria-pressed="false" data-ok="1">La sabía</button> <button type="button" class="b-auto" aria-pressed="false" data-ok="0">Me faltó</button></p></details></li><li class="q" data-q="4YKTzwOFzz" data-tema="Seguridad" data-enlace="parcial-2.html#seguridad" data-tipo="abierta"><div class="q-enun" id="qe-parcial-2-25"><span class="q-n">25</span><div><p>Con respecto a la confidencialidad en un SGBD, ¿cuáles son los mecanismos de seguridad?</p>
+<p class="q-origen">Se tomó: Final 04/03/2024 y parcial 12/2024</p></div></div><details class="q-abierta"><summary>Ver qué dice el material</summary><div><p>El <strong>control de accesos</strong>, a cargo del DBA.</p>
+<p><strong>Discrecional:</strong> concede y revoca privilegios con <code>GRANT</code> y <code>REVOKE</code>, a nivel de cuenta y de relación.</p>
+<p><strong>Obligatorio:</strong> asigna niveles de seguridad a objetos y de acreditación a usuarios.</p>
+<p>Además, el control global de cuentas y contraseñas, con auditoría.</p>
+</div><p class="q-auto">¿Cómo te fue? <button type="button" class="b-auto" aria-pressed="false" data-ok="1">La sabía</button> <button type="button" class="b-auto" aria-pressed="false" data-ok="0">Me faltó</button></p></details></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta marzo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

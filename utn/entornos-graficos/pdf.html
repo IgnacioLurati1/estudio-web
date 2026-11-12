@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="es" data-pdf>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Entornos Gráficos en PDF. El Santo Resumen</title>
+<meta name="description" content="El resumen entero de Entornos Gráficos, para guardar como PDF.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/pdf.css">
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/pdf.js" defer></script>
+</head>
+<body class="pdf" data-materia="entornos-graficos" data-pagina="pdf">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<header class="pdf-barra">
+<a class="pdf-volver" href="index.html">Volver a Entornos Gráficos</a>
+<div class="pdf-accion"><button type="button" id="pdfGuardar" class="b-pri">Guardar como PDF</button><p class="pdf-ayuda">En la ventana de imprimir, elegí Guardar como PDF.</p><p id="pdfEstado" class="pdf-estado" role="status">Preparando los gráficos.</p></div>
+</header>
+<main id="contenido" class="hoja pdf-hoja">
+<section class="pdf-portada" aria-labelledby="pdfTitulo">
+<p class="pdf-marca">El Santo Resumen</p>
+<h1 id="pdfTitulo">Entornos Gráficos</h1>
+<p class="pdf-carrera">Ingeniería en Sistemas, UTN</p>
+<div class="pdf-indice"><p class="pdf-rotulo">Qué tiene</p><ol><li><a href="#pdf-inicio">Para entender</a></li><li><a href="#pdf-parcial-practica">Parcial de práctica</a></li><li><a href="#pdf-parcial-teoria">Parcial de teoría</a></li><li><a href="#pdf-final">Final</a></li></ol></div>
+<div class="pdf-origen"><p class="pdf-rotulo">De dónde sale</p><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2024). Si el programa cambió, manda la cátedra.</p><p>Los quiz, los ejercicios de examen y las figuras que se mueven están en la web.</p></div>
+</section>
+<section class="pdf-parte" id="pdf-inicio" data-pagina="index" aria-label="Para entender"><p class="pdf-de">Entornos Gráficos</p><h1>Para entender</h1>
+<p class="bajada">Cómo se planifica, se arma y se pone a andar un sitio web, y cómo se hace para que cualquiera pueda usarlo.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="inicio-de-que-se-trata">De qué se trata</h2>
+<p>La materia sigue la vida de un sitio web. Primero se decide para qué sirve y a quién le habla. Después se arma la página con HTML y se le da aspecto con CSS. Con PHP y MySQL deja de ser una hoja fija. Recibe datos, los guarda y recuerda a quien entra. Al final se revisa que lo pueda usar cualquier persona, también con una discapacidad o con otro idioma.</p>
+<p>Por eso se rinde con dos cabezas distintas. Una parte es escribir código que funcione en la máquina. La otra es teoría de definiciones, pautas y etapas de diseño.</p>
+</section>
+<section class="sec"><h2 id="inicio-el-recorrido">El recorrido</h2>
+<div class="tabla"><table><thead><tr><th>Orden</th><th>Tema</th><th>Qué aporta</th><th>Dónde está acá</th></tr></thead><tbody><tr><td>1</td><td>HTML</td><td>La estructura de la página y los formularios</td><td><a href="#parcial-practica-html-de-base">HTML de base</a></td></tr><tr><td>2</td><td>CSS</td><td>El aspecto, separado del contenido</td><td><a href="#parcial-practica-css">CSS</a></td></tr><tr><td>3</td><td>Desarrollo web</td><td>Objetivos, audiencia, estructura, navegación y diseño visual</td><td><a href="#parcial-teoria-planificar-un-sitio">Planificar un sitio</a></td></tr><tr><td>4</td><td>Bootstrap</td><td>Una grilla lista para maquetar</td><td><a href="#parcial-practica-bootstrap">Bootstrap</a></td></tr><tr><td>5</td><td>PHP</td><td>Lógica del lado del servidor</td><td><a href="#parcial-practica-php">PHP</a></td></tr><tr><td>6</td><td>Bases de datos</td><td>Guardar y consultar con MySQL</td><td><a href="#parcial-practica-base-de-datos-con-mysqli">Base de datos con mysqli</a></td></tr><tr><td>7</td><td>Sesiones y cookies</td><td>Recordar datos entre una página y otra</td><td><a href="#parcial-practica-sesiones">Sesiones</a> y <a href="#parcial-practica-cookies">Cookies</a></td></tr><tr><td>8</td><td>Accesibilidad y usabilidad</td><td>Que todos puedan encontrar y usar el sitio</td><td><a href="#parcial-teoria-accesibilidad">Accesibilidad</a></td></tr></tbody></table></div>
+<p>Git aparece en la primera unidad y se usa en el trabajo práctico. No figura en ningún examen del Drive, así que acá no tiene sección.</p>
+</section>
+<section class="sec"><h2 id="inicio-como-se-conecta">Cómo se conecta</h2>
+<p>Cada tema resuelve un problema que deja el anterior.</p>
+<ul>
+<li>El HTML ordena el contenido, pero no decide cómo se ve. De eso se ocupa el CSS.</li>
+<li>Un formulario junta datos, pero HTML no los procesa. Los recibe PHP.</li>
+<li>PHP olvida todo cuando termina la página. Para que dure hay tres lugares: la base de datos, la sesión en el servidor y la cookie en el navegador.</li>
+<li>Un sitio que anda puede ser imposible de usar. Ahí entran la usabilidad y la accesibilidad.</li>
+</ul>
+<p>Esa cadena es la misma que piden los exámenes de práctica de 2024: página con estilos, formulario, PHP que guarda, sesión y cookie.</p>
+</section>
+<section class="sec"><h2 id="inicio-que-se-evalua-y-como">Qué se evalúa y cómo</h2>
+<p>Esto sale de lo que hay en el Drive. No hay programa vigente ni calendario de la materia, así que confirmá con tu comisión.</p>
+<p><strong>Teoría.</strong> La hoja del final del 15/03/2023 trae 5 consignas de 2 puntos cada una, con un mínimo de 60 % correcto. El final del 21/02/2024, contado por un alumno, tuvo unos 30 minutos de teoría.</p>
+<p><strong>Práctica.</strong> Se programa en la máquina. La hoja del 18/09/2024 pide enviar los archivos por correo. Los dos parciales de 2024 tienen puntajes de 1 a 5 por punto, y el final de 2024 tuvo unos 40 minutos de práctica.</p>
+<div class="tabla"><table><thead><tr><th>Tema de práctica</th><th>En cuántas prácticas de 2023 y 2024</th><th>De cuáles</th></tr></thead><tbody><tr><td>Estilos o maqueta</td><td>4 de 4</td><td>Finales 2023 y 2024, parciales 26/06/2024 y 18/09/2024</td></tr><tr><td>Formulario y validación</td><td>4 de 4</td><td>Las mismas</td></tr><tr><td>Sesión</td><td>3 de 4</td><td>Final 2024 y los dos parciales de 2024</td></tr><tr><td>Base de datos</td><td>3 de 4</td><td>Final 2023 y los dos parciales de 2024</td></tr><tr><td>Cookie</td><td>2 de 4</td><td>Final 2024 y parcial 26/06/2024</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Pocas hojas recientes</p><p>De 2023 en adelante hay 5 hojas fechadas de 4 fechas distintas. Las dos del final con práctica contada, de 2023 y 2024, las escribieron alumnos de memoria. La única hoja de parcial de teoría es de 2016, y se usa solo como señal.</p>
+</div>
+<p>Para rendir, seguí las tres páginas de estudio y después probá con los <a href="ejercicios.html">ejercicios</a>. La <a href="machete.html">hoja de repaso</a> sirve para imprimir.</p>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-practica" data-pagina="parcial-practica" aria-label="Parcial de práctica"><p class="pdf-de">Entornos Gráficos</p><h1>Parcial de práctica</h1>
+<p class="bajada">Todo lo que hace falta para escribir la página, el formulario, el PHP y la base de datos en la máquina.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="parcial-practica-como-viene">Cómo viene</h2>
+<p>Las dos hojas de 2024 tienen la misma forma. Cambian los puntajes y algunos pedidos.</p>
+<div class="tabla"><table><thead><tr><th>Punto</th><th>26/06/2024</th><th>18/09/2024</th></tr></thead><tbody><tr><td>Página con estilos y enlaces</td><td>2 puntos</td><td>2 puntos</td></tr><tr><td>Formulario validado en el navegador</td><td>1 punto</td><td>1 punto</td></tr><tr><td>PHP con base de datos y sesión</td><td>5 puntos, con validación, control de repetidos y cookie</td><td>4 puntos</td></tr><tr><td>Replicar una salida con HTML y CSS</td><td>Sin puntaje en la hoja</td><td>3 puntos</td></tr></tbody></table></div>
+<p>La hoja del 18/09/2024 pide entregar los archivos por correo. Las dos hojas de 2024 dicen que la tabla de la base se imagine ya creada.</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Página con hoja de estilo externa, interna y al menos dos estilos en línea, con enlaces de un color y otro en hover</strong> <span>Parcial de práctica, 18/09/2024</span></li></ul></div>
+<div class="ojo"><p class="ojo-t">El ejemplo de parcial no tiene fecha</p><p>En el Drive hay un «Ejemplo de parcial», Tema 1, sin fecha. Por el formato y la entrega se parece a los de 2024, pero no está confirmado. Suma preguntas cortas de teoría, que están en <a href="#pdf-parcial-teoria">parcial de teoría</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-practica-html-de-base">HTML de base</h2>
+<h3 id="parcial-practica-estructura-del-documento">Estructura del documento</h3>
+<p>Un documento tiene la declaración de tipo, una cabecera <code>head</code> y un cuerpo <code>body</code> (Conceptos y Teoría de HTML, páginas 31 y 56).</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">HTML</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Título de la página<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<p>Un elemento tiene apertura, contenido y cierre. Los atributos van en la apertura con espacio, <code>=</code> y comillas. Los elementos vacíos, como <code>img</code>, no tienen cierre. El anidado tiene que ser correcto (páginas 25 a 30).</p>
+<pre class="codigo"><code><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Mi gato es <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>muy<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> gruñon.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+<h3 id="parcial-practica-lo-que-mas-se-usa">Lo que más se usa</h3>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Para qué</th><th>Página del apunte</th></tr></thead><tbody><tr><td><code>h1</code> a <code>h6</code>, <code>p</code>, <code>hr</code></td><td>Títulos, párrafos, línea</td><td>41 y 46</td></tr><tr><td><code>ul</code>, <code>ol</code>, <code>li</code>, <code>dl</code>, <code>dt</code>, <code>dd</code></td><td>Listas</td><td>43</td></tr><tr><td><code>a href</code></td><td>Enlace. Con <code>target=&quot;_blank&quot;</code> abre aparte</td><td>48 a 54</td></tr><tr><td><code>table</code>, <code>tr</code>, <code>td</code>, <code>th</code>, <code>caption</code></td><td>Tabla</td><td>57 en adelante</td></tr><tr><td><code>colspan</code>, <code>rowspan</code></td><td>Celda que ocupa varias columnas o filas</td><td>57 en adelante</td></tr></tbody></table></div>
+<p>Un enlace puede ser externo, local, a un ancla dentro de la página o <code>mailto</code> (páginas 48 a 54).</p>
+<p><code>div</code> agrupa en bloque y <code>span</code> agrupa en línea. <code>id</code> es único en el documento y <code>class</code> se comparte (Material Complementario de HTML, página 22).</p>
+<h3 id="parcial-practica-etiquetas-semanticas">Etiquetas semánticas</h3>
+<p>HTML5 suma <code>header</code>, <code>nav</code>, <code>section</code>, <code>article</code>, <code>aside</code> y <code>footer</code> (Conceptos fundamentales de HTML, páginas 18 a 20). El mismo apunte de la cátedra dice que las tablas no van para armar el diseño (Material Complementario, página 25).</p>
+</section>
+<section class="sec"><h2 id="parcial-practica-formularios">Formularios</h2>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Formulario con nombre, email, producto, mes en select, cantidad numérica y checkbox de términos</strong> <span>Parciales de práctica, 26/06/2024 y 18/09/2024</span></li></ul></div>
+<p>El formulario aparece en <mark>4 de 4 prácticas de 2023 y 2024</mark>.</p>
+<h3 id="parcial-practica-controles">Controles</h3>
+<p><code>action</code> dice qué script procesa los datos y <code>method</code> dice cómo viajan (Introducción teórica de PHP, página 31). Este es el ejemplo del Material Complementario de HTML, página 35.</p>
+<pre class="codigo"><code><span class="hljs-tag">&lt;<span class="hljs-name">FORM</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;http://algunsitio.com/prog/nuevo&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">P</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LABEL</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;nombre&quot;</span>&gt;</span>Nombre: <span class="hljs-tag">&lt;/<span class="hljs-name">LABEL</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;nombre&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">BR</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sexo&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Varón&quot;</span>&gt;</span> Varón<span class="hljs-tag">&lt;<span class="hljs-name">BR</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sexo&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Mujer&quot;</span>&gt;</span> Mujer<span class="hljs-tag">&lt;<span class="hljs-name">BR</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Enviar&quot;</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">INPUT</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;reset&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">P</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">FORM</span>&gt;</span></code></pre>
+<p>Un menú desplegable se arma con <code>select</code> y <code>option</code>. La <a href="ejercicios.html">solución de cookies de la Práctica 7</a> lo usa.</p>
+<h3 id="parcial-practica-get-y-post">GET y POST</h3>
+<div class="tabla"><table><thead><tr><td></td><th>GET</th><th>POST</th></tr></thead><tbody><tr><td>Dónde viajan los datos</td><td>En la URL, tras un <code>?</code></td><td>En el cuerpo del envío</td></tr><tr><td>Se ven</td><td>Sí</td><td>No</td></tr><tr><td>Cuándo usarlo</td><td>Si no cambia nada, idempotente</td><td>Si modifica una base de datos</td></tr><tr><td>Límite</td><td>Cantidad de caracteres limitada</td><td>El apunte dice que no tiene límite</td></tr></tbody></table></div>
+<p>Salen del Material Complementario, página 38, y de la Introducción teórica de PHP, página 33. El Material Complementario agrega que GET restringe los datos a caracteres ASCII. Solo POST, con <code>enctype=&quot;multipart/form-data&quot;</code>, cubre el conjunto de caracteres completo (página 38).</p>
+<h3 id="parcial-practica-validar-en-el-navegador">Validar en el navegador</h3>
+<p>HTML5 hace casi todo sin programar (Conceptos fundamentales de HTML, páginas 23 a 41).</p>
+<div class="tabla"><table><thead><tr><th>Atributo o tipo</th><th>Qué controla</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td><code>required</code></td><td>Que no quede vacío</td><td><code>&lt;input type=&quot;text&quot; id=&quot;usuario&quot; required&gt;</code></td></tr><tr><td><code>type=&quot;email&quot;</code></td><td>Sintaxis de mail</td><td><code>&lt;input type=&quot;email&quot; id=&quot;emailusuario&quot; required&gt;</code></td></tr><tr><td><code>type=&quot;number&quot;</code> con <code>min</code> y <code>max</code></td><td>Número en un rango</td><td><code>&lt;input type=&quot;number&quot; id=&quot;valor&quot; name=&quot;valor&quot; min=&quot;1&quot; max=&quot;10&quot;&gt;</code></td></tr><tr><td><code>pattern</code></td><td>Formato con expresión regular</td><td><code>pattern=&quot;[A-Za-z]{3}[0-9]{3}&quot;</code></td></tr></tbody></table></div>
+<p><code>required</code> es un atributo sin valor. El apunte aclara que antes esto se hacía únicamente con Javascript (página 23).</p>
+<p><code>pattern</code> usa una expresión regular. Entre corchetes van los caracteres permitidos y entre llaves cuántos (páginas 25 a 29).</p>
+<div class="tabla"><table><thead><tr><th>Patrón del apunte</th><th>Qué acepta</th></tr></thead><tbody><tr><td><code>[01]{8}</code></td><td>Un binario de ocho dígitos</td></tr><tr><td><code>[0-9]{5}</code></td><td>Exactamente cinco dígitos. El guion marca un rango</td></tr><tr><td><code>[0-9]{1,5}</code></td><td>Entre uno y cinco dígitos</td></tr><tr><td><code>[A-Za-z]{3}[0-9]{3}</code></td><td>Tres letras y tres números</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">pattern sin required</p><p>Si el campo no lleva <code>required</code> y queda vacío, el navegador no revisa el patrón (Conceptos fundamentales de HTML, página 26).</p>
+</div>
+<p>El mismo apunte suma otros atributos y tipos de HTML5 (páginas 20 a 45).</p>
+<div class="tabla"><table><thead><tr><th>Atributo o tipo</th><th>Para qué</th></tr></thead><tbody><tr><td><code>autofocus</code></td><td>El control que toma el foco al cargar. Va en uno solo por página</td></tr><tr><td><code>placeholder</code></td><td>Un ejemplo del dato dentro del control, que se borra al escribir</td></tr><tr><td><code>type=&quot;range&quot;</code> con <code>min</code> y <code>max</code></td><td>Una barra para elegir un valor</td></tr><tr><td><code>type=&quot;date&quot;</code>, <code>datetime-local</code>, <code>month</code>, <code>time</code> y <code>week</code></td><td>Fechas y horas</td></tr><tr><td><code>type=&quot;color&quot;</code> y <code>type=&quot;url&quot;</code></td><td>Un color y una dirección web</td></tr><tr><td><code>list</code> con <code>datalist</code></td><td>Sugerencias mientras se escribe. Cada <code>option</code> lleva <code>label</code> y <code>value</code></td></tr><tr><td><code>novalidate</code> en <code>form</code></td><td>Desactiva todas las validaciones del navegador, para probar el servidor</td></tr></tbody></table></div>
+<p>El apunte lo deja claro en la página 45. El programa del servidor tiene que validar otra vez los datos que manda el navegador. <code>novalidate</code> sirve para probar qué hace el PHP cuando llegan datos sin validar, y después se borra (páginas 45 a 47).</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Script externo que valide que los campos no estén vacíos</strong> <span>Ejemplo de parcial, Tema 1, sin fecha</span></li></ul></div>
+<div class="ojo"><p class="ojo-t">Script de validación</p><p>Los apuntes definen qué es un script y dan los eventos, pero no traen un ejemplo armado de validación con JavaScript. Practicá con <a href="#parcial-teoria-scripts">scripts</a> como punto de partida y consultá a la cátedra qué piden. Las piezas sueltas están en Conceptos fundamentales de HTML. <code>document.getElementById(&#39;ingles&#39;).value</code> lee lo que tiene un control, y <code>addEventListener(&#39;click&#39;, guardar, false)</code> asocia una función a un botón (páginas 48 y 49).</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-practica-css">CSS</h2>
+<p>CSS separa el contenido de la presentación. Si el estilo está en una hoja aparte, cambiarlo en un lugar lo cambia en todas las páginas (Material de CSS, páginas 2 y 6).</p>
+<h3 id="parcial-practica-tres-formas-de-aplicar-estilos">Tres formas de aplicar estilos</h3>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Dónde va</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Externa</td><td>En un archivo <code>.css</code>, enlazado desde <code>head</code></td><td><code>&lt;LINK rel=&quot;stylesheet&quot; href=&quot;bach.css&quot; type=&quot;text/css&quot;&gt;</code></td></tr><tr><td>Interna</td><td>En <code>&lt;style&gt;</code> dentro de <code>head</code></td><td><code>&lt;style&gt; h1 {color: red;} &lt;/style&gt;</code></td></tr><tr><td>En línea</td><td>En el atributo <code>style</code> de la marca</td><td><code>&lt;h1 style=&quot;color:#FFFFFF&quot;&gt;</code></td></tr></tbody></table></div>
+<p>Las tres se piden juntas en el parcial de 18/09/2024, y dos de ellas en el ejemplo de parcial.</p>
+<h3 id="parcial-practica-anatomia-de-una-regla">Anatomía de una regla</h3>
+<pre class="codigo"><code><span class="hljs-selector-tag">h1</span> {<span class="hljs-attribute">color</span>: red;}</code></pre>
+<p>Una regla tiene un selector y una declaración. La declaración es una propiedad con un valor. El selector es el enlace entre el documento y el estilo (Material de CSS, página 4). Varias declaraciones entre llaves forman un bloque (Contenido adicional de CSS, página 5).</p>
+<p>Se agrupan selectores con coma: <code>h1, h2, h3 { color: red; }</code>. Los comentarios van con <code>/* */</code> (Material de CSS, páginas 9 y 12).</p>
+<p>Otras reglas de sintaxis del mismo apunte.</p>
+<ul>
+<li>Las declaraciones se separan con punto y coma, y la última también lo lleva (páginas 9 y 16).</li>
+<li>Si una propiedad lleva varios valores, van separados por espacios. Si admite valores alternativos, van separados por comas, como <code>font-family: Georgia, &quot;Times New Roman&quot;, Times, serif;</code> (página 9).</li>
+<li>Un valor de más de una palabra va entre comillas, como <code>p {font-family: &quot;sans serif&quot;;}</code> (página 10).</li>
+<li>Un error habitual es escribir los caracteres <code>&lt;</code> y <code>&gt;</code> en la hoja de estilo (página 10).</li>
+<li>No se aconseja repetir selectores, porque dispersa la información (página 11).</li>
+<li>Las reglas-arroba empiezan con <code>@</code>. <code>@charset</code>, <code>@import</code> y <code>@namespace</code> van al principio de la hoja. <code>@font-face</code> y <code>@media</code> pueden ir en cualquier lugar (página 8).</li>
+<li>El <code>meta charset</code> va justo después de abrir <code>head</code>, para que el navegador conozca la codificación antes de procesar nada (página 3).</li>
+</ul>
+<p>En cuanto a unidades, el punto, <code>pt</code>, es absoluto y no varía según el entorno. El <code>em</code> es relativo al tamaño de la fuente del elemento, así que <code>margin: 3em</code> es tres veces ese tamaño (página 16).</p>
+<h3 id="parcial-practica-selectores">Selectores</h3>
+<p>Salen de Contenido adicional de CSS, páginas 6 a 11.</p>
+<div class="tabla"><table><thead><tr><th>Selector</th><th>Sintaxis</th><th>Qué toma</th></tr></thead><tbody><tr><td>Elemento</td><td><code>h1</code></td><td>Todos los <code>h1</code></td></tr><tr><td>Universal</td><td><code>*</code></td><td>Todo</td></tr><tr><td>Clase</td><td><code>.nombre</code></td><td>Los que tengan esa clase, que puede repetirse</td></tr><tr><td>Clase en un elemento</td><td><code>h2.cosito</code></td><td>Solo los <code>h2</code> con esa clase</td></tr><tr><td>Id</td><td><code>#nombre</code></td><td>Un único elemento</td></tr><tr><td>Descendiente</td><td><code>h1 em</code></td><td><code>em</code> en cualquier nivel dentro de <code>h1</code></td></tr><tr><td>Hijo</td><td><code>h1 &gt; strong</code></td><td><code>strong</code> directo de <code>h1</code></td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Selector de atributo</p><p>La hoja de ejemplo pide <code>a[href]</code>, y la Práctica 2 también lo usa. Los apuntes de CSS no lo explican. La Práctica 2 remite a la especificación CSS2 como lectura. Buscalo ahí o preguntá en clase.</p>
+</div>
+<h3 id="parcial-practica-pseudo-clases-de-enlaces">Pseudo-clases de enlaces</h3>
+<p>Una pseudo-clase es una palabra precedida por dos puntos. Se pueden combinar, como <code>a:link:hover</code> (Contenido adicional de CSS, páginas 11 a 17). La Práctica de CSS, página 4, usa estas cuatro.</p>
+<pre class="codigo"><code><span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:link</span> {<span class="hljs-attribute">color</span>:gray }
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:visited</span>{<span class="hljs-attribute">color</span>:blue }
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:hover</span> {<span class="hljs-attribute">color</span>:fuchsia }
+<span class="hljs-selector-tag">a</span><span class="hljs-selector-pseudo">:active</span> {<span class="hljs-attribute">color</span>:red }</code></pre>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Enlaces de color azul con hover de otro color</strong> <span>Parciales de práctica, 26/06/2024 y 18/09/2024</span></li></ul></div>
+<h3 id="parcial-practica-cascada-herencia-y-especificidad">Cascada, herencia y especificidad</h3>
+<p><strong>Cascada.</strong> El formato final de un elemento depende de la combinación de todas las propiedades que lo afectan, también las de los elementos que lo incluyen. Si una propiedad se repite con el mismo peso, gana la última (Material de CSS, páginas 10 y 11).</p>
+<p><strong>Herencia.</strong> Un <code>p</code> hereda de <code>body</code> (Material de CSS, páginas 14 a 16). Si <code>body</code> tiene color negro y <code>h1</code> tiene su propio color rojo, la regla de <code>h1</code> reemplaza el valor heredado. Conviene fijar juntos el color del texto y el del fondo (página 15).</p>
+<p><strong>Especificidad.</strong> Es cómo decide el navegador qué valor se aplica (Contenido adicional de CSS, páginas 20 y 21).</p>
+<div class="tabla"><table><thead><tr><th>Qué es</th><th>Peso</th></tr></thead><tbody><tr><td><code>!important</code></td><td>1,0,0,0,0</td></tr><tr><td>Estilo en línea</td><td>0,1,0,0,0</td></tr><tr><td><code>#id</code></td><td>0,0,1,0,0</td></tr><tr><td><code>.class</code> y pseudo-clase</td><td>0,0,0,1,0</td></tr><tr><td>Etiqueta y pseudo-elemento</td><td>0,0,0,0,1</td></tr></tbody></table></div>
+<p>En el ejemplo del apunte, <code>h1</code> vale 1, <code>#content h1</code> vale 101 y un estilo en línea vale 1000. El apunte dice que <code>!important</code> es mala práctica (página 22).</p>
+<h3 id="parcial-practica-modelo-de-caja">Modelo de caja</h3>
+<p>Cada elemento es una caja con contenido, <code>padding</code>, <code>border</code> y <code>margin</code> (Contenido adicional de CSS, páginas 26 a 30). El orden de los valores es importante.</p>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Significado</th></tr></thead><tbody><tr><td><code>margin:25px 50px 75px 100px</code></td><td>Arriba, derecha, abajo, izquierda</td></tr><tr><td>Tres valores</td><td>Arriba, los costados, abajo</td></tr><tr><td>Dos valores</td><td>Arriba y abajo, los costados</td></tr><tr><td>Un valor</td><td>Los cuatro lados</td></tr><tr><td><code>margin:auto</code></td><td>Centra en horizontal</td></tr></tbody></table></div>
+<h3 id="parcial-practica-ubicar-elementos">Ubicar elementos</h3>
+<p>Replicar una salida se pide en las dos hojas de 2024 y en el final de 2023. Estas son las herramientas de Contenido adicional de CSS.</p>
+<div class="tabla"><table><thead><tr><th>Propiedad</th><th>Valores</th><th>Página</th></tr></thead><tbody><tr><td><code>display</code></td><td><code>block</code>, <code>inline</code>, <code>inline-block</code>, <code>none</code></td><td>45</td></tr><tr><td><code>display:flex</code></td><td>Con <code>flex-direction</code> y <code>flex-wrap</code></td><td>46 y 47</td></tr><tr><td><code>display:grid</code></td><td>Grilla</td><td>53 en adelante</td></tr><tr><td><code>position</code></td><td><code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code></td><td>41</td></tr><tr><td><code>z-index</code></td><td>Qué tapa a qué</td><td>42</td></tr></tbody></table></div>
+<p><code>absolute</code> se ubica respecto del ancestro posicionado. La Práctica de CSS, páginas 5 a 7, también usa <code>float:right</code> y <code>clear:both</code>.</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Escribir el HTML y CSS completo para replicar una salida con noticias</strong> <span>Parciales de práctica, 26/06/2024 y 18/09/2024</span></li></ul></div>
+<h3 id="parcial-practica-bootstrap">Bootstrap</h3>
+<p>Bootstrap arma filas de hasta 12 columnas. Una fila es <code>row</code>, va dentro de un <code>container</code> y sus columnas son <code>col-xl-*</code>. Las columnas de una fila suman 12. Con <code>xl</code>, colapsan debajo de 1200 píxeles (Introducción de Bootstrap, páginas 8 y 13).</p>
+<p>No figura en ningún examen de 2023 o 2024 que esté en el Drive.</p>
+</section>
+<section class="sec"><h2 id="parcial-practica-php">PHP</h2>
+<h3 id="parcial-practica-tipos">Tipos</h3>
+<p><code>boolean</code>, <code>integer</code>, <code>float</code>, <code>string</code>, <code>array</code>, <code>object</code>, <code>resource</code> y <code>NULL</code>. <code>gettype</code> dice el tipo, e <code>is_int</code> pregunta si es entero (Introducción teórica de PHP, páginas 2 y 15).</p>
+<p>Son cuatro escalares, dos compuestos y dos especiales. <code>resource</code> guarda una referencia a un recurso externo, como un archivo o una imagen (página 2).</p>
+<p>Una constante guarda un valor que no cambia durante el script. Se define con <code>define</code> o, desde PHP 5.3.0, con <code>const</code> (páginas 3 y 4).</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-title function_ invoke__">define</span> (<span class="hljs-string">&quot;saluda&quot;</span>, <span class="hljs-string">&quot;Buenas tardes.&quot;</span>);
+<span class="hljs-keyword">echo</span> saluda;
+<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">CONSTANT</span> = <span class="hljs-string">&#x27;Hola Mundo&#x27;</span>;
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>Hay operadores unarios, como <code>!</code> y <code>++</code>, binarios, como <code>+</code>, y uno ternario, <code>?:</code>. El ejemplo del apunte es <code>$a == 1 ? $a++ :$a*3;</code> (página 5).</p>
+<h3 id="parcial-practica-funciones-y-parametros">Funciones y parámetros</h3>
+<p>Una función agrupa código para ejecutarlo varias veces, o con distintos parámetros. <code>return</code> devuelve el valor al lugar desde donde se la llamó (Introducción teórica de PHP, página 6).</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">prueba</span>(<span class="hljs-params"><span class="hljs-variable">$arg1</span>, <span class="hljs-variable">$arg2</span></span>) </span>{
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Argumento 1 vale: <span class="hljs-subst">$arg1</span>&lt;br&gt;&quot;</span>;
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Argumento 2 vale: <span class="hljs-subst">$arg2</span>&lt;br&gt;&quot;</span>;
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$arg1</span> &lt; <span class="hljs-variable">$arg2</span>){
+<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+<span class="hljs-keyword">else</span> {
+<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+}
+<span class="hljs-variable">$valor_devuelto</span> = <span class="hljs-title function_ invoke__">prueba</span>(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>);
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>Es el ejemplo de las páginas 6 y 7. La sintaxis general, con los parámetros que hagan falta, es <code>function foo ($arg_1, $arg_2, ..., $arg_n)</code> (página 9).</p>
+<p>El parámetro va por valor si no se indica otra cosa. Un <code>&amp;</code> lo pasa por referencia, y entonces el cambio afecta a la variable original (páginas 10 a 12).</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">porreferencia</span>(<span class="hljs-params">&amp;<span class="hljs-variable">$cadena</span></span>)
+</span>{
+<span class="hljs-variable">$cadena</span> = <span class="hljs-string">&#x27;Si cambia&#x27;</span>;
+}
+<span class="hljs-variable">$str</span> = <span class="hljs-string">&#x27;Esto es una cadena&#x27;</span>;
+<span class="hljs-title function_ invoke__">porreferencia</span> (<span class="hljs-variable">$str</span>);
+<span class="hljs-keyword">echo</span> <span class="hljs-variable">$str</span>; <span class="hljs-comment">// Imprime &#x27;Si cambia&#x27;</span>
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>Un parámetro con valor por defecto se escribe con <code>=</code>, y el valor es una constante. Los que tienen valor por defecto van a la derecha de los que no tienen (páginas 13 y 14).</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Función PHP con 3 parámetros</strong> <span>Final 21/02/2024, contado por un alumno</span></li></ul></div>
+<h3 id="parcial-practica-isset-control-y-foreach">isset, control y foreach</h3>
+<p><code>isset</code> dice si una variable está definida. Devuelve <code>FALSE</code> si está definida como <code>NULL</code>. Con varios parámetros da <code>TRUE</code> solo si lo están todos. <code>unset</code> quita la variable (página 16).</p>
+<p><code>foreach</code> recorre un array (páginas 22 a 25).</p>
+<pre class="codigo"><code><span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$amigos</span> <span class="hljs-keyword">as</span> <span class="hljs-variable">$numero</span>=&gt;<span class="hljs-variable">$nombre</span>) {</code></pre>
+<p><code>include</code> da un Warning si falla, y <code>require</code> da un Error Fatal (página 28).</p>
+<p>Las demás estructuras de control del apunte (páginas 17 a 27).</p>
+<div class="tabla"><table><thead><tr><th>Estructura</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>if</code>, <code>else</code> y <code>elseif</code></td><td>Ejecución condicional. <code>elseif</code> corre solo si su propia condición es verdadera</td></tr><tr><td><code>while (expr) sentencia</code></td><td>Repite mientras la condición se cumpla</td></tr><tr><td><code>do..while</code></td><td>Igual, pero comprueba la condición al final de cada vuelta</td></tr><tr><td><code>for (expr1; expr2; expr3)</code></td><td>Bucle con inicio, condición y paso</td></tr><tr><td><code>switch</code></td><td>Compara la misma variable con muchos valores</td></tr><tr><td><code>break</code></td><td>Sale del bucle o del <code>switch</code></td></tr><tr><td><code>continue</code></td><td>Salta el resto de la vuelta y sigue con la siguiente</td></tr></tbody></table></div>
+<p><code>foreach</code> funciona solo con arrays y da error con otro tipo o con variables sin inicializar (página 22). <code>print</code> muestra una cadena, siempre devuelve 1 y no necesita paréntesis (página 29). <code>$_SERVER[&#39;PHP_SELF&#39;]</code> da la ruta del script que se está ejecutando (página 32).</p>
+<h3 id="parcial-practica-cadenas-y-fechas">Cadenas y fechas</h3>
+<div class="tabla"><table><thead><tr><th>Función</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>strlen($cadena)</code></td><td>La longitud</td></tr><tr><td><code>strpos($cadena, $caracter)</code></td><td>La posición de la primera aparición, o <code>FALSE</code> si no está</td></tr><tr><td><code>substr($cadena, $comienzo, $longitud)</code></td><td>Una parte. Con <code>$comienzo</code> negativo cuenta desde el final</td></tr><tr><td><code>getdate()</code></td><td>Un array asociativo con <code>seconds</code>, <code>minutes</code>, <code>hours</code>, <code>mday</code>, <code>wday</code>, <code>mon</code> y <code>year</code></td></tr></tbody></table></div>
+<p>Fuente: Introducción teórica de PHP, páginas 39 a 45. Con <code>strpos</code> se compara con <code>===</code>, porque la posición 0 con <code>==</code> se confunde con <code>FALSE</code> (página 42).</p>
+<pre class="codigo"><code><span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">substr</span>(<span class="hljs-string">&#x27;abcdef&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// bcd</span>
+<span class="hljs-variable">$rest</span> = <span class="hljs-title function_ invoke__">substr</span>(<span class="hljs-string">&quot;abcdef&quot;</span>, -<span class="hljs-number">2</span>); <span class="hljs-comment">// devuelve &quot;ef&quot;</span></code></pre>
+<h3 id="parcial-practica-archivos">Archivos</h3>
+<div class="tabla"><table><thead><tr><th>Función</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>fopen($archivo, $modo)</code></td><td>Abre y devuelve un identificador</td></tr><tr><td><code>fgets($id, $max)</code></td><td>Lee una línea</td></tr><tr><td><code>fwrite($id, $cadena)</code></td><td>Escribe</td></tr><tr><td><code>feof($id)</code></td><td>Dice si se llegó al final</td></tr><tr><td><code>fclose($id)</code></td><td>Cierra</td></tr></tbody></table></div>
+<p>Los modos son <code>r</code>, solo lectura; <code>r+</code>, lectura y escritura; <code>w</code>, solo escritura; <code>w+</code>, lectura y escritura que borra lo anterior y crea el archivo si no existe; <code>a</code>, escritura al final, que lo crea si no existe; y <code>a+</code>, lectura y escritura al final (Introducción teórica de PHP, páginas 34 y 35).</p>
+<h3 id="parcial-practica-arrays">Arrays</h3>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Cómo se accede</th><th>Ejemplo del apunte</th></tr></thead><tbody><tr><td>Indexada</td><td>Por posición, desde 0</td><td><code>$invierno[0]</code></td></tr><tr><td>Asociativa</td><td>Por clave</td><td><code>$ficha[nombre]</code></td></tr><tr><td>Multidimensional</td><td>Array de arrays</td><td><code>$agenda[1][telefono]</code></td></tr></tbody></table></div>
+<p>Están en las páginas 36 a 38 del mismo apunte. Para agregar al final se escribe <code>$a[] = 4;</code> (Práctica básica de PHP, página 6).</p>
+<h3 id="parcial-practica-recibir-un-formulario">Recibir un formulario</h3>
+<p>Los valores llegan en <code>$_POST</code> o <code>$_GET</code>, según el <code>method</code>. <code>$_REQUEST</code> contiene <code>$_GET</code>, <code>$_POST</code> y <code>$_COOKIE</code> (Introducción teórica de PHP, página 32; Teoría de Sesiones, página 12).</p>
+<pre class="codigo"><code><span class="hljs-variable">$vNomApel</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Nom&#x27;</span>];
+<span class="hljs-variable">$vLegajo</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Legajo&#x27;</span>];</code></pre>
+<p>Son líneas de <a href="https://drive.google.com/file/d/1anLtOnpR6VxDzPSEb3GaNl3OpqoHGsQl/view">Confección de bases de datos</a>, página 4.</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Validar en el servidor el formato de los datos y que no estén vacíos</strong> <span>Parcial de práctica, 26/06/2024</span></li></ul></div>
+<div class="ojo"><p class="ojo-t">Validar en el servidor</p><p>Los apuntes dan piezas sueltas: <code>isset</code>, <code>is_int</code> y <code>strlen</code> (Práctica básica de PHP, páginas 1 y 7). No traen un ejemplo completo de validación del lado del servidor. Probá armarlo con esas piezas y consultá qué exige tu comisión.</p>
+</div>
+<h3 id="parcial-practica-fecha-y-hora">Fecha y hora</h3>
+<pre class="codigo"><code><span class="hljs-variable">$fecha</span>=<span class="hljs-title function_ invoke__">date</span>(<span class="hljs-string">&quot;d-m-Y&quot;</span>);
+<span class="hljs-variable">$hora</span>= <span class="hljs-title function_ invoke__">date</span>(<span class="hljs-string">&quot;H:i:s&quot;</span>);</code></pre>
+<p>Vienen de Teoría adicional de PHP, página 13. En la base, un <code>DATETIME</code> guarda <code>AAAA-MM-DD HH:MM:SS</code> (Teoría de manejo de bases de datos, páginas 6 a 9).</p>
+</section>
+<section class="sec"><h2 id="parcial-practica-base-de-datos-con-mysqli">Base de datos con mysqli</h2>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Guardar los datos del formulario y la fecha y hora en una tabla, que se imagina ya creada</strong> <span>Parciales de práctica, 26/06/2024 y 18/09/2024</span></li></ul></div>
+<p>La base aparece en <mark>3 de 4 prácticas de 2023 y 2024</mark>. El modelo completo está en <a href="https://drive.google.com/file/d/1anLtOnpR6VxDzPSEb3GaNl3OpqoHGsQl/view">Confección de bases de datos</a>, de 2019.</p>
+<p>Una base de datos relacional almacena mucha información y la ofrece rápido, combinando y ordenando los datos. Se organiza en tablas, con filas o registros. Para acceder hace falta un gestor, como MySQL. SQL, Structured Query Language, es el estándar para insertar, actualizar, eliminar y recuperar datos (Teoría de manejo de bases de datos, páginas 2 a 5).</p>
+<div class="tabla"><table><thead><tr><th>Tipo de MySQL</th><th>Qué guarda</th></tr></thead><tbody><tr><td><code>TINYINT</code>, <code>SMALLINT</code>, <code>MEDIUMINT</code>, <code>INT</code>, <code>BIGINT</code></td><td>Enteros, con distinto rango</td></tr><tr><td><code>FLOAT</code>, <code>DOUBLE</code></td><td>Punto flotante</td></tr><tr><td><code>DATE</code></td><td>Fecha, <code>AAAA-MM-DD</code></td></tr><tr><td><code>DATETIME</code></td><td>Fecha y hora, <code>AAAA-MM-DD HH:MM:SS</code></td></tr><tr><td><code>CHAR</code>, <code>VARCHAR</code></td><td>Texto de largo fijo o variable</td></tr><tr><td><code>BLOB</code>, <code>TEXT</code> y sus variantes <code>MEDIUM</code> y <code>LONG</code></td><td>Textos largos</td></tr></tbody></table></div>
+<p>Fuente: páginas 6 a 9. Salvo en las fechas, hay que indicar el tamaño del campo. En los números se indica si tienen signo. <code>UNSIGNED</code> tiene el doble de rango positivo que <code>SIGNED</code> (página 9).</p>
+<h3 id="parcial-practica-conectarse">Conectarse</h3>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-variable">$link</span> = <span class="hljs-title function_ invoke__">mysqli_connect</span>(<span class="hljs-string">&quot;localhost&quot;</span>, <span class="hljs-string">&quot;root&quot;</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-string">&quot;Problemas de conexión a la base de datos&quot;</span>);
+<span class="hljs-title function_ invoke__">mysqli_select_db</span>(<span class="hljs-variable">$link</span>, <span class="hljs-string">&quot;docentes&quot;</span>);
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>Es <code>conexion.inc</code> del apunte, página 1. Cada página lo incluye con <code>include</code>.</p>
+<p>La sintaxis general es <code>$nombreConexion = mysqli_connect($hostname, $nombreUsuario, $contraseña);</code>. El servidor sale de la cuenta de hosting, y el usuario es el de la base, que puede ser <code>root</code> si no se creó otro (Teoría de manejo de bases de datos, páginas 10 y 11).</p>
+<div class="ojo"><p class="ojo-t">mysql o mysqli</p><p>El material mezcla las dos familias. <code>mysql_connect</code> es para versiones anteriores a PHP 5 y las soluciones viejas la usan. Además el orden de los parámetros cambia. <code>mysqli_select_db($link, &quot;base&quot;)</code> y <code>mysqli_query($link, $consulta)</code> llevan la conexión primero. <code>mysql_select_db(&quot;base&quot;, $link)</code> la lleva al final (Teoría de manejo de bases de datos, páginas 10 a 14).</p>
+</div>
+<h3 id="parcial-practica-funciones">Funciones</h3>
+<p>Salen de Teoría de manejo de bases de datos, páginas 10 a 33.</p>
+<div class="tabla"><table><thead><tr><th>Función</th><th>Qué hace</th></tr></thead><tbody><tr><td><code>mysqli_connect</code></td><td>Devuelve la conexión o <code>FALSE</code></td></tr><tr><td><code>mysqli_select_db</code></td><td>Elige la base</td></tr><tr><td><code>mysqli_query</code></td><td>Ejecuta. En <code>INSERT</code>, <code>UPDATE</code> y <code>DELETE</code> da <code>TRUE</code> o <code>FALSE</code>. En <code>SELECT</code> da un resultado</td></tr><tr><td><code>mysqli_fetch_array</code></td><td>Una fila, con índices asociativos y numéricos</td></tr><tr><td><code>mysqli_fetch_assoc</code></td><td>Una fila, asociativa, o <code>NULL</code> si no hay más</td></tr><tr><td><code>mysqli_num_rows</code></td><td>Cantidad de filas</td></tr><tr><td><code>mysqli_free_result</code></td><td>Libera el resultado</td></tr><tr><td><code>mysqli_close</code></td><td>Cierra la conexión</td></tr><tr><td><code>or die(mysqli_error($link))</code></td><td>Corta y muestra el error</td></tr></tbody></table></div>
+<p><code>LIMIT</code> acota las filas, con inicio y cantidad: <code>select * from libros limit 0,4;</code> (páginas 31 a 33).</p>
+<p><code>limit 5,4</code> trae 4 registros desde el 5. Con un solo argumento, como <code>limit 8</code>, trae los primeros 8 (página 33).</p>
+<p>Para ir a una fila concreta del resultado está <code>mysqli_data_seek($result, numeroDeFila)</code>, que cuenta desde 0. Después <code>mysqli_fetch_array($result)</code> trae esa fila, y cada columna se lee por nombre, como <code>$extraido[&#39;ciudad&#39;]</code>, o por número, como <code>$extraido[0]</code> (páginas 21 a 24). Los nombres de campo de <code>mysqli_fetch_assoc</code> distinguen mayúsculas y minúsculas (página 25).</p>
+<h3 id="parcial-practica-alta-con-control-de-repetido">Alta con control de repetido</h3>
+<p>Este es <code>Alta.php</code>, de Confección de bases de datos, páginas 4 y 5, sin el HTML de alrededor. Primero cuenta si ya existe y después inserta.</p>
+<pre class="codigo"><code><span class="hljs-keyword">include</span>(<span class="hljs-string">&quot;conexion.inc&quot;</span>);
+<span class="hljs-variable">$vNomApel</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Nom&#x27;</span>];
+<span class="hljs-variable">$vLegajo</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;Legajo&#x27;</span>];
+<span class="hljs-variable">$vDNI</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;DNI&#x27;</span>];
+<span class="hljs-variable">$vEmail</span> = <span class="hljs-variable">$_POST</span>[<span class="hljs-string">&#x27;eMail&#x27;</span>];
+<span class="hljs-variable">$vSql</span> = <span class="hljs-string">&quot;SELECT Count(dni) as canti FROM doc_utn WHERE dni=&#x27;<span class="hljs-subst">$vDNI</span>&#x27;&quot;</span>;
+<span class="hljs-variable">$vResultado</span> = <span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>, <span class="hljs-variable">$vSql</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-title function_ invoke__">mysqli_error</span>(<span class="hljs-variable">$link</span>));
+<span class="hljs-variable">$vCantUsuarios</span> = <span class="hljs-title function_ invoke__">mysqli_fetch_assoc</span>(<span class="hljs-variable">$vResultado</span>);
+<span class="hljs-keyword">if</span> (<span class="hljs-variable">$vCantUsuarios</span> [<span class="hljs-string">&#x27;canti&#x27;</span>]!=<span class="hljs-number">0</span>){
+<span class="hljs-keyword">echo</span> (<span class="hljs-string">&quot;El Usuario ya Existe&lt;br&gt;&quot;</span>);
+}
+<span class="hljs-keyword">else</span> {
+<span class="hljs-variable">$vSql</span> = <span class="hljs-string">&quot;INSERT INTO doc_utn (legajo, apel_nom, dni, email)
+values (&#x27;<span class="hljs-subst">$vLegajo</span>&#x27;,&#x27;<span class="hljs-subst">$vNomApel</span>&#x27;, &#x27;<span class="hljs-subst">$vDNI</span>&#x27;, &#x27;<span class="hljs-subst">$vEmail</span>&#x27;)&quot;</span>;
+<span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>, <span class="hljs-variable">$vSql</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-title function_ invoke__">mysqli_error</span>(<span class="hljs-variable">$link</span>));
+<span class="hljs-title function_ invoke__">mysqli_free_result</span>(<span class="hljs-variable">$vResultado</span>);
+}
+<span class="hljs-title function_ invoke__">mysqli_close</span>(<span class="hljs-variable">$link</span>);</code></pre>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Avisar un error si ya existe un registro con los mismos datos</strong> <span>Parcial de práctica, 26/06/2024; final 15/03/2023, contado por un alumno</span></li></ul></div>
+<h3 id="parcial-practica-listar">Listar</h3>
+<pre class="codigo"><code><span class="hljs-keyword">while</span> (<span class="hljs-variable">$fila</span> = <span class="hljs-title function_ invoke__">mysqli_fetch_array</span>(<span class="hljs-variable">$vResultado</span>))</code></pre>
+<p>Con ese ciclo se arma una fila de tabla por registro (Confección de bases de datos, páginas 11 a 13). El mismo apunte trae <code>Listado_pag.php</code> con paginación, páginas 13 a 16.</p>
+<h3 id="parcial-practica-baja-y-modificacion">Baja y modificación</h3>
+<p>El mismo apunte completa el ABM. <code>Baja.php</code> primero busca el registro y, si existe, lo borra (Confección de bases de datos, páginas 6 y 7). Va sin el HTML ni los enlaces de vuelta al menú.</p>
+<pre class="codigo"><code><span class="hljs-keyword">include</span> (<span class="hljs-string">&quot;conexion.inc&quot;</span>);
+<span class="hljs-variable">$vDNI</span> = <span class="hljs-variable">$_POST</span> [<span class="hljs-string">&#x27;DNI&#x27;</span>];
+<span class="hljs-variable">$vSql</span> = <span class="hljs-string">&quot;SELECT * FROM doc_utn WHERE dni=&#x27;<span class="hljs-subst">$vDNI</span>&#x27; &quot;</span>;
+<span class="hljs-variable">$vResultado</span> = <span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>, <span class="hljs-variable">$vSql</span>);
+<span class="hljs-keyword">if</span>(<span class="hljs-title function_ invoke__">mysqli_num_rows</span>(<span class="hljs-variable">$vResultado</span>) == <span class="hljs-number">0</span>)
+{
+<span class="hljs-keyword">echo</span> (<span class="hljs-string">&quot;Usuario Inexistente...!!! &lt;br&gt;&quot;</span>);
+}
+<span class="hljs-keyword">else</span>{
+<span class="hljs-variable">$vSql</span>= <span class="hljs-string">&quot;DELETE FROM doc_utn WHERE dni = &#x27;<span class="hljs-subst">$vDNI</span>&#x27; &quot;</span>;
+<span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>, <span class="hljs-variable">$vSql</span>);
+<span class="hljs-keyword">echo</span>(<span class="hljs-string">&quot;El Usuario fue Borrado&lt;br&gt;&quot;</span>);
+}
+<span class="hljs-title function_ invoke__">mysqli_free_result</span>(<span class="hljs-variable">$vResultado</span>);
+<span class="hljs-title function_ invoke__">mysqli_close</span>(<span class="hljs-variable">$link</span>);</code></pre>
+<p><code>Modi.php</code> recibe los datos del formulario de modificación y actualiza (páginas 10 y 11).</p>
+<pre class="codigo"><code><span class="hljs-variable">$vSql</span> = <span class="hljs-string">&quot;UPDATE doc_utn set legajo=&#x27;<span class="hljs-subst">$vClave</span>&#x27;, apel_nom=&#x27;<span class="hljs-subst">$vUsuario</span>&#x27;, email=&#x27;<span class="hljs-subst">$vEmail</span>&#x27; where dni=&#x27;<span class="hljs-subst">$vDNI</span>&#x27;&quot;</span>;
+<span class="hljs-title function_ invoke__">mysqli_query</span>(<span class="hljs-variable">$link</span>,<span class="hljs-variable">$vSql</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span> (<span class="hljs-title function_ invoke__">mysqli_error</span>(<span class="hljs-variable">$link</span>));</code></pre>
+</section>
+<section class="sec"><h2 id="parcial-practica-sesiones">Sesiones</h2>
+<p>Una sesión es un conjunto de variables guardadas en el servidor, una por cada visitante (Teoría de Sesiones, página 2). Se usa para mantener datos durante toda la visita.</p>
+<p>Aparece en <mark>3 de 4 prácticas de 2023 y 2024</mark>.</p>
+<p><code>session_start()</code> inicia o continúa la sesión. Hay que llamarla antes de escribir cualquier texto en la página (Teoría adicional de PHP, páginas 17 y 18). <code>$_SESSION</code> es un array asociativo.</p>
+<pre class="codigo"><code><span class="hljs-meta">&lt;?php</span> <span class="hljs-title function_ invoke__">session_start</span>();
+<span class="hljs-keyword">if</span> (!<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&quot;contador&quot;</span>])){
+<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&quot;contador&quot;</span>] = <span class="hljs-number">1</span>;
+}<span class="hljs-keyword">else</span>{
+<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&quot;contador&quot;</span>]++;
+}
+<span class="hljs-meta">?&gt;</span></code></pre>
+<p>El ejemplo cuenta las páginas visitadas (Teoría adicional, página 19). <code>session_destroy</code> termina la sesión (páginas 23 y 24).</p>
+<p>Al llamar a <code>session_start()</code>, PHP recibe el identificador de sesión que viene en la cookie o en la URL, y si no hay ninguno lo crea (página 17). <code>session_destroy()</code> borra la información de la sesión actual, pero no las variables globales asociadas ni la cookie de sesión. Para desconectar del todo al usuario también hay que destruir el id y borrar esa cookie (páginas 23 y 24).</p>
+<div class="ojo"><p class="ojo-t">ob_start</p><p>Si no se quiere que <code>session_start()</code> sea la primera línea, <code>ob_start</code> guarda la salida en un búfer y <code>ob_end_flush</code> la envía después. Así se elige cuándo mandar el resultado al navegador (Teoría de Sesiones, páginas 15 y 16).</p>
+</div>
+<p>Para guardar contraseñas el apunte usa <code>md5</code>, una función hash de un solo sentido. Se guarda la contraseña encriptada y, al ingresar, se compara el <code>md5</code> de lo tecleado con lo guardado. El apunte aclara que no es 100 % seguro, porque la contraseña viaja del cliente al servidor antes de encriptarse (Teoría de Sesiones, páginas 13 a 15).</p>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Guardar en la sesión lo enviado en el formulario, sin perder envíos anteriores, agrupado en un array por fecha y hora</strong> <span>Parciales de práctica, 26/06/2024 y 18/09/2024</span></li></ul></div>
+</section>
+<section class="sec"><h2 id="parcial-practica-cookies">Cookies</h2>
+<p>Una cookie es una pequeña información de texto guardada en el navegador del visitante (Teoría de Cookies, página 3).</p>
+<pre class="codigo"><code><span class="hljs-title function_ invoke__">setcookie</span>(<span class="hljs-string">&quot;persona&quot;</span>,<span class="hljs-variable">$nombre</span>,<span class="hljs-title function_ invoke__">time</span>()+<span class="hljs-number">86400</span>*<span class="hljs-number">365</span>);</code></pre>
+<p>Dura un año, con 86400 segundos por día (página 7). Se lee con <code>$_COOKIE[&quot;persona&quot;]</code>.</p>
+<p>Solo el nombre es obligatorio. Los otros parámetros son valor, caducidad, ruta, dominio, seguro y solo http (página 11). Qué es cada uno está en <a href="#parcial-teoria-cookies">la teoría de cookies</a>.</p>
+<pre class="codigo"><code><span class="hljs-title function_ invoke__">setcookie</span>(<span class="hljs-string">&quot;migalleta&quot;</span>, <span class="hljs-string">&quot;mivalor&quot;</span>);
+<span class="hljs-title function_ invoke__">setcookie</span>(<span class="hljs-string">&quot;cookie2&quot;</span>, <span class="hljs-string">&quot;mivalor2&quot;</span>, <span class="hljs-title function_ invoke__">time</span>() + <span class="hljs-number">3600</span>);
+<span class="hljs-variable">$_COOKIE</span>[<span class="hljs-string">&quot;migalleta&quot;</span>];</code></pre>
+<p>Son los ejemplos de la página 12. <code>$_COOKIE</code> es un array asociativo con todas las cookies disponibles para el dominio y el directorio de la página.</p>
+<div class="ojo"><p class="ojo-t">Antes de cualquier texto</p><p><code>setcookie</code> y <code>session_start</code> van antes de escribir texto en la página. Con una cookie, si no, PHP puede dar «headers already sent» (Teoría de Cookies, página 12).</p>
+</div>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Crear una cookie con la fecha y hora del último registro</strong> <span>Parcial de práctica, 26/06/2024</span></li></ul></div>
+<p>La <a href="ejercicios.html">solución de la Práctica 7</a> muestra una cookie que recuerda el estilo elegido.</p>
+</section>
+<section class="sec"><h2 id="parcial-practica-mail">Mail</h2>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Entre los exámenes leídos, la función <code>mail</code> se pregunta solo en la teoría de 2016. Sigue en el apunte de Teoría adicional de PHP. Confirmá en tu comisión si entra.</p>
+</div>
+<pre class="codigo"><code><span class="hljs-keyword">bool</span> <span class="hljs-title function_ invoke__">mail</span>(<span class="hljs-keyword">string</span> <span class="hljs-variable">$to</span>, <span class="hljs-keyword">string</span> <span class="hljs-variable">$subject</span>, <span class="hljs-keyword">string</span> <span class="hljs-variable">$message</span> [, <span class="hljs-keyword">string</span> <span class="hljs-variable">$additional_headers</span> [, <span class="hljs-keyword">string</span> <span class="hljs-variable">$additional_parameters</span> ]])</code></pre>
+<p>Destinatario, asunto y cuerpo son obligatorios. Las cabeceras adicionales sirven para <code>From</code>, <code>Reply-To</code>, <code>Cc</code>, <code>Bcc</code> y para mandar HTML con <code>Content-type</code> (Teoría adicional de PHP, páginas 2 a 11).</p>
+</section></section>
+<section class="pdf-parte" id="pdf-parcial-teoria" data-pagina="parcial-teoria" aria-label="Parcial de teoría"><p class="pdf-de">Entornos Gráficos</p><h1>Parcial de teoría</h1>
+<p class="bajada">Definiciones, etapas y pautas que salen de los apuntes de la cátedra, con la página de cada una.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Lo marcado «Plan viejo» es de 2022 o antes, del plan anterior. Puede no coincidir con lo que se toma hoy.</p>
+
+
+<section class="sec"><h2 id="parcial-teoria-como-viene">Cómo viene</h2>
+<p>No hay una hoja de parcial de teoría de 2023 en adelante. Esto es lo que hay en el Drive.</p>
+<div class="tabla"><table><thead><tr><th>Material</th><th>Fecha</th><th>Qué vale</th></tr></thead><tbody><tr><td>Teoría del final</td><td>15/03/2023 y 21/02/2024</td><td>Muestra qué se pregunta hoy. La de 2024 está contada por un alumno</td></tr><tr><td>Lista «preguntas frecuentes»</td><td>Sin fecha</td><td>Una línea por tema, sin respuestas</td></tr><tr><td>Preguntas cortas del ejemplo de parcial</td><td>Sin fecha</td><td>Responder en una línea y completar nombres</td></tr><tr><td>Parcial de teoría, Tema 1 y Tema 2</td><td>06/06/2016</td><td>Es viejo. Se usa como señal, y cada tema lo aclara</td></tr></tbody></table></div>
+<p>Cada respuesta de abajo está en un apunte y lleva su fuente.</p>
+</section>
+<section class="sec"><h2 id="parcial-teoria-la-web-y-html">La Web y HTML</h2>
+<p>La Web se basa en tres mecanismos: un esquema uniforme de nombres, los URIs; protocolos, como HTTP; e hipertexto, HTML (Conceptos y Teoría de HTML, página 5).</p>
+<details open class="pregunta"><summary><span>¿Cómo se componen los URIs?</span><small>Ejemplo de parcial, Tema 1, sin fecha</small></summary><div class="resp"><p>Normalmente de tres partes:</p>
+<ol>
+<li>El esquema de nombres del mecanismo para acceder al recurso.</li>
+<li>El nombre de la máquina que aloja el recurso.</li>
+<li>El nombre del recurso, dado como una ruta.</li>
+</ol>
+<p>Fuente: apunte Conceptos y Teoría de HTML, página 6.</p>
+</div></details>
+<p>Un URI identifica y un URL localiza. Todo URL es URI, pero hay URI que no son URL (página 8). Un URN, Uniform Resource Name, identifica un recurso por un nombre único. Un URI puede ser un URL, un URN o las dos cosas (página 9).</p>
+<pre class="codigo"><code>esquema://máquina/directorio/archivo#fragmento</code></pre>
+<p><code>http://www.w3.org/TR</code> se lee así. Hay un documento disponible por el protocolo HTTP, en la máquina <code>www.w3.org</code>, en la ruta <code>/TR</code> (página 10). El esquema sirve para clasificar. Los más comunes son <code>http</code>, <code>https</code> para páginas seguras, <code>mailto</code> para correo y <code>ftp</code> para transferir archivos (página 11).</p>
+<p>HTML es un lenguaje de marcado. Usa etiquetas y no tiene funciones aritméticas ni variables (página 16). El W3C es un consorcio internacional que genera recomendaciones y estándares para la Web (página 4). La World Wide Web es un sistema de distribución de documentos de hipertexto o hipermedia interconectados y accesibles por Internet (página 4).</p>
+<p>Según el apunte, HTML da a los autores herramientas para cuatro cosas (página 12).</p>
+<ul>
+<li>Publicar documentos con encabezados, textos, tablas, listas y fotos.</li>
+<li>Obtener información por vínculos de hipertexto.</li>
+<li>Diseñar formularios para transacciones con servicios remotos, como buscar, reservar o pedir productos.</li>
+<li>Incluir hojas de cálculo, videos, sonidos y otras aplicaciones en el documento.</li>
+</ul>
+<p>HTML5 es la quinta revisión importante del lenguaje. Suma <code>audio</code> y <code>video</code> sin Flash ni otros complementos, geolocalización con permiso del usuario, dibujo 2D con <code>canvas</code> y almacenamiento local en el navegador. Entre sus ventajas el apunte cuenta que es gratuito, que ordena el código con etiquetas como <code>header</code> y que se adapta a los navegadores móviles (páginas 15 a 24).</p>
+<h3 id="parcial-teoria-principios-de-html-4-01">Principios de HTML 4.01</h3>
+<p>Separar estructura y presentación, acceso universal y representación incremental (Material Complementario de HTML, páginas 11 y 12).</p>
+<details open class="pregunta"><summary><span>¿Cuál es la diferencia entre desaprobado y obsoleto en etiquetas HTML?</span><small>Ejemplo de parcial, Tema 1, sin fecha</small></summary><div class="resp"><p>Un elemento desaprobado es aquel que ha quedado anticuado por la presencia de estructuras nuevas, y puede declararse obsoleto en el futuro. Los agentes de usuario deberían seguir dándole soporte por compatibilidad. Un elemento obsoleto es aquel para el cual no hay garantía de soporte, porque dejó de estar definido en la especificación.</p>
+<p>Fuente: apunte Material Complementario de HTML, página 15.</p>
+</div></details>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Los tres DTD de HTML 4.01 salen en el parcial de 2013. Las hojas de 2023 y 2024 no los piden. Son estricto, sin desaprobados ni marcos; transicional, con desaprobados; y frameset, además con marcos (Material Complementario, página 17).</p>
+</div>
+<h3 id="parcial-teoria-scripts">Scripts</h3>
+<div class="idea"><p>Un script es un programa que viaja con la página y corre en la máquina de quien la mira. Por eso puede revisar un formulario antes de enviarlo.</p>
+</div>
+<p>Formalmente, es un programa del lado del cliente que acompaña o está incluido en un documento HTML. Se ejecuta al cargar la página o ante un evento. Hay dos tipos: el que corre una sola vez al cargar, con <code>SCRIPT</code> y <code>NOSCRIPT</code> como alternativa, y el que corre ante un evento, con los atributos de eventos intrínsecos (Material Complementario, página 39).</p>
+<p>La misma página da cuatro usos.</p>
+<ul>
+<li>Modificar el contenido del documento a medida que se carga.</li>
+<li>Procesar los datos de un formulario mientras se ingresan, por ejemplo controlar que estén en un rango o que los campos sean consistentes entre sí.</li>
+<li>Responder a eventos como la carga, la descarga, el foco o los movimientos del ratón.</li>
+<li>Vincularse a controles del formulario, como botones, para armar la interfaz.</li>
+</ul>
+<p>Gracias a los scripts se arman páginas dinámicas, como los «formularios inteligentes» que reaccionan mientras el usuario los completa. El soporte de scripts de HTML no depende del lenguaje del script (Material Complementario, páginas 10 y 39).</p>
+<div class="ojo"><p class="ojo-t">Temas sin apunte</p><p>«Cliente servidor» y «web semántica» están en la lista de preguntas frecuentes. No hay un apunte de la cátedra que los conteste en lo descargado. Lo más cercano es la diferencia entre cookies y sesiones, más abajo, y los metadatos RDF del Material Complementario, página 18. El apunte de sesiones nombra las aplicaciones cliente-servidor, como ftp, telnet y las aplicaciones web, pero no las define (Teoría de Sesiones, página 4). El Drive remite además a una guía breve de web semántica.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-teoria-css-en-teoria">CSS en teoría</h2>
+<details open class="pregunta"><summary><span>¿Qué son las hojas de estilo?</span><small>Ejemplo de parcial, Tema 1, sin fecha; también en las preguntas frecuentes, sin fecha</small></summary><div class="resp"><p>CSS, Cascading Style Sheets, son las hojas de estilo en cascada. Es una tecnología que permite controlar la apariencia de una página web. La página HTML solo contiene la información, y el formato se define en la hoja de estilo. Es un mecanismo simple que describe cómo se va a mostrar un documento en pantalla, cómo se va a imprimir o incluso cómo se va a pronunciar en un dispositivo de lectura. Lo definen las especificaciones CSS1, CSS2 y CSS3 del W3C.</p>
+<p>Fuente: apunte Material de CSS, página 2.</p>
+</div></details>
+<p>Con CSS se le da formato a un sitio entero de una vez, a una página, a una porción de la página o a una etiqueta concreta, con varios estilos para la misma etiqueta. También permite fijar el interlineado, la sangría de la primera línea, la posición exacta de los elementos, la visibilidad y los márgenes (Material de CSS, páginas 2 y 3).</p>
+<p>CSS2.1 se basa en estas reglas de diseño (página 13).</p>
+<ul>
+<li>Compatibilidad hacia atrás y hacia adelante.</li>
+<li>Complementariedad con documentos estructurados.</li>
+<li>Independencia del vendedor, la plataforma y el dispositivo.</li>
+<li>Mantenimiento, simplicidad, rendimiento de la red, flexibilidad y riqueza.</li>
+<li>Combinación con lenguajes alternativos.</li>
+<li>Accesibilidad.</li>
+</ul>
+<details open class="pregunta"><summary><span>¿Qué es la cascada en CSS?</span><small>Preguntas frecuentes, sin fecha</small></summary><div class="resp"><p>El formato final de cualquier elemento depende de la combinación de todas las propiedades que afectan al elemento. A un elemento también le afectan las propiedades de los que lo incluyen.</p>
+<p>Fuente: apunte Material de CSS, páginas 10 y 11.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Cómo se llaman las partes de una regla CSS?</span><small>Ejemplo de parcial, Tema 1, sin fecha</small></summary><div class="resp"><p>La regla tiene un selector y una declaración. La declaración tiene propiedad y valor.</p>
+<p>Fuente: apunte Material de CSS, página 4.</p>
+</div></details>
+<p>Los selectores, la especificidad y las tres formas de aplicar estilos están en <a href="#parcial-practica-css">CSS</a>. El selector de id va con <code>#</code> y corresponde a un único elemento (Contenido adicional de CSS, página 8).</p>
+</section>
+<section class="sec"><h2 id="parcial-teoria-planificar-un-sitio">Planificar un sitio</h2>
+<p>Un sitio se compone de una o más páginas (Teoría del desarrollo web, páginas 4 y 5). Antes de dibujar se decide qué tiene que lograr.</p>
+<h3 id="parcial-teoria-diseno-desarrollo-sitio-y-pagina">Diseño, desarrollo, sitio y página</h3>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Qué es</th></tr></thead><tbody><tr><td>Diseño web</td><td>Determina la apariencia del sitio, es decir el diseño, la navegación y los colores. Puede incluir el diseño gráfico y el logo. Atiende la estética y la experiencia del usuario más que las funciones</td></tr><tr><td>Desarrollo web</td><td>Ofrece las funciones y características. Es la programación de los servicios de fondo, como el registro, la gestión de contenidos, el comercio electrónico y las aplicaciones de base de datos</td></tr><tr><td>Sitio web</td><td>Un conjunto de páginas web organizadas jerárquicamente. Tiene una página de inicio, la primera que ve el usuario al poner el dominio</td></tr><tr><td>Página web</td><td>Parte de un sitio. Es un único archivo con su propio nombre</td></tr></tbody></table></div>
+<p>Fuente: Teoría del desarrollo web, páginas 2 a 5. El apunte aclara que a veces se dice página web cuando se quiere decir sitio web, y que es un error.</p>
+<p>El Resumen de la Guía usa «diseño web» en un sentido más amplio. Es el conjunto de actividades para avanzar en la realización de un sitio, y abarca también la usabilidad, la interacción y los contenidos, no solo el diseño gráfico (Resumen de la Guía, página 1).</p>
+<h3 id="parcial-teoria-planificacion-inicial">Planificación inicial</h3>
+<p>Antes de definir el sitio, la institución responde algunas preguntas (Teoría del desarrollo web, páginas 6 y 7).</p>
+<ul>
+<li>¿Para qué necesita el sitio la institución, y para qué la comunidad?</li>
+<li>¿Qué buscan las personas en la institución, y qué información le es útil a la comunidad?</li>
+<li>¿Qué imagen quiere proyectar?</li>
+<li>¿Qué servicios interactivos va a ofrecer?</li>
+<li>¿Quiénes pueden ayudar a hacer el proyecto?</li>
+</ul>
+<p>Las respuestas dan forma a tres elementos de análisis, que son objetivos, audiencia y tecnología.</p>
+<h3 id="parcial-teoria-arquitectura-de-la-informacion">Arquitectura de la información</h3>
+<details open class="pregunta"><summary><span>¿Qué es la arquitectura de la información y cuáles son sus principales elementos?</span><small>Final 21/02/2024, contado por un alumno</small></summary><div class="resp"><p>Es el conjunto de métodos y herramientas que permiten organizar los contenidos, para ser encontrados y utilizados por los usuarios, de manera simple y directa. Sus elementos son:</p>
+<ol>
+<li>Objetivos.</li>
+<li>Audiencia.</li>
+<li>Contenidos.</li>
+<li>Estructura.</li>
+<li>Diseño visual.</li>
+</ol>
+<p>Fuente: apunte Resumen de la Guía, páginas 1 a 3.</p>
+</div></details>
+<p>La audiencia se clasifica por capacidad física, capacidad técnica, conocimiento de la institución, necesidades de información y ubicación geográfica. Los contenidos incluyen servicios interactivos, como contacto, mapa, buscador y área privada (Resumen de la Guía, página 1).</p>
+<p>Cada elemento, con lo que agregan los apuntes.</p>
+<ul>
+<li><strong>Objetivos.</strong> Cuáles son los objetivos centrales del sitio y cómo se van a cumplir. La lista debería ser acotada, de no más de cinco, y de cada objetivo salen tareas concretas (Teoría del desarrollo web, página 10).</li>
+<li><strong>Audiencia.</strong> Hacia qué públicos se orienta el sitio. Se averigua investigando en la propia institución a quiénes atiende cada repartición, sobre todo entrevistando a quienes atienden al público. Otra forma es estudiar escenarios de uso, situaciones reales de usuarios que llegan a buscar algo. El ejemplo del apunte es un agricultor que quiere saber cómo pagar los impuestos de su comuna, y la pregunta es si al ver la portada encontraría la respuesta (páginas 11 a 13).</li>
+<li><strong>Contenidos.</strong> Se ordenan agrupándolos en conjuntos coherentes y con nombres que los identifiquen. También se define qué servicios interactivos va a tener. Conviene analizar sitios similares (Resumen de la Guía, página 1).</li>
+<li><strong>Estructura.</strong> No incluye elementos gráficos. Así la discusión se centra en lo concreto, sin consideraciones estéticas que suelen atrasar la aprobación de esta etapa (Resumen de la Guía, página 2).</li>
+</ul>
+<p>La arquitectura de la información cumple su objetivo cuando un usuario que entra por primera vez reconoce a quién pertenece el sitio, lo entiende rápido y sin esfuerzo, y encuentra fácilmente la información ofrecida (Teoría del desarrollo web, página 9).</p>
+<details open class="pregunta"><summary><span>¿Cuál es la diferencia entre estructura y diseño?</span><small>Final 21/02/2024, contado por un alumno</small></summary><div class="resp"><p>La estructura es la forma que tendrá el sitio en términos generales, con sus secciones, funcionalidades y sistemas de navegación. No incluye elementos gráficos. El diseño es la solución gráfica, con colores, logotipos, viñetas y otros elementos que identifican visualmente al sitio.</p>
+<p>Fuente: apunte Teoría del desarrollo web, página 14.</p>
+</div></details>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La estructura es el plano de la casa. El diseño es cómo la pintás y la decorás.</p>
+</div>
+<h3 id="parcial-teoria-arbol-de-contenidos">Árbol de contenidos</h3>
+<details open class="pregunta"><summary><span>¿En qué consiste el árbol de contenidos y qué tipos hay?</span><small>Final 15/03/2023</small></summary><div class="resp"><p>Muestra cuántas secciones tendrá el sitio y cuántos niveles habrá dentro de cada una. Hay dos tipos. El organizacional agrupa los contenidos de la manera como se organiza la institución, no por su estructura de funcionamiento sino por su lógica de actividad. El funcional los agrupa de acuerdo a las tareas que se puedan realizar dentro del sitio.</p>
+<p>Fuente: apunte Teoría del desarrollo web, páginas 15 y 16.</p>
+</div></details>
+<p>El apunte lo presenta como parte de los «mapas permanentes del sitio» (Teoría del desarrollo web, página 15). El Resumen de la Guía agrega una advertencia. Hay que evitar que el árbol represente la estructura de la organización. Si un usuario externo busca en contenidos ordenados según cómo funciona la entidad, primero tiene que entender ese funcionamiento para encontrar lo que le interesa (Resumen de la Guía, página 3).</p>
+<h3 id="parcial-teoria-sistema-de-navegacion">Sistema de navegación</h3>
+<details open class="pregunta"><summary><span>¿Qué es un sistema de navegación, y cuáles son sus características y elementos?</span><small>Final 15/03/2023</small></summary><div class="resp"><p>Es el conjunto de elementos presente en cada una de las pantallas que permite a un usuario moverse por el sitio. Tiene que ser consistente, uniforme y visible. Sus elementos son menú general, pie de página, ruta de acceso, fecha de publicación, botón al inicio, mapa del sitio, contacto, buscador, ayuda e imprimir.</p>
+<p>Fuente: apunte Resumen de la Guía, página 3, y Adicional guía para desarrollo web, página 60.</p>
+</div></details>
+<p>Las tres características quieren decir lo siguiente (Resumen de la Guía, página 3).</p>
+<ul>
+<li><strong>Consistente.</strong> Similar en ubicación y disposición en todas las páginas.</li>
+<li><strong>Uniforme.</strong> Usa términos similares, para que el usuario confíe en que sus opciones lo llevan siempre a los mismos lugares.</li>
+<li><strong>Visible.</strong> Se distingue claramente, para que el usuario lo tenga como guía permanente en cualquier parte del sitio.</li>
+</ul>
+<p>El mismo resumen insiste en que todas las páginas del sitio tengan el sistema de navegación, y llama a la ruta de acceso «breadcrumbs o rastro» (página 3).</p>
+<p>La navegación además puede ser textual, con menús, guías y botones, o contextual, con cómo se presenta la información (Teoría del desarrollo web, páginas 17 y 18). Con los sistemas de navegación los usuarios avanzan por las áreas del sitio sin perderse. Lo textual son elementos concretos, como menús, guías y botones, que se distinguen claramente en la interfaz. Lo contextual usa elementos de texto, gráficos o de entorno, como la gráfica, la redacción de los textos y hasta el nombre del dominio, que le hace sentir al usuario que está en el lugar indicado.</p>
+<h3 id="parcial-teoria-diseno-visual">Diseño visual</h3>
+<details open class="pregunta"><summary><span>¿Cuáles son las cuatro etapas sucesivas e incrementales del diseño visual?</span><small>Final 15/03/2023</small></summary><div class="resp"><ol>
+<li>Estructura de las páginas: dibujos solo lineales.</li>
+<li>Bocetos: dibujos digitales con imágenes y colores.</li>
+<li>Borradores: prototipo con páginas clickeables.</li>
+<li>Maqueta web: todo el sitio en HTML, con imágenes y contenidos reales.</li>
+</ol>
+<p>Fuente: apunte Resumen de la Guía, página 3.</p>
+</div></details>
+<p>Lo que agregan los apuntes sobre cada etapa.</p>
+<div class="tabla"><table><thead><tr><th>Etapa</th><th>Detalle</th></tr></thead><tbody><tr><td>Estructura de las páginas</td><td>Los dibujos solo tienen líneas y bloques que representan logos, viñetas o fotos. Así la discusión se centra en la funcionalidad y no en colores o calidad. Las pantallas de transacciones llevan un diagrama de flujo sencillo con las interacciones posibles y sus resultados</td></tr><tr><td>Bocetos</td><td>Se hacen con algún software gráfico para facilitar la corrección. Son las páginas principales, que son la portada, la portada de sección y la página de despliegue de contenidos</td></tr><tr><td>Borradores</td><td>Se arman sobre los bocetos aprobados, para comprobar cómo funcionan con HTML</td></tr><tr><td>Maqueta web</td><td>Es la etapa final. Si el sitio es estático, es la construcción del sitio. Si es dinámico, el programador usa esas páginas como plantillas para agregar la programación</td></tr></tbody></table></div>
+<p>Fuente: Resumen de la Guía, página 3, y Teoría del desarrollo web, páginas 19 a 23.</p>
+<h3 id="parcial-teoria-interfaz">Interfaz</h3>
+<details open class="pregunta"><summary><span>¿Qué es la interfaz y cuáles son sus elementos principales?</span><small>Final 21/02/2024, contado por un alumno</small></summary><div class="resp"><p>Es el conjunto de elementos de la pantalla que permiten al usuario realizar acciones sobre el sitio web que está visitando. Hay elementos de identificación, de navegación, de contenidos y de acción.</p>
+<p>Fuente: apunte Adicional guía para desarrollo web, página 54.</p>
+</div></details>
+<p>Los cuatro postulados de la guía son propósito claro, ayudar a encontrar lo que se busca, demostrar el contenido y usar el diseño visual para mejorar, no para definir la interacción (páginas 54 y 55).</p>
+<p>El foco de una interfaz es que el visitante logre los objetivos que lo trajeron al sitio (página 55). Los estudios de seguimiento de la mirada muestran que la zona más vista de una visita inicial forma una F o un triángulo, con la esquina superior izquierda como lo más revisado. Por eso la guía pide armar la interfaz con esa evidencia en cuenta (página 56).</p>
+<p>La guía explica cada elemento de la interfaz por separado (Adicional guía para desarrollo web, páginas 56 a 67).</p>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Qué pide la guía</th></tr></thead><tbody><tr><td>Uso de logotipos</td><td>Que el usuario entienda de un vistazo a quién pertenece el sitio. Se recomienda el logo arriba a la izquierda, el lugar que más se mira. La etiqueta <code>&lt;title&gt;</code> lleva el nombre del sitio y un título del contenido, porque es lo que muestran los buscadores</td></tr><tr><td>Sistema de navegación</td><td>Menú de secciones, arriba o arriba a la izquierda, con palabras simples. Menú de rastros, que muestra la distancia a la portada, como Portada &gt; Programas &gt; Programa A. Identificación de la sección, cerca del logo. Enlaces de acción, como volver a la portada, contacto y mapa del sitio. Pie de página, con los datos de la organización, la política de privacidad y enlaces repetidos</td></tr><tr><td>Áreas de contenidos</td><td>Las zonas donde se entrega la información. Se distinguen título, resumen e información. El título principal va en <code>h1</code>, porque los lectores de pantalla lo anuncian como título de la página. El resumen explica el contenido en dos o tres líneas. El texto va en párrafos cortos con subtítulos, porque en pantalla no se lee igual que en papel</td></tr><tr><td>Áreas de interacción</td><td>Las zonas donde el usuario realiza acciones, desde suscribirse hasta hacer trámites. Llevan la mínima información necesaria. El usuario ahí no lee, ingresa datos, así que la información extra va en enlaces cercanos</td></tr><tr><td>Experiencia de usuario</td><td>Lo que siente y experimenta el usuario en cada página. Los usuarios necesitan confirmaciones visuales y un lenguaje claro. La guía da recomendaciones para botones, enlaces y formularios</td></tr></tbody></table></div>
+<p>Para la experiencia de usuario la guía detalla tres elementos (páginas 64 a 67).</p>
+<ul>
+<li><strong>Botones.</strong> Tienen forma estándar y similar en todo el sitio. La palabra es un solo verbo que dice la acción. Cambian de estado cuando el mouse pasa por encima.</li>
+<li><strong>Enlaces.</strong> Se diferencian del texto, subrayados y de otro color, o al menos de otro color. Muestran sus cuatro estados, que son sin visitar, destacado al pasar el mouse, activo al hacer clic y visitado. Su texto explica adónde llevan, y se evita «clic aquí». El atributo <code>title</code> agrega un recuadro explicativo.</li>
+<li><strong>Elementos de formulario.</strong> El área de texto ofrece un espacio adecuado, y mejor con un contador de caracteres restantes. El check button permite elegir varias opciones. El radio button marca una opción entre varias excluyentes.</li>
+</ul>
+<h3 id="parcial-teoria-feedback-y-pruebas">Feedback y pruebas</h3>
+<p>El feedback puede ser correo, encuestas, foros, chat, simulación o búsqueda. Un formulario tiene que validar campos obligatorios y el mail, dar valores por omisión y ejemplos, y tener botones claros (Guía para desarrollo web, páginas 64 a 66).</p>
+<p>Antes de publicar se prueban interfaces y contenidos, funcionalidades y operación, carga, seguridad y respaldo (Guía para desarrollo web, páginas 73 y 74).</p>
+<h3 id="parcial-teoria-flash-y-ajax">Flash y Ajax</h3>
+<div class="ojo"><p class="ojo-t">Solo en el material</p><p>Ninguna hoja de examen leída pregunta por esto. Queda como lectura de la guía.</p>
+</div>
+<p>Ajax es Asynchronous JavaScript And XML. Combina XHTML y CSS, DOM, XMLHTTPRequest y XML. Si JavaScript está deshabilitado, queda desactivada (Adicional guía, páginas 69 y 70).</p>
+</section>
+<section class="sec"><h2 id="parcial-teoria-ubicuidad-y-fidelidad">Ubicuidad y fidelidad</h2>
+<div class="idea"><p>Primero te tienen que encontrar. Después tienen que poder ver el sitio. Después tienen que querer usarlo, y al final, volver.</p>
+</div>
+<details open class="pregunta"><summary><span>¿Cuál es la diferencia entre buscabilidad y visibilidad?</span><small>Final 15/03/2023</small></summary><div class="resp"><p>Las dos son partes de la ubicuidad, que es estar en la Web y poder ser encontrado y visto. La buscabilidad es poder encontrar el sitio. La visibilidad es poder verlo, y depende del desempeño computacional del sitio, de la calidad del enlace a Internet y del diseño.</p>
+<p>Fuente: apunte Ubicuidad y Usabilidad en la Web, páginas 3 a 5.</p>
+</div></details>
+<p>Un sitio se encuentra de tres formas (páginas 2 y 3).</p>
+<ul>
+<li><strong>Directa.</strong> Se conoce la dirección por publicidad o por otra persona. Es cara o lenta.</li>
+<li><strong>Navegando.</strong> Se llega por enlaces desde otros sitios. Es la forma natural, pero favorece a los sitios populares o con más recursos.</li>
+<li><strong>Con un buscador.</strong> El buscador tiene que haber encontrado el sitio antes. Es la más sencilla y casi la única para sitios nuevos o chicos.</li>
+</ul>
+<p>Hay un orden causal. Sin encontrar el sitio no se lo puede ver, y sin verlo no se lo puede usar (página 3).</p>
+<p>El apunte arma cada concepto con preguntas (páginas 4 a 6).</p>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Lo que hay que preguntarse</th></tr></thead><tbody><tr><td>Buscabilidad</td><td>¿Lo encuentra un buscador? No, si no se registró el sitio ni tiene enlaces desde un sitio conocido. ¿Le pongo trabas? Sí, con mapas de imágenes, Flash u otros mecanismos que no dejan extraer los enlaces. ¿Tengo en la portada las palabras que usarían mis clientes? ¿Queda bien ubicado en una búsqueda? Si no, conviene conseguir enlaces desde otros sitios y mejorar los metadatos</td></tr><tr><td>Visibilidad</td><td>¿Es liviano? Una página pesada margina a quien tiene una conexión lenta. ¿Es compatible con todos los navegadores y sistemas operativos? ¿Considera a los usuarios con discapacidades visuales? Si hay mucho tráfico, conviene sacrificar algo de diseño por el desempeño del servidor</td></tr></tbody></table></div>
+<p>La paradoja que señala el apunte es que demasiada organización, o demasiado tamaño, también perjudica la buscabilidad. Un sitio muy profundo puede no ser recolectado entero por los buscadores (página 4).</p>
+<details open class="pregunta"><summary><span>¿Qué es la fidelidad?</span><small>Preguntas frecuentes, sin fecha</small></summary><div class="resp"><p>Es que la persona vuelva al sitio. La genera la usabilidad, y el apunte lo llama el desafío más difícil, el de la seducción permanente.</p>
+<p>Fuente: apunte Ubicuidad y Usabilidad en la Web, página 3.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="parcial-teoria-usabilidad">Usabilidad</h2>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Usabilidad web</strong> <span>Parcial de teoría, Tema 1, 06/06/2016 <em class="viejo">Plan viejo</em></span></li></ul></div>
+<p>Según la norma ISO 9241-11, es «el rango en el cual un producto puede ser usado por unos usuarios específicos para alcanzar ciertas metas especificadas con efectividad, eficiencia y satisfacción en un contexto de uso especificado» (Ubicuidad y Usabilidad en la Web, página 6).</p>
+<p>Tiene cinco atributos: facilidad de aprendizaje, velocidad de desempeño, tasas de error, retención sobre el tiempo y satisfacción subjetiva (páginas 6 y 7).</p>
+<p>La usabilidad engloba métricas y métodos para que un sistema sea fácil de usar y de aprender. Vale para cualquier dispositivo que opere un usuario, no solo para sitios web (página 2). Tiene dos aspectos centrales, el contenido y la estética, aunque la visibilidad también la afecta (página 3).</p>
+<div class="tabla"><table><thead><tr><th>Atributo</th><th>Qué mide</th></tr></thead><tbody><tr><td>Facilidad de aprendizaje</td><td>Cuánto tarda un usuario novato en aprender las tareas básicas</td></tr><tr><td>Velocidad de desempeño</td><td>Cuánto tarda, una vez que aprendió, en completar tareas específicas</td></tr><tr><td>Tasas de error</td><td>Cuántos errores comete y cuáles. Ante un error el sistema avisa rápido, dice la gravedad y da una forma de recuperarse</td></tr><tr><td>Retención sobre el tiempo</td><td>Cuánto recuerda después de una hora, un día o una semana</td></tr><tr><td>Satisfacción subjetiva</td><td>Cuánto le gustó el sistema</td></tr></tbody></table></div>
+<p>Fuente: páginas 6 y 7. El mismo apunte suma tres atributos más, control, habilidades y privacidad. El usuario siente que controla la aplicación, que el sistema realza sus habilidades y que lo ayuda a proteger su información. El peso de cada atributo depende de la audiencia y del uso (página 7).</p>
+<p>La Ingeniería de Usabilidad es un área de la interacción humano-computador. Da pautas para lograr productos muy usables con métodos aplicados en cada etapa del diseño y el desarrollo. Su objetivo principal es mejorar la interfaz de usuario (página 7).</p>
+<p>Se evalúa con inspección formal, testeo, pensar en voz alta, heurística y estándares, caminata cognitiva y encuestas (páginas 8 y 9).</p>
+<div class="tabla"><table><thead><tr><th>Técnica</th><th>Cómo se hace</th></tr></thead><tbody><tr><td>Inspección formal</td><td>Un grupo de expertos juzga la interfaz, con un moderador, y marca fortalezas y debilidades</td></tr><tr><td>Testeo de usabilidad</td><td>Un grupo de usuarios usa el sistema y se graban los resultados, en un laboratorio o en el lugar de uso</td></tr><tr><td>Pensar en voz alta</td><td>El usuario hace tareas y dice en voz alta cada paso que da</td></tr><tr><td>Evaluación heurística y de estándares</td><td>Especialistas revisan la interfaz con heurísticas y estándares aceptados</td></tr><tr><td>Caminata cognitiva</td><td>Expertos simulan cómo recorrería la interfaz un usuario ante tareas concretas</td></tr><tr><td>Encuestas</td><td>Una forma económica de juntar información. Las revisa un panel de especialistas</td></tr></tbody></table></div>
+<p>Fuente: páginas 8 y 9.</p>
+<p>Las diez heurísticas de Nielsen, adaptadas a la web en 1997, son estas (páginas 10 a 12).</p>
+<ol>
+<li>Visibilidad del estado del sistema.</li>
+<li>Similitud entre el sistema y el mundo real.</li>
+<li>Control por parte del usuario y libertad.</li>
+<li>Consistencia y cumplimiento de estándares.</li>
+<li>Prevención de errores.</li>
+<li>Preferencia al reconocimiento frente a la memorización.</li>
+<li>Flexibilidad y eficiencia de uso.</li>
+<li>Estética y diseño minimalista.</li>
+<li>Ayuda para que el usuario reconozca, diagnostique y se recupere de los errores.</li>
+<li>Ayuda y documentación.</li>
+</ol>
+<p>La recomendación principal es evaluar la usabilidad en cada etapa del proyecto (página 13). El apunte da además seis consejos de diseño, que son compatibilidad con los navegadores, diseñar para la diversidad, optimizar para una descarga rápida, diseñar para distintos tamaños de monitor, controlar el scrolling y escribir para la web de otra manera que para el papel (páginas 13 a 15).</p>
+<details open class="pregunta"><summary><span>¿Cuál es la diferencia entre accesibilidad y usabilidad?</span><small>Preguntas frecuentes, sin fecha</small></summary><div class="resp"><p>La accesibilidad es un término referido a usuarios que presentan una reducción de su capacidad de acceso a la información. La usabilidad es más general.</p>
+<p>Fuente: apunte Accesibilidad_Usabilidad_RESUMEN, página 7.</p>
+</div></details>
+<p>El mismo resumen da el contexto de cada una. La accesibilidad se centra en eliminar las barreras de diseño que impiden a personas con discapacidad, o con restricciones tecnológicas, acceder, usar y comprender la información (páginas 3 y 4). La usabilidad, según las normas ISO, es el nivel con que un producto se adapta a las necesidades del usuario para lograr metas con efectividad, eficiencia y satisfacción (páginas 4 y 5). La diapositiva la asocia al diseño centrado en el usuario, al carácter universal de la Web y al reto del diseño de la interfaz (página 5).</p>
+<p>Las diversidades que hay que tener en cuenta son estas (páginas 5 y 6).</p>
+<ul>
+<li>Capacidades cognitivas y perceptivas, como la memoria y la comprensión del lenguaje.</li>
+<li>Personalidad.</li>
+<li>Cultura, que afecta cómo se interpretan formatos, medidas, títulos y signos de puntuación.</li>
+<li>Discapacidades, que son las que contempla la accesibilidad.</li>
+<li>Edad.</li>
+<li>Tecnología, como la conexión, el tamaño de pantalla y la memoria.</li>
+</ul>
+<p>La introducción de accesibilidad lo resume así. No todo lo accesible es usable (Introducción de Accesibilidad, página 42).</p>
+</section>
+<section class="sec"><h2 id="parcial-teoria-accesibilidad">Accesibilidad</h2>
+<p>Un sitio es accesible cuando cualquier persona, independientemente de sus capacidades personales o tecnológicas, puede acceder, usarlo y comprenderlo. Incluye discapacidades visuales, auditivas, motoras y cognitivas, y también la edad (Accesibilidad_Usabilidad_RESUMEN, página 2 en adelante).</p>
+<p>El acceso universal se entiende independiente de hardware, software, infraestructura de red, idioma, cultura, localización geográfica y capacidades (diapositivas de lectura obligatoria de accesibilidad, página 1).</p>
+<p>La introducción de la unidad suma dos definiciones. La accesibilidad universal es el grado en que todas las personas pueden usar un objeto, visitar un lugar o acceder a un servicio, más allá de sus capacidades técnicas, cognitivas o físicas. La e-accesibilidad es el derecho de acceso a la información digital más allá de las singularidades físicas, psíquicas, culturales, geográficas o económicas (Introducción de Accesibilidad, páginas 12 y 13).</p>
+<p>Las personas con discapacidad navegan con tecnologías de apoyo. Son dispositivos, equipos, hardware y software que incrementan, mantienen o mejoran sus capacidades funcionales. El apunte muestra la línea braille, el alto contraste, ratones y teclados adaptados, el reconocimiento de voz, un dispositivo para manejar la computadora con la cabeza y un navegador para niños autistas (páginas 3 a 11).</p>
+<p>La accesibilidad no es solo para personas con discapacidad. También ayuda con discapacidades temporarias, la edad, la baja alfabetización o poco dominio del idioma, la conectividad limitada o tecnologías viejas, y a los usuarios principiantes (página 16). El apunte la relaciona además con el posicionamiento en buscadores, porque Google solo ve lo que puede ver un ciego, y con el diseño adaptable a celulares (páginas 18 y 19).</p>
+<p>Las barreras se agrupan en cuatro tipos. Las tres primeras afectan a cualquier usuario, y solo la cuarta a personas con discapacidad (Accesibilidad un problema pendiente, página 9).</p>
+<ol>
+<li>De software o hardware, como un navegador sin el complemento que la página necesita.</li>
+<li>De entorno o contexto, como un video en un lugar muy ruidoso.</li>
+<li>Del diseño del documento, como una letra muy chica.</li>
+<li>Discapacidades, como la ceguera o la sordera.</li>
+</ol>
+<p>Para una empresa privada, el mismo texto cuenta seis ventajas. Gana visitantes, mejora la usabilidad, ayuda a extranjeros con poco dominio del idioma, mejora la posición en buscadores, ahorra costos al separar contenido y presentación para varios dispositivos y suma prestigio social (página 20).</p>
+<h3 id="parcial-teoria-wai-y-wcag">WAI y WCAG</h3>
+<p>La WAI, Iniciativa de Accesibilidad Web, es una actividad del W3C. Las WCAG, Pautas de Accesibilidad al Contenido en la Web, son su documento más importante (Resumen pautas accesibilidad, página 1).</p>
+<p>El objetivo de la WAI es facilitar el acceso de las personas con discapacidad, desarrollando pautas de accesibilidad y herramientas para evaluarla (diapositivas de lectura obligatoria, página 2). La función principal de las WCAG es orientar el diseño de páginas para reducir las barreras de acceso a la información (Resumen pautas accesibilidad, página 1).</p>
+<p>La introducción nombra las pautas del W3C según a quién se dirigen (Introducción de Accesibilidad, página 22).</p>
+<div class="tabla"><table><thead><tr><th>Pautas</th><th>Para quién</th></tr></thead><tbody><tr><td>ATAG, para herramientas de autor</td><td>Quienes desarrollan los programas que usan los webmasters, para que generen contenido accesible</td></tr><tr><td>WCAG 2.0, para el contenido web</td><td>Los webmasters, para que los contenidos del sitio sean accesibles</td></tr><tr><td>UAAG, para agentes de usuario</td><td>Quienes desarrollan navegadores y programas similares</td></tr><tr><td>WAI-ARIA</td><td>Una especificación técnica para hacer aplicaciones web más accesibles a personas ciegas o con deficiencias visuales</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Componentes esenciales</p><p>La Práctica 8 pregunta por los componentes esenciales de la accesibilidad web. Los apuntes del Drive no los desarrollan. Solo aparecen como una referencia a un documento del W3C en la bibliografía de la guía de contenidos audiovisuales. Lo más cercano en el material es esta tabla de pautas. Consultá en tu comisión qué esperan.</p>
+</div>
+<details open class="pregunta"><summary><span>Enunciá las pautas de accesibilidad</span><small>Final 21/02/2024, contado por un alumno</small></summary><div class="resp"><p>Las 12 pautas de WCAG 2.0 se agrupan en 4 principios.</p>
+<ol>
+<li>Perceptibilidad: alternativas textuales, alternativas para multimedia, contenido adaptable y hacer más fácil ver y oír.</li>
+<li>Operabilidad: disponible por teclado, tiempo suficiente, no causar ataques y ayudar a navegar.</li>
+<li>Comprensibilidad: legible, predecible y ayudar a evitar y corregir errores.</li>
+<li>Robustez: compatibilidad con agentes de usuario actuales y futuros.</li>
+</ol>
+<p>Fuente: apunte Resumen pautas accesibilidad, páginas 1 y 2.</p>
+</div></details>
+<div class="ojo"><p class="ojo-t">14 o 12 pautas</p><p>El material mezcla versiones. Las diapositivas de lectura obligatoria y el texto de TAW hablan de 14 pautas, que son WCAG 1.0. La introducción y el resumen hablan de 12 pautas, que son WCAG 2.0. Aclaralo al responder.</p>
+</div>
+<p>WCAG 2.0 tiene 4 principios, 12 directrices y 61 criterios de cumplimiento (Introducción de Accesibilidad, página 26).</p>
+<p>Para explicar las pautas sirve lo que quiere decir cada principio (Introducción de Accesibilidad, página 27).</p>
+<div class="tabla"><table><thead><tr><th>Principio</th><th>Qué exige</th></tr></thead><tbody><tr><td>Perceptibilidad</td><td>La información y los componentes de la interfaz se presentan de modo que los usuarios puedan percibirlos</td></tr><tr><td>Operabilidad</td><td>Los componentes de la interfaz y la navegación son operables</td></tr><tr><td>Comprensibilidad</td><td>La información y el manejo de la interfaz son comprensibles</td></tr><tr><td>Robustez</td><td>El contenido es lo bastante robusto para que lo interprete una amplia variedad de agentes de usuario, incluidas las tecnologías asistivas</td></tr></tbody></table></div>
+<p>Una tecnología asistiva es cualquier herramienta que permite a personas con discapacidad o necesidades especiales hacer las mismas actividades que sus pares (página 27). Un ejemplo de criterio es el 1.4.1, uso del color, de nivel A. El color no puede ser el único medio visual para transmitir información, indicar una acción, pedir una respuesta o distinguir un elemento (página 28).</p>
+<p>Las pautas tienen varios niveles de guía, que son principios, pautas generales, criterios de éxito verificables y técnicas suficientes, técnicas aconsejadas y fallos comunes documentados. Aun así no cubren todos los tipos, grados y combinaciones de discapacidad (Resumen pautas accesibilidad, página 1).</p>
+<p>Si hay elementos multimedia, las WCAG 1.0 piden alternativas equivalentes. Son la transcripción, un texto equivalente para todo lo que no es texto; la audiodescripción de la información importante de la imagen; y los subtítulos sincronizados. SMIL es un estándar del W3C para armar presentaciones multimedia sincronizadas (Resumen pautas accesibilidad, página 4).</p>
+<p>El W3C resume diez consejos rápidos para un sitio accesible (Accesibilidad un problema pendiente, página 14).</p>
+<ol>
+<li>Imágenes y animaciones con el atributo <code>alt</code>.</li>
+<li>Mapas de imagen con el elemento <code>map</code> y texto para las zonas activas.</li>
+<li>Multimedia con subtítulos, transcripción del sonido y descripción del video.</li>
+<li>Enlaces con un texto que se entienda fuera de contexto, sin «pincha aquí».</li>
+<li>Páginas organizadas con encabezados, listas, estructura consistente y CSS para la maquetación.</li>
+<li>Figuras y diagramas descriptos en la página o con <code>longdesc</code>.</li>
+<li>Scripts, applets y complementos con contenido alternativo.</li>
+<li>Marcos con <code>noframes</code> y títulos con sentido.</li>
+<li>Tablas que se lean línea a línea, con resumen.</li>
+<li>Revisar el trabajo con las herramientas y las pautas.</li>
+</ol>
+<h3 id="parcial-teoria-prioridades-y-conformidad">Prioridades y conformidad</h3>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Niveles de prioridad</strong> <span>Parcial de teoría, Tema 1, 06/06/2016 <em class="viejo">Plan viejo</em></span></li></ul></div>
+<div class="tabla"><table><thead><tr><th>Prioridad</th><th>El desarrollador</th><th>Si no cumple</th></tr></thead><tbody><tr><td>1</td><td>Tiene que cumplir</td><td>Ciertos grupos no podrían acceder</td></tr><tr><td>2</td><td>Debería cumplir</td><td>Sería muy difícil acceder para ciertos grupos</td></tr><tr><td>3</td><td>Debería cumplir</td><td>Algunos usuarios tendrían ciertas dificultades</td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><th>Nivel de conformidad</th><th>Qué satisface</th></tr></thead><tbody><tr><td>A</td><td>Prioridad 1</td></tr><tr><td>Doble A</td><td>Prioridades 1 y 2</td></tr><tr><td>Triple A</td><td>Prioridades 1, 2 y 3</td></tr></tbody></table></div>
+<p>Están en las diapositivas de lectura obligatoria, páginas 4 y 5. El nivel AA es el que la normativa cita como razonable (Resumen pautas accesibilidad, página 3).</p>
+<p>Cada pauta se divide en puntos de verificación. Cada punto tiene un código numérico, la descripción del problema con sus posibles soluciones y una prioridad (TAW, página 1). Dos ejemplos de prioridad 1 son marcar todo cambio de idioma con el atributo <code>lang</code> y dar un texto equivalente a cada imagen con <code>alt</code> (diapositivas de lectura obligatoria, páginas 5 a 7).</p>
+<pre class="codigo"><code><span class="hljs-tag">&lt;<span class="hljs-name">q</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>Good morning<span class="hljs-tag">&lt;/<span class="hljs-name">q</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;wai.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Web Accessibility Initiative&quot;</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>/&gt;</span></code></pre>
+<div class="ojo"><p class="ojo-t">Debe, debería o puede</p><p>Los apuntes no usan los mismos verbos. Las diapositivas dicen que la prioridad 1 se tiene que cumplir y que la 2 y la 3 se deberían cumplir. TAW dice que la 1 se tiene que satisfacer, la 2 se debe satisfacer y la 3 se puede satisfacer (TAW, página 1, e Introducción de Accesibilidad, página 40). Lo que no cambia es el efecto de no cumplir, que es la columna de la derecha de la tabla.</p>
+</div>
+<h3 id="parcial-teoria-taw">TAW</h3>
+<p>Es una herramienta de la Fundación CTIC que analiza la accesibilidad de un sitio (Introducción de Accesibilidad, página 37). Se basa en las pautas de la WAI, las WCAG 1.0, con sus catorce pautas. Separa lo que se revisa de forma automática de lo que hay que revisar a mano (TAW, páginas 1 y 2).</p>
+<ul>
+<li><strong>Automáticos.</strong> Problemas que la herramienta detecta sola y que hay que solucionar.</li>
+<li><strong>Manuales.</strong> La herramienta señala un posible problema, y el evaluador lo confirma o lo descarta.</li>
+</ul>
+<p>El motor se usa gratis en varias versiones. TAW3 es la aplicación de escritorio que revisa un sitio entero. TAW3 Online revisa una dirección y genera un informe HTML. TAW3 Web Start corre con Java Web Start, y TAW3 en un clic es una extensión de Firefox. El informe en línea tiene tres partes, que son la cabecera con las versiones, la página analizada con íconos de alerta sobre cada problema y un resumen de los problemas ordenados por prioridad (TAW, páginas 1 y 2).</p>
+<h3 id="parcial-teoria-la-ley-argentina">La ley argentina</h3>
+<p>La Ley 26.653 obliga a respetar normas de accesibilidad en páginas del Estado y de terceros involucrados. Las normas las determina la ONTI. Da 24 meses para sitios existentes y 12 para sitios nuevos, y se reglamentó en abril de 2013 (Introducción de Accesibilidad, páginas 24 y 25).</p>
+<p>El nivel mínimo es de 80 puntos. Se calcula con los criterios de nivel A, a 4 puntos cada uno (página 29).</p>
+<p>La ley también dice que el Estado promoverá las normas de accesibilidad entre las instituciones privadas, y daba 120 días para reglamentarla. En el puntaje, un criterio que no aplica cuenta como cumplido (páginas 25 y 29). Algunos criterios de nivel A que muestra el apunte son el 1.1.1, alternativa textual para todo contenido no textual, con excepciones como los controles, el contenido decorativo o los CAPTCHA; el 1.2.1, alternativa para el audio o el video grabado; el 1.2.2, subtítulos para el audio grabado; el 1.2.3, audiodescripción del video grabado; y el 1.3.1, que la información, la estructura y las relaciones se puedan determinar por software o estén disponibles como texto (páginas 30 a 34).</p>
+<h3 id="parcial-teoria-recomendaciones-de-la-onti-para-navegar">Recomendaciones de la ONTI para navegar</h3>
+<p>La ONTI publicó recomendaciones de navegación accesible basadas en las WCAG 2.0 (Recomendaciones para navegación accesible, páginas 2 a 9).</p>
+<div class="tabla"><table><thead><tr><th>Recomendación</th><th>Criterio WCAG</th><th>Para qué</th></tr></thead><tbody><tr><td>Título e idioma de la página</td><td>2.4.2 y 3.1.1</td><td><code>&lt;title&gt;</code> identifica la página y <code>lang</code> permite que el lector de pantalla pronuncie bien</td></tr><tr><td>Etiquetas de encabezado</td><td>2.4.6 y 1.3.1</td><td><code>h1</code> para el tema principal y <code>h2</code> a <code>h6</code> para los subtemas. El lector de pantalla las lista y recorre</td></tr><tr><td>Secciones de la página</td><td>2.4.1</td><td>Marcar <code>header</code>, <code>nav</code>, <code>section</code>, <code>article</code>, <code>aside</code> y <code>footer</code>, o con ARIA, para recorrer la página sin leerla entera</td></tr><tr><td>Enlace para saltar contenido</td><td>2.4.1</td><td>Un primer enlace que lleva directo al contenido principal</td></tr><tr><td>Enlaces</td><td>2.4.4</td><td>Un texto que diga la función o el destino, sin «hacé clic acá» ni la dirección cruda</td></tr><tr><td>Teclado y foco visible</td><td>2.1.1, 2.1.2 y 2.4.7</td><td>Todo se opera con teclado, sin trampas para el foco, y se ve dónde está el foco</td></tr><tr><td>Mapa web y lista de enlaces</td><td>2.4.5</td><td>En sitios grandes, un mapa web. En sitios chicos, enlaces a todas las páginas o un buscador</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="parcial-teoria-independencia-de-dispositivos-e-internacionalizacion">Independencia de dispositivos e internacionalización</h2>
+<p>Estos temas están en las preguntas de la Práctica 8 con respuesta de la cátedra.</p>
+<p><strong>Independencia de dispositivos.</strong> Para el usuario da acceso universal. Para el desarrollador, un único desarrollo sirve para muchas aplicaciones (Algunas respuestas, página 1).</p>
+<p>La idea es que la información esté siempre disponible y accesible, sea cual sea el dispositivo, y que la Web no se fragmente en espacios para dispositivos concretos. Busca mejorar la experiencia del usuario y reducir costos, porque se programa una sola vez y se evita duplicar información. Para lograrla hacen falta lenguajes de etiquetado estándar que funcionen en muchos dispositivos, nuevas técnicas de autor y una mejor negociación de contenido entre el agente de usuario y el servidor, con datos del contexto de envío como las preferencias del usuario y las características del dispositivo (Algunas respuestas, página 1).</p>
+<p><strong>Internacionalización.</strong> Es el proceso para diseñar sitios adaptables a distintos idiomas y regiones sin cambiar el código. Usa <code>lang</code>, <code>hreflang</code>, UTF-8 y el <code>charset</code> del <code>Content-Type</code> (páginas 1 y 2).</p>
+<p>Cómo funciona, según la misma respuesta (páginas 2 a 4).</p>
+<ul>
+<li>Los usuarios necesitan procesar la información en su idioma, sistema de escritura, sistema de medida y calendario. Por eso se usan identificadores de idioma y lugar.</li>
+<li>HTML usa el atributo <code>lang</code> y XML usa <code>xml:lang</code>. El idioma de la página se declara al inicio, como <code>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;es&quot;&gt;</code>, y se marca cada cambio de idioma dentro del texto.</li>
+<li>El código lleva primero el idioma y, si se quiere, el país, como <code>en</code> o <code>en-US</code>. En un enlace a una página en otro idioma se usa <code>hreflang</code>.</li>
+<li>La codificación transforma bits en caracteres. Conviene servir todo en UTF-8, que representa Unicode para muchos idiomas, y declararla. En HTTP va como <code>Content-Type: text/html; charset=UTF-8</code>, en XML como <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</code> y en XHTML con un <code>meta</code> dentro de <code>head</code>.</li>
+</ul>
+<p>La Práctica 8 pregunta también por los conceptos clave del diseño web internacional. La respuesta de la cátedra los lista (Algunas respuestas, página 4).</p>
+<ul>
+<li><strong>Codificación.</strong> Usar Unicode siempre que se pueda y declarar siempre la codificación.</li>
+<li><strong>Escapes.</strong> Usar caracteres en lugar de escapes, como <code>&amp;aacute;</code>, siempre que se pueda.</li>
+<li><strong>Idioma.</strong> Declarar el idioma del documento e indicar los cambios internos.</li>
+<li><strong>Presentación y contenido.</strong> Usar hojas de estilo para la presentación y las etiquetas para la semántica.</li>
+<li><strong>Imágenes, animaciones y ejemplos.</strong> Ver si se pueden traducir y si tienen alguna influencia cultural inadecuada.</li>
+<li><strong>Formularios.</strong> Usar una codificación adecuada en el formulario y en el servidor, y admitir formatos locales de nombres, direcciones y fechas.</li>
+<li><strong>Autoría de texto.</strong> Texto simple y conciso, con cuidado al armar oraciones con varias cadenas.</li>
+<li><strong>Navegación.</strong> En cada página, una navegación visible hacia las versiones localizadas, en el idioma de llegada.</li>
+<li><strong>Texto de derecha a izquierda.</strong> En XHTML, <code>dir=&quot;rtl&quot;</code> en la etiqueta <code>html</code>.</li>
+</ul>
+<p><strong>Localización.</strong> Es la adaptación a un mercado destinatario: formatos, moneda, teclado, ordenamiento, símbolos, referencias culturales y exigencias legales (página 5).</p>
+<p>Se la confunde con la traducción, pero es más compleja. Puede exigir rehacer la lógica, el diseño visual o la presentación si la forma de hacer negocios o de aprender en el destino es muy distinta (página 5).</p>
+<p>La internacionalización, en cambio, es el diseño y desarrollo de un producto para que se pueda localizar fácilmente. Implica eliminar obstáculos a la localización, como usar Unicode y controlar la concatenación de cadenas; habilitar funciones que quizás se usen recién al localizar, como el texto bidireccional; preparar el código para las preferencias locales, como fechas, calendarios y números; y separar del código los elementos localizables. No incluye traducir el contenido (páginas 5 y 6).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Internacionalizar es dejar el sitio preparado. Localizar es adaptarlo a un país concreto.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parcial-teoria-php-en-teoria">PHP en teoría</h2>
+<h3 id="parcial-teoria-cookies">Cookies</h3>
+<details open class="pregunta"><summary><span>¿Qué son las cookies? ¿Con qué función se crean y qué parámetros tiene?</span><small>Final 15/03/2023</small></summary><div class="resp"><p>Son pequeñas informaciones de texto que se pueden almacenar en el navegador del visitante. Se crean con <code>setcookie</code>. El único parámetro obligatorio es el nombre. Los otros son valor, caducidad, ruta, dominio, seguro y solo http. Un ejemplo es <code>setcookie(&quot;persona&quot;,$nombre,time()+86400*365);</code>.</p>
+<p>Fuente: apunte Teoría de Cookies, páginas 3, 7 y 11.</p>
+</div></details>
+<p>Solo guardan textos, de hasta 1 K, y tienen fecha de caducidad (página 4). Volver a definir una cookie existente borra la anterior (página 8).</p>
+<p>Si la consigna pide explicar los parámetros, esto dice cada uno (página 11).</p>
+<div class="tabla"><table><thead><tr><th>Parámetro</th><th>Qué es</th></tr></thead><tbody><tr><td>Nombre</td><td>El nombre de la cookie. Es el único obligatorio</td></tr><tr><td>Valor</td><td>La cadena que va a guardar</td></tr><tr><td>Caducidad</td><td>Un timestamp con la fecha en que vence. Lo normal es <code>time()</code> más los segundos que tiene que durar</td></tr><tr><td>Ruta</td><td>Dónde se puede usar dentro del dominio. Por defecto, el directorio donde se creó y sus subdirectorios. Con <code>&quot;/&quot;</code> vale en todo el dominio</td></tr><tr><td>Dominio</td><td>El subdominio donde se puede leer. Se puede hacer visible para todos los subdominios del sitio</td></tr><tr><td>Seguro</td><td>Si es <code>true</code>, la cookie solo viaja por HTTP seguro</td></tr><tr><td>Solo http</td><td>Si es <code>true</code>, solo se accede por las cabeceras HTTP y JavaScript no la puede leer. Se agregó en PHP 5.2.0</td></tr></tbody></table></div>
+<p><code>setcookie</code> devuelve <code>true</code> si pudo enviarla, pero eso no dice si el navegador la aceptó (página 12).</p>
+<p>La utilidad principal es reconocer al navegador cuando vuelve, para adaptar el sitio a sus preferencias, como el idioma, los colores o formularios ya completados (página 6). Dos usos típicos son un contador de visitas y guardar el perfil del usuario (página 5). Con HTML solo no se puede trabajar con cookies, hace falta un lenguaje como JavaScript o PHP (página 6).</p>
+<p>El apunte marca tres cuidados. Las cookies plantean un problema de privacidad, porque registrar el perfil de alguien puede ser un abuso de información (página 6). Una variable del script con el mismo nombre que la cookie tiene prioridad, y PHP no da error (página 9). Y como no todos los navegadores las aceptan y se pueden bloquear, son un complemento y no una fuente infalible (página 10).</p>
+<p>HTML5 agrega otra forma de guardar datos en el navegador. <code>localStorage</code> guarda sin fecha de caducidad, al menos 5 MB, y los datos no viajan al servidor en cada pedido. <code>sessionStorage</code> tiene los mismos métodos, <code>setItem</code> y <code>getItem</code>, pero lo guardado se borra al cerrar el navegador. Los dos se usan con JavaScript (Conceptos fundamentales de HTML, páginas 47 a 50).</p>
+<h3 id="parcial-teoria-sesiones">Sesiones</h3>
+<details open class="pregunta"><summary><span>¿Qué son las sesiones?</span><small>Parcial de teoría, Tema 1, 06/06/2016 <em class="viejo">Plan viejo</em></small></summary><div class="resp"><p>Son un conjunto de variables almacenadas en el servidor, únicas para cada entidad que accede a la página. Las identifica una cookie o el SID. Son seguras porque los valores quedan en el servidor. Las cookies, en cambio, están en la PC del usuario y pueden desactivarse.</p>
+<p>Fuente: apunte Teoría de Sesiones, páginas 2, 3, 6 y 9.</p>
+</div></details>
+<p>El apunte da otra definición. Es una estructura de datos guardada en el servidor, con información del seguimiento de cada cliente (página 2). Permite registrar variables que se conservan durante toda la visita, referenciadas por un identificador único de cada visitante. Se guardan en un archivo del servidor que se crea al guardar la variable (página 3).</p>
+<ul>
+<li><strong>Cinco métodos principales.</strong> Abrir la sesión, definir una variable, darle un valor, obtener el valor y cerrar la sesión (página 4).</li>
+<li><strong>Dónde se usan.</strong> En aplicaciones cliente-servidor, como ftp, telnet y las aplicaciones web (página 4).</li>
+<li><strong>Para qué sirven.</strong> Para conservar datos a lo largo de los accesos siguientes y armar páginas más personalizadas (página 5).</li>
+<li><strong>La constante <code>SID</code>.</strong> Tiene el nombre y el id de la sesión con la forma <code>name=ID</code>, o una cadena vacía si el id ya viaja en una cookie de sesión. Por eso se puede poner siempre en las URL (páginas 6 a 8).</li>
+</ul>
+<p>El ejemplo de seguridad del apunte es una variable <code>logueado</code> en la sesión. Si estuviera en una cookie, el cliente podría cambiar su valor. Guardar el usuario y la contraseña en cookies, además, los haría viajar de forma poco segura y quedarían en la PC del cliente (página 9).</p>
+<h3 id="parcial-teoria-otros-temas-de-la-hoja-de-2016">Otros temas de la hoja de 2016</h3>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Estas preguntas son de hojas de 2016. Las funciones siguen en los apuntes, pero ningún examen de 2023 o 2024 leído las pide.</p>
+</div>
+<details open class="pregunta"><summary><span>¿Qué hace extract?</span><small>Parcial de teoría, Tema 2, 06/06/2016 <em class="viejo">Plan viejo</em></small></summary><div class="resp"><p>Toma una matriz asociativa y crea variables con los nombres de sus índices. Por ejemplo, si <code>$_GET[&#39;nombre1&#39;]</code> vale 7, queda <code>$nombre1</code> con valor 7.</p>
+<p>Fuente: apunte Teoría de Sesiones, páginas 11 y 12.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Qué diferencia hay entre una matriz asociativa y una indexada?</span><small>Parcial de teoría, Tema 2, 06/06/2016 <em class="viejo">Plan viejo</em></small></summary><div class="resp"><p>En la indexada se accede a los elementos por la posición que ocupan, desde la 0. En la asociativa los elementos son partes clave-valor y se accede con una clave.</p>
+<p>Fuente: apunte Introducción teórica de PHP, página 37.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Cómo se pasan los parámetros a una función?</span><small>Parcial de teoría, Tema 1, 06/06/2016 <em class="viejo">Plan viejo</em></small></summary><div class="resp"><p>Por valor, que es lo predeterminado. Por referencia, con un <code>&amp;</code> antes del parámetro, y entonces el cambio afecta a la variable original. Con valor por defecto, que es una constante y va a la derecha.</p>
+<p>Fuente: apunte Introducción teórica de PHP, páginas 10 a 14.</p>
+</div></details>
+<details open class="pregunta"><summary><span>¿Qué parámetros son obligatorios en la función mail?</span><small>Parcial de teoría, Tema 2, 06/06/2016 <em class="viejo">Plan viejo</em></small></summary><div class="resp"><p>Destinatario, asunto y cuerpo del mensaje.</p>
+<p>Fuente: apunte Teoría adicional de PHP, páginas 2 y 3.</p>
+</div></details>
+</section></section>
+<section class="pdf-parte" id="pdf-final" data-pagina="final" aria-label="Final"><p class="pdf-de">Entornos Gráficos</p><h1>Final</h1>
+<p class="bajada">Qué se pidió en las dos mesas que están en el Drive, y dónde estudiar cada consigna.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="final-como-viene">Cómo viene</h2>
+<p>Hay dos mesas, 15/03/2023 y 21/02/2024. Las dos tienen teoría y práctica.</p>
+<div class="tabla"><table><thead><tr><td></td><th>15/03/2023</th><th>21/02/2024</th></tr></thead><tbody><tr><td>Fuente</td><td>Hoja de teoría y práctica contada por un alumno</td><td>Todo contado por un alumno</td></tr><tr><td>Teoría</td><td>5 consignas de 2 puntos, mínimo 60 % correcto</td><td>4 consignas recordadas, y una que no recuerda</td></tr><tr><td>Práctica</td><td>Maqueta, formulario y base de datos</td><td>7 puntos: formulario, estilos, validación, cookies y sesiones, función</td></tr><tr><td>Tiempo</td><td>No figura</td><td>Unos 40 minutos de práctica y unos 30 de teoría</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Solo dos mesas</p><p>Con dos mesas no se puede decir qué tema se repite con seguridad. Lo que está contado por un alumno puede tener errores de memoria. Tomá estas tablas como orientación.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final-consignas-de-teoria">Consignas de teoría</h2>
+<p>Cada enlace lleva a la respuesta en el apunte de la cátedra.</p>
+<h3 id="final-final-del-15-03-2023">Final del 15/03/2023</h3>
+<div class="tabla"><table><thead><tr><th>Consigna</th><th>Dónde está</th></tr></thead><tbody><tr><td>Diferenciar buscabilidad y visibilidad</td><td><a href="#parcial-teoria-ubicuidad-y-fidelidad">Ubicuidad y fidelidad</a></td></tr><tr><td>Qué son las cookies, con qué función se crean, parámetros y ejemplo</td><td><a href="#parcial-teoria-cookies">Cookies</a></td></tr><tr><td>Sistema de navegación, características y elementos</td><td><a href="#parcial-teoria-sistema-de-navegacion">Sistema de navegación</a></td></tr><tr><td>Las cuatro etapas del diseño visual</td><td><a href="#parcial-teoria-diseno-visual">Diseño visual</a></td></tr><tr><td>Árbol de contenidos y sus dos tipos</td><td><a href="#parcial-teoria-arbol-de-contenidos">Árbol de contenidos</a></td></tr></tbody></table></div>
+<h3 id="final-final-del-21-02-2024">Final del 21/02/2024</h3>
+<p>Contado por un alumno, que aclara que una consigna no la recuerda.</p>
+<div class="tabla"><table><thead><tr><th>Consigna</th><th>Dónde está</th></tr></thead><tbody><tr><td>Explicar las pautas de accesibilidad</td><td><a href="#parcial-teoria-wai-y-wcag">WAI y WCAG</a></td></tr><tr><td>Diferenciar estructura y diseño</td><td><a href="#parcial-teoria-arquitectura-de-la-informacion">Arquitectura de la información</a></td></tr><tr><td>Arquitectura de la información y sus principales elementos</td><td><a href="#parcial-teoria-arquitectura-de-la-informacion">Arquitectura de la información</a></td></tr><tr><td>Interfaz y sus elementos principales</td><td><a href="#parcial-teoria-interfaz">Interfaz</a></td></tr></tbody></table></div>
+<div class="tomado tomado-lista"><p class="tomado-t">Lo tomaron en un examen</p><ul><li><strong>Diferenciar estructura y diseño</strong> <span>Final 21/02/2024, contado por un alumno; también en el parcial de teoría del 06/06/2016</span></li></ul></div>
+</section>
+<section class="sec"><h2 id="final-consignas-de-practica">Consignas de práctica</h2>
+<h3 id="final-final-del-15-03-2023-2">Final del 15/03/2023</h3>
+<p>Contado por un alumno, que no recuerda uno de los puntos.</p>
+<div class="tabla"><table><thead><tr><th>Pedido</th><th>Dónde está</th></tr></thead><tbody><tr><td>Replicar una maqueta con HTML y CSS</td><td><a href="#parcial-practica-ubicar-elementos">Ubicar elementos</a></td></tr><tr><td>Agregar reglas de CSS</td><td><a href="#parcial-practica-selectores">Selectores</a></td></tr><tr><td>Formulario con varios campos, debajo de lo anterior</td><td><a href="#parcial-practica-formularios">Formularios</a></td></tr><tr><td>Recibir y validar en el formulario y en el servidor</td><td><a href="#parcial-practica-validar-en-el-navegador">Validar en el navegador</a> y <a href="#parcial-practica-recibir-un-formulario">Recibir un formulario</a></td></tr><tr><td>Consultar si hay campos repetidos y avisar</td><td><a href="#parcial-practica-alta-con-control-de-repetido">Alta con control de repetido</a></td></tr><tr><td>Guardar en la base de datos</td><td><a href="#parcial-practica-conectarse">Conectarse</a></td></tr><tr><td>Listar los registros en una tabla</td><td><a href="#parcial-practica-listar">Listar</a></td></tr></tbody></table></div>
+<h3 id="final-final-del-21-02-2024-2">Final del 21/02/2024</h3>
+<div class="tabla"><table><thead><tr><th>Pedido</th><th>Dónde está</th></tr></thead><tbody><tr><td>Formulario</td><td><a href="#parcial-practica-formularios">Formularios</a></td></tr><tr><td>Estilos en hoja externa</td><td><a href="#parcial-practica-tres-formas-de-aplicar-estilos">Tres formas de aplicar estilos</a></td></tr><tr><td>Validar vacíos y tipos</td><td><a href="#parcial-practica-validar-en-el-navegador">Validar en el navegador</a></td></tr><tr><td>Cookies y sesiones</td><td><a href="#parcial-practica-sesiones">Sesiones</a> y <a href="#parcial-practica-cookies">Cookies</a></td></tr><tr><td>Función PHP con 3 parámetros</td><td><a href="#parcial-practica-funciones-y-parametros">Funciones y parámetros</a></td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="final-como-prepararlo">Cómo prepararlo</h2>
+<p>Para el final hacen falta las dos páginas, porque en las dos mesas hubo teoría y práctica. La hoja de teoría de 2023 exige un mínimo de 60 %, que son 6 de los 10 puntos.</p>
+<p>Practicá en la máquina con los <a href="ejercicios.html">ejercicios</a>.</p>
+<p>Los parciales de 2017 dejaban usar códigos de referencia. Es una hoja vieja y no hay nada que lo confirme para hoy, así que preguntá en tu comisión.</p>
+</section></section>
+</main>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2024). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

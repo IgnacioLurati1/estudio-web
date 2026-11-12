@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aprobación directa: Tecnologías de Desarrollo de Software IDE</title>
+<meta name="description" content="Capas, EF Core, API REST asíncrona, Swagger y la pantalla que la consume.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="tecnologias-de-desarrollo-de-software-ide" data-pagina="aprobacion-directa">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Tecnologías de Desarrollo de Software IDE</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="aprobacion-directa.html" aria-current="page">Aprobación directa</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=tecnologias-de-desarrollo-de-software-ide">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=tecnologias-de-desarrollo-de-software-ide">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#las-capas">Las capas</a></li><li class="n3"><a href="#que-es-una-arquitectura">Qué es una arquitectura</a></li><li class="n3"><a href="#capas-logicas-y-fisicas">Capas lógicas y físicas</a></li><li class="n3"><a href="#las-tres-capas">Las tres capas</a></li><li class="n3"><a href="#ventajas-y-desventajas">Ventajas y desventajas</a></li><li class="n2"><a href="#el-patron-repositorio">El patrón repositorio</a></li><li class="n2"><a href="#entity-framework-en-la-aplicacion">Entity Framework en la aplicación</a></li><li class="n3"><a href="#crear-la-base">Crear la base</a></li><li class="n3"><a href="#la-clave-primaria">La clave primaria</a></li><li class="n2"><a href="#la-api-rest">La API REST</a></li><li class="n2"><a href="#programacion-asincrona">Programación asíncrona</a></li><li class="n2"><a href="#swagger">Swagger</a></li><li class="n2"><a href="#la-pantalla-que-consume-la-api">La pantalla que consume la API</a></li><li class="n3"><a href="#con-windows-forms">Con Windows Forms</a></li><li class="n3"><a href="#con-blazor">Con Blazor</a></li><li class="n2"><a href="#convenciones">Convenciones</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Aprobación directa</h1>
+<p class="bajada">Una aplicación entera en la PC: entidad con Entity Framework, API REST asíncrona que se prueba con Swagger, y una pantalla en Windows Forms o Blazor.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>Leí 3 temas de 2 fechas: Alquiler y Promoción del 13/10/2025, y Receta del 05/10/2026. Los tres tienen la misma estructura. Cambian la entidad, el nombre de la base y las validaciones.</p>
+<div class="tomado"><aside class="nota"><strong>Lo que pide siempre</strong><span>Aprobación directa 13/10/2025 y 05/10/2026</span></aside><p>El enunciado dice que desarrolles una aplicación .NET «aplicando los principios de arquitectura, buenas prácticas y lineamientos vistos en clase y aplicados en el TPI», considerando:</p>
+<ul>
+<li><strong>Capa de Presentación</strong>: «puede elegir Escritorio (Windows Forms) o Web (Blazor). Debe comunicarse con los servicios mediante una API Rest».</li>
+<li><strong>Servicios</strong>: <mark>«todos deben ser asíncronos y se deben poder testear mediante swagger»</mark>.</li>
+<li><strong>Acceso a datos</strong>: <mark>«Utilice el patrón repositorio para resolver el acceso a datos mediante EF»</mark>. La base debe crearse con el nombre pedido, por ejemplo <code>dbReceta</code>, «siguiendo los mecanismos que provee EF».</li>
+<li><strong>Criterios</strong>: «correcto funcionamiento (compilación/ejecución sin errores), uso de convenciones solicitadas, estética visual de las pantallas, estándares y buenas prácticas».</li>
+</ul>
+</div>
+<div class="tomado"><aside class="nota"><strong>Las 4 consignas</strong><span>Aprobación directa 13/10/2025 y 05/10/2026</span></aside><ol>
+<li><strong>Estructura y entidad.</strong> Una carpeta <code>ApellidoNombre</code>. Cada proyecto y namespace respeta <code>[Apellido].[NombreProyecto]</code>, por ejemplo <code>Perez.Presentacion</code>. La entidad trae <code>Id</code> entero, autoincremental y clave primaria, datos propios y un <code>Estado</code> de texto.</li>
+<li><strong>API de servicios.</strong> Tres endpoints: recuperar registros según el estado, agregar un registro que se crea siempre en el primer estado, y pasarlo al segundo estado.</li>
+<li><strong>Validaciones.</strong> Campos obligatorios, un rango numérico y una regla de fechas.</li>
+<li><strong>Presentación.</strong> Un listado con un control tipo lista para filtrar por estado y un botón que aplica el filtro. Un alta que se abre con un botón «Agregar», donde <mark>el usuario no elige el estado: lo pone el servicio</mark>. Y en el listado, la acción de pasar de estado.</li>
+</ol>
+</div>
+<p>Los enunciados completos están en <a href="ejercicios.html">Ejercicios</a>.</p>
+<div class="ojo"><p class="ojo-t">La regla de fechas cambia</p><p>En Alquiler y Promoción, <code>FechaInicio</code> debe ser inferior a <code>FechaFin</code>. En Receta, <code>FechaEmision</code> debe ser igual a la fecha de hoy o el día previo. Leé la tuya con cuidado.</p>
+</div>
+</section>
+<section class="sec"><h2 id="las-capas">Las capas</h2>
+<p>Una aplicación en capas se divide en sectores mantenibles por función. Las capas son conceptuales, y cada una tiene al menos un componente físico. El laboratorio de la Unidad 7 usa estas (Lab. Agenda, pág. 1).</p>
+<ul>
+<li>Capa de Datos.</li>
+<li>Capa de Negocios.</li>
+<li>Capa de Presentación.</li>
+<li>Componentes transversales. Entidades, que pasan información entre capas, y Configuración, que centraliza por ejemplo la cadena de conexión.</li>
+</ul>
+<p>Lo de abajo sale de la presentación de la Unidad 7, <code>Presentación - Aplicaciones Empresariales.ppt</code>. Es de 2015 y sus ejemplos usan DataSets y ADO.NET, no Entity Framework. Queda porque el 2° parcial del 14/09/2026 y la aprobación directa siguen trabajando con proyectos separados. Los números son de diapositiva, contados desde el principio del archivo.</p>
+<h3 id="que-es-una-arquitectura">Qué es una arquitectura</h3>
+<div class="teorema"><p class="teorema-t">Arquitectura</p><p>«Es la descripción de los elementos utilizados para construir sistemas de software, la interacción entre estos elementos, los patrones que guían su composición y las restricciones de esos patrones.» Shaw-Garlan.</p>
+<p class="bloque-fuente">Presentación de Aplicaciones Empresariales, diapositiva 3</p></div>
+<p>Representa decisiones tempranas del diseño. Ahí se define cómo se van a satisfacer los atributos de calidad: performance, seguridad, mantenibilidad, escalabilidad y reusabilidad (diapositiva 6).</p>
+<h3 id="capas-logicas-y-fisicas">Capas lógicas y físicas</h3>
+<ul>
+<li><strong>Lógicas.</strong> Estructuran la solución de software y especifican qué componentes van en cada capa.</li>
+<li><strong>Físicas.</strong> Estructuran la infraestructura.</li>
+</ul>
+<p>Cada capa se comunica con la siguiente, y cada una se puede cambiar (diapositiva 11). «Los cambios en una capa deberían impactar mínimamente en las demás capas» (diapositiva 12). Lo que se intercambia «son los mensajes del contrato entre dos capas»: DataSets, XML u objetos (diapositiva 15).</p>
+<h3 id="las-tres-capas">Las tres capas</h3>
+<div class="tabla"><table><thead><tr><th>Capa</th><th>De qué se encarga</th><th>Funciones</th></tr></thead><tbody><tr><td>Presentación</td><td>«Mostrar la información al usuario e interpretar sus comandos». No hace procesamiento de negocios ni validaciones de negocio</td><td>Recoge la información del usuario, la manda a Negocios, recoge los resultados y los presenta</td></tr><tr><td>Negocio</td><td>«Representar los conceptos del negocio, información sobre la situación del negocio, y reglas del negocio». «Es el corazón del software»</td><td>Recibe la información de Presentación, usa los servicios de datos para la lógica y manda los resultados a Presentación</td></tr><tr><td>Datos</td><td>Bases relacionales u otros repositorios. Sus componentes exponen los datos a Negocio</td><td>Almacena y recibe datos, los mantiene y cuida su integridad</td></tr></tbody></table></div>
+<p>Fuente: diapositivas 18, 19 y 25.</p>
+<p>«La capa de presentación instancia a la capa de negocio, y la capa de negocio instancia a la capa de datos. La interfaz solo debe comunicarse con la capa de negocios, nunca con la de datos.» (Diapositiva 41.)</p>
+<p>La capa de negocio se implementa con estas piezas (diapositivas 20 a 24).</p>
+<div class="tabla"><table><thead><tr><th>Pieza</th><th>Qué es</th></tr></thead><tbody><tr><td>Service Interface</td><td>El punto de entrada. Expone la funcionalidad que otras aplicaciones pueden consumir</td></tr><tr><td>Business Entities</td><td>Contenedores de datos, en general sin lógica de negocios. Se usan como Data Transfer Objects entre capas</td></tr><tr><td>Business Components</td><td>Encapsulan las reglas de negocio de una entidad, como <code>FacturaBO.AplicarDescuento(factura, descuento)</code></td></tr><tr><td>Business Workflows</td><td>Actividades de alto nivel, como el proceso de una factura. Son métodos que no pertenecen a un objeto en particular</td></tr></tbody></table></div>
+<p>Del otro lado, los componentes de acceso a datos son «objetos sin comportamiento que solo saben guardar un Business Entity en la base de datos» (diapositiva 26).</p>
+<h3 id="ventajas-y-desventajas">Ventajas y desventajas</h3>
+<div class="tabla"><table><thead><tr><th>Ventajas (diapositiva 29)</th><th>Desventajas (diapositiva 30)</th></tr></thead><tbody><tr><td>Reutilización de capas</td><td>A veces no se logra la independencia deseada y hay que cambiar más de una capa</td></tr><tr><td>Los cambios quedan contenidos en una o pocas capas</td><td>Pérdida de eficiencia y performance</td></tr><tr><td>Clara distribución de responsabilidades</td><td>Trabajo innecesario de las capas internas, o redundante entre capas</td></tr><tr><td>Es más fácil trabajar en equipo</td><td>Cuesta diseñar bien los métodos de cada capa</td></tr><tr><td>Se puede cambiar de repositorio de datos o de interfaz con bajo impacto</td><td>Requiere una toma de decisiones arquitectónicas importante</td></tr></tbody></table></div>
+<p>Conviene cuando el proyecto es muy grande, cuando son varios programadores difíciles de coordinar o cuando es para una empresa con sucursales de métodos y políticas diferentes (diapositiva 28).</p>
+<div class="ejemplo"><p class="ejemplo-t">El mismo pedido en 1 capa y en 3</p><p>Una aplicación de escritorio maneja créditos y débitos de clientes. La solución en 1 capa tiene toda la lógica y el acceso a datos dentro de los formularios. La de 3 capas es una solución con tres proyectos: uno con los formularios, una class library con la lógica y otro con el acceso a datos.</p>
+<ul>
+<li><strong>Piden también una interfaz web.</strong> En 1 capa se vuelve a escribir toda la lógica y todo el acceso a datos. En 3 capas se agrega el sitio web, que hace referencia al proyecto de la lógica, y el acceso a datos no se toca.</li>
+<li><strong>Piden no permitir débitos ni transferencias con saldo menor a $10.</strong> En 1 capa se cambian las funciones en el sitio web y también en la aplicación de escritorio. En 3 capas se cambian solo en la clase de negocio.</li>
+</ul>
+<p class="bloque-fuente">Presentación de Aplicaciones Empresariales, diapositivas 31 a 44</p></div>
+<div class="tomado"><aside class="nota"><strong>Por qué múltiples proyectos</strong><span>2° parcial 14/09/2026</span></aside><p>Se preguntó por qué en el TPI se usan múltiples proyectos y clases en lugar de uno solo. Ninguna frase de la cátedra habla del TPI. Lo que sí escribió, en general, es que una solución en 3 capas tiene un proyecto por capa (diapositiva 34), que así los cambios quedan contenidos en una o pocas capas y se distribuyen las responsabilidades (diapositiva 29), y que «se agrupan funcionalidades similares en proyectos» (diapositiva 46). Fuente: <code>Presentación - Aplicaciones Empresariales.ppt</code>, de 2015.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Lineamientos de la cátedra para el examen</strong><span>Notas de la cátedra sobre un examen del 30/10/2024</span></aside><p>En el Drive hay <a href="https://drive.google.com/file/d/1cgUnqcUTQGcuUHSg47S3P2i78M8-8nmf/view">notas de la cátedra</a> sobre un examen de una inmobiliaria. No está el enunciado, pero sí lo que se aceptaba. Citas textuales:</p>
+<ul>
+<li><strong>Nombres.</strong> «Se podrían haber usado otros nombres en la medida que sean representativos.» Para el dominio, también <code>AppCore</code> o <code>Core</code>. Para presentación, <code>UI</code>, <code>Escritorio</code>, <code>Desktop</code>, <code>Winform</code> o <code>Presentación</code>. Para la API, <code>Endpoints</code>, <code>Api</code> o <code>PubliAPI</code>.</li>
+<li><strong>Más proyectos.</strong> «Era válido crear otros proyectos adicionales para mejorar el desacoplamiento», pero «no las recomendamos para el parcial ya que agregan complejidad y siempre vamos a tener un tiempo acotado».</li>
+<li><strong>DTO.</strong> Crear un DTO «busca desacoplar 100% el backend del frontend. A los fines del examen era válido compartir la entidad». Y «es importante que el alumno comprenda el impacto de acoplamiento que esto genera desde lo conceptual».</li>
+<li><strong>Validaciones.</strong> Del lado del cliente o del servidor, «para el alcance del parcial ambas opciones son válidas». Pero «nuestra API de servicios nunca puede confiarse de que la presentación va a realizar estas validaciones».</li>
+<li><strong>Configuración.</strong> La URL de los endpoints y el string de conexión «en un ejemplo real se recomienda moverlos a un archivo de configuración».</li>
+<li><strong>Depuración.</strong> Se configuró «que arranquen inicialmente el proyecto de presentación y el web api». Se cambia con botón derecho en la solución, en los proyectos de inicio.</li>
+</ul>
+</div>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Un DTO es una clase que existe solo para viajar entre la API y la pantalla. Si la pantalla usa la misma clase que la base, un cambio en la base puede romper la pantalla. Con un DTO en el medio, cada lado cambia por su cuenta. En el examen podías no usarlo, pero te pueden preguntar qué costo tiene.</p>
+</div>
+</section>
+<section class="sec"><h2 id="el-patron-repositorio">El patrón repositorio</h2>
+<div class="ojo"><p class="ojo-t">El material no lo desarrolla</p><p>Los exámenes lo piden, pero en los archivos de la cátedra del Drive que pude leer solo aparece nombrado. La presentación de EF dice que <code>DbContext</code> «representa una combinación de los patrones Unit of Work y Repository» (Unidad 4, Capítulo 2, diapositiva 7). Cómo se organiza en el examen se vio en clase y en el TPI. Pedile a tu comisión o mirá tu TPI antes de rendir. No te voy a dar una receta que la cátedra no escribió.</p>
+</div>
+</section>
+<section class="sec"><h2 id="entity-framework-en-la-aplicacion">Entity Framework en la aplicación</h2>
+<p>La teoría está en el <a href="parcial-2.html#entity-framework">2° parcial</a>. Acá van los pasos de los laboratorios.</p>
+<ol>
+<li>Agregar el paquete NuGet <code>Microsoft.<wbr>EntityFrameworkCore.<wbr>SqlServer</code> (Unidad 4, Capítulo 2, Laboratorio, pág. 1).</li>
+<li>Crear una clase que herede de <code>DbContext</code> y tenga una propiedad <code>DbSet&lt;T&gt;</code> por tabla.</li>
+<li>Configurar la conexión.</li>
+<li>Registrar el contexto en <code>Program.cs</code> con <code>builder.Services.AddDbContext&lt;...&gt;()</code> (Unidad 6, Laboratorio 1, pág. 2).</li>
+</ol>
+<p>La conexión puede ir de dos maneras en los laboratorios.</p>
+<ul>
+<li>Sobrescribiendo <code>OnConfiguring</code> y llamando a <code>optionsBuilder.UseSqlServer(...)</code> (Unidad 4, Capítulo 2, Laboratorio, pág. 1).</li>
+<li>En <code>appsettings.json</code>, en la sección <code>&quot;ConnectionStrings&quot;</code> (Unidad 6, Laboratorio 2, págs. 13 y 14).</li>
+</ul>
+<p>Para ver en la consola el SQL que genera el ORM, el laboratorio suma una línea en el <code>optionsBuilder</code>. Es <code>optionsBuilder.LogTo(Console.WriteLine, LogLevel.Information);</code> (Unidad 4, Capítulo 2, Laboratorio, pág. 2).</p>
+<div class="ejemplo"><p class="ejemplo-t">El contexto del laboratorio</p><pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">MyDbContext</span> : <span class="hljs-title">DbContext</span>
+{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyDbContext</span>(<span class="hljs-params">DbContextOptions&lt;MyDbContext&gt; options</span>) : <span class="hljs-title">base</span>(<span class="hljs-params">options</span>)</span> { }
+    <span class="hljs-keyword">public</span> DbSet&lt;Alumno&gt; Alumnos { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+}</code></pre>
+<p>«La clase hereda de DbContext y cada modelo o tabla nueva debemos agregarla en esta clase para poder manipularla en nuestra aplicación.»</p>
+<p class="bloque-fuente">Unidad 6, Laboratorio 2, pág. 20</p></div>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>En la pág. 20 de ese laboratorio la propiedad se imprime como <code>DbSet&lt;Alumno&gt; Productos</code>. Puse <code>Alumnos</code>, porque el controlador de las págs. 22 y 23 usa <code>_context.Alumnos</code>. Con <code>Productos</code>, ese controlador no compila.</p>
+</div>
+<h3 id="crear-la-base">Crear la base</h3>
+<div class="tomado"><aside class="nota"><strong>La base con el nombre pedido</strong><span>Aprobación directa 13/10/2025 y 05/10/2026</span></aside><p>Se pide que se cree «siguiendo los mecanismos que provee EF».</p>
+</div>
+<p>El material muestra dos mecanismos.</p>
+<ul>
+<li><code>this.Database.EnsureCreated();</code> en el constructor del contexto. El ORM «se asegure de crear la base de datos si la misma no existe» (Unidad 4, Capítulo 2, Laboratorio, pág. 2).</li>
+<li><strong>Migrations</strong>, nombrado en la presentación con un <a href="https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/">enlace a la documentación de Microsoft</a>, sin los comandos (Unidad 4, Capítulo 2, diapositiva 20).</li>
+</ul>
+<h3 id="la-clave-primaria">La clave primaria</h3>
+<p>La etiqueta <code>[Key]</code> marca la clave primaria. «Si tuvieramos un Id que fuera la clave primaria no es necesario identificarla de esta manera ya que es la clave primaria que se asume por defecto» (Unidad 6, Laboratorio 2, pág. 19).</p>
+</section>
+<section class="sec"><h2 id="la-api-rest">La API REST</h2>
+<p>Hay tres enfoques en ASP.NET Core (Presentación de la Unidad 6, diapositiva 13, y Laboratorio 1, pág. 3).</p>
+<ul>
+<li>Con el patrón MVC (tradicional). Qué es MVC está en <a href="parcial-2.html#lo-que-quedo-del-plan-viejo">lo que quedó del plan viejo</a>.</li>
+<li>API mínima (nuevo).</li>
+<li>API endpoints (app de referencia, con el paquete <code>Ardalis.ApiEndpoints</code>).</li>
+</ul>
+<p>Las respuestas que espera la cátedra para un ABMC:</p>
+<div class="tabla"><table><thead><tr><th>Verbo</th><th>Hace</th><th>Código</th></tr></thead><tbody><tr><td><code>GET</code></td><td>Devuelve todos</td><td>200 OK</td></tr><tr><td><code>GET</code> con id</td><td>Devuelve uno</td><td>200 OK si existe, 404 Not Found si no</td></tr><tr><td><code>POST</code></td><td>Crea</td><td>201 Created</td></tr><tr><td><code>PUT</code></td><td>Actualiza</td><td>204 No Content si existe, 404 Not Found si no</td></tr><tr><td><code>DELETE</code></td><td>Elimina</td><td>204 No Content si existe, 404 Not Found si no</td></tr></tbody></table></div>
+<p>Fuente: Unidad 6, Laboratorio 1, pág. 3.</p>
+<details class="pregunta"><summary><span>¿Qué código de estado indica que no se encuentra el recurso?</span><small>2° parcial 14/09/2026</small></summary><div class="resp"><p>«404 Not Found, si no existe.» Fuente: Unidad 6, Laboratorio 1, pág. 3, y Presentación de la Unidad 6, diapositiva 9.</p>
+</div></details>
+<div class="ejemplo"><p class="ejemplo-t">Dos operaciones con API mínima</p><pre class="codigo"><code>app.MapGet(<span class="hljs-string">&quot;/alumnos/{id}&quot;</span>, <span class="hljs-keyword">async</span> (<span class="hljs-built_in">int</span> id, UniversidadContext context) =&gt;
+    <span class="hljs-keyword">await</span> context.Alumnos.FindAsync(id) <span class="hljs-keyword">is</span> Alumno alumno
+        ? Results.Ok(alumno)
+        : Results.NotFound());
+
+app.MapPost(<span class="hljs-string">&quot;/alumnos&quot;</span>, <span class="hljs-keyword">async</span> (Alumno alumno, UniversidadContext context) =&gt;
+{
+    context.Alumnos.Add(alumno);
+    <span class="hljs-keyword">await</span> context.SaveChangesAsync();
+    <span class="hljs-keyword">return</span> Results.Created(<span class="hljs-string">$&quot;/alumnos/<span class="hljs-subst">{alumno.Id}</span>&quot;</span>, alumno);
+});</code></pre>
+<p class="bloque-fuente">Unidad 6, Laboratorio 1, pág. 3</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Un controlador</p><pre class="codigo"><code>[<span class="hljs-meta">ApiController</span>]
+[<span class="hljs-meta">Route(<span class="hljs-string">&quot;api/[controller]&quot;</span>)</span>]
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AlumnoController</span> : <span class="hljs-title">ControllerBase</span>
+{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> MyDbContext _context;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AlumnoController</span>(<span class="hljs-params">MyDbContext context</span>)</span>
+    {
+        _context = context;
+    }
+    [<span class="hljs-meta">HttpGet(<span class="hljs-string">&quot;{DNI}&quot;</span>)</span>]
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ActionResult&lt;Alumno&gt; <span class="hljs-title">GetById</span>(<span class="hljs-params">String DNI</span>)</span>
+    {
+        <span class="hljs-keyword">var</span> alumno = _context.Alumnos.Find(DNI);
+        <span class="hljs-keyword">if</span> (alumno == <span class="hljs-literal">null</span>)
+        {
+            <span class="hljs-keyword">return</span> NotFound();
+        }
+        <span class="hljs-keyword">return</span> alumno;
+    }
+}</code></pre>
+<p>El laboratorio completa con <code>Create</code>, <code>Update</code> y <code>Delete</code>, y marca los verbos con <code>[HttpGet]</code>, <code>[HttpPost]</code>, <code>[HttpPut]</code> y <code>[HttpDelete]</code>.</p>
+<p class="bloque-fuente">Unidad 6, Laboratorio 2, págs. 22 y 23</p></div>
+<div class="ojo"><p class="ojo-t">Ese controlador no es asíncrono</p><p>Es del laboratorio 2 y usa <code>Find</code>, <code>ToList</code> y <code>SaveChanges</code>. El examen pide que todos los servicios sean asíncronos. El laboratorio 1 dice «Utilizar flujos asíncronos (async / await) para exponer cada una de las operaciones» y usa <code>FindAsync</code> y <code>SaveChangesAsync</code>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="programacion-asincrona">Programación asíncrona</h2>
+<p>Se usa «si tenemos cualquier necesidad I/O-bound», como solicitar datos de una red, acceder a una base de datos o leer archivos. También sirve para código CPU-bound, un cálculo costoso (Presentación de Programación Asíncrona, diapositiva 3).</p>
+<p>El laboratorio lo aplica a la API: los flujos asíncronos «son los flujos recomendados para interacciones con una base de datos (I/O-bound)» (Unidad 6, Laboratorio 1, pág. 1).</p>
+<div class="tabla"><table><thead><tr><th>Pieza</th><th>Qué es</th></tr></thead><tbody><tr><td><code>Task</code> y <code>Task&lt;T&gt;</code></td><td>Modelan las operaciones asincrónicas</td></tr><tr><td><code>async</code></td><td>«Convierte un método en un método asincrónico», y permite usar <code>await</code> en su cuerpo</td></tr><tr><td><code>await</code></td><td>«Se suspende el método invocado y se cede el control de vuelta al autor de la invocación hasta que se completa la tarea esperada»</td></tr><tr><td><code>Task.Run</code></td><td>Inicia trabajo CPU-bound en un subproceso en segundo plano</td></tr><tr><td><code>Task.WhenAll</code></td><td>Espera varios trabajos, sin bloquear</td></tr></tbody></table></div>
+<p>Fuente: Presentación de Programación Asíncrona, diapositivas 4, 7 y 8.</p>
+<p>El código asincrónico sirve para los dos casos, «pero de forma distinta en cada escenario» (diapositiva 7). La diapositiva 4 marca la diferencia.</p>
+<ul>
+<li><strong>Código I/O-bound</strong>: se espera con <code>await</code> una operación que devuelve <code>Task</code> o <code>Task&lt;T&gt;</code>, dentro de un método <code>async</code>.</li>
+<li><strong>Código CPU-bound</strong>: se espera con <code>await</code> una operación que se inicia en un subproceso en segundo plano con <code>Task.Run</code>.</li>
+</ul>
+<div class="ejemplo"><p class="ejemplo-t">Los dos casos sin bloquear la pantalla</p><pre class="codigo"><code><span class="hljs-comment">// I/O-bound: bajar datos de un servicio web al presionar un botón</span>
+<span class="hljs-keyword">private</span> <span class="hljs-keyword">readonly</span> HttpClient _httpClient = <span class="hljs-keyword">new</span> HttpClient();
+downloadButton.Clicked += <span class="hljs-keyword">async</span> (o, e) =&gt;
+{
+    <span class="hljs-keyword">var</span> stringData = <span class="hljs-keyword">await</span> _httpClient.GetStringAsync(URL);
+    DoSomethingWithData(stringData);
+};
+
+<span class="hljs-comment">// CPU-bound: un cálculo costoso en un subproceso en segundo plano</span>
+calculateButton.Clicked += <span class="hljs-keyword">async</span> (o, e) =&gt;
+{
+    <span class="hljs-keyword">var</span> damageResult = <span class="hljs-keyword">await</span> Task.Run(() =&gt; CalculateDamageDone());
+    DisplayDamage(damageResult);
+};</code></pre>
+<p>En los dos casos, mientras se espera, el subproceso de la interfaz queda libre para hacer otro trabajo.</p>
+<p class="bloque-fuente">Presentación de Programación Asíncrona, diapositivas 5 y 6</p></div>
+<div class="ejemplo"><p class="ejemplo-t">Esperar varios trabajos</p><pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task&lt;IEnumerable&lt;User&gt;&gt; GetUsersAsync(IEnumerable&lt;<span class="hljs-built_in">int</span>&gt; userIds)
+{
+    <span class="hljs-keyword">var</span> getUserTasks = <span class="hljs-keyword">new</span> List&lt;Task&lt;User&gt;&gt;();
+    <span class="hljs-keyword">foreach</span> (<span class="hljs-built_in">int</span> userId <span class="hljs-keyword">in</span> userIds)
+    {
+        getUserTasks.Add(GetUserAsync(userId));
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> Task.WhenAll(getUserTasks);
+}</code></pre>
+<p class="bloque-fuente">Presentación de Programación Asíncrona, diapositiva 8</p></div>
+<p>Reglas de la diapositiva 9:</p>
+<ul>
+<li>Los métodos <code>async</code> deben tener un <code>await</code> en el cuerpo, o serán ineficientes.</li>
+<li>Agregá «Async» como sufijo al nombre de los métodos asincrónicos.</li>
+<li><code>async void</code> solo se usa para manejadores de eventos.</li>
+<li>Escribí código menos «stateful». Es decir, no depender del estado de objetos globales (shared state), sino solo de los valores que devuelven los métodos.</li>
+</ul>
+<p>Y una que se olvida: <mark><code>await</code> solo puede usarse dentro de un método asincrónico</mark> (diapositiva 7).</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Pensá en pedir un café. Sincrónico es quedarte parado en la barra sin hacer nada hasta que te lo den. Asincrónico es pedirlo, sentarte a contestar mensajes, y que te llamen cuando está. En una pantalla, eso hace que la ventana no se congele mientras espera la base.</p>
+</div>
+</section>
+<section class="sec"><h2 id="swagger">Swagger</h2>
+<p>OpenAPI, antes Swagger, es «una especificación que define un formato de descripción para APIs REST». Permite describir una API completa (Presentación de la Unidad 6, diapositiva 11).</p>
+<ul>
+<li>Los recursos disponibles, como <code>/usuarios</code>.</li>
+<li>Las operaciones sobre cada recurso, como <code>GET /usuarios</code> y <code>POST /usuarios</code>.</li>
+<li>Los parámetros de entrada y salida de cada operación.</li>
+<li>Los métodos de autenticación.</li>
+<li>La información de contacto, la licencia, los términos de uso y otros datos.</li>
+</ul>
+<div class="ejemplo"><p class="ejemplo-t">Habilitarlo en Program.cs</p><pre class="codigo"><code><span class="hljs-keyword">var</span> builder = WebApplication.CreateBuilder(<span class="hljs-keyword">args</span>);
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+<span class="hljs-keyword">var</span> app = builder.Build();
+<span class="hljs-keyword">if</span> (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+app.Run();</code></pre>
+<p>Hace falta el paquete NuGet <code>Swashbuckle.AspNetCore</code> (pág. 9). Desde el navegador probás las operaciones en la interfaz que genera (Laboratorio 1, pág. 3).</p>
+<p class="bloque-fuente">Unidad 6, Laboratorio 2, pág. 17</p></div>
+</section>
+<section class="sec"><h2 id="la-pantalla-que-consume-la-api">La pantalla que consume la API</h2>
+<h3 id="con-windows-forms">Con Windows Forms</h3>
+<p>El laboratorio arma tres proyectos: el cliente WinForm, <code>Entidades</code> y <code>Negocio</code>, que consulta los servicios. <code>Negocio</code> lleva el paquete <code>Microsoft.AspNet.WebApi.Client</code> (Unidad 6, Laboratorio 3, págs. 2 y 4).</p>
+<div class="ejemplo"><p class="ejemplo-t">Consumir el servicio</p><p>Una clase <code>Conexion</code> crea un único <code>HttpClient</code>, con el patrón Singleton. Después:</p>
+<pre class="codigo"><code><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">async</span> Task&lt;IEnumerable&lt;Alumno&gt;&gt; GetAll()
+{
+    <span class="hljs-keyword">var</span> response = <span class="hljs-keyword">await</span> Conexion.Instancia.Cliente.GetStringAsync(<span class="hljs-string">&quot;https://localhost:7011/api/Alumno/&quot;</span>);
+    <span class="hljs-keyword">var</span> data = JsonConvert.DeserializeObject&lt;List&lt;Alumno&gt;&gt;(response);
+    <span class="hljs-keyword">return</span> data;
+}</code></pre>
+<p>«Este método (GetAll) va a ser un método asíncrono ya que vamos a estar consumiendo un servicio.» Para borrar usa <code>DeleteAsync</code> y le pasa el DNI en la ruta (pág. 14).</p>
+<p class="bloque-fuente">Unidad 6, Laboratorio 3, págs. 5 y 6</p></div>
+<p>El puerto sale de la configuración de la solución de la API, en <code>applicationUrl</code> (pág. 7). En el formulario, el oyente del botón se marca <code>async</code>, para no quedar bloqueado esperando (pág. 11).</p>
+<div class="ojo"><p class="ojo-t">Dos soluciones corriendo</p><p>En el laboratorio, la API y el cliente son dos soluciones. Primero se ejecuta la API, que «va a quedar corriendo». Recién ahí se ejecuta el formulario (Unidad 6, Laboratorio 3, pág. 12).</p>
+</div>
+<h3 id="con-blazor">Con Blazor</h3>
+<p>La teoría está en el <a href="parcial-2.html#blazor">2° parcial</a>. Para formularios conviene el enlace two-way (Presentación de Blazor, diapositiva 17). En el Drive no hay un laboratorio de Blazor con una API, así que practicalo con tu TPI.</p>
+</section>
+<section class="sec"><h2 id="convenciones">Convenciones</h2>
+<div class="tomado"><aside class="nota"><strong>Se corrigen</strong><span>Aprobación directa 13/10/2025 y 05/10/2026, y 1° parcial 2025 y 2026</span></aside><p>Los enunciados evalúan «uso de convenciones». Lo que escribe el material:</p>
+<ul>
+<li><code>[Apellido].[NombreProyecto]</code> en proyectos y namespaces (enunciado de aprobación directa).</li>
+<li>Prefijo «I» en las interfaces (Unidad 2, Capítulo 2, diapositiva 35).</li>
+<li>Sufijo «Async» en los métodos asincrónicos (Programación Asíncrona, diapositiva 9).</li>
+</ul>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="aprobacion-directa" data-materia="tecnologias-de-desarrollo-de-software-ide">
+<h2>Quiz de aprobación directa</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="L5TvIemzsX" data-tema="Servicios web" data-enlace="parcial-2.html#servicios-web" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-1"><span class="q-n">1</span><div><p>En REST, ¿qué verbo se usa para crear un recurso?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-1"><li><button type="button" class="op" data-ok="0">GET</button></li><li><button type="button" class="op" data-ok="1">POST</button></li><li><button type="button" class="op" data-ok="0">DELETE</button></li><li><button type="button" class="op" data-ok="0">RUN</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>GET recupera, POST crea, PUT actualiza y DELETE elimina.</p>
+</div></li><li class="q" data-q="ErHEe_0LnQ" data-tema="La API REST" data-enlace="aprobacion-directa.html#la-api-rest" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-2"><span class="q-n">2</span><div><p>Según la tabla del laboratorio, ¿qué responde un PUT cuando el recurso existe?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-2"><li><button type="button" class="op" data-ok="0">200 OK</button></li><li><button type="button" class="op" data-ok="0">201 Created</button></li><li><button type="button" class="op" data-ok="1">204 No Content</button></li><li><button type="button" class="op" data-ok="0">404 Not Found</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>PUT y DELETE responden 204 si existe y 404 si no. POST responde 201.</p>
+</div></li><li class="q" data-q="s1vf3kqZJ-" data-tema="Programación asíncrona" data-enlace="aprobacion-directa.html#programacion-asincrona" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-3"><span class="q-n">3</span><div><p>¿Dónde se puede usar <code>await</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-3"><li><button type="button" class="op" data-ok="1">Solo dentro de un método asincrónico</button></li><li><button type="button" class="op" data-ok="0">En cualquier método</button></li><li><button type="button" class="op" data-ok="0">Solo en Program.cs</button></li><li><button type="button" class="op" data-ok="0">Solo en un constructor</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación lo aclara, y <code>async</code> es lo que habilita usar <code>await</code> en el cuerpo.</p>
+</div></li><li class="q" data-q="dky-MZ3pEW" data-tema="Programación asíncrona" data-enlace="aprobacion-directa.html#programacion-asincrona" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-4"><span class="q-n">4</span><div><p>¿Cuándo se usa <code>async void</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-4"><li><button type="button" class="op" data-ok="0">En todo método asíncrono</button></li><li><button type="button" class="op" data-ok="0">Solo en los servicios</button></li><li><button type="button" class="op" data-ok="0">Nunca se puede usar</button></li><li><button type="button" class="op" data-ok="1">Solo para manejadores de eventos</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es una de las buenas prácticas de la presentación.</p>
+</div></li><li class="q" data-q="VYaA6tYf2I" data-tema="Programación asíncrona" data-enlace="aprobacion-directa.html#programacion-asincrona" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-5"><span class="q-n">5</span><div><p>¿Qué sufijo recomienda la presentación para los métodos asincrónicos?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-5"><li><button type="button" class="op" data-ok="0">Task</button></li><li><button type="button" class="op" data-ok="0">Await</button></li><li><button type="button" class="op" data-ok="1">Async</button></li><li><button type="button" class="op" data-ok="0">Run</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Por eso aparecen nombres como SaveChangesAsync y FindAsync.</p>
+</div></li><li class="q" data-q="dXZ4FB4vNA" data-tema="Programación asíncrona" data-enlace="aprobacion-directa.html#programacion-asincrona" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-6"><span class="q-n">6</span><div><p>Para el laboratorio de la Unidad 6, ¿qué tipo de operación es interactuar con una base de datos?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-6"><li><button type="button" class="op" data-ok="0">CPU-bound</button></li><li><button type="button" class="op" data-ok="1">I/O-bound</button></li><li><button type="button" class="op" data-ok="0">Una operación sin espera</button></li><li><button type="button" class="op" data-ok="0">Depende de la pantalla</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Dice que los flujos asíncronos son los recomendados para interacciones con una base de datos (I/O-bound).</p>
+</div></li><li class="q" data-q="az5LNOUPQ5" data-tema="Swagger" data-enlace="aprobacion-directa.html#swagger" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-7"><span class="q-n">7</span><div><p>¿Qué es OpenAPI, antes Swagger?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-7"><li><button type="button" class="op" data-ok="1">Una especificación que define un formato de descripción para APIs REST</button></li><li><button type="button" class="op" data-ok="0">Un motor de base de datos</button></li><li><button type="button" class="op" data-ok="0">Un control de Windows Forms</button></li><li><button type="button" class="op" data-ok="0">El compilador de ASP.NET Core</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Describe recursos, operaciones, parámetros y autenticación.</p>
+</div></li><li class="q" data-q="n3_0TWSnO6" data-tema="Las capas" data-enlace="aprobacion-directa.html#las-capas" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-8"><span class="q-n">8</span><div><p>En las notas de la cátedra, ¿qué busca un DTO?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-8"><li><button type="button" class="op" data-ok="0">Acelerar las consultas a la base</button></li><li><button type="button" class="op" data-ok="0">Reemplazar a Entity Framework</button></li><li><button type="button" class="op" data-ok="0">Crear la base de datos</button></li><li><button type="button" class="op" data-ok="1">Desacoplar el backend del frontend</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>«Busca desacoplar 100% el backend del frontend.» A los fines de ese examen era válido compartir la entidad.</p>
+</div></li><li class="q" data-q="cxrersaaTE" data-tema="Las capas" data-enlace="aprobacion-directa.html#las-capas" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-9"><span class="q-n">9</span><div><p>Según las notas de la cátedra, si validás en la pantalla, ¿la API puede confiarse?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-9"><li><button type="button" class="op" data-ok="0">Sí, alcanza con la pantalla</button></li><li><button type="button" class="op" data-ok="0">Sí, si la pantalla es Windows Forms</button></li><li><button type="button" class="op" data-ok="1">No, la API nunca puede confiarse de eso</button></li><li><button type="button" class="op" data-ok="0">Solo si usa Swagger</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>«Nuestra API de servicios nunca puede confiarse de que la presentación va a realizar estas validaciones.»</p>
+</div></li><li class="q" data-q="fUw3hsX7zj" data-tema="Las capas" data-enlace="aprobacion-directa.html#las-capas" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-10"><span class="q-n">10</span><div><p>Según las notas de la cátedra, ¿dónde se recomienda poner la URL de los endpoints en un ejemplo real?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-10"><li><button type="button" class="op" data-ok="1">En un archivo de configuración</button></li><li><button type="button" class="op" data-ok="0">En un comentario del código</button></li><li><button type="button" class="op" data-ok="0">En el nombre del proyecto</button></li><li><button type="button" class="op" data-ok="0">En la base de datos</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Lo recomienda para la URL y para el string de conexión.</p>
+</div></li><li class="q" data-q="uHXi3mft_U" data-tema="La clave primaria" data-enlace="aprobacion-directa.html#la-clave-primaria" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-11"><span class="q-n">11</span><div><p>Tu entidad tiene una propiedad <code>Id</code>, que es la clave primaria. ¿Hace falta marcarla con <code>[Key]</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-11"><li><button type="button" class="op" data-ok="0">Sí, siempre</button></li><li><button type="button" class="op" data-ok="1">No, se asume por defecto</button></li><li><button type="button" class="op" data-ok="0">Solo con SQL Server</button></li><li><button type="button" class="op" data-ok="0">Solo en la API</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El laboratorio usa [Key] para el DNI, y aclara que un Id es la clave primaria que se asume por defecto.</p>
+</div></li><li class="q" data-q="Ud9FbBvsvB" data-tema="Crear la base" data-enlace="aprobacion-directa.html#crear-la-base" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-12"><span class="q-n">12</span><div><p>¿Qué instrucción del laboratorio hace que el ORM cree la base si no existe?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-12"><li><button type="button" class="op" data-ok="0">this.Database.Open();</button></li><li><button type="button" class="op" data-ok="0">optionsBuilder.LogTo(...);</button></li><li><button type="button" class="op" data-ok="1">this.Database.EnsureCreated();</button></li><li><button type="button" class="op" data-ok="0">context.SaveChanges();</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El laboratorio la pone en el constructor del contexto.</p>
+</div></li><li class="q" data-q="j26kA0LEQW" data-tema="Con Windows Forms" data-enlace="aprobacion-directa.html#con-windows-forms" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-13"><span class="q-n">13</span><div><p>En el laboratorio del cliente WinForm, ¿qué patrón usa la clase <code>Conexion</code> para el <code>HttpClient</code>?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-13"><li><button type="button" class="op" data-ok="0">Repositorio</button></li><li><button type="button" class="op" data-ok="0">Unit of Work</button></li><li><button type="button" class="op" data-ok="0">DTO</button></li><li><button type="button" class="op" data-ok="1">Singleton</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La clase crea una única instancia del HttpClient.</p>
+</div></li><li class="q" data-q="vWlMyTiwRN" data-tema="Programación asíncrona" data-enlace="aprobacion-directa.html#programacion-asincrona" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-14"><span class="q-n">14</span><div><p>¿Qué usarías para esperar varios trabajos asincrónicos sin bloquear?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-14"><li><button type="button" class="op" data-ok="1">Task.WhenAll</button></li><li><button type="button" class="op" data-ok="0">Task.Run</button></li><li><button type="button" class="op" data-ok="0">async void</button></li><li><button type="button" class="op" data-ok="0">Console.ReadKey</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Task.Run inicia trabajo CPU-bound en segundo plano. Para esperar varios está Task.WhenAll.</p>
+</div></li><li class="q" data-q="qf6vXUEtyH" data-tema="Las capas" data-enlace="aprobacion-directa.html#las-capas" data-tipo="mc"><div class="q-enun" id="qe-aprobacion-directa-15"><span class="q-n">15</span><div><p>En una arquitectura de 3 capas, ¿con qué capa debe comunicarse la interfaz?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-aprobacion-directa-15"><li><button type="button" class="op" data-ok="0">Con la de datos, para leer más rápido</button></li><li><button type="button" class="op" data-ok="1">Solo con la de negocios</button></li><li><button type="button" class="op" data-ok="0">Con la de negocios y la de datos</button></li><li><button type="button" class="op" data-ok="0">Con ninguna</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>«La interfaz solo debe comunicarse con la capa de negocios, nunca con la de datos.»</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). En el Drive no hay ningún final. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

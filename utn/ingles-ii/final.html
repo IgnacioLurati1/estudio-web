@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final: Inglés II</title>
+<meta name="description" content="Escucha, lectura, ensayo de 250 palabras y debate oral.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="ingles-ii" data-pagina="final">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Inglés II</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html" aria-current="page">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=ingles-ii">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=ingles-ii">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#que-se-tomo">Qué se tomó</a></li><li class="n2"><a href="#parte-1-a-escucha">Parte 1-A, escucha</a></li><li class="n2"><a href="#parte-1-b-lectura">Parte 1-B, lectura</a></li><li class="n3"><a href="#definir-con-informacion-del-texto">Definir con información del texto</a></li><li class="n3"><a href="#decidir-si-algo-apoya-o-contradice">Decidir si algo apoya o contradice</a></li><li class="n3"><a href="#reconocer-que-sostiene-cada-autor">Reconocer qué sostiene cada autor</a></li><li class="n3"><a href="#unir-ideas-con-conectores">Unir ideas con conectores</a></li><li class="n3"><a href="#opcion-multiple-con-t">Opción múltiple con T</a></li><li class="n2"><a href="#parte-2-escritura">Parte 2, escritura</a></li><li class="n3"><a href="#como-se-arma">Cómo se arma</a></li><li class="n3"><a href="#como-sonar-academico">Cómo sonar académico</a></li><li class="n3"><a href="#antes-de-entregar">Antes de entregar</a></li><li class="n2"><a href="#como-es-el-oral">Cómo es el oral</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Final</h1>
+<p class="bajada">El modelo de 2023 tiene cuatro partes: escucha, lectura, un ensayo de unas 250 palabras y un debate oral.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="que-se-tomo">Qué se tomó</h2>
+<p>De 2023 en adelante, el Drive tiene un solo final, el modelo «Plan 2023» del 14/11/2023. Es un examen, así que no se puede decir qué se repite. Lo de 2022 o antes queda al final de esta página.</p>
+<div class="tabla"><table><thead><tr><th>Parte</th><th>Puntos</th><th>Qué es</th></tr></thead><tbody><tr><td>1-A</td><td>no figura en la hoja</td><td>Escucha</td></tr><tr><td>1-B</td><td>45</td><td>Lectura de dos textos</td></tr><tr><td>2</td><td>40</td><td>Ensayo de unas 250 palabras</td></tr><tr><td>Oral</td><td>no figura</td><td>Debate grupal con moderador</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Parte 1-A, escucha</strong><span>Modelo de final, 14/11/2023</span></aside><ul>
+<li>Question 1.a. Una charla sobre tomar notas. Marcar con T dos factores entre cinco.</li>
+<li>Question 1.b. Segunda parte de la charla. Completar unas notas con <strong>una sola palabra</strong> por hueco.</li>
+<li>Question 2. Una charla sobre jóvenes que viven solos. Elegir la letra A a C del gráfico que corresponde a cada pregunta.</li>
+</ul>
+<p>El Drive no trae el audio ni la clave.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Parte 1-B, lectura</strong><span>Modelo de final, 14/11/2023</span></aside><p>El texto principal es «Why violence in video games isn&#39;t really a problem».</p>
+<ul>
+<li>Question 1 (17 p.). Cuatro preguntas abiertas. Definir un concepto con información del texto (5 p.), decir qué sostienen en cambio los autores (4 p.), decidir si un punto de vista es apoyado o contradicho y explicar por qué (4 p.), y contar qué responde la autora a la pregunta del título (4 p.).</li>
+<li>Question 2 (12 p., 2,40 p. cada una). Unir ideas de cinco citas con los conectores de una caja desordenada, cambiando algo de las oraciones. La caja trae <code>as a consequence</code>, <code>on the other hand</code>, <code>however</code>, <code>in addition to this</code> y <code>although</code>.</li>
+<li>Question 3 (16 p., 2 p. cada una). Un segundo texto, «Video games are good for you!», con ocho preguntas de opción múltiple. Se escribe T junto a la mejor respuesta.</li>
+</ul>
+<p>La clave está en <a href="ejercicios.html">Ejercicios</a>.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Parte 2, ensayo</strong><span>Modelo de final, 14/11/2023</span></aside><p>Ensayo de unas 250 palabras titulado «Beneficial and harmful effects of video games». La situación es un seminario universitario para estudiantes de ingeniería sobre los efectos de la tecnología. La hoja pide un argumento equilibrado antes de dar la opinión propia, con evidencia clara y convincente.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Oral</strong><span>Modelo de final, 2023</span></aside><p>Tarea grupal de dos o tres estudiantes. Es una discusión o debate sobre un tema de actualidad polémico, relacionado con la ingeniería. Un docente modera y otro observa con una rúbrica.</p>
+</div>
+</section>
+<section class="sec"><h2 id="parte-1-a-escucha">Parte 1-A, escucha</h2>
+<p>La hoja no dice cuántas veces se escucha el audio. Preguntalo en tu comisión.</p>
+<ul>
+<li>Leé las consignas antes de escuchar. Así sabés qué buscar.</li>
+<li>En «Write ONLY ONE WORD» escribí exactamente una palabra.</li>
+<li>En una consigna con gráficos, mirá antes del audio en qué se diferencian las opciones.</li>
+<li>Practicá con <a href="parcial-1.html#tomar-notas">tomar notas</a>, que tiene abreviaturas y un ejemplo.</li>
+<li>Prestá atención a las frases con las que el que habla ordena la charla. Marcan dónde empieza cada parte de tus notas. La clave de Oxford EAP trae <code>In today&#39;s lecture</code>, <code>I&#39;d like to talk about</code>, <code>The main focus</code>, <code>First</code>, <code>Then</code>, <code>After that</code>, <code>Finally</code> y <code>Finally, in my conclusion</code> (Answer Key, unidad 7, páginas 30 y 31).</li>
+</ul>
+</section>
+<section class="sec"><h2 id="parte-1-b-lectura">Parte 1-B, lectura</h2>
+<h3 id="definir-con-informacion-del-texto">Definir con información del texto</h3>
+<p>La unidad de definiciones de Oxford EAP trae estas formas (Answer Key, unidad 2, página 7).</p>
+<div class="tabla"><table><thead><tr><th>Forma</th><th>Ejemplo de la clave del libro</th></tr></thead><tbody><tr><td><code>X is when…</code></td><td><code>Taking notes is when you write down the key points…</code></td></tr><tr><td><code>X is another word for…</code></td><td><code>A lecturer is another word for a university teacher.</code></td></tr><tr><td><code>X is a type of… for…</code></td><td><code>A seminar is a type of class for discussing ideas.</code></td></tr><tr><td><code>X is a… which…</code></td><td><code>History is a subject which involves the study of past events.</code></td></tr><tr><td><code>X is defined as…</code></td><td><code>Prime numbers are defined as numbers that can only be divided by 1 and themselves.</code></td></tr><tr><td><code>X means…</code></td><td><code>Self-study means being responsible for your own learning.</code></td></tr><tr><td><code>X is another term for…</code></td><td><code>Replication is another term for copying something exactly.</code></td></tr><tr><td><code>X is a… for…</code> más -ing</td><td><code>A memory stick is a device for storing data.</code></td></tr></tbody></table></div>
+<p>Fuente: Oxford EAP, Answer Key, unidad 2, páginas 7 a 10.</p>
+<p>Una definición más completa nombra primero la clase de cosa y después suma una frase con preposición o una <a href="parcial-2.html#who-which-that-y-where">oración de relativo</a> que la distingue. La clave lo muestra con <code>A postcode is a group of letters and numbers which indicates an address</code> (página 9).</p>
+<p>Para explicar lo que acabás de definir, la misma unidad usa <code>This means that…</code> y <code>In other words…</code> (página 8).</p>
+<p>Usá tus palabras y las ideas del texto. Ver <a href="parcial-2.html#parafrasear">parafrasear</a>. Si el concepto es de otro autor, atribuilo con <code>according to</code>.</p>
+<h3 id="decidir-si-algo-apoya-o-contradice">Decidir si algo apoya o contradice</h3>
+<p>Escribí una de las dos palabras y explicá por qué con un dato del texto. La consigna dice «Account for your answer», o sea, justificá.</p>
+<h3 id="reconocer-que-sostiene-cada-autor">Reconocer qué sostiene cada autor</h3>
+<p>Un texto académico avisa de quién es cada postura con verbos y frases fijas (Oxford EAP, Answer Key, unidad 5, páginas 21 y 24, y unidad 7, página 34).</p>
+<div class="tabla"><table><thead><tr><th>Para qué</th><th>Frases de la clave</th></tr></thead><tbody><tr><td>Atribuir una idea</td><td><code>According to X</code>, <code>In their view</code>, <code>In their opinion</code>, <code>X&#39;s view is that</code></td></tr><tr><td>Verbos para citar</td><td><code>states</code>, <code>says</code>, <code>argues</code>, <code>claims</code>, <code>notes</code>, <code>believes</code>, <code>suggests</code>, <code>points out</code>, <code>concludes</code>, <code>has shown</code></td></tr><tr><td>Contar varias posturas</td><td><code>One view is that…</code>, <code>Another view is that…</code>, <code>The majority view was that…</code>, <code>X expressed the view that…</code></td></tr></tbody></table></div>
+<h3 id="unir-ideas-con-conectores">Unir ideas con conectores</h3>
+<p>La consigna avisa que hay que hacer algunos cambios en las oraciones. Cada conector tiene su lugar y su puntuación. Mirá <a href="parcial-2.html#donde-va-cada-uno">dónde va cada uno</a>.</p>
+<h3 id="opcion-multiple-con-t">Opción múltiple con T</h3>
+<p>Se escribe una T junto a la mejor respuesta. Ubicá en el texto la parte de cada pregunta y descartá lo que el texto no dice.</p>
+</section>
+<section class="sec"><h2 id="parte-2-escritura">Parte 2, escritura</h2>
+<p>La hoja pide esto.</p>
+<ul>
+<li>Unas 250 palabras.</li>
+<li>El título que se da.</li>
+<li>Un argumento equilibrado <strong>antes</strong> de la opinión propia.</li>
+<li>Evidencia clara y convincente para cada punto de vista.</li>
+</ul>
+<h3 id="como-se-arma">Cómo se arma</h3>
+<p>El libro de Oxford EAP dedica la unidad 10 a argumentar. Este armado sale de ahí y de Oxford Academic Vocabulary Practice, página 29. Es del libro, no una pauta de la cátedra, y si choca con la hoja manda la hoja.</p>
+<div class="tabla"><table><thead><tr><th>Parte</th><th>Qué lleva</th><th>Frases del material</th></tr></thead><tbody><tr><td>Introducción</td><td>Presenta el tema y da contexto. Reconoce el punto de vista opuesto y dice qué se propone el ensayo</td><td><code>While there are…</code>, <code>this essay will argue…</code></td></tr><tr><td>Cuerpo</td><td>Un punto principal por párrafo, con apoyo de ejemplos y referencias. En el ejemplo de la clave, cada párrafo mira el tema desde una perspectiva, ética, legal, ambiental o socioeconómica</td><td><code>First of all</code>, <code>Furthermore</code>, <code>In addition</code>, <code>However</code></td></tr><tr><td>Conclusión</td><td>Un resumen breve, el argumento principal de nuevo y un comentario final, como por qué importa el tema. En el ejemplo de la clave también vuelve a reconocer el punto de vista opuesto antes de reafirmar la postura</td><td><code>In conclusion</code>, <code>To conclude</code></td></tr></tbody></table></div>
+<p>Fuente: Oxford EAP, Answer Key, unidad 10, páginas 46 y 48.</p>
+<h3 id="como-sonar-academico">Cómo sonar académico</h3>
+<ul>
+<li><strong>Tiempo.</strong> Presente simple para describir la situación y generalizar. Ver <a href="parcial-1.html#para-que-sirve-cada-tiempo-en-un-texto-academico">tiempos verbales</a>.</li>
+<li><strong>Hedging.</strong> Mostrá qué es un hecho y qué es una posibilidad. Ver <a href="parcial-2.html#hedging">hedging</a>.</li>
+<li><strong>Citar.</strong> Si usás una idea ajena, nombrá autor y año: <code>According to Dasgupta (2007), …</code>. Copiar sin decirlo es plagio y el libro advierte que baja la nota (Oxford Academic Vocabulary Practice, página 83).</li>
+<li><strong>Evitá lo informal.</strong> <code>Maybe</code> es más informal que <code>perhaps</code> (página 81). El libro pide palabras más precisas, como <code>achieve</code> o <code>receive</code> en lugar de <code>get</code>, <code>attempt</code> en lugar de <code>try</code>, <code>correct</code> en lugar de <code>right</code> y <code>strategies</code> en lugar de <code>ways</code>. Tampoco van contracciones como <code>isn&#39;t</code> o <code>don&#39;t</code>, y se usan menos <code>I</code> y <code>you</code> (Oxford Academic Vocabulary Practice, unidad 7, página 20).</li>
+<li><strong>Perspectiva.</strong> Para decir desde dónde mirás un argumento sirven <code>From a historical perspective</code>, <code>In terms of safety</code>, <code>As far as cost is concerned</code> o un adverbio como <code>Environmentally</code> (Oxford EAP, Answer Key, unidad 6, páginas 27 a 29).</li>
+<li><strong>Pasiva.</strong> En inglés académico conviene evitar <code>people</code> o <code>they</code> como sujeto general. Ver <a href="parcial-2.html#voz-pasiva">voz pasiva</a>.</li>
+</ul>
+<h3 id="antes-de-entregar">Antes de entregar</h3>
+<ol>
+<li>Contá las palabras. Son unas 250.</li>
+<li>Tu opinión aparece <strong>después</strong> de los dos lados.</li>
+<li>Cada punto de vista tiene su evidencia.</li>
+<li>Usaste conectores de contraste y de suma.</li>
+<li>Revisaste los tiempos verbales y <code>effect</code> contra <code>affect</code>.</li>
+</ol>
+<p>Para el tema de 2023 hay vocabulario en <a href="parcial-2.html#vocabulario-del-tema">vocabulario del tema</a>.</p>
+</section>
+<section class="sec"><h2 id="como-es-el-oral">Cómo es el oral</h2>
+<p>La hoja del Drive lo describe así.</p>
+<ol>
+<li>El moderador pide una presentación muy breve, de tres a cinco minutos, sobre por qué el tema es relevante.</li>
+<li>Presenta una moción o proposición.</li>
+<li>Asigna los roles, a favor o en contra, y modera el intercambio.</li>
+<li>La actividad dura de 20 a 30 minutos. Otro docente evalúa con una rúbrica.</li>
+<li>Cuando termina, los estudiantes se retiran y el tribunal decide la nota de cada uno.</li>
+</ol>
+<p>El tema puede ser el de alguno de los textos del examen escrito o el del punto 1 de la bibliografía obligatoria de la planificación del año.</p>
+<div class="ojo"><p class="ojo-t">La rúbrica no está en el Drive</p><p>Tampoco la bibliografía obligatoria. Preguntá en tu comisión qué criterios usan y qué tema entra.</p>
+</div>
+<p>Para un seminario, el libro de vocabulario pide ser claro y conciso, escuchar y tomar notas de lo que dicen los demás, no interrumpir y respetar los turnos (Oxford Academic Vocabulary Practice, página 32).</p>
+<p>Para defender una posición sirven estas palabras de la misma obra (página 68).</p>
+<div class="tabla"><table><thead><tr><th>Para qué</th><th>Palabras</th></tr></thead><tbody><tr><td>Dar una opinión</td><td><code>point of view</code>, <code>view</code>, <code>believe</code>, <code>argue that</code></td></tr><tr><td>Justificar</td><td><code>justify</code>, <code>in terms of</code></td></tr><tr><td>Nombrar a quien piensa distinto</td><td><code>critics argue that</code></td></tr></tbody></table></div>
+<p>Armá de antemano argumentos para los dos lados, con los datos que los sostienen. El rol te lo asignan.</p>
+<p>Para responderle a otro, la clave de Oxford EAP trae estas frases (Answer Key, unidad 5, página 21, y unidad 10, página 46).</p>
+<div class="tabla"><table><thead><tr><th>Para qué</th><th>Frases</th></tr></thead><tbody><tr><td>Dar tu opinión</td><td><code>It seems to me that…</code>, <code>I think that…</code>, <code>I would argue that…</code></td></tr><tr><td>Estar de acuerdo</td><td><code>Yeah, I agree with that.</code></td></tr><tr><td>No estar de acuerdo</td><td><code>No, I don&#39;t agree.</code>, <code>Yes, but…</code></td></tr><tr><td>Conceder algo y después discrepar</td><td><code>I understand why you say that, but actually I don&#39;t agree…</code>, <code>Yes, I see what you&#39;re saying. Although I&#39;m not convinced.</code>, <code>There is some truth in that, yes, but…</code>, <code>Well, I realize that it might look like that…</code></td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Solo en el plan viejo</p><p>Los tres finales sin fecha del Drive (FAQs de Stanford, redes sociales y cualidades de un ingeniero) y los cuadernillos de práctica de 2014 y 2016 tienen otro formato. Traen expresiones equivalentes, escribir las preguntas que responden unas oraciones, cloze de una palabra, oraciones sacadas de un texto y un artículo de revista de 130 a 160 palabras. Sus archivos son anteriores a 2021. En lo que leí de ellos no hay escucha, ni ensayo de 250 palabras, ni oral. Sirven solo para practicar lectura. Dos de ellos están al final de <a href="ejercicios.html">Ejercicios</a>.</p>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="final" data-materia="ingles-ii">
+<h2>Quiz del final</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="MetRrilSAQ" data-tema="Cómo es el oral" data-enlace="final.html#como-es-el-oral" data-tipo="mc"><div class="q-enun" id="qe-final-1"><span class="q-n">1</span><div><p>Según la hoja del oral, ¿cuánto dura la actividad?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-1"><li><button type="button" class="op" data-ok="0">De 5 a 10 minutos</button></li><li><button type="button" class="op" data-ok="1">De 20 a 30 minutos</button></li><li><button type="button" class="op" data-ok="0">De 10 a 15 minutos</button></li><li><button type="button" class="op" data-ok="0">Una hora</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La hoja dice que la actividad dura <strong>de 20 a 30 minutos</strong>. Pide además una presentación muy breve, de 3 a 5 minutos.</p>
+</div></li><li class="q" data-q="FsPhF6D7CM" data-tema="Cómo es el oral" data-enlace="final.html#como-es-el-oral" data-tipo="mc"><div class="q-enun" id="qe-final-2"><span class="q-n">2</span><div><p>Según la hoja del oral, ¿quién asigna los roles a favor y en contra?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-2"><li><button type="button" class="op" data-ok="0">Cada estudiante elige</button></li><li><button type="button" class="op" data-ok="0">Se sortean entre los estudiantes</button></li><li><button type="button" class="op" data-ok="1">El docente que modera</button></li><li><button type="button" class="op" data-ok="0">El docente que observa</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Un docente tiene el rol de <strong>moderador</strong>: presenta la moción y asigna los roles. Otro observa y evalúa con una rúbrica.</p>
+</div></li><li class="q" data-q="r4BUQDNZVZ" data-tema="Cómo es el oral" data-enlace="final.html#como-es-el-oral" data-tipo="mc"><div class="q-enun" id="qe-final-3"><span class="q-n">3</span><div><p>¿De dónde puede salir el tema del oral?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-3"><li><button type="button" class="op" data-ok="1">De un texto del examen escrito o del punto 1 de la bibliografía obligatoria</button></li><li><button type="button" class="op" data-ok="0">Solo de un tema libre elegido por el alumno</button></li><li><button type="button" class="op" data-ok="0">Solo de la Parte 1-A</button></li><li><button type="button" class="op" data-ok="0">De una noticia del día</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La hoja dice que el tema puede ser el de alguno de los <strong>textos del examen escrito</strong> o el tratado en el punto 1 de la bibliografía obligatoria.</p>
+</div></li><li class="q" data-q="vezOpRoAYR" data-tema="Parte 2, escritura" data-enlace="final.html#parte-2-escritura" data-tipo="mc"><div class="q-enun" id="qe-final-4"><span class="q-n">4</span><div><p>¿Cuántas palabras pide el ensayo de la Parte 2?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-4"><li><button type="button" class="op" data-ok="0">Unas 130</button></li><li><button type="button" class="op" data-ok="0">Entre 130 y 160</button></li><li><button type="button" class="op" data-ok="0">Unas 500</button></li><li><button type="button" class="op" data-ok="1">Unas 250</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La hoja pide un ensayo de <strong>alrededor de 250 palabras</strong>. Los 130 a 160 son de los artículos de revista del plan viejo.</p>
+</div></li><li class="q" data-q="xF9gxZk5Do" data-tema="Parte 2, escritura" data-enlace="final.html#parte-2-escritura" data-tipo="mc"><div class="q-enun" id="qe-final-5"><span class="q-n">5</span><div><p>¿Qué dice la hoja de la Parte 2 sobre el orden de los argumentos?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-5"><li><button type="button" class="op" data-ok="0">Primero la opinión y después los dos lados</button></li><li><button type="button" class="op" data-ok="0">Solo hay que dar el lado positivo</button></li><li><button type="button" class="op" data-ok="1">Un argumento equilibrado antes del punto de vista propio</button></li><li><button type="button" class="op" data-ok="0">Una lista de citas sin comentarios</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La hoja dice que es muy importante escribir un <strong>argumento equilibrado antes</strong> de presentar la opinión propia, con evidencia clara y convincente.</p>
+</div></li><li class="q" data-q="Z14ERVwgTh" data-tema="Cómo se arma" data-enlace="final.html#como-se-arma" data-tipo="mc"><div class="q-enun" id="qe-final-6"><span class="q-n">6</span><div><p>Según el libro de vocabulario, ¿qué debería incluir la conclusión de un ensayo?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-6"><li><button type="button" class="op" data-ok="1">Un resumen breve, el argumento principal de nuevo y un comentario final</button></li><li><button type="button" class="op" data-ok="0">Datos nuevos que no aparecieron antes</button></li><li><button type="button" class="op" data-ok="0">Solo la lista de referencias</button></li><li><button type="button" class="op" data-ok="0">Una copia del primer párrafo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El libro pide <strong>un resumen breve, una declaración clara del argumento principal y algunos comentarios finales</strong>.</p>
+</div></li><li class="q" data-q="csbkXOlcDM" data-tema="Cómo se arma" data-enlace="final.html#como-se-arma" data-tipo="mc"><div class="q-enun" id="qe-final-7"><span class="q-n">7</span><div><p>En el cuerpo del ensayo, ¿cuántos puntos principales recomienda el libro por párrafo?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-7"><li><button type="button" class="op" data-ok="0">Tres</button></li><li><button type="button" class="op" data-ok="0">Dos</button></li><li><button type="button" class="op" data-ok="1">Uno</button></li><li><button type="button" class="op" data-ok="0">Los que entren</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La devolución de ejemplo pide tener <strong>un solo punto principal</strong> en cada párrafo, con apoyo y referencias.</p>
+</div></li><li class="q" data-q="C7lmimfkg0" data-tema="Cómo sonar académico" data-enlace="final.html#como-sonar-academico" data-tipo="mc"><div class="q-enun" id="qe-final-8"><span class="q-n">8</span><div><p>Cuando copiás una oración de otro texto (quotation), ¿qué tenés que poner?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-8"><li><button type="button" class="op" data-ok="0">Nada, si es corta</button></li><li><button type="button" class="op" data-ok="1">Comillas y una referencia clara al autor y la fecha</button></li><li><button type="button" class="op" data-ok="0">Solo el nombre del libro</button></li><li><button type="button" class="op" data-ok="0">Un sinónimo en cada palabra</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Una <code>quotation</code> va sin cambiar palabras, <strong>entre comillas y con referencia al autor y la fecha</strong> de publicación.</p>
+</div></li><li class="q" data-q="72gqoy2QKw" data-tema="Cómo sonar académico" data-enlace="final.html#como-sonar-academico" data-tipo="mc"><div class="q-enun" id="qe-final-9"><span class="q-n">9</span><div><p>¿Cuál de estas está bien usada?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-9"><li><button type="button" class="op" data-ok="0">The rules effect students.</button></li><li><button type="button" class="op" data-ok="0">The rules have an affect on students.</button></li><li><button type="button" class="op" data-ok="0">The rules are affect.</button></li><li><button type="button" class="op" data-ok="1">The rules have an effect on students.</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><strong>Effect</strong> es sustantivo y va con <code>have an effect on</code>. <code>Affect</code> es verbo.</p>
+</div></li><li class="q" data-q="VRaI-ahsmp" data-tema="Parte 1-B, lectura" data-enlace="final.html#definir-con-informacion-del-texto" data-tipo="mc"><div class="q-enun" id="qe-final-10"><span class="q-n">10</span><div><p>¿Cuál de estas es una forma de definir que trae la clave de Oxford EAP?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-10"><li><button type="button" class="op" data-ok="1"><code>X is a type of… for…</code></button></li><li><button type="button" class="op" data-ok="0"><code>X, however, …</code></button></li><li><button type="button" class="op" data-ok="0"><code>Despite X, …</code></button></li><li><button type="button" class="op" data-ok="0"><code>X was being…</code></button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La clave define así: <code>A seminar is a type of class for discussing ideas</code>.</p>
+</div></li><li class="q" data-q="ry5947Apba" data-tema="Parte 1-A, escucha" data-enlace="final.html#parte-1-a-escucha" data-tipo="mc"><div class="q-enun" id="qe-final-11"><span class="q-n">11</span><div><p>En la Question 1.b de la Parte 1-A, ¿cuántas palabras va en cada hueco?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-final-11"><li><button type="button" class="op" data-ok="0">Hasta tres palabras</button></li><li><button type="button" class="op" data-ok="0">Una oración completa</button></li><li><button type="button" class="op" data-ok="1">Una sola palabra</button></li><li><button type="button" class="op" data-ok="0">Dos palabras</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La consigna dice «Write ONLY ONE WORD for each answer».</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (parciales de 2024 y 2025 y el modelo de final de 2023). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final, 28/04/2025 (Taller de obras de arte): Paradigmas de Programación</title>
+<meta name="description" content="Ejercicio de examen: Final, 28/04/2025 (Taller de obras de arte).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="paradigmas-de-programacion" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Paradigmas de Programación</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">Parcial de regularización</a></li><li class="em-fuera"><a href="ad.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=paradigmas-de-programacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=paradigmas-de-programacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Final, 28/04/2025 (Taller de obras de arte)</h1>
+<p class="bajada">Final, 28/04/2025</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="fin-2025-04-28" data-titulo="Final, 28/04/2025 (Taller de obras de arte)" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="fin-2025-04-28" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1dCcuHJ7ru5bPiBjlTqeJKxJpkc5ciPTf/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/fin-2025-04-28-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/fin-2025-04-28-e1.webp" width="996" height="1475" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>1) Diagrama de clases</h4>
+<p>Los tres tipos de obra tienen datos propios y dos cambian el costo, así que son subclases. El recargo de las esculturas y el descuento de los textiles son iguales para todos, y van como variables de clase. Cada obra dice qué especialidad necesita, y así se elige el restaurador sin preguntar de qué tipo es. Cada caja tiene arriba las variables de clase (vc) y de instancia (vi), y abajo los métodos de clase (mc) y de instancia (mi), como los diagramas de los cuestionarios del campus. La flecha punteada va de la subclase a la superclase, y la línea con cantidad es un ensamble. Los métodos que solo devuelven una variable no van en las cajas, para que se lean. Están al final del código. Tocá el dibujo para verlo en pantalla completa.</p>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1443 760" width="1443" height="760" style="width:1443px;min-width:1443px;max-width:none;height:760px" role="img" aria-label="Diagrama de clases del taller de restauración. Taller guarda las obras, los restauradores, los clientes y las solicitudes. Cada solicitud tiene un cliente, una obra y un restaurador. Obra es la superclase de Pintura, de Escultura, con la variable de clase Recargo, y de Textil, con la variable de clase Descuento. Cada subclase dice su tipo y su especialidad, y dos cambian el costo."><g fill="none" stroke="currentColor" stroke-width="1.3"><rect x="470.5" y="10.0" width="198.8" height="224.0"/><path d="M470.5 36.0H669.3M470.5 120.0H669.3M515.5 36.0V234.0"/><rect x="20.0" y="308.0" width="162.5" height="134.0"/><path d="M20.0 334.0H182.5M20.0 403.0H182.5M65.0 334.0V442.0"/><rect x="228.5" y="308.0" width="394.5" height="224.0"/><path d="M228.5 334.0H623.0M228.5 448.0H623.0M404.0 334.0V532.0"/><rect x="669.0" y="308.0" width="198.8" height="179.0"/><path d="M669.0 334.0H867.8M669.0 433.0H867.8M714.0 334.0V487.0"/><rect x="913.8" y="308.0" width="206.0" height="164.0"/><path d="M913.8 334.0H1119.8M913.8 433.0H1119.8M958.8 334.0V472.0"/><rect x="611.0" y="606.0" width="148.0" height="119.0"/><path d="M611.0 632.0H759.0M611.0 671.0H759.0M656.0 632.0V725.0"/><rect x="805.0" y="606.0" width="278.5" height="134.0"/><path d="M805.0 632.0H1083.5M805.0 671.0H1083.5M922.5 632.0V740.0"/><rect x="1129.6" y="606.0" width="293.0" height="134.0"/><path d="M1129.6 632.0H1422.6M1129.6 671.0H1422.6M1261.6 632.0V740.0"/><path d="M510.3 234.0L101.2 308.0"/><path d="M550.0 234.0L425.8 308.0"/><path d="M589.8 234.0L768.4 308.0"/><path d="M629.5 234.0L1016.8 308.0"/><path d="M228.5 321.0H182.5"/><path d="M623.0 321.0H669.0"/><path d="M563.8 308.0V276.0H1088.9V308.0"/><path d="M1016.8 472.0l-7 12h14z" fill="none"/><path stroke-dasharray="6 4" d="M1016.8 484.0V566.0M685.0 566.0H1276.1M685.0 566.0V606.0M944.3 566.0V606.0M1276.1 566.0V606.0"/></g><g fill="currentColor" stroke="none" font-family="ui-monospace, Consolas, Menlo, monospace" font-size="12" text-anchor="middle"><text x="569.9" y="28.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Taller</text><text x="478.5" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="523.5" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="523.5" y="66.0" text-anchor="start">obras</text><text x="523.5" y="81.0" text-anchor="start">restauradores</text><text x="523.5" y="96.0" text-anchor="start">clientes</text><text x="523.5" y="111.0" text-anchor="start">solicitudes</text><text x="478.5" y="134.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="523.5" y="134.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="523.5" y="150.0" text-anchor="start">inicializa</text><text x="523.5" y="165.0" text-anchor="start">registrarSolicitud</text><text x="523.5" y="180.0" text-anchor="start">buscarOCrearCliente</text><text x="523.5" y="195.0" text-anchor="start">nuevoCliente:</text><text x="523.5" y="210.0" text-anchor="start">buscarObra</text><text x="523.5" y="225.0" text-anchor="start">listarSolicitudes</text><text x="101.2" y="326.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Cliente</text><text x="28.0" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="73.0" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="73.0" y="364.0" text-anchor="start">dni</text><text x="73.0" y="379.0" text-anchor="start">nombreCompleto</text><text x="73.0" y="394.0" text-anchor="start">telefono</text><text x="28.0" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="73.0" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="73.0" y="433.0" text-anchor="start">cargaDatos:</text><text x="425.8" y="326.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Solicitud</text><text x="236.5" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="236.5" y="364.0" text-anchor="start">UltimoNumero</text><text x="412.0" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="412.0" y="364.0" text-anchor="start">numero</text><text x="412.0" y="379.0" text-anchor="start">fechaIngreso</text><text x="412.0" y="394.0" text-anchor="start">cliente</text><text x="412.0" y="409.0" text-anchor="start">obra</text><text x="412.0" y="424.0" text-anchor="start">dias</text><text x="412.0" y="439.0" text-anchor="start">restaurador</text><text x="236.5" y="462.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="236.5" y="478.0" text-anchor="start">asignaUltimoNumero:</text><text x="236.5" y="493.0" text-anchor="start">incrementaUltimoNumero</text><text x="412.0" y="462.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="412.0" y="478.0" text-anchor="start">cargaDatos:obra:restaurador:</text><text x="412.0" y="493.0" text-anchor="start">costoTotal</text><text x="412.0" y="508.0" text-anchor="start">fechaEntre:y:</text><text x="412.0" y="523.0" text-anchor="start">mostrarEnListado</text><text x="768.4" y="326.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Restaurador</text><text x="677.0" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="722.0" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="722.0" y="364.0" text-anchor="start">matricula</text><text x="722.0" y="379.0" text-anchor="start">nombreCompleto</text><text x="722.0" y="394.0" text-anchor="start">especialidad</text><text x="722.0" y="409.0" text-anchor="start">honorarioDia</text><text x="722.0" y="424.0" text-anchor="start">disponible</text><text x="677.0" y="447.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="722.0" y="447.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="722.0" y="463.0" text-anchor="start">estaDisponiblePara:</text><text x="722.0" y="478.0" text-anchor="start">ocupar</text><text x="1016.8" y="326.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Obra</text><text x="921.8" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="966.8" y="348.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="966.8" y="364.0" text-anchor="start">numero</text><text x="966.8" y="379.0" text-anchor="start">titulo</text><text x="966.8" y="394.0" text-anchor="start">autor</text><text x="966.8" y="409.0" text-anchor="start">anio</text><text x="966.8" y="424.0" text-anchor="start">costoBase</text><text x="921.8" y="447.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="966.8" y="447.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="966.8" y="463.0" text-anchor="start">costoPara:honorario:</text><text x="685.0" y="624.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Pintura</text><text x="619.0" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="664.0" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="664.0" y="662.0" text-anchor="start">tecnica</text><text x="619.0" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="664.0" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="664.0" y="701.0" text-anchor="start">especialidad</text><text x="664.0" y="716.0" text-anchor="start">tipo</text><text x="944.3" y="624.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Escultura</text><text x="813.0" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="813.0" y="662.0" text-anchor="start">Recargo</text><text x="930.5" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="930.5" y="662.0" text-anchor="start">material</text><text x="813.0" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="813.0" y="701.0" text-anchor="start">asignaRecargo:</text><text x="930.5" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="930.5" y="701.0" text-anchor="start">costoPara:honorario:</text><text x="930.5" y="716.0" text-anchor="start">especialidad</text><text x="930.5" y="731.0" text-anchor="start">tipo</text><text x="1276.1" y="624.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Textil</text><text x="1137.6" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="1137.6" y="662.0" text-anchor="start">Descuento</text><text x="1269.6" y="646.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="1269.6" y="662.0" text-anchor="start">tipoTejido</text><text x="1137.6" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="1137.6" y="701.0" text-anchor="start">asignaDescuento:</text><text x="1269.6" y="685.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="1269.6" y="701.0" text-anchor="start">costoPara:honorario:</text><text x="1269.6" y="716.0" text-anchor="start">especialidad</text><text x="1269.6" y="731.0" text-anchor="start">tipo</text><text x="93.2" y="300.0" text-anchor="end">0..N</text><text x="417.8" y="300.0" text-anchor="end">0..N</text><text x="776.4" y="300.0" text-anchor="start">1..N</text><text x="1024.8" y="300.0" text-anchor="start">1..N</text><text x="188.5" y="316.0" text-anchor="start">1..1</text><text x="663.0" y="316.0" text-anchor="end">1..1</text><text x="1094.9" y="304.0" text-anchor="start">1..1</text></g></svg></figure>
+
+<h4>2a) Registrar una solicitud de restauración</h4>
+<p><code>Taller</code> es la clase principal y guarda las colecciones, como la clase principal de los ejercicios resueltos. Si no hay un restaurador disponible de la especialidad, se avisa y la solicitud no se crea. El restaurador asignado queda no disponible.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Taller, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#inicializa</span>
+obras := <span class="hljs-type">OrderedCollection</span> new.
+restauradores := <span class="hljs-type">OrderedCollection</span> new.
+clientes := <span class="hljs-type">OrderedCollection</span> new.
+solicitudes := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#registrarSolicitud</span>
+| cli obra rest sol |
+cli := <span class="hljs-keyword">self</span> buscarOCrearCliente.
+obra := <span class="hljs-keyword">nil</span>.
+[obra isNil] whileTrue: [
+    obra := <span class="hljs-keyword">self</span> buscarObra.
+    obra isNil ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No existe una obra con ese número&#x27;</span>]].
+rest := restauradores detect: [:unRest | unRest estaDisponiblePara: obra especialidad] ifNone: [<span class="hljs-keyword">nil</span>].
+rest isNil
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No hay un restaurador disponible para esa obra&#x27;</span>]
+    ifFalse: [
+        sol := <span class="hljs-type">Solicitud</span> new.
+        sol cargaDatos: cli obra: obra restaurador: rest.
+        rest ocupar.
+        solicitudes add: sol.
+        <span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;Costo total de la restauración: &#x27;</span>, sol costoTotal printString]
+
+<span class="hljs-symbol">#buscarOCrearCliente</span>
+| dni cli |
+dni := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el DNI del cliente&#x27;</span>) asNumber.
+cli := clientes detect: [:unCliente | unCliente dni = dni] ifNone: [<span class="hljs-keyword">nil</span>].
+cli isNil ifTrue: [cli := <span class="hljs-keyword">self</span> nuevoCliente: dni].
+^cli
+
+<span class="hljs-symbol">#nuevoCliente</span>: unDni
+| cli |
+cli := <span class="hljs-type">Cliente</span> new.
+cli cargaDatos: unDni.
+clientes add: cli.
+^cli
+
+<span class="hljs-symbol">#buscarObra</span>
+| num |
+num := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el número de la obra&#x27;</span>) asNumber.
+^obras detect: [:unaObra | unaObra numero = num] ifNone: [<span class="hljs-keyword">nil</span>]
+
+<span class="hljs-comment">&quot;Cliente, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unDni
+dni := unDni.
+nombreCompleto := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el nombre completo&#x27;</span>.
+telefono := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el teléfono&#x27;</span>.
+
+<span class="hljs-comment">&quot;Restaurador, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#estaDisponiblePara</span>: unaEspecialidad
+^disponible and: [especialidad = unaEspecialidad]
+
+<span class="hljs-symbol">#ocupar</span>
+disponible := <span class="hljs-keyword">false</span>
+
+<span class="hljs-comment">&quot;Solicitud, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaUltimoNumero</span>: unNumero
+<span class="hljs-type">UltimoNumero</span> := unNumero
+
+<span class="hljs-symbol">#incrementaUltimoNumero</span>
+<span class="hljs-type">UltimoNumero</span> := <span class="hljs-type">UltimoNumero</span> + <span class="hljs-number">1</span>
+
+<span class="hljs-comment">&quot;Solicitud, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unCliente obra: unaObra restaurador: unRestaurador
+<span class="hljs-type">Solicitud</span> incrementaUltimoNumero.
+numero := <span class="hljs-type">UltimoNumero</span>.
+fechaIngreso := <span class="hljs-type">Date</span> today.
+cliente := unCliente.
+obra := unaObra.
+restaurador := unRestaurador.
+dias := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la cantidad de días de trabajo&#x27;</span>) asNumber.
+
+<span class="hljs-symbol">#costoTotal</span>
+^obra costoPara: dias honorario: restaurador honorarioDia
+
+<span class="hljs-comment">&quot;Obra, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#costoPara</span>: unosDias honorario: unHonorario
+^costoBase + (unosDias * unHonorario)
+
+<span class="hljs-comment">&quot;Pintura, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#especialidad</span>
+^<span class="hljs-string">&#x27;pinturas&#x27;</span>
+
+<span class="hljs-symbol">#tipo</span>
+^<span class="hljs-string">&#x27;Pintura&#x27;</span>
+
+<span class="hljs-comment">&quot;Escultura, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaRecargo</span>: unMonto
+<span class="hljs-type">Recargo</span> := unMonto
+
+<span class="hljs-comment">&quot;Escultura, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#costoPara</span>: unosDias honorario: unHonorario
+^(<span class="hljs-keyword">super</span> costoPara: unosDias honorario: unHonorario) + <span class="hljs-type">Recargo</span>
+
+<span class="hljs-symbol">#especialidad</span>
+^<span class="hljs-string">&#x27;esculturas&#x27;</span>
+
+<span class="hljs-symbol">#tipo</span>
+^<span class="hljs-string">&#x27;Escultura&#x27;</span>
+
+<span class="hljs-comment">&quot;Textil, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaDescuento</span>: unPorcentaje
+<span class="hljs-type">Descuento</span> := unPorcentaje
+
+<span class="hljs-comment">&quot;Textil, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#costoPara</span>: unosDias honorario: unHonorario
+| costo |
+costo := <span class="hljs-keyword">super</span> costoPara: unosDias honorario: unHonorario.
+^costo - (costo * <span class="hljs-type">Descuento</span> / <span class="hljs-number">100</span>)
+
+<span class="hljs-symbol">#especialidad</span>
+^<span class="hljs-string">&#x27;textiles&#x27;</span>
+
+<span class="hljs-symbol">#tipo</span>
+^<span class="hljs-string">&#x27;Textil antiguo&#x27;</span></code></pre>
+<h4>2b) Listado de restauraciones por rango de fechas</h4>
+<p>Se ordena por fecha de ingreso y después se filtra por el rango.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Taller, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#listarSolicitudes</span>
+| desde hasta lista |
+desde := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha desde (dd/mm/aaaa)&#x27;</span>).
+hasta := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha hasta (dd/mm/aaaa)&#x27;</span>).
+lista := (solicitudes asSortedCollection: [:a :b | a fechaIngreso &lt; b fechaIngreso])
+    select: [:unaSol | unaSol fechaEntre: desde y: hasta].
+lista isEmpty
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No se han encontrado restauraciones en ese período&#x27;</span>]
+    ifFalse: [
+        <span class="hljs-type">Transcript</span> clear;
+            show: <span class="hljs-string">&#x27;Nro.&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Ingreso&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Obra&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Autor&#x27;</span>; tab;
+            show: <span class="hljs-string">&#x27;Tipo&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Cliente&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Restaurador&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Costo&#x27;</span>; cr.
+        lista do: [:unaSol | unaSol mostrarEnListado]]
+
+<span class="hljs-comment">&quot;Solicitud, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#fechaEntre</span>: desde y: hasta
+^(fechaIngreso &gt;= desde) and: [fechaIngreso &lt;= hasta]
+
+<span class="hljs-symbol">#mostrarEnListado</span>
+<span class="hljs-type">Transcript</span> show: numero printString; tab;
+    show: fechaIngreso printString; tab;
+    show: obra titulo; tab;
+    show: obra autor; tab;
+    show: obra tipo; tab;
+    show: cliente nombreCompleto; tab;
+    show: restaurador nombreCompleto; tab;
+    show: <span class="hljs-keyword">self</span> costoTotal printString; cr</code></pre>
+<h4>Métodos que devuelven datos</h4>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Cliente, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#dni</span>
+^dni
+
+<span class="hljs-symbol">#nombreCompleto</span>
+^nombreCompleto
+
+<span class="hljs-comment">&quot;Restaurador, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#nombreCompleto</span>
+^nombreCompleto
+
+<span class="hljs-symbol">#honorarioDia</span>
+^honorarioDia
+
+<span class="hljs-comment">&quot;Solicitud, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#fechaIngreso</span>
+^fechaIngreso
+
+<span class="hljs-comment">&quot;Obra, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#numero</span>
+^numero
+
+<span class="hljs-symbol">#titulo</span>
+^titulo
+
+<span class="hljs-symbol">#autor</span>
+^autor</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con las páginas de Aprobación directa («Cómo leer la narrativa» y «Qué lleva el diagrama») y de Final («Las plantillas del Drive» y «Cómo se arma el programa»), que salen de «Estructuras útiles en Smalltalk» y de los Ejercicios resueltos 1 a 3 de Material Util.</p><p class="bloque-fuente">Quedó en duda: El material no muestra cómo filtrar entre dos fechas. Acá se compara con <code>&gt;=</code> y <code>&lt;=</code> en <code>fechaEntre:y:</code>. El enunciado pide el primer restaurador disponible, pero no dice cuándo deja de estarlo ni cuándo vuelve. Acá queda no disponible al asignarlo y nada lo libera. No queda claro si el descuento de los textiles va sobre el costo total o solo sobre el costo base. Acá va sobre el total. Los días de trabajo los carga el operador. Se supone que las variables de clase ya tienen su valor, cargado con los métodos de clase <code>asigna...</code>. El código no se corrió en un Smalltalk real.</p><div class="em-votos" data-m="paradigmas-de-programacion" data-e="fin-2025-04-28" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Diagrama de clases" data-enlace="parcial-1.html#metodos-de-clase-y-de-instancia" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Diagrama de clases</span><span class="ex-t-teoria"><a href="parcial-1.html#metodos-de-clase-y-de-instancia">Métodos de clase y de instancia</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Smalltalk" data-enlace="parcial-1.html#que-se-tomo" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Smalltalk</span><span class="ex-t-teoria"><a href="parcial-1.html#que-se-tomo">Qué se tomó</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2026-04-27.html">Anterior: Final, 27/04/2026 (Cursos online)</a><a href="ej-fin-2023-12-11.html">Siguiente: Final, 11/12/2023 (Milla Fiel)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>1° parcial: Inteligencia Artificial</title>
+<meta name="description" content="Qué es la IA, análisis del problema, búsqueda, juegos, algoritmos genéticos, planificación y Prolog básico.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<link rel="stylesheet" href="../_/w.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="../_/expr.js" defer></script>
+<script src="../_/w.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="inteligencia-artificial" data-pagina="parcial-1">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Inteligencia Artificial</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html" aria-current="page">1° parcial</a></li><li class="em-fuera"><a href="ad.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=inteligencia-artificial">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=inteligencia-artificial">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#que-es-la-inteligencia-artificial">Qué es la inteligencia artificial</a></li><li class="n3"><a href="#la-hipotesis-de-newell-y-simon">La hipótesis de Newell y Simon</a></li><li class="n3"><a href="#el-test-de-turing">El test de Turing</a></li><li class="n3"><a href="#simbolicas-y-subsimbolicas">Simbólicas y subsimbólicas</a></li><li class="n3"><a href="#ia-debil-y-fuerte-y-los-inviernos">IA débil y fuerte, y los inviernos</a></li><li class="n3"><a href="#que-problemas-ataca">Qué problemas ataca</a></li><li class="n3"><a href="#que-es-una-tecnica-de-ia">Qué es una técnica de IA</a></li><li class="n2"><a href="#plantear-el-problema">Plantear el problema</a></li><li class="n3"><a href="#espacio-de-estados">Espacio de estados</a></li><li class="n3"><a href="#sistemas-de-produccion">Sistemas de producción</a></li><li class="n2"><a href="#analisis-del-problema">Análisis del problema</a></li><li class="n3"><a href="#descomponible-o-no">Descomponible o no</a></li><li class="n3"><a href="#ignorables-recuperables-y-no-recuperables">Ignorables, recuperables y no recuperables</a></li><li class="n3"><a href="#consecuencia-cierta-e-incierta">Consecuencia cierta e incierta</a></li><li class="n2"><a href="#busqueda-a-ciegas">Búsqueda a ciegas</a></li><li class="n3"><a href="#explosion-combinatoria">Explosión combinatoria</a></li><li class="n3"><a href="#ramificacion-y-acotacion">Ramificación y acotación</a></li><li class="n3"><a href="#anchura-contra-profundidad">Anchura contra profundidad</a></li><li class="n2"><a href="#busqueda-heuristica">Búsqueda heurística</a></li><li class="n3"><a href="#generacion-y-prueba">Generación y prueba</a></li><li class="n3"><a href="#escalada-o-remonte-de-colinas">Escalada o remonte de colinas</a></li><li class="n3"><a href="#el-primero-mejor">El primero mejor</a></li><li class="n3"><a href="#reduccion-de-problemas">Reducción de problemas</a></li><li class="n3"><a href="#verificacion-de-restricciones">Verificación de restricciones</a></li><li class="n3"><a href="#analisis-de-medios-y-fines">Análisis de medios y fines</a></li><li class="n2"><a href="#juegos">Juegos</a></li><li class="n3"><a href="#minimax">Minimax</a></li><li class="n3"><a href="#poda-alfa-beta">Poda alfa-beta</a></li><li class="n2"><a href="#algoritmos-geneticos">Algoritmos genéticos</a></li><li class="n2"><a href="#planificacion">Planificación</a></li><li class="n2"><a href="#prolog-basico">Prolog básico</a></li><li class="n3"><a href="#hechos-reglas-y-variables">Hechos, reglas y variables</a></li><li class="n3"><a href="#operadores">Operadores</a></li><li class="n3"><a href="#recursividad-y-condicion-de-fin">Recursividad y condición de fin</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>1° parcial</h1>
+<p class="bajada">Qué es la IA, cómo se analiza un problema, todas las búsquedas, los juegos, la planificación y lo básico de Prolog.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p><p class="aviso-viejo">Lo marcado «Plan viejo» es de 2022 o antes, del plan anterior. Puede no coincidir con lo que se toma hoy.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<div class="ojo"><p class="ojo-t">No hay parciales de 2023 en adelante</p><p>En el Drive, los parciales de las Unidades 1 y 2 son de 2019 y 2021. Lo de abajo muestra cómo fueron esos, y la forma puede haber cambiado. Los resúmenes de 2026 siguen trayendo estos temas, así que se siguen dando.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Teoría de opción múltiple, 15 preguntas de 0,7</strong><span>Parcial 30/06/2021 <em class="viejo">Plan viejo</em></span></aside><p>Por campus. Una respuesta incorrecta de ese intento puntuó −0,7, así que en ese examen las incorrectas restaban. Preguntó por búsqueda a ciegas y heurística, análisis del problema, estrategia de control, minimax y planificación.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Práctica de opción múltiple, 10 preguntas de 1,0</strong><span>Parcial 30/06/2021 <em class="viejo">Plan viejo</em></span></aside><p>Por campus. Preguntó por reglas de Prolog, el paradigma, el operador de negación, la disyunción, los hechos, la cola de una lista y la condición de fin de una recursión.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Diez afirmaciones de verdadero o falso, justificando las falsas</strong><span>Parcial 19/06/2019 <em class="viejo">Plan viejo</em></span></aside><p>En papel. Mezcla tipos de problema, aproximaciones simbólicas, medios y fines, escalada, primero mejor, verificación de restricciones, minimax contra alfa-beta y planificación.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>Dos programas de Prolog sobre una base de hechos</strong><span>Parcial 19/06/2019 <em class="viejo">Plan viejo</em></span></aside><p>En papel. Una consulta sobre dos tablas de hechos y una operación con los elementos de una lista. Están en <a href="ejercicios.html">Ejercicios</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="que-es-la-inteligencia-artificial">Qué es la inteligencia artificial</h2>
+<p>La IA «tiene por objeto el estudio del comportamiento inteligente en las máquinas. A su vez, el comportamiento inteligente supone percibir, razonar, aprender, comunicarse y actuar en entornos complejos». Fuente: apunte de la cátedra, unidad 1, página 4.</p>
+<h3 id="la-hipotesis-de-newell-y-simon">La hipótesis de Newell y Simon</h3>
+<div class="teorema"><p class="teorema-t">Hipótesis del sistema físico de símbolos</p><p>«Un sistema de símbolos físicos posee los medios necesarios y suficientes para realizar una acción inteligente genérica.»</p>
+<p class="bloque-fuente">Apunte de la cátedra, unidad 1, página 15</p></div>
+<p>Es solo una hipótesis. Se valida de forma empírica, y el apunte no la da por demostrada. También dice que es «neutral respecto al sustrato». Importa lo que hace el sistema, no de qué está hecho. Fuente: apunte de la cátedra, unidad 1, páginas 5 y 15.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>La apuesta es que pensar es manipular símbolos. Si eso es cierto, da igual que los símbolos corran en neuronas o en silicio. Por eso una computadora, en principio, podría pensar.</p>
+</div>
+<h3 id="el-test-de-turing">El test de Turing</h3>
+<p>Hay un hombre, una mujer y un interrogador que los interroga sin verlos, y que tiene que decir quién es quién. Turing pregunta qué pasa si una máquina toma el lugar de uno de ellos. La versión simplificada, donde la máquina solo tiene que pasar por humana, no resulta muy útil. Fuente: apunte de la cátedra, unidad 1, páginas 6 y 7.</p>
+<h3 id="simbolicas-y-subsimbolicas">Simbólicas y subsimbólicas</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Simbólicas</th><th>Subsimbólicas</th></tr></thead><tbody><tr><td>Diseño</td><td>Descendente</td><td>Ascendente</td></tr><tr><td>Trabajan con</td><td>Símbolos</td><td>Señales</td></tr><tr><td>Niveles</td><td>Del conocimiento, simbólico e inferiores</td><td>Lo inteligente emerge de abajo hacia arriba</td></tr><tr><td>Ejemplos</td><td>Lógica sobre conocimiento declarativo</td><td>Redes neuronales, procesos evolutivos, vida artificial</td></tr></tbody></table></div>
+<p>Fuente: apunte de la cátedra, unidad 1, páginas 7 y 8.</p>
+<p>El comportamiento emergente es producto de la interacción entre la máquina y su entorno. Fuente: apunte de la cátedra, unidad 1, página 8.</p>
+<h3 id="ia-debil-y-fuerte-y-los-inviernos">IA débil y fuerte, y los inviernos</h3>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><p>Estos dos temas no aparecen en las páginas que se revisaron del apunte. Salen del resumen de 2026 de un alumno.</p>
+<ul>
+<li><strong>Débil.</strong> La que hay hoy. Hace tareas específicas y no tiene conciencia de sí misma.</li>
+<li><strong>Fuerte.</strong> Sería comparable con la inteligencia humana en todo. Es teórica y no existe.</li>
+<li><strong>Inviernos.</strong> Estancamientos por exceso de expectativas y falta de recursos: 1970 a 1980, 1987 a 1993 y 2004 a 2009.</li>
+</ul>
+<p>Fuente: IA - Unidad 1 (resumen 2026), página 3.</p>
+<p class="bloque-fuente">Resumen de alumno, 2026</p></div>
+<h3 id="que-problemas-ataca">Qué problemas ataca</h3>
+<p>El apunte separa tareas de la vida diaria, formales y de experto. Y hace notar algo que sorprende. Las habilidades de un experto necesitan menos conocimiento que las tareas comunes. Fuente: apunte de la cátedra, unidad 1, páginas 13 y 14.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Armar un sistema que diagnostique una enfermedad puntual resultó más fácil que armar uno con el sentido común de un chico de cinco años.</p>
+</div>
+<h3 id="que-es-una-tecnica-de-ia">Qué es una técnica de IA</h3>
+<p>El conocimiento es voluminoso, difícil de caracterizar, cambia, y se organiza según cómo se usa. Una técnica de IA es un método que usa ese conocimiento así:</p>
+<ul>
+<li>representa generalizaciones,</li>
+<li>lo pueden comprender quienes lo proporcionan,</li>
+<li>se puede modificar,</li>
+<li>sirve aunque no sea totalmente preciso o completo,</li>
+<li>ayuda a acotar las posibilidades.</li>
+</ul>
+<p>Las tres técnicas que nombra el apunte son búsqueda, uso del conocimiento y abstracción. Fuente: apunte de la cátedra, unidad 1, página 16.</p>
+</section>
+<section class="sec"><h2 id="plantear-el-problema">Plantear el problema</h2>
+<p>Un sistema de IA hace cuatro acciones:</p>
+<ol>
+<li>Definir el problema con precisión.</li>
+<li>Analizarlo.</li>
+<li>Aislar y representar el conocimiento necesario.</li>
+<li>Elegir la mejor técnica y aplicarla.</li>
+</ol>
+<p>Fuente: apunte de la cátedra, unidad 1, página 19; IA - Unidad 1 (resumen 2026), páginas 4 y 5.</p>
+<h3 id="espacio-de-estados">Espacio de estados</h3>
+<p>El espacio de estados es el conjunto de todos los estados posibles. El problema queda como una secuencia de pasos entre estados, y se recorre con un algoritmo de búsqueda. Sirve para definir formalmente el problema y también dice cómo resolverlo. Fuente: apunte de la cátedra, unidad 1, página 19.</p>
+<h3 id="sistemas-de-produccion">Sistemas de producción</h3>
+<p>Dan una estructura para describir y desarrollar la búsqueda. Tienen cuatro partes:</p>
+<ul>
+<li>Un conjunto de reglas, con una parte izquierda que dice cuándo se aplica y una derecha que dice qué hace.</li>
+<li>Bases de conocimiento.</li>
+<li>Una estrategia de control, que decide cuando se puede aplicar más de una regla.</li>
+<li>Un aplicador de reglas.</li>
+</ul>
+<p>Fuente: apunte de la cátedra, unidad 1, página 22; IA - Unidad 1 (resumen 2026), página 6.</p>
+</section>
+<section class="sec"><h2 id="analisis-del-problema">Análisis del problema</h2>
+<p>Antes de elegir un método, el apunte manda a mirar siete preguntas. Fuente: apunte de la cátedra, unidad 1, página 23.</p>
+<ol>
+<li>¿Se puede descomponer en subproblemas independientes?</li>
+<li>¿Se pueden ignorar o deshacer pasos?</li>
+<li>¿Es predecible el universo?</li>
+<li>¿Una solución es buena sin compararla con las demás?</li>
+<li>¿La solución es un estado o una ruta?</li>
+<li>¿Hace falta mucho conocimiento, o solo para restringir la búsqueda?</li>
+<li>¿La computadora puede dar la solución sola, o tiene que interactuar con una persona?</li>
+</ol>
+<h3 id="descomponible-o-no">Descomponible o no</h3>
+<p>La integral de una suma se parte en integrales más chicas. El mundo de los bloques, en cambio, no se puede descomponer, porque los subproblemas interactúan. Fuente: apunte de la cátedra, unidad 1, páginas 23 y 24.</p>
+<h3 id="ignorables-recuperables-y-no-recuperables">Ignorables, recuperables y no recuperables</h3>
+<div class="tomado"><aside class="nota"><strong>Tipos de problema según si los pasos se deshacen</strong><span>Parcial 19/06/2019 y parcial 30/06/2021 <em class="viejo">Plan viejo</em></span></aside><p>Aparece en los dos parciales. Fijate qué estructura de control pide cada tipo.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Qué pasa con los pasos</th><th>Ejemplo</th><th>Estructura de control</th></tr></thead><tbody><tr><td>Ignorable</td><td>Se pueden ignorar</td><td>Demostrar un teorema</td><td>Sencilla, nunca vuelve atrás</td></tr><tr><td>Recuperable</td><td>Se pueden deshacer</td><td>8-puzzle</td><td>Vuelta atrás, con una pila «push-down»</td></tr><tr><td>No recuperable</td><td>No se pueden deshacer</td><td>Ajedrez</td><td>Muchísimo esfuerzo en cada decisión, porque es irrevocable</td></tr></tbody></table></div>
+<p>Fuente: apunte de la cátedra, unidad 1, páginas 25 y 26.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Un lema inútil en una demostración no te molesta. Lo dejás ahí y seguís. Una ficha mal movida en el 8-puzzle la tenés que volver a mover. En el ajedrez, el error ya está hecho y jugás desde ahí.</p>
+</div>
+<h3 id="consecuencia-cierta-e-incierta">Consecuencia cierta e incierta</h3>
+<ul>
+<li><strong>Consecuencia cierta.</strong> El resultado de una acción se puede predecir, como en el 8-puzzle. La planificación genera una secuencia que garantiza llegar a una solución.</li>
+<li><strong>Consecuencia incierta.</strong> Como en el bridge. La planificación genera, como mucho, una secuencia con «una buena probabilidad de conducir a una solución». Y hay que revisar el plan mientras se ejecuta.</li>
+</ul>
+<p>Los tipos de problemas más difíciles son los irrecuperables de consecuencia incierta. Los ejemplos del apunte son el bridge, el brazo de robot y ayudar a un abogado a defender a un cliente. Fuente: apunte de la cátedra, unidad 1, página 26.</p>
+</section>
+<section class="sec"><h2 id="busqueda-a-ciegas">Búsqueda a ciegas</h2>
+<p>Una estrategia de control tiene dos requisitos: «que cause algún cambio» y «que sea sistemática». Fuente: apunte de la cátedra, unidad 2, página 4.</p>
+<h3 id="explosion-combinatoria">Explosión combinatoria</h3>
+<p>Con N objetos hay N! formas de ordenarlos. Los números del apunte muestran lo rápido que crece:</p>
+<div class="tabla"><table><thead><tr><th>Objetos</th><th>3</th><th>4</th><th>5</th><th>6</th><th>10</th></tr></thead><tbody><tr><td>Combinaciones</td><td>6</td><td>24</td><td>120</td><td>720</td><td>3.628.800</td></tr></tbody></table></div>
+<p>Una búsqueda exhaustiva funciona en teoría, pero consume demasiado tiempo o recursos. Fuente: apunte de la cátedra, unidad 2, páginas 4 y 5.</p>
+<h3 id="ramificacion-y-acotacion">Ramificación y acotación</h3>
+<p>Genera rutas completas y guarda la más corta hasta el momento. Deja de explorar una ruta en cuanto su distancia pasa a la marcada. Garantiza hallar la ruta más corta, pero el tiempo sigue siendo exponencial. El ejemplo es el viajante de comercio. Fuente: apunte de la cátedra, unidad 2, páginas 5 y 6.</p>
+<h3 id="anchura-contra-profundidad">Anchura contra profundidad</h3>
+<ul>
+<li><strong>Primero en anchura.</strong> Evalúa cada nodo de un nivel antes de pasar al siguiente.</li>
+<li><strong>Primero en profundidad.</strong> Sigue una sola rama hasta encontrar la solución o decidir cortar. Ahí hace vuelta atrás al estado más reciente con otra alternativa.</li>
+</ul>
+<div class="tabla"><table><thead><tr><td></td><th>Anchura</th><th>Profundidad</th></tr></thead><tbody><tr><td>Memoria</td><td>Guarda todo el árbol generado</td><td>Solo los nodos del camino actual</td></tr><tr><td>Callejones sin salida</td><td>No queda atrapada</td><td>Puede perder tiempo en ellos</td></tr><tr><td>Varias soluciones</td><td>Encuentra la mínima</td><td>Puede dar una larga</td></tr><tr><td>Suerte</td><td>Tiene que revisar cada nivel</td><td>Puede encontrarla sin mirar casi nada</td></tr></tbody></table></div>
+<p>Fuente: apunte de la cátedra, unidad 2, páginas 6 a 9; IA - Unidad 2 (resumen 2026), página 2.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Si perdiste las llaves, anchura es revisar un poco cada ambiente de la casa, y después un poco más en cada uno. Profundidad es vaciar por completo el primer placard antes de pasar a otra cosa.</p>
+</div>
+</section>
+<section class="sec"><h2 id="busqueda-heuristica">Búsqueda heurística</h2>
+<p>Una heurística mejora la eficiencia de la búsqueda, y suele sacrificar completitud. Las hay de propósito general y de propósito especial. Un ejemplo es el vecino más próximo, que en cada paso elige la alternativa localmente superior. Fuente: apunte de la cátedra, unidad 2, página 10.</p>
+<h3 id="generacion-y-prueba">Generación y prueba</h3>
+<ol>
+<li>Generar una posible solución.</li>
+<li>Verificar si realmente lo es.</li>
+<li>Si se encontró, terminar. Si no, volver al paso 1.</li>
+</ol>
+<p>Hecha de forma sistemática, si la solución existe, en algún momento la encuentra. El problema es que «en algún momento» puede ser demasiado tiempo. Es una búsqueda primero en profundidad, porque las soluciones completas se generan antes de probarlas. Fuente: apunte de la cátedra, unidad 2, página 12.</p>
+<p>Hay dos extremos y un punto medio:</p>
+<ul>
+<li><strong>Sistemática.</strong> Es una búsqueda exhaustiva por el espacio problema. Lo más sencillo es un árbol primero en profundidad con vuelta atrás. Si algunos estados intermedios se repiten mucho, conviene recorrer un grafo en lugar de un árbol.</li>
+<li><strong>Aleatoria.</strong> No garantiza encontrar alguna vez la solución. Se la conoce como <strong>algoritmo del Museo Británico</strong>, por buscar objetos recorriendo el museo al azar.</li>
+<li><strong>Heurística, el punto medio.</strong> Es sistemática, pero no considera algunos caminos porque parecen no llevar a la solución. Eso lo evalúa una función heurística.</li>
+</ul>
+<p>Para problemas sencillos, una generación y prueba exhaustiva suele ser razonable. Fuente: apunte de la cátedra, unidad 2, página 12.</p>
+<h3 id="escalada-o-remonte-de-colinas">Escalada o remonte de colinas</h3>
+<p>Es una variante de generación y prueba con realimentación. La prueba suma una función heurística que estima cuán cerca está el estado del objetivo. Fuente: apunte de la cátedra, unidad 2, página 13.</p>
+<ul>
+<li><strong>Escalada simple.</strong> Prueba operadores de a uno. Si un estado nuevo es mejor que el actual, pasa a ser el actual.</li>
+<li><strong>Máxima pendiente.</strong> Considera todos los movimientos desde el estado actual y elige el mejor.</li>
+</ul>
+<p>Fuente: apunte de la cátedra, unidad 2, página 14.</p>
+<p>Las dos pueden no encontrar solución, porque se traban en un estado del que no salen estados mejores. Fuente: apunte de la cátedra, unidad 2, página 15.</p>
+<div class="tabla"><table><thead><tr><th>Trampa</th><th>Qué es</th><th>Qué ayuda</th></tr></thead><tbody><tr><td>Máximo local</td><td>Mejor que sus vecinos, pero no que estados de otros lugares</td><td>Volver atrás e intentar otro camino</td></tr><tr><td>Meseta</td><td>Área plana, con vecinos del mismo valor</td><td>Un gran salto en alguna dirección</td></tr><tr><td>Cresta</td><td>Máximo local especial, imposible de cruzar con movimientos simples</td><td>Aplicar dos o más reglas antes de evaluar</td></tr></tbody></table></div>
+<p>Estos métodos no dan garantías. Fuente: apunte de la cátedra, unidad 2, página 15.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Imaginá que subís una montaña con niebla, y solo ves un paso alrededor. Si llegás a un cerrito, todo baja y creés que llegaste a la cima. Eso es un máximo local. Si estás en un llano, ningún paso cambia nada y no sabés para dónde ir. Eso es la meseta.</p>
+</div>
+<h3 id="el-primero-mejor">El primero mejor</h3>
+<p>Combina las ventajas de anchura y profundidad. Sigue un camino, y lo cambia cuando otra ruta parece más prometedora. En cada paso se selecciona «el nodo más prometedor que se haya generado hasta ese momento». La rama vieja no se olvida. Su último nodo queda guardado, y la búsqueda puede volver a él. Fuente: apunte de la cátedra, unidad 2, páginas 17 y 18.</p>
+<p><img src="img/fig-primero-mejor.webp" alt="Figura 2.10 del apunte: cinco pasos de una búsqueda el primero mejor, donde el número es el costo estimado"></p>
+<p>En la figura, el número es una estimación del costo, y por eso gana el más bajo. Después de expandir D aparecen E(4) y F(6). Entonces B(3) pasa a ser el mejor, y la búsqueda salta a esa rama. Fuente: apunte de la cátedra, unidad 2, página 18.</p>
+<p>Se implementa con dos listas: nodos abiertos, generados y aún sin examinar, y nodos cerrados, ya examinados. Fuente: IA - Unidad 2 (resumen 2026), página 4.</p>
+<h3 id="reduccion-de-problemas">Reducción de problemas</h3>
+<p>Convierte metas difíciles en submetas más fáciles, que pueden dividirse otra vez. También se la llama reducción de metas. Fuente: apunte de la cátedra, unidad 2, página 24.</p>
+<p>Se dibuja como un árbol de metas, o árbol Y-O:</p>
+<ul>
+<li><strong>Meta Y.</strong> Se satisface cuando se satisfacen todas sus submetas.</li>
+<li><strong>Meta O.</strong> Se satisface cuando se satisface cualquiera de sus submetas.</li>
+<li><strong>Meta hoja.</strong> Se satisface directo, sin submetas.</li>
+</ul>
+<p>Permite responder preguntas de «cómo» y «por qué». Fuente: IA - Unidad 2 (resumen 2026), página 5.</p>
+<h3 id="verificacion-de-restricciones">Verificación de restricciones</h3>
+<p>El objetivo es «descubrir algún estado del problema que satisfaga un conjunto dado de restricciones». Consta de dos pasos. Fuente: apunte de la cátedra, unidad 2, página 28.</p>
+<ol>
+<li><strong>Propagación.</strong> Se descubren las restricciones y se propagan tan lejos como se pueda.</li>
+<li><strong>Búsqueda.</strong> Si todavía no hay solución, se hace una suposición, se la agrega como restricción y se propaga de nuevo.</li>
+</ol>
+<p>La propagación termina por una de dos razones. O se detecta una contradicción, o no se pueden hacer más cambios con lo que se sabe. Si la contradicción viene solo de las restricciones dadas por el problema, no existe solución. Fuente: apunte de la cátedra, unidad 2, página 28.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Es como el Sudoku. Primero anotás todo lo que sale seguro. Cuando te trabás, probás un número en lápiz y seguís. Si eso lleva a un absurdo, borrás el lápiz.</p>
+</div>
+<h3 id="analisis-de-medios-y-fines">Análisis de medios y fines</h3>
+<p>Se centra en detectar diferencias entre el estado actual y el objetivo. Después busca un operador que reduzca una diferencia. Pueden aparecer dos subproblemas:</p>
+<ul>
+<li>Si el operador no se puede aplicar todavía, hay que alcanzar un estado donde sí se pueda.</li>
+<li>Si el operador no deja justo en el objetivo, hay que llegar desde ahí.</li>
+</ul>
+<p>Se aplica de forma recursiva. Las reglas tienen un lado izquierdo con las precondiciones y uno derecho con lo que cambia. La tabla de diferencias ordena las reglas según las diferencias que pueden reducir. El primer programa que lo usó fue GPS, de Newell y Simon. Fuente: apunte de la cátedra, unidad 2, página 31.</p>
+</section>
+<section class="sec"><h2 id="juegos">Juegos</h2>
+<h3 id="minimax">Minimax</h3>
+<p>Se generan los movimientos posibles hasta cierta profundidad y se aplica una función de evaluación estática a las hojas. Los valores se propagan hacia la raíz. En tu capa elegís el máximo, y en la del oponente se elige el mínimo. «La alternancia de maximización y minimización en capas alternas» le da el nombre. Fuente: apunte de la cátedra, unidad 2, páginas 35 a 37.</p>
+<p><img src="img/fig-minimax.webp" alt="Figura 2.28 del apunte: árbol de dos capas con A como raíz, B, C y D como hijos, y sus valores propagados"></p>
+<p>Probá cambiar las hojas de ese ejemplo y mirá cómo se mueven los valores que suben. Los valores iniciales son los del apunte.</p>
+<figure class="w w-calculadora" data-w="calculadora" data-cfg="{&quot;entradas&quot;:[{&quot;id&quot;:&quot;E&quot;,&quot;etq&quot;:&quot;Hoja E&quot;,&quot;valor&quot;:9},{&quot;id&quot;:&quot;F&quot;,&quot;etq&quot;:&quot;Hoja F&quot;,&quot;valor&quot;:-6},{&quot;id&quot;:&quot;G&quot;,&quot;etq&quot;:&quot;Hoja G&quot;,&quot;valor&quot;:0},{&quot;id&quot;:&quot;H&quot;,&quot;etq&quot;:&quot;Hoja H&quot;,&quot;valor&quot;:0},{&quot;id&quot;:&quot;I&quot;,&quot;etq&quot;:&quot;Hoja I&quot;,&quot;valor&quot;:-2},{&quot;id&quot;:&quot;J&quot;,&quot;etq&quot;:&quot;Hoja J&quot;,&quot;valor&quot;:-4},{&quot;id&quot;:&quot;K&quot;,&quot;etq&quot;:&quot;Hoja K&quot;,&quot;valor&quot;:-3}],&quot;salidas&quot;:[{&quot;etq&quot;:&quot;B, capa minimizante&quot;,&quot;f&quot;:&quot;min(min(E,F),G)&quot;,&quot;dec&quot;:0},{&quot;etq&quot;:&quot;C, capa minimizante&quot;,&quot;f&quot;:&quot;min(H,I)&quot;,&quot;dec&quot;:0},{&quot;etq&quot;:&quot;D, capa minimizante&quot;,&quot;f&quot;:&quot;min(J,K)&quot;,&quot;dec&quot;:0},{&quot;etq&quot;:&quot;A, capa maximizante&quot;,&quot;f&quot;:&quot;max(max(min(min(E,F),G),min(H,I)),min(J,K))&quot;,&quot;dec&quot;:0}]}"><figcaption><span class="w-t">Propagación del árbol de la Figura 2.28</span><span class="w-f">Fuente: Apunte de la cátedra, unidad 2, página 37</span></figcaption><div class="w-lienzo"></div><p class="w-nota">Sirve para chequear un resultado. En el examen va el desarrollo que pide la cátedra.</p><div class="w-desc">Parte de las hojas del ejemplo del apunte: E 9, F -6, G 0, H 0, I -2, J -4 y K -3. Los nodos B, C y D toman el mínimo de sus hojas, y A toma el máximo de los tres. Con esos valores, B da -6, C da -2, D da -4 y A da -2.</div></figure>
+<p>En el ejemplo, el movimiento correcto es C, «puesto que no hay nada que el oponente pueda hacer ahí para producir un valor peor que −2». Fuente: apunte de la cátedra, unidad 2, página 37.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Si solo mirás tu jugada, B parece tentador porque tiene un 9 adentro. Pero el que elige ahí es el rival, y te va a dar el −6. Vos jugás pensando en lo peor que te puede hacer el otro.</p>
+</div>
+<h3 id="poda-alfa-beta">Poda alfa-beta</h3>
+<p>Minimax se mejora con ramificación y acotación. Requiere «dos valores umbral, uno que representa la cota inferior del valor que puede asignarse en último término a un nodo maximizante (alfa) y otro que represente la cota superior del valor que puede asignarse a un nodo minimizante (beta)». Fuente: apunte de la cátedra, unidad 2, páginas 37 y 38.</p>
+<p><img src="img/fig-alfabeta.webp" alt="Figura 2.29 del apunte: A tiene dos hijos, B con valor 3 y C con valor -5 o menos, y G queda sin explorar"></p>
+<p>En la figura, B asegura un 3. Al ver F = −5, C ya vale −5 o menos. Es peor que B, así que G no hace falta mirarlo. Fuente: apunte de la cátedra, unidad 2, página 38.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Un amigo te ofrece elegir entre dos bolsas, y de la bolsa que elijas él te da la peor cosa. En la primera bolsa viste que lo peor vale 3. Abrís la segunda y lo primero que aparece vale −5. No necesitás seguir mirando esa bolsa. Como mucho te da −5, y ya tenés un 3 seguro.</p>
+</div>
+</section>
+<section class="sec"><h2 id="algoritmos-geneticos">Algoritmos genéticos</h2>
+<p>Son métodos adaptativos basados en la evolución. Una posible solución se codifica en un cromosoma, formado por genes. La aptitud de cada individuo se mide con una función de evaluación. Fuente: apunte de la cátedra, unidad 2, páginas 43 a 47.</p>
+<p>Cuatro diferencias con los métodos tradicionales:</p>
+<ul>
+<li>Trabajan con una codificación de los parámetros, no con ellos directamente.</li>
+<li>Buscan en una población de puntos, no en uno solo.</li>
+<li>Usan la función objetivo, no derivadas u otro conocimiento auxiliar.</li>
+<li>Usan reglas de transición probabilísticas, no determinísticas.</li>
+</ul>
+<p>Fuente: apunte de la cátedra, unidad 2, página 45.</p>
+<p>No garantizan encontrar la óptima, pero suelen dar soluciones aceptables en poco tiempo. Donde existan técnicas especializadas, estas les ganan en velocidad y en precisión. Los operadores son selección, cruce (crossover), mutación y migración. Fuente: apunte de la cátedra, unidad 2, páginas 45 y 46; IA - Unidad 2 (resumen 2026), página 10.</p>
+</section>
+<section class="sec"><h2 id="planificacion">Planificación</h2>
+<p>Planificar es calcular varios pasos de la solución antes de ejecutar ninguno. Se estudia sobre el mundo de los bloques, con un brazo robot. Fuente: apunte de la cátedra, unidad 2, página 52.</p>
+<p>Un sistema de planificación tiene que hacer cinco cosas:</p>
+<ol>
+<li>Elegir la mejor regla para aplicar.</li>
+<li>Aplicarla para calcular el nuevo estado.</li>
+<li>Detectar cuándo llegó a una solución.</li>
+<li>Detectar callejones sin salida.</li>
+<li>Detectar cuándo una solución es casi correcta, y arreglarla.</li>
+</ol>
+<p>Fuente: apunte de la cátedra, unidad 2, página 53; IA - Unidad 2 (resumen 2026), página 11.</p>
+<p>STRIPS describe cada operador con tres listas: PRECONDICIÓN, AÑADIR y BORRAR. Así no hace falta repetir todo lo que no cambia. Fuente: apunte de la cátedra, unidad 2, página 58.</p>
+<div class="tabla"><table><thead><tr><th>Técnica</th><th>Idea</th><th>Fuente</th></tr></thead><tbody><tr><td>Pila de objetivos</td><td>Una pila con objetivos y operadores. Resuelve los objetivos por orden, uno cada vez</td><td>Unidad 2, páginas 58 y 64</td></tr><tr><td>No lineal</td><td>Un plan entrelazado que trabaja «simultáneamente con múltiples subproblemas»</td><td>Unidad 2, página 64</td></tr><tr><td>Jerárquica</td><td>Resuelve primero lo más crítico y deja los detalles para después, con valores de criticidad</td><td>Unidad 2, páginas 64 y 65</td></tr><tr><td>Sistemas reactivos</td><td>Evitan planificar y reaccionan a la situación observable. Eligen una acción cada vez</td><td>Unidad 2, página 65</td></tr></tbody></table></div>
+<p>La anomalía de Sussman muestra por qué hace falta un plan no lineal. Los objetivos interactúan, y lograr uno deshace el otro. Fuente: apunte de la cátedra, unidad 2, páginas 63 y 64.</p>
+<p><img src="img/fig-sussman.webp" alt="Figura 2.39 del apunte: la anomalía de Sussman, con estado inicial y objetivo en el mundo de los bloques"></p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El termostato es el reactivo más simple que da el apunte. No planifica el día ni mira el pronóstico. Si hace calor prende, y si hace frío apaga. Y aun así funciona.</p>
+</div>
+</section>
+<section class="sec"><h2 id="prolog-basico">Prolog básico</h2>
+<p>El nombre viene de PROgramming LOGic. Se describe el problema, en vez de programar el procedimiento. Fuente: apunte de la cátedra, unidad 4, página 4.</p>
+<h3 id="hechos-reglas-y-variables">Hechos, reglas y variables</h3>
+<p>Un hecho afirma algo. Una regla es un hecho que depende de otros, con la forma <code>cabeza :- cuerpo.</code> Las variables empiezan con mayúscula, y <code>_</code> es la variable anónima. Fuente: diapositivas de Prolog de la cátedra, 1 Introducción; Programación práctica en Prolog, página 6.</p>
+<h3 id="operadores">Operadores</h3>
+<ul>
+<li><code>,</code> es la conjunción y <code>;</code> es la disyunción. La disyunción también se representa «poniendo cada miembro de la disyunción en una cláusula aparte. Esta última será la forma en la que trabajaremos». Fuente: Programación práctica en Prolog, página 8.</li>
+<li><code>not/1</code> es la negación, como en <code>feliz(X):-not(observa(X,felicia)).</code> Fuente: Programación práctica en Prolog, páginas 8 y 9.</li>
+<li><code>=</code> es una comprobación lógica. <code>X=3+2</code> no da 5. Para calcular se usa <code>is</code>. Fuente: Programación práctica en Prolog, páginas 8 y 14.</li>
+</ul>
+<h3 id="recursividad-y-condicion-de-fin">Recursividad y condición de fin</h3>
+<p>Toda recursión necesita un caso que la corte. En el factorial, ese caso es <code>factorial(0,1).</code></p>
+<pre class="codigo"><code>factorial(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>).
+factorial(<span class="hljs-symbol">N</span>,<span class="hljs-symbol">F</span>) :- <span class="hljs-symbol">Ant</span> is <span class="hljs-symbol">N</span><span class="hljs-number">-1</span>,
+                  factorial(<span class="hljs-symbol">Ant</span>,<span class="hljs-symbol">FA</span>),
+                  <span class="hljs-symbol">F</span> is <span class="hljs-symbol">N</span> * <span class="hljs-symbol">FA</span>.</code></pre>
+<p>Fuente: diapositivas de Prolog de la cátedra, 3 Recursividad.</p>
+<p>Una lista se parte en cabeza y cola con <code>[H|T]</code>, y su caso de corte es la lista vacía <code>[]</code>. Lo demás de Prolog, con listas y base de datos, está en <a href="final.html#la-practica-de-prolog">el final</a>.</p>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-1" data-materia="inteligencia-artificial">
+<h2>Quiz del 1° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="S_N7M2k-jT" data-tema="Análisis del problema" data-enlace="parcial-1.html#ignorables-recuperables-y-no-recuperables" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-1"><span class="q-n">1</span><div><p>¿Qué tipo de problema requiere un sistema que aplique muchísimo esfuerzo en la toma de decisiones, porque son irrevocables?</p>
+<p class="q-origen">Se tomó: Parcial 30/06/2021, adaptada <em class="viejo">Plan viejo</em></p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-1"><li><button type="button" class="op" data-ok="0">Los ignorables</button></li><li><button type="button" class="op" data-ok="0">Los recuperables</button></li><li><button type="button" class="op" data-ok="1">Los no recuperables</button></li><li><button type="button" class="op" data-ok="0">Los descomponibles</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>En los <strong>no recuperables</strong> los pasos no se pueden deshacer, como en el ajedrez. Por eso cada decisión cuenta.</p>
+</div></li><li class="q" data-q="5a94No-y5h" data-tema="Análisis del problema" data-enlace="parcial-1.html#ignorables-recuperables-y-no-recuperables" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-2"><span class="q-n">2</span><div><p>¿Qué estructura de control implementa la vuelta atrás en los problemas recuperables?</p>
+<p class="q-origen">Se tomó: Parcial 30/06/2021, adaptada <em class="viejo">Plan viejo</em></p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-2"><li><button type="button" class="op" data-ok="1">Una pila «push-down», donde se conservan las decisiones</button></li><li><button type="button" class="op" data-ok="0">Una tabla de diferencias</button></li><li><button type="button" class="op" data-ok="0">Una lista de cláusulas padres</button></li><li><button type="button" class="op" data-ok="0">Una función de evaluación estática</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las decisiones se guardan en la <strong>pila</strong> por si hay que deshacerlas más tarde.</p>
+</div></li><li class="q" data-q="FpOwkpVuQz" data-tema="Análisis del problema" data-enlace="parcial-1.html#consecuencia-cierta-e-incierta" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-3"><span class="q-n">3</span><div><p>Según el apunte, ¿cuáles son de los tipos de problemas más difíciles de resolver?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-3"><li><button type="button" class="op" data-ok="0">Los ignorables de consecuencia incierta</button></li><li><button type="button" class="op" data-ok="0">Los recuperables de consecuencia cierta</button></li><li><button type="button" class="op" data-ok="0">Los irrecuperables de consecuencia cierta</button></li><li><button type="button" class="op" data-ok="1">Los irrecuperables de consecuencia incierta</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Planificar una solución completa antes de actuar solo sirve con consecuencia cierta. Sin eso, y sin poder deshacer, queda lo más difícil. El apunte da como ejemplos el bridge y el brazo de robot.</p>
+</div></li><li class="q" data-q="JdT2XR_En9" data-tema="Qué es la inteligencia artificial" data-enlace="parcial-1.html#simbolicas-y-subsimbolicas" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-4"><span class="q-n">4</span><div><p>¿Qué caracteriza a las aproximaciones subsimbólicas?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-4"><li><button type="button" class="op" data-ok="0">Un diseño descendente con nivel del conocimiento</button></li><li><button type="button" class="op" data-ok="1">Un diseño ascendente que usa el concepto de señal</button></li><li><button type="button" class="op" data-ok="0">Bases de conocimiento declarativo en lógica de predicados</button></li><li><button type="button" class="op" data-ok="0">Que sean neutrales respecto al sustrato</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las subsimbólicas son <strong>ascendentes</strong> y trabajan con señales. Lo descendente y los niveles son de las simbólicas.</p>
+</div></li><li class="q" data-q="o23bDOY9Fz" data-tema="Búsqueda a ciegas" data-enlace="parcial-1.html#busqueda-a-ciegas" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-5"><span class="q-n">5</span><div><p>¿Cuáles son los dos requisitos de una buena estrategia de control?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-5"><li><button type="button" class="op" data-ok="0">Que sea óptima y completa</button></li><li><button type="button" class="op" data-ok="0">Que use heurísticas y poda</button></li><li><button type="button" class="op" data-ok="1">Que cause algún cambio y que sea sistemática</button></li><li><button type="button" class="op" data-ok="0">Que trabaje hacia adelante y hacia atrás</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte pide exactamente esos dos: <strong>que cause algún cambio</strong> y <strong>que sea sistemática</strong>.</p>
+</div></li><li class="q" data-q="3XEuskh9E5" data-tema="Búsqueda a ciegas" data-enlace="parcial-1.html#anchura-contra-profundidad" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-6"><span class="q-n">6</span><div><p>¿Qué ventaja tiene la búsqueda primero en profundidad sobre la de anchura?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-6"><li><button type="button" class="op" data-ok="1">Necesita menos memoria, porque guarda solo los nodos del camino actual</button></li><li><button type="button" class="op" data-ok="0">Encuentra siempre la solución mínima</button></li><li><button type="button" class="op" data-ok="0">No queda atrapada en callejones sin salida</button></li><li><button type="button" class="op" data-ok="0">Examina cada nodo de un nivel antes de bajar</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Anchura debe guardar todo el árbol generado. Las otras tres opciones hablan de anchura, no de profundidad.</p>
+</div></li><li class="q" data-q="NJfP3blwiE" data-tema="Búsqueda heurística" data-enlace="parcial-1.html#el-primero-mejor" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-7"><span class="q-n">7</span><div><p>¿Qué búsqueda representa una forma de combinar las ventajas de primero en anchura y primero en profundidad?</p>
+<p class="q-origen">Se tomó: Parcial 30/06/2021, adaptada <em class="viejo">Plan viejo</em></p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-7"><li><button type="button" class="op" data-ok="0">Generación y prueba</button></li><li><button type="button" class="op" data-ok="0">Escalada simple</button></li><li><button type="button" class="op" data-ok="0">Ramificación y acotación</button></li><li><button type="button" class="op" data-ok="1">El primero mejor</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><strong>El primero mejor</strong> sigue un solo camino, y lo cambia cuando otra ruta parece más prometedora.</p>
+</div></li><li class="q" data-q="vJoLaryco5" data-tema="Búsqueda heurística" data-enlace="parcial-1.html#escalada-o-remonte-de-colinas" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-8"><span class="q-n">8</span><div><p>En la escalada, ¿qué ayuda especialmente a superar una meseta?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-8"><li><button type="button" class="op" data-ok="0">Volver a un camino anterior</button></li><li><button type="button" class="op" data-ok="1">Realizar un gran salto en alguna dirección</button></li><li><button type="button" class="op" data-ok="0">Aplicar dos o más reglas antes de evaluar</button></li><li><button type="button" class="op" data-ok="0">Agregar una restricción</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El gran salto va a otra parte del espacio. Volver atrás sirve para máximos locales, y varias reglas juntas, para crestas.</p>
+</div></li><li class="q" data-q="S6aV03yBNf" data-tema="Búsqueda heurística" data-enlace="parcial-1.html#reduccion-de-problemas" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-9"><span class="q-n">9</span><div><p>¿Qué técnica convierte metas difíciles en submetas más fáciles de lograr?</p>
+<p class="q-origen">Se tomó: Parcial 30/06/2021, adaptada <em class="viejo">Plan viejo</em></p></div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-9"><li><button type="button" class="op" data-ok="0">Análisis de medios y fines</button></li><li><button type="button" class="op" data-ok="0">Verificación de restricciones</button></li><li><button type="button" class="op" data-ok="1">Reducción de problemas</button></li><li><button type="button" class="op" data-ok="0">Generación y prueba</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La <strong>reducción de problemas</strong>, también llamada reducción de metas.</p>
+</div></li><li class="q" data-q="yOU5fXFxEn" data-tema="Búsqueda heurística" data-enlace="parcial-1.html#verificacion-de-restricciones" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-10"><span class="q-n">10</span><div><p>¿Qué significa que la propagación de restricciones termine porque detectó una contradicción en las restricciones dadas por el problema?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-10"><li><button type="button" class="op" data-ok="1">Que no existe solución</button></li><li><button type="button" class="op" data-ok="0">Que hay que hacer una nueva suposición</button></li><li><button type="button" class="op" data-ok="0">Que se llegó al objetivo</button></li><li><button type="button" class="op" data-ok="0">Que hay que aplicar más reglas</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Si la contradicción se refiere solo a las restricciones de la especificación, y no a suposiciones, <strong>no existe solución</strong>.</p>
+</div></li><li class="q" data-q="DvGG8rgLk_" data-tema="Juegos" data-enlace="parcial-1.html#poda-alfa-beta" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-11"><span class="q-n">11</span><div><p>En la poda alfa-beta, ¿qué representa alfa?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-11"><li><button type="button" class="op" data-ok="0">La cota superior de un nodo minimizante</button></li><li><button type="button" class="op" data-ok="1">La cota inferior de un nodo maximizante</button></li><li><button type="button" class="op" data-ok="0">El valor de la hoja más profunda</button></li><li><button type="button" class="op" data-ok="0">La profundidad máxima de la búsqueda</button></li></ul><div class="q-expl" tabindex="-1" hidden><p><strong>Alfa</strong> es la cota inferior de un nodo maximizante. <strong>Beta</strong> es la cota superior de un nodo minimizante.</p>
+</div></li><li class="q" data-q="JlC6LvbObG" data-tema="Planificación" data-enlace="parcial-1.html#planificacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-12"><span class="q-n">12</span><div><p>¿Qué plantean los sistemas reactivos?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-12"><li><button type="button" class="op" data-ok="0">Armar el plan completo antes de actuar</button></li><li><button type="button" class="op" data-ok="0">Resolver primero lo de más criticidad</button></li><li><button type="button" class="op" data-ok="0">Trabajar en varios subproblemas a la vez</button></li><li><button type="button" class="op" data-ok="1">Evitar planificar y reaccionar a la situación observable</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Eligen una acción cada vez, y no anticipan una secuencia completa. El ejemplo del apunte es el termostato.</p>
+</div></li><li class="q" data-q="MIQ7g96hIv" data-tema="Búsqueda heurística" data-enlace="parcial-1.html#escalada-o-remonte-de-colinas" data-tipo="abierta"><div class="q-enun" id="qe-parcial-1-13"><span class="q-n">13</span><div><p>Explicá la diferencia entre la escalada simple y la de máxima pendiente.</p>
+</div></div><details class="q-abierta"><summary>Ver qué dice el material</summary><div><p>La simple pasa al primer estado que sea mejor que el actual. La de máxima pendiente considera todos los movimientos desde el estado actual y elige el mejor.</p>
+</div><p class="q-auto">¿Cómo te fue? <button type="button" class="b-auto" aria-pressed="false" data-ok="1">La sabía</button> <button type="button" class="b-auto" aria-pressed="false" data-ok="0">Me faltó</button></p></details></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2025). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

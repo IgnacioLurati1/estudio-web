@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Manolo Carpa Tigre: Bases de Datos</title>
+<meta name="description" content="Ejercicio de examen: Manolo Carpa Tigre.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+</head>
+<body data-materia="bases-de-datos" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Bases de Datos</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=bases-de-datos">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=bases-de-datos">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#resolucion">Resolución</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Manolo Carpa Tigre</h1>
+<p class="bajada">Final</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="mct" data-titulo="Manolo Carpa Tigre" data-min="180" data-otro="ejercicios.html#final" data-sol="oficial"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="mct" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1vZHwKL9Lx84HBRxvxJhO-W46LWLC2XAo/view" target="_blank" rel="noopener">Enunciado original en el Drive</a><a href="https://drive.google.com/file/d/1s-uiZQe7kkrLgB56daffUGTYG2pZJBiU/view" target="_blank" rel="noopener">Script de la base</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><h4>Evaluación de Modelos de Datos y Algebra Relacional</h4>
+<h4>Modelos de Datos</h4>
+<ul>
+<li><strong>a)</strong> Esquematice el modelo E-R que se deriva de la narrativa.</li>
+<li><strong>b)</strong> Transforme el modelo E-R en un Modelo Relacional (pasaje a tablas). Especifique atributos, si los mismos admiten valores nulos, claves primarias y foráneas y de estas últimas si admiten o no valores nulos.</li>
+</ul>
+<h4>Operaciones del Álgebra Relacional</h4>
+<ul>
+<li><strong>c)</strong> Desarrolle las operaciones en Algebra relacional de los Requerimientos planteados.</li>
+</ul>
+<p>La empresa Manolo Carpa Tigre (MCT) se dedica a realizar viajes. El proceso general para la realización de un viaje es el siguiente:</p>
+<p>Los viajes<sup>1</sup> deben registrarse en el momento en que son solicitados y se clasifican por tipo de viaje<sup>4</sup>. Esta clasificación permite conocer el valor del kilometraje del tipo del viaje<sup>5</sup>.</p>
+<p>A cada viaje se le asignan el/los móviles<sup>6</sup> en el/los cual/es se realizará el viaje. Cuando finaliza el viaje se registran el kilometraje inicial y el kilometraje final que tenía el móvil al realizar el viaje.</p>
+<p>Los viajes además pueden ser programados<sup>2</sup> o casuales<sup>3</sup>. En función de esto la empresa realiza diferentes procedimientos:</p>
+<h4>Viajes Programados</h4>
+<p>Los viajes programados<sup>2</sup> se reservan y pueden cancelarse hasta 3 días antes de su fecha de inicio. En el momento de la reserva se consulta si existe disponibilidad de choferes<sup>7</sup> para realizar el viaje programado y se los asigna al mismo.</p>
+<p>Para cada viaje programado se realiza un único contrato<sup>8</sup> con el cliente<sup>9</sup>.</p>
+<p>El importe calculado de los viajes programados se abona en cuotas10(1 o varias).</p>
+<h4>Viajes Casuales</h4>
+<p>Los viajes casuales<sup>3</sup> se solicitan para el día, no pueden reservarse con anticipación. Para poder brindar este servicio la empresa ha establecido un sistema de turnos<sup>12</sup>. En el momento de la solicitud de un viaje casual se asigna el chofer de un turno vigente.</p>
+<h4>Reglas</h4>
+<ol>
+<li>Los viajes se identifican con un número de viaje que es secuencial y se registran la fecha de inicio, hora de inicio, fecha de fin, hora de fin, cantidad de pasajeros, un texto donde se especifica el destino, importe del viaje y un estado que puede asumir los valores: pendiente, en proceso, cancelado y terminado. La fecha de fin y hora de fin de viaje se registran cuando el viaje finaliza, si se cancela no se registran. Si el viaje fuera cancelado se registra la fecha de cancelación.</li>
+<li>Para los viajes programados se registra, además: fecha de reserva, hora de reserva, duración y kilometraje estimados. El importe del viaje se calcula en función del valor por km para el tipo de viaje y los kilómetros estimados del viaje en el momento de la reserva y se registra. No se cobra excedente si al realizar el viaje se excede el kilometraje estimado.</li>
+<li>Para los viajes casuales se registra, además, la dirección de origen del viaje. Finalizado el viaje se calcula el importe del viaje según los kilómetros recorridos y se registran el kilometraje y el importe del viaje.</li>
+<li>Los tipos de viajes están codificados y tienen una descripción. Ej: 1-Urbanos, 2-Media distancia, etc.</li>
+<li>Los tipos de viaje tienen un valor por km que se actualiza periódicamente.</li>
+<li>Los móviles se identifican por la patente y se conoce: Marca, modelo, año de fabricación, fecha de la último service, capacidad. Cuando los vehículos no se utilizan más o se venden se debe registrar la fecha de baja.</li>
+<li>Los choferes se identifican por su CUIL y de ellos se registra: nro. carnet de conductor, fecha de nacimiento, nombre y apellido, teléfono, dirección y cuenta de email.</li>
+<li>Los contratos se identifican con un número único y secuencial. Además del cliente que firma el contrato debe registrarse la fecha del contrato y posiblemente alguna observación que el cliente quiera indicar.</li>
+<li>Los clientes se identifican por un tipo de documento y un número de documento y deben registrarse nombre, teléfono, dirección y cuenta de email.</li>
+<li>Las cuotas se establecen para pagar cada uno de los viajes programados. De cada cuota se debe registrar la fecha de vencimiento, importe y, cuando la cuota sea abonada, la fecha de pago y, si se abona fuera de término (cuota en mora) el importe de recargo cobrado en función de los días de mora por el porcentaje de recargo diario<sup>11</sup> vigente a la fecha de pago aplicado al importe de la cuota.</li>
+<li>La empresa define el porcentaje de recargo diario que se aplicará sobre las cuotas abonadas fuera de término. Se mantiene un histórico de los mismos.</li>
+<li>Los turnos se identifican por un código y tienen descripción, hora desde y hora hasta. Cada chofer puede realizar a partir de una fecha uno o más turnos y en un turno podrán trabajar a partir de una fecha uno o más choferes.</li>
+</ol>
+<h4>Requerimientos</h4>
+<ol>
+<li>Cuando un móvil se descompone es necesario reprogramar sus viajes. Por lo tanto, dado un móvil (APB 333) listar todos los futuros viajes no cancelados del mismo, indicando Nro. de viaje, fecha y hora de inicio y cantidad de pasajeros.</li>
+<li>Listar los choferes que han compartido la planificación de turnos con el chofer “Jose Lópes”.</li>
+</ol>
+<p>Ejecute el script de base de datos proporcionado por la cátedra Todas las operaciones siguientes deben copiarse a un archivo que será entregado una vez completado el examen.</p>
+<p>El nombre del archivo deberá tener la forma: APELLIDO_NOMBRE.sql</p>
+<h4>DDL</h4>
+<ol>
+<li>(Evaluación: Esta consigna es eliminatoria). Desarrolle las sentencias DDL requeridas para completar la definición de las tablas CHOFERES_TURNOS y VIAJES</li>
+</ol>
+<h4>DML</h4>
+<ol start="2">
+<li>Ranking de móviles. Indicar: Patente, cantidad de kilómetros recorridos en todos los viajes que realizó el móvil. Ordenar por cantidad de kilómetros recorridos en forma descendente.</li>
+<li>Lista de precios. Indicar código del tipo de viaje, descripción y valor actual. Si el tipo de viaje aún no tiene ningún precio registrado, mostrar igual el tipo de viaje indicando esta situación.</li>
+<li>Importes adeudados: Listar los clientes que adeudan cuotas indicando: tipo y nro. de documento, nombre, teléfono, cantidad de cuotas vencidas, importe total adeudado e importe total de recargo al día de hoy.</li>
+</ol>
+<p>Recordar que las cuotas vencidas tienen un importe de recargo que se calcula: Recargo = cantidad de días de mora * porcentaje de recargo vigente * importe de la cuota / 100.</p>
+<p>Cantidad de días de mora = fecha actual – fecha vencimiento (Función DATEDIFF)</p>
+<ol start="5">
+<li>Disponibilidad de móviles: realizar un procedimiento almacenado que analice la disponibilidad de móviles con una cierta capacidad o más (parámetro de entrada) para realizar un viaje casual. El procedimiento deberá listar Patente y capacidad de los móviles disponibles.</li>
+</ol>
+<h4>Probar el procedimiento para la capacidad: 20</h4>
+<h4>TCL</h4>
+<ol start="6">
+<li>Actualización de precios: Debido a un aumento en los combustibles la empresa ha decidido un aumento de precios para el valor por km de los tipos de viajes. El aumento regirá a partir del lunes próximo. El aumento será de un 25% a los que tengan un importe menor a $100 y de 30% a los que tengan un importe mayor o igual a $100.</li>
+</ol>
+</section>
+
+<section class="sec" id="resolucion-s"><h2 id="resolucion">Resolución</h2><details class="sol-grande"><summary>Ver la resolución: DER, pasaje a tablas y SQL</summary><p class="sol-ayuda">Son las hojas originales. Tocá una para verla en grande.</p><a class="sol-img" href="img/mct-1.webp" aria-label="Abrir la hoja 1 de la resolución en grande"><img src="img/mct-1.webp" width="1437" height="1060" loading="lazy" alt="Hoja 1 de la resolución, tal como está en el Drive"></a><a class="sol-img" href="img/mct-2.webp" aria-label="Abrir la hoja 2 de la resolución en grande"><img src="img/mct-2.webp" width="1037" height="1532" loading="lazy" alt="Hoja 2 de la resolución, tal como está en el Drive"></a><p class="sol-t">SQL</p><div class="sol-bloque"><pre class="codigo"><code><span class="hljs-comment">/* SQL 1*/</span>
+<span class="hljs-keyword">select</span> vm.patente, <span class="hljs-built_in">sum</span>(vm.km_fin <span class="hljs-operator">-</span> vm.km_ini) kms
+<span class="hljs-keyword">from</span> viajes_moviles vm
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> vm.patente
+<span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> kms <span class="hljs-keyword">desc</span>;
+
+
+<span class="hljs-comment">/* SQL 2*/</span>
+<span class="hljs-keyword">drop</span> temporary <span class="hljs-keyword">table</span> if <span class="hljs-keyword">exists</span> val_act;
+<span class="hljs-keyword">create</span> temporary <span class="hljs-keyword">table</span> val_act
+(
+ <span class="hljs-keyword">select</span> cod_tipo_viaje, <span class="hljs-built_in">max</span>(fecha_desde) fec_val
+ <span class="hljs-keyword">from</span> tipos_viajes_valores
+ <span class="hljs-keyword">where</span> fecha_desde <span class="hljs-operator">&lt;=</span> <span class="hljs-built_in">current_date</span>
+ <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> cod_tipo_viaje
+);
+
+<span class="hljs-keyword">select</span> tv.desc_tipo_viaje, vv.valor_km
+<span class="hljs-keyword">from</span> tipos_viajes tv
+     <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> val_act tt
+           <span class="hljs-keyword">on</span>  tt.cod_tipo_viaje<span class="hljs-operator">=</span>tv.cod_tipo_viaje
+		<span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> tipos_viajes_valores vv
+           <span class="hljs-keyword">on</span> vv.cod_tipo_viaje<span class="hljs-operator">=</span>tt.cod_tipo_viaje
+               <span class="hljs-keyword">and</span> vv.fecha_desde<span class="hljs-operator">=</span>tt.fec_val;
+
+<span class="hljs-comment">/* SQL 3*/</span>
+<span class="hljs-keyword">select</span> r.PorcRecargoDiario <span class="hljs-keyword">INTO</span> <span class="hljs-variable">@recargo</span> 
+<span class="hljs-keyword">FROM</span> recargos r 
+<span class="hljs-keyword">WHERE</span> r.FechaDesde <span class="hljs-operator">=</span> (<span class="hljs-keyword">select</span> <span class="hljs-built_in">max</span>(r1.fechadesde) <span class="hljs-keyword">FROM</span> recargos r1);
+
+<span class="hljs-keyword">select</span> <span class="hljs-variable">@recargo</span>;
+
+<span class="hljs-keyword">SELECT</span> cli.tipo_doc, cli.nro_doc, cli.denominacion, cli.telefono,
+	   <span class="hljs-built_in">SUM</span>(cu.importe) Importe , 
+       <span class="hljs-built_in">SUM</span>(ROUND(<span class="hljs-variable">@recargo</span> <span class="hljs-operator">*</span> (datediff(<span class="hljs-built_in">current_date</span>(), cu.fecha_venc)) <span class="hljs-operator">*</span> cu.importe <span class="hljs-operator">/</span> <span class="hljs-number">100</span>,<span class="hljs-number">2</span>)) Recargo
+<span class="hljs-keyword">from</span>  cuotas cu
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> viajes v
+<span class="hljs-keyword">ON</span> v.nro_viaje <span class="hljs-operator">=</span> cu.nro_viaje
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> contratos co
+<span class="hljs-keyword">ON</span> co.nro_contrato <span class="hljs-operator">=</span> v.nro_contrato
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> clientes cli
+<span class="hljs-keyword">ON</span> cli.tipo_doc <span class="hljs-operator">=</span> co.tipo_doc
+<span class="hljs-keyword">AND</span> cli.nro_doc <span class="hljs-operator">=</span> co.nro_doc
+<span class="hljs-keyword">WHERE</span> cu.fecha_pago <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span> <span class="hljs-keyword">AND</span> cu.fecha_venc <span class="hljs-operator">&lt;</span> <span class="hljs-built_in">current_date</span>()
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>;
+
+
+<span class="hljs-comment">/* SQL 5*/</span>
+
+USE `manolo_carpa_tigre`;
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">procedure</span> IF <span class="hljs-keyword">EXISTS</span> `sp_moviles_disp`;
+
+DELIMITER $$
+USE `manolo_carpa_tigre`$$
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">PROCEDURE</span> `sp_moviles_disp` (<span class="hljs-keyword">in</span> wcapacidad <span class="hljs-type">INT</span>)
+<span class="hljs-keyword">BEGIN</span>
+<span class="hljs-keyword">select</span> m.patente, m.capacidad
+<span class="hljs-keyword">from</span> moviles m
+<span class="hljs-keyword">where</span> m.fecha_baja <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>
+<span class="hljs-keyword">AND</span> m.patente <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span>
+( <span class="hljs-keyword">select</span> vm.patente
+ <span class="hljs-keyword">from</span> viajes v
+   <span class="hljs-keyword">inner</span> <span class="hljs-keyword">join</span> viajes_moviles vm
+         <span class="hljs-keyword">on</span> v.nro_viaje<span class="hljs-operator">=</span>vm.nro_viaje
+ <span class="hljs-keyword">where</span> v.fecha_cancelacion <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>
+   <span class="hljs-keyword">AND</span> v.estado <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;En Proceso&#x27;</span>
+   <span class="hljs-keyword">OR</span> (v.fecha_ini <span class="hljs-operator">=</span> curdate()
+   <span class="hljs-keyword">and</span> v.estado <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Pendiente&#x27;</span>))
+   <span class="hljs-keyword">And</span> m.capacidad <span class="hljs-operator">&gt;=</span> wcapacidad;
+
+<span class="hljs-keyword">END</span>$$
+
+DELIMITER ;
+
+<span class="hljs-keyword">CALL</span> sp_moviles_disp(<span class="hljs-number">20</span>);
+
+<span class="hljs-comment">/* SQL 6*/</span>
+
+<span class="hljs-keyword">START</span> transaction;
+	<span class="hljs-keyword">drop</span> temporary <span class="hljs-keyword">table</span> if <span class="hljs-keyword">exists</span> val_act;
+	<span class="hljs-keyword">create</span> temporary <span class="hljs-keyword">table</span> val_act
+	(
+		<span class="hljs-keyword">select</span> cod_tipo_viaje, <span class="hljs-built_in">max</span>(fecha_desde) fec_val
+		<span class="hljs-keyword">from</span> tipos_viajes_valores
+		<span class="hljs-keyword">where</span> fecha_desde <span class="hljs-operator">&lt;=</span> <span class="hljs-built_in">current_date</span>
+		<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> cod_tipo_viaje
+	);
+
+	<span class="hljs-keyword">INSERT INTO</span> tipos_viajes_valores
+    <span class="hljs-keyword">SELECT</span> tvc.cod_tipo_viaje, <span class="hljs-string">&#x27;2018-07-09&#x27;</span>, tvc.valor_km <span class="hljs-operator">*</span> <span class="hljs-number">1.30</span>
+    <span class="hljs-keyword">from</span> tipos_viajes_valores tvc
+    <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> val_act va
+    <span class="hljs-keyword">ON</span> va.cod_tipo_viaje <span class="hljs-operator">=</span> tvc.cod_tipo_viaje
+    <span class="hljs-keyword">AND</span> va.fec_val <span class="hljs-operator">=</span> tvc.fecha_desde
+    <span class="hljs-keyword">WHERE</span> tvc.valor_km <span class="hljs-operator">&gt;=</span> <span class="hljs-number">100</span>;
+    
+    <span class="hljs-keyword">INSERT INTO</span> tipos_viajes_valores
+	<span class="hljs-keyword">SELECT</span> tvc.cod_tipo_viaje, <span class="hljs-string">&#x27;2018-07-09&#x27;</span>,tvc.valor_km <span class="hljs-operator">*</span> <span class="hljs-number">1.25</span>
+    <span class="hljs-keyword">from</span> tipos_viajes_valores tvc
+    <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> val_act va
+    <span class="hljs-keyword">ON</span> va.cod_tipo_viaje <span class="hljs-operator">=</span> tvc.cod_tipo_viaje
+    <span class="hljs-keyword">AND</span> va.fec_val <span class="hljs-operator">=</span> tvc.fecha_desde
+    <span class="hljs-keyword">WHERE</span> tvc.valor_km <span class="hljs-operator">&lt;</span> <span class="hljs-number">100</span>;
+<span class="hljs-keyword">commit</span>;</code></pre></div></details></section>
+
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="DER" data-enlace="parcial-1.html#de-la-narrativa-al-der" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">DER</span><span class="ex-t-teoria"><a href="parcial-1.html#de-la-narrativa-al-der">De la narrativa al DER</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Pasaje" data-enlace="parcial-1.html#pasaje-a-tablas" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Pasaje</span><span class="ex-t-teoria"><a href="parcial-1.html#pasaje-a-tablas">Pasaje a tablas</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Álgebra" data-enlace="parcial-1.html#algebra-relacional" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Álgebra</span><span class="ex-t-teoria"><a href="parcial-1.html#algebra-relacional">Álgebra relacional</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="SQL" data-enlace="parcial-2.html#sql-para-la-practica" data-donde="2° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT3">SQL</span><span class="ex-t-teoria"><a href="parcial-2.html#sql-para-la-practica">SQL para la práctica</a>, en 2° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT3"><label class="ex-op" data-v="bien"><input type="radio" name="exT3r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT3r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT3r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-saco-roto.html">Anterior: Sastrería Saco Roto</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta marzo de 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

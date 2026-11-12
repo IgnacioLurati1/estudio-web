@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aprobación directa, 13/02/2023 (Vivero): Paradigmas de Programación</title>
+<meta name="description" content="Ejercicio de examen: Aprobación directa, 13/02/2023 (Vivero).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="paradigmas-de-programacion" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Paradigmas de Programación</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">Parcial de regularización</a></li><li class="em-fuera"><a href="ad.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=paradigmas-de-programacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=paradigmas-de-programacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Aprobación directa, 13/02/2023 (Vivero)</h1>
+<p class="bajada">Aprobación directa, 13/02/2023</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="ad-2023-02-13" data-titulo="Aprobación directa, 13/02/2023 (Vivero)" data-min="120" data-otro="ejercicios.html#ad" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="ad-2023-02-13" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/159JNpKzyhWlqGzsj7XA1v6xLBFey48iM/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/ad-2023-02-13-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/ad-2023-02-13-e1.webp" width="903" height="1206" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>1) Diagrama de clases</h4>
+<p>El plantín paga el precio base y el árbol resta un descuento. Los frutales tienen el mismo porcentaje, y va como variable de clase. Cada árbol de mayor porte tiene el suyo, en la instancia. <code>Arbol</code> calcula el precio final con <code>porcentajeDescuento</code>, que cada subclase responde a su manera. Cada caja tiene arriba las variables de clase (vc) y de instancia (vi), y abajo los métodos de clase (mc) y de instancia (mi), como los diagramas de los cuestionarios del campus. La flecha punteada va de la subclase a la superclase, y la línea con cantidad es un ensamble. Los métodos que solo devuelven una variable no van en las cajas, para que se lean. Están al final del código. Tocá el dibujo para verlo en pantalla completa.</p>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 995 938" width="995" height="938" style="width:995px;min-width:995px;max-width:none;height:938px" role="img" aria-label="Diagrama de clases del vivero. Vivero guarda las plantas, los clientes y los pedidos. Cada pedido tiene un cliente, una o más plantas y su costo de embalaje. Planta es la superclase de Plantin, que se expone al sol o necesita sombra, y de Arbol. Arbol es la superclase de Frutal, con la variable de clase Descuento, y de MayorPorte, con su propio descuento. Cada árbol responde su porcentaje de descuento."><g fill="none" stroke="currentColor" stroke-width="1.3"><rect x="261.1" y="10.0" width="198.8" height="239.0"/><path d="M261.1 36.0H459.9M261.1 105.0H459.9M306.1 36.0V249.0"/><rect x="20.0" y="323.0" width="140.8" height="149.0"/><path d="M20.0 349.0H160.8M20.0 433.0H160.8M65.0 349.0V472.0"/><rect x="206.8" y="323.0" width="285.8" height="224.0"/><path d="M206.8 349.0H492.6M206.8 448.0H492.6M382.3 349.0V547.0"/><rect x="538.6" y="323.0" width="162.5" height="164.0"/><path d="M538.6 349.0H701.1M538.6 418.0H701.1M583.6 349.0V487.0"/><rect x="459.7" y="621.0" width="133.5" height="104.0"/><path d="M459.7 647.0H593.2M459.7 686.0H593.2M504.7 647.0V725.0"/><rect x="639.2" y="621.0" width="140.8" height="104.0"/><path d="M639.2 647.0H780.0M639.2 686.0H780.0M684.2 647.0V725.0"/><rect x="444.3" y="799.0" width="285.8" height="104.0"/><path d="M444.3 825.0H730.1M444.3 864.0H730.1M576.3 825.0V903.0"/><rect x="776.1" y="799.0" width="198.8" height="119.0"/><path d="M776.1 825.0H974.9M776.1 864.0H974.9M821.1 825.0V918.0"/><path d="M310.8 249.0L90.4 323.0"/><path d="M360.5 249.0L349.7 323.0"/><path d="M410.2 249.0L619.9 323.0"/><path d="M206.8 336.0H160.8"/><path d="M492.6 336.0H538.6"/><path d="M619.9 487.0l-7 12h14z" fill="none"/><path d="M709.6 725.0l-7 12h14z" fill="none"/><path stroke-dasharray="6 4" d="M619.9 499.0V581.0M526.5 581.0H709.6M526.5 581.0V621.0M709.6 581.0V621.0M709.6 737.0V759.0M587.2 759.0H875.5M587.2 759.0V799.0M875.5 759.0V799.0"/></g><g fill="currentColor" stroke="none" font-family="ui-monospace, Consolas, Menlo, monospace" font-size="12" text-anchor="middle"><text x="360.5" y="28.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Vivero</text><text x="269.1" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="314.1" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="314.1" y="66.0" text-anchor="start">plantas</text><text x="314.1" y="81.0" text-anchor="start">clientes</text><text x="314.1" y="96.0" text-anchor="start">pedidos</text><text x="269.1" y="119.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="314.1" y="119.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="314.1" y="135.0" text-anchor="start">inicializa</text><text x="314.1" y="150.0" text-anchor="start">menu</text><text x="314.1" y="165.0" text-anchor="start">cargarDescuentos</text><text x="314.1" y="180.0" text-anchor="start">registrarPedido</text><text x="314.1" y="195.0" text-anchor="start">buscarOCrearCliente</text><text x="314.1" y="210.0" text-anchor="start">nuevoCliente:</text><text x="314.1" y="225.0" text-anchor="start">mostrarPlantas</text><text x="314.1" y="240.0" text-anchor="start">buscarPlanta</text><text x="90.4" y="341.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Cliente</text><text x="28.0" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="73.0" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="73.0" y="379.0" text-anchor="start">dni</text><text x="73.0" y="394.0" text-anchor="start">nombre</text><text x="73.0" y="409.0" text-anchor="start">apellido</text><text x="73.0" y="424.0" text-anchor="start">direccion</text><text x="28.0" y="447.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="73.0" y="447.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="73.0" y="463.0" text-anchor="start">cargaDatos:</text><text x="349.7" y="341.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Pedido</text><text x="214.8" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="214.8" y="379.0" text-anchor="start">UltimoNumero</text><text x="390.3" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="390.3" y="379.0" text-anchor="start">numero</text><text x="390.3" y="394.0" text-anchor="start">fecha</text><text x="390.3" y="409.0" text-anchor="start">cliente</text><text x="390.3" y="424.0" text-anchor="start">plantas</text><text x="390.3" y="439.0" text-anchor="start">costoEmbalaje</text><text x="214.8" y="462.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="214.8" y="478.0" text-anchor="start">asignaUltimoNumero:</text><text x="214.8" y="493.0" text-anchor="start">incrementaUltimoNumero</text><text x="390.3" y="462.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="390.3" y="478.0" text-anchor="start">inicializa</text><text x="390.3" y="493.0" text-anchor="start">cargaDatos:</text><text x="390.3" y="508.0" text-anchor="start">cargaEmbalaje</text><text x="390.3" y="523.0" text-anchor="start">agregar:</text><text x="390.3" y="538.0" text-anchor="start">total</text><text x="619.9" y="341.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Planta</text><text x="546.6" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="591.6" y="363.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="591.6" y="379.0" text-anchor="start">nombre</text><text x="591.6" y="394.0" text-anchor="start">descripcion</text><text x="591.6" y="409.0" text-anchor="start">precioBase</text><text x="546.6" y="432.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="591.6" y="432.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="591.6" y="448.0" text-anchor="start">cargaDescuento</text><text x="591.6" y="463.0" text-anchor="start">precioFinal</text><text x="591.6" y="478.0" text-anchor="start">mostrar</text><text x="526.5" y="639.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Plantin</text><text x="467.7" y="661.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="512.7" y="661.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="512.7" y="677.0" text-anchor="start">exposicion</text><text x="467.7" y="700.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="512.7" y="700.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="709.6" y="639.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Arbol</text><text x="647.2" y="661.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="692.2" y="661.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="647.2" y="700.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="692.2" y="700.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="692.2" y="716.0" text-anchor="start">precioFinal</text><text x="587.2" y="817.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Frutal</text><text x="452.3" y="839.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="452.3" y="855.0" text-anchor="start">Descuento</text><text x="584.3" y="839.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="452.3" y="878.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="452.3" y="894.0" text-anchor="start">asignaDescuento:</text><text x="584.3" y="878.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="584.3" y="894.0" text-anchor="start">porcentajeDescuento</text><text x="875.5" y="817.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">MayorPorte</text><text x="784.1" y="839.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="829.1" y="839.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="829.1" y="855.0" text-anchor="start">descuento</text><text x="784.1" y="878.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="829.1" y="878.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="829.1" y="894.0" text-anchor="start">cargaDescuento</text><text x="829.1" y="909.0" text-anchor="start">porcentajeDescuento</text><text x="82.4" y="315.0" text-anchor="end">0..N</text><text x="341.7" y="315.0" text-anchor="end">0..N</text><text x="627.9" y="315.0" text-anchor="start">1..N</text><text x="166.8" y="331.0" text-anchor="start">1..1</text><text x="532.6" y="331.0" text-anchor="end">1..N</text></g></svg></figure>
+
+<h4>Menú principal</h4>
+<p>Esta consigna pide el menú. Es el molde de «Estructuras útiles en Smalltalk», con los puntos que le faltan, y el workspace que lo arranca.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Vivero, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#inicializa</span>
+plantas := <span class="hljs-type">OrderedCollection</span> new.
+clientes := <span class="hljs-type">OrderedCollection</span> new.
+pedidos := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#menu</span>
+<span class="hljs-comment">&quot;Menu de opciones iterativo&quot;</span>
+| op |
+[op ~= <span class="hljs-number">0</span>] whileTrue: [
+    <span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;MENU
+        1- Carga inicial de descuentos
+        2- Nuevo pedido
+        0- Salir&#x27;</span>.
+    op := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la opción que desea ejecutar&#x27;</span>) asNumber.
+    op = <span class="hljs-number">1</span> ifTrue: [<span class="hljs-keyword">self</span> cargarDescuentos].
+    op = <span class="hljs-number">2</span> ifTrue: [<span class="hljs-keyword">self</span> registrarPedido]]</code></pre>
+<pre class="codigo"><code>| w |
+w := <span class="hljs-type">Vivero</span> new.
+w inicializa.
+w menu</code></pre>
+<h4>(a) Carga inicial de descuentos</h4>
+<p>El descuento de los frutales es uno solo y se carga en la clase. El de cada árbol de mayor porte se pide a cada uno. Se le manda <code>cargaDescuento</code> a todas las plantas, y solo <code>MayorPorte</code> hace algo, así no hay que preguntar de qué clase es cada una.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Vivero, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargarDescuentos</span>
+<span class="hljs-type">Frutal</span> asignaDescuento: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el descuento de los árboles frutales (%)&#x27;</span>) asNumber.
+plantas do: [:unaPlanta | unaPlanta cargaDescuento]
+
+<span class="hljs-comment">&quot;Frutal, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaDescuento</span>: unPorcentaje
+<span class="hljs-type">Descuento</span> := unPorcentaje
+
+<span class="hljs-comment">&quot;Planta, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDescuento</span>
+<span class="hljs-comment">&quot;Solo los árboles de mayor porte tienen un descuento propio&quot;</span>
+
+<span class="hljs-comment">&quot;MayorPorte, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDescuento</span>
+descuento := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el descuento de &#x27;</span>, nombre, <span class="hljs-string">&#x27; (%)&#x27;</span>) asNumber.</code></pre>
+<h4>(b) Dar de alta un pedido</h4>
+<p>Primero el cliente. Después se muestran las plantas ordenadas por precio base, de mayor a menor, y el operador carga cada una por su nombre. Al final pide el embalaje y se muestra el total.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Vivero, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#registrarPedido</span>
+| cli pedido planta seguir |
+cli := <span class="hljs-keyword">self</span> buscarOCrearCliente.
+pedido := <span class="hljs-type">Pedido</span> new.
+pedido inicializa.
+pedido cargaDatos: cli.
+<span class="hljs-keyword">self</span> mostrarPlantas.
+seguir := <span class="hljs-keyword">true</span>.
+[seguir] whileTrue: [
+    planta := <span class="hljs-keyword">self</span> buscarPlanta.
+    planta isNil
+        ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No hay una planta con ese nombre&#x27;</span>]
+        ifFalse: [pedido agregar: planta].
+    seguir := <span class="hljs-type">MessageBox</span> confirm: <span class="hljs-string">&#x27;¿Desea agregar otra planta?&#x27;</span>].
+pedido plantas isEmpty
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;El pedido no tiene plantas y no se registró&#x27;</span>]
+    ifFalse: [
+        pedido cargaEmbalaje.
+        pedidos add: pedido.
+        <span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;Monto total del pedido: &#x27;</span>, pedido total printString]
+
+<span class="hljs-symbol">#buscarOCrearCliente</span>
+| dni cli |
+dni := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el DNI del cliente&#x27;</span>) asNumber.
+cli := clientes detect: [:unCliente | unCliente dni = dni] ifNone: [<span class="hljs-keyword">nil</span>].
+cli isNil ifTrue: [cli := <span class="hljs-keyword">self</span> nuevoCliente: dni].
+^cli
+
+<span class="hljs-symbol">#nuevoCliente</span>: unDni
+| cli |
+cli := <span class="hljs-type">Cliente</span> new.
+cli cargaDatos: unDni.
+clientes add: cli.
+^cli
+
+<span class="hljs-symbol">#mostrarPlantas</span>
+<span class="hljs-type">Transcript</span> clear;
+    show: <span class="hljs-string">&#x27;Nombre&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Descripción&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Precio base&#x27;</span>; tab; show: <span class="hljs-string">&#x27;Precio final&#x27;</span>; cr.
+(plantas asSortedCollection: [:a :b | a precioBase &gt; b precioBase])
+    do: [:unaPlanta | unaPlanta mostrar]
+
+<span class="hljs-symbol">#buscarPlanta</span>
+| nom |
+nom := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el nombre de la planta&#x27;</span>.
+^plantas detect: [:unaPlanta | unaPlanta nombre = nom] ifNone: [<span class="hljs-keyword">nil</span>]
+
+<span class="hljs-comment">&quot;Cliente, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unDni
+dni := unDni.
+nombre := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el nombre&#x27;</span>.
+apellido := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el apellido&#x27;</span>.
+direccion := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la dirección&#x27;</span>.
+
+<span class="hljs-comment">&quot;Pedido, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaUltimoNumero</span>: unNumero
+<span class="hljs-type">UltimoNumero</span> := unNumero
+
+<span class="hljs-symbol">#incrementaUltimoNumero</span>
+<span class="hljs-type">UltimoNumero</span> := <span class="hljs-type">UltimoNumero</span> + <span class="hljs-number">1</span>
+
+<span class="hljs-comment">&quot;Pedido, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#inicializa</span>
+plantas := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#cargaDatos</span>: unCliente
+<span class="hljs-type">Pedido</span> incrementaUltimoNumero.
+numero := <span class="hljs-type">UltimoNumero</span>.
+fecha := <span class="hljs-type">Date</span> today.
+cliente := unCliente.
+
+<span class="hljs-symbol">#cargaEmbalaje</span>
+costoEmbalaje := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el costo de embalaje&#x27;</span>) asNumber.
+
+<span class="hljs-symbol">#agregar</span>: unaPlanta
+plantas add: unaPlanta
+
+<span class="hljs-symbol">#total</span>
+| tot |
+tot := <span class="hljs-number">0.</span>
+plantas do: [:unaPlanta | tot := tot + unaPlanta precioFinal].
+^tot + costoEmbalaje
+
+<span class="hljs-comment">&quot;Planta, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#precioFinal</span>
+^precioBase
+
+<span class="hljs-symbol">#mostrar</span>
+<span class="hljs-type">Transcript</span> show: nombre; tab;
+    show: descripcion; tab;
+    show: precioBase printString; tab;
+    show: <span class="hljs-keyword">self</span> precioFinal printString; cr
+
+<span class="hljs-comment">&quot;Arbol, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#precioFinal</span>
+^precioBase - (precioBase * <span class="hljs-keyword">self</span> porcentajeDescuento / <span class="hljs-number">100</span>)
+
+<span class="hljs-comment">&quot;Frutal, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#porcentajeDescuento</span>
+^<span class="hljs-type">Descuento</span>
+
+<span class="hljs-comment">&quot;MayorPorte, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#porcentajeDescuento</span>
+^descuento</code></pre>
+<h4>Métodos que devuelven datos</h4>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Cliente, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#dni</span>
+^dni
+
+<span class="hljs-comment">&quot;Pedido, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#plantas</span>
+^plantas
+
+<span class="hljs-comment">&quot;Planta, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#nombre</span>
+^nombre
+
+<span class="hljs-symbol">#precioBase</span>
+^precioBase</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con las páginas de Aprobación directa («Cómo leer la narrativa» y «Qué lleva el diagrama») y de Final («Las plantillas del Drive» y «Cómo se arma el programa»), que salen de «Estructuras útiles en Smalltalk» y de los Ejercicios resueltos 1 a 3 de Material Util. El menú es el molde «Menú genérico» y «Workspace genérico» de «Estructuras útiles en Smalltalk».</p><p class="bloque-fuente">Quedó en duda: El material no muestra el orden descendente. Acá el bloque de <code>asSortedCollection:</code> compara con <code>&gt;</code>. La consigna dice «carga inicial de descuento de Plantines y Arboles», pero los plantines no tienen descuento. Acá se cargan solo los de los árboles. El descuento de los árboles de mayor porte se tomó como porcentaje, igual que el de los frutales. La hoja dice «un descuento distinto» sin aclararlo. El costo de embalaje se suma una vez al total del pedido. La hoja dice «la suma al precio final del costo de embalaje», y también se puede leer por planta. El molde del menú arranca con <code>op</code> en <code>nil</code> y depende de que <code>nil ~= 0</code> dé verdadero. Si tu comisión lo inicializa antes, poné <code>op := 1.</code> al principio. La hoja dice «ciclo 2022», aunque se rindió el 13/02/2023. El código no se corrió en un Smalltalk real.</p><div class="em-votos" data-m="paradigmas-de-programacion" data-e="ad-2023-02-13" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Diagrama de clases" data-enlace="parcial-1.html#metodos-de-clase-y-de-instancia" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Diagrama de clases</span><span class="ex-t-teoria"><a href="parcial-1.html#metodos-de-clase-y-de-instancia">Métodos de clase y de instancia</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Smalltalk" data-enlace="parcial-1.html#que-se-tomo" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Smalltalk</span><span class="ex-t-teoria"><a href="parcial-1.html#que-se-tomo">Qué se tomó</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Menú" data-enlace="final.html#si-te-piden-menu" data-donde="Final"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Menú</span><span class="ex-t-teoria"><a href="final.html#si-te-piden-menu">Si te piden menú</a>, en Final</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-ad-2024-06-24.html">Anterior: Aprobación directa, 24/06/2024 (Tienda de antigüedades)</a><a href="ej-reg-2024.html">Siguiente: Parcial de regularización, 2024 (Parcial N°2, lógico y funcional)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

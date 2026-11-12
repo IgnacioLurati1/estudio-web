@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-solo>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Emergencia: Análisis y Diseño de Datos e Información</title>
+<meta name="description" content="Lo necesario para rendir Análisis y Diseño de Datos e Información.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="analisis-y-diseno-de-datos-e-informacion" data-pagina="emergencia">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Análisis y Diseño de Datos e Información</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html" aria-current="page">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="integrador.html">TP integrador</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=analisis-y-diseno-de-datos-e-informacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=analisis-y-diseno-de-datos-e-informacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#final-practica">Final, práctica</a></li><li class="n2"><a href="#final-teoria">Final, teoría</a></li><li class="n2"><a href="#tp-integrador">TP integrador</a></li><li class="n2"><a href="#que-cae">Qué cae más</a></li><li class="n2"><a href="#examenes">Exámenes</a></li><li class="n3"><a href="#ex-prac">Prácticas</a></li><li class="n3"><a href="#ex-tp">TP integrador</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Protocolo de emergencia</h1>
+<p class="bajada">Lo justo para regularizar con el TP y rendir el final. En el Drive no hay exámenes, así que se practica con las prácticas y el TP.</p>
+
+<p class="em-salto"><a href="#examenes">Ir a los exámenes</a></p>
+
+<div class="ojo"><p class="ojo-t">En el Drive no hay exámenes</p><p>No hay ningún final ni parcial, de ningún año. El formato del final sale solo de la presentación de la cátedra de 2026, y nada de esta página está marcado como «se tomó». Las prácticas y el TP de la lista de abajo no son exámenes y ninguno trae resolución. Si en tu comisión circula un final, te dice cómo preguntan mejor que cualquier resumen.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Instancia</th><th>Qué piden</th></tr></thead><tbody><tr><td>Regularidad</td><td>Asistencia del 75% y el TP integrador de la huerta urbana. Entregables en el campus, cada uno con nota 6 o más, y defensa de los bosquejos</td></tr><tr><td>Promoción</td><td>Una entrega más del TP, con el bosquejo hecho en una herramienta de prototipado a tu elección</td></tr><tr><td>Final, teoría</td><td>10 preguntas en papel, de verdadero o falso o de selección múltiple. Se aprueba con el 60% bien contestadas</td></tr><tr><td>Final, práctica</td><td>Un bosquejo de interface con información de contexto. Con eso, diccionario de los flujos de entrada, tabla de depuración, clases de equivalencia y casos de prueba</td></tr></tbody></table></div>
+<p>Sale de la presentación de la cátedra 2026, diapositivas 4 y 5. Las fechas de defensa para 2026 son la semana del 27 de julio y la del 14 de diciembre.</p>
+<figure>
+<svg viewBox="0 0 720 132" role="img" aria-label="La práctica del final en cuatro pasos. Del bosquejo y su contexto sale el diccionario de los flujos de entrada, de ahí la tabla de depuración, después las clases de equivalencia y al final los casos de prueba.">
+<text class="d-i" x="84" y="16">bosquejo y contexto</text><path class="d-linea" d="M84 24v18"/><path class="d-punta" d="M84 50l-4-8h8z"/>
+<rect class="d-caja" x="4" y="50" width="160" height="64" rx="4"/><text class="d-t" x="84" y="78">Diccionario</text><text class="d-s" x="84" y="99">flujos de entrada</text>
+<rect class="d-caja" x="188" y="50" width="160" height="64" rx="4"/><text class="d-t" x="268" y="78">Depuración</text><text class="d-s" x="268" y="99">máscaras y criterios</text>
+<rect class="d-caja" x="372" y="50" width="160" height="64" rx="4"/><text class="d-t" x="452" y="78">Clases</text><text class="d-s" x="452" y="99">de equivalencia</text>
+<rect class="d-caja" x="556" y="50" width="160" height="64" rx="4"/><text class="d-t" x="636" y="78">Casos de prueba</text><text class="d-s" x="636" y="99">con resultado esperado</text>
+<path class="d-linea" d="M164 82h18M348 82h18M532 82h18"/>
+<path class="d-punta" d="M188 82l-8-4v8zM372 82l-8-4v8zM556 82l-8-4v8z"/>
+</svg>
+</figure>
+
+
+<section class="sec"><h2 id="final-practica">Final, práctica</h2>
+<p>Te dan un bosquejo y su contexto, y armás cuatro piezas, una detrás de la otra. No hay un enunciado real de final ni una resolución oficial. Los formatos salen de las plantillas y las rúbricas del TP, que usan las mismas piezas (<a href="https://drive.google.com/file/d/1ig6ACL6Z76p4J97w_JReQSc-wG2Z22zG/view">Entregables finales</a>).</p>
+<h3 id="1-diccionario-de-los-flujos-de-entrada">1. Diccionario de los flujos de entrada</h3>
+<p><strong>Leé el bosquejo con ingeniería reversa.</strong> Primero separá las zonas estáticas de las dinámicas. Lo estático no se modela en el diccionario, como un menú estático. Lo dinámico se lee así (03 - Ingeniería reversa, págs. 6 a 9):</p>
+<div class="tabla"><table><thead><tr><th>Lo que ves</th><th>Cómo se modela</th></tr></thead><tbody><tr><td>Agrupamiento de información</td><td>Estructura de datos potencial</td></tr><tr><td>Similitudes dentro de los agrupamientos</td><td>Factibles de modelar con <code>{...}</code></td></tr><tr><td>Botones de opción</td><td>Factibles de modelar con <code>[ ... | ... ]</code></td></tr><tr><td>Botones de selección múltiple o listas de selección múltiple</td><td>Factibles de modelar con <code>{...}</code></td></tr><tr><td>Grillas</td><td>Factibles de modelar con <code>{...}</code></td></tr><tr><td>Campos mandatorios, marcados con <code>*</code></td><td>Elementos de datos potenciales</td></tr><tr><td>Campos no mandatorios</td><td>Elementos de datos potenciales, factibles de modelar con <code>(...)</code></td></tr></tbody></table></div>
+<p>Para completar el diccionario sirven los manuales de usuario, la ayuda en línea y el símbolo de información. En un <strong>reporte</strong> solo se pueden elicitar elementos de datos, mandatorios u opcionales, y grillas con <code>{...}</code> (pág. 10).</p>
+<p><strong>En gráficos</strong> (págs. 11 a 14). Nacen del procesamiento de los datos. Fijate qué se repite y cuántas veces.</p>
+<p><img src="img/fig-reversa-sexo.webp" alt="Gráfico de barras y líneas por año, para varones y mujeres, con los rótulos Año, Valor y Sexo, y su modelo 1{año + 2{sexo + valor}2}n"></p>
+<div class="tabla"><table><thead><tr><th>Página</th><th>Qué muestra</th><th>Modelo</th></tr></thead><tbody><tr><td>11</td><td>Valor por año, para varones y mujeres. Sexo es un elemento discreto</td><td><code>1{año + 2{sexo + valor}2}n</code></td></tr><tr><td>12</td><td>Memoria según pestañas, para 4 navegadores</td><td><code>1{pestañas + 4{browser + memoria}4}n</code></td></tr><tr><td>13</td><td>Árboles jóvenes por especie, con un umbral</td><td><code>umbral + 1{especie + 1{dispersión + (cantJovenes)}2}n</code></td></tr><tr><td>14</td><td>Ingreso de 3 grupos, en 3 años</td><td><code>3{top + 3{año + ingreso + delta + %delta}3}3</code></td></tr></tbody></table></div>
+<p><img src="img/fig-reversa-arboles.webp" alt="Gráfico de árboles jóvenes por especie con una línea de umbral y dos formas de dispersar la semilla, y su modelo umbral + 1{especie + 1{dispersión + (cantJovenes)}2}n"></p>
+<div class="idea"><p>La línea de umbral aparece una sola vez, así que queda afuera de las llaves. En el gráfico de árboles hay especies sin barra, y por eso <code>cantJovenes</code> va entre paréntesis.</p>
+</div>
+<p><strong>Escribilo con la notación</strong> (01 - Dato e información, pág. 14).</p>
+<div class="tabla"><table><thead><tr><th>Símbolo</th><th>Significa</th></tr></thead><tbody><tr><td><code>=</code></td><td>Está compuesto de, o está formado por</td></tr><tr><td><code>+</code></td><td>Y. Concatena los componentes</td></tr><tr><td><code>a{...}b</code></td><td>Repetición. <code>a</code> puede ser 0, 1 o un número conocido, y <code>b</code>, 1 o un número conocido. Sin límites conocidos, <code>m{...}n</code></td></tr><tr><td><code>[a | b]</code></td><td>Disyunción. Los elementos son mutuamente excluyentes y está presente uno solo</td></tr><tr><td><code>(...)</code></td><td>Opcional</td></tr><tr><td><code>nombre(e)</code></td><td>Estructura</td></tr><tr><td><code>e</code> o <code>s</code> antes del flujo</td><td>Entrada o salida. Opcionalmente, antes va un número identificador</td></tr></tbody></table></div>
+<div class="ejemplo"><p class="ejemplo-t">Los tres ejemplos de la clase</p><pre class="codigo"><code>e: datosPersonales = apellido + nombre + tipoDocumento + nroDocumento + domicilio(e) + 0{eMail}n
+
+domicilio(e) = calle + nro + (piso + (depto))
+
+tipoDocumento = char(3); [DNI | DU | PAS | LE | LC]</code></pre>
+<ul>
+<li><code>datosPersonales</code> es un flujo de entrada, por la <code>e:</code>.</li>
+<li><code>domicilio(e)</code> es una estructura. <code>piso</code> es opcional y, si se indica piso, <code>depto</code> también es opcional.</li>
+<li><code>tipoDocumento</code> es un elemento alfanumérico de longitud 3. Los corchetes definen los valores posibles de un elemento discreto, porque son mutuamente excluyentes.</li>
+</ul>
+<p class="bloque-fuente">01 - Dato e información, pág. 15</p></div>
+<ul>
+<li><strong>Elemento.</strong> No tiene una descomposición significativa, y eso depende del dominio. <code>domicilio</code> puede ser un solo elemento o varios (calle, número, piso, departamento, localidad, provincia y país).</li>
+<li><strong>Estructura.</strong> Se crea si aporta claridad. Agrupa elementos y otras estructuras.</li>
+<li><strong>Tipos.</strong> <code>num</code>, <code>char</code> y <code>bool</code>, con la longitud entre paréntesis, <code>char(10)</code>. Los <strong>discretos</strong> tienen un conjunto finito de valores, como <code>categoria</code> que admite solo 1, 3 y 5.</li>
+<li><strong>Nombre del flujo.</strong> Significativo, no atado a la implementación física, con <code>e</code> o <code>s</code> adelante. Si tiene más de una palabra, definí una convención y respetala.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Hay más de una forma de escribir el flujo</p><p>Las clases usan <code>e:</code> y <code>FEN)</code>. Los casos de uso usan <code>1e:</code> y, en otro documento, <code>1-e:</code>. No encontramos una regla que elija una sola. Lo que sí pide el apunte es definir una convención y respetarla.</p>
+</div>
+<p><strong>Sacá lo redundante.</strong> En un diccionario de datos, lo que sobra, daña (05 - Depurando las definiciones, pág. 4). En el ejemplo del videoclub, <code>id</code> y <code>código</code> eran lo mismo y <code>datosPersonales</code> era una estructura. Queda el nombre más usado y el otro como alias:</p>
+<pre class="codigo"><code>FEn) nuevoSocio = código + datosPersonales(e)
+
+datosPersonales(e) = apellido + nombres + tipoDoc + nroDoc + teléfono + correoElectrónico</code></pre>
+<p>Ojo con los sinónimos o alias y con los atributos que pueden ser estructuras (pág. 8).</p>
+<p>La rúbrica del diccionario (R02) mira esto:</p>
+<ul>
+<li>Todos los atributos que se deducen de los bosquejos están modelados.</li>
+<li>Todos los flujos que se deducen, incluyendo los mensajes de error o de éxito.</li>
+<li>Las estructuras se usan bien, para facilitar la comprensión o evitar redundancia.</li>
+<li>Se definen los elementos discretos. Poner solo <code>(d)</code> al final del atributo, sin la definición, queda en el nivel Bueno, el segundo de tres. Modelar instancias de una clase como atributos discretos es Insuficiente.</li>
+</ul>
+<h3 id="2-tabla-de-depuracion">2. Tabla de depuración</h3>
+<p>Va todo elemento de dato de los flujos de entrada que implique una máscara especial, sea discreto, tenga un rango definido, criterios de validación o comentarios especiales. Columnas de la plantilla de la cátedra (<code>Template_Tabla_Depuracion</code>):</p>
+<pre class="codigo"><code>Bosquejo | ID | Alias | Tipo | Longitud | Discreto | Continuo | Formato | Criterio | Comentarios</code></pre>
+<div class="ejemplo"><p class="ejemplo-t">Filas de la tabla de ejemplo</p><div class="tabla"><table><thead><tr><th>ID</th><th>Tipo</th><th>Longitud</th><th>Discreto</th><th>Continuo</th><th>Formato</th><th>Criterio</th></tr></thead><tbody><tr><td><code>contraseña</code></td><td>string</td><td>20</td><td></td><td></td><td><code>AAAAAaaaaaaaaaaaaaaa</code></td><td>Debe poseer por lo menos un dígito</td></tr><tr><td><code>tipoDoc</code></td><td>string</td><td>3</td><td>DNI, LC, LE</td><td></td><td><code>LL?</code></td><td>Solo 1 obligatorio</td></tr><tr><td><code>nroDoc</code></td><td>numb</td><td>8</td><td></td><td>00000001 a 99999999</td><td><code>00 000 000</code></td><td>Solo enteros positivos</td></tr></tbody></table></div>
+<p class="bloque-fuente">Teoría, Tabla depuración-Ejemplo</p></div>
+<div class="ojo"><p class="ojo-t">string y numb</p><p>Las planillas de ejemplo escriben los tipos como <code>string</code> y <code>numb</code>. La clase 1 los llama <code>char</code>, <code>num</code> y <code>bool</code>. No encontramos una regla sobre cuál exige el final. Preguntalo y usá uno solo.</p>
+</div>
+<div class="teorema"><p class="teorema-t">Definición de máscara de entrada</p><p>Máscara de entrada: formato que asignamos para que el usuario ingrese información en un elemento de datos. Controla la forma en que puede ingresarse información.</p>
+<p class="bloque-fuente">05 - Depurando las definiciones, pág. 12</p></div>
+<p>El CUIT/CUIL <code>21-24869301-9</code> se almacena como <code>21248693019</code>, pero el usuario lo ingresa con los guiones. La máscara se documenta <strong>en el diccionario de datos</strong>.</p>
+<div class="tabla"><table><thead><tr><th>Caracter</th><th>Descripción</th></tr></thead><tbody><tr><td><code>0</code></td><td>Dígito (0 a 9, entrada obligatoria; signos más y menos no permitidos)</td></tr><tr><td><code>9</code></td><td>Dígito o espacio (entrada no obligatoria; signos más y menos no permitidos)</td></tr><tr><td><code>#</code></td><td>Dígito o espacio (entrada no obligatoria; las posiciones en blanco se convierten en espacios; se permiten los signos más y menos)</td></tr><tr><td><code>L</code></td><td>Letra (A-Z, entrada obligatoria)</td></tr><tr><td><code>?</code></td><td>Letra (A-Z, entrada opcional)</td></tr><tr><td><code>A</code></td><td>Letra o dígito (entrada obligatoria)</td></tr><tr><td><code>a</code></td><td>Letra o dígito (entrada opcional)</td></tr><tr><td><code>&amp;</code></td><td>Cualquier carácter o un espacio (entrada obligatoria)</td></tr><tr><td><code>C</code></td><td>Cualquier carácter o un espacio (entrada opcional)</td></tr><tr><td><code>. , : ; - /</code></td><td>Marcador de posición de millares y separadores de decimales, fecha y hora. Depende de la configuración regional</td></tr><tr><td><code>&lt;</code></td><td>Convierte a minúsculas todos los caracteres que siguen</td></tr><tr><td><code>&gt;</code></td><td>Convierte a mayúsculas todos los caracteres que siguen</td></tr><tr><td><code>!</code></td><td>Hace que la máscara se muestre de derecha a izquierda. Los caracteres introducidos siempre se rellenan de izquierda a derecha. Se puede incluir en cualquier lugar de la máscara</td></tr><tr><td><code>\</code></td><td>Hace que el carácter siguiente se muestre como literal. Por ejemplo, <code>\A</code> se muestra como A</td></tr></tbody></table></div>
+<div class="idea"><p>Fijate el par que se repite. Mayúscula o símbolo obligatorio, y su compañero opcional: <code>0</code> y <code>9</code>, <code>L</code> y <code>?</code>, <code>A</code> y <code>a</code>, <code>&amp;</code> y <code>C</code>.</p>
+</div>
+<div class="ejemplo"><p class="ejemplo-t">Máscaras con valores</p><div class="tabla"><table><thead><tr><th>Máscara de entrada</th><th>Ejemplo de valores</th></tr></thead><tbody><tr><td><code>(000) 000-0000</code></td><td>(206) 555-0248</td></tr><tr><td><code>(999) 999-9999!</code></td><td>(206) 555-0248 y (   ) 555-0248</td></tr><tr><td><code>(000) AAA-AAAA</code></td><td>(206) 555-TELE</td></tr><tr><td><code>#999</code></td><td>-20 y 2000</td></tr><tr><td><code>&gt;L????L?000L0</code></td><td>GREENGR339M3 y MAY R 452B7</td></tr><tr><td><code>&gt;L0L 0L0</code></td><td>T2F 8M4</td></tr><tr><td><code>00000-9999</code></td><td>98115- y 98115-3007</td></tr><tr><td><code>&gt;L&lt;??????????????</code></td><td>María y Manuel</td></tr><tr><td><code>ISBN 0-&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;-0</code></td><td>ISBN 1-55615-507-7 y ISBN 0-13-964262-5</td></tr><tr><td><code>&gt;LL00000-0000</code></td><td>DB51392-0493</td></tr></tbody></table></div>
+<p class="bloque-fuente">05 - Depurando las definiciones, págs. 15 y 16</p></div>
+<h3 id="3-clases-de-equivalencia">3. Clases de equivalencia</h3>
+<p>Todo elemento de datos con criterios de validación genera sus clases.</p>
+<div class="teorema"><p class="teorema-t">Partición equivalente</p><p>Divide el dominio de entrada de un programa en clases de datos de los que se pueden derivar casos de prueba.</p>
+<p>Se basa en una evaluación de las clases de equivalencia para una condición de entrada.</p>
+<p>Una clase de equivalencia representa un conjunto de estados válidos o inválidos para condiciones de entrada.</p>
+<p>Una condición de entrada es un valor numérico específico, un rango de valores, un conjunto de valores relacionados o una condición lógica.</p>
+<p class="bloque-fuente">05 - Depurando las definiciones, pág. 24</p></div>
+<p><strong>Directrices</strong> (pág. 25):</p>
+<ul>
+<li>Si un parámetro de entrada debe estar comprendido en un cierto rango, aparecen 3 clases de equivalencia: por debajo, en y por encima del rango.</li>
+<li>Si una entrada requiere un valor concreto, aparecen 3 clases de equivalencia: por debajo, en y por encima del valor.</li>
+<li>Si una entrada requiere un valor de entre los de un conjunto, aparecen 2 clases de equivalencia: en el conjunto o fuera de él.</li>
+<li>Si una entrada es booleana, hay 2 clases: sí o no.</li>
+<li>Los mismos criterios se aplican a las salidas esperadas: hay que intentar generar resultados en todas y cada una de las clases.</li>
+</ul>
+<p><strong>Reglas para identificar clases válidas e inválidas</strong> (págs. 26 y 27):</p>
+<div class="tabla"><table><thead><tr><th>La condición de entrada especifica</th><th>Clases</th><th>Ejemplo de la clase</th></tr></thead><tbody><tr><td>Un rango</td><td>1 válida y 2 inválidas</td><td>Número entre 1 y 99 inclusive. Válida: <code>1 &lt;= número &lt;= 99</code>. Inválidas: <code>número &lt; 1</code> y <code>número &gt; 99</code></td></tr><tr><td>La cantidad de valores</td><td>1 válida y 2 inválidas</td><td>1 a 6 propietarios por automóvil. Válida: <code>1 &lt;= propietario &lt;= 6</code>. Inválidas: no hay propietarios y <code>propietario &gt; 6</code></td></tr><tr><td>Un conjunto de valores, con razones para creer que el programa trata distinto a cada uno</td><td>1 válida por cada valor y 1 inválida</td><td>Ómnibus, camión, taxi, moto, remise. Inválida: bicicleta</td></tr><tr><td>Una situación de tipo «debe ser»</td><td>1 válida y 1 inválida</td><td>El primer caracter debe ser un dígito. Válida: 7 en el primer caracter. Inválida: k en el primer caracter</td></tr></tbody></table></div>
+<p>Si hay razones para creer que el programa no trata de forma idéntica a ciertos elementos de una clase, se divide en clases de equivalencia menores. Después se asigna un identificador único a cada clase: <code>V1.1</code> para una válida e <code>I1.1</code> para una inválida. Columnas de la plantilla (<code>Template_Clases_De_Equivalencia</code>):</p>
+<pre class="codigo"><code>Bosquejos | Atributos de entrada | Válidas: ID, Valor, Ejemplo | Inválidas: ID, Valor, Ejemplo</code></pre>
+<div class="ojo"><p class="ojo-t">Conjunto: dos clases o una por valor</p><p>La directriz de la pág. 25 dice 2 clases, en el conjunto o fuera. La regla de la pág. 26 dice una por valor más una inválida, cuando hay razones para creer que cada valor se trata distinto. Esa condición es la que hace la diferencia.</p>
+</div>
+<div class="ojo"><p class="ojo-t">Las plantillas no reemplazan a la clase</p><p>Las filas de muestra de la planilla de clases no siguen del todo las reglas de la clase. Por ejemplo, en un rango de 1 a 9999 trae la clase «mayor a 9999» y no «menor a 1». Usala para ver el formato, y sacá las clases de las reglas de 05, pág. 26.</p>
+</div>
+<h3 id="4-casos-de-prueba">4. Casos de prueba</h3>
+<div class="teorema"><p class="teorema-t">Casos de prueba</p><p>Conjunto de condiciones o variables bajo las cuáles se determinará si un sistema o una característica de éstos es parcial o completamente satisfactoria.</p>
+<p class="bloque-fuente">05 - Depurando las definiciones, pág. 21</p></div>
+<p>Por cada dato de entrada y salida se elige un valor de una clase de equivalencia. Un caso de prueba tiene un dato de prueba para cada dato de entrada y salida, que es el resultado esperado (pág. 28). Para <code>result function (x, y, z)</code>, con clases <code>Vx1, Nx1, Nx2</code> de x, <code>Vy1, Ny1</code> de y, <code>Vz1, Nz1, Nz2</code> de z y <code>V1, N1, N2</code> de result, un caso posible es <code>(x en Vx1, y en Vy1, z en Vz1, r1 en V1)</code>.</p>
+<p>Las pautas (pág. 29):</p>
+<ul>
+<li>El objetivo es probar todas las clases válidas y no válidas al menos una vez cada una.</li>
+<li>Cada caso debe cubrir el máximo número de entradas.</li>
+<li>En un caso de prueba pueden aparecer varias clases de entrada válidas.</li>
+<li>En un caso de prueba solamente puede aparecer una entrada no válida. Ese criterio impide que los errores se enmascaren mutuamente.</li>
+<li>Se debe especificar el resultado esperado.</li>
+<li>No es necesario probar todas las combinaciones.</li>
+</ul>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>Si un caso tiene dos datos inválidos y el sistema da error, no sabés cuál de los dos lo provocó. Puede que el segundo ni se haya mirado. Por eso, un inválido por caso.</p>
+</div>
+<p>La rúbrica de casos de prueba (R03) pide la identificación del bosquejo en todos los casos, un valor de entrada igual al documentado en la tabla de clases y un resultado esperado coherente con la clase y con la redacción completa, por ejemplo el mensaje de error. Lo que ya se resuelve en la interface, como limitar las fechas de un calendario o mostrar solo los módulos libres, no hace falta desarrollarlo completo. Alcanza con indicar esa situación. Columnas de la plantilla (<code>05_Casos_de_Prueba_Template</code>):</p>
+<pre class="codigo"><code>Nro. Caso | Objetivo | Atributo | Valor | Resultado Esperado</code></pre>
+<div class="ojo"><p class="ojo-t">La plantilla tiene celdas cambiadas</p><p>En <code>05_Casos_de_Prueba_Template</code>, los casos 3, 4 y 5 quieren probar clases inválidas de <code>Atri2</code>, pero las ponen como valor de <code>Atri1</code>. Además, el caso 5 usa una clase <code>V2.3</code> que no está definida. Copiá las columnas y seguí la pauta de la clase, una sola entrada no válida por caso.</p>
+</div>
+</section>
+<section class="sec"><h2 id="final-teoria">Final, teoría</h2>
+<p>Diez preguntas de verdadero o falso o de selección múltiple, y sin finales para comparar. No se sabe qué temas se preguntan más, así que van las definiciones textuales y las listas de las seis clases. Máscara, partición equivalente y caso de prueba ya están arriba.</p>
+<h3 id="dato-informacion-y-sistema">Dato, información y sistema</h3>
+<div class="teorema"><p class="teorema-t">Definición de dato</p><p>Un dato es</p>
+<ul>
+<li>un elemento aislado;</li>
+<li>recabado para un cierto fin;</li>
+<li>que no ha pasado por un proceso que lo interrelacione con otros de manera funcional para el fin previsto.</li>
+</ul>
+<p class="bloque-fuente">01 - Dato e información, pág. 3</p></div>
+<div class="teorema"><p class="teorema-t">Definición de información</p><p>Información es</p>
+<ul>
+<li>el conjunto de datos, añadidos, procesados y relacionados;</li>
+<li>de manera que pueden dar pauta a la correcta toma de decisiones según el fin previsto.</li>
+</ul>
+<p>Importante destacar respecto a la información: interpretación de un conjunto de datos referentes a un tema.</p>
+<p class="bloque-fuente">01 - Dato e información, pág. 3</p></div>
+<div class="teorema"><p class="teorema-t">Definición de sistema de información</p><p>Sistema de Información: conjunto de elementos orientados al tratamiento y administración de datos e información, organizados y listos para su uso posterior, generados para cubrir una necesidad o un objetivo.</p>
+<p class="bloque-fuente">01 - Dato e información, pág. 5</p></div>
+<ul>
+<li>Los datos se transforman en información mediante <strong>procesos</strong>: analizar, clasificar, ordenar, discriminar y otros (pág. 4). La cadena de la pág. 5 es datos, procesos, información y toma de decisiones. La interpretación une la información con la decisión.</li>
+<li><strong>Fuentes de datos</strong> (pág. 6): personas, otros sistemas, organizaciones, publicaciones, máquinas, dispositivos, servicios y la «nube».</li>
+<li><strong>Qué hacer con ellas</strong> (pág. 7). Detectarlas, con técnicas de relevamiento, entendiendo el negocio, detectando problemas y elicitando necesidades. Validarlas, con talleres de requerimientos, tormenta de ideas y juego de roles. Modelarlas, identificando las entradas y salidas, cómo están formadas y creando un diccionario de datos.</li>
+<li><strong>Flujo.</strong> Su definición mínima tiene nombre y composición. Un flujo tiene elementos y estructuras, y una estructura tiene elementos y otras estructuras, como un árbol.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>La pág. 4 de «01 - Dato e información» imprime como salida <code>1, 2, 3, 4, 5, 6, 7, 8, 9, 10</code> y <code>a, b, c, d, e, f, g, h</code>. La entrada de esa misma hoja no trae ni el <code>9</code> ni la <code>d</code>. Un proceso no puede sacar lo que no entró.</p>
+</div>
+<h3 id="diccionario-de-datos">Diccionario de datos</h3>
+<p>Es el repositorio único para todo el proyecto de desarrollo del nuevo sistema (01, pág. 13):</p>
+<ul>
+<li>ayuda a conceptualizar el sistema y la forma en que necesitará trabajar;</li>
+<li>permite validar los requerimientos, documentados con casos de uso;</li>
+<li>da un punto inicial para crear bosquejos de interface de usuario;</li>
+<li>permite determinar el contenido de las clases del modelo de dominio, punto de partida para el diagrama de clases;</li>
+<li>da una notación formal del contenido de los flujos de entrada y salida y de las estructuras.</li>
+</ul>
+<p>Además del nombre y la composición puede guardar esto (01, págs. 16 y 17):</p>
+<div class="tabla"><table><thead><tr><th>Para</th><th>Se puede sumar</th></tr></thead><tbody><tr><td>Flujos</td><td>Identificador único. Alias. Descripción general. Actor origen, si es entrada. Actor destino, si es salida. Volumen por unidad de tiempo o frecuencia. Comentarios</td></tr><tr><td>Estructuras</td><td>Descripción general. Alias. Comentarios</td></tr><tr><td>Elementos</td><td>Identificador único. Tipo. Longitud. Alias. Descripción general. Si es discreto o no. Para los numéricos no discretos, límite inferior y superior. Formato de entrada. Formato de salida. Criterios de validación. Comentarios</td></tr></tbody></table></div>
+<h3 id="del-caso-de-uso-al-diccionario">Del caso de uso al diccionario</h3>
+<p>Hay casos de uso breves, informales y completos o detallados (02, pág. 3). Los flujos salen de los pasos de un caso de uso con alcance de sistemas, con esta sintaxis (pág. 4):</p>
+<pre class="codigo"><code>Adyacencia-negocio-anterior. Paso-caso-de-uso. Adyacencia-negocio-posterior</code></pre>
+<ul>
+<li>La adyacencia anterior usa «Cuando» y el verbo en pasado. La posterior, «Luego» y el verbo en futuro. Ponen en contexto el paso y no tienen referencia directa a flujos.</li>
+<li>El paso tiene oraciones con sujeto, nunca tácito. Generalmente son 2 oraciones separadas por punto y seguido. La primera dice qué ingresa el actor y la segunda da la respuesta del sistema, interna o externa. Esas dos oraciones son <strong>la fuente de los flujos de entrada y salida</strong>.</li>
+</ul>
+<div class="ejemplo"><p class="ejemplo-t">El préstamo de libros</p><blockquote>
+<p>Cuando el Socio eligió los libros, el Bibliotecario ingresa los datos del préstamo. El Sistema valida que el Socio no adeude cuotas ni esté inhabilitado, registra el préstamo y emite un comprobante. Luego, el Bibliotecario entregará el comprobante junto con los libros al Socio.</p>
+</blockquote>
+<div class="tabla"><table><thead><tr><th>Parte del paso</th><th>Qué es</th></tr></thead><tbody><tr><td>El Bibliotecario ingresa los datos del préstamo</td><td>Lo que ingresa el actor. Es el flujo de entrada, con todos los atributos para validar, registrar y emitir el comprobante</td></tr><tr><td>Valida que el Socio no adeude cuotas ni esté inhabilitado</td><td>Respuesta externa, en caso de que la validación falle</td></tr><tr><td>Registra el préstamo</td><td>Respuesta interna</td></tr><tr><td>Emite un comprobante</td><td>Respuesta externa</td></tr></tbody></table></div>
+<p>El flujo de salida está compuesto por el comprobante o por los mensajes de error si las validaciones fallan. Se puede modelar en un mismo flujo o en dos separados.</p>
+<p class="bloque-fuente">02 - Definición de datos e información de un sistema, págs. 6 a 8</p></div>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>La pág. 7 de «02 - Definición de datos e información de un sistema» rotula las dos adyacencias como «precondición de negocio», también la que empieza con «Luego». Esa parte ocurre después del paso, y la pág. 4 la llama adyacencia posterior. Quedate con el nombre de la pág. 4.</p>
+</div>
+<p><strong>Validar el modelo de dominio</strong> (02, pág. 9). Un caso de uso con su modelo de dominio permite validar su completitud. Cada atributo que ingresa en un flujo de entrada debe ser usado por el sistema en generar la respuesta (para validar, para una salida o para un cálculo de una salida) y debe ser registrado en una clase del modelo de dominio. Cada atributo de un flujo de salida debe ser resultado de un cálculo o transformación, o provenir de una clase del modelo de dominio.</p>
+<h3 id="ingenieria-reversa">Ingeniería reversa</h3>
+<div class="teorema"><p class="teorema-t">Definición de ingeniería reversa</p><p>Proceso de descubrir los principios tecnológicos de un dispositivo, objeto o sistema, mediante el análisis de su estructura, funcionamiento y operación.</p>
+<p>El propósito es deducir el diseño del dispositivo, objeto o sistema bajo estudio, con nulo o muy poco conocimiento del proceso que permitió construirlo.</p>
+<p class="bloque-fuente">03 - Ingeniería reversa, pág. 3</p></div>
+<p>Comenzó en la Segunda Guerra Mundial, incautando armamento, maquinarias de guerra y aviones. En el software (pág. 4) es crear una representación del sistema en un alto nivel de abstracción, «ir hacia atrás» en el ciclo de vida. Es <strong>solo de examinación</strong>, y no se modifica el sistema. Tiene dos escenarios, con el código fuente mal documentado o sin documentar, o sin el código fuente. En la materia se ve una parte, de pantallas y reportes a flujos, estructuras y elementos (pág. 5).</p>
+<h3 id="interface-de-usuario">Interface de usuario</h3>
+<div class="teorema"><p class="teorema-t">Definición de interface de usuario (UI)</p><p>Todo lo que se diseña en un dispositivo de información con el cual va a interactuar un ser humano (usuario).</p>
+<p>Pantallas, teclado, mouse, lápiz óptico, la apariencia del escritorio de un sistema operativo, los caracteres, los mensajes de ayuda y cómo un sistema o aplicación web va a interactuar y responder al usuario.</p>
+<p class="bloque-fuente">04 - Bosquejos y navegabilidad, pág. 4</p></div>
+<ul>
+<li>El modelo de casos de uso da el <strong>qué</strong>. Definida la tecnología, se define el <strong>cómo</strong> (pág. 3). Sin actor humano, una API. Con actor humano, el diseño de la interface.</li>
+<li><strong>Tipos de interface</strong> (págs. 5 a 9): comandos, con menús y formularios, con ventanas, entornos gráficos.</li>
+<li><strong>Roles</strong> (pág. 18), muchas veces la misma persona. Analista, documenta los requerimientos. Desarrollador UX, define la experiencia y crea flujos, sketches y wireframes. Diseñador gráfico, paleta, logo y efectos, y genera mockups y prototipos.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Buena práctica (04, pág. 10)</th><th>Qué quiere decir</th></tr></thead><tbody><tr><td>Conocer al usuario</td><td>Las metas de los usuarios son también nuestras</td></tr><tr><td>Prestar atención a los patrones</td><td>No reinventar la rueda</td></tr><tr><td>Ser consistentes</td><td>Interfaces similares para acciones similares</td></tr><tr><td>Emplear jerarquía visual</td><td>Resaltar la importancia de ciertos componentes con colores y ubicación</td></tr><tr><td>Proveer retroalimentación</td><td>La interfaz tiene que hablarle al usuario</td></tr><tr><td>Ser indulgente</td><td>No importa cuán perfecto sea el diseño, los usuarios nos equivocamos</td></tr><tr><td>Fortalecer al usuario</td><td>Tiene que sentir que aprende al usar la interface y que le es útil</td></tr><tr><td>Utilizar el idioma del usuario</td><td>Respetar el glosario del negocio</td></tr><tr><td>Mantener la interface simple</td><td>Keep it simple</td></tr><tr><td>Siempre avanzar</td><td>El usuario tiene que poder avanzar para cumplir su meta</td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><th>Artefacto (04, págs. 11 a 14)</th><th>Qué es</th><th>Entregable</th></tr></thead><tbody><tr><td>Sketch</td><td>Dibujo rápido o bosquejo de guía general, sin muchos detalles. Por lo general, a mano con lápiz y borrador</td><td>Una imagen del dibujo, o el dibujo en papel</td></tr><tr><td>Wireframe</td><td>Define qué (grupos de contenido), dónde (estructura de la información) y cómo (descripción y visualización básica de la interacción). Es la columna vertebral del diseño</td><td>Una imagen</td></tr><tr><td>Mockup</td><td>Representa la estructura, visualiza el contenido y demuestra las funcionalidades básicas de manera estática. Permite revisar la parte visual real</td><td>Una imagen</td></tr><tr><td>Prototipo</td><td>Simula la interacción. El usuario experimenta con la interfaz y prueba las principales interacciones de forma similar al producto final</td><td>HTML, PPT, animación o formato navegable</td></tr></tbody></table></div>
+<div class="idea"><p>El orden va de menos a más parecido al producto final. Los primeros tres son estáticos. Solo el prototipo se puede usar.</p>
+</div>
+<h3 id="depuracion-contexto-y-mascaras-de-salida">Depuración, contexto y máscaras de salida</h3>
+<ul>
+<li><strong>Redundancia.</strong> No hay regla de cocina. Ojo con los sinónimos o alias, ojo con atributos que pueden ser estructuras, y validá el diccionario con los stakeholders usando bosquejos (05, pág. 8).</li>
+<li><strong>Datos de contexto</strong> (págs. 9 a 11). Si una validación falla, explicar por qué y permitir ver información de contexto. Si una búsqueda falla, mostrar un mensaje acorde y ofrecer variantes, en caso de ser posible.</li>
+<li><strong>Máscaras de salida</strong> (pág. 17). Fuerzan la visualización de un elemento de datos con un patrón o plantilla. A veces son íconos, a veces colores, a veces una combinación. En el registro de llamadas de WhatsApp, la dirección de la flecha indica <code>tipoLlamada</code> y su color, <code>estadoLlamada</code>.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Errata del apunte</p><p>La pág. 17 de «05 - Depurando las definiciones» dice que en las máscaras de salida «valen los mismos caracteres que los desarrollados para las máscaras de salida». La tabla de caracteres se desarrolló para las de <strong>entrada</strong>, así que leelo así.</p>
+</div>
+<h3 id="verificacion-validacion-y-caja-negra">Verificación, validación y caja negra</h3>
+<div class="teorema"><p class="teorema-t">Verificación y validación</p><p>Verificación: comprobar que una aplicación software cumple correctamente todos los requisitos.</p>
+<p>Validación: comprobar que una aplicación software sirve para el propósito para el que fue concebida, es decir, que además de cumplir los requisitos sirve para algo.</p>
+<p class="bloque-fuente">05 - Depurando las definiciones, pág. 21</p></div>
+<p>Se <strong>valida</strong> al final de cada iteración, entregando software de calidad a los stakeholders. Se <strong>verifica</strong> durante todo el desarrollo, con las pruebas del sistema. Del diccionario salen pruebas (pág. 22). De los flujos, el volumen o la frecuencia, para encontrar errores de rendimiento, un riesgo con impacto en la arquitectura que se ataca en las primeras iteraciones de la elaboración. De los elementos, tipo, longitud, límites, valores de los discretos, formatos y criterios de validación.</p>
+<p>Las <strong>pruebas de caja negra</strong> (pág. 23) buscan condiciones de entrada que ejerciten todos los requisitos funcionales, ignorando la estructura de control. Los datos pueden ser válidos o inválidos.</p>
+<div class="tabla"><table><thead><tr><th>Técnica</th><th>Qué hace</th></tr></thead><tbody><tr><td>Partición de equivalencia</td><td>Divide el campo de entrada en clases de datos que tienden a ejercitar determinadas funciones del software</td></tr><tr><td>Análisis de valores límites</td><td>Prueba la habilidad del programa para manejar datos que se encuentran en los límites aceptables</td></tr><tr><td>Grafos de causa-efecto</td><td>Permite validar complejos conjuntos de acciones y condiciones</td></tr></tbody></table></div>
+<h3 id="manual-de-usuario-y-tipos-de-ayuda">Manual de usuario y tipos de ayuda</h3>
+<p>Es documentación técnica para asistir a quien usa un sistema, con lenguaje sencillo, instrucciones, imágenes y diagramas (06, pág. 3). El <strong>formato tradicional</strong> (pág. 4) trae portada, título y derechos de autor, prefacio, introducción, requisitos previos, instalación y configuración, guía de las funciones principales, solución de problemas, preguntas frecuentes, dónde encontrar más ayuda, y glosario e índice. Evolucionó del impreso al PDF, <code>hlp</code>, <code>chm</code>, el centro de ayuda HTML en línea y otros tipos de ayuda (pág. 7). Sus <strong>problemas</strong> (pág. 8): es impreso y monolítico, los usuarios necesitan respuesta rápida, no son afectos a leer y el manual se pierde.</p>
+<div class="tabla"><table><thead><tr><th>Tipo (06, págs. 9 a 23)</th><th>Qué es y cómo se usa</th></tr></thead><tbody><tr><td>Manual en línea</td><td>Se accede desde un menú o con F1. Puede ser contextual: desde la pantalla en la que está el usuario, con atajos o con enlaces (i) o (?). Describe una pantalla o un campo</td></tr><tr><td>Tooltip</td><td>También llamado texto emergente o hover help. Descripción que aparece al situar el cursor sobre un elemento</td></tr><tr><td>Tutoriales</td><td>Lección educacional en pasos que aumentan la dificultad. Se ofrece después del primer inicio de sesión, siempre permitiendo no iniciarlo, y queda en el menú. Se plantea por funcionalidad: los videos cortos son más efectivos</td></tr><tr><td>Lo nuevo</td><td>Remarca cambios o funciones nuevas. Aparece luego del primer inicio de sesión posterior a los cambios. Está disponible por un período de tiempo</td></tr><tr><td>Tour rápido</td><td>Recorre las principales características. En muchos casos se interactúa con una instancia de prueba, y se puede volver atrás y repetir</td></tr><tr><td>FAQs, PPFF o PUF</td><td>Lista de preguntas y respuestas frecuentes. Muy útil pero muy poco utilizado. Si se implementa, hay que inculcar el hábito de leerlas. Es una oportunidad de mejora de la aplicación</td></tr><tr><td>Chatbots</td><td>Bots conversacionales con respuestas programadas a frases específicas. Son parte de las funciones de un asistente virtual, que es mucho más</td></tr><tr><td>Inteligencia artificial</td><td>No es lo mismo que un chatbot. Sus 4 pilares son aprendizaje automático, procesamiento del lenguaje natural, análisis de los sentimientos del cliente y personalización</td></tr><tr><td>Mesa de ayuda</td><td>Sistema que ayuda a los equipos de atención a recibir, administrar, organizar, automatizar, responder e informar sobre preguntas o problemas de los clientes</td></tr></tbody></table></div>
+<ul>
+<li><strong>Bot</strong> (pág. 17). Viene de acortar «robot». Programa que realiza tareas repetitivas, predefinidas y automatizadas, con funciones útiles (catalogar páginas, ayudar a clientes) y maliciosas (atacar sistemas, correos masivos).</li>
+<li><strong>Funciones de una mesa de ayuda</strong> (pág. 22): solución inmediata al cliente (de un chatbot a un agente, o un ticket de incidencia), aumento de la productividad (tickets por prioridad y en colas), soporte continuo, mayor organización, seguimiento y evaluación.</li>
+<li><strong>Flujo de una mesa de ayuda</strong> (pág. 23). Primer contacto, ticket en la plataforma, revisión del acuerdo de nivel de servicio, protocolo y búsqueda en preguntas frecuentes. Si no alcanza, consulta con un técnico. Si tampoco, el ticket pasa a la mesa de servicio, con expertos.</li>
+<li><strong>Tipos de usuario</strong> (pág. 24): frecuentes, intermitentes y ocasionales. Para orquestar un manual (pág. 25), identificá los tipos de usuario según las funcionalidades y planteá ayudas distintas para cada uno. El manual tradicional va siempre, pero nunca como la única alternativa de ayuda.</li>
+</ul>
+<div class="ojo"><p class="ojo-t">Lo que falta en el material</p><p>«Diccionario de datos versus Glosario» figura en el contenido de la clase 1, sin diapositiva. La hoja de la clase 6 dice «según esta matriz», pero ni el PDF ni el Word muestran la matriz de tipos de usuario y tipos de ayuda. El mapa de empatía, que pide la rúbrica de la defensa, solo tiene video. Preguntalas en clase. Acá no las completamos de memoria.</p>
+</div>
+</section>
+<section class="sec"><h2 id="tp-integrador">TP integrador</h2>
+<p>Es requisito de la regularidad. Los entregables van en PDF al campus y cada uno necesita nota 6 o más. El enunciado da el proceso de negocio principal, los actores, un modelo de dominio incompleto y reglas numeradas, que mandan sobre cualquier resumen.</p>
+<div class="ojo"><p class="ojo-t">Nota y rúbrica</p><p>Las rúbricas tienen niveles (Insuficiente, Bueno, Muy bueno, Excelente), no notas. Ningún archivo del Drive dice cómo se pasa de un nivel al 6. Preguntalo.</p>
+</div>
+<div class="tabla"><table><thead><tr><th>Orden</th><th>Entregable</th><th>Archivo</th><th>Qué pide</th></tr></thead><tbody><tr><td>1</td><td>Bosquejos de interface</td><td><code>G&lt;nombreGrupo&gt;-BOS</code></td><td>Cada bosquejo, identificado con un número único. Un PDF con todos o uno por fase</td></tr><tr><td>2</td><td>Diccionario de datos</td><td><code>G&lt;nombreGrupo&gt;-DD</code></td><td>El código del bosquejo antes del diccionario</td></tr><tr><td>3</td><td>Tabla de depuración</td><td><code>G&lt;nombreGrupo&gt;-TDEP</code></td><td>Todo elemento de los flujos de entrada con máscara especial, discreto, con rango, con criterios de validación o con comentarios especiales</td></tr><tr><td>4</td><td>Clases de equivalencia</td><td><code>G&lt;nombreGrupo&gt;-CEQ</code></td><td>Todo elemento con criterios de validación genera sus clases</td></tr><tr><td>5</td><td>Casos de prueba</td><td><code>G&lt;nombreGrupo&gt;-CP</code></td><td>A qué bosquejo corresponde y las clases detectadas. Lo que se implementa en la interface no se desarrolla completo, se indica</td></tr><tr><td>6</td><td>Manual de usuario</td><td><code>G&lt;nombreGrupo&gt;-Ayudas</code></td><td>Los íconos de las ayudas elegidas en los bosquejos. Algunas requieren bosquejos propios</td></tr><tr><td>7</td><td>Presentación</td><td><code>G&lt;nombreGrupo&gt;-Defensa</code></td><td>Defensa del trabajo práctico integrador</td></tr></tbody></table></div>
+<p>Si un entregable va en más de un archivo, se agrega <code>&lt;-nombreFase&gt;</code> al final del nombre.</p>
+<h3 id="bosquejos">Bosquejos</h3>
+<p><strong>1. Determinar los elementos</strong> (04, págs. 19 a 25): encabezado y pie, estructuras visuales de información, inicio de sesión, página de inicio, menú y filtros de información. La <strong>página de inicio</strong> es la primera que ve el usuario después de iniciar sesión. Depende de su rol, muestra lo útil para su trabajo diario, que es la meta primaria, y da atajos a las metas complementarias.</p>
+<p><strong>2. Distribuirlos en la zona de trabajo.</strong> Identificación del usuario y cierre de sesión, menús arriba o a la izquierda, botones de acción abajo o al costado. Sea lo que sea que elijas, respetalo en todas las pantallas, con los estándares de la tecnología, web o móvil nativa.</p>
+<p>Usá el diccionario de flujos de los casos de uso como punto de partida, si existe. Un caso de uso puede tener más de un wireframe, que son estados de la interface en un orden que da el esquema de navegabilidad (pág. 27).</p>
+<div class="ejemplo"><p class="ejemplo-t">Dos estados de la misma pantalla</p><p>En «Registrar turno para el paciente», las notas al costado explican qué cambia. Buscar muestra apellido y nombre y habilita Registrar. Si el paciente no existe, aparece el mensaje y se habilita Nuevo.</p>
+<p><img src="img/fig-bosquejo-registrar.webp" alt="Bosquejo de la pantalla Registrar turno con fecha, hora, documento, apellido y nombre, y los botones Buscar, Regresar y Registrar"></p>
+<p><img src="img/fig-bosquejo-noexiste.webp" alt="El mismo bosquejo con el mensaje El paciente ingresado no existe y el botón Nuevo habilitado"></p>
+<p class="bloque-fuente">04 - Bosquejos y navegabilidad, págs. 34 y 35</p></div>
+<h3 id="esquema-de-navegabilidad">Esquema de navegabilidad</h3>
+<p>También se llama flujo de interface de usuario, storyboard, diagrama de navegación de ventanas o mapa de contexto-navegación. Modela las relaciones de alto nivel entre los principales elementos de la interface, tal como se documentan en los casos de uso. UML no lo soporta directamente y se adaptan esquemas existentes (04, pág. 15). Se arma desde los casos de uso de sistema, nivel usuario. Se detectan las entradas y salidas, explícitas o implícitas, y se hace la tabla de objetos y acciones (pág. 28).</p>
+<div class="ejemplo"><p class="ejemplo-t">El consultorio odontológico</p><div class="tabla"><table><thead><tr><th>Objeto</th><th>Acciones del usuario</th></tr></thead><tbody><tr><td>Turnos disponibles</td><td>Ingresar fecha. Recorrer los turnos. Seleccionar uno</td></tr><tr><td>Turno seleccionado</td><td>Asignar paciente. Confirmar</td></tr><tr><td>Paciente</td><td>Crear nuevo. Ingresar datos. Confirmar</td></tr><tr><td>Localidad</td><td>Crear nueva. Ingresar datos. Confirmar</td></tr><tr><td>Provincia</td><td>Crear nueva. Ingresar datos. Confirmar</td></tr></tbody></table></div>
+<p><img src="img/fig-navegabilidad.webp" alt="Esquema de navegabilidad: Gestionar turnos, Lista de turnos disponibles, Registrar turno, Nuevo paciente, Nueva localidad y Nueva provincia, con flechas de ida y de regresar o cancelar"></p>
+<p class="bloque-fuente">04 - Bosquejos y navegabilidad, págs. 28 a 31</p></div>
+<h3 id="lo-que-miran-las-rubricas">Lo que miran las rúbricas</h3>
+<ul>
+<li><strong>Bosquejos (R01).</strong> Plataforma web o móvil coherente con la experiencia del usuario. Landing con encabezado, cuerpo y pie, y las fases del Product/Customer Journey. Atributos que se deducen del enunciado, siempre representados igual. Botones de acción fáciles de distinguir y en el mismo lugar. Retroalimentación con información adicional ante errores. Las actividades se escalonan así. Bueno pide el proceso crítico completo, Muy bueno suma los procesos de apoyo y el gerencial, y Excelente suma el requerimiento no funcional de seguridad.</li>
+<li><strong>Diccionario, clases y casos (R02 y R03).</strong> Están en la práctica del final, arriba.</li>
+<li><strong>Ayudas (R04).</strong> «Sí» quiere decir modelado.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Ayuda</th><th>Insuficiente</th><th>Bueno</th><th>Muy bueno</th><th>Excelente</th></tr></thead><tbody><tr><td>Manual de usuario tradicional</td><td>No</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Ayuda contextual según la vista y/o tooltip</td><td>No</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Preguntas frecuentes</td><td>No</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Lo nuevo y/o tutorial</td><td>No</td><td>No</td><td>No</td><td>Sí</td></tr><tr><td>Chatbot y/o IA y/o mesa de ayuda</td><td>No</td><td>No</td><td>No</td><td>Sí</td></tr></tbody></table></div>
+<p>Para casi todas las ayudas se pregunta en qué bosquejos pondrías el acceso, justificando (hoja «Entregable 6»). El manual tradicional y las PPFF, cómo se muestran después del clic. Los tutoriales, un espacio reservado para video. El tooltip, en qué bosquejos y atributos y cómo aparece. La ayuda contextual, la sección del manual de ese bosquejo. El tour rápido y Lo nuevo son opcionales. El contenido de relleno sale de <a href="https://es.lipsum.com/">lipsum</a>.</p>
+<h3 id="defensa-y-promocion">Defensa y promoción</h3>
+<p>La rúbrica R05 pide presentar a los integrantes, una agenda que se respete, un resumen del problema coherente con el enunciado y con el mapa de empatía, el Product Journey propio en el orden de procesos y subprocesos, los bosquejos o el prototipo en ese mismo orden, los casos de prueba de todos los procesos, los controles usados y por qué, todas las ayudas del R04 con su justificación, todas las secciones del Artefacto de Visión y datos reales para el prototipo. El Artefacto de Visión tiene frase resumen, cliente, problema o necesidad, solución, valor, rivales y diferenciadores.</p>
+<div class="ojo"><p class="ojo-t">Queda libre quien no participa</p><p>En los cuatro niveles de la rúbrica R05, el alumno que no participa queda libre. La rúbrica dice además que «Datos para prototipo» aplica solo para «AD», sigla que no se aclara. Por la presentación parece aprobación directa, y conviene confirmarlo.</p>
+</div>
+<div class="ojo"><p class="ojo-t">El Journey es una lectura de la bibliografía</p><p>Las clases no desarrollan el Product/Customer Journey. Según un e-book de journey mapping de la bibliografía, en inglés y de un tercero, es una representación visual del recorrido típico de un cliente con tu producto, en 3 a 5 etapas. Cómo lo aplica la cátedra al TP (proceso crítico, de apoyo y gerencial) sale solo de las rúbricas.</p>
+</div>
+<p><strong>Promoción.</strong> Entrega adicional del TP, con el bosquejo de interface hecho en alguna herramienta de prototipado, a tu elección.</p>
+</section>
+<section class="sec cae"><h2 id="que-cae">Qué cae más</h2>
+<p class="cae-baja">El sitio no tiene todos los exámenes que se tomaron, así que esto es una pista y no una promesa. Tocá un tema para ver en qué exámenes salió.</p>
+<h3 id="cae-prac">Prácticas</h3>
+<p class="cae-de">Sale de 7 exámenes de este sitio.</p>
+<ul class="cae-lista"><li><details class="cae-tema"><summary><span class="cae-nom">Diccionario de datos</span><span class="cae-barra" aria-hidden="true"><span style="width:43%"></span></span><span class="cae-num">en 3 de 7</span></summary><ul class="cae-ex"><li><a href="ej-practica-01-a.html">Práctica 01, ejercicios 1 a 8: casos simples</a></li><li><a href="ej-practica-01-b.html">Práctica 01, ejercicios 9 y 10, y miscelánea</a></li><li><a href="ej-dd-complementaria.html">Diccionario de datos, ejercicio complementario: aerolínea</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Diccionario de entradas y salidas</span><span class="cae-barra" aria-hidden="true"><span style="width:43%"></span></span><span class="cae-num">en 3 de 7</span></summary><ul class="cae-ex"><li><a href="ej-practica-02-colegio.html">Práctica 02: el colegio</a></li><li><a href="ej-practica-02-encuentros.html">Práctica 02: gestión de encuentros de investigadores</a></li><li><a href="ej-practica-02-seleccion.html">Práctica 02: selección de personal</a></li></ul></details></li><li><details class="cae-tema"><summary><span class="cae-nom">Narrativa</span><span class="cae-barra" aria-hidden="true"><span style="width:43%"></span></span><span class="cae-num">en 3 de 7</span></summary><ul class="cae-ex"><li><a href="ej-practica-02-colegio.html">Práctica 02: el colegio</a></li><li><a href="ej-practica-02-encuentros.html">Práctica 02: gestión de encuentros de investigadores</a></li><li><a href="ej-practica-02-seleccion.html">Práctica 02: selección de personal</a></li></ul></details></li></ul></section>
+<section class="sec em-examenes"><h2 id="examenes">Exámenes</h2>
+<p class="em-leyenda">«Respuesta oficial» es lo que está en el Drive. «Propuesta sin verificar» es una respuesta armada con inteligencia artificial que ningún docente revisó.</p>
+<h3 id="ex-prac">Prácticas</h3><ul class="em-lista"><li class="em-fila"><a href="ej-practica-03-reversa.html"><span class="em-nom">Práctica 03: ingeniería reversa</span><span class="ej-fecha">11/07/2024</span><span class="em-estado" data-estado="sin">Sin respuesta</span><span class="em-nota">Los dos ejercicios trabajan sobre las capturas de Mercado Pago y las gráficas varias, que están en otros dos archivos del Drive y no en la materia. Sin esas imágenes no se puede armar el diccionario. El método está en la parte de ingeniería reversa de esta página.</span></a></li><li class="em-fila"><a href="ej-practica-01-a.html"><span class="em-nom">Práctica 01, ejercicios 1 a 8: casos simples</span><span class="ej-fecha"></span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-practica-01-b.html"><span class="em-nom">Práctica 01, ejercicios 9 y 10, y miscelánea</span><span class="ej-fecha"></span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-dd-complementaria.html"><span class="em-nom">Diccionario de datos, ejercicio complementario: aerolínea</span><span class="ej-fecha"></span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-practica-02-colegio.html"><span class="em-nom">Práctica 02: el colegio</span><span class="ej-fecha"></span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-practica-02-encuentros.html"><span class="em-nom">Práctica 02: gestión de encuentros de investigadores</span><span class="ej-fecha"></span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-practica-02-seleccion.html"><span class="em-nom">Práctica 02: selección de personal</span><span class="ej-fecha"></span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul>
+<h3 id="ex-tp">TP integrador</h3><ul class="em-lista"><li class="em-fila"><a href="ej-tp-enunciado.html"><span class="em-nom">TP integrador: enunciado de la huerta urbana</span><span class="ej-fecha"></span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li><li class="em-fila"><a href="ej-tp-proceso.html"><span class="em-nom">TP integrador: proceso de negocio principal</span><span class="ej-fecha"></span><span class="em-estado" data-estado="propuesta">Propuesta sin verificar</span></a></li></ul></section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN: presentación de la cátedra 2026, clases de teoría, prácticas y rúbricas del trabajo práctico. En el Drive no hay exámenes. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

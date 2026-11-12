@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>1° parcial en PC, 09/06/2025, tema Auto: Tecnologías de Desarrollo de Software IDE</title>
+<meta name="description" content="Ejercicio de examen: 1° parcial en PC, 09/06/2025, tema Auto.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="tecnologias-de-desarrollo-de-software-ide" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Tecnologías de Desarrollo de Software IDE</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="aprobacion-directa.html">Aprobación directa</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=tecnologias-de-desarrollo-de-software-ide">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=tecnologias-de-desarrollo-de-software-ide">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>1° parcial en PC, 09/06/2025, tema Auto</h1>
+<p class="bajada">1° parcial, 09/06/2025</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="p1-2025-06-09-auto" data-titulo="1° parcial en PC, 09/06/2025, tema Auto" data-min="120" data-otro="ejercicios.html#parcial-1" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="p1-2025-06-09-auto" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/14c6mdQELW9S-bNjGfppeFLIfj6rn6jgW/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/p1-2025-06-09-auto-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/p1-2025-06-09-auto-e1.webp" width="907" height="1398" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>Estructura</h4>
+<p>Una carpeta <code>PerezJuan</code> con la solución <code>PerezJuan</code> y dos proyectos, <code>PerezJuan.Dominio</code> del tipo Biblioteca de clases y <code>PerezJuan.Consola</code> del tipo Aplicación de consola. Cambiá <code>PerezJuan</code> por tu apellido y nombre en la carpeta, la solución, los proyectos y los namespaces.</p>
+<p>Para que la consola vea las clases del dominio, en <code>PerezJuan.Consola</code> agregá la referencia al proyecto <code>PerezJuan.Dominio</code> y después el <code>using PerezJuan.Dominio;</code>, como en el laboratorio de POO.</p>
+<h4>1. La clase Vehiculo</h4>
+<p>Va en <code>PerezJuan.Dominio</code>, copiada del enunciado. Solo se agrega el <code>namespace</code>.</p>
+<pre class="codigo"><code><span class="hljs-keyword">namespace</span> <span class="hljs-title">PerezJuan.Dominio</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Vehiculo</span>
+    {
+        <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Patente { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+        <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Ruedas { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+        <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Modelo { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-title">Vehiculo</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> patente, <span class="hljs-built_in">int</span> ruedas, <span class="hljs-built_in">int</span> modelo</span>)</span>
+        {
+            <span class="hljs-keyword">this</span>.Patente = patente;
+            <span class="hljs-keyword">this</span>.Ruedas = ruedas;
+            <span class="hljs-keyword">this</span>.Modelo = modelo;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-built_in">string</span> <span class="hljs-title">ToString</span>()</span>
+        {
+            <span class="hljs-keyword">return</span> <span class="hljs-string">$&quot;Patente: <span class="hljs-subst">{Patente}</span> Ruedas: <span class="hljs-subst">{Ruedas}</span> Modelo: <span class="hljs-subst">{Modelo}</span>&quot;</span>;
+        }
+    }
+}</code></pre>
+<h4>2. La clase Auto</h4>
+<p>La consigna dice que el constructor recibe el color y los datos del <code>Vehiculo</code>, y el <code>new Auto(&quot;ABC111&quot;, 4, 1999, &quot;Azul&quot;)</code> del punto 4 muestra el orden, con el color al final. Con <code>: base(...)</code> llama al constructor de la clase superior. El <code>ToString</code> es una sobreescritura que usa <code>base.ToString()</code> y le agrega el color.</p>
+<pre class="codigo"><code><span class="hljs-keyword">namespace</span> <span class="hljs-title">PerezJuan.Dominio</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Auto</span> : <span class="hljs-title">Vehiculo</span>
+    {
+        <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Color { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Auto</span>(<span class="hljs-params"><span class="hljs-built_in">string</span> patente, <span class="hljs-built_in">int</span> ruedas, <span class="hljs-built_in">int</span> modelo, <span class="hljs-built_in">string</span> color</span>)
+            : <span class="hljs-title">base</span>(<span class="hljs-params">patente, ruedas, modelo</span>)</span>
+        {
+            <span class="hljs-keyword">this</span>.Color = color;
+        }
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-built_in">string</span> <span class="hljs-title">ToString</span>()</span>
+        {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">base</span>.ToString() + <span class="hljs-string">$&quot; Color: <span class="hljs-subst">{Color}</span>&quot;</span>;
+        }
+    }
+}</code></pre>
+<h4>3. La clase ListaVehiculo</h4>
+<p><code>BuscarPatenteLinq</code> arma la consulta con <code>from</code>, <code>where</code> y <code>select</code>, como en las diapositivas. La consulta devuelve una colección, así que <code>FirstOrDefault()</code> se queda con el primero que coincide, o con <code>null</code> si no hay ninguno. <code>BuscarPatenteIterativa</code> hace lo mismo con un <code>foreach</code>.</p>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> System.Linq;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">PerezJuan.Dominio</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ListaVehiculo</span>
+    {
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Vehiculo? BuscarPatenteLinq(List&lt;Vehiculo&gt; vehiculos, <span class="hljs-built_in">string</span> patente)
+        {
+            <span class="hljs-keyword">return</span> (<span class="hljs-keyword">from</span> v <span class="hljs-keyword">in</span> vehiculos
+                    <span class="hljs-keyword">where</span> v.Patente == patente
+                    <span class="hljs-keyword">select</span> v).FirstOrDefault();
+        }
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Vehiculo? BuscarPatenteIterativa(List&lt;Vehiculo&gt; vehiculos, <span class="hljs-built_in">string</span> patente)
+        {
+            <span class="hljs-keyword">foreach</span> (Vehiculo v <span class="hljs-keyword">in</span> vehiculos)
+            {
+                <span class="hljs-keyword">if</span> (v.Patente == patente)
+                {
+                    <span class="hljs-keyword">return</span> v;
+                }
+            }
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+        }
+    }
+}</code></pre>
+<p>El <code>?</code> de <code>Vehiculo?</code> avisa que el método puede devolver <code>null</code>. Sin él, Visual Studio marca una advertencia en los proyectos nuevos.</p>
+<h4>4. El Main</h4>
+<p>La lista es del tipo base, <code>Vehiculo</code>, y guarda objetos <code>Auto</code>. Al llamar a <code>ToString</code> se ejecuta el de <code>Auto</code>, que es el polimorfismo que buscan.</p>
+<pre class="codigo"><code><span class="hljs-keyword">using</span> System;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> PerezJuan.Dominio;
+
+<span class="hljs-keyword">namespace</span> <span class="hljs-title">PerezJuan.Consola</span>
+{
+    <span class="hljs-keyword">internal</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span>
+    {
+        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] <span class="hljs-keyword">args</span></span>)</span>
+        {
+            List&lt;Vehiculo&gt; vehiculos = <span class="hljs-keyword">new</span> List&lt;Vehiculo&gt;();
+            vehiculos.Add(<span class="hljs-keyword">new</span> Auto(<span class="hljs-string">&quot;ABC111&quot;</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1999</span>, <span class="hljs-string">&quot;Azul&quot;</span>));
+            vehiculos.Add(<span class="hljs-keyword">new</span> Auto(<span class="hljs-string">&quot;AD123CD&quot;</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2018</span>, <span class="hljs-string">&quot;Rojo&quot;</span>));
+            vehiculos.Add(<span class="hljs-keyword">new</span> Auto(<span class="hljs-string">&quot;AE456FG&quot;</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2021</span>, <span class="hljs-string">&quot;Negro&quot;</span>));
+
+            Vehiculo? conLinq = ListaVehiculo.BuscarPatenteLinq(vehiculos, <span class="hljs-string">&quot;ABC111&quot;</span>);
+            Vehiculo? iterando = ListaVehiculo.BuscarPatenteIterativa(vehiculos, <span class="hljs-string">&quot;ABC111&quot;</span>);
+
+            Console.WriteLine(<span class="hljs-string">&quot;Con LINQ:&quot;</span>);
+            Console.WriteLine(conLinq?.ToString() ?? <span class="hljs-string">&quot;No se encontró&quot;</span>);
+            Console.WriteLine(<span class="hljs-string">&quot;Iterando:&quot;</span>);
+            Console.WriteLine(iterando?.ToString() ?? <span class="hljs-string">&quot;No se encontró&quot;</span>);
+        }
+    }
+}</code></pre>
+<p>La salida es esta.</p>
+<pre class="codigo"><code>Con LINQ:
+Patente: ABC111 Ruedas: 4 Modelo: 1999 Color: Azul
+Iterando:
+Patente: ABC111 Ruedas: 4 Modelo: 1999 Color: Azul</code></pre>
+<p>Para entregar, comprimí la carpeta como <code>ApellidoNombre.zip</code>.</p>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con 1° parcial, secciones Referencias entre proyectos, Constructores, Herencia, Métodos virtuales, override y new, Polimorfismo, Métodos estáticos y LINQ, más «La forma de la práctica en PC» y «Las reglas de la entrega».</p><p class="bloque-fuente">Quedó en duda: El material no trae un ejemplo de LINQ que devuelva un solo objeto, y <code>FirstOrDefault</code> sale de la documentación de C#, no de las diapositivas. La consigna nombra primero el color, pero el <code>new</code> del punto 4 lo pone al final, y así quedó el constructor. Los otros dos autos son inventados, porque el enunciado da uno solo.</p><div class="em-votos" data-m="tecnologias-de-desarrollo-de-software-ide" data-e="p1-2025-06-09-auto" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Herencia" data-enlace="parcial-1.html#herencia" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Herencia</span><span class="ex-t-teoria"><a href="parcial-1.html#herencia">Herencia</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="LINQ" data-enlace="parcial-1.html#linq" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">LINQ</span><span class="ex-t-teoria"><a href="parcial-1.html#linq">LINQ</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Solución con dos proyectos" data-enlace="parcial-1.html#visual-studio-soluciones-y-proyectos" data-donde="1° parcial"><div class="ex-t-cab"><span class="ex-t-nom" id="exT2">Solución con dos proyectos</span><span class="ex-t-teoria"><a href="parcial-1.html#visual-studio-soluciones-y-proyectos">Visual Studio: soluciones y proyectos</a>, en 1° parcial</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT2"><label class="ex-op" data-v="bien"><input type="radio" name="exT2r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT2r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT2r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-p1-2026-06-08-medico.html">Anterior: 1° parcial en PC, 08/06/2026, tema Médico</a><a href="ej-p1-2025-06-09-moto.html">Siguiente: 1° parcial en PC, 09/06/2025, tema Moto</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). En el Drive no hay ningún final. Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

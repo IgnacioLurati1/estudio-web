@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="es" data-tema="noche">
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Final, 27/04/2026 (Cursos online): Paradigmas de Programación</title>
+<meta name="description" content="Ejercicio de examen: Final, 27/04/2026 (Cursos online).">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/examen.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/diagrama.js" defer></script>
+<script src="../_/propuesta.js" defer></script>
+</head>
+<body data-materia="paradigmas-de-programacion" data-pagina="ejercicios">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Paradigmas de Programación</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">Parcial de regularización</a></li><li class="em-fuera"><a href="ad.html">Aprobación directa</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html" aria-current="page">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=paradigmas-de-programacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=paradigmas-de-programacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#enunciado">Enunciado</a></li><li class="n2"><a href="#propuesta">Propuesta de respuesta</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja">
+<p class="em-solo em-volver"><a href="emergencia.html">Volver a emergencia</a></p>
+<h1>Final, 27/04/2026 (Cursos online)</h1>
+<p class="bajada">Final, 27/04/2026</p>
+<div class="ej-acciones"><button type="button" class="b-pri ex-ir" data-ex-ir data-slug="fin-2026-04-27" data-titulo="Final, 27/04/2026 (Cursos online)" data-min="180" data-otro="ejercicios.html#final" data-sol="propuesta"><svg class="ex-ir-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="27" r="15"/><path d="M24 18v9l6 4"/><path d="M19 5h10M24 5v7"/><path d="M36 14l3-3"/></svg>Rendirlo con reloj</button><button type="button" id="ejHecho" class="b-sec" data-slug="fin-2026-04-27" aria-pressed="false">Marcar como hecho</button><a href="https://drive.google.com/file/d/1BiRAlhPqjGutFveEHK9Kz8ab0M-d6l27/view" target="_blank" rel="noopener">Enunciado original en el Drive</a></div>
+
+
+<section class="sec ej-texto"><h2 id="enunciado">Enunciado</h2><a class="sol-img" href="img/fin-2026-04-27-e1.webp" aria-label="Abrir la hoja 1 del enunciado en grande"><img src="img/fin-2026-04-27-e1.webp" width="1300" height="1734" loading="lazy" alt="Hoja 1 del enunciado, tal como está en el Drive. El texto completo está en el enlace al Drive."></a></section>
+
+
+<section class="sec em-propuesta"><h2 id="propuesta">Propuesta de respuesta</h2><p class="em-sin-verificar">Respuesta no verificada. La propuso Luta Studios con inteligencia artificial y ningún docente la revisó. Puede tener errores.</p><div class="em-md"><h4>1) Diagrama de clases</h4>
+<p>Los tres tipos de curso tienen datos distintos y dos cambian el precio, así que son subclases. El descuento de Infraestructura y Ciberseguridad es igual para todos sus cursos, y va como variable de clase. El recargo de cada curso de IA va en la instancia. Cada subclase responde <code>tipo</code> con su nombre, como el Ejercicio resuelto 2. Cada caja tiene arriba las variables de clase (vc) y de instancia (vi), y abajo los métodos de clase (mc) y de instancia (mi), como los diagramas de los cuestionarios del campus. La flecha punteada va de la subclase a la superclase, y la línea con cantidad es un ensamble. Los métodos que solo devuelven una variable no van en las cajas, para que se lean. Están al final del código. Tocá el dibujo para verlo en pantalla completa.</p>
+<figure tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 977 760" width="977" height="760" style="width:977px;min-width:977px;max-width:none;height:760px" role="img" aria-label="Diagrama de clases de la plataforma de cursos. Plataforma guarda los cursos, los estudiantes y las ventas. Cada venta tiene un estudiante y uno o más cursos. Curso es la superclase de CursoInfraestructura, con la variable de clase Descuento, de CursoPOO, con su lenguaje, y de CursoIA, con su recargo. Cada subclase tiene su precioFinal y su tipo."><g fill="none" stroke="currentColor" stroke-width="1.3"><rect x="246.6" y="10.0" width="220.5" height="209.0"/><path d="M246.6 36.0H467.1M246.6 105.0H467.1M291.6 36.0V219.0"/><rect x="20.0" y="293.0" width="140.8" height="149.0"/><path d="M20.0 319.0H160.8M20.0 403.0H160.8M65.0 319.0V442.0"/><rect x="206.8" y="293.0" width="329.2" height="254.0"/><path d="M206.8 319.0H536.0M206.8 403.0H536.0M382.3 319.0V547.0"/><rect x="582.0" y="293.0" width="111.8" height="149.0"/><path d="M582.0 319.0H693.8M582.0 403.0H693.8M627.0 319.0V442.0"/><rect x="319.1" y="621.0" width="264.0" height="119.0"/><path d="M319.1 647.0H583.1M319.1 686.0H583.1M451.1 647.0V740.0"/><rect x="629.1" y="621.0" width="140.8" height="119.0"/><path d="M629.1 647.0H769.9M629.1 686.0H769.9M674.1 647.0V740.0"/><rect x="815.9" y="621.0" width="140.8" height="119.0"/><path d="M815.9 647.0H956.7M815.9 686.0H956.7M860.9 647.0V740.0"/><path d="M301.8 219.0L90.4 293.0"/><path d="M356.9 219.0L371.4 293.0"/><path d="M412.0 219.0L637.9 293.0"/><path d="M206.8 306.0H160.8"/><path d="M536.0 306.0H582.0"/><path d="M637.9 442.0l-7 12h14z" fill="none"/><path stroke-dasharray="6 4" d="M637.9 454.0V581.0M451.1 581.0H886.3M451.1 581.0V621.0M699.5 581.0V621.0M886.3 581.0V621.0"/></g><g fill="currentColor" stroke="none" font-family="ui-monospace, Consolas, Menlo, monospace" font-size="12" text-anchor="middle"><text x="356.9" y="28.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Plataforma</text><text x="254.6" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="299.6" y="50.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="299.6" y="66.0" text-anchor="start">cursos</text><text x="299.6" y="81.0" text-anchor="start">estudiantes</text><text x="299.6" y="96.0" text-anchor="start">ventas</text><text x="254.6" y="119.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="299.6" y="119.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="299.6" y="135.0" text-anchor="start">inicializa</text><text x="299.6" y="150.0" text-anchor="start">registrarVenta</text><text x="299.6" y="165.0" text-anchor="start">buscarOCrearEstudiante</text><text x="299.6" y="180.0" text-anchor="start">nuevoEstudiante:</text><text x="299.6" y="195.0" text-anchor="start">buscarCurso</text><text x="299.6" y="210.0" text-anchor="start">listarVentas</text><text x="90.4" y="311.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Estudiante</text><text x="28.0" y="333.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="73.0" y="333.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="73.0" y="349.0" text-anchor="start">documento</text><text x="73.0" y="364.0" text-anchor="start">nombre</text><text x="73.0" y="379.0" text-anchor="start">apellido</text><text x="73.0" y="394.0" text-anchor="start">ciudad</text><text x="28.0" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="73.0" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="73.0" y="433.0" text-anchor="start">cargaDatos:</text><text x="371.4" y="311.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Venta</text><text x="214.8" y="333.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="214.8" y="349.0" text-anchor="start">UltimoNumero</text><text x="390.3" y="333.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="390.3" y="349.0" text-anchor="start">numero</text><text x="390.3" y="364.0" text-anchor="start">fecha</text><text x="390.3" y="379.0" text-anchor="start">estudiante</text><text x="390.3" y="394.0" text-anchor="start">cursos</text><text x="214.8" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="214.8" y="433.0" text-anchor="start">asignaUltimoNumero:</text><text x="214.8" y="448.0" text-anchor="start">incrementaUltimoNumero</text><text x="390.3" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="390.3" y="433.0" text-anchor="start">inicializa</text><text x="390.3" y="448.0" text-anchor="start">cargaDatos:</text><text x="390.3" y="463.0" text-anchor="start">agregar:</text><text x="390.3" y="478.0" text-anchor="start">total</text><text x="390.3" y="493.0" text-anchor="start">imprimirComprobante</text><text x="390.3" y="508.0" text-anchor="start">fechaEntre:y:</text><text x="390.3" y="523.0" text-anchor="start">tieneCursoDe:</text><text x="390.3" y="538.0" text-anchor="start">mostrarCursosDe:</text><text x="637.9" y="311.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">Curso</text><text x="590.0" y="333.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="635.0" y="333.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="635.0" y="349.0" text-anchor="start">codigo</text><text x="635.0" y="364.0" text-anchor="start">nombre</text><text x="635.0" y="379.0" text-anchor="start">temario</text><text x="635.0" y="394.0" text-anchor="start">precio</text><text x="590.0" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="635.0" y="417.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="451.1" y="639.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">CursoInfraestructura</text><text x="327.1" y="661.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="327.1" y="677.0" text-anchor="start">Descuento</text><text x="459.1" y="661.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="459.1" y="677.0" text-anchor="start">sistemaOperativo</text><text x="327.1" y="700.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="327.1" y="716.0" text-anchor="start">asignaDescuento:</text><text x="459.1" y="700.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="459.1" y="716.0" text-anchor="start">precioFinal</text><text x="459.1" y="731.0" text-anchor="start">tipo</text><text x="699.5" y="639.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">CursoPOO</text><text x="637.1" y="661.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="682.1" y="661.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="682.1" y="677.0" text-anchor="start">lenguaje</text><text x="637.1" y="700.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="682.1" y="700.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="682.1" y="716.0" text-anchor="start">precioFinal</text><text x="682.1" y="731.0" text-anchor="start">tipo</text><text x="886.3" y="639.0" font-weight="bold" font-family="Arial, Helvetica, sans-serif" font-size="13">CursoIA</text><text x="823.9" y="661.0" text-anchor="start" opacity="0.6" font-style="italic">vc</text><text x="868.9" y="661.0" text-anchor="start" opacity="0.6" font-style="italic">vi</text><text x="868.9" y="677.0" text-anchor="start">recargo</text><text x="823.9" y="700.0" text-anchor="start" opacity="0.6" font-style="italic">mc</text><text x="868.9" y="700.0" text-anchor="start" opacity="0.6" font-style="italic">mi</text><text x="868.9" y="716.0" text-anchor="start">precioFinal</text><text x="868.9" y="731.0" text-anchor="start">tipo</text><text x="82.4" y="285.0" text-anchor="end">0..N</text><text x="379.4" y="285.0" text-anchor="start">0..N</text><text x="645.9" y="285.0" text-anchor="start">1..N</text><text x="166.8" y="301.0" text-anchor="start">1..1</text><text x="576.0" y="301.0" text-anchor="end">1..N</text></g></svg></figure>
+
+<h4>2a) Registrar una nueva venta</h4>
+<p><code>Plataforma</code> es la clase principal y guarda las colecciones, como la clase principal de los ejercicios resueltos. El estudiante se busca o se da de alta primero. Un código que no existe se avisa y no se agrega.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Plataforma, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#inicializa</span>
+cursos := <span class="hljs-type">OrderedCollection</span> new.
+estudiantes := <span class="hljs-type">OrderedCollection</span> new.
+ventas := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#registrarVenta</span>
+| est venta curso seguir |
+est := <span class="hljs-keyword">self</span> buscarOCrearEstudiante.
+venta := <span class="hljs-type">Venta</span> new.
+venta inicializa.
+venta cargaDatos: est.
+seguir := <span class="hljs-keyword">true</span>.
+[seguir] whileTrue: [
+    curso := <span class="hljs-keyword">self</span> buscarCurso.
+    curso isNil
+        ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No existe un curso con ese código&#x27;</span>]
+        ifFalse: [venta agregar: curso].
+    seguir := <span class="hljs-type">MessageBox</span> confirm: <span class="hljs-string">&#x27;¿Desea agregar otro curso?&#x27;</span>].
+venta cursos isEmpty
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;La venta no tiene cursos y no se registró&#x27;</span>]
+    ifFalse: [
+        ventas add: venta.
+        venta imprimirComprobante]
+
+<span class="hljs-symbol">#buscarOCrearEstudiante</span>
+| doc est |
+doc := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el número de documento&#x27;</span>) asNumber.
+est := estudiantes detect: [:unEst | unEst documento = doc] ifNone: [<span class="hljs-keyword">nil</span>].
+est isNil ifTrue: [est := <span class="hljs-keyword">self</span> nuevoEstudiante: doc].
+^est
+
+<span class="hljs-symbol">#nuevoEstudiante</span>: unDocumento
+| est |
+est := <span class="hljs-type">Estudiante</span> new.
+est cargaDatos: unDocumento.
+estudiantes add: est.
+^est
+
+<span class="hljs-symbol">#buscarCurso</span>
+| cod |
+cod := (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el código del curso&#x27;</span>) asNumber.
+^cursos detect: [:unCurso | unCurso codigo = cod] ifNone: [<span class="hljs-keyword">nil</span>]
+
+<span class="hljs-comment">&quot;Estudiante, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#cargaDatos</span>: unDocumento
+documento := unDocumento.
+nombre := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el nombre&#x27;</span>.
+apellido := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese el apellido&#x27;</span>.
+ciudad := <span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la ciudad&#x27;</span>.
+
+<span class="hljs-comment">&quot;Venta, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaUltimoNumero</span>: unNumero
+<span class="hljs-type">UltimoNumero</span> := unNumero
+
+<span class="hljs-symbol">#incrementaUltimoNumero</span>
+<span class="hljs-type">UltimoNumero</span> := <span class="hljs-type">UltimoNumero</span> + <span class="hljs-number">1</span>
+
+<span class="hljs-comment">&quot;Venta, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#inicializa</span>
+cursos := <span class="hljs-type">OrderedCollection</span> new.
+
+<span class="hljs-symbol">#cargaDatos</span>: unEstudiante
+<span class="hljs-type">Venta</span> incrementaUltimoNumero.
+numero := <span class="hljs-type">UltimoNumero</span>.
+fecha := <span class="hljs-type">Date</span> today.
+estudiante := unEstudiante.
+
+<span class="hljs-symbol">#agregar</span>: unCurso
+cursos add: unCurso
+
+<span class="hljs-symbol">#total</span>
+| tot |
+tot := <span class="hljs-number">0.</span>
+cursos do: [:unCurso | tot := tot + unCurso precioFinal].
+^tot
+
+<span class="hljs-symbol">#imprimirComprobante</span>
+<span class="hljs-type">Transcript</span> clear;
+    show: <span class="hljs-string">&#x27;Comprobante Nro. &#x27;</span>, numero printString; cr;
+    show: <span class="hljs-string">&#x27;Fecha: &#x27;</span>, fecha printString; cr;
+    show: <span class="hljs-string">&#x27;Estudiante: &#x27;</span>, estudiante nombre, <span class="hljs-string">&#x27; &#x27;</span>, estudiante apellido; cr;
+    show: <span class="hljs-string">&#x27;Documento: &#x27;</span>, estudiante documento printString; cr.
+cursos do: [:unCurso |
+    <span class="hljs-type">Transcript</span> show: unCurso tipo; tab;
+        show: unCurso nombre; tab;
+        show: unCurso precioFinal printString; cr].
+<span class="hljs-type">Transcript</span> show: <span class="hljs-string">&#x27;Total a pagar: &#x27;</span>, <span class="hljs-keyword">self</span> total printString; cr
+
+<span class="hljs-comment">&quot;CursoInfraestructura, métodos de clase&quot;</span>
+
+<span class="hljs-symbol">#asignaDescuento</span>: unPorcentaje
+<span class="hljs-type">Descuento</span> := unPorcentaje
+
+<span class="hljs-comment">&quot;CursoInfraestructura, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#precioFinal</span>
+^precio - (precio * <span class="hljs-type">Descuento</span> / <span class="hljs-number">100</span>)
+
+<span class="hljs-symbol">#tipo</span>
+^<span class="hljs-string">&#x27;Infraestructura y Ciberseguridad&#x27;</span>
+
+<span class="hljs-comment">&quot;CursoPOO, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#precioFinal</span>
+^precio
+
+<span class="hljs-symbol">#tipo</span>
+^<span class="hljs-string">&#x27;Programación Orientada a Objetos&#x27;</span>
+
+<span class="hljs-comment">&quot;CursoIA, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#precioFinal</span>
+^precio + (precio * recargo / <span class="hljs-number">100</span>)
+
+<span class="hljs-symbol">#tipo</span>
+^<span class="hljs-string">&#x27;Inteligencia Artificial&#x27;</span></code></pre>
+<h4>2b) Listado de ventas por rango de fechas, por tipo de curso</h4>
+<p>Una venta puede traer cursos de varios tipos. Por eso se recorren los tipos en orden, y en cada uno se muestran las ventas del período que tienen un curso de ese tipo.</p>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Plataforma, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#listarVentas</span>
+| desde hasta lista tipos |
+desde := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha desde (dd/mm/aaaa)&#x27;</span>).
+hasta := <span class="hljs-type">Date</span> fromString: (<span class="hljs-type">Prompter</span> prompt: <span class="hljs-string">&#x27;Ingrese la fecha hasta (dd/mm/aaaa)&#x27;</span>).
+lista := (ventas asSortedCollection: [:a :b | a fecha &lt; b fecha])
+    select: [:unaVenta | unaVenta fechaEntre: desde y: hasta].
+lista isEmpty
+    ifTrue: [<span class="hljs-type">MessageBox</span> notify: <span class="hljs-string">&#x27;No se han encontrado ventas en ese período&#x27;</span>]
+    ifFalse: [
+        tipos := (cursos collect: [:unCurso | unCurso tipo]) asSet asSortedCollection: [:a :b | a &lt; b].
+        <span class="hljs-type">Transcript</span> clear;
+            show: <span class="hljs-string">&#x27;Ventas del &#x27;</span>, desde printString, <span class="hljs-string">&#x27; al &#x27;</span>, hasta printString; cr.
+        tipos do: [:unTipo |
+            lista do: [:unaVenta |
+                (unaVenta tieneCursoDe: unTipo) ifTrue: [unaVenta mostrarCursosDe: unTipo]]]]
+
+<span class="hljs-comment">&quot;Venta, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#fechaEntre</span>: desde y: hasta
+^(fecha &gt;= desde) and: [fecha &lt;= hasta]
+
+<span class="hljs-symbol">#tieneCursoDe</span>: unTipo
+^(cursos detect: [:unCurso | unCurso tipo = unTipo] ifNone: [<span class="hljs-keyword">nil</span>]) notNil
+
+<span class="hljs-symbol">#mostrarCursosDe</span>: unTipo
+<span class="hljs-type">Transcript</span> show: numero printString; tab;
+    show: fecha printString; tab;
+    show: estudiante nombre, <span class="hljs-string">&#x27; &#x27;</span>, estudiante apellido; tab;
+    show: unTipo; tab.
+(cursos select: [:unCurso | unCurso tipo = unTipo])
+    do: [:unCurso | <span class="hljs-type">Transcript</span> show: unCurso nombre; show: <span class="hljs-string">&#x27; &#x27;</span>].
+<span class="hljs-type">Transcript</span> tab; show: <span class="hljs-keyword">self</span> total printString; cr</code></pre>
+<h4>Métodos que devuelven datos</h4>
+<pre class="codigo"><code><span class="hljs-comment">&quot;Estudiante, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#documento</span>
+^documento
+
+<span class="hljs-symbol">#nombre</span>
+^nombre
+
+<span class="hljs-symbol">#apellido</span>
+^apellido
+
+<span class="hljs-comment">&quot;Venta, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#fecha</span>
+^fecha
+
+<span class="hljs-symbol">#cursos</span>
+^cursos
+
+<span class="hljs-comment">&quot;Curso, métodos de instancia&quot;</span>
+
+<span class="hljs-symbol">#codigo</span>
+^codigo
+
+<span class="hljs-symbol">#nombre</span>
+^nombre</code></pre>
+</div><p class="em-sin-verificar-fin">Respuesta no verificada. Puede tener errores.</p><p class="bloque-fuente">Se armó con las páginas de Aprobación directa («Cómo leer la narrativa» y «Qué lleva el diagrama») y de Final («Las plantillas del Drive» y «Cómo se arma el programa»), que salen de «Estructuras útiles en Smalltalk» y de los Ejercicios resueltos 1 a 3 de Material Util.</p><p class="bloque-fuente">Quedó en duda: El material no muestra cómo filtrar entre dos fechas. Acá se compara con <code>&gt;=</code> y <code>&lt;=</code> en <code>fechaEntre:y:</code>. La consigna no dice qué hacer con una venta que tiene cursos de distintos tipos. Acá aparece una vez en cada tipo, siempre con el total de la venta. Los tipos se ordenan alfabéticamente con <code>collect:</code> y <code>asSet</code>, que el material no muestra. Se tomó «Programación Orienta a Objetos» de la hoja como «Programación Orientada a Objetos». El comprobante muestra el precio final de cada curso. Se supone que las variables de clase ya tienen su valor, cargado con los métodos de clase <code>asigna...</code>. El código no se corrió en un Smalltalk real.</p><div class="em-votos" data-m="paradigmas-de-programacion" data-e="fin-2026-04-27" hidden></div></section>
+<section class="sec ex-corregir" id="exCorregir" hidden><h2 id="corregir">¿Cómo te fue?</h2>
+<p class="ex-baja">Marcá cada tema del examen.</p>
+<ul class="ex-temas"><li class="ex-tema" data-tema="Diagrama de clases" data-enlace="parcial-1.html#metodos-de-clase-y-de-instancia" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT0">Diagrama de clases</span><span class="ex-t-teoria"><a href="parcial-1.html#metodos-de-clase-y-de-instancia">Métodos de clase y de instancia</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT0"><label class="ex-op" data-v="bien"><input type="radio" name="exT0r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT0r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT0r" value="mal"><span>No me salió</span></label></div></li><li class="ex-tema" data-tema="Smalltalk" data-enlace="parcial-1.html#que-se-tomo" data-donde="Parcial de regularización"><div class="ex-t-cab"><span class="ex-t-nom" id="exT1">Smalltalk</span><span class="ex-t-teoria"><a href="parcial-1.html#que-se-tomo">Qué se tomó</a>, en Parcial de regularización</span></div><div class="ex-opciones" role="radiogroup" aria-labelledby="exT1"><label class="ex-op" data-v="bien"><input type="radio" name="exT1r" value="bien"><span>Me salió</span></label><label class="ex-op" data-v="medio"><input type="radio" name="exT1r" value="medio"><span>Más o menos</span></label><label class="ex-op" data-v="mal"><input type="radio" name="exT1r" value="mal"><span>No me salió</span></label></div></li></ul>
+<p class="ex-c-fin"><button type="button" class="b-pri" id="exVer">Ver cómo me fue</button> <span class="ex-falta" id="exFalta" role="status"></span></p></section>
+<nav class="ej-paso" aria-label="Otros ejercicios"><a href="ej-fin-2026-05-18.html">Anterior: Final, 18/05/2026 (Instrumentos musicales)</a><a href="ej-fin-2025-04-28.html">Siguiente: Final, 28/04/2025 (Taller de obras de arte)</a></nav>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

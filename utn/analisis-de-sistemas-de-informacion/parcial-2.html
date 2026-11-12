@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>2° parcial: Análisis de Sistemas de Información</title>
+<meta name="description" content="Modelo del dominio, subesquemas, casos de uso, diccionario de datos, CRUD, reestructuración y máquina de estados.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="analisis-de-sistemas-de-informacion" data-pagina="parcial-2">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Análisis de Sistemas de Información</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html" aria-current="page">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=analisis-de-sistemas-de-informacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=analisis-de-sistemas-de-informacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#modelo-del-dominio">Modelo del dominio</a></li><li class="n3"><a href="#elementos">Elementos</a></li><li class="n3"><a href="#atributos">Atributos</a></li><li class="n3"><a href="#composicion-y-agregacion">Composición y agregación</a></li><li class="n3"><a href="#clase-asociativa">Clase asociativa</a></li><li class="n3"><a href="#patrones-que-conviene-reconocer">Patrones que conviene reconocer</a></li><li class="n2"><a href="#subesquema-de-navegacion">Subesquema de navegación</a></li><li class="n2"><a href="#casos-de-uso">Casos de uso</a></li><li class="n3"><a href="#niveles-de-meta">Niveles de meta</a></li><li class="n3"><a href="#dimensiones">Dimensiones</a></li><li class="n3"><a href="#plantilla-de-la-catedra">Plantilla de la cátedra</a></li><li class="n3"><a href="#precondiciones-y-postcondiciones">Precondiciones y postcondiciones</a></li><li class="n3"><a href="#camino-basico">Camino básico</a></li><li class="n3"><a href="#directrices-de-redaccion">Directrices de redacción</a></li><li class="n3"><a href="#caminos-alternativos">Caminos alternativos</a></li><li class="n2"><a href="#reglas-de-negocio">Reglas de negocio</a></li><li class="n2"><a href="#diccionario-de-datos">Diccionario de datos</a></li><li class="n2"><a href="#reestructuracion-de-un-caso-de-uso-resumen">Reestructuración de un caso de uso resumen</a></li><li class="n2"><a href="#matriz-crud">Matriz CRUD</a></li><li class="n2"><a href="#maquina-de-estados">Máquina de estados</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>2° parcial</h1>
+<p class="bajada">Pasar del negocio al sistema: qué recuerda, cómo interactúa cada actor, qué datos viajan, qué casos de uso faltan y por qué estados pasa un objeto.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>Revisé 9 prácticas (09/09/23, 11/11/23, 19/02/24 recuperatorio, 19/02/24 del 3° parcial, 02/11/24, 16/12/24, 24/02/25, 01/11/25 y 15/12/25) y 3 teóricos (09/09/23, 02/11/24 y 01/11/25). Las de 2023 incluyen el 2° y el 3° parcial de ese ciclo, porque sus temas hoy están juntos.</p>
+<div class="tomado"><aside class="nota"><strong>Qué pide la práctica</strong><span>9 prácticas de 2023 a 2025</span></aside><ul>
+<li><mark>Modelo del dominio: en 7.</mark> De 10 a 70 puntos, y 100 en la modalidad AND del 09/09/23.</li>
+<li><mark>Caso de uso: en 7.</mark> De 10 a 60 puntos, y 100 en la modalidad AND del 11/11/23. A veces sin diccionario de datos, y la consigna lo aclara.</li>
+<li>Diccionario de datos: en 4 (11/11/23, 19/02/24, 01/11/25 y 15/12/25).</li>
+<li>Subesquema: en 2 (09/09/23 y 19/02/24).</li>
+<li>Máquina de estados: en 2 (11/11/23 y 19/02/24).</li>
+<li>Casos de uso faltantes: en 2 (02/11/24 y 01/11/25).</li>
+<li>Reestructuración y CRUD: en 1 cada uno (11/11/23 y 16/12/24).</li>
+</ul>
+</div>
+<div class="ojo"><p class="ojo-t">Leé qué nivel y qué alcance te piden</p><p>Las consignas varían: «caso de uso de sistema», «sin DD», «solo AD». Un caso de uso resumen y uno de usuario se escriben distinto.</p>
+</div>
+</section>
+<section class="sec"><h2 id="modelo-del-dominio">Modelo del dominio</h2>
+<p>El modelo del dominio (MD) es la memoria del sistema dibujada como conceptos del negocio. Muestra clases conceptuales, no clases de software (apunte Modelo de Dominio 2.0, p. 2). Es una foto de lo que hay que recordar.</p>
+<p>Si lo hacés sin atributos, se llama <strong>mapa conceptual</strong>. El 1° parcial del 24/08/24 lo pidió con esas palabras.</p>
+<h3 id="elementos">Elementos</h3>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Qué es</th><th>Página</th></tr></thead><tbody><tr><td>Clase conceptual</td><td>Una idea o concepto del negocio. Tiene intensión (su definición) y extensión (sus instancias)</td><td>5 y 6</td></tr><tr><td>Atributo</td><td>Dato de una clase</td><td>7</td></tr><tr><td>Asociación</td><td>Relación entre clases, con nombre que se lee en una dirección</td><td>7</td></tr><tr><td>Multiplicidad</td><td>Cuántas instancias se vinculan, en los dos sentidos</td><td>12</td></tr><tr><td>Rol</td><td>El papel de la clase en la asociación</td><td>12 y 13</td></tr><tr><td>Asociación recursiva</td><td>Una clase asociada con sí misma</td><td>14</td></tr><tr><td>Herencia</td><td>Subtipos de una clase</td><td>14</td></tr><tr><td>Clase asociativa</td><td>Datos que pertenecen a la asociación</td><td>15 a 17</td></tr><tr><td>Agregación y composición</td><td>Relación todo y parte</td><td>18</td></tr></tbody></table></div>
+<p><strong>Multiplicidad.</strong> Se pregunta dos veces. Si tomo una sola instancia de A, ¿cuántas de B puedo encontrar? Y lo mismo desde B (p. 12).</p>
+<h3 id="atributos">Atributos</h3>
+<ul>
+<li><strong>Multiplicidad de atributo.</strong> Si es 1 no se grafica. <mark>Se modela cuando es mayor que uno o cero</mark>, por ejemplo <code>email[0..1]</code> (p. 19).</li>
+<li><strong>Atributo derivado.</strong> Se calcula a partir de otros. Se marca con una barra: <code>/total</code>. Se indica porque no se guarda. Se calcula al usarlo (p. 19).</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Atributos</strong><span>Teóricos 09/09/23, 24/08/24, 02/11/24, final 29/09/25</span></aside><p>Multiplicidad de atributos, qué significa <code>atributo[0..1]</code> y qué hacer con un atributo calculado.</p>
+</div>
+<h3 id="composicion-y-agregacion">Composición y agregación</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Composición (rombo lleno)</th><th>Agregación (rombo vacío)</th></tr></thead><tbody><tr><td>Multiplicidad del lado del todo</td><td>Siempre 1</td><td>Puede ser de 0 a muchos</td></tr><tr><td>Vida de las partes</td><td>Atada al todo: si borrás el comprobante, se van sus líneas</td><td>Independiente del todo</td></tr><tr><td>Ejemplo del apunte</td><td>Comprobante y líneas</td><td>Itinerario y ciudades</td></tr></tbody></table></div>
+<p>Fuente: apunte Modelo de Dominio 2.0, p. 18.</p>
+<details class="pregunta"><summary><span>¿Qué pasa con las partes si se borra el compuesto?</span><small>Teórico 15/12/25</small></summary><div class="resp"><p>Desaparecen junto con él. Fuente: apunte Modelo de Dominio 2.0, p. 18.</p>
+</div></details>
+<h3 id="clase-asociativa">Clase asociativa</h3>
+<p>Un alumno y una asignatura se relacionan muchos a muchos. ¿Dónde va la nota? No es del alumno ni de la asignatura. Es de esa relación. Ahí aparece la clase asociativa.</p>
+<p><strong>Pistas para reconocerla</strong> (apunte Clase Asociativa, p. 3).</p>
+<ul>
+<li>Un atributo está relacionado con la asociación.</li>
+<li>Sus instancias dependen de por vida de la asociación.</li>
+<li>Hay una asociación de muchos a muchos con información propia.</li>
+<li>Una instancia se relaciona con una sola instancia de cada clase asociada.</li>
+</ul>
+<p>Si la clase asociativa relaciona más de una instancia de las clases que asocia, lleva <code>{Bag}</code> (p. 3).</p>
+<p><strong>N-aria.</strong> Es una asociación entre tres o más clases. Cada instancia es una tupla con una instancia de cada clase, y ninguna clase de la relación puede tener indicador de agregación (p. 3 y 4).</p>
+<div class="tomado"><aside class="nota"><strong>Clase asociativa</strong><span>Teóricos 09/09/23, 24/08/24 y 01/11/25</span></aside><p>Agregación ternaria, asociativa en una reflexiva, nombre de la asociación e indicios para usarla.</p>
+</div>
+<h3 id="patrones-que-conviene-reconocer">Patrones que conviene reconocer</h3>
+<p>Todos del apunte de patrones (1.01).</p>
+<div class="tabla"><table><thead><tr><th>Patrón</th><th>Para qué</th><th>Página</th></tr></thead><tbody><tr><td>Modelar el resultado del evento</td><td>El evento deja un registro con sus datos</td><td>2 y 3</td></tr><tr><td>Cabecera y detalle</td><td>Comprobante con líneas</td><td>3 y 4</td></tr><tr><td>Maestro de productos o servicios</td><td>Los datos fijos de lo que se vende, separados de cada venta</td><td>4</td></tr><tr><td>Tipo</td><td>Una clase que clasifica a otra</td><td>5</td></tr><tr><td>Múltiples asociaciones entre las mismas clases, uso de roles (Origen Destino)</td><td>Hay varias asociaciones entre dos clases y hay que diferenciar el papel de cada instancia en cada una. Se resuelve con roles en los extremos</td><td>5</td></tr><tr><td>Asociaciones recursivas (Jefe Empleado)</td><td>Relacionar instancias de una clase con instancias de la misma clase. Asociación recursiva con el rol en cada extremo</td><td>6</td></tr><tr><td>Asociación 1 a 1 o 1 a 0..1 (Reserva y Estadía, Nota de pedido y Factura)</td><td>Aparece la alternativa de unir las dos clases en una. Compiten lo semántico y lo esencial. El analista prioriza lo semántico</td><td>6 y 7</td></tr><tr><td>Valor vigente</td><td>Un valor que cambia y hay que conservar el histórico</td><td>7 y 8</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Corrección: el patrón de roles</p><p>Antes esta tabla decía «Roles: una persona con varios papeles». El apunte (p. 5) lo llama «Múltiples asociaciones entre las mismas clases. Uso de roles (Origen Destino)», y trata de distinguir el papel en cada asociación. Faltaban, además, las asociaciones recursivas y la 1 a 1 (p. 6 y 7). En la 1 a 1, el apunte dice que los dos modelos son por lo general aceptables, y que la elección depende del dominio.</p>
+</div>
+<div class="tomado"><aside class="nota"><strong>El precio que cambia</strong><span>Final 28/04/25</span></aside><p>Se preguntó cómo afecta un cambio de precios al MD. Mirá el patrón de valor vigente en el <a href="https://drive.google.com/file/d/1wY6kVm3XB6vgjvV4oo_fvkwR6V9WPN9V/view">apunte</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="subesquema-de-navegacion">Subesquema de navegación</h2>
+<p>Tenés el MD y un requerimiento, por ejemplo «listar los álbumes de un artista». ¿Podés cumplirlo con lo que guardaste? El subesquema lo demuestra dibujando el camino por la memoria.</p>
+<p><strong>Definición.</strong> Artefacto que representa el recorrido que hace el sistema sobre la memoria para cumplir un requerimiento de información, validación o cálculo (apunte Subesquemas, p. 3).</p>
+<p><strong>Para qué sirve</strong> (p. 2 y 3).</p>
+<ol>
+<li>Validar el modelo de memoria.</li>
+<li>Determinar el recorrido para cumplir un requerimiento.</li>
+<li>Mostrarle ese recorrido a otros profesionales.</li>
+<li>Determinar el impacto de un cambio.</li>
+</ol>
+<p><strong>Elementos que intervienen</strong> (p. 3). Del modelo del dominio, clases, asociaciones, atributos y filtros. De los requerimientos, el requerimiento.</p>
+<div class="ojo"><p class="ojo-t">Lo que no muestra</p><p>No muestra cómo el sistema logra el requerimiento. Solo indica el recorrido (p. 3).</p>
+</div>
+<p><strong>Tres formas</strong> (p. 3): gráfico, básico y descriptivo. Las dos últimas son textuales.</p>
+<p><strong>Símbolos del gráfico</strong> (p. 4).</p>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Dibujo</th></tr></thead><tbody><tr><td>Contenedor</td><td>Rectángulo de un compartimento, con el nombre de la clase</td></tr><tr><td>Flecha de asociación</td><td>Indica el sentido de recorrido. Une clases</td></tr><tr><td>Atributos recuperados</td><td>Lista, un atributo por línea o separados con coma o <code>+</code></td></tr><tr><td>Flecha de recuperación</td><td>Parte del contenedor y apunta a los atributos</td></tr><tr><td>Flecha de filtro</td><td>Apunta a un contenedor y no sale de ningún elemento</td></tr><tr><td>Criterio de filtro</td><td>Expresión junto a la flecha de filtro</td></tr></tbody></table></div>
+<p>El ejemplo de canciones del apunte (p. 5 a 7) arranca escribiendo el flujo de entrada <code>FE</code> y el de salida <code>FS</code>.</p>
+<div class="tomado"><aside class="nota"><strong>Subesquema</strong><span>Prácticas 09/09/23 y 19/02/24, finales 13/02/23, 05/02/24, 04/03/24, 09/03/26 y 27/04/26</span></aside><p>Hacerlo para un requerimiento dado y responder si el MD lo cumple. Teoría: sus formas y qué valida.</p>
+</div>
+<details class="pregunta"><summary><span>¿Cuáles son las formas de subesquema?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Gráfico, básico y descriptivo. Fuente: apunte Subesquemas, p. 3.</p>
+</div></details>
+</section>
+<section class="sec"><h2 id="casos-de-uso">Casos de uso</h2>
+<p><strong>Definición.</strong> Colección de escenarios de éxito y fracaso relacionados, que describe a los actores usando un sistema para satisfacer un objetivo. Produce un resultado observable de valor para un actor (presentación Casos de Uso, diapositiva 4). Son texto, y describen el qué, no el cómo.</p>
+<p><strong>Caja negra.</strong> «El sistema registra la venta» está bien. «El sistema dispara un INSERT» no (diapositiva 5).</p>
+<p><strong>Formatos</strong> (diapositivas 5 y 6). Breve, informal y completo. La cátedra usa una variante del completo.</p>
+<h3 id="niveles-de-meta">Niveles de meta</h3>
+<div class="tabla"><table><thead><tr><th>Nivel</th><th>Metáfora</th><th>Qué es</th></tr></thead><tbody><tr><td>Resumen</td><td>Nube o barrilete</td><td>Proceso de negocio. Agrupa metas de usuario. Dura horas, días o semanas</td></tr><tr><td>Usuario</td><td>Nivel del mar</td><td>Un proceso elemental de negocio (EBP). De 3 a 10 pasos en el camino básico</td></tr><tr><td>Subfunción</td><td>Bajo el agua</td><td>Incluirlo solo si hace falta</td></tr></tbody></table></div>
+<p>Fuente: presentación Casos de Uso, diapositivas 9 y 10, y apunte de Cockburn (Writing Effective Use Cases), sección 3.3, para la metáfora de subfunción.</p>
+<p><strong>EBP.</strong> Tarea de una persona en un lugar y en un tiempo corto, como respuesta a un evento de negocio. Añade valor cuantificable y deja los datos consistentes (diapositiva 9).</p>
+<details class="pregunta"><summary><span>¿Qué nivel es el más importante de encontrar?</span><small>Teóricos 02/11/24 y 01/11/25</small></summary><div class="resp"><p>Nivel usuario: las metas de usuario justifican el sistema. Fuente: presentación Casos de Uso, diapositiva 9, y teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<h3 id="dimensiones">Dimensiones</h3>
+<p>Diapositiva 14.</p>
+<div class="tabla"><table><thead><tr><th>Dimensión</th><th>Valores</th><th>Qué significa cada valor</th></tr></thead><tbody><tr><td>Alcance</td><td>Negocio o Sistema</td><td>Negocio: comportamiento de la organización para llegar a la meta. Sistema: comportamiento del sistema para llegar a la meta</td></tr><tr><td>Nivel</td><td>Resumen, Usuario o Subfunción</td><td>El nivel de la meta</td></tr><tr><td>Caja</td><td>Negra o Blanca</td><td>Negra: describe responsabilidades. Blanca: describe funcionamiento interno, diseño</td></tr><tr><td>Estructura</td><td>Sin estructurar o Re-estructurado</td><td>Re-estructurado: el resumen ya invoca a sus CUU (ver <a href="#reestructuracion-de-un-caso-de-uso-resumen">Reestructuración</a>)</td></tr><tr><td>Instanciación</td><td>Concreto (real) o Abstracto</td><td>Concreto o real: iniciado por un actor. Abstracto: subfunción</td></tr><tr><td>Interacción</td><td>Semántico o Dialogal</td><td>Semántico: sin detalles de la interacción ni tecnología. Dialogal: diálogo entre los actores y el sistema, a nivel atributo</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Dimensiones</strong><span>Teóricos 02/11/24, 01/11/25 y 15/12/25</span></aside><p>Nombrarlas, y clasificar qué valor pertenece a cuál.</p>
+</div>
+<h3 id="plantilla-de-la-catedra">Plantilla de la cátedra</h3>
+<p><strong>Código.</strong> <code>CUX(Y)99</code>. X es el nivel: R, U o S. Y es el alcance: N o S, y en los de usuario no hace falta. Ejemplos: <code>CURN01</code>, <code>CUU01</code> (diapositiva 13).</p>
+<p><strong>Nombre.</strong> Verbo y objeto en usuario y subfunción. El nombre del proceso en resumen.</p>
+<p><strong>Actores</strong> (diapositiva 15). Primario, iniciador, secundario y terciario, como en el <a href="parcial-1.html#actores-y-stakeholders">1° parcial</a>.</p>
+<p><strong>Disparador.</strong> El evento que hace comenzar el caso de uso (diapositiva 17).</p>
+<h3 id="precondiciones-y-postcondiciones">Precondiciones y postcondiciones</h3>
+<p>Son lo que se da por cierto antes y lo que es verdad después.</p>
+<ul>
+<li><strong>Las precondiciones no se evalúan</strong> en el caso de uso. Si no son verdaderas, no arranca. No generan caminos alternativos (Pre-Post, p. 4; diapositiva 16).</li>
+<li><strong>De negocio.</strong> Se escriben como certezas: «El cliente posee tarjeta de crédito». «El cliente debe poseer» es incorrecto (p. 2).</li>
+<li><strong>De sistema.</strong> Verbo en presente, en términos de clases. Forma detallada: «Los socios ingresados están registrados». Abreviada: «Existen Socios», «Existen Pedidos con estado Pendiente» (p. 5).</li>
+<li><strong>Postcondiciones.</strong> Éxito, éxito alternativo y fracaso, de negocio y de sistema (p. 2 y 3). Las de sistema van en forma detallada, y pueden citar el camino alternativo, por ejemplo <code>(5.a)</code> (p. 5).</li>
+</ul>
+<div class="ojo"><p class="ojo-t">La palabra vacío es obligatoria</p><p>Si la postcondición de sistema no cambia nada, se escribe <code>&lt;vacío&gt;</code>. No poner la palabra es sintaxis incorrecta, porque no se sabe si se omitió a propósito (p. 5). En las de negocio obvias se usa <code>&lt;Omitido&gt;</code> (p. 3).</p>
+</div>
+<p><strong>Red de pre y post.</strong> En general, las post de un CUU son pre de otro. Sirve para validar que están todos los CUU necesarios para la meta resumen (p. 4).</p>
+<details class="pregunta"><summary><span>¿Alcance negocio tiene postcondición de sistema?</span><small>Teórico 15/12/25</small></summary><div class="resp"><p>No. Fuente: teórico del 15/12/25 con respuestas.</p>
+</div></details>
+<h3 id="camino-basico">Camino básico</h3>
+<p>El escenario de éxito más frecuente. No incluye condiciones ni bifurcaciones. Cada paso es una interacción, una validación o un cambio de estado (diapositiva 18).</p>
+<p><strong>Sintaxis obligatoria</strong> (apunte Estructura sintáctica, p. 1).</p>
+<ul>
+<li>Toda oración tiene sujeto explícito.</li>
+<li>Los pasos de sistema van con verbo en presente.</li>
+<li><mark>Las adyacencias de negocio van en pasado o futuro, con «cuando» y «para luego».</mark> Son una porción de negocio antes o después del paso de sistema. Su beneficio es poner en contexto la utilidad del paso.</li>
+</ul>
+<details class="pregunta"><summary><span>¿Qué beneficio tienen las adyacencias y en qué tiempo verbal van?</span><small>Final 27/04/26 y teórico 02/11/24</small></summary><div class="resp"><p>Ponen en contexto la utilidad del paso de sistema. Van con verbo en pasado o futuro, con «cuando» y «para luego». Fuente: apunte Estructura sintáctica, p. 1.</p>
+</div></details>
+<h3 id="directrices-de-redaccion">Directrices de redacción</h3>
+<p>Del apunte de directrices de casos de uso y diapositivas 23 a 26.</p>
+<div class="tabla"><table><thead><tr><th>N.°</th><th>Directriz</th></tr></thead><tbody><tr><td>1</td><td>Gramática simple: actor, verbo, objeto, frase preposicional</td></tr><tr><td>2</td><td>Mostrar quién tiene el balón</td></tr><tr><td>3</td><td>Punto de vista de ojos de pájaro: «Sistema calcula el total», no «Calcular el total»</td></tr><tr><td>4</td><td>Mostrar el avance</td></tr><tr><td>5</td><td>Mostrar la intención, no el movimiento: nada de «hace click»</td></tr><tr><td>6</td><td>Un conjunto razonable de pasos: un paso, una transacción</td></tr><tr><td>7</td><td>No es controla, es <mark>valida</mark></td></tr><tr><td>8</td><td>Mencionar el tiempo es opcional</td></tr><tr><td>9</td><td>El actor hace que el sistema A interactúe con el sistema B</td></tr><tr><td>10</td><td>Hacer los pasos x a y hasta que se cumpla una condición</td></tr><tr><td>11</td><td>La condición dice qué se detectó</td></tr><tr><td>12</td><td>El manejo va indentado</td></tr></tbody></table></div>
+<details class="pregunta"><summary><span>¿Por qué «valida» y no «controla»?</span><small>Teórico 02/11/24</small></summary><div class="resp"><p>«Controla» deja abierto el resultado. Con «valida», el lector se pregunta qué pasa si falla, y eso va a los caminos alternativos. Fuente: presentación Casos de Uso, diapositiva 25.</p>
+</div></details>
+<h3 id="caminos-alternativos">Caminos alternativos</h3>
+<p>Todo otro escenario, de éxito o de fracaso. Tienen condición (algo detectable por el sistema o un actor) y manejo (los pasos). Al terminar se une al camino principal, salvo que se indique otra cosa (diapositiva 19).</p>
+<p><strong>Numeración</strong> (diapositiva 27).</p>
+<div class="tabla"><table><thead><tr><th>Caso</th><th>Forma</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Asociado a un paso</td><td><code>paso.letra &lt;temporalidad&gt;</code></td><td><code>3.a &lt;durante&gt; Es un nuevo cliente:</code></td></tr><tr><td>Varios pasos</td><td><code>desde-hasta.letra</code></td><td><code>3-6.a &lt;durante&gt; El cliente cancela:</code></td></tr><tr><td>Cualquier momento</td><td><code>*.letra</code></td><td><code>*.a La red no responde:</code></td></tr><tr><td>Manejo</td><td>Indentado</td><td><code>2.a.1 Sistema notifica al cliente</code></td></tr><tr><td>Alternativo de alternativo</td><td>Sigue la numeración, justo después del paso que lo genera (diapositiva 28)</td><td><code>2.a.1.a</code></td></tr></tbody></table></div>
+<p>Temporalidades: <code>&lt;previo&gt;</code>, <code>&lt;posterior&gt;</code>, <code>&lt;durante&gt;</code>, <code>&lt;reemplaza&gt;</code>.</p>
+<p><strong>De dónde salen</strong> (diapositiva 29). Desvíos, actor primario que se equivoca, inacción del actor primario, cada «el sistema valida», falta de respuesta de otro actor, fallas internas, fallas de rendimiento.</p>
+<div class="tomado"><aside class="nota"><strong>Numeración de alternativos</strong><span>Teóricos 02/11/24, 01/11/25 y 15/12/25</span></aside><p>Cómo numerar un alternativo sobre varios pasos, un alternativo de alternativo y el <code>*</code>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="reglas-de-negocio">Reglas de negocio</h2>
+<p>Una <strong>regla de negocio</strong> es una declaración de una política o condición que debe cumplirse (apunte Reglas de Negocio, p. 1). La cátedra usa cinco tipos.</p>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Qué es</th><th>Página</th></tr></thead><tbody><tr><td>Hecho</td><td>Declaración verdadera del negocio. No se suele traducir directo en un requisito</td><td>2 y 3</td></tr><tr><td>Restricción</td><td>Limita lo que el sistema o sus usuarios pueden hacer</td><td>3</td></tr><tr><td>Acción disparadora</td><td>Si se da una condición, se desencadena una actividad</td><td>3 y 4</td></tr><tr><td>Cálculo</td><td>Fórmula o algoritmo</td><td>4</td></tr><tr><td>Inferencia</td><td>Conocimiento nuevo a partir de hechos</td><td>5</td></tr></tbody></table></div>
+<p>Los términos van al glosario, no son reglas (p. 1).</p>
+<div class="tomado"><aside class="nota"><strong>Reglas en el caso de uso</strong><span>Finales 29/05/23, 04/03/24 y 09/03/26</span></aside><p>Pidieron el CUU con sus reglas de negocio además del diccionario de datos. El 29/05/23 pidió completar pre, post y reglas de un caso de uso dado.</p>
+</div>
+</section>
+<section class="sec"><h2 id="diccionario-de-datos">Diccionario de datos</h2>
+<p>Describe los flujos de entrada y salida de cada paso.</p>
+<div class="ojo"><p class="ojo-t">De dónde sale esta notación</p><p>No encontré un apunte de cátedra de diccionario de datos. Sale de un resumen de alumno de 2026 y coincide con los exámenes y con las resoluciones del Drive. Confirmá en tu comisión si hay detalles propios.</p>
+</div>
+<div class="alumnos"><p class="alumnos-t">Sale de apuntes de alumnos</p><div class="tabla"><table><thead><tr><th>Símbolo</th><th>Significado</th><th>Ejemplo</th></tr></thead><tbody><tr><td><code>=</code></td><td>Está compuesto por</td><td><code>A = B + C</code></td></tr><tr><td><code>+</code></td><td>Y</td><td><code>nombre + apellido</code></td></tr><tr><td><code>[ | ]</code></td><td>O</td><td><code>[DNI | Pasaporte]</code></td></tr><tr><td><code>a{ }b</code></td><td>Repetición</td><td><code>1{itemPedido}n</code></td></tr><tr><td><code>( )</code></td><td>Opcional</td><td><code>(telefonoFijo)</code></td></tr><tr><td><code>* *</code></td><td>Comentario</td><td><code>*Campo clave*</code></td></tr><tr><td><code>(e)</code></td><td>Estructura de datos</td><td><code>domicilio(e)</code></td></tr><tr><td><code>(d)</code></td><td>Dato discreto</td><td><code>tipoFactura(d) = [A | B | C]</code></td></tr></tbody></table></div>
+<p class="bloque-fuente">Resumen de alumno, 2026</p></div>
+<p>Lleva datos, no valores (teórico del 28/06/25 con respuestas).</p>
+<details class="pregunta"><summary><span>¿En qué nivel va el diccionario de datos?</span><small>Teórico 15/12/25</small></summary><div class="resp"><p>En nivel usuario. Fuente: teórico del 15/12/25 con respuestas.</p>
+</div></details>
+<div class="tomado"><aside class="nota"><strong>Diccionario de datos</strong><span>Prácticas 11/11/23, 19/02/24, 01/11/25 y 15/12/25, finales 13/02/23, 27/02/23 y 13/03/23, relato del final 18/05/26</span></aside><p>Con el CUU pedido, y a veces un flujo puntual como un informe. El 13/03/23 pidió representar flujos de salida de 2 requerimientos.</p>
+</div>
+</section>
+<section class="sec"><h2 id="reestructuracion-de-un-caso-de-uso-resumen">Reestructuración de un caso de uso resumen</h2>
+<p>Tenés un caso de uso resumen largo y querés saber qué casos de uso de usuario lo forman.</p>
+<p>Apunte Re-Estructuración, no oficial, V2.</p>
+<p><strong>De qué se parte</strong> (p. 1). Del caso de uso resumen con alcance sistema y <mark>sin estructurar</mark> de cada meta principal y complementaria, que sale del análisis de metas.</p>
+<p><strong>Proceso elemental de negocio (BPE).</strong> «Una o más tareas o actividades realizadas por Actores del Negocio al que pertenece el BPE, en un período corto de tiempo, como respuesta a un disparador o evento de negocio, que al ser ejecutada con éxito proporciona un valor apreciable a los Actores del Negocio, dejando el estado del mismo en un estado consistente» (p. 2). Para reconocer una meta de usuario, el apunte usa estas preguntas (p. 2).</p>
+<ul>
+<li>¿El actor primario se retira feliz luego de realizar el trabajo?</li>
+<li>¿La performance del trabajo del usuario depende de cuántas veces haga esto hoy?</li>
+<li>La prueba del café: una persona, un asiento, de 2 a 20 minutos.</li>
+</ul>
+<p>La regla es que a cada BPE le corresponde un CU de nivel usuario. El apunte dice «por lo general», porque puede haber excepciones (p. 2).</p>
+<ol>
+<li><strong>Camino básico.</strong> Detectá los EBP. Puede haber un EBP por paso, varios pasos en uno o un paso con varios (p. 3).</li>
+<li><strong>Por cada EBP, un CUU</strong> con código <code>CUU X.Y</code>. X es el número del resumen e Y un numerador (p. 3).</li>
+<li><strong>Caminos alternativos.</strong> Si el paso entra en un EBP ya definido, no hay CUU nuevo. Si es un EBP distinto, sí (p. 3).</li>
+<li><strong>Reescribí los escenarios</strong> invocando los CUU. El resto queda igual y la dimensión Estructura pasa a «Re-Estructurado» (p. 3). Solo se reescriben los alternativos que originan CUU (p. 3 y 4).</li>
+</ol>
+<p>El ejemplo del apunte es un club de tenis (p. 4 a 6).</p>
+<div class="tomado"><aside class="nota"><strong>Reestructurar</strong><span>3° parcial 11/11/23, finales 29/05/23 y 26/05/25, teórico 02/11/24</span></aside><p>Se pidió reestructurar un caso de uso resumen y qué descubre esa tarea.</p>
+</div>
+</section>
+<section class="sec"><h2 id="matriz-crud">Matriz CRUD</h2>
+<p>Cruza casos de uso y clases para ver qué le hace cada uno a cada clase. Sirve para encontrar lo que falta (Trazabilidad, p. 2 y 4).</p>
+<div class="tabla"><table><thead><tr><th>Letra</th><th>Significado</th></tr></thead><tbody><tr><td>C</td><td>Crear instancias</td></tr><tr><td>R</td><td>Recuperar instancias</td></tr><tr><td>U</td><td>Actualizar instancias</td></tr><tr><td>D</td><td>Borrar instancias</td></tr></tbody></table></div>
+<p><strong>Reglas</strong> (Trazabilidad, p. 4).</p>
+<ul>
+<li><mark>Toda clase debe tener al menos una C en algún lado</mark>, en un CUU o fuera del alcance.</li>
+<li><mark>Toda clase debe tener al menos una R en algún CUU</mark>. La excepción son objetos que solo recupera otro sistema.</li>
+</ul>
+<p><strong>Detalles</strong> (apuntes Create, Read y Update).</p>
+<ul>
+<li>Con la C se cargan los atributos de multiplicidad 1. Los opcionales dependen de su regla (Create, p. 1).</li>
+<li>Si para llegar a D pasás por B y C, también hay R en esas clases. Son <strong>objetos de paso</strong> (Read, p. 2).</li>
+<li>Un atributo derivado no lleva U. Se calcula al usarlo, y sus atributos base llevan R (Update, p. 3, y Read, p. 3).</li>
+<li>Poner vacío un atributo es U, no D: las operaciones son a nivel objeto (Update, p. 4).</li>
+</ul>
+<details class="pregunta"><summary><span>¿Qué pasa si no hay ninguna C en una clase?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Puede estar fuera de alcance, ser un caso de uso incompleto o un caso de uso faltante. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Cómo se modela una C que hace otro sistema?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Se coloca en una línea especial de la CRUD. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Se garantiza encontrar todos los casos de uso faltantes?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>No. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<p><strong>Otros artefactos de trazabilidad</strong> (Trazabilidad, p. 2 a 6). Matriz de CUU de mantenimiento, matriz de reglas de negocio contra CUU, red de pre y post, diagrama de escenarios y diagramas de transición modificados.</p>
+<div class="tomado"><aside class="nota"><strong>CRUD</strong><span>Finales 29/05/23, 27/11/23, 11/12/23, 04/03/24, 29/04/24, 16/12/24, teóricos 02/11/24, 01/11/25 y 15/12/25</span></aside><p>Armarla para todas las clases o solo la línea de un CUU, y qué letra corresponde a una acción, como la baja lógica.</p>
+</div>
+</section>
+<section class="sec"><h2 id="maquina-de-estados">Máquina de estados</h2>
+<p>Un pedido nace pendiente, se prepara y se entrega. Si el pedido reacciona distinto según en qué momento esté, conviene dibujar su ciclo de vida.</p>
+<div class="tabla"><table><thead><tr><th>Concepto</th><th>Definición (apunte ME, p. 2)</th></tr></thead><tbody><tr><td>Evento</td><td>Ocurrencia significativa</td></tr><tr><td>Estado</td><td>Condición de un objeto en un instante, entre eventos</td></tr><tr><td>Transición</td><td>Relación entre dos estados: cuando ocurre el evento, el objeto pasa al siguiente</td></tr></tbody></table></div>
+<p><strong>Cuándo usarla.</strong> Para objetos dependientes del estado con comportamiento complejo. En sistemas de gestión son pocas las clases así (p. 2 y 3).</p>
+<p><strong>Qué puede ir en una transición</strong> (apunte Transiciones, p. 1).</p>
+<ol>
+<li>Eventos: externos o temporales.</li>
+<li>Condiciones de guarda.</li>
+<li>Casos de uso.</li>
+<li>Eventos con condición de guarda.</li>
+</ol>
+<p><strong>Formato de un evento</strong> (p. 2). <mark>Actor o tiempo + verbo + objeto</mark>. También en pasiva: <code>Se firma libreta</code>. El evento de sistema (como hacer clic) no interesa.</p>
+<p><strong>Guarda</strong> (p. 2). Entre corchetes. Pensá si la memoria tiene los atributos para evaluarla (p. 3).</p>
+<p><strong>Bifurcación</strong> (p. 3). Un disparador con varias salidas de guarda distinta. Las guardas deben cubrir todas las posibilidades.</p>
+<p><strong>Regionalización</strong> (p. 4). Si un evento lleva varios estados al mismo destino, podés agruparlos en un estado contenedor. No es obligatorio.</p>
+<p><strong>Faltantes</strong> (p. 5). Una transición con un evento que no se dispara en ningún caso de uso puede ser un caso de uso faltante.</p>
+<details class="pregunta"><summary><span>¿Para qué sirve la máquina de estados en la materia?</span><small>Teóricos 02/11/24 y 01/11/25</small></summary><div class="resp"><p>Detectar casos de uso faltantes, completar el MD y completar casos de uso incompletos. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<div class="tomado"><aside class="nota"><strong>Máquina de estados</strong><span>Prácticas 11/11/23 y 19/02/24, finales 13/02/23, 27/11/23, 11/12/23, 19/02/24, 28/04/25, 26/05/25, 25/08/25 y 27/04/26</span></aside><p>Dibujarla para una clase del relato, como reclamo, compra, alumno, suscripción o solicitud.</p>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-2" data-materia="analisis-de-sistemas-de-informacion">
+<h2>Quiz del 2° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="UlNHwH8f5F" data-tema="Atributos" data-enlace="parcial-2.html#atributos" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-1"><span class="q-n">1</span><div><p>¿Cuándo hay que modelar la multiplicidad de un atributo?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-1"><li><button type="button" class="op" data-ok="0">Siempre</button></li><li><button type="button" class="op" data-ok="1">Cuando es mayor que uno o cero</button></li><li><button type="button" class="op" data-ok="0">Solo cuando es 1</button></li><li><button type="button" class="op" data-ok="0">Nunca en el MD</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Si es 1 no se grafica. Sí debe modelarse si es mayor que uno o igual a cero.</p>
+</div></li><li class="q" data-q="gu5Uq0kGoM" data-tema="Composición y agregación" data-enlace="parcial-2.html#composicion-y-agregacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-2"><span class="q-n">2</span><div><p>En una composición, ¿cuál es la multiplicidad del lado del compuesto?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-2"><li><button type="button" class="op" data-ok="0">De 0 a muchos</button></li><li><button type="button" class="op" data-ok="1">Siempre 1</button></li><li><button type="button" class="op" data-ok="0">Siempre muchos</button></li><li><button type="button" class="op" data-ok="0">0 o 1</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>En la composición es <strong>siempre 1</strong>. Una línea pertenece a un solo comprobante.</p>
+</div></li><li class="q" data-q="VLv_Af7tw5" data-tema="Clase asociativa" data-enlace="parcial-2.html#clase-asociativa" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-3"><span class="q-n">3</span><div><p>¿Cuál es un indicio frecuente de una clase asociativa?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-3"><li><button type="button" class="op" data-ok="0">Una herencia entre clases</button></li><li><button type="button" class="op" data-ok="1">Una asociación de muchos a muchos</button></li><li><button type="button" class="op" data-ok="0">Un atributo derivado</button></li><li><button type="button" class="op" data-ok="0">Una clase sin atributos</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presencia de una asociación de <strong>muchos a muchos</strong> es un indicio muy frecuente.</p>
+</div></li><li class="q" data-q="ESCNjFrkfX" data-tema="Subesquema de navegación" data-enlace="parcial-2.html#subesquema-de-navegacion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-4"><span class="q-n">4</span><div><p>¿Qué muestra un subesquema de navegación?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-4"><li><button type="button" class="op" data-ok="0">Cómo el sistema arma el resultado</button></li><li><button type="button" class="op" data-ok="1">El recorrido que hace sobre la memoria</button></li><li><button type="button" class="op" data-ok="0">El diseño de la interfaz</button></li><li><button type="button" class="op" data-ok="0">La secuencia de casos de uso</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Solo indica el recorrido. No muestra cómo el sistema logra el requerimiento.</p>
+</div></li><li class="q" data-q="djcJEXnI-3" data-tema="Niveles de meta" data-enlace="parcial-2.html#niveles-de-meta" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-5"><span class="q-n">5</span><div><p>¿Cuántos pasos se esperan en el camino básico de un caso de uso de usuario?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-5"><li><button type="button" class="op" data-ok="0">De 1 a 2</button></li><li><button type="button" class="op" data-ok="1">De 3 a 10</button></li><li><button type="button" class="op" data-ok="0">De 10 a 30</button></li><li><button type="button" class="op" data-ok="0">No hay referencia</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La presentación dice de 3 a 10 pasos en el camino básico.</p>
+</div></li><li class="q" data-q="0j-p306xOg" data-tema="Precondiciones y postcondiciones" data-enlace="parcial-2.html#precondiciones-y-postcondiciones" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-6"><span class="q-n">6</span><div><p>¿Qué ocurre con una precondición durante la ejecución del caso de uso?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-6"><li><button type="button" class="op" data-ok="0">Se evalúa en el primer paso</button></li><li><button type="button" class="op" data-ok="0">Genera un camino alternativo si falla</button></li><li><button type="button" class="op" data-ok="1">No se evalúa</button></li><li><button type="button" class="op" data-ok="0">Se vuelve a validar al final</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Deben ser verdaderas antes del inicio. <strong>No se evalúan</strong> durante la ejecución.</p>
+</div></li><li class="q" data-q="5F1A9v8O89" data-tema="Precondiciones y postcondiciones" data-enlace="parcial-2.html#precondiciones-y-postcondiciones" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-7"><span class="q-n">7</span><div><p>¿Por qué no alcanza con dejar en blanco una postcondición de sistema sin cambios?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-7"><li><button type="button" class="op" data-ok="1">Porque no se sabe si se omitió a propósito</button></li><li><button type="button" class="op" data-ok="0">Porque toda postcondición debe cambiar algo</button></li><li><button type="button" class="op" data-ok="0">Porque va en el diccionario</button></li><li><button type="button" class="op" data-ok="0">Porque la cátedra pide citar un paso</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Sin la palabra <code>&lt;vacío&gt;</code> la sintaxis es incorrecta, porque no se puede asumir si fue voluntario.</p>
+</div></li><li class="q" data-q="pngcYehX1u" data-tema="Directrices de redacción" data-enlace="parcial-2.html#directrices-de-redaccion" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-8"><span class="q-n">8</span><div><p>¿Cuál de estos pasos respeta las directrices?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-8"><li><button type="button" class="op" data-ok="0">Calcular el total del pedido</button></li><li><button type="button" class="op" data-ok="0">Jefe hace click en el botón Generar</button></li><li><button type="button" class="op" data-ok="1">Sistema calcula el total del pedido</button></li><li><button type="button" class="op" data-ok="0">Se controla el pedido</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Tiene sujeto, punto de vista de ojos de pájaro y sin movimiento de interfaz.</p>
+</div></li><li class="q" data-q="U8R91VPFr-" data-tema="Caminos alternativos" data-enlace="parcial-2.html#caminos-alternativos" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-9"><span class="q-n">9</span><div><p>¿Qué forma tiene una condición que puede ocurrir en cualquier momento?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-9"><li><button type="button" class="op" data-ok="1"><code>*.a</code></button></li><li><button type="button" class="op" data-ok="0"><code>0.a</code></button></li><li><button type="button" class="op" data-ok="0"><code>n.a</code></button></li><li><button type="button" class="op" data-ok="0"><code>a.*</code></button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Se escribe asterisco, punto y letra.</p>
+</div></li><li class="q" data-q="2wfMRMyusy" data-tema="Matriz CRUD" data-enlace="parcial-2.html#matriz-crud" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-10"><span class="q-n">10</span><div><p>Vaciar el valor de un atributo, ¿qué operación es?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-10"><li><button type="button" class="op" data-ok="0">C</button></li><li><button type="button" class="op" data-ok="0">R</button></li><li><button type="button" class="op" data-ok="1">U</button></li><li><button type="button" class="op" data-ok="0">D</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las operaciones son a nivel objeto. Eliminar el valor de un atributo es <strong>actualizar</strong> el objeto.</p>
+</div></li><li class="q" data-q="CjBNubaI-F" data-tema="Máquina de estados" data-enlace="parcial-2.html#maquina-de-estados" data-tipo="mc"><div class="q-enun" id="qe-parcial-2-11"><span class="q-n">11</span><div><p>¿Cómo se escribe un evento en una transición?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-2-11"><li><button type="button" class="op" data-ok="1">Actor o tiempo + verbo + objeto</button></li><li><button type="button" class="op" data-ok="0">Verbo en infinitivo + objeto</button></li><li><button type="button" class="op" data-ok="0">Condición entre corchetes</button></li><li><button type="button" class="op" data-ok="0">Nombre de clase + estado</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El formato es actor o tiempo, más verbo, más objeto. También admite «se» + verbo + objeto.</p>
+</div></li><li class="q" data-q="GV1UByE6vo" data-tema="Reestructuración de un caso de uso resumen" data-enlace="parcial-2.html#reestructuracion-de-un-caso-de-uso-resumen" data-tipo="abierta"><div class="q-enun" id="qe-parcial-2-12"><span class="q-n">12</span><div><p>¿Qué cambia al reestructurar un caso de uso resumen?</p>
+</div></div><details class="q-abierta"><summary>Ver qué dice el material</summary><div><p>Se reescriben los escenarios básico y alternativos, invocando los CUU. El resto queda igual y la dimensión Estructura pasa a Re-Estructurado.</p>
+</div><p class="q-auto">¿Cómo te fue? <button type="button" class="b-auto" aria-pressed="false" data-ok="1">La sabía</button> <button type="button" class="b-auto" aria-pressed="false" data-ok="0">Me faltó</button></p></details></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

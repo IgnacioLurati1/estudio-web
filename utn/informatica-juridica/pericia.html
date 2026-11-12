@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Eje 5: pericia: Informática Jurídica</title>
+<meta name="description" content="Etapas de la pericia, copia forense, hash, cadena de custodia, informe y normas ISO.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="informatica-juridica" data-pagina="pericia">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Informática Jurídica</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="entorno.html">Eje 1: entorno</a></li><li class="em-fuera"><a href="firma.html">Eje 2: firma</a></li><li class="em-fuera"><a href="contratos.html">Eje 3: contratos</a></li><li class="em-fuera"><a href="ejusticia.html">Eje 4: e-Justicia</a></li><li class="em-fuera"><a href="pericia.html" aria-current="page">Eje 5: pericia</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios y TP</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=informatica-juridica">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=informatica-juridica">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#conceptos-base">Conceptos base</a></li><li class="n3"><a href="#perito-de-oficio-y-perito-de-parte">Perito de oficio y perito de parte</a></li><li class="n3"><a href="#requisitos-para-ser-perito">Requisitos para ser perito</a></li><li class="n2"><a href="#delitos-informaticos">Delitos informáticos</a></li><li class="n2"><a href="#las-tres-etapas-de-la-pericia">Las tres etapas de la pericia</a></li><li class="n3"><a href="#1-adquisicion">1. Adquisición</a></li><li class="n3"><a href="#2-analisis">2. Análisis</a></li><li class="n3"><a href="#3-presentacion">3. Presentación</a></li><li class="n2"><a href="#hash-y-cadena-de-custodia">Hash y cadena de custodia</a></li><li class="n2"><a href="#el-informe-pericial">El informe pericial</a></li><li class="n3"><a href="#prueba-y-prueba-pericial">Prueba y prueba pericial</a></li><li class="n2"><a href="#herramientas">Herramientas</a></li><li class="n2"><a href="#normas-iso">Normas ISO</a></li><li class="n3"><a href="#iso-iec-27037-2012-adquisicion">ISO/IEC 27037:2012: adquisición</a></li><li class="n3"><a href="#iso-iec-27042-2015-analisis-e-interpretacion">ISO/IEC 27042:2015: análisis e interpretación</a></li><li class="n3"><a href="#iso-iec-27043-2015-investigacion-de-incidentes">ISO/IEC 27043:2015: investigación de incidentes</a></li><li class="n2"><a href="#el-trabajo-de-aprobacion-directa">El trabajo de aprobación directa</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>Eje 5: pericia informática</h1>
+<p class="bajada">Cómo se obtiene una prueba digital, cómo se demuestra que nadie la tocó y cómo se le explica a un juez.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+<p>La base son dos apuntes de cátedra de 2026: «Fundamentos de la Pericia Informática y la Informática Forense» (el apunte de pericia) y «Estándares Internacionales ISO/IEC 27037, 27042 y 27043» (el apunte de ISO). Lo que dice «2025» viene de la presentación «3 - Pericia Informática».</p>
+
+<section class="sec"><h2 id="conceptos-base">Conceptos base</h2>
+<div class="teorema"><p class="teorema-t">Informática Forense</p><p>La disciplina orientada a generar evidencias legales para ser utilizadas en procedimientos judiciales.</p>
+<p class="bloque-fuente">Apunte de pericia, pág. 1</p></div>
+<div class="teorema"><p class="teorema-t">Evidencia</p><p>Conjunto de recursos y datos a los que el profesional (perito) tiene acceso para extraer y analizar información, verificar su autenticidad y responder a las cuestiones técnicas planteadas durante un proceso judicial.</p>
+<p class="bloque-fuente">Apunte de pericia, pág. 1</p></div>
+<p>El <strong>perito informático judicial</strong> es un auxiliar de la justicia que asesora al juez en temas de informática.</p>
+<h3 id="perito-de-oficio-y-perito-de-parte">Perito de oficio y perito de parte</h3>
+<div class="tabla"><table><thead><tr><td></td><th>Perito de oficio (o judicial)</th><th>Perito de parte</th></tr></thead><tbody><tr><td>Quién lo convoca</td><td>El órgano jurisdiccional, a través de las listas oficiales del Poder Judicial</td><td>Una de las partes, actor o demandado</td></tr><tr><td>Rol</td><td>Asesorar al juez en lo técnico, de manera imparcial y objetiva</td><td>Aportar prueba que respalde o refute una hipótesis en favor de quien lo contrató</td></tr><tr><td>Da lugar a</td><td>Prueba pericial judicial</td><td>Prueba pericial de parte</td></tr></tbody></table></div>
+<p>Fuente: apunte de pericia, pág. 1.</p>
+<p>El apunte lo cierra así: «En conclusión, mientras el Perito de Oficio colabora con el Juez para que este pueda entender una realidad técnica, el Perito de Parte asiste a los litigantes para demostrar sus pretensiones mediante conocimientos especializados.»</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El de oficio trabaja para que el juez entienda. El de parte trabaja para que su cliente demuestre lo que dice, sin perder rigor técnico.</p>
+</div>
+<h3 id="requisitos-para-ser-perito">Requisitos para ser perito</h3>
+<p>Es condición excluyente tener <strong>título habilitante</strong> y pertenecer al <strong>Colegio profesional</strong> correspondiente, y mantener los saberes actualizados (apunte de pericia, pág. 5). La presentación 2025 (pág. 18) agrega formación en redacción de informes periciales, experiencia, conocimiento de normativa y no estar inhabilitado ni ser incompatible.</p>
+<p>También debe conocer marcos internacionales. El apunte nombra eIDAS en Europa, la Bharatiya Sakshya Adhiniyam (BSA) 2023 y el DPDP Act 2023.</p>
+</section>
+<section class="sec"><h2 id="delitos-informaticos">Delitos informáticos</h2>
+<p>La práctica pericial se desarrolla ante delitos regulados por el Código Penal: contra la propiedad, contra la Administración Pública, contra la libertad, contra la seguridad pública y contra la integridad sexual, entre otros (apunte de pericia, pág. 1).</p>
+<p>Los escenarios más comunes (págs. 1 y 2):</p>
+<ul>
+<li>Vulneración de la intimidad y propiedad industrial.</li>
+<li>Delitos contra la propiedad intelectual y piratería.</li>
+<li>Sabotaje, manipulación de datos o programas y uso indebido de equipos.</li>
+<li>Pornografía infantil y despidos por causas tecnológicas.</li>
+</ul>
+<p>La presentación 2025 (pág. 5) suma uso de información, vulneración de la buena fe contractual, publicidad engañosa y competencia desleal.</p>
+<p>La ley que marca la cátedra es la <strong>Ley 26.388 de Delitos Informáticos</strong> (presentación «1 - Presentación», 2026, pág. 13).</p>
+<div class="ojo"><p class="ojo-t">El material no explica los artículos</p><p>La cátedra nombra la ley y los tipos de delito, pero ningún apunte desarrolla sus artículos. Si en tu comisión la piden en detalle, leela en Infoleg. Dolo, culpa, pena y resarcimiento están en <a href="entorno.html#delito">Eje 1</a>.</p>
+</div>
+</section>
+<section class="sec"><h2 id="las-tres-etapas-de-la-pericia">Las tres etapas de la pericia</h2>
+<p>Para tener validez legal, el trabajo sigue tres etapas (apunte de pericia, pág. 2).</p>
+<p>La presentación 2025 (pág. 10) marca las <strong>implicancias legales</strong> del trabajo.</p>
+<ul>
+<li><strong>Adquisición de evidencias.</strong> Cumpliendo leyes generales y específicas, respetando garantías y derechos, y sin ampliar evidencias no autorizadas.</li>
+<li><strong>Método científico.</strong> Reproducible, establece cadena de custodia y cataloga el hash de cada evidencia.</li>
+<li><strong>Reputación.</strong></li>
+</ul>
+<h3 id="1-adquisicion">1. Adquisición</h3>
+<p>Asegurar y recolectar los recursos digitales, en la escena del hecho o fuera de ella. El objetivo es no manipular el original y no perder el estado inicial. Tres piezas sostienen esta etapa.</p>
+<ul>
+<li><strong>Copia forense.</strong> Réplica exacta, bit a bit, de cualquier dispositivo con memoria. Garantiza la reproducibilidad. Otro profesional puede alcanzar los mismos resultados en un contraperitaje.</li>
+<li><strong>Hash.</strong> Se genera inmediatamente después de la adquisición y permite demostrar ante el juez que la evidencia no fue modificada.</li>
+<li><strong>Cadena de custodia.</strong> Protocolo estricto que documenta quién tuvo acceso a la evidencia y qué trato recibió.</li>
+</ul>
+<h3 id="2-analisis">2. Análisis</h3>
+<p>Se indexan, se les da forma y se comprenden los datos para identificar lo que interesa a la causa. La ISO/IEC 27042 define los modelos, en <a href="#iso-iec-27042-2015-analisis-e-interpretacion">Análisis e interpretación</a>.</p>
+<h3 id="3-presentacion">3. Presentación</h3>
+<p>Se genera el informe pericial, donde el perito traduce sus hallazgos técnicos a un lenguaje comprensible para el órgano judicial.</p>
+</section>
+<section class="sec"><h2 id="hash-y-cadena-de-custodia">Hash y cadena de custodia</h2>
+<p>Son las dos garantías técnicas. Si se rompe el protocolo, la evidencia pierde su valor probatorio ante el juez (apunte de pericia, pág. 3).</p>
+<div class="teorema"><p class="teorema-t">Hash</p><p>El Hash es una cadena de texto única e irrepetible generada por un algoritmo matemático (como por ejemplo SHA-256) a partir de un conjunto de datos. Si un solo bit de la evidencia digital cambia, el Hash resultante será completamente distinto.</p>
+<p class="bloque-fuente">Apunte de pericia, pág. 3</p></div>
+<p>El apunte lo llama «sello de integridad» digital. «Esto permite a los peritos certificar que la copia forense es una réplica exacta del dispositivo original, garantizando de esta manera integridad y autenticidad.» Se usa en cada paso de la cadena.</p>
+<div class="teorema"><p class="teorema-t">Cadena de custodia</p><p>Protocolo para tratar la evidencia, que pauta los pasos a seguir y el trato que se debe de tener con la evidencia de un caso.</p>
+<p class="bloque-fuente">«3 - Pericia Informática», 2025, pág. 11</p></div>
+<div class="tabla"><table><thead><tr><th>Momento</th><th>Para qué sirve</th></tr></thead><tbody><tr><td>Adquisición</td><td>Se calcula apenas se obtiene la evidencia, para establecer un estado inicial</td></tr><tr><td>Traslado y almacenamiento</td><td>Según ISO/IEC 27037, los duplicados maestros deben estar hasheados para detectar manipulación accidental o intencionada</td></tr><tr><td>Análisis</td><td>Se trabaja sobre copias, en lectura read-only, asegurando que los hallazgos se basan en datos sin modificar</td></tr></tbody></table></div>
+<p>Sin el catálogo de hashes de cada evidencia, la cadena se considera rota. Una evidencia sin hash verificado es fácilmente impugnable.</p>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>El hash es la huella digital de un archivo. Cambiás una coma y la huella es otra. La cadena de custodia es la planilla de quién tuvo la evidencia y qué hizo. La planilla cuenta la historia y el hash prueba que esa historia es cierta.</p>
+</div>
+<div class="ejemplo"><p class="ejemplo-t">Una PC encendida con un pendrive puesto</p><p>En una casa hay una computadora, y se detectó que la IP de la persona que amenazaba estaba en ese domicilio. La PC está encendida y con un pendrive conectado. No se apaga, no se desconecta el USB, no se manipula el original y no se pierde el estado inicial.</p>
+<p class="bloque-fuente">«3 - Pericia Informática», 2025, pág. 12</p></div>
+<p>El apunte (pág. 3) aclara el matiz. No hay que apagar una PC encendida ni desconectar un USB «sin el procedimiento adecuado».</p>
+</section>
+<section class="sec"><h2 id="el-informe-pericial">El informe pericial</h2>
+<p>Es el resultado del trabajo. Es un medio de prueba documental que interpreta y valida hechos existentes. Es un procedimiento científico que aplica conocimientos y técnicas para determinar veracidad, origen y autoría, y funciona como soporte técnico para el solicitante <strong>sin emitir juicios de valor</strong> (apunte de pericia, pág. 4).</p>
+<p>Suele responder a los «cómo», los «de qué manera», el «origen de» y el «medio utilizado» (2025, pág. 19).</p>
+<p><strong>Características</strong> (apunte de pericia, pág. 4):</p>
+<ul>
+<li><strong>Didáctico.</strong> Comprensible para el juez, que no es técnico.</li>
+<li><strong>Objetivo e independiente.</strong> Basado en la imparcialidad del experto.</li>
+<li><strong>Contundente y verídico.</strong> Basado en hechos constatables.</li>
+</ul>
+<p>La presentación 2025 (pág. 19) suma probatorio, transmisor y <strong>no vinculante</strong>.</p>
+<p><strong>Fases del informe</strong> (2025, pág. 20): análisis (fuentes, procedimientos, resultados), síntesis (dejar solo lo relevante) y conclusiones (opinión posterior al análisis).</p>
+<p><strong>Contenido mínimo según ISO 27042 y 27043</strong> (apunte de pericia, pág. 4):</p>
+<ol>
+<li>Presentación del perito, objetivos, alcance y datos primarios analizados.</li>
+<li>Legislación aplicable y justificación de las alternativas de análisis elegidas.</li>
+<li>Descripción detallada de intervenciones, técnicas aplicadas y resultados obtenidos.</li>
+<li>Conclusiones, argumentación y firma.</li>
+</ol>
+<h3 id="prueba-y-prueba-pericial">Prueba y prueba pericial</h3>
+<p>La presentación 2025 (pág. 15) da dos definiciones de prueba.</p>
+<div class="teorema"><p class="teorema-t">Prueba</p><ol>
+<li>Razón, argumento, instrumento u otro medio con que se pretende mostrar y hacer patente la verdad o falsedad de algo.</li>
+<li>Actuación procesal de parte, a través de los medios regulados en la norma procesal, por la que intenta acreditar los hechos que invoca como fundamento de su pretensión, con el propósito de acreditar al tribunal su certeza probatoria.</li>
+</ol>
+<p class="bloque-fuente">«3 - Pericia Informática», 2025, pág. 15</p></div>
+<div class="teorema"><p class="teorema-t">Prueba pericial</p><p>Opinión que emite un perito respecto a un hecho concreto que ha de evaluarse en el marco de un proceso judicial.</p>
+<p class="bloque-fuente">«3 - Pericia Informática», 2025, pág. 15</p></div>
+<p>La pág. 16 agrega qué es y para qué sirve. Es la presentación de pruebas por parte de un experto en un tema específico, llamado perito, que brinda su testimonio basado en sus conocimientos y experiencia. Sirve para respaldar o refutar una hipótesis o teoría en un juicio. Y cita: «Es la declaración de un perito que tiene por objetivo aportar una serie de conocimientos a un juez para que pueda entender una realidad no constatable por él.»</p>
+<p><strong>Características</strong> (2025, pág. 17):</p>
+<ul>
+<li>Debe ser realizada por una persona con conocimientos probados.</li>
+<li>La explicación debe ser clara y objetiva.</li>
+<li>El perito tiene que ser imparcial.</li>
+</ul>
+<p><strong>Requisitos formales</strong> (2025, pág. 17): descripción exhaustiva del objeto de estudio, operaciones realizadas y sus resultados, medios científicos y técnicos utilizados y conclusión.</p>
+</section>
+<section class="sec"><h2 id="herramientas">Herramientas</h2>
+<div class="tabla"><table><thead><tr><th>Tipo</th><th>Herramientas (apunte de pericia, págs. 4 y 5)</th></tr></thead><tbody><tr><td>Suites forenses y especializadas</td><td>AccessData FTK (imágenes forenses y análisis de datos). Guidance Software EnCase (investigación de dispositivos). Cellebrite UFED (telefonía móvil). BruteShark y OmniPeek (tráfico de red)</td></tr><tr><td>Código abierto</td><td>The Sleuth Kit Autopsy (sistemas de archivos). Distribuciones live de Linux: Caine, Santoku, Kali</td></tr><tr><td>Integridad y copia</td><td>FTK Imager (copias bit a bit). QuickHash-GUI (cálculo y verificación de hash)</td></tr><tr><td>Hardware</td><td>Equipos potentes y portables, clonadoras y, fundamentalmente, bloqueadores de escritura para proteger el soporte original</td></tr></tbody></table></div>
+</section>
+<section class="sec"><h2 id="normas-iso">Normas ISO</h2>
+<p>¿Por qué normas? La evidencia digital se copia sin rastro y sus metadatos son volátiles, y eso exige protocolos para evitar el «vicio de nulidad procedimental». El apunte cita informes del NIST: más del 70 % de las organizaciones que enfrentan litigios digitales fracasan por no seguir procedimientos estandarizados (apunte de ISO, pág. 1). Y concluye que «el seguimiento de las normas ISO es la única garantía científica para asegurar la integridad, autenticidad y reproducibilidad necesarias para la validez legal de una pericia».</p>
+<div class="tabla"><table><thead><tr><th>Norma</th><th>De qué se ocupa</th></tr></thead><tbody><tr><td>ISO/IEC 27037:2012</td><td>Identificación, recolección y preservación. Que el artefacto llegue íntegro al laboratorio</td></tr><tr><td>ISO/IEC 27042:2015</td><td>Examen científico e interpretación. Transforma el dato preservado en evidencia comprensible</td></tr><tr><td>ISO/IEC 27043:2015</td><td>Gobernanza y preparación. Integra las fases anteriores en un ciclo de vida continuo</td></tr></tbody></table></div>
+<p>Fuente: apunte de ISO, pág. 4.</p>
+<p>Las normas ISO definen principios y requisitos generales. Las guías operativas como <strong>SWGDE</strong> dan procedimientos paso a paso para cada tipo de dispositivo.</p>
+<h3 id="iso-iec-27037-2012-adquisicion">ISO/IEC 27037:2012: adquisición</h3>
+<p>Su objetivo es dar directrices para la identificación, recopilación, adquisición y preservación de evidencia digital. Busca que los métodos mantengan la integridad de la evidencia «para que sea admisible en procesos legales y disciplinarios, transformando datos latentes en &quot;huellas digitales&quot; del delito con validez jurídica» (apunte de ISO, pág. 1).</p>
+<p><strong>Tres principios rectores</strong> (apunte de ISO, pág. 1):</p>
+<ul>
+<li><strong>Relevancia.</strong> La evidencia debe ser real y relacionarse de manera significativa con el incidente.</li>
+<li><strong>Confiabilidad.</strong> Los procesos deben ser auditables y repetibles, y los resultados reproducibles por terceros.</li>
+<li><strong>Suficiencia.</strong> Hay que reunir material suficiente para una investigación adecuada y completa.</li>
+</ul>
+<p><strong>Dos roles</strong> (pág. 2):</p>
+<ul>
+<li><strong>DEFR (Digital Evidence First Responder).</strong> Especialista de primera intervención, responsable de la identificación y recolección inicial en la escena.</li>
+<li><strong>DES (Digital Evidence Specialist).</strong> Especialista con conocimientos avanzados para problemas técnicos complejos y las fases de adquisición y análisis profundo.</li>
+</ul>
+<p><strong>Cuatro actividades secuenciales</strong> (pág. 2):</p>
+<div class="tabla"><table><thead><tr><th>Actividad</th><th>Qué se hace</th></tr></thead><tbody><tr><td>Identificación</td><td>Reconocer, buscar y documentar fuentes potenciales. Se prioriza por volatilidad: primero la RAM y después los discos</td></tr><tr><td>Recopilación</td><td>Retirar físicamente los dispositivos a un laboratorio o entorno controlado. Se documenta si el equipo estaba encendido o apagado, y no se altera su estado</td></tr><tr><td>Adquisición</td><td>Crear una copia forense bit a bit con bloqueadores de escritura y generar un hash, como SHA-256, inmediatamente después</td></tr><tr><td>Preservación</td><td>Salvaguardar contra alteración, daño o destrucción: embalajes antiestáticos, bolsas de Faraday para móviles, protección contra campos electromagnéticos y temperaturas extremas</td></tr></tbody></table></div>
+<div class="ojo"><p class="ojo-t">Dos listas parecidas</p><p>Las tres etapas de la pericia son adquisición, análisis y presentación. Las cuatro actividades de la ISO 27037 son identificación, recopilación, adquisición y preservación. La palabra «adquisición» está en las dos, con distinto alcance.</p>
+</div>
+<h3 id="iso-iec-27042-2015-analisis-e-interpretacion">ISO/IEC 27042:2015: análisis e interpretación</h3>
+<p>Regula el tratamiento intelectual y técnico de la evidencia, para que sea científicamente válido y legalmente defendible. Tiene cuatro premisas: análisis estructurado, reconstrucción de eventos, documentación de hallazgos y reportes imparciales (apunte de ISO, págs. 2 y 3).</p>
+<p>Cómo se aplica (apunte de pericia, págs. 5 y 6):</p>
+<ul>
+<li><strong>Selección y validación de métodos (cláusula 6).</strong> El perito documenta y justifica cada método, y demuestra que es «apto para el propósito» (fit for purpose).</li>
+<li><strong>Modelos analíticos (cláusula 7).</strong> Ver la tabla de abajo.</li>
+<li><strong>Interpretación lógica, hechos contra hipótesis (cláusula 8).</strong> La norma obliga a mantener una distinción estricta.</li>
+<li><strong>Reproducibilidad y competencia.</strong> Otro analista competente que siga el mismo proceso debe llegar a los mismos resultados. La versión de las herramientas se registra (apunte de ISO, pág. 3). Los miembros del equipo deben demostrar competencia específica. No basta con ser «experto informático» generalista.</li>
+<li><strong>Informe y trazabilidad (cláusula 9).</strong> Cada conclusión debe ser trazable hasta los datos binarios originales.</li>
+</ul>
+<div class="tabla"><table><thead><tr><th>Modelo</th><th>Qué hace</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Estático</td><td>Examina copias de datos no volátiles sin ejecutar el sistema original. Minimiza el riesgo de alteración</td><td>Imágenes forenses</td></tr><tr><td>Dinámico</td><td>Monitorea el comportamiento del sistema durante su ejecución, en un entorno controlado</td><td>Detonar malware para ver qué archivos modifica</td></tr><tr><td>En tiempo real</td><td>Captura datos volátiles de sistemas activos antes de que se pierdan</td><td>RAM, conexiones de red, claves criptográficas</td></tr></tbody></table></div>
+<div class="tabla"><table><thead><tr><td></td><th>Acreditación de hechos</th><th>Formulación de hipótesis</th></tr></thead><tbody><tr><td>Qué es</td><td>Datos directamente verificables</td><td>Inferencias que el perito extrae de los datos</td></tr><tr><td>Ejemplo</td><td>Un hash que coincide, una dirección física en el disco</td><td>Reconstruir una línea de tiempo de acciones de un usuario</td></tr></tbody></table></div>
+<p>Al formular hipótesis se documentan los factores externos, como el desvío del reloj del sistema (clock drift) o metadatos sobrescritos.</p>
+<h3 id="iso-iec-27043-2015-investigacion-de-incidentes">ISO/IEC 27043:2015: investigación de incidentes</h3>
+<p>Introduce la <strong>Forensic Readiness</strong>, o preparación forense. Busca optimizar la capacidad de una organización para recolectar evidencia creíble, minimizando costos y disrupciones, <strong>antes de que el incidente ocurra</strong> (apunte de ISO, pág. 3).</p>
+<ol>
+<li><strong>Identificación de fuentes de evidencia potenciales.</strong> Mapeo proactivo de logs, sensores y flujos de datos.</li>
+<li><strong>Planificación de la recolección pre-incidente.</strong> Qué datos capturar y bajo qué disparadores.</li>
+<li><strong>Definición de almacenamiento y manejo de evidencia.</strong> Bases de datos forenses distribuidas y seguras.</li>
+<li><strong>Planificación de la detección del incidente.</strong> Protocolos de investigación y límites de responsabilidad forense entre las partes.</li>
+</ol>
+<div class="idea"><p>Ubicalas en el tiempo. La 27043 arranca antes del incidente, la 27037 cubre el momento de levantar la evidencia y la 27042, lo que pasa en el laboratorio.</p>
+</div>
+</section>
+<section class="sec"><h2 id="el-trabajo-de-aprobacion-directa">El trabajo de aprobación directa</h2>
+<p>En el Drive hay un trabajo de un grupo de alumnos de 2026 que copia esta consigna. No es un documento de la cátedra y no sabemos si se repite. El trabajo resuelto no va en este resumen.</p>
+<div class="teorema"><p class="teorema-t">Consigna</p><p>Utilizando herramientas de software forense, los estudiantes deberán realizar la adquisición forense de un medio de almacenamiento. El trabajo práctico exige la generación de una imagen bit a bit, el cálculo de algoritmos hash para garantizar la integridad y, fundamentalmente, la confección del formulario de Cadena de Custodia, justificando técnicamente por qué la evidencia se considera preservada.</p>
+<p class="bloque-fuente">Copiada en un trabajo de alumnos de la carpeta «TP AD», 2026, pág. 2</p></div>
+<p>La teoría que hace falta está en <a href="#las-tres-etapas-de-la-pericia">Las tres etapas de la pericia</a>, <a href="#hash-y-cadena-de-custodia">Hash y cadena de custodia</a> y <a href="#herramientas">Herramientas</a>.</p>
+</section><section class="sec quiz" id="quiz" data-quiz="pericia" data-materia="informatica-juridica">
+<h2>Quiz del eje 5</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="5_9AGvrcd-" data-tema="Perito de oficio y perito de parte" data-enlace="pericia.html#perito-de-oficio-y-perito-de-parte" data-tipo="mc"><div class="q-enun" id="qe-pericia-1"><span class="q-n">1</span><div><p>¿Quién convoca al perito de oficio?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-1"><li><button type="button" class="op" data-ok="1">El órgano jurisdiccional, a través de las listas oficiales</button></li><li><button type="button" class="op" data-ok="0">El actor</button></li><li><button type="button" class="op" data-ok="0">El demandado</button></li><li><button type="button" class="op" data-ok="0">El Colegio profesional</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Su intervención da lugar a la <strong>prueba pericial judicial</strong>.</p>
+</div></li><li class="q" data-q="rMaTkWUEiD" data-tema="Las tres etapas de la pericia" data-enlace="pericia.html#las-tres-etapas-de-la-pericia" data-tipo="mc"><div class="q-enun" id="qe-pericia-2"><span class="q-n">2</span><div><p>¿Cuáles son las tres etapas de la pericia?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-2"><li><button type="button" class="op" data-ok="0">Identificación, recopilación y preservación</button></li><li><button type="button" class="op" data-ok="0">Análisis, síntesis y conclusiones</button></li><li><button type="button" class="op" data-ok="1">Adquisición, análisis y presentación</button></li><li><button type="button" class="op" data-ok="0">Copia, hash y custodia</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Las de la primera opción son actividades de la <strong>ISO 27037</strong>. Las de la segunda, <strong>fases del informe</strong>.</p>
+</div></li><li class="q" data-q="RINdLkQSkv" data-tema="Las tres etapas de la pericia" data-enlace="pericia.html#1-adquisicion" data-tipo="mc"><div class="q-enun" id="qe-pericia-3"><span class="q-n">3</span><div><p>¿Qué garantiza la copia forense bit a bit, además de no tocar el original?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-3"><li><button type="button" class="op" data-ok="0">La confidencialidad del contenido</button></li><li><button type="button" class="op" data-ok="1">La reproducibilidad, porque otro profesional puede alcanzar los mismos resultados</button></li><li><button type="button" class="op" data-ok="0">Que el perito no necesite informe</button></li><li><button type="button" class="op" data-ok="0">Que el dispositivo se pueda apagar</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Permite un <strong>contraperitaje</strong>.</p>
+</div></li><li class="q" data-q="oDhQ-NdJkG" data-tema="Hash y cadena de custodia" data-enlace="pericia.html#hash-y-cadena-de-custodia" data-tipo="mc"><div class="q-enun" id="qe-pericia-4"><span class="q-n">4</span><div><p>¿Qué pasa con el hash si cambia un solo bit de la evidencia?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-4"><li><button type="button" class="op" data-ok="0">Cambia un solo carácter</button></li><li><button type="button" class="op" data-ok="0">No cambia</button></li><li><button type="button" class="op" data-ok="0">Solo cambia si el archivo es grande</button></li><li><button type="button" class="op" data-ok="1">El resultado es completamente distinto</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Por eso sirve para demostrar que la evidencia no fue alterada.</p>
+</div></li><li class="q" data-q="8AZAHxom2O" data-tema="Hash y cadena de custodia" data-enlace="pericia.html#hash-y-cadena-de-custodia" data-tipo="mc"><div class="q-enun" id="qe-pericia-5"><span class="q-n">5</span><div><p>¿Qué ocurre si no se respeta la cadena de custodia?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-5"><li><button type="button" class="op" data-ok="1">La evidencia pierde su valor probatorio ante el juez</button></li><li><button type="button" class="op" data-ok="0">Se repite el juicio</button></li><li><button type="button" class="op" data-ok="0">Se multa al perito</button></li><li><button type="button" class="op" data-ok="0">Solo se pide un informe nuevo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte lo repite varias veces.</p>
+</div></li><li class="q" data-q="LaB26GZVmh" data-tema="El informe pericial" data-enlace="pericia.html#el-informe-pericial" data-tipo="mc"><div class="q-enun" id="qe-pericia-6"><span class="q-n">6</span><div><p>¿Qué no debe hacer un informe pericial?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-6"><li><button type="button" class="op" data-ok="0">Determinar veracidad, origen y autoría</button></li><li><button type="button" class="op" data-ok="1">Emitir juicios de valor</button></li><li><button type="button" class="op" data-ok="0">Citar la legislación aplicable</button></li><li><button type="button" class="op" data-ok="0">Ser comprensible para el juez</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Funciona como soporte técnico para el solicitante, sin juicios de valor.</p>
+</div></li><li class="q" data-q="Ly4yYWmZru" data-tema="Herramientas" data-enlace="pericia.html#herramientas" data-tipo="mc"><div class="q-enun" id="qe-pericia-7"><span class="q-n">7</span><div><p>¿Qué herramienta es específica del peritaje de telefonía móvil?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-7"><li><button type="button" class="op" data-ok="0">QuickHash-GUI</button></li><li><button type="button" class="op" data-ok="0">BruteShark</button></li><li><button type="button" class="op" data-ok="1">Cellebrite UFED</button></li><li><button type="button" class="op" data-ok="0">FTK Imager</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>BruteShark es de tráfico de red. FTK Imager hace copias y QuickHash calcula hashes.</p>
+</div></li><li class="q" data-q="BqKMpnYWre" data-tema="ISO/IEC 27037:2012: adquisición" data-enlace="pericia.html#normas-iso" data-tipo="mc"><div class="q-enun" id="qe-pericia-8"><span class="q-n">8</span><div><p>¿Cuáles son los principios rectores de la ISO/IEC 27037?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-8"><li><button type="button" class="op" data-ok="1">Relevancia, confiabilidad y suficiencia</button></li><li><button type="button" class="op" data-ok="0">Unidad, coherencia y plenitud</button></li><li><button type="button" class="op" data-ok="0">Autoría, integridad y accesibilidad</button></li><li><button type="button" class="op" data-ok="0">Didáctico, objetivo y contundente</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Los otros grupos son del sistema jurídico, de la equivalencia funcional y del informe.</p>
+</div></li><li class="q" data-q="A71JLVdjzS" data-tema="ISO/IEC 27037:2012: adquisición" data-enlace="pericia.html#normas-iso" data-tipo="mc"><div class="q-enun" id="qe-pericia-9"><span class="q-n">9</span><div><p>¿Qué se prioriza en la identificación según la ISO 27037?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-9"><li><button type="button" class="op" data-ok="0">El tamaño del disco</button></li><li><button type="button" class="op" data-ok="0">El costo del equipo</button></li><li><button type="button" class="op" data-ok="0">El orden alfabético de los dispositivos</button></li><li><button type="button" class="op" data-ok="1">La volatilidad: primero la RAM y después los discos</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Así se evita la pérdida irreversible de datos.</p>
+</div></li><li class="q" data-q="N6grZW1CA6" data-tema="ISO/IEC 27042:2015: análisis e interpretación" data-enlace="pericia.html#normas-iso" data-tipo="mc"><div class="q-enun" id="qe-pericia-10"><span class="q-n">10</span><div><p>Detonar malware en un entorno controlado para ver qué archivos modifica es un ejemplo de análisis:</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-10"><li><button type="button" class="op" data-ok="0">Estático</button></li><li><button type="button" class="op" data-ok="0">En tiempo real</button></li><li><button type="button" class="op" data-ok="1">Dinámico</button></li><li><button type="button" class="op" data-ok="0">Documental</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El <strong>dinámico</strong> monitorea el comportamiento del sistema durante su ejecución.</p>
+</div></li><li class="q" data-q="CXqIshnr6V" data-tema="ISO/IEC 27042:2015: análisis e interpretación" data-enlace="pericia.html#normas-iso" data-tipo="mc"><div class="q-enun" id="qe-pericia-11"><span class="q-n">11</span><div><p>La reconstrucción de una línea de tiempo de acciones de un usuario es, para la ISO 27042:</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-11"><li><button type="button" class="op" data-ok="0">Una acreditación de hechos</button></li><li><button type="button" class="op" data-ok="1">Una formulación de hipótesis</button></li><li><button type="button" class="op" data-ok="0">Un dato directamente verificable</button></li><li><button type="button" class="op" data-ok="0">Una actividad de preservación</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Un hash que coincide es un <strong>hecho</strong>. Una inferencia a partir de los datos es una <strong>hipótesis</strong>.</p>
+</div></li><li class="q" data-q="YFytcmr9Or" data-tema="ISO/IEC 27043:2015: investigación de incidentes" data-enlace="pericia.html#normas-iso" data-tipo="mc"><div class="q-enun" id="qe-pericia-12"><span class="q-n">12</span><div><p>¿Qué concepto introduce la ISO/IEC 27043?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-pericia-12"><li><button type="button" class="op" data-ok="0">Cadena de custodia</button></li><li><button type="button" class="op" data-ok="0">Copia forense</button></li><li><button type="button" class="op" data-ok="0">Contraperitaje</button></li><li><button type="button" class="op" data-ok="1">Forensic Readiness, la preparación forense antes de que el incidente ocurra</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Busca recolectar evidencia creíble minimizando costos y disrupciones.</p>
+</div></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material de cursado 2025 y 2026 del Drive de UTN. El Drive no trae ningún parcial ni final, así que no dice qué se toma ni cómo viene el examen. Manda lo que indique tu comisión. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

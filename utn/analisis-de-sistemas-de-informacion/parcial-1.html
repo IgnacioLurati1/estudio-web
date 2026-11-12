@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="es" data-tema="noche" data-em-fuera>
+<head>
+<meta charset="utf-8">
+<!-- Solo corren los scripts propios del sitio. -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'self'; worker-src 'self'" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>1° parcial: Análisis de Sistemas de Información</title>
+<meta name="description" content="Proceso unificado, requerimientos, actores, análisis de metas, diagrama de actividad y zonas de interrupción.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Shantell+Sans:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="../_/katex/katex.min.css">
+<link rel="stylesheet" href="../_/utn.css">
+<script src="../_/tema.js"></script>
+<script src="../_/utn.js" defer></script>
+<script src="../_/piezas.js" defer></script>
+<script src="../_/editar.js" defer></script>
+<script src="../_/ajustes.js" defer></script>
+<script src="../_/menu.js" defer></script>
+<script src="../_/sin-internet.js" defer></script>
+<script src="../_/voz.js" defer></script>
+<script src="../_/senaladores.js" defer></script>
+<script src="buscar.js" defer></script>
+<script src="../_/api.js" defer></script>
+<script src="../_/progreso.js" defer></script>
+<script src="../_/uso.js" defer></script>
+<script src="../_/emergencia.js" defer></script>
+<script src="../_/cuenta.js" defer></script>
+<script src="../_/niveles.js" defer></script>
+<script src="../_/reportar.js" defer></script>
+</head>
+<body data-materia="analisis-de-sistemas-de-informacion" data-pagina="parcial-1">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="em-banda em-solo" role="region" aria-label="Protocolo de emergencia" tabindex="-1"><p><b>Protocolo de emergencia prendido.</b> Cada materia queda en lo necesario para rendir, con los exámenes y su respuesta. Apagalo para volver a ver todo.</p><button type="button" class="b-sec" data-em-apagar>Apagar</button></div>
+<header class="barra">
+<button type="button" class="b-tema b-menu" id="menuAbrir" aria-label="Menú" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 14h32M8 24h32M8 34h20"/></svg></button>
+<a class="b-materia" href="index.html">Análisis de Sistemas de Información</a>
+<div class="b-buscar"><label class="vh" for="buscar">Buscar en la materia</label><input id="buscar" type="search" placeholder="Buscar en la materia" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="resultados" aria-expanded="false"><span id="resCuenta" class="vh" aria-live="polite"></span><ul id="resultados" class="resultados" role="listbox" aria-label="Resultados" hidden></ul></div>
+<button type="button" id="soloTomado" class="b-solo" aria-pressed="false">Solo lo que se toma</button>
+<button type="button" id="editar" class="b-tema" aria-pressed="false">Editar</button>
+<button type="button" id="foco" class="b-tema">Pantalla completa</button>
+<button type="button" id="accesibilidad" class="b-tema">Accesibilidad</button>
+<button type="button" id="tema" class="b-tema">Modo día</button>
+</header>
+<dialog class="menu" id="menu" aria-label="Menú"><div class="mn-fondo"></div><div class="mn-panel">
+<div class="mn-cabeza"><p class="mn-marca">El Santo Resumen</p><button type="button" class="b-tema mn-cerrar" data-menu-cerrar aria-label="Cerrar el menú"><svg class="b-menu-i" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M13 13l22 22M35 13L13 35"/></svg></button></div>
+<nav class="mn-nav" aria-label="Todo el sitio"><ul class="mn-lista"><li><a class="mn-fila" href="../index.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 23L24 7l19 16"/><path d="M10 19v23h28V19"/><path d="M20 42V30h8v12"/><path d="M32 12V7h4v8.4"/></svg><span>Inicio</span></a></li><li><a class="mn-fila" href="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11l12-5 14 5 12-5v31l-12 5-14-5-12 5z"/><path d="M17 6v31M31 11v31"/><path d="M9 30c4-2 6 2 10-1s5-9 10-8 4 5 9 3" stroke-dasharray="2.5 3"/></svg><span>Todas las materias</span></a></li><li class="mn-em em-fuera"><button type="button" class="mn-fila" data-em-prender data-em-ir="../materias.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Protocolo de emergencia</span></button></li><li class="mn-em em-solo"><button type="button" class="mn-fila" data-em-apagar><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 35V25a9 9 0 0 1 18 0v10"/><path d="M10 35h28v6H10z"/><path d="M24 4v5M9 11l3.5 3.5M39 11l-3.5 3.5M4 24h4M40 24h4"/><path d="M20 25a4 4 0 0 1 4-4"/></svg><span>Apagar emergencia</span></button></li><li><a class="mn-fila" href="../banco.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M15 5h22l5 5v26H15z"/><path d="M37 5v5h5"/><path d="M10 11v31h26"/><path d="M20 16h12M20 21h16M20 26h10"/></svg><span>Banco de resúmenes</span></a></li><li><a class="mn-fila" href="../subir.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 32V7"/><path d="M15 16l9-9 9 9"/><path d="M7 29v12h34V29"/></svg><span>Subir un resumen</span></a></li><li><a class="mn-fila" href="../crear.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 39l4-12L32 8l8 8-19 19z"/><path d="M28 12l8 8"/><path d="M13 27l8 8"/></svg><span>Armá tu propio resumen</span></a></li><li><a class="mn-fila" href="../consejos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 6a12 12 0 0 0-7 21.8V32h14v-4.2A12 12 0 0 0 24 6z"/><path d="M18 37h12M20 42h8"/><path d="M24 32v-8l-3-3M24 24l3-3"/></svg><span>Consejos</span></a></li><li><a class="mn-fila" href="../sysacad-lindo.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 16h8a5 5 0 1 1 10 0h8v8a5 5 0 1 1 0 10v8h-8a5 5 0 1 0-10 0h-8v-8a5 5 0 1 0 0-10z"/></svg><span>Sysacad Lindo</span></a></li><li><a class="mn-fila" href="https://supercvg.lutastudios.com/" rel="noopener"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18l20-9 20 9-20 9z"/><path d="M12 22v9c0 3.3 5.4 6 12 6s12-2.7 12-6v-9"/><path d="M44 18v12"/></svg><span>Super CVG</span></a></li><li><a class="mn-fila" href="../plan.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 7h13v9H5zM30 7h13v9H30zM17.5 32h13v9h-13z"/><path d="M11.5 16v7h25v-7M24 23v9"/></svg><span>Plan de estudios</span></a></li><li><a class="mn-fila" href="../mesas.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 10h36v32H6z"/><path d="M6 19h36"/><path d="M15 5v9M33 5v9"/><path d="M13 26h4M22 26h4M31 26h4M13 34h4M22 34h4"/></svg><span>Mesas de examen</span></a></li><li><a class="mn-fila" href="../docentes.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M5 11h38v27H5z"/><path d="M5 12l19 15 19-15"/><path d="M5 37l14-12M43 37L29 25"/></svg><span>Mails de docentes</span></a></li></ul><ul class="mn-lista mn-discreta"><li><a class="mn-fila" href="../agradecimientos.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M24 41C11 32 5 24 6 16.5 7 11 11 7.5 15.8 7.5c3.6 0 6.4 2 8.2 5.2 1.8-3.2 4.6-5.2 8.2-5.2C37 7.5 41 11 42 16.5 43 24 37 32 24 41z"/><path d="M16 15.5c-2 .5-3.4 2.2-3.6 4.3"/></svg><span>Agradecimientos</span></a></li><li><a class="mn-fila" href="../privacidad.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 22h28v20H10z"/><path d="M16 22v-6a8 8 0 0 1 16 0v6"/><path d="M24 29v6"/></svg><span>Privacidad</span></a></li><li><a class="mn-fila" href="../novedades.html"><svg class="mn-icono" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 31L31 9a5.7 5.7 0 0 1 8 0a5.7 5.7 0 0 1 0 8L17 39a5.7 5.7 0 0 1-8 0a5.7 5.7 0 0 1 0-8z"/><path d="M18.5 22.5l7 7M22.5 18.5l7 7"/><path d="M23 24h.01M25 22h.01M25 26h.01M27 24h.01"/></svg><span>Notas del parche</span></a></li></ul></nav>
+</div></dialog>
+<div class="marco">
+<aside class="lado">
+<nav aria-label="Secciones de la materia"><ul class="nav"><li class="nav-todas"><a href="../materias.html">Todas las materias</a></li><li class="em-solo"><a href="emergencia.html">Emergencia</a></li><li class="em-fuera"><a href="index.html">Para entender</a></li><li class="em-fuera"><a href="parcial-1.html" aria-current="page">1° parcial</a></li><li class="em-fuera"><a href="parcial-2.html">2° parcial</a></li><li class="em-fuera"><a href="final.html">Final</a></li><li class="em-fuera"><a href="ejercicios.html">Ejercicios</a></li><li class="em-fuera"><a href="machete.html">Hoja de repaso</a></li><li class="em-fuera"><a href="../banco.html?materia=analisis-de-sistemas-de-informacion">Banco de resúmenes</a></li><li class="em-fuera"><a href="../consejos.html?materia=analisis-de-sistemas-de-informacion">Consejos</a></li><li class="nav-em"><button type="button" class="b-sec em-fuera" data-em-prender><span class="em-largo">Protocolo de emergencia</span><span class="em-corto">Emergencia</span></button><button type="button" class="b-sec em-solo" data-em-apagar>Apagar emergencia</button></li><li class="nav-em em-fuera"><button type="button" class="b-tema" data-cuenta hidden>Ingresar</button></li></ul></nav>
+<nav class="toc" aria-label="En esta página"><p>En esta página</p><ul><li class="n2"><a href="#como-viene-el-examen">Cómo viene el examen</a></li><li class="n2"><a href="#el-proceso-unificado">El Proceso Unificado</a></li><li class="n3"><a href="#pesado-predictivo-adaptable-y-agil">Pesado, predictivo, adaptable y ágil</a></li><li class="n3"><a href="#que-se-produce-al-inicio">Qué se produce al inicio</a></li><li class="n3"><a href="#furps">FURPS+</a></li><li class="n2"><a href="#requerimientos">Requerimientos</a></li><li class="n3"><a href="#relevar-tecnicas-y-minutas">Relevar: técnicas y minutas</a></li><li class="n3"><a href="#lista-de-requerimientos">Lista de requerimientos</a></li><li class="n2"><a href="#actores-y-stakeholders">Actores y stakeholders</a></li><li class="n2"><a href="#analisis-de-metas">Análisis de metas</a></li><li class="n3"><a href="#los-artefactos-del-analisis">Los artefactos del análisis</a></li><li class="n3"><a href="#encontrar-la-meta-correcta">Encontrar la meta correcta</a></li><li class="n2"><a href="#diagrama-de-actividad">Diagrama de actividad</a></li><li class="n3"><a href="#simbolos">Símbolos</a></li><li class="n3"><a href="#directrices">Directrices</a></li><li class="n3"><a href="#subdiagramas-y-objetos">Subdiagramas y objetos</a></li><li class="n2"><a href="#zona-de-interrupcion">Zona de interrupción</a></li><li class="n2"><a href="#mapa-conceptual">Mapa conceptual</a></li><li class="n2"><a href="#procesos-de-negocio">Procesos de negocio</a></li><li class="n2"><a href="#quiz">Quiz</a></li></ul></nav>
+</aside>
+<main id="contenido" class="hoja" data-reportable>
+<h1>1° parcial</h1>
+<p class="bajada">Entender el negocio: el proceso de desarrollo, cómo se relevan requerimientos, quién participa, qué metas persigue y cómo se dibuja el proceso.</p><p class="nivel" data-nivel="no-juzgado">Resumen no juzgado. Todavía nadie evaluó si alcanza para estudiar solo con esto.</p>
+
+
+<section class="sec"><h2 id="como-viene-el-examen">Cómo viene el examen</h2>
+<p>Revisé 8 prácticas (03/06/23, 19/02/24, 24/08/24, 16/12/24, 24/02/25, 28/06/25, 15/12/25 y 06/06/26) y 5 teóricos (03/06/23, 24/08/24, 16/12/24, 28/06/25 y 01/11/25).</p>
+<div class="tomado"><aside class="nota"><strong>Qué pide la práctica</strong><span>8 prácticas de 2023 a 2026</span></aside><p>Un relato de un negocio y estos ítems.</p>
+<ul>
+<li><mark>Diagrama de actividad: en las 8.</mark> Es el ítem que más puntos vale en casi todas. Vale desde 10 en la modalidad AND hasta 40 en el recuperatorio del 19/02/24. Tres veces pidió subdiagrama (24/08/24, 28/06/25 y 06/06/26) y una, zona de interrupción (28/06/25).</li>
+<li><mark>Lista de requerimientos: en 7.</mark> Vale 10 o 15 puntos, con 5 o 10 requerimientos.</li>
+<li>Análisis de metas: en 4 (03/06/23, 19/02/24, 28/06/25 y 06/06/26). A veces con grafo y tabla resumen.</li>
+<li>Actores: en 3 (03/06/23, 19/02/24 y 24/02/25).</li>
+<li>Mapa conceptual: en 1 (24/08/24).</li>
+</ul>
+</div>
+<p>El teórico trae consignas cortas de opción múltiple o verdadero y falso. Los temas repetidos son los siguientes.</p>
+<div class="tomado"><aside class="nota"><strong>Lo que se repite en la teoría</strong><span>Teóricos 03/06/23, 24/08/24, 16/12/24, 28/06/25 y 01/11/25</span></aside><p>Partes y símbolos del diagrama de actividad, directrices, zona de interrupción, análisis de metas como proceso o artefacto, tabla resumen, fases del UP, minuta y técnicas.</p>
+</div>
+</section>
+<section class="sec"><h2 id="el-proceso-unificado">El Proceso Unificado</h2>
+<p>Pensá en construir una casa de a una habitación por vez. Terminás una, la mostrás, escuchás qué cambiarías y recién ahí planificás la siguiente. Eso es desarrollo iterativo. El Proceso Unificado (UP) organiza ese trabajo.</p>
+<p><strong>Iteración.</strong> Un tramo corto que deja algo probado. El UP recomienda de dos a seis semanas (Larman, p. 17).</p>
+<p><strong>Las cuatro fases</strong> (Larman, p. 19).</p>
+<div class="tabla"><table><thead><tr><th>Fase</th><th>Qué pasa</th></tr></thead><tbody><tr><td>Inicio</td><td>Visión aproximada, análisis del negocio, alcance y estimaciones imprecisas</td></tr><tr><td>Elaboración</td><td>Visión refinada, implementación iterativa del núcleo de la arquitectura, resolución de riesgos altos, más requisitos y alcance, estimaciones más realistas</td></tr><tr><td>Construcción</td><td>Implementación iterativa del resto, lo de menor riesgo, y preparación del despliegue</td></tr><tr><td>Transición</td><td>Pruebas beta y despliegue</td></tr></tbody></table></div>
+<p>Las disciplinas (requisitos, diseño, implementación) ocurren en todas las fases, con distinto esfuerzo.</p>
+<details class="pregunta"><summary><span>¿La fase de inicio es la fase de requerimientos?</span><small>Teórico 24/08/24 y final 27/04/26</small></summary><div class="resp"><p>No. Es una especie de fase de viabilidad, con el estudio suficiente para decidir si continuar o no. Pensar «inicio igual requisitos» es señal de que no se entendió el UP. Fuente: Larman, UML y Patrones, p. 19 y p. 25.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿En qué fase se trabaja el núcleo de la arquitectura?</span><small>Teórico 28/06/25</small></summary><div class="resp"><p>En Elaboración. Fuente: teórico del 28/06/25 con respuestas, que cita a Larman, p. 21, figura 2.5.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Cuántos casos de uso quedan en detalle al terminar Elaboración?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Del 80 al 90 %. Fuente: Larman, p. 75, y teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿En qué fase hay más implementación y menos requisitos?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>En Construcción. Fuente: Larman, p. 20.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿El UP define la mayoría de los requisitos antes del diseño?</span><small>Teórico 28/06/25</small></summary><div class="resp"><p>No. Intentarlo es otro signo de que no se entendió el UP. Los requisitos surgen de modo adaptable a lo largo de las iteraciones. Fuente: Larman, p. 24 y p. 25.</p>
+</div></details>
+<h3 id="pesado-predictivo-adaptable-y-agil">Pesado, predictivo, adaptable y ágil</h3>
+<p>Esto apareció en el teórico del 27/04/26, según el relato de quien rindió.</p>
+<div class="tabla"><table><thead><tr><th>Término</th><th>Qué significa (Larman, p. 23 y 24)</th></tr></thead><tbody><tr><td>Proceso pesado</td><td>Término peyorativo: muchos artefactos, rigidez y control, planificación muy larga, predictivo</td></tr><tr><td>Proceso predictivo</td><td>Planifica en detalle un intervalo largo. Sigue un ciclo en cascada</td></tr><tr><td>Proceso adaptable</td><td>Acepta el cambio y fomenta adaptarse. Sigue un ciclo iterativo</td></tr><tr><td>Proceso ágil</td><td>Adaptable y ligero</td></tr></tbody></table></div>
+<p><strong>Plan de fase y plan de iteración</strong> (Larman, p. 24). El plan de fase es de alto nivel. Estima la fecha de terminación y los hitos, sin grano fino. El plan de iteración detalla solo la iteración que viene.</p>
+<p><strong>Otros signos de que no se entendió el UP</strong> (Larman, p. 25), además de los de las preguntas de arriba.</p>
+<ul>
+<li>Pensar que el objetivo de la elaboración es definir modelos completos que en construcción se traducen a código.</li>
+<li>Intentar definir la mayoría del diseño, o acordar toda la arquitectura, antes de programar y probar.</li>
+<li>Creer que una iteración adecuada dura cuatro meses en lugar de cuatro semanas, salvo proyectos de cientos de desarrolladores.</li>
+<li>Pensar que programar es una traducción mecánica de los diagramas UML.</li>
+<li>Pensar que adoptar el UP es hacer muchas actividades y crear muchos documentos.</li>
+<li>Planificar el proyecto en detalle de principio a fin, prediciendo todas las iteraciones.</li>
+<li>Querer planes y estimaciones creíbles antes de que termine la elaboración.</li>
+</ul>
+<h3 id="que-se-produce-al-inicio">Qué se produce al inicio</h3>
+<p>La fase de inicio debería ser relativamente corta, «de una a unas pocas semanas» en la mayoría de los proyectos. En muchos, si dura más de una semana, se pierde su idea fundamental: decidir si merece la pena una investigación seria (Larman, p. 34). Del 10 al 20 % de los casos de uso se escribe con detalle para conocer el alcance real (Larman, p. 36 y 37).</p>
+<p>La <strong>Visión</strong> resume los requerimientos de alto nivel (Larman, p. 41, según el teórico del 28/06/25).</p>
+<h3 id="furps">FURPS+</h3>
+<p>Una lista para comprobar que cubrís todos los tipos de requisito (Larman, p. 40 y 41).</p>
+<div class="tabla"><table><thead><tr><th>Letra</th><th>Tipo</th><th>Ejemplos</th></tr></thead><tbody><tr><td>F</td><td>Funcional</td><td>Características, capacidades, seguridad</td></tr><tr><td>U</td><td>Facilidad de uso</td><td>Factores humanos, ayuda, documentación</td></tr><tr><td>R</td><td>Fiabilidad</td><td>Frecuencia de fallos, capacidad de recuperación</td></tr><tr><td>P</td><td>Rendimiento</td><td>Tiempos de respuesta, productividad, disponibilidad, uso de recursos</td></tr><tr><td>S</td><td>Soporte</td><td>Adaptabilidad, facilidad de mantenimiento</td></tr><tr><td>+</td><td>Adicionales</td><td>Implementación, interfaz, operaciones, entre otros</td></tr></tbody></table></div>
+<div class="tomado"><aside class="nota"><strong>Requerimientos no funcionales</strong><span>Teórico 03/06/23, finales 28/04/25 y 18/05/26</span></aside><p>Se preguntó si FURPS+ contiene a los no funcionales, qué es un requerimiento no funcional y, en 2026, por usabilidad y soporte. Mirá la tabla de arriba.</p>
+</div>
+</section>
+<section class="sec"><h2 id="requerimientos">Requerimientos</h2>
+<p>Un <strong>requerimiento</strong> es una capacidad o condición con la que el sistema tiene que cumplir (Larman, capítulo 5).</p>
+<p>La <strong>ingeniería de requerimientos</strong> es el conjunto de tareas y técnicas para entender los requerimientos. Sus 7 tareas: concepción, indagación, elaboración, negociación, especificación, validación y administración (apunte Requerimientos 1.0, p. 1 y 2).</p>
+<h3 id="relevar-tecnicas-y-minutas">Relevar: técnicas y minutas</h3>
+<p>Las técnicas juntan información y su resultado queda en una minuta (apunte Técnicas, p. 1).</p>
+<div class="tabla"><table><thead><tr><th>Técnica</th><th>Para qué</th></tr></thead><tbody><tr><td>Tormenta de ideas</td><td>Cuando no está claro el problema o hay muchos puntos de vista sobre cómo resolverlo</td></tr><tr><td>Grupo de foco</td><td>Abre el debate para llegar a una propuesta concreta</td></tr><tr><td>Taller de requerimientos</td><td>Jornadas intensas de 1 o 2 días para acordar el alcance. <mark>Promueve el consentimiento</mark> sobre los requerimientos</td></tr><tr><td>Juego de roles</td><td>Dinámica activa para intercambiar puntos de vista, en general con grupos de dos roles distintos</td></tr></tbody></table></div>
+<p>Hay otras técnicas nombradas al pie del apunte (p. 1).</p>
+<p>La <strong>minuta</strong> es un documento parcial: registra lo que surgió en una reunión. Tiene encabezado, cuerpo y pie (guía de minutas, p. 1). Las secciones de la cátedra son estructura y descripción de procesos, información complementaria, necesidades para con el nuevo sistema, cuestiones abiertas o cerradas e historial (p. 2).</p>
+<p>Lo que la guía de minutas remarca (p. 1).</p>
+<ul>
+<li>Es «un documento que deja expresado los hechos más importantes producidos a través del relevamiento».</li>
+<li>Es una herramienta de comunicación entre presentes y no presentes. Da la oportunidad de corregir malas interpretaciones.</li>
+<li>Una vez consensuada por los participantes, se transforma en una herramienta de trabajo para el análisis.</li>
+<li><mark>Siempre es un documento parcial</mark>. La visión general sale del conjunto de minutas. Una minuta sola muestra solo algunos aspectos.</li>
+<li>Se escribe después de la reunión, a partir de las notas tomadas en ella.</li>
+<li>Una minuta sin secciones se transforma en una descripción de la reunión, la forma más básica de documentarla.</li>
+<li><strong>Encabezado.</strong> Fecha y objetivo, participantes y temas a tratar, que se obtienen antes de la reunión.</li>
+<li><strong>Cuerpo.</strong> El desarrollo de cada tema: nombre o referencia, introducción si hace falta y descripción. También los temas nuevos que surjan.</li>
+<li><strong>Pie.</strong> Temas no tratados, nuevos o pendientes, cuestiones abiertas y, en lo posible, la próxima fecha de reunión y los invitados.</li>
+</ul>
+<div class="tomado"><aside class="nota"><strong>Minuta</strong><span>Teóricos 16/12/24 y 01/11/25, relato del final 29/09/25</span></aside><p>Si es proceso o artefacto, sus partes, y qué técnica elegir y por qué.</p>
+</div>
+<details class="pregunta"><summary><span>¿La minuta es un proceso o un artefacto?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Un artefacto. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<h3 id="lista-de-requerimientos">Lista de requerimientos</h3>
+<div class="tomado"><aside class="nota"><strong>Formato pedido</strong><span>7 de 8 prácticas, de 2023 a 2026</span></aside><p>La consigna pide el «formato dado en clases». Respetalo tal cual: <mark>acción + objeto(s) + (para qué) + (para quién) + (comentarios imprescindibles)</mark>.</p>
+</div>
+<p>Esa sintaxis sale de la plantilla de requerimientos de la cátedra y es para los funcionales. El verbo va primero. Los verbos sugeridos por la plantilla son registrar, actualizar, informar, listar, validar, calcular, generar, publicar, borrar, habilitar, etc.</p>
+<p>La plantilla prohíbe el lenguaje especulativo: «si», «cuándo», «pero», «excepto», «a menos», «aunque», «usualmente», «generalmente», «a menudo», «normalmente» y «típicamente». Los no funcionales no tienen una estructura sintáctica guía.</p>
+<p>La tabla lleva ID, actor, descripción, tema y clasificación, con ID y descripción obligatorios. El ID sirve para seguimiento y rastreo entre artefactos. La clasificación es funcional o no funcional, y en detalle FURPS+ (Plantilla - Lista de Requerimientos).</p>
+<div class="ojo"><p class="ojo-t">Dos órdenes para los paréntesis</p><p>La plantilla dice «para qué, para quién» y el teórico del 28/06/25 dice «para quién, para qué». Ninguna fuente aclara si importa. Usá el de tu comisión.</p>
+</div>
+</section>
+<section class="sec"><h2 id="actores-y-stakeholders">Actores y stakeholders</h2>
+<p>Un <strong>stakeholder</strong> es alguien afectado materialmente por el sistema (Stakeholders y Actores, p. 4). Un <strong>actor</strong> interactúa con él. Todos los actores son stakeholders, pero no al revés (Categorías de actores, p. 1). Los actores se definen por sus metas y su relación con el sistema, los tipos de usuario por sus competencias (Stakeholders y Actores, p. 22).</p>
+<div class="tabla"><table><thead><tr><th>Categoría</th><th>Quién es (Categorías de actores, p. 1)</th></tr></thead><tbody><tr><td>Primario</td><td>Dueño de la meta, con o sin interacción directa</td></tr><tr><td>Iniciador</td><td>Inicia físicamente el caso de uso. Puede ser el reloj del sistema</td></tr><tr><td>Secundario</td><td>Interactúa directo y no es primario ni iniciador</td></tr><tr><td>Terciario</td><td>Interesado sin interacción directa, que provee o recibe información</td></tr></tbody></table></div>
+<p>Un actor puede ser primario e iniciador. Cuando un empleado atiende en nombre del interesado, el iniciador es un intermediario. Categorizá a los actores según el camino básico, porque la categoría puede cambiar de un nivel de meta a otro.</p>
+<details class="pregunta"><summary><span>¿Los dispositivos son actores?</span><small>Teóricos 24/08/24 y 28/06/25</small></summary><div class="resp"><p>No hay que confundirlos con actores. Fuente: apunte Stakeholders y Actores, p. 25, y teórico del 28/06/25 con respuestas.</p>
+</div></details>
+<div class="tomado"><aside class="nota"><strong>Actores</strong><span>Prácticas 03/06/23, 19/02/24 y 24/02/25, finales 13/03/23 y 29/05/23, teórico 28/04/25</span></aside><p>Identificarlos en un relato y qué es un actor secundario. El 03/06/23 y el 29/05/23 pidieron una tabla con nombre, descripción y tipo, donde tipo es actor o stakeholder.</p>
+</div>
+</section>
+<section class="sec"><h2 id="analisis-de-metas">Análisis de metas</h2>
+<p>Un cajero «pasa productos» (actividad), pero lo que busca es «vender» (meta). El análisis de metas (AM) separa lo que la gente hace de lo que quiere lograr.</p>
+<p><strong>Meta.</strong> Fin de las acciones. Declaración de lo que debe alcanzarse o evitarse (apunte Análisis de Metas, p. 2).</p>
+<div class="tabla"><table><thead><tr><th>Tipo de meta</th><th>Qué es (p. 2 y 3)</th></tr></thead><tbody><tr><td>Sub-meta</td><td>Al alcanzarla contribuye al logro parcial de otra. También se la llama subordinada</td></tr><tr><td>Obstáculo o fracaso</td><td>Al alcanzarla impide o bloquea el logro de otra</td></tr><tr><td>Intra-actor</td><td>Metas de un mismo actor</td></tr><tr><td>Inter-actor</td><td>Para lograrse involucran metas de más de un actor</td></tr><tr><td>Independiente</td><td>Sin subordinación a otra</td></tr><tr><td>Principal</td><td>Independiente que explica la razón de existir del negocio</td></tr><tr><td>Complementaria</td><td>Independiente que no la explica, pero ayuda</td></tr></tbody></table></div>
+<details class="pregunta"><summary><span>¿El AM es proceso o artefacto?</span><small>Teóricos 16/12/24 y 01/11/25</small></summary><div class="resp"><p>Un proceso, que produce artefactos. Fuente: apunte Análisis de Metas, p. 3.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Qué se necesita para empezar el AM?</span><small>Teórico 16/12/24</small></summary><div class="resp"><p>Diagrama de actividad, tabla de actores y minutas. Fuente: apunte Análisis de Metas, p. 3.</p>
+</div></details>
+<h3 id="los-artefactos-del-analisis">Los artefactos del análisis</h3>
+<ol>
+<li><strong>Tabla de identificación de metas (TIM).</strong> Columnas actor, actividad, funciones, meta e id (p. 4). Si todas las metas coinciden con la actividad, no se hace análisis. Una línea en Funciones indica que el sistema no colabora (p. 4 y 5).</li>
+<li><strong>Gráfico de subordinación.</strong> Un dígrafo donde <mark>la flecha apunta a la meta que subordina</mark> (p. 5).</li>
+<li><strong>Análisis intra-actor e inter-actor</strong> (p. 5 y 6). Se puede juntar todo en una sola tabla (p. 4).</li>
+<li><strong>Tabla resumen.</strong> «Es un artefacto que sintetiza o resume los requerimientos de un sistema o proceso para alcanzar un meta. El alcance de la tabla puede ser negocio o sistema» (p. 6). Lleva actor primario, meta independiente, descripción breve, otros actores, nombre del proceso (o conjunto de requerimientos) y alcance. En el modelado del negocio resume la primera información de los procesos a analizar. En el análisis de sistemas encuentra los casos de uso más significativos, en general de nivel resumen (p. 6).</li>
+</ol>
+<p><strong>Principales y complementarias</strong>, según el complemento no oficial (p. 2). Las principales están relacionadas con el fin último de los procesos analizados: si su dueño no iniciara «la rueda», el resto ni se movería. Las complementarias no justificarían por sí solas la existencia de la organización, y <mark>las principales no las necesitan para realizarse</mark>. Con ellas definidas se arma la descripción de límites de los casos de uso de sistema.</p>
+<div class="tomado"><aside class="nota"><strong>Metas</strong><span>Prácticas 03/06/23, 19/02/24, 28/06/25 y 06/06/26, relato del final 18/05/26</span></aside><p>TIM, intra e inter, grafo y tabla resumen. En 06/06/26 valieron 25 puntos de 60. El 03/06/23 pidió además determinar el proceso principal y los complementarios.</p>
+</div>
+<h3 id="encontrar-la-meta-correcta">Encontrar la meta correcta</h3>
+<p>El complemento no oficial del apunte propone preguntar <strong>¿Cómo?</strong> para bajar de nivel y <strong>¿Para qué?</strong> para subir (p. 3).</p>
+<ul>
+<li><strong>Nivel usuario.</strong> El «nivel del mar». Una persona, un asiento, de 2 a 20 minutos. Pasa la prueba del café. Al terminar podés tomarte un descanso (p. 3).</li>
+<li><strong>Nivel usuario, siempre subordinado.</strong> Una meta de usuario está subordinada al menos a una meta intermedia o resumen: tiene un «para» bien definido (p. 3).</li>
+<li><strong>Nivel intermedio.</strong> Celeste, el barrilete. Involucra una o más metas de usuario y está subordinada, como mínimo, a una meta resumen (p. 4).</li>
+<li><strong>Nivel resumen.</strong> La nube. Agrupa varias metas de usuario y dura horas, días o semanas. No está subordinada a otra meta: tiene uno o muchos «cómo», pero ningún «para». Se excluyen del análisis metas como «ganar dinero» o «fin de lucro» (p. 4).</li>
+</ul>
+<div class="criollo"><p class="criollo-t">En criollo</p><p>«Vender» se responde con «¿cómo?»: cobrando, emitiendo el ticket. «Emitir el ticket» se responde con «¿para qué?»: para completar la venta. Así te ubicás en qué piso estás.</p>
+</div>
+</section>
+<section class="sec"><h2 id="diagrama-de-actividad">Diagrama de actividad</h2>
+<p>Es el dibujo del proceso de negocio. Lo que está en el diagrama pasa en la organización, tenga sistema o no.</p>
+<h3 id="simbolos">Símbolos</h3>
+<p>Todo sale del mini-apunte de diagrama de actividad (2023).</p>
+<div class="tabla"><table><thead><tr><th>Elemento</th><th>Dibujo</th><th>Página</th></tr></thead><tbody><tr><td>Actividad</td><td>Rectángulo redondeado. <mark>Verbo en infinitivo + objeto</mark></td><td>3</td></tr><tr><td>Inicio</td><td>Círculo sólido</td><td>3</td></tr><tr><td>Final</td><td>Círculo transparente con un círculo sólido adentro</td><td>4</td></tr><tr><td>Flujo final (fracaso)</td><td>Círculo con una X</td><td>4</td></tr><tr><td>Transición</td><td>Flecha. No alcanza con una línea, por UML</td><td>4 y 5</td></tr><tr><td>Bifurcación</td><td>Rombo, con guarda entre corchetes</td><td>6</td></tr><tr><td>Fusión</td><td>Rombo</td><td>8</td></tr><tr><td>Calles (swimlanes)</td><td>Columnas por responsable</td><td>8</td></tr><tr><td>División y fusión de control</td><td>Barra</td><td>10</td></tr><tr><td>Objeto de negocio</td><td>Rectángulo, unido con flujo punteado</td><td>11</td></tr><tr><td>Subdiagrama</td><td>Tridente invertido dentro de la actividad</td><td>11</td></tr><tr><td>Evento externo</td><td>Pentágono cóncavo: un rectángulo con un triángulo hacia adentro a la izquierda</td><td>12</td></tr><tr><td>Señal enviada</td><td>Pentágono convexo: un rectángulo con un triángulo a la derecha</td><td>12 y 13</td></tr><tr><td>Evento temporal</td><td>Reloj de arena</td><td>13</td></tr><tr><td>Zona de interrupción</td><td>Rectángulo discontinuo y rayo</td><td>13 y 14</td></tr><tr><td>Nota</td><td>Rectángulo con la esquina superior derecha doblada</td><td>14</td></tr></tbody></table></div>
+<pre class="codigo"><code>(inicio)
+   |
+[Tomar pedido]
+   |
+ &lt;rombo&gt; --[hay stock]--&gt; [Preparar pedido] --&gt; (final)
+   |
+[sin stock]
+   |
+ (X flujo final)</code></pre>
+<details class="pregunta"><summary><span>¿El diagrama de actividad puede no tener calles?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Sí. No es incorrecto. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Se puede hacer sin mostrar tecnología?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>Sí. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<h3 id="directrices">Directrices</h3>
+<p>Son 9, del apunte de directrices del diagrama de actividad.</p>
+<p><strong>Definición.</strong> «Las directrices conforman un conjunto de lineamientos o aportes que llevan a elaborar un producto o artefacto de mejor calidad. Las directrices no representan restricciones ni condicionamientos solo establecen pautas de mejora» (p. 1).</p>
+<div class="tabla"><table><thead><tr><th>N.°</th><th>Directriz</th><th>Qué dice el apunte</th><th>Página</th></tr></thead><tbody><tr><td>1</td><td>Pensar desde la organización</td><td>El límite del diagrama es la organización. Lo que pasa fuera de su control pierde importancia. Ejemplo: lo que hace el cliente para decidir si aprueba un presupuesto no se modela</td><td>1</td></tr><tr><td>2</td><td>Decidir tener en cuenta la tecnología</td><td>Decidir qué se representa, el proceso actual o el mejorado. En general el diagrama refleja la realidad actual. No es lo mismo «el cliente interactúa con la empresa» que «el cliente pide por la web»</td><td>1</td></tr><tr><td>3</td><td>Tomar conciencia del detalle</td><td>Decidir antes de empezar el nivel de atomicidad. En las primeras iteraciones el objetivo es entender el proceso, sin complicarse con detalle. Si entendés el proceso sin diagrama, no lo hagas</td><td>1</td></tr><tr><td>4</td><td>La transición marca una precondición</td><td>Para empezar una actividad debe haberse hecho la previa. La previa produce información, producto, servicio o decisión que la siguiente necesita. Ejemplo: realizar pedido es previa a realizar factura</td><td>1 y 2</td></tr><tr><td>5</td><td>Detectar el disparador</td><td>El proceso arranca con un hecho concreto iniciado por un actor o por el tiempo. Ejemplo: el cliente presenta la receta en el mostrador</td><td>2</td></tr><tr><td>6</td><td>Evitar diálogos entre swimlanes</td><td>Un ida y vuelta entre actores, como el paciente y la recepcionista negociando el turno, puede ser poco trascendente. Evitalos en procesos organizacionales y, si hacen falta, llevalos a un subdiagrama</td><td>2</td></tr><tr><td>7</td><td>La actividad es una unidad de trabajo consistente</td><td>Las acciones de un actor no son actividades distintas. Una actividad es un conjunto de acciones que devuelve un producto, servicio, información o decisión. Ejemplo: validar fecha, sugerir alternativas y registrar son acciones de «otorgar turno»</td><td>2 y 3</td></tr><tr><td>8</td><td>Explicitar objetos de negocio cuando sea útil</td><td>El diagrama puede sobrevivir sin ellos. Usalos cuando brinden mayor información</td><td>3</td></tr><tr><td>9</td><td>Evitar actividades de transporte</td><td>Actividades que solo transportan información o productos, sin transformarlos, no aportan conocimiento nuevo</td><td>3</td></tr></tbody></table></div>
+<p><strong>El ejemplo de la ferretería</strong> (p. 3 a 5) aplica las directrices a una lista de actividades. Las directrices 1, 2 y 5 quitan «solicitar pedido». La 3 quita «registrar pedido», «controlar pedido» e «indicar pago». La 7 agrupa las actividades del vendedor en una sola.</p>
+<p>El mismo apunte trae un ejemplo armado de una ferretería (p. 3 a 5). <a href="https://drive.google.com/file/d/1iOIXNuXCUdDPS9DdGgjb5ssugiMuM4R8/view">Abrilo en el Drive</a> antes de hacer tu primer diagrama.</p>
+<div class="tomado"><aside class="nota"><strong>Directrices</strong><span>Teóricos 24/08/24 y 16/12/24</span></aside><p>La cátedra pidió el beneficio de «evitar diálogos entre swimlanes» y, en AD, explicar 2 directrices a elección.</p>
+</div>
+<h3 id="subdiagramas-y-objetos">Subdiagramas y objetos</h3>
+<p>Un subdiagrama despliega una actividad compleja en otro diagrama, para no recargar el principal. Se marca con el tridente invertido (p. 11).</p>
+<p>Los <strong>objetos de negocio</strong> muestran lo que una actividad consume o produce. Se pidieron en AD («deben exponer los objetos producidos y consumidos», recuperatorio del 16/12/24).</p>
+</section>
+<section class="sec"><h2 id="zona-de-interrupcion">Zona de interrupción</h2>
+<p>Estás cocinando y se corta la luz. Dejás lo que hacías y resolvés. Puede que retomes o que abandones la cena. La zona de interrupción (ZI) dibuja eso.</p>
+<p><strong>Definición.</strong> Representación dentro de un diagrama de actividad de un evento que discontinúa lo que se estaba haciendo, aunque sea temporalmente, hasta resolver la situación (apunte Zona de Interrupción, p. 1). Se dibuja con un rectángulo de bordes discontinuos, y cubre todas las actividades afectadas.</p>
+<div class="ojo"><p class="ojo-t">Dónde va el evento</p><p><mark>El evento está dentro de la zona</mark> (p. 2). Se une a las acciones que resuelven con una flecha con forma de rayo acostado, o de otra forma que muestra la p. 4.</p>
+</div>
+<p><strong>Las 4 terminaciones</strong> (p. 3).</p>
+<div class="tabla"><table><thead><tr><th>Caso</th><th>Cuando termina la interrupción</th></tr></thead><tbody><tr><td>A</td><td>Se alcanza la meta y el proceso termina con éxito</td></tr><tr><td>B</td><td>Se vuelve al punto que quedó interrumpido</td></tr><tr><td>C</td><td>Se vuelve a un punto específico del proceso</td></tr><tr><td>D</td><td>Termina el proceso sin alcanzar la meta</td></tr></tbody></table></div>
+<p><strong>Qué hacer cuando</strong> (p. 5).</p>
+<ul>
+<li><strong>Hay varias zonas.</strong> Declará las más significativas y mandá el resto a una sección «Interrupciones», con evento, descripción breve y actividades incluidas.</li>
+<li><strong>Varias zonas coinciden.</strong> Dibujá una y poné todos los eventos adentro.</li>
+<li><strong>Abarca todo el proceso.</strong> Hay 3 soluciones buenas: dibujar solo el evento con sus acciones, dibujar la zona entera, o agregar una nota junto al evento.</li>
+</ul>
+<p>El evento también puede ser temporal (p. 4).</p>
+<details class="pregunta"><summary><span>¿Por qué declarar una zona de interrupción?</span><small>Teórico 16/12/24</small></summary><div class="resp"><p>Permite atender situaciones excepcionales. Sin declararla, queda invisible algo que puede romper el proceso. Las metas fracaso son una fuente para encontrarlas. Fuente: apunte Zona de Interrupción, p. 5.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿Una zona puede interrumpir a otra?</span><small>Consigna típica</small></summary><div class="resp"><p>Sí. Fuente: apunte Zona de Interrupción, p. 6.</p>
+</div></details>
+<details class="pregunta"><summary><span>¿La zona de interrupción es un artefacto?</span><small>Teórico 01/11/25</small></summary><div class="resp"><p>No. Es nomenclatura adicional del diagrama de actividad. Fuente: teórico del 01/11/25 con respuestas.</p>
+</div></details>
+<div class="tomado"><aside class="nota"><strong>Zona de interrupción</strong><span>Práctica 28/06/25, teóricos 24/08/24 y 16/12/24</span></aside><p>Dibujar la ZI en un diagrama, nombrar 2 terminaciones, ubicar el evento y qué pasa si hay más de una.</p>
+</div>
+</section>
+<section class="sec"><h2 id="mapa-conceptual">Mapa conceptual</h2>
+<p>Se pidió en la práctica del 24/08/24: «Desarrolle el mapa conceptual (Modelo del dominio sin atributos)». Se arma igual que el <a href="parcial-2.html#modelo-del-dominio">modelo del dominio</a>, sin atributos.</p>
+</section>
+<section class="sec"><h2 id="procesos-de-negocio">Procesos de negocio</h2>
+<p>Un <strong>proceso de negocio</strong> es un conjunto de actividades relacionadas que toman una entrada y le agregan valor para producir una salida con un resultado bien definido (presentación Procesos de negocio, diapositiva «Proceso de negocio»).</p>
+<p>Un <strong>proceso elemental de negocio (EBP)</strong> es una tarea hecha por una persona en un lugar y en un instante, como respuesta a un evento de negocio. Añade valor cuantificable y deja los datos consistentes (misma presentación, citando a Larman). Lo vas a usar en el <a href="parcial-2.html#casos-de-uso">2° parcial</a>.</p>
+<div class="ojo"><p class="ojo-t">Solo fue tomado una vez</p><p>«Proceso de negocio» aparece en el teórico del 28/04/25, de un final. No lo encontré en los teóricos de 1° parcial que revisé.</p>
+</div>
+</section><section class="sec quiz" id="quiz" data-quiz="parcial-1" data-materia="analisis-de-sistemas-de-informacion">
+<h2>Quiz del 1° parcial</h2>
+<p class="quiz-baja">Elegí una opción para ver la explicación. Las que dicen «Se tomó» salieron de exámenes reales.</p>
+<p class="quiz-repaso"><button type="button" class="b-sec quiz-repasar" hidden></button></p>
+<ol class="qs"><li class="q" data-q="rDr4duFam0" data-tema="El Proceso Unificado" data-enlace="parcial-1.html#el-proceso-unificado" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-1"><span class="q-n">1</span><div><p>¿Qué describe mejor a la fase de inicio del UP?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-1"><li><button type="button" class="op" data-ok="0">La fase donde se definen todos los requisitos</button></li><li><button type="button" class="op" data-ok="1">Una especie de fase de viabilidad</button></li><li><button type="button" class="op" data-ok="0">La fase donde se implementa la arquitectura</button></li><li><button type="button" class="op" data-ok="0">La fase de pruebas beta</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Hace <strong>solo el estudio suficiente</strong> para decidir si continuar o no.</p>
+</div></li><li class="q" data-q="tHHeGsQv-R" data-tema="Pesado, predictivo, adaptable y ágil" data-enlace="parcial-1.html#pesado-predictivo-adaptable-y-agil" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-2"><span class="q-n">2</span><div><p>¿Qué plan detalla solo la iteración que viene?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-2"><li><button type="button" class="op" data-ok="0">El plan de fase</button></li><li><button type="button" class="op" data-ok="0">El plan de proyecto en cascada</button></li><li><button type="button" class="op" data-ok="1">El plan de iteración</button></li><li><button type="button" class="op" data-ok="0">La visión</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El <strong>plan de fase</strong> es de alto nivel. El de iteración planifica con detalle solo una iteración por adelantado.</p>
+</div></li><li class="q" data-q="IAE0oRdjkk" data-tema="FURPS+" data-enlace="parcial-1.html#furps" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-3"><span class="q-n">3</span><div><p>En FURPS+, ¿a qué tipo pertenecen los tiempos de respuesta?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-3"><li><button type="button" class="op" data-ok="1">Rendimiento</button></li><li><button type="button" class="op" data-ok="0">Fiabilidad</button></li><li><button type="button" class="op" data-ok="0">Facilidad de uso</button></li><li><button type="button" class="op" data-ok="0">Soporte</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Rendimiento incluye tiempos de respuesta, productividad, precisión, disponibilidad y uso de recursos.</p>
+</div></li><li class="q" data-q="lrG77JGVpp" data-tema="Actores y stakeholders" data-enlace="parcial-1.html#actores-y-stakeholders" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-4"><span class="q-n">4</span><div><p>¿Quién es el actor primario de un caso de uso?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-4"><li><button type="button" class="op" data-ok="0">El que aprieta el botón</button></li><li><button type="button" class="op" data-ok="1">El dueño de la meta</button></li><li><button type="button" class="op" data-ok="0">El que recibe información sin interactuar</button></li><li><button type="button" class="op" data-ok="0">El sistema externo</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Es el <strong>dueño de la meta</strong>, con o sin interacción directa. El que inicia físicamente es el iniciador.</p>
+</div></li><li class="q" data-q="YdJnnJ0R_T" data-tema="Análisis de metas" data-enlace="parcial-1.html#analisis-de-metas" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-5"><span class="q-n">5</span><div><p>¿Qué distingue a una meta principal de una complementaria?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-5"><li><button type="button" class="op" data-ok="1">La principal explica la razón de existir del negocio</button></li><li><button type="button" class="op" data-ok="0">La complementaria está subordinada a otra</button></li><li><button type="button" class="op" data-ok="0">La principal siempre tiene sub-metas</button></li><li><button type="button" class="op" data-ok="0">La complementaria no tiene actor</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>Ambas son independientes. La <strong>principal</strong> explica la razón de existir del negocio y la complementaria ayuda.</p>
+</div></li><li class="q" data-q="CJk9Kow86s" data-tema="Los artefactos del análisis" data-enlace="parcial-1.html#los-artefactos-del-analisis" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-6"><span class="q-n">6</span><div><p>En el gráfico de subordinación, ¿hacia dónde apunta la flecha?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-6"><li><button type="button" class="op" data-ok="0">A la meta subordinada</button></li><li><button type="button" class="op" data-ok="1">A la meta que subordina</button></li><li><button type="button" class="op" data-ok="0">Al actor de la meta</button></li><li><button type="button" class="op" data-ok="0">No lleva flecha</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El gráfico es un dígrafo. La flecha apunta a la meta que subordina.</p>
+</div></li><li class="q" data-q="C6M64YUG1N" data-tema="Símbolos" data-enlace="parcial-1.html#simbolos" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-7"><span class="q-n">7</span><div><p>¿Qué símbolo representa un flujo final en un diagrama de actividad?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-7"><li><button type="button" class="op" data-ok="0">Un círculo sólido</button></li><li><button type="button" class="op" data-ok="0">Un rombo</button></li><li><button type="button" class="op" data-ok="1">Un círculo con una X</button></li><li><button type="button" class="op" data-ok="0">Una barra sólida</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El <strong>flujo final</strong> es un círculo con una X adentro.</p>
+</div></li><li class="q" data-q="LJhL-9G9XV" data-tema="Símbolos" data-enlace="parcial-1.html#simbolos" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-8"><span class="q-n">8</span><div><p>¿Cómo se redacta una actividad?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-8"><li><button type="button" class="op" data-ok="0">Sustantivo + adjetivo</button></li><li><button type="button" class="op" data-ok="0">Verbo en presente + actor</button></li><li><button type="button" class="op" data-ok="1">Verbo en infinitivo + objeto</button></li><li><button type="button" class="op" data-ok="0">Actor + verbo + objeto</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>La forma es <strong>verbo en infinitivo + objeto</strong>.</p>
+</div></li><li class="q" data-q="tQ6LbZ1IcL" data-tema="Zona de interrupción" data-enlace="parcial-1.html#zona-de-interrupcion" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-9"><span class="q-n">9</span><div><p>¿Dónde va el evento de una zona de interrupción?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-9"><li><button type="button" class="op" data-ok="1">Dentro de la zona</button></li><li><button type="button" class="op" data-ok="0">Fuera de la zona, a la izquierda</button></li><li><button type="button" class="op" data-ok="0">En una calle aparte</button></li><li><button type="button" class="op" data-ok="0">En una nota</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>El apunte lo marca: el evento está dentro de la zona.</p>
+</div></li><li class="q" data-q="im3bUhI9D1" data-tema="Zona de interrupción" data-enlace="parcial-1.html#zona-de-interrupcion" data-tipo="mc"><div class="q-enun" id="qe-parcial-1-10"><span class="q-n">10</span><div><p>Si una interrupción termina el proceso sin alcanzar la meta, ¿qué caso del apunte es?</p>
+</div></div><ul class="ops" role="group" aria-labelledby="qe-parcial-1-10"><li><button type="button" class="op" data-ok="0">A</button></li><li><button type="button" class="op" data-ok="0">B</button></li><li><button type="button" class="op" data-ok="0">C</button></li><li><button type="button" class="op" data-ok="1">D</button></li></ul><div class="q-expl" tabindex="-1" hidden><p>A alcanza la meta. B y C vuelven al proceso. <strong>D</strong> finaliza sin alcanzar la meta en forma exitosa.</p>
+</div></li><li class="q" data-q="sCbrGVu3o7" data-tema="Relevar: técnicas y minutas" data-enlace="parcial-1.html#relevar-tecnicas-y-minutas" data-tipo="abierta"><div class="q-enun" id="qe-parcial-1-11"><span class="q-n">11</span><div><p>¿Qué partes tiene una minuta?</p>
+</div></div><details class="q-abierta"><summary>Ver qué dice el material</summary><div><p>Encabezado, cuerpo y pie. La cátedra suma secciones como estructura y descripción de procesos, necesidades para con el nuevo sistema y cuestiones abiertas o cerradas.</p>
+</div><p class="q-auto">¿Cómo te fue? <button type="button" class="b-auto" aria-pressed="false" data-ok="1">La sabía</button> <button type="button" class="b-auto" aria-pressed="false" data-ok="0">Me faltó</button></p></details></li></ol>
+<p class="quiz-fin" aria-live="polite"><span class="quiz-res">Todavía no respondiste ninguna.</span> <button type="button" class="b-sec quiz-reset">Empezar de nuevo</button></p>
+</section>
+</main>
+</div>
+<footer><div class="pie"><p>Resumen armado a partir del material del Drive de UTN (exámenes hasta 2026). Si el programa cambió, manda la cátedra. <a href="../privacidad.html">Tu privacidad</a></p></div><p class="aviso-final">Este contenido se basa en el material disponible en el Drive de la carrera. No reemplaza bajo ningún concepto lo dado por los docentes en cada aula, y los resúmenes no están verificados por ellos. Se recomienda fuertemente verificarlos con el material que brindan tus profesores y adaptarlos para tu uso personal o grupal con el botón Editar, en la barra de arriba de cada resumen.</p></footer>
+</body>
+</html>

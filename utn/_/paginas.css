@@ -1,0 +1,191 @@
+/* Sysacad Lindo, Privacidad and Agradecimientos, the same notebook as the home page. Blue pen, notes by hand and
+   captures taped to the sheet. Only these three pages load it. One moment moves on each page, with transform and
+   opacity only: the captures being taped and the names being signed. Privacy stays still. */
+:root {
+  --cinta: color-mix(in srgb, var(--borde-control) 30%, transparent);
+  --subrayado: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 14' preserveAspectRatio='none' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M3 10C40 5 90 3.5 140 5s70 3 97-1'/%3E%3C/svg%3E");
+}
+@media screen {
+  [data-tema='noche'] { --cinta: rgb(255 255 255 / 16%); }
+  [data-contraste] { --cinta: transparent; }
+}
+
+/* Shared: a wider sheet, a bigger title and the pen drawing of the page in the corner. */
+.seccion .s-hoja, .seccion .s-otras, .seccion .pie { max-width: 68rem; }
+.seccion .s-hoja { position: relative; padding-top: clamp(2rem, 5vw, 4rem); }
+.seccion .s-hoja h1 { max-width: 15ch; margin-bottom: 1.1rem; font-size: clamp(2.3rem, 7vw, 4.6rem); line-height: .92; letter-spacing: -.035em; }
+.seccion .s-hoja .bajada { max-width: 50ch; font: 400 clamp(1.12rem, 1.6vw, 1.3rem)/1.55 var(--serif); }
+.seccion .s-hoja h2 { margin: 0 0 .8rem; padding-top: 0; font: 800 clamp(1.6rem, 3vw, 2.15rem)/1.05 var(--sans); letter-spacing: -.02em; color: var(--titulo); text-wrap: balance; }
+.pg-dibujo { position: absolute; top: clamp(1.6rem, 4vw, 3rem); right: clamp(.9rem, 2.5vw, 1.8rem); width: clamp(4.5rem, 11vw, 8rem); height: auto; fill: none; stroke: var(--titulo); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; transform: rotate(-8deg); pointer-events: none; }
+.s-hoja .pg-nota { max-width: 40ch; margin: 0 0 1rem; font: 400 1.05rem/1.5 var(--mano); color: var(--tinta-suave); transform: rotate(-1deg); transform-origin: left; }
+.pg-caja { padding: clamp(1.1rem, 3vw, 1.6rem) clamp(1.1rem, 3vw, 1.8rem); border: 1.5px dashed var(--linea); border-radius: 12px; }
+.pg-caja > :last-child { margin-bottom: 0; }
+@media (max-width: 40rem) {
+  .pg-dibujo { display: none; }
+}
+[data-texto] .pg-dibujo { display: none; }
+
+/* Sysacad Lindo. The download sits at the top, and again next to the steps. */
+.sy-bajar { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.1rem; margin: .2rem 0 0; }
+/* What the extension could not be tried on yet: right under the download, before anyone installs it. */
+.sy-aviso { max-width: 62ch; margin: 1.2rem 0 0; }
+.sy-aviso p:last-child { margin-bottom: .5rem; }
+.sy-bajar .b-pri, .sy-bajar .b-sec { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; text-decoration: none; }
+.sy-bajar .b-pri { padding: .8rem 1.35rem .8rem 1.1rem; font: 650 1.1rem/1.2 var(--sans); border-radius: 8px; }
+.sy-bajar .b-sec { padding: .55rem 1rem .55rem .85rem; font-size: 1rem; }
+.sy-bajar .s-nota { display: inline; margin: 0; font: 400 1rem/1.3 var(--mano); color: var(--tinta-suave); }
+.sy-i { flex: none; width: 1.35rem; height: 1.35rem; fill: none; stroke: currentcolor; stroke-width: 3.6; stroke-linecap: round; stroke-linejoin: round; }
+.sy-bajar .b-sec .sy-i { width: 1.15rem; height: 1.15rem; }
+
+/* Two captures taped to the sheet, the night one peeking behind. Decorative: the gallery below describes them. */
+.sy-heroe { --giro: 0deg; position: relative; width: 100%; max-width: 38rem; aspect-ratio: 6 / 5; margin: 2.6rem 0 0; }
+.sy-pegada { position: absolute; display: block; padding: .45rem; background: var(--lapiz); border: 1px solid var(--borde); border-radius: 3px; box-shadow: var(--sombra-papel); transform: rotate(var(--giro)); }
+.sy-pegada img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top left; border-radius: 2px; background: var(--cuadro); }
+.sy-pegada::before, .sy-pegada::after, .sy-capturas figure::before, .ag-creador::before, .ag-creador::after { content: ''; position: absolute; z-index: 1; top: -.7rem; width: 4.6rem; height: 1.4rem; background: var(--cinta); }
+.sy-pegada::before { left: 8%; transform: rotate(-7deg); }
+.sy-pegada::after { right: 8%; transform: rotate(6deg); }
+.sy-atras { --giro: -5deg; top: 0; left: 0; width: 50%; aspect-ratio: 3 / 4; }
+.sy-frente { --giro: 1.8deg; right: 0; bottom: 0; width: 84%; aspect-ratio: 1040 / 865; }
+@media (min-width: 62rem) {
+  [data-pagina='sysacad-lindo'] .s-hoja { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); grid-template-rows: 1fr auto auto auto 1fr; column-gap: clamp(2.5rem, 5vw, 4.5rem); }
+  [data-pagina='sysacad-lindo'] .s-hoja > * { grid-column: 1 / -1; }
+  [data-pagina='sysacad-lindo'] .s-hoja > h1 { grid-column: 1; grid-row: 2; }
+  [data-pagina='sysacad-lindo'] .s-hoja > .bajada { grid-column: 1; grid-row: 3; }
+  [data-pagina='sysacad-lindo'] .s-hoja > .sy-bajar { grid-column: 1; grid-row: 4; }
+  [data-pagina='sysacad-lindo'] .s-hoja > .sy-heroe { grid-column: 2; grid-row: 1 / span 5; align-self: center; margin: 1rem 0 0; }
+}
+@media (max-width: 30rem) {
+  .sy-bajar .b-pri { flex: 1 1 100%; }
+}
+
+.sy-parte { margin: clamp(3.4rem, 8vw, 5.5rem) 0 0; }
+.sy-instalar-lado .sy-bajar { margin: 1.1rem 0 1.4rem; }
+.sy-pasos { max-width: 40rem; margin: 0 0 1.6rem; padding: 0; list-style: none; counter-reset: paso; }
+.sy-pasos li { position: relative; min-height: 2.7rem; margin: 0; padding: .3rem 0 1.3rem 3.9rem; font: 400 1.06rem/1.6 var(--serif); counter-increment: paso; }
+.sy-pasos li::before { content: counter(paso); position: absolute; top: 0; left: 0; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; font: 600 1.3rem/1 var(--mano); font-variant-numeric: lining-nums; color: var(--titulo); border: 1.75px solid var(--linea); border-radius: 55% 45% 52% 48% / 48% 56% 44% 52%; transform: rotate(-4deg); }
+.sy-pasos li:nth-child(even)::before { border-radius: 45% 55% 48% 52% / 54% 46% 56% 44%; transform: rotate(5deg); }
+.sy-pasos li:not(:last-child)::after { content: ''; position: absolute; top: 2.95rem; bottom: .3rem; left: 1.25rem; border-left: 2px dotted var(--borde-control); }
+.sy-pasos code { padding: .08rem .4rem; font: 500 .86em/1.4 var(--mono); color: var(--tinta); white-space: nowrap; background: var(--lapiz); border: 1px solid var(--borde-control); border-radius: 4px; }
+@media (min-width: 52rem) {
+  .sy-instalar { display: grid; grid-template-columns: minmax(14rem, 19rem) minmax(0, 1fr); column-gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+  .sy-instalar-lado { grid-row: 1 / span 2; }
+  .sy-instalar-lado .sy-bajar { margin-bottom: 0; }
+  .sy-instalar .pg-nota { grid-column: 2; margin-left: 3.9rem; }
+}
+
+/* What it does, as a list ticked off in pen. */
+.sy-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.05rem 2.6rem; margin: 1.3rem 0 1.8rem; padding: 0; list-style: none; }
+.sy-lista li { position: relative; margin: 0; padding-left: 2.3rem; font: 400 1.05rem/1.5 var(--serif); color: var(--tinta); }
+.sy-lista li::before { content: ''; position: absolute; top: .05rem; left: 0; width: 1.55rem; height: 1.55rem; background: var(--birome); -webkit-mask: var(--tilde) center / contain no-repeat; mask: var(--tilde) center / contain no-repeat; }
+.sy-lista b { font: 700 1.05rem/1.4 var(--sans); color: var(--titulo); }
+
+.sy-priv { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0 1.4rem; max-width: 52rem; }
+.sy-priv-i { width: 3rem; height: 3rem; fill: none; stroke: var(--titulo); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sy-priv p:last-child { margin-bottom: 0; }
+@media (max-width: 30rem) {
+  .sy-priv { grid-template-columns: minmax(0, 1fr); }
+  .sy-priv-i { width: 2.4rem; height: 2.4rem; margin-bottom: .5rem; }
+}
+
+/* The captures, each on its own sheet. A tap opens it whole. */
+/* The link with El Santo Resumen: words on top, the two captures under them. */
+.sy-santo-texto { max-width: 46rem; margin: 0 0 2.2rem; }
+.sy-santo-texto p:not(.pg-nota) { font: 400 1.1rem/1.6 var(--serif); }
+.sy-santo .sy-ver-cabeza { margin-bottom: 1.1rem; }
+.sy-ver-cabeza { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem 1.4rem; margin: 0 0 2rem; }
+.sy-ver-cabeza h2, .sy-ver-cabeza .pg-nota { margin: 0; }
+.sy-capturas { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr)); gap: 2.6rem 2.2rem; align-items: start; margin: 0; padding: 0; list-style: none; }
+.sy-capturas li { margin: 0; }
+.sy-capturas figure { position: relative; margin: 0; padding: .5rem .5rem .75rem; background: var(--lapiz); border: 1px solid var(--borde); border-radius: 3px; box-shadow: var(--sombra-papel); }
+.sy-capturas figure::before { left: 50%; width: 5.4rem; transform: translateX(-50%) rotate(-2.5deg); }
+.sy-capturas li:nth-child(even) figure::before { transform: translateX(-50%) rotate(3deg); }
+.sy-foto { display: block; border-radius: 2px; }
+.sy-foto:focus-visible { outline: 2.5px solid var(--linea); outline-offset: 3px; }
+.sy-capturas img { display: block; width: 100%; height: auto; max-height: 27rem; object-fit: cover; object-position: top; background: var(--cuadro); border-radius: 2px; }
+.sy-capturas figcaption { margin: .65rem .25rem 0; font: 400 1rem/1.4 var(--mano); color: var(--tinta-suave); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .sy-pegada { animation: sy-pegar .7s cubic-bezier(.23, 1, .32, 1) both; }
+  .sy-atras { animation-delay: .1s; }
+  .sy-frente { animation-delay: .22s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sy-pegada { animation: pg-fundido .3s ease-out both; }
+}
+@keyframes sy-pegar { from { opacity: 0; transform: translateY(1.6rem) rotate(calc(var(--giro) * 2.4)); } }
+@keyframes pg-fundido { from { opacity: 0; } }
+
+/* Privacy: a calm reading column, and on wide screens its parts on the left. Nothing moves. */
+.pv-fecha { display: block; width: fit-content; margin-top: .5rem; font: 400 1rem/1.4 var(--mano); color: var(--tinta-suave); transform: rotate(-1.5deg); transform-origin: left; }
+.pv-marco { margin-top: clamp(2.2rem, 5vw, 3.4rem); }
+.pv-indice { display: none; }
+.pv-texto { max-width: 46rem; }
+.pv-parte { margin: 0 0 clamp(2.6rem, 6vw, 3.6rem); }
+.seccion .s-hoja .pv-parte > h2 { font-size: clamp(1.45rem, 2.6vw, 1.8rem); font-weight: 750; }
+.pv-texto .s-bloque p, .pv-texto li { font: 400 1.08rem/1.7 var(--serif); color: var(--tinta); }
+.pv-texto .s-bloque p { max-width: 62ch; margin-bottom: .9rem; }
+.pv-datos { margin: 0; padding: 0; list-style: none; border-top: 1.5px solid var(--linea); }
+.pv-datos li { display: grid; grid-template-columns: minmax(0, 1fr); gap: .15rem; margin: 0; padding: .95rem 0 1rem; border-bottom: 1px solid var(--borde); }
+.pv-datos b { font: 650 1.05rem/1.4 var(--sans); color: var(--titulo); }
+.pv-plazos { margin: 0; padding: 0; list-style: none; }
+.pv-plazos li { position: relative; max-width: 62ch; margin: 0; padding: 0 0 .75rem 1.8rem; }
+.pv-plazos li::before { content: ''; position: absolute; top: .85em; left: .1rem; width: 1rem; height: 2px; background: var(--birome); border-radius: 2px; transform: rotate(-10deg); }
+.pv-borrar a { font-weight: 600; }
+@media (min-width: 48rem) {
+  .pv-datos li { grid-template-columns: 12.5rem minmax(0, 1fr); align-items: baseline; column-gap: 1.8rem; }
+}
+@media (min-width: 64rem) {
+  .pv-marco { display: grid; grid-template-columns: 12rem minmax(0, 1fr); column-gap: clamp(2.5rem, 4vw, 4rem); align-items: start; }
+  .pv-indice { position: sticky; top: 5.5rem; display: block; }
+  .pv-indice ul { margin: .2rem 0 0; padding: 0; list-style: none; border-left: 1.5px solid var(--borde); }
+  .pv-indice a { display: block; margin-left: -1.5px; padding: .42rem 0 .42rem .95rem; font: 500 .96rem/1.3 var(--sans); color: var(--tinta-suave); text-decoration: none; border-left: 3px solid transparent; }
+  .pv-indice a:focus-visible { outline-offset: -2px; }
+}
+@media (min-width: 64rem) and (hover: hover) and (pointer: fine) {
+  .pv-indice a:hover { color: var(--titulo); border-left-color: var(--linea); }
+}
+
+/* Thanks: the one who keeps the Drive on a taped sheet, and everyone else signing the notebook. */
+.ag-creador { position: relative; max-width: 40rem; margin: clamp(2.4rem, 6vw, 3.6rem) 0 clamp(3.2rem, 7vw, 4.6rem); padding: 1.7rem clamp(1.2rem, 4vw, 2rem) 1.6rem; background: var(--lapiz); border: 1px solid var(--borde); border-radius: 3px; box-shadow: var(--sombra-papel); transform: rotate(-.7deg); }
+.ag-creador::before { left: 1.4rem; transform: rotate(-6deg); }
+.ag-creador::after { right: 1.4rem; transform: rotate(5deg); }
+.seccion .s-hoja .ag-creador h2 { display: inline-block; margin: 0 0 .8rem; font-size: clamp(2.1rem, 5.5vw, 3.2rem); line-height: 1; letter-spacing: -.03em; }
+.ag-creador h2::after { content: ''; display: block; height: .3em; margin-top: .1em; background: var(--birome); -webkit-mask: var(--subrayado) 0 0 / 100% 100% no-repeat; mask: var(--subrayado) 0 0 / 100% 100% no-repeat; }
+.ag-creador p { margin: 0; font-size: 1.15rem; }
+.ag-alumnos > p { max-width: 58ch; }
+.ag-firmas { display: flex; flex-wrap: wrap; align-items: baseline; gap: 1.15rem 2.3rem; margin: 1.8rem 0 0; padding: 0; list-style: none; }
+.ag-firmas li { --giro: -1.5deg; display: inline-block; font: 600 clamp(1.12rem, 2vw, 1.38rem)/1.25 var(--mano); color: var(--birome); transform: rotate(var(--giro)); }
+.ag-firmas li:nth-child(3n + 2) { --giro: 1.8deg; color: var(--tinta); }
+.ag-firmas li:nth-child(4n + 3) { --giro: -3deg; }
+.ag-firmas li:nth-child(5n) { --giro: 2.6deg; font-weight: 400; }
+.seccion .ag-gracias-fuente { margin-top: 2.6rem; }
+.seccion .s-cierre { max-width: 24ch; margin: clamp(3.4rem, 8vw, 5.5rem) 0 2.4rem; font: 600 clamp(1.5rem, 3.8vw, 2.5rem)/1.3 var(--mano); color: var(--titulo); text-wrap: balance; }
+@media (prefers-reduced-motion: no-preference) {
+  .ag-firmas li { animation: ag-firmar .5s cubic-bezier(.23, 1, .32, 1) both; animation-delay: calc(min(var(--i, 0), 12) * 30ms + .15s); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ag-firmas li { animation: pg-fundido .3s ease-out both; }
+}
+@keyframes ag-firmar { from { opacity: 0; transform: translateY(.6rem) rotate(calc(var(--giro) * 3)); } }
+
+/* Big text: one column, like the study pages. */
+[data-texto='150'] .pv-marco, [data-texto='175'] .pv-marco, [data-texto='175'] .s-hoja { display: block; }
+/* Big text: Sysacad Lindo in one column, with the picture under the words. */
+[data-texto='150'] [data-pagina='sysacad-lindo'] .s-hoja, [data-texto] .sy-instalar { display: block; }
+[data-texto='150'] .pv-indice, [data-texto='175'] .pv-indice { display: none; }
+
+@media print {
+  .pg-dibujo, .sy-heroe, .pv-indice { display: none !important; }
+  .sy-pegada, .sy-capturas figure, .ag-creador { box-shadow: none; transform: none; }
+}
+
+/* Notas del parche. One block per date; the kind of each change goes in the margin, written by hand. */
+.nv-fecha + .nv-fecha { margin-top: 2.4rem; }
+.nv-lista { display: grid; gap: .75rem; max-width: 46rem; margin: 0; padding: 0; list-style: none; }
+.nv-lista li { display: grid; grid-template-columns: 5.2rem minmax(0, 1fr); gap: .9rem; align-items: baseline; font: 400 1.04rem/1.55 var(--serif); color: var(--tinta); }
+.nv-tipo { font: 600 1rem/1.3 var(--mano); color: var(--titulo); transform: rotate(-2deg); transform-origin: left; }
+.nv-mejora { color: var(--tinta-suave); }
+.nv-arreglo { color: var(--mal); }
+@media (max-width: 30rem) {
+  .nv-lista li { grid-template-columns: minmax(0, 1fr); gap: .1rem; }
+}
