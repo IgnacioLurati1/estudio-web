@@ -1,0 +1,183 @@
+/* Interactive figures: an insert on the same graph paper, in the same pens as the notes. Colours only from the page's variables. */
+figure.w {
+  position: relative; container-type: inline-size;
+  margin: 0 0 1.35rem; padding: .7rem .85rem .75rem; overflow: visible;
+  font: 400 .98rem/1.45 var(--sans); color: var(--tinta);
+  background: var(--papel); border: 1px solid var(--borde); border-left: 3px solid var(--linea);
+}
+figure.w figcaption { margin: 0 0 .55rem; color: var(--tinta); }
+figure.w figcaption .w-t { display: block; font: 700 1.02rem/1.3 var(--sans); color: var(--titulo); }
+figure.w figcaption .w-f { display: block; margin-top: .1rem; font: 400 .8rem/1.35 var(--sans); color: var(--tinta-suave); }
+.w-lienzo:empty { display: none; }
+.w-desc { font: 400 .98rem/1.5 var(--serif); }
+.w-desc > :last-child { margin-bottom: 0; }
+/* With JavaScript the description stays for screen readers; without it, it is the figure. */
+figure.w-listo .w-desc { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+figure.w-sin3d .w-desc { position: static; width: auto; height: auto; clip-path: none; }
+.w-aviso { margin: 0 0 .6rem; padding: .4rem .65rem; font: 500 .92rem/1.4 var(--sans); border: 1px dashed var(--borde-control); }
+
+/* Plot */
+.w-plano, .w-escena { position: relative; border: 1px solid var(--borde); overflow: hidden; touch-action: pan-y; cursor: grab; }
+.w-agarrado { cursor: grabbing; }
+.w-plano:focus-visible, .w-escena:focus-visible { outline-offset: 1px; }
+figure.w svg { min-width: 0; }
+figure.w .wg { display: block; width: 100%; height: auto; font-family: var(--sans); -webkit-user-select: none; user-select: none; }
+.wg-red { stroke: var(--cuadro); stroke-width: 1; }
+.wg-eje { stroke: var(--tinta); stroke-width: 1.4; }
+.wg-marca { stroke: var(--tinta); stroke-width: 1.2; }
+.wg-punta { fill: var(--tinta); }
+.wg-num text, .wg-etqs text { paint-order: stroke; stroke: var(--papel); stroke-width: 3.5px; stroke-linejoin: round; }
+.wg-num text { fill: var(--tinta-suave); font-variant-numeric: tabular-nums; }
+.wg-num .wg-nom { font-family: var(--mano); font-weight: 600; fill: var(--tinta); }
+.wg-etqs text { font-family: var(--mano); fill: var(--tinta); }
+.wg-curva, .wg-tan { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.wg-curva { stroke-width: 2.4; }
+.wg-s0 { stroke: var(--birome); }
+.wg-s1 { stroke: var(--mal); }
+.wg-s2 { stroke: var(--bien); }
+.wg-s3 { stroke: var(--tinta); }
+.wg-curva.wg-s1 { stroke-dasharray: 9 5; }
+.wg-curva.wg-s2 { stroke-dasharray: 1 6; stroke-width: 3; }
+.wg-curva.wg-s3 { stroke-dasharray: 13 4 2 4; }
+.wg-etqs .wg-t0 { fill: var(--birome); }
+.wg-etqs .wg-t1 { fill: var(--mal); }
+.wg-etqs .wg-t2 { fill: var(--bien); }
+.wg-etqs .wg-t3 { fill: var(--tinta); }
+.wg-vector { stroke-width: 2.4; stroke-linecap: round; }
+.wg-vpunta { stroke: none; }
+.wg-vpunta.wg-s0 { fill: var(--birome); }
+.wg-vpunta.wg-s1 { fill: var(--mal); }
+.wg-vpunta.wg-s2 { fill: var(--bien); }
+.wg-vpunta.wg-s3 { fill: var(--tinta); }
+.wg-tan { stroke: var(--tinta); stroke-width: 1.6; stroke-dasharray: 6 4; }
+.wg-vertical { stroke: var(--tinta-suave); stroke-width: 1.3; stroke-dasharray: 3 4; }
+.wg-area { fill: color-mix(in srgb, var(--birome) 13%, transparent); }
+.wg-trama { stroke: color-mix(in srgb, var(--birome) 55%, transparent); stroke-width: 1.1; }
+.wg-punto { fill: var(--tinta); stroke: var(--papel); stroke-width: 1.5; }
+.wg-punto.wg-hueco { fill: var(--papel); stroke: var(--tinta); stroke-width: 2; }
+.wg-guia { stroke: var(--tinta-suave); stroke-width: 1; stroke-dasharray: 2 3; }
+.wg-leido { fill: var(--papel); stroke: var(--tinta); stroke-width: 2.4; }
+.w-lect { display: block; min-height: 1.5em; margin: .35rem 0 .1rem; font: 400 .88rem/1.4 var(--mono); color: var(--tinta); overflow-wrap: anywhere; }
+.w-lect-vacia { font: 400 .85rem/1.4 var(--sans); color: var(--tinta-suave); }
+.w-pie { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: .45rem 1rem; margin-top: .45rem; }
+.w-ley { flex: 1 1 13rem; min-width: 0; margin: 0; padding: 0; list-style: none; font-size: .9rem; line-height: 1.35; }
+.w-ley li { display: flex; align-items: center; gap: .5rem; margin: 0 0 .15rem; overflow-wrap: anywhere; }
+figure.w .w-muestra { display: block; flex: none; width: 2.4rem; height: .7rem; }
+.w-muestra line { stroke-width: 2.6; }
+.w-rayado { flex: none; width: 2.4rem; height: .8rem; border: 1px solid var(--birome); background: repeating-linear-gradient(45deg, color-mix(in srgb, var(--birome) 55%, transparent) 0 1px, transparent 1px 5px); }
+.w-mancha { flex: none; width: 1.1rem; height: .8rem; background: var(--c); border: 1px solid var(--tinta); }
+.w-mancha-fina { width: 2.4rem; height: .22rem; border: 0; }
+.w-botones { display: flex; flex-wrap: wrap; gap: .35rem; }
+
+/* Sliders */
+.w-ctl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr)); gap: .45rem 1.3rem; margin-top: .45rem; }
+.w-desliza { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: 0 .6rem; font-size: .92rem; }
+.w-desliza label { font-weight: 600; }
+.w-desliza input { grid-column: 1 / -1; width: 100%; min-height: 1.6rem; margin: 0; accent-color: var(--birome); cursor: pointer; }
+.w-valor { font: 500 .9rem var(--mono); font-variant-numeric: tabular-nums; }
+
+/* 3D */
+.w-webgl { display: block; width: 100%; height: 100%; }
+.w-cargando { position: absolute; inset: 0; margin: 0; }
+.w-cargando > .esq { border-radius: 0; }
+.w-ayuda { margin: .35rem 0 0; font: 400 .85rem/1.4 var(--sans); color: var(--tinta-suave); }
+
+/* Calculator */
+.w-entradas { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(11.5rem, 100%), 1fr)); gap: .55rem 1rem; }
+.w-entrada label { display: block; margin-bottom: .15rem; font: 600 .92rem/1.3 var(--sans); }
+.w-con-unidad { display: flex; align-items: center; gap: .4rem; }
+figure.w input[type='text'], figure.w select { min-width: 0; padding: .36rem .5rem; font: 400 .98rem var(--mono); color: var(--tinta); background: var(--lapiz); border: 1px solid var(--borde-control); border-radius: 4px; }
+.w-con-unidad input { flex: 1 1 auto; width: 100%; }
+.w-unidad { flex: none; font-size: .9rem; color: var(--tinta-suave); }
+figure.w input[aria-invalid='true'] { border: 2px solid var(--mal); }
+.w-error { margin: .2rem 0 0; font: 500 .86rem/1.35 var(--sans); color: var(--mal); }
+.w-salidas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, auto); gap: 0 1rem; margin: .7rem 0 .55rem; border-top: 1.5px solid var(--linea); }
+.w-salidas dt, .w-salidas dd { margin: 0; padding: .32rem 0; border-bottom: 1px solid var(--borde); }
+.w-salidas dt { font-weight: 500; }
+.w-salidas dd { font: 500 1rem var(--mono); text-align: right; overflow-wrap: anywhere; }
+.w-salidas dd.w-sin-valor { font: 500 .88rem/1.35 var(--sans); color: var(--mal); text-align: left; }
+.w-nota { margin: 0; font: 400 .88rem/1.35 var(--mano); color: var(--tinta-suave); }
+@container (max-width: 30rem) {
+  .w-salidas { grid-template-columns: minmax(0, 1fr); }
+  .w-salidas dt { padding-bottom: 0; border-bottom: 0; }
+  .w-salidas dd { text-align: left; padding-top: .05rem; }
+}
+
+/* Matrices and truth tables */
+.w-fila { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin-bottom: .55rem; }
+.w-campo { display: inline-flex; align-items: center; gap: .4rem; font: 600 .92rem var(--sans); }
+.w-grilla { display: grid; grid-template-columns: repeat(var(--cols), minmax(2.5rem, 4.6rem)); gap: .25rem; max-width: 100%; overflow-x: auto; padding: 2px; }
+figure.w .w-grilla input { width: 100%; padding: .34rem .15rem; text-align: center; }
+.w-grilla + .w-ayuda { margin-bottom: .5rem; }
+.w-titular { min-height: 1.5em; margin: .6rem 0 .3rem; font: 650 1.02rem/1.35 var(--sans); overflow-wrap: anywhere; }
+.w-titular:empty { margin: 0; min-height: 0; }
+.w-resultado > p { margin: .3rem 0; font-size: .95rem; }
+.w-resultado summary { font: 650 .95rem var(--sans); color: var(--birome); margin: .3rem 0; }
+.w-pasos { margin: 0; padding-left: 1.5rem; }
+.w-pasos li { margin: 0 0 .55rem; }
+.w-pasos p { margin: 0 0 .2rem; font: 500 .94rem var(--mono); }
+.w-mat-marco { max-width: 100%; overflow-x: auto; }
+figure.w table.w-mat { width: auto; margin: .1rem 0; border-collapse: separate; border-spacing: 0; border-left: 1.5px solid var(--tinta); border-right: 1.5px solid var(--tinta); border-radius: 5px; font: 400 .92rem var(--mono); }
+figure.w .w-mat td { min-width: 2.2em; padding: .1rem .5rem; text-align: right; border: 0; white-space: nowrap; }
+figure.w .w-mat td.w-corte { border-left: 1px dashed var(--tinta-suave); }
+figure.w input.w-formula { width: 100%; }
+.w-tabla-v { max-width: 100%; overflow-x: auto; }
+.w-tabla-v table { width: auto; font: 400 .95rem var(--mono); }
+.w-tabla-v th, .w-tabla-v td { padding: .18rem .7rem; text-align: center; white-space: nowrap; border-bottom: 1px solid var(--borde); }
+.w-tabla-v th { font: 650 .9rem var(--mono); color: var(--tinta); border-bottom: 2px solid var(--linea); }
+.w-tabla-v .w-parte { border-left: 2px solid var(--linea); }
+.w-tabla-v .w-final { font-weight: 700; border-left: 2px solid var(--tinta); }
+
+/* Desk checks of a simulation: data, steps, a table per event and step graphs of the areas */
+.ps-propio { margin: 0 0 .6rem; padding: .4rem .65rem; font: 500 .9rem/1.4 var(--sans); border: 1px dashed var(--borde-control); }
+.ps-datos { min-width: 0; margin: 0 0 .7rem; padding: 0; border: 0; }
+.ps-datos > legend, .ps-datos > summary { margin: 0 0 .4rem; padding: 0; font: 650 .95rem/1.3 var(--sans); color: var(--titulo); }
+.ps-datos > summary { cursor: pointer; min-height: 1.6rem; }
+.ps-grupo { min-width: 0; margin: 0 0 .55rem; padding: 0; border: 0; }
+.ps-grupo > legend { margin: 0 0 .25rem; padding: 0; font: 600 .86rem/1.3 var(--sans); color: var(--tinta-suave); }
+.ps-ancho { grid-column: 1 / -1; }
+figure.w .ps-datos .w-entrada input[type='text'], figure.w .ps-datos .w-entrada select { width: 100%; max-width: 100%; box-sizing: border-box; }
+figure.w textarea { display: block; width: 100%; box-sizing: border-box; min-height: 4.4rem; padding: .36rem .5rem; font: 400 .95rem/1.45 var(--mono); color: var(--tinta); background: var(--lapiz); border: 1px solid var(--borde-control); border-radius: 4px; resize: vertical; }
+figure.w textarea[aria-invalid='true'] { border: 2px solid var(--mal); }
+/* On a phone a field under 16 px makes the browser zoom in when it gets the focus. */
+@media (pointer: coarse) { figure.w input[type='text'], figure.w select, figure.w textarea { font-size: max(1rem, 16px); } }
+.ps-pista { margin: .15rem 0 0; }
+.ps-volver { margin-top: .45rem; }
+.ps-resumen { margin: 0 0 .55rem; font: 400 .86rem/1.4 var(--mono); color: var(--tinta-suave); overflow-wrap: anywhere; }
+.ps-pasos { margin: .2rem 0 0; }
+.ps-explica { min-height: 3em; margin: .55rem 0 .45rem; font: 500 .95rem/1.45 var(--sans); }
+.ps-marco { position: relative; max-height: 19rem; overflow: auto; margin: 0 0 .55rem; border: 1px solid var(--borde); container-type: inline-size; }
+.ps-marco:focus-visible { outline: 2px solid var(--birome); outline-offset: 2px; }
+figure.w table.ps-tabla { width: auto; min-width: 100%; border-collapse: separate; border-spacing: 0; font: 400 .88rem/1.3 var(--mono); font-variant-numeric: tabular-nums; }
+/* A wide table makes its caption as wide as itself: it stays in the visible part of the frame and wraps there. */
+.ps-tabla caption { position: sticky; left: 0; box-sizing: border-box; max-width: 100cqi; padding: .35rem .55rem .25rem; text-align: left; font: 600 .84rem/1.3 var(--sans); color: var(--tinta-suave); }
+.ps-tabla th, .ps-tabla td { padding: .26rem .36rem; text-align: right; vertical-align: top; white-space: nowrap; border-bottom: 1px solid var(--borde); }
+.ps-tabla thead th { position: sticky; top: 0; z-index: 1; min-width: 3.2rem; vertical-align: bottom; white-space: normal; font: 650 .8rem/1.2 var(--sans); background: var(--papel); border-bottom: 2px solid var(--linea); }
+.ps-tabla tbody th { font: 600 .88rem/1.3 var(--mono); color: var(--tinta); }
+.ps-tabla .ps-izq { text-align: left; }
+.ps-tabla td.ps-izq { font-family: var(--sans); font-size: .84rem; }
+.ps-tabla td.ps-ancha { white-space: pre-line; min-width: 10rem; }
+.ps-tabla tr.ps-actual > * { font-weight: 700; background: color-mix(in srgb, var(--birome) 11%, var(--papel)); }
+.ps-fin .w-salidas { margin-top: .2rem; }
+.ps-graf-t { margin: .7rem 0 .25rem; font: 500 .92rem/1.4 var(--sans); }
+.ps-graf-t b { font-family: var(--mono); }
+figure.w .ps-g { border: 1px solid var(--borde); }
+.wg-area-mas { fill: color-mix(in srgb, var(--bien) 24%, transparent); }
+.wg-area-menos { fill: color-mix(in srgb, var(--mal) 30%, transparent); }
+.ps-m { display: inline-block; width: .8em; height: .8em; margin-right: .3em; vertical-align: -.05em; border: 1px solid var(--tinta-suave); }
+.ps-m-mas { background: color-mix(in srgb, var(--bien) 24%, transparent); }
+.ps-m-menos { background: color-mix(in srgb, var(--mal) 30%, transparent); }
+.wg-paso { fill: none; stroke: var(--birome); stroke-width: 2.2; stroke-linejoin: round; }
+.wg-ahora { stroke: var(--tinta-suave); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.ps-exportar { margin-top: .75rem; padding-top: .55rem; border-top: 1px solid var(--borde); }
+.ps-exportar .w-ayuda a { color: var(--birome); }
+
+@media print {
+  figure.w { background: none; border: 0; border-left: 2px solid var(--linea); break-inside: avoid; container-type: normal; }
+  .w-ctl, .w-pie .w-botones, .w-lect, .w-ayuda, .w-aviso, .w-nota { display: none !important; }
+  .w-plano { height: auto !important; border-color: var(--borde); }
+  figure.w .wg { max-width: 15cm; }
+  /* What cannot be printed as a drawing is printed as words. */
+  .w-grafico3d .w-lienzo, .w-calculadora .w-lienzo, .w-interactivo .w-lienzo { display: none; }
+  figure.w-grafico3d .w-desc, figure.w-calculadora .w-desc, figure.w-interactivo .w-desc { position: static; width: auto; height: auto; clip-path: none; }
+}

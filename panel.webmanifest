@@ -1,0 +1,16 @@
+{
+  "name": "Panel de Luta Studios",
+  "short_name": "Panel Luta",
+  "description": "Panel de control privado de Luta Studios.",
+  "start_url": "./admin",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0E1724",
+  "theme_color": "#0E1724",
+  "lang": "es-AR",
+  "icons": [
+    { "src": "panel-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "panel-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "panel-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

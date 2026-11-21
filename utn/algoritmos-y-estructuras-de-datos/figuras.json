@@ -1,0 +1,1 @@
+{"formula":[],"figuras":[{"tipo":"interactivo","nombre":"dicotomica","titulo":"Búsqueda dicotómica con tu arreglo","desc":"Escribís el arreglo ordenado, de números o de nombres, y el dato. Ves cada paso con comienzo, fin y medio = (comienzo + fin) DIV 2, qué mitad se descarta y, si no está, que devuelve -1."}]}

@@ -1,0 +1,1 @@
+.request-images{flex-wrap:wrap;gap:10px;margin:8px 0 0;padding:0;list-style:none;display:flex}.request-images li{justify-items:center;gap:4px;display:grid}.request-images img,.request-images .skeleton{object-fit:cover;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--bg);width:96px;height:96px;display:block}

@@ -1,0 +1,1 @@
+import{t as e}from"./dist-DtuMx0jC.js";var t=e(`https://spltnoksgdkbaamskuau.supabase.co`,`sb_publishable_rLlMBQXArFdRaOf4ZuIHoA_Qg6aW5K-`,{auth:{persistSession:!0,autoRefreshToken:!0,detectSessionInUrl:!1,storageKey:`estudio-auth`}}),n=`proyectos`,r=!t;export{r as n,t as r,n as t};
