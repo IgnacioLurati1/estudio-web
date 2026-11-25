@@ -1,0 +1,126 @@
+/* Home page: the 3D notebook on the right, the title on the left, and one card per tool below. */
+.inicio main { display: block; }
+.in-heroe { --orilla: max(clamp(.9rem, 4vw, 3.2rem), calc((100% - 92rem) / 2 + clamp(.9rem, 4vw, 3.2rem))); position: relative; display: grid; align-items: center; min-height: min(calc(100svh - 3.6rem), 54rem); padding: clamp(1.5rem, 4vw, 3rem) var(--orilla); overflow: hidden; }
+.in-escena { position: absolute; inset: 0; container-type: size; touch-action: pan-y; }
+.in-escena canvas { display: block; width: 100%; height: 100%; opacity: 0; transition: opacity .6s ease-out; }
+.in-escena.in-lista canvas { opacity: 1; }
+/* While three.js arrives, a skeleton (.esq in utn.css) the size of the notebook, where inicio3d.js puts it: 45% of the
+   scene's height, on the right on a wide screen and centred when it is narrow. It fades out as the drawing fades in. */
+.in-esq { position: absolute; top: 50%; left: 72.5%; width: auto; height: min(45cqh, 36.2cqw); aspect-ratio: .74; border-radius: 3px 7px 7px 3px; transform: translate(-50%, -50%) rotate(-4deg); transition: opacity .6s ease-out; }
+@container (width < 760px) or (aspect-ratio < 1.25) { .in-esq { left: 50%; } }
+.in-escena.in-lista .in-esq { opacity: 0; }
+.in-texto { position: relative; z-index: 1; max-width: 41rem; pointer-events: none; }
+.in-texto > * { pointer-events: auto; }
+/* 17vw caps it only with big letters on a phone, where «Resumen» would be wider than the screen. */
+.in-texto h1 { margin: 0 0 1.2rem; font: 800 min(clamp(3.3rem, 9.5vw, 8.6rem), 17vw)/.88 var(--sans); letter-spacing: -.04em; color: var(--titulo); text-wrap: balance; }
+.in-bajada { max-width: 34ch; margin: 0 0 1.6rem; font: 400 clamp(1.15rem, 1.7vw, 1.38rem)/1.5 var(--serif); color: var(--tinta-suave); }
+.in-buscar { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem; max-width: 36rem; }
+.in-buscar .c-buscador { flex: 1 1 15rem; max-width: none; }
+.in-buscar input { padding: .62rem .8rem; font-size: 1.05rem; }
+.in-ir { padding: .62rem 1rem; font-size: 1rem; text-decoration: none; }
+.in-nota { display: inline-block; margin: 1.4rem 0 0; font: 400 1rem var(--mano); color: var(--tinta-suave); transform: rotate(-1.5deg); transform-origin: left; }
+
+.in-ficha { position: absolute; top: 0; left: 0; z-index: 3; display: grid; gap: .05rem; max-width: 16rem; padding: .5rem .75rem .55rem; font-family: var(--sans); text-decoration: none; color: var(--tinta); background: var(--papel); border: 1.5px solid var(--linea); border-radius: 8px; box-shadow: var(--sombra-papel); pointer-events: none; }
+.in-ficha-anio { font: 400 .85rem var(--mano); color: var(--tinta-suave); }
+.in-ficha-nombre { font-weight: 700; line-height: 1.2; }
+.in-ficha-ir { display: none; font-size: .9rem; text-decoration: underline; text-underline-offset: .2em; }
+@media (pointer: coarse) {
+  .in-ficha { pointer-events: auto; }
+  .in-ficha-ir { display: block; }
+}
+
+.in-entradas { max-width: 92rem; margin: 0 auto; padding: 1rem clamp(.9rem, 4vw, 3.2rem) 1.5rem; }
+.in-grilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.in-grande { grid-column: span 2; }
+.in-tarjeta { display: flex; flex-direction: column; justify-content: flex-end; gap: .45rem; width: 100%; height: 100%; min-height: 11rem; padding: 1.3rem 1.4rem; font: inherit; text-align: left; text-decoration: none; color: var(--tinta); background: var(--hoja); box-shadow: var(--sombra-hoja); border: 1.5px solid var(--borde-control); border-radius: 10px; cursor: pointer; transition: background-color .15s ease, border-color .15s ease, transform .1s ease; }
+.in-grande .in-tarjeta { min-height: 14rem; background-image: linear-gradient(var(--cuadro) 1px, transparent 1px), linear-gradient(90deg, var(--cuadro) 1px, transparent 1px); background-size: 1.5rem 1.5rem; border-color: var(--linea); }
+/* High contrast promises no grid: also on the big card. */
+[data-contraste] .in-grande .in-tarjeta { background-image: none; }
+.in-icono { flex: none; width: 2.7rem; height: 2.7rem; margin-bottom: auto; fill: none; stroke: currentcolor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; color: var(--titulo); }
+.in-grande .in-icono { width: 3.6rem; height: 3.6rem; }
+.in-emergencia .in-icono { color: var(--rosa-borde); margin-bottom: 0; }
+.in-tx { display: flex; flex-direction: column; gap: .45rem; min-width: 0; }
+.in-tarjeta h3, .in-tarjeta .in-h3 { display: block; margin: 0; font: 750 clamp(1.35rem, 2.2vw, 1.75rem)/1.1 var(--sans); letter-spacing: -.015em; color: var(--titulo); }
+.in-grande .in-tarjeta h3, .in-grande .in-tarjeta .in-h3 { font-size: clamp(1.8rem, 3.4vw, 2.7rem); }
+.in-tarjeta .in-p { display: block; max-width: 46ch; margin: 0; font: 400 1.02rem/1.5 var(--serif); color: var(--tinta-suave); }
+.in-tarjeta:active { transform: scale(.985); }
+.in-tarjeta:focus-visible { outline: 3px solid var(--linea); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) {
+  .in-tarjeta:hover { background-color: var(--cuadro); border-color: var(--linea); }
+}
+.in-emergencia, .in-ancho { grid-column: 1 / -1; }
+.in-grilla + .in-grilla { margin-top: 1rem; }
+.in-par { grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); }
+.in-emergencia .in-tarjeta, .in-ancho .in-tarjeta, .in-mitad .in-tarjeta { flex-direction: row; justify-content: flex-start; align-items: center; gap: 1.3rem; min-height: 0; padding-block: 1.1rem; }
+.in-emergencia .in-tarjeta { border-color: var(--rosa-borde); }
+.in-emergencia .in-p, .in-ancho .in-p { max-width: 70ch; }
+.in-ancho .in-icono, .in-mitad .in-icono { margin-bottom: 0; }
+
+/* Each card looks like what it is, so it is told apart at a glance (aspecto in secciones/inicio.json): a pile of
+   summaries, a sticky note, a puzzle piece, Super CVG's blue, warning tape and a ruled page with its margin. Only
+   borders and paper: the text sits on the same plain sheet as always. */
+.in-entrada[data-aspecto] .in-tarjeta { position: relative; }
+
+/* Banco: the sheets of the pile peek out below. The card leaves them room, so the grid stays aligned. */
+[data-aspecto='pila'] .in-tarjeta { width: calc(100% - 10px); height: calc(100% - 10px); box-shadow: 5px 5px 0 -1.5px var(--hoja), 5px 5px 0 0 var(--borde-control), 10px 10px 0 -1.5px var(--hoja), 10px 10px 0 0 var(--borde-control); }
+
+/* Consejos: a sticky note held with a piece of tape. */
+[data-aspecto='nota'] { --nota: color-mix(in srgb, var(--resaltador) 26%, var(--hoja)); --nota-encima: color-mix(in srgb, var(--resaltador) 40%, var(--hoja)); }
+/* At night a pale note turns olive on the navy: it goes bright, with the dark ink that reads on the highlighter. */
+html[data-tema='noche']:not([data-contraste]) [data-aspecto='nota'] { --nota: color-mix(in srgb, var(--resaltador) 90%, var(--hoja)); --nota-encima: color-mix(in srgb, var(--resaltador) 78%, var(--hoja)); --titulo: var(--sobre-resaltador); --tinta: var(--sobre-resaltador); --tinta-suave: var(--sobre-resaltador); }
+[data-aspecto='nota'] .in-tarjeta { background-color: var(--nota); border-color: var(--resaltador-borde); }
+[data-aspecto='nota'] .in-tarjeta::before { content: ''; position: absolute; top: -.6rem; left: 50%; width: 4.6rem; height: 1.2rem; background: color-mix(in srgb, var(--tinta) 16%, transparent); transform: translateX(-50%) rotate(-3deg); }
+
+/* Sysacad Lindo: a puzzle piece, like an extension, with a knob on top and one on the right. Each knob is a circle in
+   the card's own colour over its border, with only its outer half outlined. */
+[data-aspecto='pieza'] .in-tarjeta::before, [data-aspecto='pieza'] .in-tarjeta::after { content: ''; position: absolute; width: 1.9rem; height: 1.9rem; border: 1.5px solid transparent; border-top-color: inherit; border-right-color: inherit; border-radius: 50%; background-color: inherit; }
+[data-aspecto='pieza'] .in-tarjeta::before { top: -.95rem; left: 3.1rem; transform: rotate(-45deg); }
+[data-aspecto='pieza'] .in-tarjeta::after { top: calc(50% - .75rem); right: -.75rem; width: 1.5rem; height: 1.5rem; transform: rotate(45deg); }
+
+/* Super CVG: the blue of its own bar, on top. */
+[data-aspecto='cvg'] { --cvg: #17324d; }
+[data-tema='noche'] [data-aspecto='cvg'] { --cvg: #3578bd; }
+[data-aspecto='cvg'] .in-tarjeta { border-top: .5rem solid var(--cvg); }
+
+/* Protocolo de emergencia: warning tape down the left side. */
+[data-aspecto='cinta'] .in-tarjeta { padding-left: 2.4rem; }
+[data-aspecto='cinta'] .in-tarjeta::before { content: ''; position: absolute; inset: 0 auto 0 0; width: .8rem; border-radius: 8px 0 0 8px; background: repeating-linear-gradient(-45deg, var(--rosa-borde) 0 .45rem, transparent .45rem .9rem); }
+
+/* Armá tu propio resumen: a ruled page, with the margin line between the pencil and the text, and its title by hand. */
+/* Same left edge as the emergency card above, so both drawings and texts line up. The margin line goes between
+   the drawing and the text. */
+[data-aspecto='renglones'] .in-tarjeta { --margen-x: 5.75rem; padding-left: 2.4rem; background-image: linear-gradient(90deg, transparent var(--margen-x), var(--margen, var(--rosa-borde)) var(--margen-x) calc(var(--margen-x) + 1.5px), transparent calc(var(--margen-x) + 1.5px)), linear-gradient(transparent calc(100% - 1px), var(--cuadro) calc(100% - 1px)); background-size: 100% 100%, 100% 1.6rem; }
+[data-tema='noche'] [data-aspecto='renglones'] { --margen: #fff; }
+[data-aspecto='renglones'] .in-tarjeta h3 { font-family: var(--mano); font-weight: 700; letter-spacing: 0; }
+
+[data-contraste] .in-entrada[data-aspecto] .in-tarjeta { background-image: none; }
+[data-contraste] [data-aspecto='nota'] .in-tarjeta { background-color: var(--hoja); }
+[data-contraste] .in-entrada[data-aspecto]:not([data-aspecto='pieza']) .in-tarjeta::before { display: none; }
+[data-contraste] :is([data-aspecto='cinta'], [data-aspecto='renglones']) .in-tarjeta { padding-left: 1.4rem; }
+/* The side knob only while Sysacad Lindo and Super CVG sit side by side: alone in a row it would point at nothing. */
+@media (max-width: 60rem) { [data-aspecto='pieza'] .in-tarjeta::after { display: none; } }
+@media (hover: hover) and (pointer: fine) {
+  [data-aspecto='nota'] .in-tarjeta:hover { background-color: var(--nota-encima); border-color: var(--resaltador-borde); }
+}
+
+.in-secciones { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; max-width: 92rem; margin: 0 auto; padding: .5rem clamp(.9rem, 4vw, 3.2rem) 3rem; font: 500 1rem var(--sans); }
+.in-secciones a { display: inline-block; padding-block: .2rem; color: var(--tinta); text-underline-offset: .22em; }
+
+@media (max-width: 52rem) {
+  .in-heroe { grid-template-rows: auto 23rem; align-items: start; min-height: 0; padding-bottom: 0; }
+  .in-heroe.in-sin-escena { grid-template-rows: auto; }
+  .in-escena { position: relative; inset: auto; grid-row: 2; align-self: stretch; margin: 0 calc(-1 * var(--orilla)); }
+  .in-grande { grid-column: auto; }
+  .in-emergencia .in-tarjeta, .in-ancho .in-tarjeta, .in-mitad .in-tarjeta { align-items: flex-start; }
+  /* With big letters the drawing beside the text leaves no room for a long word: it goes on top. */
+  :is([data-texto='150'], [data-texto='175']) :is(.in-emergencia, .in-ancho, .in-mitad) .in-tarjeta { flex-direction: column; gap: .7rem; }
+  /* Drawing on top of the text: the margin line goes to the left of both. */
+  :is([data-texto='150'], [data-texto='175']) [data-aspecto='renglones'] .in-tarjeta { --margen-x: 1.6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .in-escena canvas, .in-esq { transition-duration: .2s; }
+  .in-tarjeta { transition: none; }
+}
+@media print {
+  .in-escena, .in-ficha, .in-buscar { display: none !important; }
+}
